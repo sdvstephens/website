@@ -1,0 +1,58 @@
+{
+  "departments": [
+    {
+      "code": "18",
+      "name": "Mathematics",
+      "courses": [
+        {
+          "number": "18.01",
+          "title": "Single Variable Calculus",
+          "status": "planned",
+          "description": "Differentiation and integration of functions of one variable.",
+          "materials": []
+        },
+        {
+          "number": "18.02",
+          "title": "Multivariable Calculus",
+          "status": "planned",
+          "description": "Calculus of functions of several variables.",
+          "materials": []
+        },
+        {
+          "number": "18.06",
+          "title": "Linear Algebra",
+          "status": "planned",
+          "description": "Matrix theory, systems of equations, vector spaces.",
+          "materials": []
+        },
+        {
+          "number": "18.55A",
+          "title": "Studies in Algebra and Group Theory",
+          "status": "active",
+          "description": "Harvard's honors abstract algebra sequence. Groups, rings, fields, and Galois theory.",
+          "materials": [
+            {
+              "type": "notes",
+              "title": "Lecture Notes (Full)",
+              "url": "https://github.com/sdvstephens/uni/blob/main/Studies-in-Algebra-and-Group-Theory/.latexmk/out/master.pdf"
+            }
+          ]
+        },
+        {
+          "number": "18.55B",
+          "title": "Studies in Real and Complex Analysis",
+          "status": "active",
+          "description": "Harvard's honors analysis sequence. Measure theory, integration, complex analysis.",
+          "materials": []
+        },
+        {
+          "number": "18.100",
+          "title": "Real Analysis",
+          "status": "planned",
+          "description": "Rigorous treatment of real number system, sequences, series, continuity.",
+          "materials": []
+        }
+      ]
+    }
+  ]
+}

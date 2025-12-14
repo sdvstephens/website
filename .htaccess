@@ -1,0 +1,25 @@
+# php -- BEGIN cPanel-generated handler, do not edit
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
+
+# Disable directory listing
+Options -Indexes
+
+# SPA Routing
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Serve actual files directly (css, js, images, etc.)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Serve actual directories directly
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Everything else goes to SPA
+RewriteRule ^ /index.html [L]
+</IfModule>

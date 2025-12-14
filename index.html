@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S. D. V. Stephens</title>
+  <meta name="description" content="Neurobioengineering, Mathematical Physics, Philosophy, Cognitive Science">
+  <meta name="author" content="S. D. V. Stephens">
+  
+  <!-- Open Graph / Link Previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="S. D. V. Stephens">
+  <meta property="og:description" content="Neurobioengineering, Mathematical Physics, Philosophy, Cognitive Science">
+  <meta property="og:image" content="https://samuel-stephens.com/sdvs.jpg">
+  <meta property="og:url" content="https://samuel-stephens.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="S. D. V. Stephens">
+  <meta name="twitter:description" content="Neurobioengineering, Mathematical Physics, Philosophy, Cognitive Science">
+  <meta name="twitter:image" content="https://samuel-stephens.com/sdvs.jpg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  
+  <!-- Marked.js for Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>λ</text></svg>">
+  
+  <style>
+    /* Gruvbox Dark Hard */
+    :root {
+      --bg-hard: #1d2021;
+      --bg: #282828;
+      --bg1: #3c3836;
+      --bg2: #504945;
+      --bg3: #665c54;
+      --bg4: #7c6f64;
+      --fg: #ebdbb2;
+      --fg0: #fbf1c7;
+      --fg2: #d5c4a1;
+      --fg3: #bdae93;
+      --fg4: #a89984;
+      --red: #fb4934;
+      --green: #b8bb26;
+      --yellow: #fabd2f;
+      --blue: #83a598;
+      --purple: #d3869b;
+      --aqua: #8ec07c;
+      --orange: #fe8019;
+      --gray: #928374;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--fg);
+      background: var(--bg-hard);
+      min-height: 100vh;
+    }
+
+    ::selection { background: var(--bg3); color: var(--fg0); }
+    a { color: var(--blue); text-decoration: none; transition: color 0.15s; }
+    a:hover { color: var(--aqua); text-decoration: underline; }
+
+    .site-container { display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* Top bar */
+    .topbar {
+      background: var(--bg1);
+      border-bottom: 1px solid var(--bg3);
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .site-title { color: var(--green); font-weight: 600; font-size: 1rem; }
+    .site-title:hover { color: var(--aqua); text-decoration: none; }
+
+    .nav-tabs { display: flex; gap: 0; list-style: none; }
+    .nav-tabs li a {
+      display: block;
+      padding: 0.4rem 1rem;
+      color: var(--fg4);
+      background: var(--bg);
+      border: 1px solid var(--bg2);
+      border-bottom: none;
+      margin-left: -1px;
+      font-size: 0.85rem;
+      transition: all 0.15s;
+    }
+    .nav-tabs li:first-child a { border-radius: 4px 0 0 0; margin-left: 0; }
+    .nav-tabs li:last-child a { border-radius: 0 4px 0 0; }
+    .nav-tabs li a:hover { background: var(--bg1); color: var(--fg); text-decoration: none; }
+    .nav-tabs li a.active { background: var(--bg-hard); color: var(--fg0); border-color: var(--bg3); }
+
+    .main-content { flex: 1; display: flex; overflow: hidden; }
+    .content-wrapper { flex: 1; overflow-y: auto; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+
+    /* Wikipedia article styles */
+    .wiki-article { max-width: 900px; }
+    .wiki-article h1 {
+      color: var(--fg0);
+      font-size: 1.8rem;
+      font-weight: 400;
+      border-bottom: 1px solid var(--bg3);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .wiki-article h2 {
+      color: var(--orange);
+      font-size: 1.2rem;
+      font-weight: 500;
+      border-bottom: 1px solid var(--bg2);
+      padding-bottom: 0.3rem;
+      margin: 1.5rem 0 0.75rem 0;
+    }
+    .wiki-article h3 { color: var(--yellow); font-size: 1rem; font-weight: 500; margin: 1rem 0 0.5rem 0; }
+    .wiki-article p { margin: 0.75rem 0; color: var(--fg); }
+    .wiki-article ul, .wiki-article ol { margin: 0.75rem 0 0.75rem 1.5rem; color: var(--fg2); }
+    .wiki-article li { margin: 0.3rem 0; }
+
+    /* Infobox */
+    .infobox {
+      float: right;
+      width: 360px;
+      margin: 0 0 1rem 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--bg3);
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+    .infobox-header {
+      background: var(--bg1);
+      padding: 0.75rem;
+      text-align: center;
+      border-bottom: 1px solid var(--bg3);
+    }
+    .infobox-title { color: var(--orange); font-weight: 600; font-size: 1rem; }
+    .infobox-subtitle { color: var(--fg4); font-size: 0.8rem; margin-top: 0.25rem; }
+    .infobox-image {
+      padding: 1rem;
+      text-align: center;
+      background: var(--bg1);
+      border-bottom: 1px solid var(--bg2);
+    }
+    .infobox-image .avatar {
+      width: 200px;
+      height: 200px;
+      background: var(--bg2);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      font-size: 4rem;
+      color: var(--fg4);
+    }
+    .infobox-image .avatar-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin: 0 auto;
+      display: block;
+    }
+    .infobox-caption { font-size: 0.75rem; color: var(--fg4); margin-top: 0.5rem; font-style: italic; }
+    .infobox-data { padding: 0; }
+    .infobox-row { display: flex; border-bottom: 1px solid var(--bg1); }
+    .infobox-row:last-child { border-bottom: none; }
+    .infobox-label {
+      width: 110px;
+      padding: 0.5rem 0.5rem;
+      background: var(--bg1);
+      color: var(--fg4);
+      font-weight: 500;
+      flex-shrink: 0;
+      border-right: 1px solid var(--bg2);
+      font-size: 0.8rem;
+    }
+    .infobox-value { 
+      padding: 0.5rem 0.5rem; 
+      color: var(--fg2); 
+      flex: 1; 
+      font-size: 0.8rem;
+    }
+
+    /* TOC and categories */
+    .toc {
+      background: var(--bg);
+      border: 1px solid var(--bg2);
+      border-radius: 4px;
+      padding: 1rem;
+      margin: 1rem 0;
+      display: inline-block;
+      min-width: 200px;
+    }
+    .toc-title { color: var(--fg0); font-weight: 600; margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--bg2); }
+    .toc-list { list-style: none; margin: 0; padding: 0; }
+    .toc-list li { margin: 0.25rem 0; }
+    .toc-list a { color: var(--blue); font-size: 0.9rem; }
+    .toc-list a:before { content: "› "; color: var(--gray); }
+
+    .categories-box {
+      background: var(--bg);
+      border: 1px solid var(--bg2);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      margin-top: 2rem;
+    }
+    .categories-title { color: var(--gray); font-size: 0.8rem; margin-bottom: 0.5rem; }
+    .categories-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .category-tag {
+      background: var(--bg1);
+      color: var(--aqua);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      border: 1px solid var(--bg2);
+    }
+    .category-tag:hover { background: var(--bg2); text-decoration: none; }
+
+    code { background: var(--bg1); color: var(--orange); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.9em; }
+    pre { background: var(--bg); border: 1px solid var(--bg2); border-radius: 4px; padding: 1rem; overflow-x: auto; margin: 1rem 0; }
+    pre code { background: none; padding: 0; }
+
+    /* Status bar */
+    .statusbar {
+      background: var(--bg1);
+      border-top: 1px solid var(--bg3);
+      padding: 0.3rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      position: sticky;
+      bottom: 0;
+    }
+    .status-left { display: flex; align-items: center; gap: 1rem; }
+    .status-mode { background: var(--green); color: var(--bg-hard); padding: 0.15rem 0.6rem; font-weight: 600; border-radius: 2px; }
+    .status-mode.command { background: var(--orange); }
+    .status-file { color: var(--fg); }
+    .status-right { display: flex; align-items: center; gap: 1rem; color: var(--fg4); }
+    .status-position { color: var(--aqua); }
+
+    /* Command line */
+    .cmdline {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg);
+      border: 1px solid var(--blue);
+      border-radius: 4px;
+      padding: 0.5rem;
+      min-width: 400px;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .cmdline.active { display: block; }
+    .cmdline-input { display: flex; align-items: center; gap: 0.5rem; }
+    .cmdline-prompt { color: var(--red); font-weight: 600; }
+    .cmdline input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--fg);
+      font-family: inherit;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    /* Which-key */
+    .which-key {
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      right: 20px;
+      background: var(--bg);
+      border: 1px solid var(--bg3);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      min-width: 200px;
+    }
+    .which-key.active { display: block; }
+    .which-key-title { color: var(--purple); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.85rem; }
+    .which-key-item { display: flex; gap: 0.75rem; margin: 0.25rem 0; font-size: 0.85rem; }
+    .which-key-key { color: var(--blue); min-width: 40px; }
+    .which-key-desc { color: var(--fg4); }
+
+    /* File explorer */
+    .file-explorer {
+      display: none;
+      position: fixed;
+      top: 45px;
+      left: 0;
+      bottom: 40px;
+      width: 250px;
+      background: var(--bg);
+      border-right: 1px solid var(--bg3);
+      z-index: 50;
+      overflow-y: auto;
+    }
+    .file-explorer.active { display: block; }
+    .file-explorer-header {
+      padding: 0.75rem 1rem;
+      color: var(--purple);
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--bg2);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+    }
+    .file-tree { padding: 0.5rem 0; }
+    .file-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 1rem;
+      color: var(--fg2);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background 0.1s;
+      outline: none;
+    }
+    .file-item:hover, .file-item.focused { background: var(--bg1); }
+    .file-item.active { background: var(--bg2); color: var(--fg0); }
+    .file-item.focused { outline: 1px solid var(--blue); outline-offset: -1px; }
+    .file-icon { width: 16px; text-align: center; }
+    .file-icon.dir { color: var(--blue); }
+    .file-icon.tex { color: var(--green); }
+    .file-icon.md { color: var(--aqua); }
+
+    /* Nested folder styles */
+    .file-folder { }
+    .folder-arrow { 
+      color: var(--fg4); 
+      font-size: 0.7rem; 
+      width: 12px; 
+      display: inline-block;
+      transition: transform 0.15s;
+    }
+    .file-folder.open .folder-arrow { transform: rotate(90deg); }
+    .folder-children { 
+      display: none; 
+      padding-left: 1rem;
+    }
+    .file-folder.open .folder-children { display: block; }
+    .folder-children .file-item { 
+      padding: 0.25rem 0.75rem 0.25rem 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .infobox { float: none; width: 100%; margin: 0 0 1.5rem 0; }
+      .nav-tabs { flex-wrap: wrap; }
+      .content-wrapper { padding: 1rem; }
+    }
+    .wiki-article::after { content: ""; display: table; clear: both; }
+    .loading { color: var(--gray); text-align: center; padding: 2rem; }
+
+    /* Blog styles */
+    .post-list { list-style: none; margin: 0; padding: 0; }
+    .post-item { 
+      padding: 1rem; 
+      margin: 0.5rem 0; 
+      background: var(--bg); 
+      border: 1px solid var(--bg2); 
+      border-radius: 4px;
+      transition: border-color 0.15s;
+    }
+    .post-item:hover { border-color: var(--bg3); }
+    .post-title { color: var(--blue); font-size: 1.1rem; font-weight: 500; }
+    .post-title:hover { color: var(--aqua); }
+    .post-meta { color: var(--fg4); font-size: 0.85rem; margin-top: 0.25rem; }
+    .post-excerpt { color: var(--fg2); margin-top: 0.5rem; font-size: 0.9rem; }
+    .post-tags { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+    .post-tag { 
+      background: var(--bg1); 
+      color: var(--aqua); 
+      padding: 0.15rem 0.5rem; 
+      border-radius: 3px; 
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .post-tag:hover { background: var(--bg2); }
+
+    /* Tag cloud for filtering */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--bg2);
+    }
+    .tag-filter {
+      background: var(--bg1);
+      color: var(--fg4);
+      padding: 0.25rem 0.75rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border: 1px solid var(--bg2);
+      transition: all 0.15s;
+    }
+    .tag-filter:hover { background: var(--bg2); color: var(--fg); }
+    .tag-filter.active { background: var(--aqua); color: var(--bg-hard); border-color: var(--aqua); }
+    .post-content { line-height: 1.8; }
+    .post-content h1 { color: var(--fg0); font-size: 1.6rem; margin: 1.5rem 0 1rem; }
+    .post-content h2 { color: var(--orange); font-size: 1.3rem; margin: 1.5rem 0 0.75rem; border-bottom: 1px solid var(--bg2); padding-bottom: 0.3rem; }
+    .post-content h3 { color: var(--yellow); font-size: 1.1rem; margin: 1rem 0 0.5rem; }
+    .post-content p { margin: 0.75rem 0; }
+    .post-content ul, .post-content ol { margin: 0.75rem 0 0.75rem 1.5rem; }
+    .post-content li { margin: 0.3rem 0; }
+    .post-content table { border-collapse: collapse; margin: 1rem 0; }
+    .post-content th, .post-content td { border: 1px solid var(--bg3); padding: 0.5rem 1rem; }
+    .post-content th { background: var(--bg1); color: var(--fg0); }
+    .post-content blockquote { border-left: 3px solid var(--purple); padding-left: 1rem; margin: 1rem 0; color: var(--fg3); }
+    .back-link { display: inline-block; margin-bottom: 1rem; color: var(--blue); }
+    .back-link:before { content: "← "; }
+
+    /* Course directory styles */
+    .course-tree { margin: 1rem 0; }
+    .dept-section { margin-bottom: 1.5rem; }
+    .dept-header { 
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem; 
+      padding: 0.5rem; 
+      background: var(--bg1); 
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--purple);
+    }
+    .dept-header:hover { background: var(--bg2); }
+    .dept-toggle { color: var(--blue); width: 1rem; }
+    .course-list { list-style: none; margin: 0; padding: 0; }
+    .course-item { 
+      margin: 0.25rem 0 0.25rem 1.5rem; 
+      padding: 0.5rem 0.75rem;
+      border-left: 1px solid var(--bg2);
+    }
+    .course-header { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+    .course-header:hover .course-title { color: var(--aqua); }
+    .course-number { color: var(--orange); font-weight: 500; min-width: 60px; }
+    .course-title { color: var(--blue); }
+    .course-status { font-size: 0.75rem; padding: 0.1rem 0.4rem; border-radius: 3px; }
+    .course-status.active { background: var(--green); color: var(--bg-hard); }
+    .course-status.planned { background: var(--bg2); color: var(--fg4); }
+    .course-details { margin-top: 0.5rem; padding-left: 1rem; display: none; }
+    .course-details.open { display: block; }
+    .course-desc { color: var(--fg3); font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .materials-list { list-style: none; margin: 0; padding: 0; }
+    .material-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0; }
+    .material-icon { color: var(--red); }
+    .material-icon.video { color: var(--red); }
+    .material-icon.pdf { color: var(--orange); }
+    .material-link { color: var(--aqua); font-size: 0.9rem; }
+    .course-list.collapsed { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="site-container">
+    <header class="topbar">
+      <a href="/" class="site-title" data-link>s-d-v-stephens</a>
+      <nav>
+        <ul class="nav-tabs">
+          <li><a href="/" data-link class="active">home</a></li>
+          <li><a href="/about" data-link>about</a></li>
+          <li><a href="/research" data-link>research</a></li>
+          <li><a href="/blog" data-link>blog</a></li>
+          <li><a href="/technical" data-link>technical</a></li>
+          <li><a href="/educational" data-link>educational</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <aside class="file-explorer" id="file-explorer">
+      <div class="file-explorer-header">📁 Explorer</div>
+      <div class="file-tree" id="file-tree">
+        <div class="file-item" data-link="/" tabindex="0"><span class="file-icon dir"></span><span>home</span></div>
+        <div class="file-item" data-link="/about" tabindex="0"><span class="file-icon md"></span><span>about.md</span></div>
+        <div class="file-item" data-link="/research" tabindex="0"><span class="file-icon tex"></span><span>research.tex</span></div>
+        <div class="file-folder" data-folder="blog">
+          <div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>blog/</span></div>
+          <div class="folder-children" id="blog-children"></div>
+        </div>
+        <div class="file-item" data-link="/technical" tabindex="0"><span class="file-icon md"></span><span>technical.md</span></div>
+        <div class="file-folder" data-folder="educational">
+          <div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>educational/</span></div>
+          <div class="folder-children" id="educational-children"></div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-wrapper" id="app"><p class="loading">Loading...</p></div>
+    </main>
+
+    <div class="cmdline" id="cmdline">
+      <div class="cmdline-input">
+        <span class="cmdline-prompt">:</span>
+        <input type="text" id="cmdline-input" placeholder="type command...">
+      </div>
+    </div>
+
+    <div class="which-key" id="which-key">
+      <div class="which-key-title">+leader</div>
+      <div class="which-key-item"><span class="which-key-key">e</span><span class="which-key-desc">toggle explorer</span></div>
+      <div class="which-key-item"><span class="which-key-key">/</span><span class="which-key-desc">search</span></div>
+      <div class="which-key-item"><span class="which-key-key">:</span><span class="which-key-desc">command</span></div>
+    </div>
+
+    <footer class="statusbar">
+      <div class="status-left">
+        <span class="status-mode" id="status-mode">NORMAL</span>
+        <span class="status-file" id="status-file">~/stephens/home</span>
+      </div>
+      <div class="status-right">
+        <span>utf-8</span>
+        <span class="status-position" id="status-position">Top</span>
+        <span id="status-time"></span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const pages = {
+      '/': `
+        <div class="wiki-article">
+          <h1>S. D. V. Stephens</h1>
+          <p>Welcome. This site contains writings on neurobioengineering, mathematical physics, philosophy, and cognitive science.</p>
+          <p>Navigate using the tabs above, or use vim-style keybindings:</p>
+          
+          <h2>Navigation</h2>
+          <ul>
+            <li><code>j/k</code> — scroll down/up</li>
+            <li><code>gg/GG</code> — jump to top/bottom</li>
+            <li><code>Space</code> — show leader menu</li>
+            <li><code>Space+e</code> — toggle file explorer</li>
+            <li><code>/</code> — fuzzy search (partial matches)</li>
+            <li><code>:</code> — command mode (vim-style)</li>
+          </ul>
+          
+          <h2>Commands</h2>
+          <p>Press <code>:</code> to enter command mode. Available commands:</p>
+          <ul>
+            <li><code>:help</code> — full keybinding reference</li>
+            <li><code>:h</code> / <code>:a</code> / <code>:b</code> / <code>:r</code> / <code>:t</code> / <code>:e</code> — navigate to pages</li>
+            <li><code>:cv</code> — download CV</li>
+            <li><code>:email</code> — copy email to clipboard</li>
+            <li><code>:gh</code> — GitHub profile</li>
+            <li><code>:yt</code> — YouTube channel</li>
+            <li><code>:latest</code> — most recent blog post</li>
+            <li><code>:zen</code> — minimal reading mode</li>
+            <li><code>:ls</code> — list all routes</li>
+          </ul>
+          
+          <div class="categories-box">
+            <div class="categories-title">Quick Links</div>
+            <div class="categories-list">
+              <a href="/about" class="category-tag" data-link>About</a>
+              <a href="/research" class="category-tag" data-link>Research</a>
+              <a href="/blog" class="category-tag" data-link>Blog</a>
+              <a href="/technical" class="category-tag" data-link>Technical</a>
+              <a href="/educational" class="category-tag" data-link>Educational</a>
+            </div>
+          </div>
+        </div>
+      `,
+
+      '/about': `
+        <div class="wiki-article">
+          <h1>S. D. V. Stephens</h1>
+          
+          <div class="infobox">
+            <div class="infobox-header">
+              <div class="infobox-title">S. D. V. Stephens</div>
+              <div class="infobox-subtitle">Researcher · Mathematician</div>
+            </div>
+            <div class="infobox-image">
+              <img src="/sdvs.jpg" alt="S. D. V. Stephens" class="avatar-img">
+              <div class="infobox-caption">S. D. V. Stephens, 2025</div>
+            </div>
+            <div class="infobox-data">
+              <div class="infobox-row">
+                <div class="infobox-label">Fields</div>
+                <div class="infobox-value">Neurobioengineering<br>Mathematics<br>Philosophy<br>Cognitive Science<br>Education Policy<br>Politics of Education<br>Political Philosophy</div>
+              </div>
+              <div class="infobox-row">
+                <div class="infobox-label">Institution</div>
+                <div class="infobox-value">Beth Israel Medical Center<br>Harvard Medical School<br>City Council of Dallas</div>
+              </div>
+              <div class="infobox-row">
+                <div class="infobox-label">Education</div>
+                <div class="infobox-value">Harvard (Audit)<br>Wabash College<br>Kenyon College</div>
+              </div>
+              <div class="infobox-row">
+                <div class="infobox-label">Tools</div>
+                <div class="infobox-value">LaTeX, Python, R<br>Neovim, Emacs</div>
+              </div>
+              <div class="infobox-row">
+                <div class="infobox-label">GitHub</div>
+                <div class="infobox-value"><a href="https://github.com/sdvstephens" target="_blank">sdvstephens</a></div>
+              </div>
+              <div class="infobox-row">
+                <div class="infobox-label">YouTube</div>
+                <div class="infobox-value"><a href="https://youtube.com/@Vichaama" target="_blank">@Vichaama</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="toc">
+            <div class="toc-title">Contents</div>
+            <ol class="toc-list">
+              <li><a href="#education" class="toc-link">Education</a></li>
+              <li><a href="#research" class="toc-link">Research</a></li>
+              <li><a href="#technical" class="toc-link">Technical Projects</a></li>
+              <li><a href="#skills" class="toc-link">Skills</a></li>
+            </ol>
+          </div>
+
+          <p><strong>S. D. V. Stephens</strong> is a biostatistical researcher and mathematician working at the intersection of neurobioengineering, mathematical physics, philosophy, and cognitive science. Currently based at Beth Israel Medical Center and Harvard Medical School, his work focuses on developing methodological frameworks for extracting causal treatment effects from observational critical care data.</p>
+
+          <h2 id="education">Education</h2>
+          <p>Stephens has pursued a diverse academic trajectory across multiple institutions:</p>
+          
+          <h3>Harvard University (Aug. 2025 – Present)</h3>
+          <p>Auditing coursework in mathematics including Studies in Algebra and Group Theory (55A), Studies in Real and Complex Analysis (55B), Modern China, Biology and Complexity, and Critical Theory.</p>
+          
+          <h3>Wabash College (Jan. 2025 – May 2025)</h3>
+          <p>Coursework in Complex Analysis, Non-Fiction Creative Writing, Linguistics, Sociolinguistics, Principles of Neuroscience, and Organ Performance. Honors and Dean's Scholar.</p>
+          
+          <h3>Kenyon College (July 2023 – Jan. 2024)</h3>
+          <p>Coursework in Abstract Algebra I, Contemporary Mathematics Seminar, Symbolic Logic, Philosophy of Natural Science, Piano and Violin Practicum, Quest for Justice, and STEM Research Methods. KEEP-STEM Scholar (NSF).</p>
+          
+          <h3>Additional Education</h3>
+          <ul>
+            <li><strong>Institute for Social Ecology</strong> (2024) — Legacies of Environmental Radicalism</li>
+            <li><strong>UT Dallas</strong> (Audit, 2024) — Combinatorics, Advanced Calculus</li>
+            <li><strong>Judge Barefoot Sanders Law Magnet</strong> (2019–2022) — H.S.D. Pre-Law Track, graduated with Honors and Distinction, 13 AP Exams, AP Capstone Scholar</li>
+          </ul>
+
+          <h2 id="research">Research</h2>
+          
+          <h3>Beth Israel Medical Center & Harvard Medical School (Sep. 2025 – Present)</h3>
+          <p>Developing CICADAS (Causal Inference for Critical-Care Anti-Seizure Treatment with Disease Dynamics, Automated PKPD/Trial Simulation, and Survival Optimization), a novel methodological framework enabling extraction of unbiased causal treatment effects from observational critical care data. Under supervision of Dr. M. Brandon Westover, analyzing PKPD interactions for diseased patients and modeling predictive formulas for treatment outcomes. Potential collaboration with the Human Brain Project in France under Dr. Viktor Jarsa for seizure simulation (?)</p>
+          
+          <h3>Independent Mathematical Research (Nov. 2024 – Present)</h3>
+          <p>Developing theoretic foundations for polyadic algebraic structures through extensions of classical group theory via changes in the adicity of operations. Preliminary axiomatization underway with novel theorem and proof construction. Interested in Lie polyadic algebras and groups for differential equations.</p>
+          
+          <h3>UT Dallas (Nov. 2022 – Jan. 2024)</h3>
+          <p>Collaborating on meta-analysis of the Bouba-Kiki effect regarding children with Misophonia and/or Autism Spectrum Disorder under Dr. Abdi. Currently on break. Will return to the literature reivew in a few years.</p>
+          
+          <h3>School for Health Professions, Dallas (Aug. 2021 – May 2022)</h3>
+          <p>Principal investigator discovering novel functions of bacteria within the gut microbiome of <em>Z. atratus</em> related to biodegradation mechanisms for LDPE and polystyrene. Lab guidance by Dr. Harrington.</p>
+
+          <h2 id="technical">Technical Projects</h2>
+          
+          <h3>Academic Workflow Automation Platform</h3>
+          <p>Lead developer of an integrated productivity suite (<a href="https://github.com/sdvstephens/uni" target="_blank">GitHub</a>) with three main Python CLI tools processing over 500 daily academic operations:</p>
+          <ul>
+            <li>Automated LaTeX document generation within Neovim, reducing computation time by ~70%</li>
+            <li>Human-readable JSON data architecture with Git version control, 99.9% backup reliability</li>
+            <li>Custom Neovim workflows with automatic figure insertion and compilation systems</li>
+            <li>Completed overhaul for an Emacs equivalent (Doom distro) with live LaTeX in Org mode</li>
+          </ul>
+          <p>Released as FOSS, inspired by the late Gilles Castel. Current users include professors, students, and industry professionals.</p>
+
+          <h2 id="skills">Skills</h2>
+          
+          <h3>Technical</h3>
+          <ul>
+            <li><strong>LaTeX</strong> — Document automation, custom templates, TikZ; extremely well-versed</li>
+            <li><strong>Python</strong> — CLI frameworks, automation, data processing</li>
+            <li><strong>R</strong> — Statistical analysis</li>
+            <li><strong>Editors</strong> — Neovim (custom configurations, advanced workflows), Vim, Emacs, VS Code</li>
+            <li><strong>Systems</strong> — Custom terminal design, cross-platform compatibility, SSH workflows, task automation</li>
+          </ul>
+          
+          <h3>Languages</h3>
+          <p>Reading comprehension of Spanish and French; adaptability to learning other languages quickly thanks to linguistic training (NACLO participation).</p>
+
+          <div class="categories-box">
+            <div class="categories-title">Categories</div>
+            <div class="categories-list">
+              <a href="#" class="category-tag">Neurobioengineering</a>
+              <a href="#" class="category-tag">Mathematical Physics</a>
+              <a href="#" class="category-tag">Philosophy</a>
+              <a href="#" class="category-tag">Cognitive Science</a>
+              <a href="#" class="category-tag">Harvard Medical School</a>
+              <a href="#" class="category-tag">LaTeX</a>
+              <a href="#" class="category-tag">Neovim</a>
+            </div>
+          </div>
+        </div>
+      `,
+
+      '/research': `
+        <div class="wiki-article">
+          <h1>Research</h1>
+          <p>Current and past research projects in neurobioengineering, mathematical physics, and related fields.</p>
+          
+          <h2>Current Projects</h2>
+          <h3>CICADAS Framework</h3>
+          <p>Developing methodological framework for causal inference in critical care settings at Beth Israel/Harvard Medical School.</p>
+          
+          <h3>Polyadic Algebraic Structures</h3>
+          <p>Independent research on extensions of classical group theory through changes in operation adicity.</p>
+          
+          <div class="categories-box">
+            <div class="categories-title">Topics</div>
+            <div class="categories-list">
+              <a href="#" class="category-tag">Biostatistics</a>
+              <a href="#" class="category-tag">Causal Inference</a>
+              <a href="#" class="category-tag">Abstract Algebra</a>
+              <a href="#" class="category-tag">PKPD Modeling</a>
+            </div>
+          </div>
+        </div>
+      `,
+
+      '/blog': `
+        <div class="wiki-article">
+          <h1>Blog</h1>
+          <p>Writings on mathematics, philosophy, and miscellany.</p>
+          <h2>Posts</h2>
+          <div id="blog-posts"><p class="loading">Loading posts...</p></div>
+        </div>
+      `,
+
+      '/blog/': 'dynamic',
+
+      '/technical': `
+        <div class="wiki-article">
+          <h1>Technical</h1>
+          <p>Notes on programming, tooling, and technical setups.</p>
+          <h2>Topics</h2>
+          <ul>
+            <li><strong>Neovim</strong> — LazyVim configuration, plugins, academic workflows</li>
+            <li><strong>Emacs</strong> — Doom distro, Org-mode, live LaTeX</li>
+            <li><strong>LaTeX</strong> — Templates, TikZ, academic document automation</li>
+            <li><strong>Python</strong> — CLI tools, data processing, automation</li>
+            <li><strong>Unix</strong> — Shell scripting, system configuration</li>
+          </ul>
+        </div>
+      `,
+
+      '/educational': `
+        <div class="wiki-article">
+          <h1>Educational Content</h1>
+          <p>Mathematics lectures, notes, and problem sets. Course numbering inspired by MIT.</p>
+          <p>Video content on <a href="https://youtube.com/@Vichaama" target="_blank">YouTube (@Vichaama)</a>.</p>
+          <div id="course-directory"><p class="loading">Loading courses...</p></div>
+        </div>
+      `
+    };
+
+    // Router
+    let pendingScrollTarget = null;
+    
+    async function navigate(path) {
+      // Check for blog post route
+      if (path.startsWith('/blog/') && path !== '/blog/') {
+        const slug = path.replace('/blog/', '');
+        await loadBlogPost(slug);
+        return;
+      }
+
+      const content = pages[path] || pages['/'];
+      if (content === 'dynamic') return; // handled above
+      
+      document.getElementById('app').innerHTML = content;
+      
+      document.querySelectorAll('.nav-tabs a').forEach(a => {
+        const href = a.getAttribute('href');
+        const isActive = path === href || (path.startsWith('/blog/') && href === '/blog');
+        a.classList.toggle('active', isActive);
+      });
+      document.querySelectorAll('.file-item').forEach(item => {
+        item.classList.toggle('active', item.dataset.link === path);
+      });
+      
+      const pathMap = {
+        '/': '~/stephens/home',
+        '/about': '~/stephens/about.md',
+        '/research': '~/stephens/research.tex',
+        '/blog': '~/stephens/blog/',
+        '/technical': '~/stephens/technical.md',
+        '/educational': '~/stephens/educational/'
+      };
+      document.getElementById('status-file').textContent = pathMap[path] || pathMap['/'];
+      history.pushState({}, '', path);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // Load dynamic content
+      if (path === '/blog') await loadBlogList();
+      if (path === '/educational') await loadCourses();
+      
+      renderMath();
+    }
+
+    function renderMath() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.getElementById('app'), {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false}
+          ]
+        });
+      }
+    }
+
+    // Markdown with LaTeX protection
+    function renderMarkdown(md) {
+      // Protect LaTeX blocks from marked.js
+      const blocks = [];
+      let protected = md.replace(/\$\$[\s\S]*?\$\$/g, (match) => {
+        blocks.push(match);
+        return `%%LATEX_BLOCK_${blocks.length - 1}%%`;
+      });
+      protected = protected.replace(/\$[^\$\n]+?\$/g, (match) => {
+        blocks.push(match);
+        return `%%LATEX_INLINE_${blocks.length - 1}%%`;
+      });
+      
+      // Parse markdown
+      let html = marked.parse(protected);
+      
+      // Restore LaTeX
+      html = html.replace(/%%LATEX_(BLOCK|INLINE)_(\d+)%%/g, (_, type, idx) => blocks[parseInt(idx)]);
+      
+      return html;
+    }
+
+    // Blog functions
+    let allPosts = [];
+    let activeTag = null;
+
+    async function loadBlogList(filterTag = null) {
+      const container = document.getElementById('blog-posts');
+      if (!container) return;
+      
+      try {
+        if (allPosts.length === 0) {
+          const res = await fetch('/blog/posts.json');
+          allPosts = await res.json();
+        }
+        
+        activeTag = filterTag;
+        const posts = filterTag 
+          ? allPosts.filter(p => p.tags.includes(filterTag))
+          : allPosts;
+        
+        if (posts.length === 0) {
+          container.innerHTML = '<p>No posts found.</p>';
+          return;
+        }
+        
+        // Get all unique tags for the tag cloud
+        const allTags = [...new Set(allPosts.flatMap(p => p.tags))].sort();
+        
+        const tagCloud = `
+          <div class="tag-cloud">
+            <span class="tag-filter ${!activeTag ? 'active' : ''}" data-tag="">all</span>
+            ${allTags.map(t => `<span class="tag-filter ${activeTag === t ? 'active' : ''}" data-tag="${t}">${t}</span>`).join('')}
+          </div>
+        `;
+        
+        container.innerHTML = tagCloud + '<ul class="post-list">' + posts.map(post => `
+          <li class="post-item">
+            <a href="/blog/${post.slug}" class="post-title" data-link>${post.title}</a>
+            <div class="post-meta">${post.date}</div>
+            <div class="post-excerpt">${post.excerpt}</div>
+            <div class="post-tags">${post.tags.map(t => `<span class="post-tag" data-tag="${t}">${t}</span>`).join('')}</div>
+          </li>
+        `).join('') + '</ul>';
+      } catch (e) {
+        container.innerHTML = '<p>Error loading posts.</p>';
+      }
+    }
+
+    async function loadBlogPost(slug) {
+      document.getElementById('app').innerHTML = '<p class="loading">Loading post...</p>';
+      
+      try {
+        const res = await fetch(`/blog/${slug}.md`);
+        if (!res.ok) throw new Error('Not found');
+        const md = await res.text();
+        const html = renderMarkdown(md);
+        
+        document.getElementById('app').innerHTML = `
+          <div class="wiki-article">
+            <a href="/blog" class="back-link" data-link>Back to blog</a>
+            <div class="post-content">${html}</div>
+          </div>
+        `;
+        
+        document.getElementById('status-file').textContent = `~/stephens/blog/${slug}.md`;
+        history.pushState({}, '', `/blog/${slug}`);
+        renderMath();
+      } catch (e) {
+        document.getElementById('app').innerHTML = `
+          <div class="wiki-article">
+            <a href="/blog" class="back-link" data-link>Back to blog</a>
+            <p>Post not found.</p>
+          </div>
+        `;
+      }
+    }
+
+    // Course directory functions
+    async function loadCourses() {
+      const container = document.getElementById('course-directory');
+      if (!container) return;
+      
+      try {
+        const res = await fetch('/courses/courses.json');
+        const data = await res.json();
+        
+        let html = '<div class="course-tree">';
+        
+        for (const dept of data.departments) {
+          html += `
+            <div class="dept-section">
+              <div class="dept-header" onclick="this.nextElementSibling.classList.toggle('collapsed')">
+                <span class="dept-toggle">▼</span>
+                <span>${dept.code} — ${dept.name}</span>
+              </div>
+              <ul class="course-list">
+          `;
+          
+          for (const course of dept.courses) {
+            const statusClass = course.status === 'active' ? 'active' : 'planned';
+            const courseId = course.number.replace(/\./g, '-');
+            const materialsHtml = course.materials.length > 0 ? `
+              <ul class="materials-list">
+                ${course.materials.map(m => `
+                  <li class="material-item">
+                    <span class="material-icon ${m.type === 'video' ? 'video' : 'pdf'}">${m.type === 'video' ? '▶' : '📄'}</span>
+                    <a href="${m.url}" class="material-link" target="_blank">${m.title}</a>
+                  </li>
+                `).join('')}
+              </ul>
+            ` : '<p class="course-desc" style="font-style: italic;">Materials coming soon.</p>';
+            
+            html += `
+              <li class="course-item" id="course-${courseId}">
+                <div class="course-header" onclick="this.nextElementSibling.classList.toggle('open')">
+                  <span class="course-number">${course.number}</span>
+                  <span class="course-title">${course.title}</span>
+                  <span class="course-status ${statusClass}">${course.status}</span>
+                </div>
+                <div class="course-details">
+                  <p class="course-desc">${course.description}</p>
+                  ${materialsHtml}
+                </div>
+              </li>
+            `;
+          }
+          
+          html += '</ul></div>';
+        }
+        
+        html += '</div>';
+        container.innerHTML = html;
+        
+        // Handle pending scroll target
+        if (pendingScrollTarget) {
+          setTimeout(() => {
+            const el = document.getElementById(pendingScrollTarget);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              el.style.background = 'var(--bg2)';
+              setTimeout(() => el.style.background = '', 2000);
+              // Also expand the course details
+              const details = el.querySelector('.course-details');
+              if (details) details.classList.add('open');
+            }
+            pendingScrollTarget = null;
+          }, 50);
+        }
+      } catch (e) {
+        container.innerHTML = '<p>Error loading courses.</p>';
+      }
+    }
+
+    // File explorer folder functions
+    async function loadExplorerFolders() {
+      // Load blog posts into explorer
+      try {
+        const res = await fetch('/blog/posts.json');
+        const posts = await res.json();
+        const blogChildren = document.getElementById('blog-children');
+        if (blogChildren) {
+          blogChildren.innerHTML = posts.map(post => `
+            <div class="file-item" data-link="/blog/${post.slug}" tabindex="0">
+              <span class="file-icon md"></span><span>${post.slug}.md</span>
+            </div>
+          `).join('');
+        }
+      } catch (e) { console.log('No blog posts'); }
+
+      // Load courses into explorer
+      try {
+        const res = await fetch('/courses/courses.json');
+        const data = await res.json();
+        const eduChildren = document.getElementById('educational-children');
+        if (eduChildren) {
+          let items = [];
+          for (const dept of data.departments) {
+            for (const course of dept.courses) {
+              const courseId = course.number.replace(/\./g, '-');
+              items.push(`
+                <div class="file-item" data-link="/educational" data-scroll="course-${courseId}" tabindex="0">
+                  <span class="file-icon tex"></span><span>${course.number}.tex</span>
+                </div>
+              `);
+            }
+          }
+          eduChildren.innerHTML = items.join('');
+        }
+      } catch (e) { console.log('No courses'); }
+    }
+
+    function toggleFolder(folderEl) {
+      folderEl.classList.toggle('open');
+    }
+
+    // Click handler - fixed for anchor links
+    document.addEventListener('click', (e) => {
+      // Handle tag filtering
+      const tagEl = e.target.closest('.tag-filter, .post-tag');
+      if (tagEl && tagEl.dataset.tag !== undefined) {
+        e.preventDefault();
+        const tag = tagEl.dataset.tag || null;
+        loadBlogList(tag);
+        return;
+      }
+
+      // Handle folder toggles
+      const folderToggle = e.target.closest('.folder-toggle');
+      if (folderToggle) {
+        e.preventDefault();
+        const folder = folderToggle.closest('.file-folder');
+        if (folder) toggleFolder(folder);
+        return;
+      }
+
+      const link = e.target.closest('a[href^="#"]');
+      if (link) {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        return;
+      }
+      
+      const navLink = e.target.closest('[data-link]');
+      if (navLink) {
+        e.preventDefault();
+        const href = navLink.getAttribute('href') || navLink.dataset.link;
+        const scrollTarget = navLink.dataset.scroll;
+        if (scrollTarget) pendingScrollTarget = scrollTarget;
+        navigate(href);
+      }
+    });
+
+    // Also handle toc-link class specifically
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('toc-link')) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+
+    window.addEventListener('popstate', () => navigate(window.location.pathname));
+
+    // Keyboard navigation
+    let lastKey = '';
+    let lastKeyTime = 0;
+    let leaderActive = false;
+    let leaderTimeout = null;
+    let explorerFocusIndex = -1;
+
+    const cmdline = document.getElementById('cmdline');
+    const cmdlineInput = document.getElementById('cmdline-input');
+    const whichKey = document.getElementById('which-key');
+    const fileExplorer = document.getElementById('file-explorer');
+    const statusMode = document.getElementById('status-mode');
+
+    // Get all navigable items in the explorer (only visible ones, not in closed folders)
+    function getFileItems() {
+      return Array.from(document.querySelectorAll('#file-tree .file-item')).filter(item => {
+        // Check if item is inside a closed folder
+        const parentFolder = item.closest('.folder-children');
+        if (parentFolder) {
+          const folder = parentFolder.closest('.file-folder');
+          if (folder && !folder.classList.contains('open')) {
+            return false; // Skip items in closed folders
+          }
+        }
+        return true;
+      });
+    }
+
+    function setMode(mode) {
+      statusMode.textContent = mode;
+      statusMode.className = 'status-mode ' + mode.toLowerCase();
+    }
+
+    function toggleExplorer() {
+      const isActive = fileExplorer.classList.toggle('active');
+      if (isActive) {
+        explorerFocusIndex = 0;
+        updateExplorerFocus();
+      } else {
+        explorerFocusIndex = -1;
+        getFileItems().forEach(item => item.classList.remove('focused'));
+      }
+    }
+
+    function updateExplorerFocus() {
+      const items = getFileItems();
+      items.forEach((item, i) => {
+        item.classList.toggle('focused', i === explorerFocusIndex);
+      });
+      if (explorerFocusIndex >= 0 && items[explorerFocusIndex]) {
+        items[explorerFocusIndex].scrollIntoView({ block: 'nearest' });
+      }
+    }
+
+    let cmdlineMode = 'command';
+    
+    function openCmdline(mode = 'command') {
+      cmdlineMode = mode;
+      setMode('COMMAND');
+      cmdline.classList.add('active');
+      cmdlineInput.value = '';
+      document.querySelector('.cmdline-prompt').textContent = mode === 'search' ? '/' : ':';
+      cmdlineInput.placeholder = mode === 'search' ? 'search...' : 'command...';
+      cmdlineInput.focus();
+    }
+
+    function closeCmdline() {
+      setMode('NORMAL');
+      cmdline.classList.remove('active');
+    }
+
+    function showWhichKey() {
+      whichKey.classList.add('active');
+      leaderActive = true;
+    }
+
+    function hideWhichKey() {
+      whichKey.classList.remove('active');
+      leaderActive = false;
+    }
+
+    // Command handlers
+    const commands = {
+      // Navigation
+      'q': () => window.close(),
+      'quit': () => window.close(),
+      'h': () => navigate('/'),
+      'home': () => navigate('/'),
+      'a': () => navigate('/about'),
+      'about': () => navigate('/about'),
+      'r': () => navigate('/research'),
+      'research': () => navigate('/research'),
+      'b': () => navigate('/blog'),
+      'blog': () => navigate('/blog'),
+      't': () => navigate('/technical'),
+      'technical': () => navigate('/technical'),
+      'e': () => navigate('/educational'),
+      'edu': () => navigate('/educational'),
+      'educational': () => navigate('/educational'),
+      
+      // Help
+      'help': () => showHelp(),
+      '?': () => showHelp(),
+      
+      // External links
+      'cv': () => window.open('/sdvscv.pdf', '_blank'),
+      'resume': () => window.open('/sdvscv.pdf', '_blank'),
+      'email': () => { 
+        navigator.clipboard.writeText('samuelstephens2004@gmail.com');
+        showMessage('Email copied to clipboard');
+      },
+      'mail': () => window.location.href = 'mailto:samuelstephens2004@gmail.com',
+      'gh': () => window.open('https://github.com/sdvstephens', '_blank'),
+      'github': () => window.open('https://github.com/sdvstephens', '_blank'),
+      'yt': () => window.open('https://youtube.com/@Vichaama', '_blank'),
+      'youtube': () => window.open('https://youtube.com/@Vichaama', '_blank'),
+      'source': () => window.open('https://github.com/sdvstephens', '_blank'),
+      
+      // List routes
+      'ls': () => showRoutes(),
+      
+      // Latest/random blog
+      'latest': () => loadLatestPost(),
+      
+      // Theme
+      'zen': () => toggleZen(),
+      
+      // Fun
+      'version': () => showMessage('samuel-stephens.com v1.0 — Built with vim and coffee'),
+      'echo': (args) => showMessage(args || ''),
+    };
+
+    function showMessage(msg) {
+      const app = document.getElementById('app');
+      const msgEl = document.createElement('div');
+      msgEl.style.cssText = 'position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:var(--bg1);border:1px solid var(--green);color:var(--green);padding:0.5rem 1rem;border-radius:4px;z-index:1001;';
+      msgEl.textContent = msg;
+      document.body.appendChild(msgEl);
+      setTimeout(() => msgEl.remove(), 3000);
+    }
+
+    function showHelp() {
+      document.getElementById('app').innerHTML = `
+        <div class="wiki-article">
+          <h1>:help</h1>
+          <p>Vim-style keybindings and commands for this site.</p>
+          
+          <h2>Navigation Keys</h2>
+          <ul>
+            <li><code>j / k</code> — scroll down / up</li>
+            <li><code>gg</code> — jump to top</li>
+            <li><code>GG</code> — jump to bottom</li>
+            <li><code>Space</code> — show leader menu</li>
+            <li><code>Space + e</code> — toggle file explorer</li>
+            <li><code>/</code> — search mode (fuzzy navigation)</li>
+            <li><code>:</code> — command mode</li>
+            <li><code>Escape</code> — close command/search/explorer</li>
+          </ul>
+          
+          <h2>Explorer Keys (when open)</h2>
+          <ul>
+            <li><code>↑ / k</code> — move up</li>
+            <li><code>↓ / j</code> — move down</li>
+            <li><code>Enter</code> — open file / toggle folder</li>
+            <li><code>Escape</code> — close explorer</li>
+          </ul>
+          
+          <h2>Commands</h2>
+          <h3>Navigation</h3>
+          <ul>
+            <li><code>:h</code> / <code>:home</code> — go home</li>
+            <li><code>:a</code> / <code>:about</code> — about page</li>
+            <li><code>:r</code> / <code>:research</code> — research</li>
+            <li><code>:b</code> / <code>:blog</code> — blog</li>
+            <li><code>:t</code> / <code>:technical</code> — technical</li>
+            <li><code>:e</code> / <code>:edu</code> — educational</li>
+            <li><code>:ls</code> — list all routes</li>
+            <li><code>:latest</code> — most recent blog post</li>
+          </ul>
+          
+          <h3>External</h3>
+          <ul>
+            <li><code>:cv</code> / <code>:resume</code> — download CV</li>
+            <li><code>:email</code> — copy email to clipboard</li>
+            <li><code>:mail</code> — open email client</li>
+            <li><code>:gh</code> / <code>:github</code> — GitHub profile</li>
+            <li><code>:yt</code> / <code>:youtube</code> — YouTube channel</li>
+            <li><code>:source</code> — site source code</li>
+          </ul>
+          
+          <h3>Display</h3>
+          <ul>
+            <li><code>:zen</code> — toggle minimal reading mode</li>
+            <li><code>:help</code> / <code>:?</code> — this page</li>
+            <li><code>:version</code> — site version</li>
+            <li><code>:echo &lt;text&gt;</code> — print message</li>
+          </ul>
+          
+          <h3>Quit</h3>
+          <ul>
+            <li><code>:q</code> / <code>:quit</code> — close tab</li>
+          </ul>
+          
+          <div class="categories-box">
+            <div class="categories-title">Pro tips</div>
+            <div class="categories-list">
+              <span class="category-tag">Type fast, like vim</span>
+              <span class="category-tag">gg to return to top</span>
+              <span class="category-tag">/ is fuzzy, : is exact</span>
+            </div>
+          </div>
+        </div>
+      `;
+      history.pushState({}, '', '/help');
+      document.getElementById('status-file').textContent = '~/stephens/help.txt';
+    }
+
+    function showRoutes() {
+      showMessage('Routes: / /about /research /blog /technical /educational');
+    }
+
+    async function loadLatestPost() {
+      try {
+        const res = await fetch('/blog/posts.json');
+        const posts = await res.json();
+        if (posts.length > 0) {
+          const latest = posts.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+          navigate('/blog/' + latest.slug);
+        } else {
+          showMessage('No blog posts yet');
+        }
+      } catch (e) {
+        showMessage('Could not load posts');
+      }
+    }
+
+    let zenMode = false;
+    function toggleZen() {
+      zenMode = !zenMode;
+      document.querySelector('.topbar').style.display = zenMode ? 'none' : '';
+      document.querySelector('.statusbar').style.display = zenMode ? 'none' : '';
+      if (fileExplorer.classList.contains('active')) fileExplorer.classList.remove('active');
+      showMessage(zenMode ? 'Zen mode on — :zen to exit' : 'Zen mode off');
+    }
+
+    cmdlineInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const input = cmdlineInput.value.trim();
+        const cmd = input.toLowerCase().split(' ')[0];
+        const args = input.slice(cmd.length).trim();
+        closeCmdline();
+        
+        if (cmdlineMode === 'search') {
+          // Search mode: fuzzy navigate to pages
+          if (cmd.includes('home') || cmd === 'h') navigate('/');
+          else if (cmd.includes('about') || cmd === 'a') navigate('/about');
+          else if (cmd.includes('research') || cmd === 'r') navigate('/research');
+          else if (cmd.includes('blog') || cmd === 'b') navigate('/blog');
+          else if (cmd.includes('tech')) navigate('/technical');
+          else if (cmd.includes('edu') || cmd === 'e') navigate('/educational');
+          else if (cmd.includes('help')) showHelp();
+        } else {
+          // Command mode
+          if (commands[cmd]) {
+            commands[cmd](args);
+          } else if (cmd) {
+            showMessage('Unknown command: ' + cmd);
+          }
+        }
+      } else if (e.key === 'Escape') {
+        closeCmdline();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      
+      const now = Date.now();
+      const isDoublePress = (e.key === lastKey) && (now - lastKeyTime < 300);
+      const explorerOpen = fileExplorer.classList.contains('active');
+      const items = getFileItems();
+
+      // File explorer navigation
+      if (explorerOpen) {
+        if (e.key === 'ArrowDown' || e.key === 'j') {
+          e.preventDefault();
+          explorerFocusIndex = Math.min(explorerFocusIndex + 1, items.length - 1);
+          updateExplorerFocus();
+          lastKey = e.key;
+          lastKeyTime = now;
+          return;
+        }
+        if (e.key === 'ArrowUp' || e.key === 'k') {
+          e.preventDefault();
+          explorerFocusIndex = Math.max(explorerFocusIndex - 1, 0);
+          updateExplorerFocus();
+          lastKey = e.key;
+          lastKeyTime = now;
+          return;
+        }
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (explorerFocusIndex >= 0 && items[explorerFocusIndex]) {
+            const focusedItem = items[explorerFocusIndex];
+            
+            // Check if it's a folder toggle
+            if (focusedItem.classList.contains('folder-toggle')) {
+              const folder = focusedItem.closest('.file-folder');
+              if (folder) {
+                folder.classList.toggle('open');
+                // Stay on the folder item after toggling
+                setTimeout(() => {
+                  const newItems = getFileItems();
+                  explorerFocusIndex = newItems.indexOf(focusedItem);
+                  updateExplorerFocus();
+                }, 10);
+              }
+            } else {
+              // Regular file item - navigate
+              const path = focusedItem.dataset.link;
+              const scrollTarget = focusedItem.dataset.scroll;
+              if (path) {
+                if (scrollTarget) pendingScrollTarget = scrollTarget;
+                navigate(path);
+                fileExplorer.classList.remove('active');
+                explorerFocusIndex = -1;
+                items.forEach(item => item.classList.remove('focused'));
+              }
+            }
+          }
+          lastKey = e.key;
+          lastKeyTime = now;
+          return;
+        }
+        if (e.key === 'Escape') {
+          fileExplorer.classList.remove('active');
+          explorerFocusIndex = -1;
+          items.forEach(item => item.classList.remove('focused'));
+          lastKey = e.key;
+          lastKeyTime = now;
+          return;
+        }
+      }
+
+      // Leader key (Space)
+      if (e.key === ' ' && !cmdline.classList.contains('active')) {
+        e.preventDefault();
+        showWhichKey();
+        clearTimeout(leaderTimeout);
+        leaderTimeout = setTimeout(hideWhichKey, 2000);
+        lastKey = e.key;
+        lastKeyTime = now;
+        return;
+      }
+
+      // Leader combinations
+      if (leaderActive) {
+        e.preventDefault();
+        hideWhichKey();
+        if (e.key === 'e') toggleExplorer();
+        else if (e.key === '/') openCmdline();
+        lastKey = e.key;
+        lastKeyTime = now;
+        return;
+      }
+
+      // Normal mode
+      switch(e.key) {
+        case 'j': window.scrollBy({ top: 100, behavior: 'smooth' }); break;
+        case 'k': window.scrollBy({ top: -100, behavior: 'smooth' }); break;
+        case 'G':
+          if (e.shiftKey && isDoublePress) window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+          break;
+        case 'g':
+          if (!e.shiftKey && isDoublePress) window.scrollTo({ top: 0, behavior: 'smooth' });
+          break;
+        case '/':
+          e.preventDefault();
+          openCmdline('search');
+          break;
+        case ':':
+          e.preventDefault();
+          openCmdline('command');
+          break;
+        case 'Escape':
+          closeCmdline();
+          hideWhichKey();
+          break;
+      }
+      lastKey = e.key;
+      lastKeyTime = now;
+    });
+
+    // Status bar
+    function updateScrollPosition() {
+      const scrollTop = window.scrollY;
+      const scrollHeight = document.body.scrollHeight - window.innerHeight;
+      const pos = document.getElementById('status-position');
+      if (scrollTop <= 10) pos.textContent = 'Top';
+      else if (scrollTop >= scrollHeight - 10) pos.textContent = 'Bot';
+      else pos.textContent = Math.round((scrollTop / scrollHeight) * 100) + '%';
+    }
+
+    function updateTime() {
+      document.getElementById('status-time').textContent = new Date().toLocaleTimeString('en-US', { 
+        hour: '2-digit', minute: '2-digit', hour12: false 
+      });
+    }
+
+    window.addEventListener('scroll', updateScrollPosition);
+    setInterval(updateTime, 1000);
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      const path = window.location.pathname;
+      navigate(pages[path] ? path : '/');
+      updateScrollPosition();
+      updateTime();
+      loadExplorerFolders();
+    });
+  </script>
+</body>
+</html>
