@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "integrated-maths",
+    "title": "Integrated Mathematics",
+    "description": "Prealgebra through precalculus, plus number theory, probability, graph theory, and set theory"
+  },
+  {
+    "slug": "calculus-i",
+    "title": "Single Variable Calculus",
+    "description": "Limits, derivatives, and integrals of single variable functions"
+  },
+  {
+    "slug": "multivariable-calculus",
+    "title": "Multivariable Calculus",
+    "description": "Partial derivatives, multiple integrals, and vector calculus"
+  },
+  {
+    "slug": "math-55a",
+    "title": "Math 55a",
+    "description": "Abstract algebra and linear algebra (Harvard Math 55 first semester)"
+  },
+  {
+    "slug": "math-55b",
+    "title": "Math 55b",
+    "description": "Real and complex analysis (Harvard Math 55 second semester)"
+  }
+]

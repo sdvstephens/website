@@ -363,12 +363,13 @@
       display: inline-block;
       transition: transform 0.15s;
     }
-    .file-folder.open .folder-arrow { transform: rotate(90deg); }
+    .file-folder.open > .folder-arrow { transform: rotate(90deg); }
+    .file-folder.open > .folder-toggle .folder-arrow { transform: rotate(90deg); }
     .folder-children { 
       display: none; 
       padding-left: 1rem;
     }
-    .file-folder.open .folder-children { display: block; }
+    .file-folder.open > .folder-children { display: block; }
     .folder-children .file-item { 
       padding: 0.25rem 0.75rem 0.25rem 0.5rem;
       font-size: 0.8rem;
@@ -499,6 +500,58 @@
     .material-icon.pdf { color: var(--orange); }
     .material-link { color: var(--aqua); font-size: 0.9rem; }
     .course-list.collapsed { display: none; }
+
+    /* Notes system styles */
+    .notes-courses { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .notes-course-card { background: var(--bg1); border: 1px solid var(--bg3); border-radius: 4px; padding: 1.5rem; transition: border-color 0.2s; }
+    .notes-course-card:hover { border-color: var(--aqua); }
+    .notes-course-link { text-decoration: none; }
+    .notes-course-link h3 { color: var(--aqua); margin: 0 0 0.5rem 0; }
+    .notes-course-link p { color: var(--fg2); margin: 0; }
+    
+    .note-breadcrumb { color: var(--fg3); margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .note-breadcrumb a { color: var(--aqua); text-decoration: none; }
+    .note-breadcrumb a:hover { text-decoration: underline; }
+    
+    .note-toc { margin-top: 1.5rem; }
+    .note-chapter { margin-bottom: 2rem; }
+    .note-chapter h2 { color: var(--yellow); font-size: 1.2rem; margin-bottom: 0.75rem; border-bottom: 1px solid var(--bg3); padding-bottom: 0.5rem; }
+    .note-section-list { list-style: none; padding: 0; margin: 0; }
+    .note-section-list li { padding: 0.4rem 0; }
+    .note-section-list a { color: var(--aqua); text-decoration: none; }
+    .note-section-list a:hover { text-decoration: underline; }
+    
+    .note-nav { display: flex; justify-content: space-between; margin: 1.5rem 0; padding: 1rem 0; border-top: 1px solid var(--bg3); border-bottom: 1px solid var(--bg3); }
+    .note-nav a { color: var(--aqua); text-decoration: none; }
+    .note-nav a:hover { text-decoration: underline; }
+    .note-nav-prev::before { content: "← "; }
+    .note-nav-next::after { content: " →"; }
+    
+    .note-box { margin: 1.5rem 0; padding: 1rem; border-left: 4px solid; background: var(--bg1); border-radius: 0 4px 4px 0; }
+    .note-box-title { font-weight: bold; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .note-box-content p:last-child { margin-bottom: 0; }
+    
+    .note-definition { border-color: var(--aqua); }
+    .note-definition .note-box-title { color: var(--aqua); }
+    
+    .note-theorem { border-color: var(--green); }
+    .note-theorem .note-box-title { color: var(--green); }
+    
+    .note-example { border-color: var(--yellow); background: var(--bg2); }
+    
+    .note-proof { border-color: var(--purple); }
+    .note-proof .note-box-title { color: var(--purple); }
+    
+    .note-note { border-color: var(--fg3); }
+    .note-note .note-box-title { color: var(--fg3); }
+    
+    .note-solution summary { cursor: pointer; color: var(--orange); margin-top: 1rem; font-weight: bold; }
+    .note-solution summary:hover { text-decoration: underline; }
+    .note-solution-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--bg3); }
+    
+    .note-content table { border-collapse: collapse; margin: 1rem 0; }
+    .note-content th, .note-content td { border: 1px solid var(--bg3); padding: 0.5rem 1rem; text-align: left; }
+    .note-content th { background: var(--bg2); color: var(--yellow); }
   </style>
 </head>
 <body>
@@ -512,7 +565,7 @@
           <li><a href="/about" data-link>about</a></li>
           <li><a href="/research" data-link>research</a></li>
           <li><a href="/blog" data-link>blog</a></li>
-          <li><a href="/technical" data-link>technical</a></li>
+          <li><a href="/notes" data-link>notes</a></li>
           <li><a href="/educational" data-link>educational</a></li>
         </ul>
       </nav>
@@ -528,7 +581,10 @@
           <div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>blog/</span></div>
           <div class="folder-children" id="blog-children"></div>
         </div>
-        <div class="file-item" data-link="/technical" tabindex="0"><span class="file-icon md"></span><span>technical.md</span></div>
+        <div class="file-folder" data-folder="notes">
+          <div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>notes/</span></div>
+          <div class="folder-children" id="notes-children"></div>
+        </div>
         <div class="file-folder" data-folder="educational">
           <div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>educational/</span></div>
           <div class="folder-children" id="educational-children"></div>
@@ -605,7 +661,7 @@
               <a href="/about" class="category-tag" data-link>About</a>
               <a href="/research" class="category-tag" data-link>Research</a>
               <a href="/blog" class="category-tag" data-link>Blog</a>
-              <a href="/technical" class="category-tag" data-link>Technical</a>
+              <a href="/notes" class="category-tag" data-link>Notes</a>
               <a href="/educational" class="category-tag" data-link>Educational</a>
             </div>
           </div>
@@ -667,9 +723,12 @@
 
           <h2 id="education">Education</h2>
           <p>Stephens has undergone a non-standard academic trajectory, which includes multiple institutions:</p>
-          
+         
+          <h3>Massachusetts Institute of Technology (Feb. 2026 – Present)</h3>
+          <p>Auditing 20.205[J] Principles and Applications of Genetic Engineering for Biotechnology and Neuroscience.</p>
+
           <h3>Harvard University (Aug. 2025 – Present)</h3>
-          <p>Auditing coursework in mathematics including Studies in Algebra and Group Theory (55A), Studies in Real and Complex Analysis (55B), Modern China, Biology and Complexity, and Critical Theory.</p>
+          <p>Auditing coursework in mathematics including Studies in Algebra and Group Theory (55A), Studies in Real and Complex Analysis (55B), and Critical Theory (HIST 89).</p>
           
           <h3>Wabash College (Jan. 2025 – May 2025)</h3>
           <p>Coursework in Complex Analysis, Non-Fiction Creative Writing, Linguistics, Sociolinguistics, Principles of Neuroscience, and Organ Performance. Honors and Dean's Scholar.</p>
@@ -770,18 +829,11 @@
         </div>
       `,
 
-      '/technical': `
+      '/notes': `
         <div class="wiki-article">
-          <h1>Technical</h1>
-          <p>Notes on programming, tooling, and technical setups.</p>
-          <h2>Topics</h2>
-          <ul>
-            <li><strong>Neovim</strong> — LazyVim configuration, plugins, academic workflows</li>
-            <li><strong>Emacs</strong> — Doom distro, Org-mode, live LaTeX</li>
-            <li><strong>LaTeX</strong> — Templates, TikZ, academic document automation</li>
-            <li><strong>Python</strong> — CLI tools, data processing, automation</li>
-            <li><strong>Unix</strong> — Shell scripting, system configuration</li>
-          </ul>
+          <h1>Lecture Notes</h1>
+          <p>Mathematics and science lecture notes, inspired by Paul's Online Notes.</p>
+          <div id="notes-course-list"><p class="loading">Loading courses...</p></div>
         </div>
       `,
 
@@ -810,6 +862,19 @@
         await loadBlogPost(slug);
         return;
       }
+      
+      // Check for notes routes
+      const notesParts = path.split('/').filter(p => p);
+      if (notesParts[0] === 'notes' && notesParts.length === 2) {
+        // /notes/calculus-i -> course overview
+        await loadCourseOverview(notesParts[1]);
+        return;
+      }
+      if (notesParts[0] === 'notes' && notesParts.length === 3) {
+        // /notes/calculus-i/2-2-the-limit -> section content
+        await loadNoteSection(notesParts[1], notesParts[2]);
+        return;
+      }
 
       const content = pages[path] || pages['/'];
       if (content === 'dynamic') return; // handled above
@@ -831,6 +896,7 @@
         '/research': '~/stephens/research.tex',
         '/blog': '~/stephens/blog/',
         '/technical': '~/stephens/technical.md',
+        '/notes': '~/stephens/notes/',
         '/educational': '~/stephens/educational/'
       };
       document.getElementById('status-file').textContent = pathMap[path] || pathMap['/'];
@@ -839,6 +905,7 @@
       
       // Load dynamic content
       if (path === '/blog') await loadBlogList();
+      if (path === '/notes') await loadNotesCourseList();
       if (path === '/educational') await loadCourses();
       
       renderMath();
@@ -1082,6 +1149,176 @@
       }
     }
 
+    // Notes system functions
+    async function loadNotesCourseList() {
+      const container = document.getElementById('notes-course-list');
+      if (!container) return;
+      
+      try {
+        const res = await fetch('/notes/courses.json');
+        const courses = await res.json();
+        
+        let html = '<div class="notes-courses">';
+        for (const course of courses) {
+          html += `
+            <div class="notes-course-card">
+              <a href="/notes/${course.slug}" data-link class="notes-course-link">
+                <h3>${course.title}</h3>
+                <p>${course.description}</p>
+              </a>
+            </div>
+          `;
+        }
+        html += '</div>';
+        container.innerHTML = html;
+      } catch (e) {
+        container.innerHTML = '<p>Error loading courses.</p>';
+      }
+    }
+
+    async function loadCourseOverview(courseSlug) {
+      try {
+        const res = await fetch(`/notes/${courseSlug}/course.json`);
+        const course = await res.json();
+        
+        let html = `
+          <div class="wiki-article note-course-overview">
+            <div class="note-breadcrumb">
+              <a href="/notes" data-link>Notes</a> / ${course.title}
+            </div>
+            <h1>${course.title}</h1>
+            <div class="note-toc">
+        `;
+        
+        for (const chapter of course.chapters) {
+          html += `
+            <div class="note-chapter">
+              <h2>Chapter ${chapter.number}: ${chapter.title}</h2>
+              <ul class="note-section-list">
+          `;
+          for (const section of chapter.sections) {
+            html += `
+              <li>
+                <a href="/notes/${courseSlug}/${section.slug}" data-link>
+                  Section ${section.number}: ${section.title}
+                </a>
+              </li>
+            `;
+          }
+          html += '</ul></div>';
+        }
+        
+        html += '</div></div>';
+        
+        document.getElementById('app').innerHTML = html;
+        updateNavState('/notes', `~/stephens/notes/${courseSlug}/`, `/notes/${courseSlug}`);
+      } catch (e) {
+        document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Course not found</h1></div>';
+      }
+    }
+
+    async function loadNoteSection(courseSlug, sectionSlug) {
+      try {
+        // Load course.json for nav context
+        const courseRes = await fetch(`/notes/${courseSlug}/course.json`);
+        const course = await courseRes.json();
+        
+        // Load section markdown
+        const mdRes = await fetch(`/notes/${courseSlug}/${sectionSlug}.md`);
+        const md = await mdRes.text();
+        
+        // Find current section and prev/next
+        let prevSection = null, nextSection = null, currentSection = null, currentChapter = null;
+        let allSections = [];
+        for (const chapter of course.chapters) {
+          for (const section of chapter.sections) {
+            allSections.push({ section, chapter });
+          }
+        }
+        const idx = allSections.findIndex(s => s.section.slug === sectionSlug);
+        if (idx >= 0) {
+          currentSection = allSections[idx].section;
+          currentChapter = allSections[idx].chapter;
+          if (idx > 0) prevSection = allSections[idx - 1].section;
+          if (idx < allSections.length - 1) nextSection = allSections[idx + 1].section;
+        }
+        
+        // Render content
+        const rendered = renderNoteMarkdown(md);
+        
+        let html = `
+          <div class="wiki-article note-section">
+            <div class="note-breadcrumb">
+              <a href="/notes" data-link>Notes</a> / 
+              <a href="/notes/${courseSlug}" data-link>${course.title}</a> / 
+              <a href="/notes/${courseSlug}" data-link>Chapter ${currentChapter?.number}: ${currentChapter?.title}</a> / 
+              ${currentSection?.title || sectionSlug}
+            </div>
+            
+            <div class="note-nav">
+              ${prevSection ? `<a href="/notes/${courseSlug}/${prevSection.slug}" class="note-nav-prev" data-link>${prevSection.title}</a>` : '<span></span>'}
+              ${nextSection ? `<a href="/notes/${courseSlug}/${nextSection.slug}" class="note-nav-next" data-link>${nextSection.title}</a>` : '<span></span>'}
+            </div>
+            
+            <div class="note-content">
+              ${rendered}
+            </div>
+            
+            <div class="note-nav">
+              ${prevSection ? `<a href="/notes/${courseSlug}/${prevSection.slug}" class="note-nav-prev" data-link>${prevSection.title}</a>` : '<span></span>'}
+              ${nextSection ? `<a href="/notes/${courseSlug}/${nextSection.slug}" class="note-nav-next" data-link>${nextSection.title}</a>` : '<span></span>'}
+            </div>
+          </div>
+        `;
+        
+        document.getElementById('app').innerHTML = html;
+        updateNavState('/notes', `~/stephens/notes/${courseSlug}/${sectionSlug}.md`, `/notes/${courseSlug}/${sectionSlug}`);
+        renderMath();
+      } catch (e) {
+        document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Section not found</h1></div>';
+      }
+    }
+
+    function renderNoteMarkdown(md) {
+      // Strip frontmatter
+      md = md.replace(/^--- *\n[\s\S]*?\n--- *\n/, '');
+      
+      // Convert :::example with nested :::solution (must come first)
+      md = md.replace(/:::example\n([\s\S]*?):::solution\n([\s\S]*?):::\n:::/g,
+        '<div class="note-box note-example"><div class="note-box-content">$1</div><details class="note-solution"><summary>Show Solution</summary><div class="note-solution-content">$2</div></details></div>');
+      
+      // Convert :::definition blocks
+      md = md.replace(/:::definition\n([\s\S]*?):::/g, 
+        '<div class="note-box note-definition"><div class="note-box-title">Definition</div><div class="note-box-content">$1</div></div>');
+      
+      // Convert :::theorem blocks
+      md = md.replace(/:::theorem\n([\s\S]*?):::/g,
+        '<div class="note-box note-theorem"><div class="note-box-title">Theorem</div><div class="note-box-content">$1</div></div>');
+      
+      // Convert :::proof blocks
+      md = md.replace(/:::proof\n([\s\S]*?):::/g,
+        '<div class="note-box note-proof"><div class="note-box-title">Proof</div><div class="note-box-content">$1</div></div>');
+      
+      // Convert :::note blocks
+      md = md.replace(/:::note\n([\s\S]*?):::/g,
+        '<div class="note-box note-note"><div class="note-box-title">Note</div><div class="note-box-content">$1</div></div>');
+      
+      // Then run normal renderMarkdown
+      return renderMarkdown(md);
+    }
+
+    function updateNavState(basePath, statusPath, fullPath) {
+      document.querySelectorAll('.nav-tabs a').forEach(a => {
+        const href = a.getAttribute('href');
+        a.classList.toggle('active', href === basePath);
+      });
+      document.getElementById('status-file').textContent = statusPath;
+      if (fullPath && window.location.pathname !== fullPath) {
+        history.pushState({}, '', fullPath);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
     // File explorer folder functions
     async function loadExplorerFolders() {
       // Load blog posts into explorer
@@ -1097,6 +1334,39 @@
           `).join('');
         }
       } catch (e) { console.log('No blog posts'); }
+
+      // Load notes into explorer
+      try {
+        const res = await fetch('/notes/courses.json');
+        const courses = await res.json();
+        const notesChildren = document.getElementById('notes-children');
+        if (notesChildren) {
+          let html = '';
+          for (const course of courses) {
+            const courseRes = await fetch(`/notes/${course.slug}/course.json`);
+            const courseData = await courseRes.json();
+            
+            html += `<div class="file-folder" data-folder="notes-${course.slug}">`;
+            html += `<div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>${course.slug}/</span></div>`;
+            html += `<div class="folder-children">`;
+            
+            for (const chapter of courseData.chapters) {
+              html += `<div class="file-folder" data-folder="notes-${course.slug}-ch${chapter.number}" style="padding-left: 0.75rem;">`;
+              html += `<div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>ch${chapter.number}/</span></div>`;
+              html += `<div class="folder-children">`;
+              
+              for (const section of chapter.sections) {
+                html += `<div class="file-item" data-link="/notes/${course.slug}/${section.slug}" tabindex="0" style="padding-left: 0.75rem;"><span class="file-icon md"></span><span>${section.slug}.md</span></div>`;
+              }
+              
+              html += `</div></div>`;
+            }
+            
+            html += `</div></div>`;
+          }
+          notesChildren.innerHTML = html;
+        }
+      } catch (e) { console.log('No notes'); }
 
       // Load courses into explorer
       try {
@@ -1195,13 +1465,16 @@
     // Get all navigable items in the explorer (only visible ones, not in closed folders)
     function getFileItems() {
       return Array.from(document.querySelectorAll('#file-tree .file-item')).filter(item => {
-        // Check if item is inside a closed folder
-        const parentFolder = item.closest('.folder-children');
-        if (parentFolder) {
-          const folder = parentFolder.closest('.file-folder');
-          if (folder && !folder.classList.contains('open')) {
-            return false; // Skip items in closed folders
+        // Check if item is inside ANY closed folder (traverse all ancestors)
+        let el = item.parentElement;
+        while (el && el.id !== 'file-tree') {
+          if (el.classList.contains('folder-children')) {
+            const folder = el.closest('.file-folder');
+            if (folder && !folder.classList.contains('open')) {
+              return false; // Skip items in closed folders
+            }
           }
+          el = el.parentElement;
         }
         return true;
       });
@@ -1275,6 +1548,8 @@
       'blog': () => navigate('/blog'),
       't': () => navigate('/technical'),
       'technical': () => navigate('/technical'),
+      'n': () => navigate('/notes'),
+      'notes': () => navigate('/notes'),
       'e': () => navigate('/educational'),
       'edu': () => navigate('/educational'),
       'educational': () => navigate('/educational'),
@@ -1397,7 +1672,7 @@
     }
 
     function showRoutes() {
-      showMessage('Routes: / /about /research /blog /technical /educational');
+      showMessage('Routes: / /about /research /blog /notes /educational');
     }
 
     async function loadLatestPost() {
@@ -1438,6 +1713,7 @@
           else if (cmd.includes('research') || cmd === 'r') navigate('/research');
           else if (cmd.includes('blog') || cmd === 'b') navigate('/blog');
           else if (cmd.includes('tech')) navigate('/technical');
+          else if (cmd.includes('note') || cmd === 'n') navigate('/notes');
           else if (cmd.includes('edu') || cmd === 'e') navigate('/educational');
           else if (cmd.includes('help')) showHelp();
         } else {

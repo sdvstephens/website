@@ -1,0 +1,23 @@
+{
+  "slug": "calculus-i",
+  "title": "Single Variable Calculus",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Review",
+      "sections": [
+        { "number": "1.1", "slug": "1-1-functions", "title": "Functions" },
+        { "number": "1.2", "slug": "1-2-inverse-functions", "title": "Inverse Functions" }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Limits",
+      "sections": [
+        { "number": "2.1", "slug": "2-1-tangent-lines", "title": "Tangent Lines and Rates of Change" },
+        { "number": "2.2", "slug": "2-2-the-limit", "title": "The Limit" },
+        { "number": "2.3", "slug": "2-3-one-sided-limits", "title": "One-Sided Limits" }
+      ]
+    }
+  ]
+}
