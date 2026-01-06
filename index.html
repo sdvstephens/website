@@ -18,6 +18,9 @@
   <meta name="twitter:description" content="Neurobioengineering, Mathematical Physics, Philosophy, Cognitive Science">
   <meta name="twitter:image" content="https://samuel-stephens.com/sdvs.jpg">
   
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://samuel-stephens.com/">
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +35,8 @@
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>λ</text></svg>">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/sdvs.jpg">
   
   <style>
     /* Gruvbox Dark Hard */
@@ -441,6 +445,21 @@
     .back-link { display: inline-block; margin-bottom: 1rem; color: var(--blue); }
     .back-link:before { content: "← "; }
 
+    /* Comments section */
+    .comments-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--bg3);
+    }
+    .comments-section h2 {
+      color: var(--orange);
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .giscus {
+      margin-top: 1rem;
+    }
+
     /* Course directory styles */
     .course-tree { margin: 1rem 0; }
     .dept-section { margin-bottom: 1.5rem; }
@@ -612,7 +631,7 @@
                 <div class="infobox-value">Neurobioengineering<br>Mathematics<br>Philosophy<br>Cognitive Science<br>Education Policy<br>Politics of Education<br>Political Philosophy</div>
               </div>
               <div class="infobox-row">
-                <div class="infobox-label">Institution</div>
+                <div class="infobox-label">Institutions</div>
                 <div class="infobox-value">Beth Israel Medical Center<br>Harvard Medical School<br>City Council of Dallas</div>
               </div>
               <div class="infobox-row">
@@ -644,10 +663,10 @@
             </ol>
           </div>
 
-          <p><strong>S. D. V. Stephens</strong> is a biostatistical researcher and mathematician working at the intersection of neurobioengineering, mathematical physics, philosophy, and cognitive science. Currently based at Beth Israel Medical Center and Harvard Medical School, his work focuses on developing methodological frameworks for extracting causal treatment effects from observational critical care data.</p>
+          <p>Born in rural Texas, <strong>Samuel Desiderius Vichaama Stephens</strong> is a student, neuroscience researcher, and mathematician aspiring to work at the intersection of neurobioengineering, mathematical physics, philosophy, and cognitive science. Currently based in Cambridge, MA, at Beth Israel Medical Center and Harvard Medical School, his work focuses on developing methodological frameworks for seizure prediction and treatment. He also has interests in philosophy of natural science (Hempel's models of scientific explanation framework using Aristotelian logic replaced with non-classical logic), post-post modernism, education philosophy, and polyadic semigroups.</p>
 
           <h2 id="education">Education</h2>
-          <p>Stephens has pursued a diverse academic trajectory across multiple institutions:</p>
+          <p>Stephens has undergone a non-standard academic trajectory, which includes multiple institutions:</p>
           
           <h3>Harvard University (Aug. 2025 – Present)</h3>
           <p>Auditing coursework in mathematics including Studies in Algebra and Group Theory (55A), Studies in Real and Complex Analysis (55B), Modern China, Biology and Complexity, and Critical Theory.</p>
@@ -655,11 +674,9 @@
           <h3>Wabash College (Jan. 2025 – May 2025)</h3>
           <p>Coursework in Complex Analysis, Non-Fiction Creative Writing, Linguistics, Sociolinguistics, Principles of Neuroscience, and Organ Performance. Honors and Dean's Scholar.</p>
           
-          <h3>Kenyon College (July 2023 – Jan. 2024)</h3>
-          <p>Coursework in Abstract Algebra I, Contemporary Mathematics Seminar, Symbolic Logic, Philosophy of Natural Science, Piano and Violin Practicum, Quest for Justice, and STEM Research Methods. KEEP-STEM Scholar (NSF).</p>
-          
           <h3>Additional Education</h3>
           <ul>
+            <li><strong>Kenyon College</strong> (July 2023 – Jun. 2024) — Abstract Algebra I, Contemproary Mathematics Seminar, Symbolic Logic, Philosophy of Natural Science, Piano and Violin Practicum, Quest for Jusitice, and STEM Research Methods. KEEP-STEM Scholar (National Science Foundation).</li>
             <li><strong>Institute for Social Ecology</strong> (2024) — Legacies of Environmental Radicalism</li>
             <li><strong>UT Dallas</strong> (Audit, 2024) — Combinatorics, Advanced Calculus</li>
             <li><strong>Judge Barefoot Sanders Law Magnet</strong> (2019–2022) — H.S.D. Pre-Law Track, graduated with Honors and Distinction, 13 AP Exams, AP Capstone Scholar</li>
@@ -671,7 +688,7 @@
           <p>Developing CICADAS (Causal Inference for Critical-Care Anti-Seizure Treatment with Disease Dynamics, Automated PKPD/Trial Simulation, and Survival Optimization), a novel methodological framework enabling extraction of unbiased causal treatment effects from observational critical care data. Under supervision of Dr. M. Brandon Westover, analyzing PKPD interactions for diseased patients and modeling predictive formulas for treatment outcomes. Potential collaboration with the Human Brain Project in France under Dr. Viktor Jarsa for seizure simulation (?)</p>
           
           <h3>Independent Mathematical Research (Nov. 2024 – Present)</h3>
-          <p>Developing theoretic foundations for polyadic algebraic structures through extensions of classical group theory via changes in the adicity of operations. Preliminary axiomatization underway with novel theorem and proof construction. Interested in Lie polyadic algebras and groups for differential equations.</p>
+          <p>Developing theoretic foundations for polyadic algebraic structures through extensions of classical group theory via changes in the adicity of operations. Preliminary axiomatization underway with novel theorem and proof construction. Interested in Lie polyadic algebras and groups for differential equations. Currently seeking advisor.</p>
           
           <h3>UT Dallas (Nov. 2022 – Jan. 2024)</h3>
           <p>Collaborating on meta-analysis of the Bouba-Kiki effect regarding children with Misophonia and/or Autism Spectrum Disorder under Dr. Abdi. Currently on break. Will return to the literature reivew in a few years.</p>
@@ -753,8 +770,6 @@
         </div>
       `,
 
-      '/blog/': 'dynamic',
-
       '/technical': `
         <div class="wiki-article">
           <h1>Technical</h1>
@@ -784,8 +799,13 @@
     let pendingScrollTarget = null;
     
     async function navigate(path) {
+      // Normalize trailing slashes (but keep root /)
+      if (path !== '/' && path.endsWith('/')) {
+        path = path.slice(0, -1);
+      }
+      
       // Check for blog post route
-      if (path.startsWith('/blog/') && path !== '/blog/') {
+      if (path.startsWith('/blog/') && path !== '/blog') {
         const slug = path.replace('/blog/', '');
         await loadBlogPost(slug);
         return;
@@ -837,6 +857,9 @@
 
     // Markdown with LaTeX protection
     function renderMarkdown(md) {
+      // Strip YAML frontmatter if present (tolerant of whitespace)
+      md = md.replace(/^--- *\n[\s\S]*?\n--- *\n/, '');
+      
       // Protect LaTeX blocks from marked.js
       const blocks = [];
       let protected = md.replace(/\$\$[\s\S]*?\$\$/g, (match) => {
@@ -905,6 +928,16 @@
     }
 
     async function loadBlogPost(slug) {
+      // Check if we're returning from Giscus auth (URL has giscus hash or we already have the right post loaded)
+      const currentSlug = window.location.pathname.replace('/blog/', '');
+      const existingGiscus = document.querySelector('.giscus iframe');
+      const existingPostContent = document.querySelector('.post-content');
+      
+      // If same post is already loaded and Giscus iframe exists, don't reload (preserves auth state)
+      if (existingGiscus && existingPostContent && currentSlug === slug) {
+        return;
+      }
+      
       document.getElementById('app').innerHTML = '<p class="loading">Loading post...</p>';
       
       try {
@@ -917,12 +950,19 @@
           <div class="wiki-article">
             <a href="/blog" class="back-link" data-link>Back to blog</a>
             <div class="post-content">${html}</div>
+            <div class="comments-section">
+              <h2>Comments</h2>
+              <div class="giscus"></div>
+            </div>
           </div>
         `;
         
         document.getElementById('status-file').textContent = `~/stephens/blog/${slug}.md`;
-        history.pushState({}, '', `/blog/${slug}`);
+        // Preserve giscus auth token in URL if present (needed for auth callback)
+        const giscusParam = window.location.search.includes('giscus') ? window.location.search : '';
+        history.pushState({}, '', `/blog/${slug}${giscusParam}`);
         renderMath();
+        loadGiscus();
       } catch (e) {
         document.getElementById('app').innerHTML = `
           <div class="wiki-article">
@@ -931,6 +971,39 @@
           </div>
         `;
       }
+    }
+    
+    function loadGiscus() {
+      // Remove existing giscus elements
+      const existingScript = document.querySelector('script[src="https://giscus.app/client.js"]');
+      if (existingScript) existingScript.remove();
+      
+      const existingWidget = document.querySelector('giscus-widget');
+      if (existingWidget) existingWidget.remove();
+      
+      const container = document.querySelector('.giscus');
+      if (!container) return;
+      
+      // Clear container
+      container.innerHTML = '';
+      
+      const script = document.createElement('script');
+      script.src = 'https://giscus.app/client.js';
+      script.setAttribute('data-repo', 'sdvstephens/website');
+      script.setAttribute('data-repo-id', 'R_kgDOQop0kg');
+      script.setAttribute('data-category', 'General');
+      script.setAttribute('data-category-id', 'DIC_kwDOQop0ks4CzyZd');
+      script.setAttribute('data-mapping', 'pathname');
+      script.setAttribute('data-strict', '1');
+      script.setAttribute('data-reactions-enabled', '1');
+      script.setAttribute('data-emit-metadata', '0');
+      script.setAttribute('data-input-position', 'bottom');
+      script.setAttribute('data-theme', 'gruvbox_dark');
+      script.setAttribute('data-lang', 'en');
+      script.setAttribute('crossorigin', 'anonymous');
+      script.async = true;
+      
+      container.appendChild(script);
     }
 
     // Course directory functions
@@ -1234,7 +1307,7 @@
       'zen': () => toggleZen(),
       
       // Fun
-      'version': () => showMessage('samuel-stephens.com v1.0 — Built with vim and coffee'),
+      'version': () => showMessage('samuel-stephens.com v1.0 — Built with vim and misery'),
       'echo': (args) => showMessage(args || ''),
     };
 
@@ -1520,8 +1593,7 @@
 
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
-      const path = window.location.pathname;
-      navigate(pages[path] ? path : '/');
+      navigate(window.location.pathname);
       updateScrollPosition();
       updateTime();
       loadExplorerFolders();

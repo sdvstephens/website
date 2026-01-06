@@ -1,37 +1,72 @@
 [
   {
+    "slug": "the-sun",
+    "title": "The sun has fallen down",
+    "date": "2026-01-05",
+    "excerpt": "The sun has fallen down",
+    "tags": [
+      "personal",
+      "politics"
+    ]
+  },
+  {
+    "slug": "test",
+    "title": "Test Post",
+    "date": "2025-01-04",
+    "excerpt": "Testing the publish command",
+    "tags": [
+      "test"
+    ]
+  },
+  {
     "slug": "welcome",
     "title": "Welcome to the Blog",
     "date": "2025-12-12",
-    "excerpt": "First post — testing Markdown and LaTeX rendering.",
-    "tags": ["meta"]
+    "excerpt": "First post \u2014 testing Markdown and LaTeX rendering.",
+    "tags": [
+      "meta"
+    ]
   },
   {
     "slug": "group-theory-intro",
     "title": "An Introduction to Group Theory",
     "date": "2025-12-10",
     "excerpt": "Exploring the fundamental algebraic structure that underlies much of modern mathematics.",
-    "tags": ["mathematics", "algebra"]
+    "tags": [
+      "mathematics",
+      "algebra"
+    ]
   },
   {
     "slug": "causal-inference-healthcare",
     "title": "Causal Inference in Healthcare Data",
     "date": "2025-12-08",
     "excerpt": "Why observational data requires careful methodology to extract meaningful treatment effects.",
-    "tags": ["research", "statistics"]
+    "tags": [
+      "research",
+      "statistics"
+    ]
   },
   {
     "slug": "neovim-latex-workflow",
     "title": "My Neovim + LaTeX Workflow",
     "date": "2025-12-05",
     "excerpt": "How I take lecture notes in real-time using Neovim, UltiSnips, and custom automation.",
-    "tags": ["technical", "neovim", "latex"]
+    "tags": [
+      "technical",
+      "neovim",
+      "latex"
+    ]
   },
   {
     "slug": "polyadic-algebras",
     "title": "Notes on Polyadic Algebraic Structures",
     "date": "2025-12-01",
     "excerpt": "Preliminary thoughts on extending classical group theory through changes in operation adicity.",
-    "tags": ["mathematics", "algebra", "research"]
+    "tags": [
+      "mathematics",
+      "algebra",
+      "research"
+    ]
   }
 ]

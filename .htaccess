@@ -12,14 +12,15 @@ Options -Indexes
 RewriteEngine On
 RewriteBase /
 
-# Serve actual files directly (css, js, images, etc.)
+# Redirect www to non-www
+RewriteCond %{HTTP_HOST} ^www\.samuel-stephens\.com$ [NC]
+RewriteRule ^(.*)$ https://samuel-stephens.com/$1 [R=301,L]
+
+# Serve actual files directly (json, md, images, pdf, etc.)
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# Serve actual directories directly
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-
-# Everything else goes to SPA
-RewriteRule ^ /index.html [L]
+# Everything else goes to SPA (including directory paths like /blog)
+# QSA flag preserves query strings (needed for Giscus auth callback)
+RewriteRule ^ /index.html [L,QSA]
 </IfModule>
