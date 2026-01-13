@@ -23,5 +23,10 @@
     "slug": "math-55b",
     "title": "Math 55b",
     "description": "Real and complex analysis (Harvard Math 55 second semester)"
+  },
+  {
+    "slug": "biology",
+    "title": "Biology",
+    "description": "Molecular biology, cell biology, genetics, and biochemistry"
   }
 ]

@@ -545,6 +545,9 @@
     .note-note { border-color: var(--fg3); }
     .note-note .note-box-title { color: var(--fg3); }
     
+    .note-proposition { border-color: var(--orange); }
+    .note-proposition .note-box-title { color: var(--orange); }
+    
     .note-solution summary { cursor: pointer; color: var(--orange); margin-top: 1rem; font-weight: bold; }
     .note-solution summary:hover { text-decoration: underline; }
     .note-solution-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--bg3); }
@@ -692,15 +695,15 @@
               </div>
               <div class="infobox-row">
                 <div class="infobox-label">Education</div>
-                <div class="infobox-value">Harvard (Audit)<br>Wabash College<br>Kenyon College</div>
+                <div class="infobox-value">MIT (Audit)<br>Harvard (Audit)<br>Wabash College<br>Kenyon College</div>
               </div>
               <div class="infobox-row">
                 <div class="infobox-label">Tools</div>
                 <div class="infobox-value">LaTeX, Python, R<br>Neovim, Emacs</div>
               </div>
               <div class="infobox-row">
-                <div class="infobox-label">GitHub</div>
-                <div class="infobox-value"><a href="https://github.com/sdvstephens" target="_blank">sdvstephens</a></div>
+                <div class="infobox-label">GitHub and contact</div>
+                <div class="infobox-value"><a href="https://github.com/sdvstephens" target="_blank">sdvstephens</a><br>sstephe9[at]bidmc.harvard.edu</div>
               </div>
               <div class="infobox-row">
                 <div class="infobox-label">YouTube</div>
@@ -1283,27 +1286,34 @@
       // Strip frontmatter
       md = md.replace(/^--- *\n[\s\S]*?\n--- *\n/, '');
       
+      // Helper to process inner content
+      const processInner = (content) => renderMarkdown(content);
+      
       // Convert :::example with nested :::solution (must come first)
       md = md.replace(/:::example\n([\s\S]*?):::solution\n([\s\S]*?):::\n:::/g,
-        '<div class="note-box note-example"><div class="note-box-content">$1</div><details class="note-solution"><summary>Show Solution</summary><div class="note-solution-content">$2</div></details></div>');
+        (_, ex, sol) => `<div class="note-box note-example"><div class="note-box-content">${processInner(ex)}</div><details class="note-solution"><summary>Show Solution</summary><div class="note-solution-content">${processInner(sol)}</div></details></div>`);
       
       // Convert :::definition blocks
       md = md.replace(/:::definition\n([\s\S]*?):::/g, 
-        '<div class="note-box note-definition"><div class="note-box-title">Definition</div><div class="note-box-content">$1</div></div>');
+        (_, content) => `<div class="note-box note-definition"><div class="note-box-title">Definition</div><div class="note-box-content">${processInner(content)}</div></div>`);
       
       // Convert :::theorem blocks
       md = md.replace(/:::theorem\n([\s\S]*?):::/g,
-        '<div class="note-box note-theorem"><div class="note-box-title">Theorem</div><div class="note-box-content">$1</div></div>');
+        (_, content) => `<div class="note-box note-theorem"><div class="note-box-title">Theorem</div><div class="note-box-content">${processInner(content)}</div></div>`);
       
       // Convert :::proof blocks
       md = md.replace(/:::proof\n([\s\S]*?):::/g,
-        '<div class="note-box note-proof"><div class="note-box-title">Proof</div><div class="note-box-content">$1</div></div>');
+        (_, content) => `<div class="note-box note-proof"><div class="note-box-title">Proof</div><div class="note-box-content">${processInner(content)}</div></div>`);
       
       // Convert :::note blocks
       md = md.replace(/:::note\n([\s\S]*?):::/g,
-        '<div class="note-box note-note"><div class="note-box-title">Note</div><div class="note-box-content">$1</div></div>');
+        (_, content) => `<div class="note-box note-note"><div class="note-box-title">Note</div><div class="note-box-content">${processInner(content)}</div></div>`);
       
-      // Then run normal renderMarkdown
+      // Convert :::proposition blocks
+      md = md.replace(/:::proposition\n([\s\S]*?):::/g,
+        (_, content) => `<div class="note-box note-proposition"><div class="note-box-title">Proposition</div><div class="note-box-content">${processInner(content)}</div></div>`);
+      
+      // Process remaining markdown outside boxes
       return renderMarkdown(md);
     }
 
