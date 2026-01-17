@@ -134,7 +134,7 @@ given by $H \mapsto H/N = \pi(H)$ with inverse $\bar{H} \mapsto \pi^{-1}(\bar{H}
 :::proof
 Given $H \supset N$, we have $H/N = \{hN : h \in H\}$, which is a subgroup of $G/N$. Given a subgroup $\bar{H} \subset G/N$, define $H = \pi^{-1}(\bar{H}) = \{g \in G : gN \in \bar{H}\}$. This contains $N$ (since $eN = N \in \bar{H}$) and is a subgroup.
 
-These operations are inverses: starting with $H \supset N$, we get $\pi^{-1}(H/N) = \{g : gN \in H/N\} = \{g : gN = hN \text{ for some } h \in H\} = \{g : g \in hN \text{ for some } h \in H\} = HN = H$ (since $N \subset H$).
+These operations are inverses: starting with $H \supset N$, we get $$\pi^{-1}(H/N) = \{g : gN \in H/N\} = \{g : gN = hN \text{ for some } h \in H\}$$$$= \{g : g \in hN \text{ for some } h \in H\} = HN = H$$ (since $N \subset H$).
 
 Starting with $\bar{H} \subset G/N$: $\pi(\pi^{-1}(\bar{H})) = \{gN : gN \in \bar{H}\} = \bar{H}$.
 

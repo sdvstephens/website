@@ -31,9 +31,11 @@ Identity is $(e_G, e_H)$, inverse of $(a, b)$ is $(a^{-1}, b^{-1})$.
 :::
 :::
 
-:::example
+
+:::note
 We have $\mathbb{Z}/2 \times \mathbb{Z}/3 \cong \mathbb{Z}/6$ (since $\gcd(2,3) = 1$), but $\mathbb{Z}/2 \times \mathbb{Z}/2 \not\cong \mathbb{Z}/4$ (the former has no element of order 4).
 :::
+
 
 This generalizes to arbitrary (even infinite) collections of groups.
 
@@ -55,7 +57,6 @@ $$\bigoplus_{i \in I} G_i = \{(a_i)_{i \in I} \in \prod_{i \in I} G_i : a_i = e_
 For finite index sets, $\prod = \bigoplus$. For infinite sets, they differ crucially.
 :::
 
-:::example
 **Power series vs polynomials:** Taking $G_i = (\mathbb{R}, +)$ for all $i \in \mathbb{N}$:
 
 $$\prod_{i=0}^{\infty} \mathbb{R} \cong \mathbb{R}[[x]] \quad \text{(formal power series under addition)}$$
@@ -63,7 +64,6 @@ $$\prod_{i=0}^{\infty} \mathbb{R} \cong \mathbb{R}[[x]] \quad \text{(formal powe
 $$\bigoplus_{i=0}^{\infty} \mathbb{R} \cong \mathbb{R}[x] \quad \text{(polynomials under addition)}$$
 
 A power series $\sum_{i=0}^\infty a_i x^i$ can have infinitely many nonzero terms; a polynomial cannot.
-:::
 
 :::example
 **Exercises:**

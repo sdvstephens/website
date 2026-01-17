@@ -1474,20 +1474,29 @@
       const processInner = (content) => marked.parse(content);
       
       // Convert :::example with nested :::solution (must come first)
-      // More flexible whitespace handling: \s* allows trailing spaces, [\r\n]+ handles line endings
-      md = md.replace(/:::example\s*[\r\n]+([\s\S]*?):::solution\s*[\r\n]+([\s\S]*?):::\s*[\r\n]+:::/g,
-        (_, ex, sol) => `<div class="note-box note-example"><div class="note-box-content">${processInner(ex.trim())}</div><details class="note-solution"><summary>Show Solution</summary><div class="note-solution-content">${processInner(sol.trim())}</div></details></div>`);
+      // Handle both ":::example\n" and ":::example Title\n" formats
+      // Use negative lookahead to not cross other ::: boundaries
+      md = md.replace(/:::example[ \t]*([^\n]*)\n((?:(?!:::).|\n)*?):::solution\s*[\r\n]+([\s\S]*?):::\s*[\r\n]*:::/g,
+        (_, title, ex, sol) => {
+          const titleHtml = title.trim() ? `<div class="note-box-title">${processInner(title.trim())}</div>` : '';
+          return `<div class="note-box note-example">${titleHtml}<div class="note-box-content">${processInner(ex.trim())}</div><details class="note-solution"><summary>Show Solution</summary><div class="note-solution-content">${processInner(sol.trim())}</div></details></div>`;
+        });
       
       // Convert standalone :::example blocks (no solution)
-      md = md.replace(/:::example\s*[\r\n]+([\s\S]*?):::/g,
-        (_, content) => `<div class="note-box note-example"><div class="note-box-title">Example</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
+      // Handle both ":::example\n" and ":::example Title\n" formats
+      md = md.replace(/:::example[ \t]*([^\n]*)\n([\s\S]*?):::/g,
+        (_, title, content) => {
+          const titleHtml = title.trim() ? `<div class="note-box-title">${processInner(title.trim())}</div>` : '<div class="note-box-title">Example</div>';
+          return `<div class="note-box note-example">${titleHtml}<div class="note-box-content">${processInner(content.trim())}</div></div>`;
+        });
       
       // Convert :::definition blocks
       md = md.replace(/:::definition\s*[\r\n]+([\s\S]*?):::/g, 
         (_, content) => `<div class="note-box note-definition"><div class="note-box-title">Definition</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
       
       // Convert :::theorem blocks (with optional nested :::proof)
-      md = md.replace(/:::theorem\s*[\r\n]+([\s\S]*?):::proof\s*[\r\n]+([\s\S]*?):::\s*[\r\n]*:::/g,
+      // Use negative lookahead to not cross other ::: boundaries
+      md = md.replace(/:::theorem\s*[\r\n]+((?:(?!:::).|\n)*?):::proof\s*[\r\n]+([\s\S]*?):::\s*[\r\n]*:::/g,
         (_, thm, proof) => `<div class="note-box note-theorem"><div class="note-box-title">Theorem</div><div class="note-box-content">${processInner(thm.trim())}</div><div class="note-box note-proof"><div class="note-box-title">Proof</div><div class="note-box-content">${processInner(proof.trim())}</div></div></div>`);
       
       // Convert standalone :::theorem blocks
@@ -1503,7 +1512,8 @@
         (_, content) => `<div class="note-box note-note"><div class="note-box-title">Note</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
       
       // Convert :::proposition blocks (with optional nested :::proof)
-      md = md.replace(/:::proposition\s*[\r\n]+([\s\S]*?):::proof\s*[\r\n]+([\s\S]*?):::\s*[\r\n]*:::/g,
+      // Use negative lookahead to not cross other ::: boundaries
+      md = md.replace(/:::proposition\s*[\r\n]+((?:(?!:::).|\n)*?):::proof\s*[\r\n]+([\s\S]*?):::\s*[\r\n]*:::/g,
         (_, prop, proof) => `<div class="note-box note-proposition"><div class="note-box-title">Proposition</div><div class="note-box-content">${processInner(prop.trim())}</div><div class="note-box note-proof"><div class="note-box-title">Proof</div><div class="note-box-content">${processInner(proof.trim())}</div></div></div>`);
       
       // Convert standalone :::proposition blocks
