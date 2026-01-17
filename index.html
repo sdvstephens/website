@@ -26,10 +26,180 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- KaTeX -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <!-- MathJax -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']],
+        processEscapes: true,
+        packages: {'[+]': ['ams', 'mathtools', 'physics', 'cancel', 'color', 'boldsymbol', 'cases', 'extpfeil', 'newcommand', 'autoload']},
+        macros: {
+          // ===== OPERATORS =====
+          dom: '\\operatorname{dom}',
+          ran: '\\operatorname{ran}',
+          im: '\\operatorname{im}',
+          Img: '\\operatorname{Im}',
+          img: '\\operatorname{im}',
+          ker: '\\operatorname{ker}',
+          Ker: '\\operatorname{Ker}',
+          coker: '\\operatorname{coker}',
+          Coker: '\\operatorname{Coker}',
+          rank: '\\operatorname{rank}',
+          nullity: '\\operatorname{null}',
+          Tr: '\\operatorname{Tr}',
+          tr: '\\operatorname{tr}',
+          pr: '\\operatorname{pr}',
+          id: '\\operatorname{id}',
+          Hom: '\\operatorname{Hom}',
+          Mor: '\\operatorname{Mor}',
+          End: '\\operatorname{End}',
+          Aut: '\\operatorname{Aut}',
+          Inn: '\\operatorname{Inn}',
+          Sym: '\\operatorname{Sym}',
+          Stab: '\\operatorname{Stab}',
+          Tor: '\\operatorname{Tor}',
+          Ext: '\\operatorname{Ext}',
+          Spec: '\\operatorname{Spec}',
+          Gal: '\\operatorname{Gal}',
+          GL: '\\operatorname{GL}',
+          SL: '\\operatorname{SL}',
+          Syl: '\\operatorname{Syl}',
+          sgn: '\\operatorname{sgn}',
+          sign: '\\operatorname{sign}',
+          ord: '\\operatorname{ord}',
+          diam: '\\operatorname{diam}',
+          diag: '\\operatorname{diag}',
+          lcm: '\\operatorname{lcm}',
+          cis: '\\operatorname{cis}',
+          Lap: '\\mathcal{L}',
+          Var: '\\operatorname{Var}',
+          Cov: '\\operatorname{Cov}',
+          E: '\\operatorname{E}',
+          ev: '\\operatorname{ev}',
+          ext: '\\operatorname{ext}',
+          pred: '\\operatorname{pred}',
+          argmin: '\\operatorname*{arg\\,min}',
+          argmax: '\\operatorname*{arg\\,max}',
+          
+          // ===== NUMBER SETS =====
+          RR: '\\mathbb{R}',
+          NN: '\\mathbb{N}',
+          ZZ: '\\mathbb{Z}',
+          QQ: '\\mathbb{Q}',
+          CC: '\\mathbb{C}',
+          FF: '\\mathbb{F}',
+          PP: '\\mathbb{P}',
+          HH: '\\mathbb{H}',
+          EE: '\\mathbb{E}',
+          On: '\\mathrm{On}',
+          
+          // ===== SHORTCUTS =====
+          inv: '^{-1}',
+          eps: '\\epsilon',
+          veps: '\\varepsilon',
+          lm: '\\lambda',
+          del: '\\partial',
+          ol: ['\\overline{#1}', 1],
+          ul: ['\\underline{#1}', 1],
+          wt: ['\\widetilde{#1}', 1],
+          wh: ['\\widehat{#1}', 1],
+          bs: ['\\boldsymbol{#1}', 1],
+          
+          // ===== ARROWS & RELATIONS =====
+          liff: '\\leftrightarrow',
+          lthen: '\\rightarrow',
+          surjto: '\\twoheadrightarrow',
+          injto: '\\hookrightarrow',
+          taking: ['\\xrightarrow{#1}', 1],
+          defeq: '\\overset{\\mathrm{def}}{=}',
+          coloneqq: '\\mathrel{\\vcenter{:}}=',
+          
+          // ===== GEOMETRY =====
+          dang: '\\measuredangle',
+          ray: ['\\overrightarrow{#1}', 1],
+          seg: ['\\overline{#1}', 1],
+          arc: ['\\wideparen{#1}', 1],
+          
+          // ===== SUMS & PRODUCTS =====
+          cycsum: '\\sum_{\\mathrm{cyc}}',
+          symsum: '\\sum_{\\mathrm{sym}}',
+          cycprod: '\\prod_{\\mathrm{cyc}}',
+          symprod: '\\prod_{\\mathrm{sym}}',
+          
+          // ===== DERIVATIVES =====
+          od: ['\\frac{\\mathrm{d} #1}{\\mathrm{d} #2}', 2],
+          oD: ['\\frac{\\mathrm{d}^{#1} #2}{\\mathrm{d} {#3}^{#1}}', 3],
+          pd: ['\\frac{\\partial #1}{\\partial #2}', 2],
+          pD: ['\\frac{\\partial^{#1} #2}{\\partial {#3}^{#1}}', 3],
+          
+          // ===== MISC =====
+          half: '\\frac{1}{2}',
+          dps: ['\\displaystyle{#1}', 1],
+          lt: '\\left',
+          rt: '\\right',
+          exs: '\\exists',
+          charin: '\\text{ char }',
+          
+          // ===== MATHCAL =====
+          mcA: '\\mathcal{A}', mcB: '\\mathcal{B}', mcC: '\\mathcal{C}',
+          mcD: '\\mathcal{D}', mcE: '\\mathcal{E}', mcF: '\\mathcal{F}',
+          mcG: '\\mathcal{G}', mcH: '\\mathcal{H}', mcI: '\\mathcal{I}',
+          mcJ: '\\mathcal{J}', mcK: '\\mathcal{K}', mcL: '\\mathcal{L}',
+          mcM: '\\mathcal{M}', mcN: '\\mathcal{N}', mcO: '\\mathcal{O}',
+          mcP: '\\mathcal{P}', mcQ: '\\mathcal{Q}', mcR: '\\mathcal{R}',
+          mcS: '\\mathcal{S}', mcT: '\\mathcal{T}', mcU: '\\mathcal{U}',
+          mcV: '\\mathcal{V}', mcW: '\\mathcal{W}', mcX: '\\mathcal{X}',
+          mcY: '\\mathcal{Y}', mcZ: '\\mathcal{Z}',
+          
+          // ===== MATHFRAK =====
+          mfA: '\\mathfrak{A}', mfB: '\\mathfrak{B}', mfC: '\\mathfrak{C}',
+          mfD: '\\mathfrak{D}', mfE: '\\mathfrak{E}', mfF: '\\mathfrak{F}',
+          mfG: '\\mathfrak{G}', mfH: '\\mathfrak{H}', mfI: '\\mathfrak{I}',
+          mfJ: '\\mathfrak{J}', mfK: '\\mathfrak{K}', mfL: '\\mathfrak{L}',
+          mfM: '\\mathfrak{M}', mfN: '\\mathfrak{N}', mfO: '\\mathfrak{O}',
+          mfP: '\\mathfrak{P}', mfQ: '\\mathfrak{Q}', mfR: '\\mathfrak{R}',
+          mfS: '\\mathfrak{S}', mfT: '\\mathfrak{T}', mfU: '\\mathfrak{U}',
+          mfV: '\\mathfrak{V}', mfW: '\\mathfrak{W}', mfX: '\\mathfrak{X}',
+          mfY: '\\mathfrak{Y}', mfZ: '\\mathfrak{Z}',
+          mfa: '\\mathfrak{a}', mfb: '\\mathfrak{b}', mfc: '\\mathfrak{c}',
+          mfd: '\\mathfrak{d}', mfe: '\\mathfrak{e}', mff: '\\mathfrak{f}',
+          mfg: '\\mathfrak{g}', mfh: '\\mathfrak{h}', mfi: '\\mathfrak{i}',
+          mfj: '\\mathfrak{j}', mfk: '\\mathfrak{k}', mfl: '\\mathfrak{l}',
+          mfm: '\\mathfrak{m}', mfn: '\\mathfrak{n}', mfo: '\\mathfrak{o}',
+          mfp: '\\mathfrak{p}', mfq: '\\mathfrak{q}', mfr: '\\mathfrak{r}',
+          mfs: '\\mathfrak{s}', mft: '\\mathfrak{t}', mfu: '\\mathfrak{u}',
+          mfv: '\\mathfrak{v}', mfw: '\\mathfrak{w}', mfx: '\\mathfrak{x}',
+          mfy: '\\mathfrak{y}', mfz: '\\mathfrak{z}',
+          
+          // ===== MATHBB =====
+          bbA: '\\mathbb{A}', bbB: '\\mathbb{B}', bbC: '\\mathbb{C}',
+          bbD: '\\mathbb{D}', bbE: '\\mathbb{E}', bbF: '\\mathbb{F}',
+          bbG: '\\mathbb{G}', bbH: '\\mathbb{H}', bbI: '\\mathbb{I}',
+          bbJ: '\\mathbb{J}', bbK: '\\mathbb{K}', bbL: '\\mathbb{L}',
+          bbM: '\\mathbb{M}', bbN: '\\mathbb{N}', bbO: '\\mathbb{O}',
+          bbP: '\\mathbb{P}', bbQ: '\\mathbb{Q}', bbR: '\\mathbb{R}',
+          bbS: '\\mathbb{S}', bbT: '\\mathbb{T}', bbU: '\\mathbb{U}',
+          bbV: '\\mathbb{V}', bbW: '\\mathbb{W}', bbX: '\\mathbb{X}',
+          bbY: '\\mathbb{Y}', bbZ: '\\mathbb{Z}',
+          
+          // ===== LIE ALGEBRA =====
+          kb: '\\mathfrak{b}', kg: '\\mathfrak{g}', kh: '\\mathfrak{h}',
+          kn: '\\mathfrak{n}', ku: '\\mathfrak{u}', kz: '\\mathfrak{z}',
+          km: '\\mathfrak{m}', kp: '\\mathfrak{p}', kq: '\\mathfrak{q}',
+          gl: '\\mathfrak{gl}',
+          slie: '\\mathfrak{sl}'
+        }
+      },
+      loader: {
+        load: ['[tex]/ams', '[tex]/mathtools', '[tex]/physics', '[tex]/cancel', '[tex]/color', '[tex]/boldsymbol', '[tex]/cases', '[tex]/extpfeil', '[tex]/newcommand', '[tex]/autoload']
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
   
   <!-- Marked.js for Markdown -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -548,6 +718,9 @@
     .note-proposition { border-color: var(--orange); }
     .note-proposition .note-box-title { color: var(--orange); }
     
+    .note-corollary { border-color: var(--blue); }
+    .note-corollary .note-box-title { color: var(--blue); }
+    
     .note-solution summary { cursor: pointer; color: var(--orange); margin-top: 1rem; font-weight: bold; }
     .note-solution summary:hover { text-decoration: underline; }
     .note-solution-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--bg3); }
@@ -555,6 +728,11 @@
     .note-content table { border-collapse: collapse; margin: 1rem 0; }
     .note-content th, .note-content td { border: 1px solid var(--bg3); padding: 0.5rem 1rem; text-align: left; }
     .note-content th { background: var(--bg2); color: var(--yellow); }
+    
+    /* MathJax display math styling */
+    .MJX-TEX { font-size: 1.1em; }
+    mjx-container[display="true"] { display: block; text-align: center; margin: 1.5rem 0; overflow-x: auto; }
+    mjx-container:not([display="true"]) { display: inline; }
   </style>
 </head>
 <body>
@@ -915,13 +1093,8 @@
     }
 
     function renderMath() {
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMathInElement(document.getElementById('app'), {
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false}
-          ]
-        });
+      if (typeof MathJax !== 'undefined' && MathJax.typeset) {
+        MathJax.typeset([document.getElementById('app')]);
       }
     }
 
@@ -1286,35 +1459,68 @@
       // Strip frontmatter
       md = md.replace(/^--- *\n[\s\S]*?\n--- *\n/, '');
       
-      // Helper to process inner content
-      const processInner = (content) => renderMarkdown(content);
+      // FIRST: Protect all LaTeX globally before ANY processing
+      const latexBlocks = [];
+      md = md.replace(/\$\$[\s\S]*?\$\$/g, (match) => {
+        latexBlocks.push(match);
+        return `%%LATEX_BLOCK_${latexBlocks.length - 1}%%`;
+      });
+      md = md.replace(/\$[^\$\n]+?\$/g, (match) => {
+        latexBlocks.push(match);
+        return `%%LATEX_INLINE_${latexBlocks.length - 1}%%`;
+      });
+      
+      // Helper to process inner content (just marked, LaTeX already protected)
+      const processInner = (content) => marked.parse(content);
       
       // Convert :::example with nested :::solution (must come first)
-      md = md.replace(/:::example\n([\s\S]*?):::solution\n([\s\S]*?):::\n:::/g,
-        (_, ex, sol) => `<div class="note-box note-example"><div class="note-box-content">${processInner(ex)}</div><details class="note-solution"><summary>Show Solution</summary><div class="note-solution-content">${processInner(sol)}</div></details></div>`);
+      // More flexible whitespace handling: \s* allows trailing spaces, [\r\n]+ handles line endings
+      md = md.replace(/:::example\s*[\r\n]+([\s\S]*?):::solution\s*[\r\n]+([\s\S]*?):::\s*[\r\n]+:::/g,
+        (_, ex, sol) => `<div class="note-box note-example"><div class="note-box-content">${processInner(ex.trim())}</div><details class="note-solution"><summary>Show Solution</summary><div class="note-solution-content">${processInner(sol.trim())}</div></details></div>`);
+      
+      // Convert standalone :::example blocks (no solution)
+      md = md.replace(/:::example\s*[\r\n]+([\s\S]*?):::/g,
+        (_, content) => `<div class="note-box note-example"><div class="note-box-title">Example</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
       
       // Convert :::definition blocks
-      md = md.replace(/:::definition\n([\s\S]*?):::/g, 
-        (_, content) => `<div class="note-box note-definition"><div class="note-box-title">Definition</div><div class="note-box-content">${processInner(content)}</div></div>`);
+      md = md.replace(/:::definition\s*[\r\n]+([\s\S]*?):::/g, 
+        (_, content) => `<div class="note-box note-definition"><div class="note-box-title">Definition</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
       
-      // Convert :::theorem blocks
-      md = md.replace(/:::theorem\n([\s\S]*?):::/g,
-        (_, content) => `<div class="note-box note-theorem"><div class="note-box-title">Theorem</div><div class="note-box-content">${processInner(content)}</div></div>`);
+      // Convert :::theorem blocks (with optional nested :::proof)
+      md = md.replace(/:::theorem\s*[\r\n]+([\s\S]*?):::proof\s*[\r\n]+([\s\S]*?):::\s*[\r\n]*:::/g,
+        (_, thm, proof) => `<div class="note-box note-theorem"><div class="note-box-title">Theorem</div><div class="note-box-content">${processInner(thm.trim())}</div><div class="note-box note-proof"><div class="note-box-title">Proof</div><div class="note-box-content">${processInner(proof.trim())}</div></div></div>`);
+      
+      // Convert standalone :::theorem blocks
+      md = md.replace(/:::theorem\s*[\r\n]+([\s\S]*?):::/g,
+        (_, content) => `<div class="note-box note-theorem"><div class="note-box-title">Theorem</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
       
       // Convert :::proof blocks
-      md = md.replace(/:::proof\n([\s\S]*?):::/g,
-        (_, content) => `<div class="note-box note-proof"><div class="note-box-title">Proof</div><div class="note-box-content">${processInner(content)}</div></div>`);
+      md = md.replace(/:::proof\s*[\r\n]+([\s\S]*?):::/g,
+        (_, content) => `<div class="note-box note-proof"><div class="note-box-title">Proof</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
       
       // Convert :::note blocks
-      md = md.replace(/:::note\n([\s\S]*?):::/g,
-        (_, content) => `<div class="note-box note-note"><div class="note-box-title">Note</div><div class="note-box-content">${processInner(content)}</div></div>`);
+      md = md.replace(/:::note\s*[\r\n]+([\s\S]*?):::/g,
+        (_, content) => `<div class="note-box note-note"><div class="note-box-title">Note</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
       
-      // Convert :::proposition blocks
-      md = md.replace(/:::proposition\n([\s\S]*?):::/g,
-        (_, content) => `<div class="note-box note-proposition"><div class="note-box-title">Proposition</div><div class="note-box-content">${processInner(content)}</div></div>`);
+      // Convert :::proposition blocks (with optional nested :::proof)
+      md = md.replace(/:::proposition\s*[\r\n]+([\s\S]*?):::proof\s*[\r\n]+([\s\S]*?):::\s*[\r\n]*:::/g,
+        (_, prop, proof) => `<div class="note-box note-proposition"><div class="note-box-title">Proposition</div><div class="note-box-content">${processInner(prop.trim())}</div><div class="note-box note-proof"><div class="note-box-title">Proof</div><div class="note-box-content">${processInner(proof.trim())}</div></div></div>`);
+      
+      // Convert standalone :::proposition blocks
+      md = md.replace(/:::proposition\s*[\r\n]+([\s\S]*?):::/g,
+        (_, content) => `<div class="note-box note-proposition"><div class="note-box-title">Proposition</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
+      
+      // Convert :::corollary blocks
+      md = md.replace(/:::corollary\s*[\r\n]+([\s\S]*?):::/g,
+        (_, content) => `<div class="note-box note-corollary"><div class="note-box-title">Corollary</div><div class="note-box-content">${processInner(content.trim())}</div></div>`);
       
       // Process remaining markdown outside boxes
-      return renderMarkdown(md);
+      let html = marked.parse(md);
+      
+      // Restore ALL LaTeX at the very end
+      html = html.replace(/%%LATEX_(BLOCK|INLINE)_(\d+)%%/g, (_, type, idx) => latexBlocks[parseInt(idx)]);
+      
+      return html;
     }
 
     function updateNavState(basePath, statusPath, fullPath) {

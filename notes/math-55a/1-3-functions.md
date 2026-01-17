@@ -58,7 +58,12 @@ Bijections are derived from an equivalence relation $R$ in $X$ with $aRb \iff f(
 :::definition
 **Characteristic functions:** If $A \subset X$ the characteristic function of $A$ is the function $\chi : X \to 2$ given by
 
-$$\chi(x) = \begin{cases} 1 & \text{if } x \in A \\ 0 & \text{if } x \in X - A \end{cases}$$
+$$
+\chi(x) = \begin{cases}
+1 & \text{if } x \in A \\
+0 & \text{if } x \in X - A ,
+\end{cases}
+$$
 
 however, we may write $\chi_A$ to indicate that it depends on $A$. The function that assigns to each $A \subset X$, i.e., $\mathcal{P}(X)$, the characteristic function of $A \in 2^X$ is a bijection, i.e., $f : \mathcal{P}(X) \leftrightarrow 2^X$.
 :::
