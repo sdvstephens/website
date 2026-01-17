@@ -37,41 +37,12 @@
     ]
   },
   {
-    "slug": "test",
-    "title": "Test Post",
-    "date": "2025-01-04",
-    "excerpt": "Testing the publish command",
-    "tags": [
-      "test"
-    ]
-  },
-  {
     "slug": "welcome",
     "title": "Welcome to the Blog",
     "date": "2025-12-12",
     "excerpt": "First post \u2014 testing Markdown and LaTeX rendering.",
     "tags": [
       "meta"
-    ]
-  },
-  {
-    "slug": "group-theory-intro",
-    "title": "An Introduction to Group Theory",
-    "date": "2025-12-10",
-    "excerpt": "Exploring the fundamental algebraic structure that underlies much of modern mathematics.",
-    "tags": [
-      "mathematics",
-      "algebra"
-    ]
-  },
-  {
-    "slug": "causal-inference-healthcare",
-    "title": "Causal Inference in Healthcare Data",
-    "date": "2025-12-08",
-    "excerpt": "Why observational data requires careful methodology to extract meaningful treatment effects.",
-    "tags": [
-      "research",
-      "statistics"
     ]
   },
   {
