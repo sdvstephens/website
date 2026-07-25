@@ -38,6 +38,10 @@ RewriteRule ^ - [L]
 # Allow analytics directory to be handled by PHP (Open Web Analytics)
 RewriteRule ^analytics(/|$) - [L]
 
+# Unlisted HTML CV: clean URL /sdvscvhtml -> /sdvscvhtml.html
+# Must precede the SPA fallback or the router would swallow it.
+RewriteRule ^sdvscvhtml/?$ /sdvscvhtml.html [L]
+
 # Bot detection — serve SEO-friendly HTML to search crawlers.
 # The -f guard means a missing seo.php degrades to the SPA instead of looping.
 RewriteCond %{HTTP_USER_AGENT} (Googlebot|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp|TelegramBot|Discordbot|Applebot|Pinterestbot|redditbot|Slackbot|SkypeUriPreview|Embedly|Iframely|Mastodon) [NC]
