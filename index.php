@@ -12,6 +12,16 @@
 
 require_once __DIR__ . '/meta.php';
 
+// Compress output ourselves. The host has no mod_deflate (verified: responses
+// carry no Content-Encoding even when gzip is offered), so the ~120 KB shell
+// was going over the wire raw. ob_gzhandler negotiates via Accept-Encoding and
+// falls back to plain output for clients that don't advertise gzip.
+if (!headers_sent() && !ini_get('zlib.output_compression')) {
+    if (!@ob_start('ob_gzhandler')) {
+        ob_start();
+    }
+}
+
 $html = @file_get_contents(__DIR__ . '/index.html');
 if ($html === false) {
     http_response_code(500);
@@ -113,9 +123,16 @@ $isFresh = $etagMatches
     || ($ifNoneMatch === '' && $ifModifiedSince !== '' && @strtotime($ifModifiedSince) >= $lastMod);
 
 if ($isFresh) {
+    // Discard the (empty) gzip buffer so no Content-Encoding is emitted on a
+    // body-less response.
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
     http_response_code(304);
     exit;
 }
 
-header('Content-Length: ' . strlen($html));
+// Deliberately no Content-Length: ob_gzhandler compresses after this point, so
+// a length computed from the uncompressed string would be wrong and the client
+// would truncate or hang. PHP emits the correct length once the buffer flushes.
 echo $html;

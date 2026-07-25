@@ -21,13 +21,21 @@ function sss_meta(string $path): array {
     // Only these keep the large portrait card.
     $portraitPages = ['/', '/about', '/educational'];
 
+    // Route names like /blog and /notes are real directories, so Apache's
+    // DirectorySlash 301s them to /blog/. Match that here or the canonical tag
+    // and sitemap would advertise a URL that immediately redirects.
+    $canonicalPath = $path;
+    if ($path !== '/' && is_dir(__DIR__ . $path)) {
+        $canonicalPath = $path . '/';
+    }
+
     $m = [
         'title' => $site,
         'desc'  => $tagline,
         'image' => null,
         'card'  => 'summary',
         'type'  => 'website',
-        'url'   => $base . ($path === '/' ? '/' : $path),
+        'url'   => $base . ($canonicalPath === '/' ? '/' : $canonicalPath),
         'body'  => '',
     ];
 

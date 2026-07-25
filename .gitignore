@@ -23,3 +23,7 @@ analytics/
 credentials
 *credential*
 *secret*
+
+# Python bytecode
+__pycache__/
+*.pyc

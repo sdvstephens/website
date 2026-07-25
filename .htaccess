@@ -22,6 +22,24 @@ Options -Indexes
   </IfModule>
 </Files>
 
+# Block OS/editor junk and dependency manifests. .DS_Store files leak local
+# filenames and directory structure; composer manifests advertise every
+# dependency and its exact version, which is a ready-made CVE checklist.
+# Deliberately NOT a blanket dotfile deny: that would break /.well-known/
+# and with it ACME certificate renewal.
+<FilesMatch "(^\.DS_Store$|^\._|^composer\.(json|lock)$|^installed\.json$|\.(bak|orig|swp|tmp)$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>
+
+# Try to restore entity tags. The host currently serves FileETag None (static
+# assets have no ETag either), so this may be overridden server-side — in which
+# case Last-Modified continues to carry revalidation, which is verified working.
+# FileETag is a core directive and needs AllowOverride FileInfo, which this
+# file already relies on for AddHandler/RewriteRule.
+FileETag MTime Size
+
 # SPA Routing
 <IfModule mod_rewrite.c>
 RewriteEngine On
@@ -30,6 +48,16 @@ RewriteBase /
 # Redirect www to non-www
 RewriteCond %{HTTP_HOST} ^www\.samuel-stephens\.com$ [NC]
 RewriteRule ^(.*)$ https://samuel-stephens.com/$1 [R=301,L]
+
+# Deny direct access to third-party library code and OWA's private data.
+# These MUST precede the "serve actual files directly" rule below: that rule
+# ends in [L], so for files that genuinely exist on disk (which these do) a
+# deny placed after it would never be evaluated.
+# vendor/*.php are libraries, not entry points, yet were directly executable;
+# owa-data holds only caches and logs (nothing is referenced client-side) and
+# its error log was publicly readable.
+RewriteRule ^analytics/vendor/ - [F,L]
+RewriteRule ^analytics/owa-data/ - [F,L]
 
 # Serve actual files directly (json, md, images, pdf, etc.)
 RewriteCond %{REQUEST_FILENAME} -f

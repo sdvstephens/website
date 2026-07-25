@@ -21,6 +21,13 @@ TODAY = date.today().isoformat()
 urls = []
 
 def add(path, lastmod=TODAY, freq="monthly", priority="0.5"):
+    # Route names that are also real directories (/blog, /notes, /notes/biology,
+    # ...) get a 301 from Apache's DirectorySlash adding a trailing slash.
+    # Emit the post-redirect URL so the sitemap lists canonical destinations
+    # rather than a set of redirects, and so it agrees with the <link rel=
+    # "canonical"> that meta.php generates using the same is-a-directory test.
+    if path != "/" and os.path.isdir(os.path.join(SITE_DIR, path.lstrip("/"))):
+        path = path + "/"
     urls.append((path, lastmod, freq, priority))
 
 # Static pages
