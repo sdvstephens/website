@@ -1,0 +1,832 @@
+[
+  {
+    "id": "geo-angle-def",
+    "name": "What an Angle Is",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-segments-rays"
+    ],
+    "unlocks": [
+      "geo-angle-measure",
+      "geo-congruence-def"
+    ]
+  },
+  {
+    "id": "geo-angle-measure",
+    "name": "Angle Measure",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-angle-def",
+      "ari-addition"
+    ],
+    "unlocks": [
+      "geo-vertical-angles",
+      "geo-parallel-lines-angles",
+      "geo-angle-bisector",
+      "geo-altitudes-orthocenter"
+    ]
+  },
+  {
+    "id": "geo-area-basics",
+    "name": "Area of Rectangles, Parallelograms, and Triangles",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-multiplication",
+      "geo-segments-rays"
+    ],
+    "unlocks": [
+      "geo-same-base-altitude",
+      "geo-pythagorean-theorem",
+      "geo-medians-centroid",
+      "geo-polygon-area",
+      "geo-heron-elem"
+    ]
+  },
+  {
+    "id": "geo-congruence-def",
+    "name": "Congruence and Corresponding Parts",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-segments-rays",
+      "geo-angle-def"
+    ],
+    "unlocks": [
+      "geo-sss-congruence",
+      "geo-sas-congruence",
+      "geo-asa-aas-congruence",
+      "geo-similarity-def",
+      "geo-perpendicular-bisector"
+    ]
+  },
+  {
+    "id": "geo-exterior-angle",
+    "name": "The Exterior Angle Theorem",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-triangle-angle-sum"
+    ],
+    "unlocks": [
+      "geo-polygon-angles",
+      "geo-triangle-inequality"
+    ]
+  },
+  {
+    "id": "geo-parallel-lines-angles",
+    "name": "Angles from a Transversal of Parallel Lines",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-angle-measure",
+      "geo-proof-intro"
+    ],
+    "unlocks": [
+      "geo-triangle-angle-sum",
+      "geo-quadrilaterals"
+    ]
+  },
+  {
+    "id": "geo-perimeter",
+    "name": "Perimeter",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-segments-rays",
+      "ari-addition"
+    ],
+    "unlocks": [
+      "geo-polygon-area"
+    ]
+  },
+  {
+    "id": "geo-points-lines-planes",
+    "name": "Points, Lines, and Planes",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "prim-point",
+      "prim-line"
+    ],
+    "unlocks": [
+      "geo-segments-rays",
+      "geo-proof-intro"
+    ]
+  },
+  {
+    "id": "geo-proof-intro",
+    "name": "What a Proof Is",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "prim-logic-implication",
+      "prim-quantifier",
+      "geo-points-lines-planes"
+    ],
+    "unlocks": [
+      "geo-parallel-lines-angles",
+      "geo-sss-congruence",
+      "geo-sas-congruence"
+    ]
+  },
+  {
+    "id": "geo-segments-rays",
+    "name": "Segments, Rays, and Betweenness",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-points-lines-planes"
+    ],
+    "unlocks": [
+      "geo-angle-def",
+      "geo-congruence-def",
+      "geo-perimeter",
+      "geo-area-basics"
+    ]
+  },
+  {
+    "id": "geo-triangle-angle-sum",
+    "name": "The Triangle Angle Sum",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-parallel-lines-angles"
+    ],
+    "unlocks": [
+      "geo-exterior-angle",
+      "geo-asa-aas-congruence",
+      "geo-aa-similarity",
+      "geo-polygon-angles"
+    ]
+  },
+  {
+    "id": "geo-vertical-angles",
+    "name": "Vertical Angles and Linear Pairs",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-angle-measure"
+    ],
+    "unlocks": [
+      "geo-parallel-lines-angles"
+    ]
+  },
+  {
+    "id": "geo-aa-similarity",
+    "name": "AA Similarity",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-similarity-def",
+      "geo-triangle-angle-sum"
+    ],
+    "unlocks": [
+      "geo-sas-sss-similarity"
+    ]
+  },
+  {
+    "id": "geo-altitudes-orthocenter",
+    "name": "Altitudes and the Orthocenter",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-pythagorean-theorem",
+      "geo-angle-measure"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-analytic-circles",
+    "name": "The Circle in Coordinates",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-analytic-lines",
+      "geo-pythagorean-theorem"
+    ],
+    "unlocks": [
+      "geo-trig-unit-circle"
+    ]
+  },
+  {
+    "id": "geo-analytic-lines",
+    "name": "Lines in Coordinates: Forms, Parallel, and Perpendicular",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "def-coordinate-plane",
+      "alg-graphing-lines"
+    ],
+    "unlocks": [
+      "geo-analytic-circles",
+      "geo-distance-point-line",
+      "geo-shoelace-elem"
+    ]
+  },
+  {
+    "id": "geo-angle-bisector",
+    "name": "The Angle Bisector, the Incenter, and the Angle Bisector Theorem",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-angle-measure",
+      "geo-similarity-def"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-angles-in-circles",
+    "name": "Angles Formed by Chords, Secants, and Tangents",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-inscribed-angles"
+    ],
+    "unlocks": [
+      "geo-power-of-point"
+    ]
+  },
+  {
+    "id": "geo-arc-circumference",
+    "name": "Circumference and Arc Length",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-points-lines-planes",
+      "ari-ratio"
+    ],
+    "unlocks": [
+      "geo-circle-area",
+      "geo-cylinders-cones"
+    ]
+  },
+  {
+    "id": "geo-asa-aas-congruence",
+    "name": "ASA and AAS Congruence",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-congruence-def",
+      "geo-triangle-angle-sum"
+    ],
+    "unlocks": [
+      "geo-quadrilaterals"
+    ]
+  },
+  {
+    "id": "geo-assign-variables-geo",
+    "name": "Assigning Variables to Geometry",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-area-basics",
+      "alg-variable-expression"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-circle-area",
+    "name": "Area of a Circle",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-arc-circumference",
+      "geo-area-basics"
+    ],
+    "unlocks": [
+      "geo-spheres"
+    ]
+  },
+  {
+    "id": "geo-cylinders-cones",
+    "name": "Cylinders and Cones: Round Prisms and Pyramids",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-arc-circumference",
+      "geo-prisms"
+    ],
+    "unlocks": [
+      "geo-spheres"
+    ]
+  },
+  {
+    "id": "geo-dilation",
+    "name": "Dilation (Scaling)",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-similarity-def",
+      "geo-translation"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-distance-formula",
+    "name": "The Distance Formula",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "def-coordinate-plane",
+      "geo-pythagorean-theorem"
+    ],
+    "unlocks": [
+      "geo-distance-point-line"
+    ]
+  },
+  {
+    "id": "geo-extra-line",
+    "name": "Drawing the Extra Line (Auxiliary Constructions)",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-proof-intro",
+      "geo-congruence-def"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-heron-elem",
+    "name": "Heron's Formula (Elementary Proof)",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-pythagorean-theorem",
+      "geo-area-basics"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-inscribed-angles",
+    "name": "The Inscribed Angle Theorem",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-angle-measure",
+      "geo-isosceles-triangle"
+    ],
+    "unlocks": [
+      "geo-angles-in-circles",
+      "geo-tangent-lines",
+      "geo-power-of-a-point-elem"
+    ]
+  },
+  {
+    "id": "geo-isosceles-triangle",
+    "name": "The Isosceles Triangle Theorem",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-sas-congruence"
+    ],
+    "unlocks": [
+      "geo-perpendicular-bisector"
+    ]
+  },
+  {
+    "id": "geo-medians-centroid",
+    "name": "Medians and the Centroid",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-similarity-def",
+      "geo-area-basics"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-perpendicular-bisector",
+    "name": "The Perpendicular Bisector and the Circumcenter",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-congruence-def",
+      "geo-proof-intro"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-planes-3d",
+    "name": "Planes in Space: Incidence in Three Dimensions",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-points-lines-planes"
+    ],
+    "unlocks": [
+      "geo-prisms",
+      "geo-pyramids"
+    ]
+  },
+  {
+    "id": "geo-polygon-angles",
+    "name": "Interior and Exterior Angles of a Polygon",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-triangle-angle-sum"
+    ],
+    "unlocks": [
+      "geo-polygon-area"
+    ]
+  },
+  {
+    "id": "geo-polygon-area",
+    "name": "Areas by Decomposition: Trapezoid and Regular Polygon",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-area-basics",
+      "geo-polygon-angles"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-prisms",
+    "name": "Prisms: Volume and Surface Area",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-area-basics",
+      "geo-planes-3d"
+    ],
+    "unlocks": [
+      "geo-pyramids",
+      "geo-cylinders-cones"
+    ]
+  },
+  {
+    "id": "geo-pyramids",
+    "name": "Pyramids: The One-Third Factor",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-prisms"
+    ],
+    "unlocks": [
+      "geo-cylinders-cones"
+    ]
+  },
+  {
+    "id": "geo-pythagorean-theorem",
+    "name": "The Pythagorean Theorem",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-area-basics",
+      "geo-similarity-def",
+      "ari-square-root"
+    ],
+    "unlocks": [
+      "geo-special-right-triangles",
+      "geo-pythagorean-triples",
+      "geo-heron-elem",
+      "geo-altitudes-orthocenter",
+      "geo-triangle-inequality"
+    ]
+  },
+  {
+    "id": "geo-pythagorean-triples",
+    "name": "Pythagorean Triples",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-pythagorean-theorem",
+      "nt-divisibility-elem"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-quadrilaterals",
+    "name": "The Quadrilateral Family and Parallelogram Properties",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-parallel-lines-angles",
+      "geo-congruence-def"
+    ],
+    "unlocks": [
+      "geo-polygon-angles",
+      "geo-polygon-area"
+    ]
+  },
+  {
+    "id": "geo-reflection",
+    "name": "Reflection (Flips)",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-translation",
+      "geo-perpendicular-bisector"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-rotation",
+    "name": "Rotation (Turns)",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-angle-measure",
+      "geo-translation"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-same-base-altitude",
+    "name": "Same Base, Equal Altitude",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-area-basics"
+    ],
+    "unlocks": [
+      "geo-medians-centroid"
+    ]
+  },
+  {
+    "id": "geo-sas-congruence",
+    "name": "SAS Congruence",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-congruence-def",
+      "geo-proof-intro"
+    ],
+    "unlocks": [
+      "geo-isosceles-triangle"
+    ]
+  },
+  {
+    "id": "geo-sas-sss-similarity",
+    "name": "SAS and SSS Similarity",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-similarity-def",
+      "geo-aa-similarity"
+    ],
+    "unlocks": [
+      "geo-pythagorean-theorem"
+    ]
+  },
+  {
+    "id": "geo-similarity-def",
+    "name": "Similarity: Definition and the Scale Factor",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-congruence-def",
+      "ari-ratio"
+    ],
+    "unlocks": [
+      "geo-aa-similarity",
+      "geo-sas-sss-similarity",
+      "geo-pythagorean-theorem",
+      "geo-angle-bisector",
+      "geo-medians-centroid"
+    ]
+  },
+  {
+    "id": "geo-special-right-triangles",
+    "name": "Special Right Triangles",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-pythagorean-theorem"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-sss-congruence",
+    "name": "SSS Congruence",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-congruence-def",
+      "geo-proof-intro"
+    ],
+    "unlocks": [
+      "geo-sas-sss-similarity"
+    ]
+  },
+  {
+    "id": "geo-tangent-lines",
+    "name": "Tangent Lines to a Circle",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-inscribed-angles",
+      "geo-pythagorean-theorem"
+    ],
+    "unlocks": [
+      "geo-power-of-a-point-elem"
+    ]
+  },
+  {
+    "id": "geo-translation",
+    "name": "Translation (Slides)",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "def-coordinate-plane",
+      "geo-congruence-def"
+    ],
+    "unlocks": [
+      "geo-rotation",
+      "geo-reflection",
+      "geo-dilation"
+    ]
+  },
+  {
+    "id": "geo-triangle-inequality",
+    "name": "The Triangle Inequality",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-segments-rays",
+      "geo-pythagorean-theorem"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-distance-point-line",
+    "name": "Distance from a Point to a Line",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-analytic-lines",
+      "geo-distance-formula"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-law-sines-cosines-elem",
+    "name": "Law of Sines and Law of Cosines",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-trig-right-triangles",
+      "geo-pythagorean-theorem"
+    ],
+    "unlocks": [
+      "geo-law-sines-cosines",
+      "geo-heron-elem"
+    ]
+  },
+  {
+    "id": "geo-power-of-a-point-elem",
+    "name": "Power of a Point (Elementary)",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-similarity-def",
+      "geo-inscribed-angles"
+    ],
+    "unlocks": [
+      "geo-power-of-point"
+    ]
+  },
+  {
+    "id": "geo-shoelace-elem",
+    "name": "The Shoelace Formula for a Triangle",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-analytic-lines",
+      "geo-area-basics"
+    ],
+    "unlocks": [
+      "geo-shoelace"
+    ]
+  },
+  {
+    "id": "geo-spheres",
+    "name": "Spheres: Volume and Surface Area",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-circle-area",
+      "geo-cylinders-cones"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-trig-right-triangles",
+    "name": "Trigonometry of the Right Triangle",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-similarity-def",
+      "geo-pythagorean-theorem"
+    ],
+    "unlocks": [
+      "geo-trig-unit-circle",
+      "geo-law-sines-cosines-elem"
+    ]
+  },
+  {
+    "id": "geo-trig-unit-circle",
+    "name": "The Unit Circle: Trig for Every Angle",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "geo-trig-right-triangles",
+      "geo-analytic-circles"
+    ],
+    "unlocks": [
+      "geo-law-sines-cosines"
+    ]
+  },
+  {
+    "id": "geo-law-sines-cosines",
+    "name": "Law of Sines and Law of Cosines",
+    "level": 1,
+    "status": "reviewed",
+    "prereqs": [
+      "tc-angle-addition"
+    ],
+    "unlocks": [
+      "geo-heron",
+      "geo-power-of-point"
+    ]
+  },
+  {
+    "id": "geo-coordinate-bashing",
+    "name": "Coordinate Bashing",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "geo-analytic-lines",
+      "geo-distance-formula"
+    ],
+    "unlocks": [
+      "geo-vectors",
+      "geo-shoelace"
+    ]
+  },
+  {
+    "id": "geo-heron",
+    "name": "Heron's Formula",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "geo-law-sines-cosines"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-shoelace",
+    "name": "The Shoelace Formula",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "geo-coordinate-bashing"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-similar-triangles",
+    "name": "Similar Triangles and Ratio Arguments",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "geo-aa-similarity",
+      "geo-sas-sss-similarity"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-vectors",
+    "name": "Vectors for Geometry",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "geo-coordinate-bashing"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-complex-numbers",
+    "name": "Complex Numbers for Geometry",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "tc-complex-geometry"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "geo-power-of-point",
+    "name": "Power of a Point",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "geo-law-sines-cosines"
+    ],
+    "unlocks": []
+  }
+]

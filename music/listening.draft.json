@@ -1,0 +1,85 @@
+{
+  "_purpose": "Claude's drafted listening-preferences sections, parked here after the concurrent-edit collision. Merge into music.json below 'Original Works' if wanted, or delete.",
+  "sections": [
+    {
+      "title": "Composers",
+      "items": [
+        {
+          "name": "Caroline Shaw",
+          "note": "The Partita's Sarabande is a masterpiece outright; Reich's descendant with a voice-first imagination."
+        },
+        {
+          "name": "Donnacha Dennehy",
+          "note": "Just-intonation spectralism tuned to a sean-nós voice — sounds simultaneously ancient and unwritten."
+        },
+        {
+          "name": "Kaija Saariaho",
+          "note": "Spectral timbre with genuine dramatic depth; each period a different instrument."
+        },
+        {
+          "name": "Philip Glass",
+          "note": "The Akhnaten / Koyaanisqatsi side — process music at liturgical scale."
+        },
+        {
+          "name": "Steve Reich",
+          "note": "Pulse and phase as architecture; the more load-bearing minimalist for the current scene."
+        },
+        {
+          "name": "Sarah Goldfeather",
+          "note": "Mouth Full of Ears started a whole hunt — theatrical extended technique that actually lands."
+        }
+      ]
+    },
+    {
+      "title": "Touchstone Works",
+      "items": [
+        {
+          "title": "Partita for 8 Voices",
+          "composer": "Caroline Shaw",
+          "note": "Start at the Sarabande; the Passacaglia is the summit."
+        },
+        {
+          "title": "Grá agus Bás",
+          "composer": "Donnacha Dennehy",
+          "note": "Drone plus lament — the oldest formal substrate there is, retuned."
+        },
+        {
+          "title": "Akhnaten",
+          "composer": "Philip Glass",
+          "note": "Opera as ritual object."
+        },
+        {
+          "title": "Music for 18 Musicians",
+          "composer": "Steve Reich",
+          "note": "The pulse the whole post-minimal world still writes against."
+        },
+        {
+          "title": "Mouth Full of Ears",
+          "composer": "Sarah Goldfeather",
+          "note": "Unconventional sound with clear dramatic direction — the reference point."
+        }
+      ]
+    },
+    {
+      "title": "Scenes & Threads",
+      "items": [
+        {
+          "name": "Contemporary classical / new music",
+          "note": "The Bang on a Can lineage and after; drama over dogma."
+        },
+        {
+          "name": "Spectralism",
+          "note": "Timbre as harmony, harmony as physics — Grisey through Saariaho and into the present."
+        },
+        {
+          "name": "Minimalism and after",
+          "note": "Reich more than Glass, and everyone downstream of both."
+        },
+        {
+          "name": "The ancient–modern seam",
+          "note": "Sean-nós, drone, lament — where medieval and new music turn out to be the same music."
+        }
+      ]
+    }
+  ]
+}

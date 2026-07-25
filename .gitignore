@@ -1,0 +1,25 @@
+# macOS cruft
+.DS_Store
+**/.DS_Store
+
+# Open Web Analytics — third-party app, deployed via FTP, NOT source.
+# owa-config.php holds live DB credentials and the logs contain visitor
+# data (IPs, user agents). This repo is public: keep all of it out.
+analytics/
+
+# Local backups produced by the publish scripts
+*.bak
+*.graphite-bak
+
+# Editor / tooling noise
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Secrets, in case anything like this ever lands here
+.env
+*.env
+credentials
+*credential*
+*secret*

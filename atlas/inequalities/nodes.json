@@ -1,0 +1,208 @@
+[
+  {
+    "id": "ineq-trivial",
+    "name": "The Trivial Inequality",
+    "level": 1,
+    "status": "reviewed",
+    "prereqs": [
+      "ari-squares",
+      "ari-negation"
+    ],
+    "unlocks": [
+      "ineq-amgm",
+      "ineq-cauchy-schwarz",
+      "ineq-rearrangement",
+      "ineq-sos"
+    ]
+  },
+  {
+    "id": "ineq-amgm",
+    "name": "The AM–GM Inequality",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-trivial"
+    ],
+    "unlocks": [
+      "ineq-power-mean",
+      "ineq-jensen",
+      "ineq-nesbitt",
+      "ineq-schur",
+      "ineq-normalization"
+    ]
+  },
+  {
+    "id": "ineq-cauchy-schwarz",
+    "name": "The Cauchy–Schwarz Inequality",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-trivial"
+    ],
+    "unlocks": [
+      "ineq-cauchy-engel"
+    ]
+  },
+  {
+    "id": "ineq-chebyshev-sum",
+    "name": "Chebyshev's Sum Inequality",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-rearrangement"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-jensen",
+    "name": "Jensen's Inequality",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-amgm"
+    ],
+    "unlocks": [
+      "ineq-weighted-amgm",
+      "ineq-smoothing",
+      "ineq-tangent-line"
+    ]
+  },
+  {
+    "id": "ineq-normalization",
+    "name": "Normalization & Homogenization",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-amgm"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-power-mean",
+    "name": "The Power-Mean Inequality",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-amgm"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-rearrangement",
+    "name": "The Rearrangement Inequality",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-trivial"
+    ],
+    "unlocks": [
+      "ineq-chebyshev-sum"
+    ]
+  },
+  {
+    "id": "ineq-weighted-amgm",
+    "name": "Weighted AM–GM",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-jensen"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-cauchy-engel",
+    "name": "Cauchy–Schwarz in Engel Form (Titu's Lemma)",
+    "level": 4,
+    "status": "ratified",
+    "prereqs": [
+      "ineq-trivial",
+      "ineq-cauchy-schwarz"
+    ],
+    "unlocks": [
+      "ineq-nesbitt"
+    ]
+  },
+  {
+    "id": "ineq-holder",
+    "name": "Hölder's Inequality",
+    "level": "L4",
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-cauchy-schwarz",
+      "ineq-power-mean"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-minkowski",
+    "name": "Minkowski's Inequality",
+    "level": "L4",
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-holder"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-nesbitt",
+    "name": "Nesbitt's Inequality",
+    "level": 4,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-cauchy-engel",
+      "ineq-amgm"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-newton-maclaurin",
+    "name": "Newton's and Maclaurin's Inequalities",
+    "level": "L4",
+    "status": "reviewed",
+    "prereqs": [
+      "alg-newton-identities",
+      "ineq-amgm"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-schur",
+    "name": "Schur's Inequality",
+    "level": 4,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-amgm"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-smoothing",
+    "name": "Smoothing / Mixing Variables",
+    "level": 4,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-jensen"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-sos",
+    "name": "The SOS (Sum of Squares) Method",
+    "level": 4,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-trivial"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ineq-tangent-line",
+    "name": "The Tangent-Line Trick",
+    "level": 4,
+    "status": "reviewed",
+    "prereqs": [
+      "ineq-jensen"
+    ],
+    "unlocks": []
+  }
+]

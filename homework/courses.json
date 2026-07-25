@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "integrated-maths",
+    "title": "Integrated Mathematics",
+    "type": "problem-sets",
+    "description": "Problem sets for prealgebra through precalculus, number theory, probability, and more"
+  },
+  {
+    "slug": "math-55a",
+    "title": "Math 55a",
+    "type": "problem-sets",
+    "description": "Problem sets for abstract algebra and linear algebra"
+  },
+  {
+    "slug": "math-55b",
+    "title": "Math 55b",
+    "type": "problem-sets",
+    "description": "Problem sets for real and complex analysis"
+  },
+  {
+    "slug": "critical-theory",
+    "title": "Critical Theory",
+    "type": "essays",
+    "description": "Essays on Frankfurt School critical theory"
+  }
+]

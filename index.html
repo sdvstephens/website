@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Analytics (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6MV89TNBW4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6MV89TNBW4');
+  </script>
+
+  <!-- Open Web Analytics -->
+  <script type="text/javascript">
+    var owa_baseUrl = 'https://samuel-stephens.com/analytics/';
+    var owa_cmds = owa_cmds || [];
+    owa_cmds.push(['setSiteId', '0b9ed5433ec7e3ae64dd39370d72bf91']);
+    owa_cmds.push(['trackPageView']);
+    owa_cmds.push(['trackClicks']);
+    (function() {
+      var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+      owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
+      _owa.src = owa_baseUrl + 'modules/base/dist/owa.tracker.js';
+      var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+    }());
+  </script>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>S. D. V. Stephens</title>
@@ -33,7 +57,7 @@
         inlineMath: [['$', '$']],
         displayMath: [['$$', '$$']],
         processEscapes: true,
-        packages: {'[+]': ['ams', 'mathtools', 'physics', 'cancel', 'color', 'boldsymbol', 'cases', 'extpfeil', 'newcommand', 'autoload']},
+        packages: {'[+]': ['ams', 'mathtools', 'physics', 'cancel', 'color', 'boldsymbol', 'cases', 'extpfeil', 'newcommand', 'autoload', 'mhchem']},
         macros: {
           // ===== OPERATORS =====
           dom: '\\operatorname{dom}',
@@ -203,7 +227,13 @@
   
   <!-- Marked.js for Markdown -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  
+
+  <!-- Cytoscape (+ fcose layout) for the ANABASIS atlas prerequisite map -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/layout-base@2.0.1/layout-base.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cose-base@2.2.0/cose-base.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-fcose@2.2.0/cytoscape-fcose.js"></script>
+
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/sdvs.jpg">
@@ -581,6 +611,43 @@
     }
     .post-tag:hover { background: var(--bg2); }
 
+    /* Films & music styles */
+    .film-list { list-style: none; margin: 0; padding: 0; counter-reset: filmrank; }
+    .film-item {
+      padding: 0.85rem 1rem 0.85rem 3.2rem;
+      margin: 0.5rem 0;
+      background: var(--bg);
+      border: 1px solid var(--bg2);
+      border-radius: 4px;
+      counter-increment: filmrank;
+      position: relative;
+      transition: border-color 0.15s;
+    }
+    .film-item:hover { border-color: var(--bg3); }
+    .film-item::before {
+      content: counter(filmrank, decimal-leading-zero);
+      position: absolute;
+      left: 0.9rem;
+      top: 0.95rem;
+      color: var(--yellow);
+      font-size: 0.85rem;
+    }
+    .film-title { color: var(--blue); font-weight: 500; }
+    .film-meta { color: var(--fg4); font-size: 0.85rem; margin-left: 0.5rem; }
+    .film-note { color: var(--fg2); font-size: 0.9rem; margin-top: 0.35rem; }
+    .music-list { list-style: none; margin: 0 0 1rem; padding: 0; }
+    .music-item {
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      background: var(--bg);
+      border: 1px solid var(--bg2);
+      border-radius: 4px;
+      transition: border-color 0.15s;
+    }
+    .music-item:hover { border-color: var(--bg3); }
+    .music-head { color: var(--blue); font-weight: 500; }
+    .lb-footnote { color: var(--fg4); font-size: 0.8rem; margin-top: 0.5rem; }
+
     /* Tag cloud for filtering */
     .tag-cloud {
       display: flex;
@@ -678,6 +745,8 @@
     .notes-course-link { text-decoration: none; }
     .notes-course-link h3 { color: var(--aqua); margin: 0 0 0.5rem 0; }
     .notes-course-link p { color: var(--fg2); margin: 0; }
+    .homework-type-badge { display: inline-block; margin-top: 0.75rem; padding: 0.25rem 0.5rem; background: var(--bg2); color: var(--purple); font-size: 0.75rem; border-radius: 3px; }
+    .homework-date { color: var(--fg3); font-size: 0.85rem; margin-left: 0.5rem; }
     
     .note-breadcrumb { color: var(--fg3); margin-bottom: 1.5rem; font-size: 0.9rem; }
     .note-breadcrumb a { color: var(--aqua); text-decoration: none; }
@@ -731,6 +800,43 @@
     
     /* MathJax display math styling */
     .MJX-TEX { font-size: 1.1em; }
+
+    /* Homework table styles */
+    .hw-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .hw-table th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      color: var(--fg4);
+      font-weight: 500;
+      font-size: 0.8rem;
+      border-bottom: 1px solid var(--bg3);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .hw-table td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--bg1); }
+    .hw-table tr:hover td { background: var(--bg); }
+    .hw-title-link { color: var(--blue); }
+    .hw-title-link:hover { color: var(--aqua); }
+    .hw-title-plain { color: var(--fg2); }
+    .hw-date { color: var(--fg4); font-size: 0.85rem; }
+    .hw-downloads { display: flex; gap: 0.5rem; }
+    .hw-dl {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.5rem;
+      background: var(--bg1);
+      border: 1px solid var(--bg2);
+      border-radius: 3px;
+      color: var(--fg3);
+      font-size: 0.75rem;
+      transition: all 0.15s;
+    }
+    .hw-dl:hover { background: var(--bg2); color: var(--fg); border-color: var(--bg3); text-decoration: none; }
+    .hw-dl.pdf { color: var(--orange); }
+    .hw-dl.pdf:hover { color: var(--yellow); }
+    .hw-dl.tex { color: var(--green); }
+    .hw-dl.tex:hover { color: var(--aqua); }
     mjx-container[display="true"] { display: block; text-align: center; margin: 1.5rem 0; overflow-x: auto; }
     mjx-container:not([display="true"]) { display: inline; }
   </style>
@@ -746,7 +852,9 @@
           <li><a href="/about" data-link>about</a></li>
           <li><a href="/research" data-link>research</a></li>
           <li><a href="/blog" data-link>blog</a></li>
+          <li><a href="/music" data-link>music</a></li>
           <li><a href="/notes" data-link>notes</a></li>
+          <li><a href="/homework" data-link>homework</a></li>
           <li><a href="/educational" data-link>educational</a></li>
         </ul>
       </nav>
@@ -762,9 +870,14 @@
           <div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>blog/</span></div>
           <div class="folder-children" id="blog-children"></div>
         </div>
+        <div class="file-item" data-link="/music" tabindex="0"><span class="file-icon md"></span><span>music.md</span></div>
         <div class="file-folder" data-folder="notes">
           <div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>notes/</span></div>
           <div class="folder-children" id="notes-children"></div>
+        </div>
+        <div class="file-folder" data-folder="homework">
+          <div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>homework/</span></div>
+          <div class="folder-children" id="homework-children"></div>
         </div>
         <div class="file-folder" data-folder="educational">
           <div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>educational/</span></div>
@@ -804,7 +917,7 @@
     </footer>
   </div>
 
-  <script>
+ <script>
     const pages = {
       '/': `
         <div class="wiki-article">
@@ -826,7 +939,7 @@
           <p>Press <code>:</code> to enter command mode. Available commands:</p>
           <ul>
             <li><code>:help</code> — full keybinding reference</li>
-            <li><code>:h</code> / <code>:a</code> / <code>:b</code> / <code>:r</code> / <code>:t</code> / <code>:e</code> — navigate to pages</li>
+            <li><code>:h</code> / <code>:a</code> / <code>:b</code> / <code>:r</code> / <code>:f</code> / <code>:m</code> / <code>:t</code> / <code>:e</code> — navigate to pages</li>
             <li><code>:cv</code> — download CV</li>
             <li><code>:email</code> — copy email to clipboard</li>
             <li><code>:gh</code> — GitHub profile</li>
@@ -842,7 +955,10 @@
               <a href="/about" class="category-tag" data-link>About</a>
               <a href="/research" class="category-tag" data-link>Research</a>
               <a href="/blog" class="category-tag" data-link>Blog</a>
+              <a href="/films" class="category-tag" data-link>Films</a>
+              <a href="/music" class="category-tag" data-link>Music</a>
               <a href="/notes" class="category-tag" data-link>Notes</a>
+              <a href="/homework" class="category-tag" data-link>Homework</a>
               <a href="/educational" class="category-tag" data-link>Educational</a>
             </div>
           </div>
@@ -869,7 +985,7 @@
               </div>
               <div class="infobox-row">
                 <div class="infobox-label">Institutions</div>
-                <div class="infobox-value">Beth Israel Medical Center<br>Harvard Medical School<br>City Council of Dallas</div>
+                <div class="infobox-value">Stanford University School of Medicine<br>Beth Israel Medical Center<br>Harvard Medical School<br>City Council of Dallas</div>
               </div>
               <div class="infobox-row">
                 <div class="infobox-label">Education</div>
@@ -881,7 +997,7 @@
               </div>
               <div class="infobox-row">
                 <div class="infobox-label">GitHub and contact</div>
-                <div class="infobox-value"><a href="https://github.com/sdvstephens" target="_blank">sdvstephens</a><br>sstephe9[at]bidmc.harvard.edu</div>
+                <div class="infobox-value"><a href="https://github.com/sdvstephens" target="_blank">sdvstephens</a><br>sdvs[at]stanford.edu<br>sstephe9[at]bidmc.harvard.edu<br>sdvs[at]mit.edu</div>
               </div>
               <div class="infobox-row">
                 <div class="infobox-label">YouTube</div>
@@ -896,11 +1012,13 @@
               <li><a href="#education" class="toc-link">Education</a></li>
               <li><a href="#research" class="toc-link">Research</a></li>
               <li><a href="#technical" class="toc-link">Technical Projects</a></li>
+              <li><a href="#defunct" class="toc-link">Defunct / Discontinued Projects</a></li>
+              <li><a href="#publications" class="toc-link">Publications</a></li>
               <li><a href="#skills" class="toc-link">Skills</a></li>
             </ol>
           </div>
 
-          <p>Born in rural Texas, <strong>Samuel Desiderius Vichaama Stephens</strong> is a student, neuroscience researcher, and mathematician aspiring to work at the intersection of neurobioengineering, mathematical physics, philosophy, and cognitive science. Currently based in Cambridge, MA, at Beth Israel Medical Center and Harvard Medical School, his work focuses on developing methodological frameworks for seizure prediction and treatment. He also has interests in philosophy of natural science (Hempel's models of scientific explanation framework using Aristotelian logic replaced with non-classical logic), post-post modernism, education philosophy, and polyadic semigroups.</p>
+          <p>Born in rural Texas, <strong>Samuel Desiderius Vichaama Stephens</strong> is a student and researcher working in neuroscience and mathematics. He holds research appointments at the Stanford University School of Medicine (Departments of Bioengineering and Neurology) and at Beth Israel Deaconess Medical Center and Harvard Medical School, where his work centers on statistical and simulation methods for critical-care medicine: causal inference, pharmacokinetic/pharmacodynamic (PKPD) modeling, and survival optimization for seizure prediction and treatment. Outside of research, he has interests in the philosophy of natural science and of education, and in areas of pure mathematics such as polyadic semigroups.</p>
 
           <h2 id="education">Education</h2>
           <p>Stephens has undergone a non-standard academic trajectory, which includes multiple institutions:</p>
@@ -916,37 +1034,76 @@
           
           <h3>Additional Education</h3>
           <ul>
-            <li><strong>Kenyon College</strong> (July 2023 – Jun. 2024) — Abstract Algebra I, Contemproary Mathematics Seminar, Symbolic Logic, Philosophy of Natural Science, Piano and Violin Practicum, Quest for Jusitice, and STEM Research Methods. KEEP-STEM Scholar (National Science Foundation).</li>
+            <li><strong>Kenyon College</strong> (July 2023 – Jun. 2024) — Abstract Algebra I, Contemporary Mathematics Seminar, Symbolic Logic, Philosophy of Natural Science, Piano and Violin Practicum, Quest for Justice, and STEM Research Methods. KEEP-STEM Scholar (National Science Foundation).</li>
             <li><strong>Institute for Social Ecology</strong> (2024) — Legacies of Environmental Radicalism</li>
             <li><strong>UT Dallas</strong> (Audit, 2024) — Combinatorics, Advanced Calculus</li>
             <li><strong>Judge Barefoot Sanders Law Magnet</strong> (2019–2022) — H.S.D. Pre-Law Track, graduated with Honors and Distinction, 13 AP Exams, AP Capstone Scholar</li>
           </ul>
 
           <h2 id="research">Research</h2>
-          
-          <h3>Beth Israel Medical Center & Harvard Medical School (Sep. 2025 – Present)</h3>
-          <p>Developing CICADAS (Causal Inference for Critical-Care Anti-Seizure Treatment with Disease Dynamics, Automated PKPD/Trial Simulation, and Survival Optimization) followup: a novel methodological framework enabling extraction of unbiased causal treatment effects from observational critical care data. Under supervision of Dr. M. Brandon Westover, analyzing PKPD interactions for diseased patients and modeling predictive formulas for treatment outcomes. Potential collaboration with the Human Brain Project in France under Dr. Viktor Jarsa for seizure simulation (?)</p>
+
+          <h3>Stanford University School of Medicine (Jun. 2026 – Present)</h3>
+          <p>Continuing the CICADAS&ndash;BOOGALOO line of work begun at BIDMC/HMS, now oriented toward real-world clinical use. Stephens introduced personalized adaptive thresholds based on SOFA scores and age, and is advancing implementation against EEG and the MORGOTH large-scale ICU epileptic dataset in conjunction with the CICADAS&ndash;BOOGALOO framework. The joint methods paper grounding this work is being prepared for submission, with target venues including <em>IEEE Transactions on Biomedical Engineering</em> and the <em>Journal of Neural Engineering</em>.</p>
+
+          <h3>Beth Israel Medical Center & Harvard Medical School (Jun. 2026 – Present)</h3>
+          <p>New lab, with the principal investigator and project scope currently being finalized. Held concurrently with the Stanford appointment.</p>
+
+          <h3>Beth Israel Medical Center & Harvard Medical School (Sep. 2025 – Jun. 2026)</h3>
+          <p>Developed BOOGALOO, the successor to CICADAS (Causal Inference for Critical-Care Anti-Seizure Treatment with Disease Dynamics, Automated PKPD/Trial Simulation, and Survival Optimization): methodological frameworks that recover unbiased causal treatment effects from observational ICU data, with PKPD-aware modeling for diseased patients. Conducted under the supervision of Dr. M. Brandon Westover.</p>
           
           <h3>Independent Mathematical Research (Nov. 2024 – Present)</h3>
           <p>Developing theoretic foundations for polyadic algebraic structures through extensions of classical group theory via changes in the adicity of operations. Preliminary axiomatization underway with novel theorem and proof construction. Interested in Lie polyadic algebras and groups for differential equations. Currently seeking advisor.</p>
           
           <h3>UT Dallas (Nov. 2022 – Jan. 2024)</h3>
-          <p>Collaborating on meta-analysis of the Bouba-Kiki effect regarding children with Misophonia and/or Autism Spectrum Disorder under Dr. Abdi. Currently on break. Will return to the literature reivew in a few years.</p>
+          <p>Collaborating on meta-analysis of the Bouba-Kiki effect regarding children with Misophonia and/or Autism Spectrum Disorder under Dr. Abdi. Currently on break. Will return to the literature review in a few years.</p>
           
           <h3>School for Health Professions, Dallas (Aug. 2021 – May 2022)</h3>
           <p>Principal investigator discovering novel functions of bacteria within the gut microbiome of <em>Z. atratus</em> related to biodegradation mechanisms for LDPE and polystyrene. Lab guidance by Dr. Harrington.</p>
 
+          <h3>City of Dallas (Aug. 2021 – May 2022)</h3>
+          <p>Dallas City Council Research Intern for District 11, researching smart-city development initiatives under the supervision of the city manager and the Council Member for District 11.</p>
+
           <h2 id="technical">Technical Projects</h2>
           
-          <h3>Academic Workflow Automation Platform</h3>
-          <p>Lead developer of an integrated productivity suite (<a href="https://github.com/sdvstephens/uni" target="_blank">GitHub</a>) with three main Python CLI tools processing over 500 daily academic operations:</p>
+          <h3>uni — Academic Workflow Automation Platform</h3>
+          <p>Lead developer of an integrated, terminal-based academic workflow built as a single Python CLI (<code>acad</code>, exposed through a <code>uni</code> fish-shell wrapper; <a href="https://github.com/sdvstephens/uni" target="_blank">GitHub</a>), consolidating course management, lecture and problem-set scaffolding, grade and GPA tracking, and a live status dashboard. In daily personal use across coursework, audits, and tutoring.</p>
           <ul>
-            <li>Automated LaTeX document generation within Neovim, reducing computation time by ~70%</li>
-            <li>Human-readable JSON data architecture with Git version control, 99.9% backup reliability</li>
-            <li>Custom Neovim workflows with automatic figure insertion and compilation systems</li>
-            <li>Completed overhaul for an Emacs equivalent (Doom distro) with live LaTeX in Org mode</li>
+            <li>Generates lecture and problem-set documents in both Org-mode and LaTeX from the command line, with master-file assembly, <code>pdflatex</code> via <code>latexmk</code> against a shared preamble, and an Ipe figure-insertion pipeline driven from first-class Neovim/VimTeX integration</li>
+            <li>Integrated with Taskwarrior and Timewarrior for deadline-aware, time-tracked course management surfaced through the dashboard</li>
+            <li>Stores course metadata, grades, and notes as human-readable JSON under Git version control</li>
           </ul>
-          <p>Released as FOSS, inspired by the late Gilles Castel. Current users include professors, students, and industry professionals.</p>
+          <p>Published as a FOSS project under MIT (<code>pipx install acad-cli</code>), inspired by the late Gilles Castel.</p>
+
+          <h3>cicadas2 — CICADAS-II BOOGALOO Reference Implementation</h3>
+          <p>Lead developer of the end-to-end simulation framework grounding the CICADAS-II BOOGALOO manuscript and the Stanford research program. Models the full ICU non-convulsive-seizure pipeline — synthetic patient, latent disease dynamics, PK/PD, sparse Poisson seizure observations, real-time state estimation, treatment strategies, and a daily-hazard mortality model. Implemented in both MATLAB (reference) and a verified Python port (NumPy/SciPy) with a cross-fixture test suite locking numerical equivalence; includes an Extended Kalman Filter, one-compartment PK, Hill/linear PD suppression, five treatment strategies, and parametric g-formula recovery of causal effects. <em>Repository private; to be published with the manuscript.</em></p>
+
+          <h3>graphite — Graphing &amp; 3D Calculator for reMarkable Paper Pro</h3>
+          <p>Sole developer of a from-scratch graphing and 3D calculator for the reMarkable Paper Pro that renders 2D, parametric, polar, and implicit curves along with shaded, gradient-colored 3D surfaces, and inserts them into the active notebook or document as native, resizable objects. A QML (Qt Quick <code>Canvas</code>) frontend drives the UI and rendering; a Python backend (<code>sympy</code>/<code>numpy</code>/<code>scipy</code>) over a Unix socket handles parsing, symbolic computation, sampling, 3D meshes, and special functions; the app ships to the device via XOVI/AppLoad. The expression engine is developed and Node-tested standalone before touching any UI. Currently at the M1.1 prototype stage — a working 2D core — with the headline document-insertion feature and 3D surfaces planned for later milestones. <em>Repository private; in active development.</em></p>
+
+          <h3>BetterCanvas — Safari Web Extension for Canvas LMS</h3>
+          <p>Sole developer of a native Safari Web Extension (Xcode/Swift host app plus a Safari extension target) that improves the day-to-day Canvas LMS reading and submission workflow on macOS and iOS/iPadOS. <em>Repository private; to be published once stable.</em></p>
+
+          <h2 id="defunct">Defunct / Discontinued Projects</h2>
+
+          <h3>rmpp-stabilizer — Handwriting Stabilization for reMarkable Paper Pro</h3>
+          <p>Sole developer of an <code>LD_PRELOAD</code> shared library (C++, MIT) that intercepts evdev pen input before <code>xochitl</code> to smooth handwriting in real time, reducing jitter in mathematical notation and diagrams. Configurable smoothing algorithms (moving-average, Gaussian-weighted, Krita-style string pull, and the One Euro filter), built via a Docker-based aarch64 toolchain for reproducible builds. <em>Discontinued.</em></p>
+
+          <h3>rmpp-wikipedia — Offline Wikipedia Client for reMarkable Paper Pro</h3>
+          <p>Sole developer of a Qt/QML reading UI that talks over loopback HTTP to a small native <code>zimserver</code> backend (aarch64, built on Kiwix <code>kiwix-tools</code> and <code>libzim</code>), so a full <code>.zim</code> Wikipedia snapshot on USB/SD can be browsed entirely offline. Designed for low-power E Ink reading alongside <code>xochitl</code>. <em>Discontinued.</em></p>
+
+          <h2 id="publications">Publications</h2>
+
+          <h3>Books and Textbooks</h3>
+          <ul>
+            <li><strong>Math 55A Textbook</strong> (2025–26), Harvard College — in use as supplemental material for future Math 55a courses.</li>
+          </ul>
+
+          <h3>Manuscripts in Preparation</h3>
+          <ul>
+            <li>S. D. V. Stephens, T. Westover, S. Zafar, M. B. Westover. &ldquo;CICADAS-II BOOGALOO: Modifying the CICADAS Simulation-Based Randomized Trial Emulation to Accommodate Infrequent Events and Dosing.&rdquo; Beth Israel Deaconess Medical Center with Harvard Medical School. Preparing for submission; target venues include <em>IEEE Transactions on Biomedical Engineering</em> and the <em>Journal of Neural Engineering</em>.</li>
+            <li>S. D. V. Stephens, J. Cervantes. &ldquo;Collaborative Manuscript in Political Philosophy.&rdquo; Inter-institutional collaboration with a Northeastern University researcher, exploring intersections of political theory, educational theory, and ethics.</li>
+          </ul>
+          <p>Selected essays are hosted on the <a href="/blog">blog</a>, with open mathematical notes at <a href="/notes">notes</a>; musical arrangements are catalogued separately.</p>
 
           <h2 id="skills">Skills</h2>
           
@@ -1010,11 +1167,26 @@
         </div>
       `,
 
+      '/music': `
+        <div class="wiki-article">
+          <h1>Music</h1>
+          <div id="music-content"><p class="loading">Loading music...</p></div>
+        </div>
+      `,
+
       '/notes': `
         <div class="wiki-article">
           <h1>Lecture Notes</h1>
           <p>Mathematics and science lecture notes, inspired by Paul's Online Notes.</p>
           <div id="notes-course-list"><p class="loading">Loading courses...</p></div>
+        </div>
+      `,
+      
+      '/homework': `
+        <div class="wiki-article">
+          <h1>Homework</h1>
+          <p>Problem sets, essays, and other coursework.</p>
+          <div id="homework-course-list"><p class="loading">Loading assignments...</p></div>
         </div>
       `,
 
@@ -1056,8 +1228,40 @@
         await loadNoteSection(notesParts[1], notesParts[2]);
         return;
       }
+      
+      // Check for homework routes
+      const hwParts = path.split('/').filter(p => p);
+      if (hwParts[0] === 'homework' && hwParts.length === 2) {
+        // /homework/math-55a -> course assignments list
+        await loadHomeworkCourse(hwParts[1]);
+        return;
+      }
+      if (hwParts[0] === 'homework' && hwParts.length === 3) {
+        // /homework/math-55a/pset-1 -> assignment content
+        await loadHomeworkAssignment(hwParts[1], hwParts[2]);
+        return;
+      }
 
-      const content = pages[path] || pages['/'];
+      // Check for atlas routes (ANABASIS; direct-link only, intentionally not in nav)
+      const atlasParts = path.split('/').filter(p => p);
+      if (atlasParts[0] === 'atlas') {
+        if (atlasParts.length === 1) { await loadAtlasIndex(); return; }
+        if (atlasParts.length === 2) { await loadAtlasEntry(atlasParts[1]); return; }
+      }
+
+      const content = pages[path];
+      if (!content) {
+        document.getElementById('app').innerHTML = `
+          <div class="wiki-article">
+            <h1>404 — Not Found</h1>
+            <p>No file at <code>${path}</code></p>
+            <p><a href="/" data-link>Return home</a></p>
+          </div>
+        `;
+        document.getElementById('status-file').textContent = '~/stephens/404';
+        history.pushState({}, '', path);
+        return;
+      }
       if (content === 'dynamic') return; // handled above
       
       document.getElementById('app').innerHTML = content;
@@ -1076,8 +1280,10 @@
         '/about': '~/stephens/about.md',
         '/research': '~/stephens/research.tex',
         '/blog': '~/stephens/blog/',
-        '/technical': '~/stephens/technical.md',
+        '/music': '~/stephens/music.md',
+        '/educational': '~/stephens/educational/',
         '/notes': '~/stephens/notes/',
+        '/homework': '~/stephens/homework/',
         '/educational': '~/stephens/educational/'
       };
       document.getElementById('status-file').textContent = pathMap[path] || pathMap['/'];
@@ -1086,7 +1292,9 @@
       
       // Load dynamic content
       if (path === '/blog') await loadBlogList();
+      if (path === '/music') await loadMusic();
       if (path === '/notes') await loadNotesCourseList();
+      if (path === '/homework') await loadHomeworkCourseList();
       if (path === '/educational') await loadCourses();
       
       renderMath();
@@ -1121,6 +1329,40 @@
       html = html.replace(/%%LATEX_(BLOCK|INLINE)_(\d+)%%/g, (_, type, idx) => blocks[parseInt(idx)]);
       
       return html;
+    }
+
+    // Music: own works, arrangements, recordings (driven by /music/music.json)
+    async function loadMusic() {
+      const container = document.getElementById('music-content');
+      if (!container) return;
+      try {
+        const res = await fetch('/music/music.json');
+        const data = await res.json();
+        let html = data.intro ? `<p>${data.intro}</p>` : '';
+        for (const sec of data.sections) {
+          if (!sec.items || sec.items.length === 0) continue;
+          html += `<h2>${sec.title}</h2><ul class="music-list">`;
+          for (const it of sec.items) {
+            let head = it.title || it.name || '';
+            if (it.composer) head += ` — ${it.composer}`;
+            if (it.year) head += ` (${it.year})`;
+            const meta = [it.instrumentation, it.duration].filter(Boolean).join(' · ');
+            const links = [
+              it.score ? `<a href="${it.score}" target="_blank">score</a>` : '',
+              it.audio ? `<a href="${it.audio}" target="_blank">audio</a>` : ''
+            ].filter(Boolean).join(' · ');
+            html += `<li class="music-item"><span class="music-head">${head}</span>`
+              + (meta ? `<div class="post-meta">${meta}</div>` : '')
+              + (it.note ? `<div class="music-note">${it.note}</div>` : '')
+              + (links ? `<div class="post-meta">${links}</div>` : '')
+              + '</li>';
+          }
+          html += '</ul>';
+        }
+        container.innerHTML = html || '<p>Nothing here yet.</p>';
+      } catch (e) {
+        container.innerHTML = '<p>Error loading music.</p>';
+      }
     }
 
     // Blog functions
@@ -1363,8 +1605,13 @@
               <a href="/notes" data-link>Notes</a> / ${course.title}
             </div>
             <h1>${course.title}</h1>
-            <div class="note-toc">
         `;
+        
+        if (course.chapters.length === 0) {
+          html += '<p style="color:var(--fg4)">Notes coming soon.</p>';
+        }
+
+        html += '<div class="note-toc">';
         
         for (const chapter of course.chapters) {
           html += `
@@ -1533,6 +1780,140 @@
       return html;
     }
 
+    // Homework system functions
+    async function loadHomeworkCourseList() {
+      const container = document.getElementById('homework-course-list');
+      if (!container) return;
+      
+      try {
+        const res = await fetch('/homework/courses.json');
+        const courses = await res.json();
+        
+        let html = '<div class="notes-courses">';
+        for (const course of courses) {
+          const typeLabel = course.type === 'essays' ? 'Essays' : 'Problem Sets';
+          html += `
+            <div class="notes-course-card">
+              <a href="/homework/${course.slug}" data-link class="notes-course-link">
+                <h3>${course.title}</h3>
+                <p>${course.description}</p>
+                <span class="homework-type-badge">${typeLabel}</span>
+              </a>
+            </div>
+          `;
+        }
+        html += '</div>';
+        container.innerHTML = html;
+      } catch (e) {
+        container.innerHTML = '<p>Error loading homework.</p>';
+      }
+    }
+
+    async function loadHomeworkCourse(courseSlug) {
+      try {
+        const res = await fetch(`/homework/${courseSlug}/assignments.json`);
+        const data = await res.json();
+        
+        let html = `
+          <div class="wiki-article">
+            <div class="note-breadcrumb">
+              <a href="/homework" data-link>Homework</a> / ${data.title}
+            </div>
+            <h1>${data.title}</h1>
+        `;
+        
+        if (data.assignments.length === 0) {
+          html += '<p>No assignments yet.</p>';
+        } else {
+          html += `
+            <table class="hw-table">
+              <thead><tr>
+                <th>Assignment</th>
+                <th>Date</th>
+                <th>Downloads</th>
+              </tr></thead>
+              <tbody>
+          `;
+          for (const a of data.assignments) {
+            const titleHtml = a.hasWriteup
+              ? `<a href="/homework/${courseSlug}/${a.slug}" class="hw-title-link" data-link>${a.title}</a>`
+              : `<span class="hw-title-plain">${a.title}</span>`;
+            const files = a.files || {};
+            let dlHtml = '';
+            if (files.pdf) dlHtml += `<a href="/homework/${courseSlug}/${files.pdf}" class="hw-dl pdf" target="_blank">⬇ pdf</a>`;
+            if (files.tex) dlHtml += `<a href="/homework/${courseSlug}/${files.tex}" class="hw-dl tex" target="_blank">⬇ tex</a>`;
+            if (!dlHtml) dlHtml = '<span style="color:var(--fg4);font-size:0.8rem">—</span>';
+            html += `
+              <tr>
+                <td>${titleHtml}</td>
+                <td class="hw-date">${a.date || ''}</td>
+                <td><div class="hw-downloads">${dlHtml}</div></td>
+              </tr>
+            `;
+          }
+          html += '</tbody></table>';
+        }
+        
+        html += '</div>';
+        document.getElementById('app').innerHTML = html;
+        updateNavState('/homework', `~/stephens/homework/${courseSlug}/`, `/homework/${courseSlug}`);
+      } catch (e) {
+        document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Course not found</h1></div>';
+      }
+    }
+
+    async function loadHomeworkAssignment(courseSlug, assignmentSlug) {
+      try {
+        const dataRes = await fetch(`/homework/${courseSlug}/assignments.json`);
+        const data = await dataRes.json();
+        
+        const mdRes = await fetch(`/homework/${courseSlug}/${assignmentSlug}.md`);
+        const md = await mdRes.text();
+        
+        const assignments = data.assignments;
+        const idx = assignments.findIndex(a => a.slug === assignmentSlug);
+        const current = idx >= 0 ? assignments[idx] : null;
+        const prev = idx > 0 ? assignments[idx - 1] : null;
+        const next = idx < assignments.length - 1 ? assignments[idx + 1] : null;
+        
+        const rendered = renderNoteMarkdown(md);
+        const files = current?.files || {};
+        let dlBar = '';
+        if (files.pdf || files.tex) {
+          dlBar = '<div class="hw-downloads" style="margin-bottom:1.5rem">';
+          if (files.pdf) dlBar += `<a href="/homework/${courseSlug}/${files.pdf}" class="hw-dl pdf" target="_blank">⬇ pdf</a>`;
+          if (files.tex) dlBar += `<a href="/homework/${courseSlug}/${files.tex}" class="hw-dl tex" target="_blank">⬇ tex</a>`;
+          dlBar += '</div>';
+        }
+        
+        let html = `
+          <div class="wiki-article note-section">
+            <div class="note-breadcrumb">
+              <a href="/homework" data-link>Homework</a> / 
+              <a href="/homework/${courseSlug}" data-link>${data.title}</a> / 
+              ${current?.title || assignmentSlug}
+            </div>
+            ${dlBar}
+            <div class="note-nav">
+              ${prev ? `<a href="/homework/${courseSlug}/${prev.slug}" class="note-nav-prev" data-link>${prev.title}</a>` : '<span></span>'}
+              ${next ? `<a href="/homework/${courseSlug}/${next.slug}" class="note-nav-next" data-link>${next.title}</a>` : '<span></span>'}
+            </div>
+            <div class="note-content">${rendered}</div>
+            <div class="note-nav">
+              ${prev ? `<a href="/homework/${courseSlug}/${prev.slug}" class="note-nav-prev" data-link>${prev.title}</a>` : '<span></span>'}
+              ${next ? `<a href="/homework/${courseSlug}/${next.slug}" class="note-nav-next" data-link>${next.title}</a>` : '<span></span>'}
+            </div>
+          </div>
+        `;
+        
+        document.getElementById('app').innerHTML = html;
+        updateNavState('/homework', `~/stephens/homework/${courseSlug}/${assignmentSlug}.md`, `/homework/${courseSlug}/${assignmentSlug}`);
+        renderMath();
+      } catch (e) {
+        document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Assignment not found</h1></div>';
+      }
+    }
+
     function updateNavState(basePath, statusPath, fullPath) {
       document.querySelectorAll('.nav-tabs a').forEach(a => {
         const href = a.getAttribute('href');
@@ -1543,6 +1924,164 @@
         history.pushState({}, '', fullPath);
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ===== ANABASIS atlas (direct-link only; intentionally not in nav yet) =====
+    const ATLAS_LVLC = {0:'#b8bb26',1:'#8ec07c',2:'#fabd2f',3:'#fe8019',4:'#fb4934',5:'#d3869b'};
+    const ATLAS_LVLNAME = {0:'foundational',1:'pre-competition',2:'competition',3:'olympiad',4:'putnam',5:'and beyond'};
+    if (window.cytoscapeFcose) { try { cytoscape.use(window.cytoscapeFcose); } catch (e) {} }
+    let atlasCy = null;
+
+    async function ensureAtlasData() {
+      if (window.__ATLAS) return window.__ATLAS;
+      const [domains, index] = await Promise.all([
+        fetch('/atlas/atlas.json').then(r => r.json()),
+        fetch('/atlas/index.json').then(r => r.json()),
+      ]);
+      window.__ATLAS = { domains, index, ids: Object.keys(index) };
+      return window.__ATLAS;
+    }
+
+    async function loadAtlasIndex(preDomain) {
+      let A;
+      try { A = await ensureAtlasData(); }
+      catch (e) { document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Atlas unavailable</h1></div>'; return; }
+      const domTitle = {}; A.domains.forEach(d => domTitle[d.slug] = d.name);
+      const st = { q:'', sort:'domain', domain:(preDomain && A.domains.some(d=>d.slug===preDomain))?preDomain:'all', levels:new Set() };
+      const inp = 'background:#282828;border:1px solid #3c3836;color:#d5c4a1;font-family:inherit;font-size:12px;padding:8px;border-radius:8px;outline:none';
+      document.getElementById('app').innerHTML =
+        '<div class="wiki-article" style="max-width:none">'
+        + '<div class="note-breadcrumb">Atlas</div>'
+        + '<h1>ANABASIS &mdash; Atlas of Mathematical Results</h1>'
+        + '<p style="color:#a89984">A discovery-first map from arithmetic to Putnam level. Search or filter the '
+        + A.ids.length + ' nodes, or explore the prerequisite graph &mdash; every arrow points from a prerequisite to what it unlocks.</p>'
+        + '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0">'
+        + '<input id="atlas-q" placeholder="Search name, id, tag…" autocomplete="off" spellcheck="false" style="flex:1;min-width:200px;'+inp+';font-size:13px;padding:9px 12px">'
+        + '<select id="atlas-sort" style="'+inp+'"><option value="domain">Group by domain</option><option value="level">Group by level</option><option value="az">A&ndash;Z</option></select>'
+        + '<select id="atlas-domf" style="'+inp+'"></select>'
+        + '<span id="atlas-levels" style="display:flex;gap:4px"></span></div>'
+        + '<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">'
+        + '<div id="atlas-list" style="flex:1;min-width:260px;max-height:560px;overflow:auto;border:1px solid #3c3836;border-radius:10px;padding:6px"></div>'
+        + '<div style="flex:2;min-width:320px;position:relative">'
+        + '<div id="atlas-cy" style="width:100%;height:560px;border:1px solid #3c3836;border-radius:10px;background:#1d2021"></div>'
+        + '<div id="atlas-legend" style="position:absolute;bottom:10px;left:10px;display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:#a89984;background:rgba(40,40,40,.85);border:1px solid #3c3836;border-radius:8px;padding:7px 10px"></div>'
+        + '</div></div></div>';
+      updateNavState('/atlas', '~/stephens/atlas/', preDomain ? ('/atlas/'+preDomain) : '/atlas');
+
+      const domf = document.getElementById('atlas-domf');
+      domf.innerHTML = '<option value="all">All domains</option>' + A.domains.map(d => '<option value="'+d.slug+'">'+d.name+'</option>').join('');
+      domf.value = st.domain;
+      document.getElementById('atlas-sort').value = st.sort;
+      const lv = document.getElementById('atlas-levels');
+      lv.innerHTML = [0,1,2,3,4,5].map(l => '<span data-l="'+l+'" style="cursor:pointer;font-size:11px;padding:3px 8px;border-radius:20px;border:1px solid #504945;color:#a89984">L'+l+'</span>').join('');
+      lv.querySelectorAll('[data-l]').forEach(c => c.onclick = () => {
+        const l = +c.dataset.l;
+        if (st.levels.has(l)) { st.levels.delete(l); c.style.background=''; c.style.color='#a89984'; }
+        else { st.levels.add(l); c.style.background=ATLAS_LVLC[l]; c.style.color='#1d2021'; }
+        renderList();
+      });
+      document.getElementById('atlas-legend').innerHTML = [0,1,2,3,4,5].map(l =>
+        '<span style="display:flex;align-items:center;gap:5px"><span style="width:9px;height:9px;border-radius:50%;background:'+ATLAS_LVLC[l]+'"></span>L'+l+' '+ATLAS_LVLNAME[l]+'</span>').join('');
+
+      const matches = () => A.ids.map(id => Object.assign({id}, A.index[id])).filter(n => {
+        if (st.domain !== 'all' && n.domain !== st.domain) return false;
+        if (st.levels.size && !st.levels.has(n.level)) return false;
+        if (st.q) { const hay = (n.name+' '+n.id+' '+(n.tags||[]).join(' ')+' '+n.domain).toLowerCase(); if (!hay.includes(st.q)) return false; }
+        return true;
+      });
+      function renderList() {
+        const ns = matches();
+        let groups = [];
+        if (st.sort === 'az') groups = [['', ns.slice().sort((a,b)=>a.name.localeCompare(b.name))]];
+        else if (st.sort === 'level') { for (let l=0;l<=5;l++){ const g=ns.filter(n=>n.level===l).sort((a,b)=>a.name.localeCompare(b.name)); if(g.length) groups.push(['Level '+l+' — '+ATLAS_LVLNAME[l], g]); } }
+        else { for (const d of A.domains.map(x=>x.slug)){ const g=ns.filter(n=>n.domain===d).sort((a,b)=>(a.level-b.level)||a.name.localeCompare(b.name)); if(g.length) groups.push([domTitle[d], g]); } }
+        let html = '';
+        for (const [t,g] of groups) {
+          if (t) html += '<div style="color:#8ec07c;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:9px 8px 4px">'+t+'</div>';
+          for (const n of g) html += '<div class="atlas-item" data-id="'+n.id+'" style="display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:6px;cursor:pointer"><span style="width:8px;height:8px;border-radius:50%;background:'+ATLAS_LVLC[n.level]+'"></span><span style="font-size:13px;color:#d5c4a1">'+n.name+'</span><span style="margin-left:auto;font-size:10px;color:#7c6f64">L'+n.level+'</span></div>';
+        }
+        if (!groups.length) html = '<div style="padding:20px;color:#7c6f64;text-align:center">No nodes match.</div>';
+        const el = document.getElementById('atlas-list');
+        el.innerHTML = html;
+        el.querySelectorAll('.atlas-item').forEach(it => {
+          it.onmouseenter = () => it.style.background = '#32302f';
+          it.onmouseleave = () => it.style.background = '';
+          it.onclick = () => navigate('/atlas/' + it.dataset.id);
+        });
+      }
+      document.getElementById('atlas-q').oninput = e => { st.q = e.target.value.toLowerCase(); renderList(); };
+      document.getElementById('atlas-sort').onchange = e => { st.sort = e.target.value; renderList(); };
+      domf.onchange = e => { st.domain = e.target.value; renderList(); buildAtlasGraph(st.domain); };
+      renderList();
+      buildAtlasGraph(st.domain);
+    }
+
+    function buildAtlasGraph(domain) {
+      const A = window.__ATLAS; if (!A || !window.cytoscape) return;
+      let ids;
+      if (domain === 'all') ids = new Set(A.ids);
+      else {
+        ids = new Set(A.ids.filter(id => A.index[id].domain === domain));
+        for (const id of [...ids]) (A.index[id].prereqs||[]).concat(A.index[id].unlocks||[]).forEach(x => { if (A.index[x]) ids.add(x); });
+      }
+      const els = [];
+      for (const id of ids) { const n = A.index[id]; els.push({ data:{id,label:n.name,lvl:n.level}, classes:(domain!=='all'&&n.domain!==domain)?'ext':'' }); }
+      for (const id of ids) (A.index[id].prereqs||[]).forEach(p => { if (ids.has(p)) els.push({ data:{id:p+'>'+id, source:p, target:id} }); });
+      if (atlasCy) { atlasCy.destroy(); atlasCy = null; }
+      atlasCy = cytoscape({
+        container: document.getElementById('atlas-cy'), elements: els,
+        style: [
+          { selector:'node', style:{ 'background-color':e=>ATLAS_LVLC[e.data('lvl')]||'#a89984', 'label':'data(label)', 'color':'#d5c4a1', 'font-family':'JetBrains Mono, monospace', 'font-size':'9px', 'width':15, 'height':15, 'text-wrap':'wrap', 'text-max-width':'130px', 'text-valign':'bottom', 'text-halign':'center', 'text-margin-y':3, 'min-zoomed-font-size':6 } },
+          { selector:'node.ext', style:{ 'opacity':.4 } },
+          { selector:'edge', style:{ 'width':1, 'line-color':'#504945', 'target-arrow-color':'#504945', 'target-arrow-shape':'triangle', 'arrow-scale':.7, 'curve-style':'bezier', 'opacity':.5 } },
+        ],
+        layout: (domain === 'all')
+          ? (window.cytoscapeFcose
+              ? { name:'fcose', animate:false, randomize:true, quality:'proof', nodeDimensionsIncludeLabels:true, nodeSeparation:140, idealEdgeLength:110, nodeRepulsion:12000, padding:50, packComponents:true, fit:true }
+              : { name:'cose', animate:false, nodeDimensionsIncludeLabels:true, idealEdgeLength:110, nodeRepulsion:12000, padding:50, nodeOverlap:24, fit:true })
+          : { name:'breadthfirst', directed:true, nodeDimensionsIncludeLabels:true, spacingFactor:1.5, padding:50, fit:true },
+        minZoom:.12, maxZoom:3, wheelSensitivity:.25,
+      });
+      atlasCy.on('tap', 'node', evt => navigate('/atlas/' + evt.target.id()));
+    }
+
+    async function loadAtlasEntry(seg) {
+      try {
+        const A = await ensureAtlasData();
+        if (A.domains.some(d => d.slug === seg)) { await loadAtlasIndex(seg); return; }
+        if (A.index[seg]) { await loadAtlasNode(seg, A.index, A.domains); return; }
+        document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>404 &mdash; no atlas entry</h1>'
+          + '<p><a href="/atlas" data-link>Back to the atlas</a></p></div>';
+        updateNavState('/atlas', '~/stephens/atlas/404', '/atlas/' + seg);
+      } catch (e) {
+        document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Atlas unavailable</h1></div>';
+      }
+    }
+
+    async function loadAtlasNode(id, index, domains) {
+      const meta = index[id];
+      const domName = (domains.find(d => d.slug === meta.domain) || {}).name || meta.domain;
+      const md = await (await fetch('/atlas/' + meta.domain + '/' + id + '.md')).text();
+      const rendered = renderNoteMarkdown(md);
+      const chip = (nid) => index[nid]
+        ? '<a href="/atlas/' + nid + '" class="category-tag" data-link>' + index[nid].name + '</a>'
+        : '<span class="category-tag">' + nid + '</span>';
+      const chipRow = (title, ids) => (ids && ids.length)
+        ? '<div class="categories-box"><div class="categories-title">' + title + '</div>'
+          + '<div class="categories-list">' + ids.map(chip).join(' ') + '</div></div>'
+        : '';
+      const html = '<div class="wiki-article note-section">'
+        + '<div class="note-breadcrumb"><a href="/atlas" data-link>Atlas</a> / '
+        + '<a href="/atlas/' + meta.domain + '" data-link>' + domName + '</a> / ' + meta.name + '</div>'
+        + '<h1>' + meta.name + '</h1>'
+        + '<div class="categories-list" style="margin-bottom:1rem"><span class="course-status">L' + meta.level + ' · ' + (ATLAS_LVLNAME[meta.level]||'') + '</span> '
+        + '<span class="category-tag">' + domName + '</span></div>'
+        + '<div class="note-content">' + rendered + '</div>'
+        + chipRow('Prerequisites', meta.prereqs) + chipRow('Unlocks', meta.unlocks)
+        + '</div>';
+      document.getElementById('app').innerHTML = html;
+      updateNavState('/atlas', '~/stephens/atlas/' + meta.domain + '/' + id + '.md', '/atlas/' + id);
+      renderMath();
     }
 
     // File explorer folder functions
@@ -1569,30 +2108,67 @@
         if (notesChildren) {
           let html = '';
           for (const course of courses) {
-            const courseRes = await fetch(`/notes/${course.slug}/course.json`);
-            const courseData = await courseRes.json();
-            
-            html += `<div class="file-folder" data-folder="notes-${course.slug}">`;
-            html += `<div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>${course.slug}/</span></div>`;
-            html += `<div class="folder-children">`;
-            
-            for (const chapter of courseData.chapters) {
-              html += `<div class="file-folder" data-folder="notes-${course.slug}-ch${chapter.number}" style="padding-left: 0.75rem;">`;
-              html += `<div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>ch${chapter.number}/</span></div>`;
+            try {
+              const courseRes = await fetch(`/notes/${course.slug}/course.json`);
+              const courseData = await courseRes.json();
+              
+              html += `<div class="file-folder" data-folder="notes-${course.slug}">`;
+              html += `<div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>${course.slug}/</span></div>`;
               html += `<div class="folder-children">`;
               
-              for (const section of chapter.sections) {
-                html += `<div class="file-item" data-link="/notes/${course.slug}/${section.slug}" tabindex="0" style="padding-left: 0.75rem;"><span class="file-icon md"></span><span>${section.slug}.md</span></div>`;
+              if (courseData.chapters.length === 0) {
+                html += `<div class="file-item" tabindex="-1" style="color:var(--fg4);font-style:italic;cursor:default"><span>(empty)</span></div>`;
+              }
+              for (const chapter of courseData.chapters) {
+                html += `<div class="file-folder" data-folder="notes-${course.slug}-ch${chapter.number}" style="padding-left: 0.75rem;">`;
+                html += `<div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>ch${chapter.number}/</span></div>`;
+                html += `<div class="folder-children">`;
+                for (const section of chapter.sections) {
+                  html += `<div class="file-item" data-link="/notes/${course.slug}/${section.slug}" tabindex="0" style="padding-left: 0.75rem;"><span class="file-icon md"></span><span>${section.slug}.md</span></div>`;
+                }
+                html += `</div></div>`;
               }
               
               html += `</div></div>`;
+            } catch (e) {
+              html += `<div class="file-item" data-link="/notes/${course.slug}" tabindex="0"><span class="file-icon dir" style="color:var(--fg4)"></span><span style="color:var(--fg4)">${course.slug}/</span></div>`;
             }
-            
-            html += `</div></div>`;
           }
           notesChildren.innerHTML = html;
         }
       } catch (e) { console.log('No notes'); }
+
+      // Load homework into explorer
+      try {
+        const res = await fetch('/homework/courses.json');
+        const courses = await res.json();
+        const hwChildren = document.getElementById('homework-children');
+        if (hwChildren) {
+          let html = '';
+          for (const course of courses) {
+            try {
+              const dataRes = await fetch(`/homework/${course.slug}/assignments.json`);
+              const data = await dataRes.json();
+              
+              html += `<div class="file-folder" data-folder="homework-${course.slug}">`;
+              html += `<div class="file-item folder-toggle" tabindex="0"><span class="folder-arrow">▸</span><span class="file-icon dir"></span><span>${course.slug}/</span></div>`;
+              html += `<div class="folder-children">`;
+              
+              if (data.assignments.length === 0) {
+                html += `<div class="file-item" tabindex="-1" style="color:var(--fg4);font-style:italic;cursor:default"><span>(empty)</span></div>`;
+              }
+              for (const a of data.assignments) {
+                html += `<div class="file-item" data-link="/homework/${course.slug}/${a.slug}" tabindex="0" style="padding-left: 0.75rem;"><span class="file-icon md"></span><span>${a.slug}.md</span></div>`;
+              }
+              
+              html += `</div></div>`;
+            } catch (e) {
+              html += `<div class="file-item" data-link="/homework/${course.slug}" tabindex="0"><span class="file-icon dir" style="color:var(--fg4)"></span><span style="color:var(--fg4)">${course.slug}/</span></div>`;
+            }
+          }
+          hwChildren.innerHTML = html;
+        }
+      } catch (e) { console.log('No homework'); }
 
       // Load courses into explorer
       try {
@@ -1772,13 +2348,16 @@
       'research': () => navigate('/research'),
       'b': () => navigate('/blog'),
       'blog': () => navigate('/blog'),
-      't': () => navigate('/technical'),
-      'technical': () => navigate('/technical'),
+      't': () => navigate('/educational'),
+      'technical': () => navigate('/educational'),
       'n': () => navigate('/notes'),
       'notes': () => navigate('/notes'),
       'e': () => navigate('/educational'),
       'edu': () => navigate('/educational'),
       'educational': () => navigate('/educational'),
+      'm': () => navigate('/music'),
+      'music': () => navigate('/music'),
+      'atlas': () => navigate('/atlas'),
       
       // Help
       'help': () => showHelp(),
@@ -1854,7 +2433,9 @@
             <li><code>:a</code> / <code>:about</code> — about page</li>
             <li><code>:r</code> / <code>:research</code> — research</li>
             <li><code>:b</code> / <code>:blog</code> — blog</li>
-            <li><code>:t</code> / <code>:technical</code> — technical</li>
+            <li><code>:f</code> / <code>:films</code> — films</li>
+            <li><code>:m</code> / <code>:music</code> — music</li>
+            <li><code>:t</code> / <code>:technical</code> — educational</li>
             <li><code>:e</code> / <code>:edu</code> — educational</li>
             <li><code>:ls</code> — list all routes</li>
             <li><code>:latest</code> — most recent blog post</li>
@@ -1867,6 +2448,7 @@
             <li><code>:mail</code> — open email client</li>
             <li><code>:gh</code> / <code>:github</code> — GitHub profile</li>
             <li><code>:yt</code> / <code>:youtube</code> — YouTube channel</li>
+            <li><code>:lb</code> / <code>:letterboxd</code> — Letterboxd profile</li>
             <li><code>:source</code> — site source code</li>
           </ul>
           
@@ -1898,7 +2480,7 @@
     }
 
     function showRoutes() {
-      showMessage('Routes: / /about /research /blog /notes /educational');
+      showMessage('Routes: / /about /research /blog /films /music /notes /educational');
     }
 
     async function loadLatestPost() {
@@ -1938,9 +2520,10 @@
           else if (cmd.includes('about') || cmd === 'a') navigate('/about');
           else if (cmd.includes('research') || cmd === 'r') navigate('/research');
           else if (cmd.includes('blog') || cmd === 'b') navigate('/blog');
-          else if (cmd.includes('tech')) navigate('/technical');
+          else if (cmd.includes('tech')) navigate('/educational');
           else if (cmd.includes('note') || cmd === 'n') navigate('/notes');
           else if (cmd.includes('edu') || cmd === 'e') navigate('/educational');
+          else if (cmd.includes('music') || cmd === 'm') navigate('/music');
           else if (cmd.includes('help')) showHelp();
         } else {
           // Command mode

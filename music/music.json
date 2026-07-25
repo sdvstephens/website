@@ -1,0 +1,54 @@
+{
+  "intro": "",
+  "sections": [
+    {
+      "title": "Original Works",
+      "items": [
+        {
+          "title": "TITLE",
+          "year": "",
+          "instrumentation": "",
+          "duration": "",
+          "note": "",
+          "score": "",
+          "audio": ""
+        }
+      ]
+    },
+    {
+      "title": "Arrangements",
+      "items": [
+        {
+          "title": "TITLE",
+          "composer": "ORIGINAL COMPOSER",
+          "year": "",
+          "instrumentation": "",
+          "note": "",
+          "score": "",
+          "audio": ""
+        }
+      ]
+    },
+    {
+      "title": "Recordings",
+      "items": [
+        {
+          "title": "TITLE",
+          "year": "",
+          "note": "",
+          "audio": ""
+        }
+      ]
+    },
+    {
+      "title": "Favorite Works",
+      "items": [
+        {
+          "title": "TITLE",
+          "composer": "COMPOSER",
+          "note": ""
+        }
+      ]
+    }
+  ]
+}

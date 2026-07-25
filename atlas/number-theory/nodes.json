@@ -1,0 +1,525 @@
+[
+  {
+    "id": "nt-divisibility-elem",
+    "name": "Divisibility",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-multiples-elem",
+      "ari-division"
+    ],
+    "unlocks": [
+      "nt-primes-elem",
+      "nt-gcd-elem",
+      "nt-lcm-elem"
+    ]
+  },
+  {
+    "id": "nt-gcd-elem",
+    "name": "Greatest Common Divisor",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-divisibility-elem"
+    ],
+    "unlocks": [
+      "nt-lcm-elem"
+    ]
+  },
+  {
+    "id": "nt-lcm-elem",
+    "name": "Least Common Multiple",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-multiples-elem",
+      "nt-divisibility-elem",
+      "nt-gcd-elem"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-multiples-elem",
+    "name": "Multiples of an Integer",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "nt-divisibility-elem",
+      "nt-lcm-elem"
+    ]
+  },
+  {
+    "id": "nt-primes-elem",
+    "name": "Primes and Composites",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-divisibility-elem"
+    ],
+    "unlocks": [
+      "nt-prime-factorization-elem"
+    ]
+  },
+  {
+    "id": "nt-base-arithmetic",
+    "name": "Arithmetic in Base $b$",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-base-representation",
+      "ari-addition",
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "nt-units-digits"
+    ]
+  },
+  {
+    "id": "nt-base-conversion",
+    "name": "Converting Between Bases",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-base-representation",
+      "ari-division"
+    ],
+    "unlocks": [
+      "nt-base-arithmetic"
+    ]
+  },
+  {
+    "id": "nt-base-representation",
+    "name": "Base-$b$ Representation",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-higher-exponents",
+      "nt-multiples-elem",
+      "prim-natural-numbers"
+    ],
+    "unlocks": [
+      "nt-base-conversion",
+      "nt-base-arithmetic",
+      "nt-units-digits"
+    ]
+  },
+  {
+    "id": "nt-congruence-intro",
+    "name": "Congruence Modulo $m$",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-divisibility-elem",
+      "ari-division"
+    ],
+    "unlocks": [
+      "nt-residues",
+      "nt-mod-operations",
+      "nt-divisibility-rules-derived"
+    ]
+  },
+  {
+    "id": "nt-divisibility-rules-derived",
+    "name": "Divisibility Rules for 3, 9, and 11, Derived",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-congruence-intro",
+      "nt-base-representation"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-divisors-count-elem",
+    "name": "Counting Divisors",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-prime-factorization-elem",
+      "ari-exponent-laws"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-factorial-divisibility-elem",
+    "name": "How Primes Divide a Factorial",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-prime-factorization-elem",
+      "nt-primes-elem"
+    ],
+    "unlocks": [
+      "nt-legendre"
+    ]
+  },
+  {
+    "id": "nt-mod-operations",
+    "name": "Congruences Respect Addition and Multiplication",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-congruence-intro",
+      "ari-addition",
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "nt-divisibility-rules-derived",
+      "nt-modular-inverse-elem",
+      "nt-solving-congruences"
+    ]
+  },
+  {
+    "id": "nt-prime-factorization-elem",
+    "name": "Prime Factorization Exists and Is Unique",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-primes-elem",
+      "prim-induction"
+    ],
+    "unlocks": [
+      "nt-divisors-count-elem"
+    ]
+  },
+  {
+    "id": "nt-residues",
+    "name": "Residue Classes and Complete Residue Systems",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-congruence-intro"
+    ],
+    "unlocks": [
+      "nt-mod-operations",
+      "nt-modular-inverse-elem"
+    ]
+  },
+  {
+    "id": "nt-sum-of-divisors",
+    "name": "Sum of Divisors",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-prime-factorization-elem",
+      "ari-exponent-laws"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-units-digits",
+    "name": "Units Digits and Their Cycles",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-base-representation",
+      "nt-divisibility-elem"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-modular-inverse-elem",
+    "name": "Modular Inverses",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-mod-operations",
+      "nt-gcd-elem"
+    ],
+    "unlocks": [
+      "nt-solving-congruences"
+    ]
+  },
+  {
+    "id": "nt-solving-congruences",
+    "name": "Solving Linear Congruences",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-modular-inverse-elem"
+    ],
+    "unlocks": [
+      "nt-systems-congruences-elem"
+    ]
+  },
+  {
+    "id": "nt-systems-congruences-elem",
+    "name": "Systems of Congruences (the CRT Idea)",
+    "level": "E4",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-solving-congruences",
+      "nt-lcm-elem"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-mod-arithmetic",
+    "name": "Modular Arithmetic as an Equivalence Relation",
+    "level": 1,
+    "status": "reviewed",
+    "prereqs": [
+      "found-mod-basics",
+      "found-division-algorithm",
+      "nt-congruence-intro",
+      "nt-mod-operations"
+    ],
+    "unlocks": [
+      "nt-modular-inverses",
+      "nt-bezout",
+      "nt-fermat-little"
+    ]
+  },
+  {
+    "id": "nt-modular-inverses",
+    "name": "Modular Inverses",
+    "level": 1,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-mod-arithmetic",
+      "found-euclid-gcd",
+      "nt-modular-inverse-elem"
+    ],
+    "unlocks": [
+      "nt-bezout",
+      "nt-crt",
+      "nt-wilson",
+      "nt-fermat-little"
+    ]
+  },
+  {
+    "id": "nt-bezout",
+    "name": "Bézout's Identity",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "found-euclid-gcd",
+      "nt-mod-arithmetic"
+    ],
+    "unlocks": [
+      "nt-linear-diophantine",
+      "nt-crt"
+    ]
+  },
+  {
+    "id": "nt-crt",
+    "name": "The Chinese Remainder Theorem",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-modular-inverses",
+      "nt-systems-congruences-elem"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-euler-totient",
+    "name": "Euler's Theorem and the Totient Function",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-fermat-little"
+    ],
+    "unlocks": [
+      "nt-quadratic-residues"
+    ]
+  },
+  {
+    "id": "nt-fermat-little",
+    "name": "Fermat's Little Theorem",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-mod-arithmetic",
+      "nt-modular-inverses"
+    ],
+    "unlocks": [
+      "nt-euler-totient",
+      "nt-order-element",
+      "nt-wilson"
+    ]
+  },
+  {
+    "id": "nt-floor-techniques",
+    "name": "Floor Function Techniques",
+    "level": "L2",
+    "status": "reviewed",
+    "prereqs": [
+      "found-floor",
+      "nt-divisibility-elem"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-infinitude-primes",
+    "name": "The Infinitude of Primes",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "found-fta"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-legendre",
+    "name": "Legendre's Formula",
+    "level": 2,
+    "status": "ratified",
+    "prereqs": [
+      "found-floor",
+      "found-fta"
+    ],
+    "unlocks": [
+      "nt-kummer",
+      "nt-lte"
+    ]
+  },
+  {
+    "id": "nt-linear-diophantine",
+    "name": "Linear Diophantine Equations",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-bezout"
+    ],
+    "unlocks": [
+      "nt-crt"
+    ]
+  },
+  {
+    "id": "nt-order-element",
+    "name": "The Multiplicative Order of an Element",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-fermat-little"
+    ],
+    "unlocks": [
+      "nt-power-cycles",
+      "nt-lte"
+    ]
+  },
+  {
+    "id": "nt-power-cycles",
+    "name": "Power Cycles and Last Digits",
+    "level": 2,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-order-element"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-bounding",
+    "name": "Bounding Arguments in Number Theory",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-mod-arithmetic"
+    ],
+    "unlocks": [
+      "nt-pell",
+      "nt-vieta-jumping"
+    ]
+  },
+  {
+    "id": "nt-diophantine-methods",
+    "name": "Methods for Diophantine Equations",
+    "level": "L3",
+    "status": "reviewed",
+    "prereqs": [
+      "nt-linear-diophantine",
+      "alg-sfft",
+      "nt-congruence-intro"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-kummer",
+    "name": "Kummer's Theorem (Carries)",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-legendre"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-lte",
+    "name": "Lifting the Exponent",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-order-element",
+      "nt-legendre"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-pell",
+    "name": "Pell's Equation",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-bounding"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-quadratic-residues",
+    "name": "Quadratic Residues and Euler's Criterion",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-euler-totient"
+    ],
+    "unlocks": [
+      "nt-quadratic-reciprocity",
+      "nt-two-squares"
+    ]
+  },
+  {
+    "id": "nt-wilson",
+    "name": "Wilson's Theorem",
+    "level": 3,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-modular-inverses"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-quadratic-reciprocity",
+    "name": "Quadratic Reciprocity",
+    "level": 4,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-quadratic-residues"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-two-squares",
+    "name": "Fermat's Two-Squares Theorem",
+    "level": 4,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-quadratic-residues"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "nt-vieta-jumping",
+    "name": "Vieta Jumping",
+    "level": 4,
+    "status": "reviewed",
+    "prereqs": [
+      "nt-bounding",
+      "alg-vieta"
+    ],
+    "unlocks": []
+  }
+]

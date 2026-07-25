@@ -1,0 +1,112 @@
+{
+  "letterboxd": "Vichaama",
+  "intro": "A ranked canon — films that did permanent damage, in the good sense. The Letterboxd diary below updates on its own.",
+  "note": "Ordering below the top two is provisional; edit freely.",
+  "films": [
+    {
+      "rank": 1,
+      "title": "Strange Circus",
+      "director": "Sion Sono",
+      "year": 2005,
+      "note": "Guignol memory-theatre — abuse, authorship, and a cello. Nothing else is built like it."
+    },
+    {
+      "rank": 2,
+      "title": "Perfect Blue",
+      "director": "Satoshi Kon",
+      "year": 1997,
+      "note": "Identity dissolving across screens before the internet had finished arriving."
+    },
+    {
+      "rank": 3,
+      "title": "Cure",
+      "director": "Kiyoshi Kurosawa",
+      "year": 1997,
+      "note": "Hypnosis as contagion; the emptiest interiors in cinema."
+    },
+    {
+      "rank": 4,
+      "title": "Pulse",
+      "director": "Kiyoshi Kurosawa",
+      "year": 2001,
+      "note": "Loneliness made literal haunting. The dial-up dread has only aged truer."
+    },
+    {
+      "rank": 5,
+      "title": "The House That Jack Built",
+      "director": "Lars von Trier",
+      "year": 2018,
+      "note": "Art-as-atrocity confession, with Virgil along for the descent."
+    },
+    {
+      "rank": 6,
+      "title": "No Country for Old Men",
+      "director": "Joel & Ethan Coen",
+      "year": 2007,
+      "note": "Fate carries a captive-bolt pistol; the ending refuses every catharsis."
+    },
+    {
+      "rank": 7,
+      "title": "Everything Everywhere All at Once",
+      "director": "Daniel Kwan & Daniel Scheinert",
+      "year": 2022,
+      "note": "Maximalist multiverse collapsing into a mother and a daughter."
+    },
+    {
+      "rank": 8,
+      "title": "Possessor",
+      "director": "Brandon Cronenberg",
+      "year": 2020,
+      "note": "Identity as occupied territory."
+    },
+    {
+      "rank": 9,
+      "title": "Koyaanisqatsi",
+      "director": "Godfrey Reggio",
+      "year": 1982,
+      "note": "Civilization at time-lapse speed until Glass turns it into liturgy."
+    },
+    {
+      "rank": 10,
+      "title": "Paprika",
+      "director": "Satoshi Kon",
+      "year": 2006,
+      "note": "The dream-machine film everything after it borrowed from."
+    },
+    {
+      "rank": 11,
+      "title": "Raw",
+      "director": "Julia Ducournau",
+      "year": 2016,
+      "note": "Appetite as inheritance."
+    },
+    {
+      "rank": 12,
+      "title": "Cold Fish",
+      "director": "Sion Sono",
+      "year": 2010,
+      "note": "Serial murder as small-business mentorship."
+    },
+    {
+      "rank": 13,
+      "title": "Shortbus",
+      "director": "John Cameron Mitchell",
+      "year": 2006,
+      "note": "Post-9/11 New York looking for connection with the lights on."
+    },
+    {
+      "rank": 14,
+      "title": "Lost Highway",
+      "director": "David Lynch",
+      "year": 1997,
+      "note": "The psychogenic fugue as Möbius strip."
+    },
+    {
+      "rank": 15,
+      "title": "Zima Blue",
+      "director": "Robert Valley",
+      "year": 2019,
+      "note": "Sixteen minutes on art, memory, and the return to the tile."
+    }
+  ]
+}

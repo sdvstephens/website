@@ -1,0 +1,57 @@
+[
+  {
+    "slug": "foundations",
+    "name": "Foundations & Arithmetic",
+    "blurb": "Place value, divisibility, gcd, parity — the everybody-knows-this layer."
+  },
+  {
+    "slug": "number-theory",
+    "name": "Number Theory",
+    "blurb": "Congruences, Fermat/Euler, CRT, Legendre, LTE, reciprocity, Vieta jumping."
+  },
+  {
+    "slug": "algebra",
+    "name": "Algebra & Polynomials",
+    "blurb": "Factoring, Vieta, symmetric functions, interpolation, roots of unity."
+  },
+  {
+    "slug": "inequalities",
+    "name": "Inequalities",
+    "blurb": "AM–GM, Cauchy–Schwarz, Engel, Jensen, rearrangement, SOS, smoothing."
+  },
+  {
+    "slug": "series",
+    "name": "Sequences, Series & Summation",
+    "blurb": "Telescoping, perturbation, generating functions, recurrences, Abel summation."
+  },
+  {
+    "slug": "combinatorics",
+    "name": "Combinatorics",
+    "blurb": "Counting principles, PIE, bijections, pigeonhole, Catalan, double counting."
+  },
+  {
+    "slug": "trig-complex",
+    "name": "Trigonometry & Complex Numbers",
+    "blurb": "De Moivre, Euler's formula, roots of unity, Chebyshev polynomials."
+  },
+  {
+    "slug": "analysis",
+    "name": "Calculus & Analysis",
+    "blurb": "Limits, derivatives, Taylor, MVT, Feynman integration, Riemann sums."
+  },
+  {
+    "slug": "linear-algebra",
+    "name": "Linear Algebra",
+    "blurb": "Determinants, eigenvalues, Cayley–Hamilton, rank–nullity, Vandermonde."
+  },
+  {
+    "slug": "meta",
+    "name": "Meta-techniques & Heuristics",
+    "blurb": "Small cases, invariants, extremal principle, induction, contradiction."
+  },
+  {
+    "slug": "geometry",
+    "name": "Geometry",
+    "blurb": "Heron, coordinate & vector methods, power of a point, the shoelace formula."
+  }
+]

@@ -1,5 +1,135 @@
 [
   {
+    "slug": "states-of-calamity",
+    "title": "States of Calamity",
+    "date": "2026-07-24",
+    "excerpt": "The citiy is freedom; rural calamity is emancipation",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "connections",
+    "title": "Connections",
+    "date": "2026-07-21",
+    "excerpt": "What even is a connection",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "my-name",
+    "title": "My name",
+    "date": "2026-07-16",
+    "excerpt": "My name",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "reaching-for-the-sky",
+    "title": "Reaching for The Sky",
+    "date": "2026-07-06",
+    "excerpt": "gasping for light",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "06-16-2026",
+    "title": "06-16-2026",
+    "date": "2026-06-16",
+    "excerpt": "06-16-2026",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "hobbes-and-leviathan",
+    "title": "Hobbes-and-Leviathan",
+    "date": "2026-04-28",
+    "excerpt": "The naivete of Leviathan",
+    "tags": [
+      "politics"
+    ]
+  },
+  {
+    "slug": "the-fire-is-here",
+    "title": "The Fire is Here",
+    "date": "2026-03-22",
+    "excerpt": "",
+    "tags": [
+      "personal",
+      "politics"
+    ]
+  },
+  {
+    "slug": "trump-and-freud",
+    "title": "Trump and Freud",
+    "date": "2026-03-21",
+    "excerpt": "Trump and Freud",
+    "tags": [
+      "politics",
+      "critical theory",
+      "psychoanalysis",
+      "sociology"
+    ]
+  },
+  {
+    "slug": "textbook-progress",
+    "title": "Textbook progress",
+    "date": "2026-03-11",
+    "excerpt": "Textbook progress",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "august-26-2025",
+    "title": "August 26, 2025",
+    "date": "2026-03-03",
+    "excerpt": "August 26, 2025",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "thoughts-musings",
+    "title": "thoughts, musings",
+    "date": "2026-03-03",
+    "excerpt": "disorganized thoughts",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "penguin",
+    "title": "The Penguin",
+    "date": "2026-01-23",
+    "excerpt": "Is there such a thing as insanity in a penguin?",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "good-day",
+    "title": "good-day",
+    "date": "2026-01-19",
+    "excerpt": "Today was a good day.",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
+    "slug": "choices",
+    "title": "choices",
+    "date": "2026-01-17",
+    "excerpt": "Constant choices turn me into Chidi Anagonye",
+    "tags": [
+      "personal"
+    ]
+  },
+  {
     "slug": "learning-to-publicly-be-stupid",
     "title": "Learning to Publicly be Stupid",
     "date": "2026-01-16",
@@ -40,7 +170,7 @@
     "slug": "welcome",
     "title": "Welcome to the Blog",
     "date": "2025-12-12",
-    "excerpt": "First post \u2014 testing Markdown and LaTeX rendering.",
+    "excerpt": "First post — testing Markdown and LaTeX rendering.",
     "tags": [
       "meta"
     ]

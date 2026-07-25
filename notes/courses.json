@@ -28,5 +28,10 @@
     "slug": "biology",
     "title": "Biology",
     "description": "Molecular biology, cell biology, genetics, and biochemistry"
+  },
+  {
+    "slug": "critical-theory",
+    "title": "Critical Theory",
+    "description": "Frankfurt School critical theory: Lukács, Horkheimer, Adorno, Habermas, and beyond"
   }
 ]

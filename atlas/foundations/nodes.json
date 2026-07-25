@@ -1,0 +1,780 @@
+[
+  {
+    "id": "ari-addition",
+    "name": "Addition and the Sum",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "prim-number",
+      "prim-natural-numbers"
+    ],
+    "unlocks": [
+      "ari-multiplication",
+      "ari-commutativity",
+      "ari-associativity",
+      "ari-distributive-law",
+      "ari-negation",
+      "ari-subtraction"
+    ]
+  },
+  {
+    "id": "ari-associativity",
+    "name": "Associativity of Addition and Multiplication",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-addition",
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "ari-distributive-law",
+      "ari-integers",
+      "ari-higher-exponents"
+    ]
+  },
+  {
+    "id": "ari-commutativity",
+    "name": "Commutativity of Addition and Multiplication",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-addition",
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "ari-associativity",
+      "ari-distributive-law",
+      "ari-integers"
+    ]
+  },
+  {
+    "id": "ari-distributive-law",
+    "name": "The Distributive Law",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-addition",
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "ari-integers",
+      "ari-subtraction",
+      "ari-exponent-laws"
+    ]
+  },
+  {
+    "id": "ari-division",
+    "name": "Division as Multiplying by the Reciprocal",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-multiplication",
+      "ari-reciprocal"
+    ],
+    "unlocks": [
+      "ari-negative-exponents"
+    ]
+  },
+  {
+    "id": "ari-exponent-laws",
+    "name": "The Laws of Exponents",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-higher-exponents",
+      "prim-induction"
+    ],
+    "unlocks": [
+      "ari-zero-exponent",
+      "ari-negative-exponents"
+    ]
+  },
+  {
+    "id": "ari-higher-exponents",
+    "name": "Exponents: Repeated Multiplication",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-multiplication",
+      "ari-squares"
+    ],
+    "unlocks": [
+      "ari-exponent-laws",
+      "ari-zero-exponent",
+      "ari-negative-exponents"
+    ]
+  },
+  {
+    "id": "ari-integers",
+    "name": "The Integers as a Ring",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-negation",
+      "prim-natural-numbers"
+    ],
+    "unlocks": [
+      "ari-division",
+      "ari-reciprocal"
+    ]
+  },
+  {
+    "id": "ari-multiplication",
+    "name": "Multiplication and the Product",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-addition",
+      "prim-natural-numbers"
+    ],
+    "unlocks": [
+      "ari-commutativity",
+      "ari-associativity",
+      "ari-distributive-law",
+      "ari-reciprocal",
+      "ari-division",
+      "ari-squares",
+      "ari-higher-exponents"
+    ]
+  },
+  {
+    "id": "ari-negation",
+    "name": "Negative Numbers and the Additive Inverse",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-addition",
+      "prim-number"
+    ],
+    "unlocks": [
+      "ari-subtraction",
+      "ari-integers",
+      "ari-negative-exponents"
+    ]
+  },
+  {
+    "id": "ari-negative-exponents",
+    "name": "Negative Exponents",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-exponent-laws",
+      "ari-reciprocal"
+    ],
+    "unlocks": [
+      "ari-division"
+    ]
+  },
+  {
+    "id": "ari-reciprocal",
+    "name": "The Reciprocal (Multiplicative Inverse)",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "ari-division",
+      "ari-negative-exponents"
+    ]
+  },
+  {
+    "id": "ari-squares",
+    "name": "Squaring and Square Numbers",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "ari-higher-exponents"
+    ]
+  },
+  {
+    "id": "ari-subtraction",
+    "name": "Subtraction as Adding the Opposite",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-negation",
+      "ari-addition"
+    ],
+    "unlocks": [
+      "ari-integers",
+      "ari-division"
+    ]
+  },
+  {
+    "id": "ari-zero-exponent",
+    "name": "The Zero Exponent",
+    "level": "E1",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-exponent-laws"
+    ],
+    "unlocks": [
+      "ari-negative-exponents"
+    ]
+  },
+  {
+    "id": "ari-decimal-arithmetic",
+    "name": "Decimals as Base-Ten Fractions",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-fraction-meaning",
+      "ari-higher-exponents",
+      "ari-addition"
+    ],
+    "unlocks": [
+      "ari-rounding",
+      "ari-decimal-fraction"
+    ]
+  },
+  {
+    "id": "ari-decimal-fraction",
+    "name": "Converting Between Decimals and Fractions",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-decimal-arithmetic",
+      "ari-fraction-meaning"
+    ],
+    "unlocks": [
+      "ari-repeating-decimals",
+      "ari-percent-meaning"
+    ]
+  },
+  {
+    "id": "ari-fraction-addsub",
+    "name": "Adding and Subtracting Fractions",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-fraction-meaning",
+      "ari-addition",
+      "ari-fraction-simplify"
+    ],
+    "unlocks": [
+      "ari-mixed-numbers",
+      "ari-decimal-arithmetic"
+    ]
+  },
+  {
+    "id": "ari-fraction-compare",
+    "name": "Comparing Fractions",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-fraction-meaning",
+      "ari-fraction-multiply"
+    ],
+    "unlocks": [
+      "ari-proportion"
+    ]
+  },
+  {
+    "id": "ari-fraction-divide",
+    "name": "Dividing Fractions",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-fraction-multiply",
+      "ari-reciprocal"
+    ],
+    "unlocks": [
+      "ari-repeating-decimals"
+    ]
+  },
+  {
+    "id": "ari-fraction-meaning",
+    "name": "What a Fraction Means",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-division",
+      "prim-number"
+    ],
+    "unlocks": [
+      "ari-fraction-simplify",
+      "ari-fraction-multiply",
+      "ari-fraction-addsub",
+      "ari-fraction-compare",
+      "ari-mixed-numbers",
+      "ari-decimal-arithmetic",
+      "ari-ratio"
+    ]
+  },
+  {
+    "id": "ari-fraction-multiply",
+    "name": "Multiplying Fractions",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-fraction-meaning",
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "ari-fraction-divide",
+      "ari-fraction-compare",
+      "ari-radical-arithmetic"
+    ]
+  },
+  {
+    "id": "ari-fraction-simplify",
+    "name": "Equivalent Fractions and Lowest Terms",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-fraction-meaning",
+      "ari-multiplication"
+    ],
+    "unlocks": [
+      "ari-fraction-addsub",
+      "ari-fraction-compare"
+    ]
+  },
+  {
+    "id": "ari-mixed-numbers",
+    "name": "Mixed Numbers and Improper Fractions",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-fraction-meaning",
+      "ari-addition"
+    ],
+    "unlocks": [
+      "ari-decimal-arithmetic"
+    ]
+  },
+  {
+    "id": "ari-percent-change",
+    "name": "Percent Increase and Decrease",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-percent-meaning",
+      "ari-subtraction"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ari-percent-meaning",
+    "name": "Percent as Per-Hundred",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-fraction-meaning",
+      "ari-decimal-fraction"
+    ],
+    "unlocks": [
+      "ari-percent-change"
+    ]
+  },
+  {
+    "id": "ari-proportion",
+    "name": "Proportions",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-ratio",
+      "ari-fraction-compare"
+    ],
+    "unlocks": [
+      "ari-percent-change"
+    ]
+  },
+  {
+    "id": "ari-ratio",
+    "name": "Ratios",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-fraction-meaning",
+      "ari-division"
+    ],
+    "unlocks": [
+      "ari-proportion",
+      "ari-unit-conversion"
+    ]
+  },
+  {
+    "id": "ari-rational-numbers",
+    "name": "The Rational Numbers",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-integers",
+      "ari-division"
+    ],
+    "unlocks": [
+      "ari-fraction-meaning",
+      "ari-irrational-sqrt"
+    ]
+  },
+  {
+    "id": "ari-rounding",
+    "name": "Rounding and Significant Figures",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-decimal-arithmetic"
+    ],
+    "unlocks": [
+      "ari-decimal-fraction"
+    ]
+  },
+  {
+    "id": "ari-square-root",
+    "name": "The Square Root",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-squares"
+    ],
+    "unlocks": [
+      "ari-irrational-sqrt",
+      "ari-radical-arithmetic"
+    ]
+  },
+  {
+    "id": "ari-unit-conversion",
+    "name": "Unit Conversion and Dimensional Analysis",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-ratio",
+      "ari-multiplication"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "concept-variable-dependence",
+    "name": "One Quantity Depending on Another",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "def-function"
+    ],
+    "unlocks": [
+      "def-slope-of-line",
+      "concept-secant-line-slope"
+    ]
+  },
+  {
+    "id": "def-coordinate-plane",
+    "name": "The Coordinate Plane",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "def-ordered-pair",
+      "prim-real-numbers"
+    ],
+    "unlocks": [
+      "def-slope-of-line",
+      "concept-secant-line-slope"
+    ]
+  },
+  {
+    "id": "def-function",
+    "name": "What Is a Function",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "prim-set",
+      "def-ordered-pair"
+    ],
+    "unlocks": [
+      "concept-variable-dependence",
+      "def-slope-of-line",
+      "concept-secant-line-slope"
+    ]
+  },
+  {
+    "id": "def-ordered-pair",
+    "name": "The Ordered Pair",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "prim-set"
+    ],
+    "unlocks": [
+      "def-function",
+      "def-coordinate-plane"
+    ]
+  },
+  {
+    "id": "found-diff-squares",
+    "name": "Difference of Squares",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "found-place-value"
+    ],
+    "unlocks": [
+      "alg-power-factorizations"
+    ]
+  },
+  {
+    "id": "found-div-2-5-10",
+    "name": "Last-Digit Divisibility (2, 5, 10)",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "found-place-value"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "found-division-algorithm",
+    "name": "The Division Algorithm (Quotient and Remainder)",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "found-place-value"
+    ],
+    "unlocks": [
+      "found-floor",
+      "found-euclid-gcd",
+      "nt-mod-arithmetic"
+    ]
+  },
+  {
+    "id": "found-euclid-gcd",
+    "name": "The Euclidean Algorithm",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "found-division-algorithm"
+    ],
+    "unlocks": [
+      "found-fta",
+      "nt-modular-inverses",
+      "nt-bezout"
+    ]
+  },
+  {
+    "id": "found-gauss-pairing",
+    "name": "Gauss Pairing (Sum 1 to n)",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "found-place-value"
+    ],
+    "unlocks": [
+      "found-sum-odds",
+      "ser-arith-geom",
+      "found-telescoping-intro"
+    ]
+  },
+  {
+    "id": "found-mod-basics",
+    "name": "Remainders and Congruence (mod m)",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "found-place-value"
+    ],
+    "unlocks": [
+      "found-digitsum-3-9",
+      "found-parity",
+      "nt-mod-arithmetic"
+    ]
+  },
+  {
+    "id": "found-parity",
+    "name": "Parity as an Invariant",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "found-mod-basics"
+    ],
+    "unlocks": [
+      "found-consecutive-integers",
+      "comb-invariants",
+      "meta-invariants",
+      "meta-coloring-parity"
+    ]
+  },
+  {
+    "id": "found-place-value",
+    "name": "Place Value in Base b",
+    "level": "E2",
+    "status": "reviewed",
+    "prereqs": [
+      "prim-natural-numbers",
+      "ari-addition",
+      "ari-multiplication",
+      "ari-higher-exponents"
+    ],
+    "unlocks": [
+      "found-mod-basics",
+      "found-div-2-5-10",
+      "found-digitsum-3-9",
+      "found-division-algorithm",
+      "found-gauss-pairing",
+      "found-diff-squares"
+    ]
+  },
+  {
+    "id": "ari-irrational-sqrt",
+    "name": "The Square Root of Two is Irrational",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-square-root",
+      "ari-rational-numbers",
+      "prim-logic-implication"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ari-radical-arithmetic",
+    "name": "Radical Arithmetic",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-square-root",
+      "ari-fraction-multiply"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "ari-repeating-decimals",
+    "name": "Repeating Decimals as Fractions",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "ari-decimal-fraction",
+      "ari-fraction-divide"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "concept-secant-line-slope",
+    "name": "Slope of a Secant Line",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "def-slope-of-line",
+      "def-function"
+    ],
+    "unlocks": [
+      "ana-derivative-rules"
+    ]
+  },
+  {
+    "id": "def-slope-of-line",
+    "name": "Slope of a Line",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "def-coordinate-plane",
+      "def-function"
+    ],
+    "unlocks": [
+      "concept-secant-line-slope"
+    ]
+  },
+  {
+    "id": "found-casting-out-nines",
+    "name": "Casting Out Nines",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "found-digitsum-3-9"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "found-consecutive-integers",
+    "name": "Product of Consecutive Integers is Divisible by k!",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "found-fta",
+      "found-parity"
+    ],
+    "unlocks": [
+      "comb-binomial-pascal",
+      "nt-legendre"
+    ]
+  },
+  {
+    "id": "found-digitsum-11",
+    "name": "Alternating Digit-Sum Rule (11)",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "found-digitsum-3-9"
+    ],
+    "unlocks": []
+  },
+  {
+    "id": "found-digitsum-3-9",
+    "name": "Digit-Sum Divisibility (3 and 9)",
+    "level": "E3",
+    "status": "ratified",
+    "prereqs": [
+      "found-place-value",
+      "found-mod-basics"
+    ],
+    "unlocks": [
+      "found-casting-out-nines",
+      "found-digitsum-11",
+      "nt-mod-arithmetic"
+    ]
+  },
+  {
+    "id": "found-floor",
+    "name": "The Floor Function",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "found-division-algorithm"
+    ],
+    "unlocks": [
+      "nt-legendre"
+    ]
+  },
+  {
+    "id": "found-fta",
+    "name": "Fundamental Theorem of Arithmetic",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "found-euclid-gcd"
+    ],
+    "unlocks": [
+      "found-consecutive-integers",
+      "nt-legendre",
+      "nt-infinitude-primes"
+    ]
+  },
+  {
+    "id": "found-sum-odds",
+    "name": "Sum of the First n Odd Numbers",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "found-gauss-pairing"
+    ],
+    "unlocks": [
+      "ser-sum-squares-cubes"
+    ]
+  },
+  {
+    "id": "found-telescoping-intro",
+    "name": "Telescoping Sums (Introduction)",
+    "level": "E3",
+    "status": "reviewed",
+    "prereqs": [
+      "found-gauss-pairing"
+    ],
+    "unlocks": [
+      "alg-telescoping",
+      "ser-telescoping-pf",
+      "ser-sum-squares-cubes"
+    ]
+  }
+]
