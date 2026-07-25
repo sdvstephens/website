@@ -60,5 +60,62 @@ $html = str_replace(
     $html
 );
 
+// --- Cache validators ----------------------------------------------------
+// A static index.html got Last-Modified/ETag from Apache for free, so back
+// navigation was a cheap 304 or a bfcache restore. A PHP response gets none
+// of that unless we set it, which means every back/forward press re-downloads
+// ~120 KB and re-runs the whole SPA bootstrap — a multi-second blank screen.
+// Deliberately NOT using no-store, which would disable the bfcache entirely.
+$sources = [__DIR__ . '/index.html', __DIR__ . '/meta.php', __DIR__ . '/blog/posts.json'];
+$lastMod = 0;
+foreach ($sources as $src) {
+    $stamp = @filemtime($src);
+    if ($stamp && $stamp > $lastMod) {
+        $lastMod = $stamp;
+    }
+}
+if ($lastMod === 0) {
+    $lastMod = time();
+}
+
+$etag = '"' . md5($html) . '"';
+
 header('Content-Type: text/html; charset=UTF-8');
+header('ETag: ' . $etag);
+header('Last-Modified: ' . gmdate('D, d M Y H:i:s', $lastMod) . ' GMT');
+header('Cache-Control: public, max-age=0, must-revalidate');
+
+// Honour conditional requests so a revalidation costs ~0 bytes.
+// mod_deflate rewrites outgoing ETags as "abc-gzip", and the browser sends
+// that back verbatim, so normalise before comparing or every revalidation
+// would miss and return a full body. If-None-Match may also list several
+// tags, and may mark them weak with a W/ prefix.
+$normalise = static function (string $tag): string {
+    $tag = trim($tag);
+    $tag = preg_replace('/^W\//i', '', $tag);
+    return (string) preg_replace('/-(gzip|br|deflate)"$/i', '"', $tag);
+};
+
+$ifNoneMatch     = trim($_SERVER['HTTP_IF_NONE_MATCH'] ?? '');
+$ifModifiedSince = $_SERVER['HTTP_IF_MODIFIED_SINCE'] ?? '';
+
+$etagMatches = false;
+if ($ifNoneMatch !== '') {
+    foreach (explode(',', $ifNoneMatch) as $candidate) {
+        if ($normalise($candidate) === $normalise($etag)) {
+            $etagMatches = true;
+            break;
+        }
+    }
+}
+
+$isFresh = $etagMatches
+    || ($ifNoneMatch === '' && $ifModifiedSince !== '' && @strtotime($ifModifiedSince) >= $lastMod);
+
+if ($isFresh) {
+    http_response_code(304);
+    exit;
+}
+
+header('Content-Length: ' . strlen($html));
 echo $html;

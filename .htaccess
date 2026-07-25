@@ -7,6 +7,14 @@
 # Disable directory listing
 Options -Indexes
 
+# Compress text responses. The SPA shell is ~120 KB uncompressed and was being
+# sent raw; gzip cuts it to roughly a fifth. Applies to PHP output too.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml image/svg+xml
+</IfModule>
+
 # Block direct access to OWA config file (contains DB credentials)
 <Files "owa-config.php">
   <IfModule mod_authz_core.c>
