@@ -15,6 +15,19 @@ Options -Indexes
   AddOutputFilterByType DEFLATE application/json application/xml image/svg+xml
 </IfModule>
 
+# Self-hosted webfonts. Some cPanel hosts still lack a woff2 mapping and fall
+# back to application/octet-stream, which older Safari refuses to parse.
+# WOFF2 is already Brotli-compressed internally, so it is deliberately absent
+# from the DEFLATE list above — gzipping it again only costs CPU.
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.woff2$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
 # Block direct access to OWA config file (contains DB credentials)
 <Files "owa-config.php">
   <IfModule mod_authz_core.c>

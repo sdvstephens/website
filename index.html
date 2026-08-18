@@ -230,17 +230,61 @@
   <!-- Marked.js for Markdown -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-  <!-- Cytoscape (+ fcose layout) for the ANABASIS atlas prerequisite map -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/layout-base@2.0.1/layout-base.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/cose-base@2.2.0/cose-base.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/cytoscape-fcose@2.2.0/cytoscape-fcose.js"></script>
-
-  <!-- Favicon -->
+  <!-- Favicon.
+       Safari picks the highest-resolution icon on offer, so the previous
+       apple-touch-icon (sdvs.jpg, a 1000px portrait) beat the 32px .ico and
+       showed the photo in the tab. The lambda is now the largest icon
+       declared, and favicon-32x32.png — which already existed but was never
+       linked — gives the tab a crisp source instead of scaling the .ico. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/sdvs.jpg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   
   <style>
+    /* ===== Typefaces =====================================================
+       Adobe Caslon Pro carries blog prose; Irvin (the font's internal family
+       name is "New Yorker") is display-only — 232 glyphs, no small caps, no
+       old-style figures, so it is never used below ~2rem.
+       Semibold is registered at 600 and true Bold at 700: on a dark ground
+       Caslon's Bold is too dense for running text, so blog <strong> is
+       pinned to 600 further down. Bold is declared but not fetched unless
+       something explicitly asks for 700. */
+    @font-face {
+      font-family: 'Adobe Caslon Pro';
+      src: url('/assets/fonts/ACaslonPro-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Adobe Caslon Pro';
+      src: url('/assets/fonts/ACaslonPro-Italic.woff2') format('woff2');
+      font-weight: 400; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Adobe Caslon Pro';
+      src: url('/assets/fonts/ACaslonPro-Semibold.woff2') format('woff2');
+      font-weight: 600; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Adobe Caslon Pro';
+      src: url('/assets/fonts/ACaslonPro-SemiboldItalic.woff2') format('woff2');
+      font-weight: 600; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Adobe Caslon Pro';
+      src: url('/assets/fonts/ACaslonPro-Bold.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Adobe Caslon Pro';
+      src: url('/assets/fonts/ACaslonPro-BoldItalic.woff2') format('woff2');
+      font-weight: 700; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Irvin';
+      src: url('/assets/fonts/NYIrvin.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+
     /* Gruvbox Dark Hard */
     :root {
       --bg-hard: #1d2021;
@@ -262,13 +306,54 @@
       --aqua: #8ec07c;
       --orange: #fe8019;
       --gray: #928374;
+
+      /* Typography */
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      --font-serif: 'Adobe Caslon Pro', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+      --font-display: 'Irvin', 'Adobe Caslon Pro', Georgia, serif;
+
+      /* Blog prose knobs. Caslon's x-height is 0.414em against JetBrains
+         Mono's ~0.55, so it needs roughly 30% more size to read at the same
+         apparent scale. Its mean advance is 0.417em — unusually narrow — so
+         an em measure buys more characters here than in most faces: at 20px,
+         each 1em of measure is ~2.4 characters. 45em lands at ~108 characters
+         and 900px, filling --blog-width exactly. (30em/~72 chars is the
+         conventional range if you ever want to come back down.) */
+      --blog-size: 1.25rem;
+      --blog-measure: 45em;
+
+      /* Measure for .serif pages (/about and anything else you tag), kept
+         separate from --blog-measure so the two can diverge: the blog wants a
+         tight reading column, /about wants to fill the width. 46em at 20px is
+         ~110 characters. Set to `none` to remove the cap entirely and let
+         --article-max govern, or drop toward 30em to match the blog. */
+      --serif-measure: 46em;
+
+      /* Width of the blog column as a whole — masthead rule, tag cloud, post
+         cards. Deliberately NOT tied to --blog-measure: that governs prose
+         line length only, and letting it drive the container too shrank the
+         chrome and pushed the tag cloud onto an extra row. Raise this to widen
+         the blog without touching line length. */
+      --blog-width: 900px;
+
+      /* Infobox size when it is set in Caslon (see .infobox.serif). Caslon's
+         0.414em x-height needs more than the 0.8rem the mono version uses.
+         If the box feels too big or starts crowding, change this one number. */
+      --infobox-serif-size: 0.95rem;
+
+      /* Layout. Two nested caps: --page-max bounds the scroll area, and
+         --article-max bounds the text column inside it. Raise --article-max
+         to fill more of a wide screen, lower it for tighter margins. Both
+         columns are centred, so the side gutters always stay equal. */
+      --page-max: 1200px;
+      --article-max: 1100px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     
     body {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 14px;
       line-height: 1.6;
       color: var(--fg);
@@ -316,10 +401,14 @@
     .nav-tabs li a.active { background: var(--bg-hard); color: var(--fg0); border-color: var(--bg3); }
 
     .main-content { flex: 1; display: flex; overflow: hidden; }
-    .content-wrapper { flex: 1; overflow-y: auto; padding: 2rem; max-width: 1200px; margin: 0 auto; }
+    .content-wrapper { flex: 1; overflow-y: auto; padding: 2rem; max-width: var(--page-max); margin: 0 auto; }
 
     /* Wikipedia article styles */
-    .wiki-article { max-width: 900px; }
+    /* margin-inline:auto is load-bearing. Without it the 900px article pins to
+       the left of the 1200px wrapper and drops the whole 300px remainder on
+       the right, so the page reads off-centre on any screen wider than the
+       wrapper. Centring it splits that space evenly. */
+    .wiki-article { max-width: var(--article-max); margin-inline: auto; }
     .wiki-article h1 {
       color: var(--fg0);
       font-size: 1.8rem;
@@ -404,6 +493,14 @@
       color: var(--fg2); 
       flex: 1; 
       font-size: 0.8rem;
+      /* Flex items default to min-width:auto, so they refuse to shrink below
+         their longest unbreakable word and shove the box wider instead of
+         wrapping. The long contact addresses hit exactly this. min-width:0
+         lets the column shrink; overflow-wrap then breaks inside the word as
+         a last resort. Applies to the mono version too, which had the same
+         latent overflow. */
+      min-width: 0;
+      overflow-wrap: break-word;
     }
 
     /* TOC and categories */
@@ -613,6 +710,225 @@
     }
     .post-tag:hover { background: var(--bg2); }
 
+    /* ===== Blog typography ===============================================
+       Everything under .blog-page sets in Caslon; the terminal chrome (dates,
+       tags, code, back-link) deliberately stays monospace. That contrast is
+       the whole idea — the Neovim shell frames a printed page. */
+    .blog-page {
+      font-family: var(--font-serif);
+      font-size: var(--blog-size);
+      line-height: 1.65;
+      font-kerning: normal;
+      font-variant-numeric: oldstyle-num;
+      /* Light-on-dark text blooms optically; the thinner stem helps Caslon. */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Article width for the blog, ranged left. --blog-width governs the
+         container (masthead rule, tag cloud, post cards); --blog-measure only
+         caps the prose inside it. margin-inline 0/auto undoes the centring
+         .wiki-article applies — the blog reads better ranged left, while
+         /about, whose infobox fills the right, stays centred. */
+      --article-max: var(--blog-width);
+      margin-inline: 0 auto;
+    }
+
+    /* The single Irvin moment: the "Blog" masthead. Direct-child selector, so
+       post titles rendered inside .post-content stay in Caslon. */
+    .blog-page > h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(3rem, 9vw, 5rem);
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+      color: var(--fg0);
+      border-bottom: 1px solid var(--bg3);
+      padding-bottom: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Standfirst beneath the masthead */
+    .blog-page > p {
+      font-style: italic;
+      font-size: 1.05em;
+      color: var(--fg3);
+      max-width: var(--blog-measure);
+      margin: 0.75rem 0 2.25rem;
+    }
+
+    .blog-page > h2 {
+      font-family: var(--font-serif);
+      font-size: 1.3em;
+      font-weight: 600;
+      border-bottom: none;
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    /* --- Index list --- */
+    /* Cards span the full column. They hold a title, a date and a one-line
+       excerpt, none of which is running prose, so a reading measure would only
+       narrow them for no benefit. */
+    .blog-page .post-list { max-width: none; }
+    .blog-page .post-title {
+      font-family: var(--font-serif);
+      font-size: 1.3em;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .blog-page .post-excerpt {
+      font-family: var(--font-serif);
+      font-size: 1em;
+      line-height: 1.6;
+    }
+    .blog-page .post-meta,
+    .blog-page .post-tag,
+    .blog-page .tag-filter,
+    .blog-page .back-link,
+    .blog-page .comments-section h2 {
+      font-family: var(--font-mono);
+      font-variant-numeric: normal;
+    }
+
+    /* --- Post body --- */
+    .blog-page .post-content { max-width: var(--blog-measure); }
+    .blog-page .post-content h1 {
+      font-family: var(--font-serif);
+      font-size: 2.15em;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--fg0);
+      border-bottom: none;
+      padding-bottom: 0;
+      margin: 0 0 0.4em;
+    }
+    .blog-page .post-content h2 {
+      font-family: var(--font-serif);
+      font-size: 1.45em;
+      font-weight: 600;
+      color: var(--orange);
+      border-bottom: none;
+      padding-bottom: 0;
+      margin: 1.9em 0 0.5em;
+    }
+    .blog-page .post-content h3 {
+      font-family: var(--font-serif);
+      font-size: 1.18em;
+      font-weight: 600;
+      color: var(--yellow);
+      margin: 1.5em 0 0.4em;
+    }
+    .blog-page .post-content p { margin: 0 0 1.1em; }
+    .blog-page .post-content li { margin: 0.35em 0; }
+    .blog-page .post-content ul,
+    .blog-page .post-content ol { color: var(--fg); margin-left: 1.4em; }
+    .blog-page .post-content blockquote {
+      border-left: 2px solid var(--bg3);
+      padding-left: 1.1em;
+      margin: 1.4em 0;
+      color: var(--fg3);
+      font-style: italic;
+    }
+    /* Semibold, not Bold — Caslon's true bold clots at this size on dark. */
+    .blog-page strong, .blog-page b { font-weight: 600; }
+
+    /* Code and math keep the monospace they need. */
+    .blog-page code, .blog-page pre, .blog-page pre code { font-family: var(--font-mono); }
+    .blog-page code { font-size: 0.78em; }
+    .blog-page pre { font-size: 0.8em; }
+
+    /* ===== Serif utility ==================================================
+       Page-agnostic version of the blog treatment. Add `serif` to any
+       container's class list to set that whole region in Caslon:
+
+           <div class="wiki-article serif">
+
+       Add `serif-display` alongside it to also put that page's own top-level
+       <h1> in Irvin:
+
+           <div class="wiki-article serif serif-display">
+
+       No new CSS is needed per page. Colours, borders and layout are left
+       exactly as the .wiki-article rules set them — this changes typography
+       only. Must stay below the .wiki-article block: the selectors have equal
+       specificity, so these win on source order alone. */
+    .serif {
+      font-family: var(--font-serif);
+      font-size: var(--blog-size);
+      line-height: 1.65;
+      font-kerning: normal;
+      font-variant-numeric: oldstyle-num;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Caslon's small x-height means the inherited heading sizes read a step
+       too quiet; these nudge them back. Delete if you prefer the originals. */
+    .serif h1, .serif h2, .serif h3, .serif h4 { font-family: var(--font-serif); }
+    .serif h1 { font-weight: 600; font-size: 2em; line-height: 1.15; }
+    .serif h2 { font-weight: 600; font-size: 1.4em; }
+    .serif h3 { font-weight: 600; font-size: 1.15em; }
+    /* One measure for every prose block, headings included, so the column has
+       a single right edge instead of paragraphs stopping short of the heading
+       rules. Deliberately NOT centred: margin-inline:auto here would indent
+       the text away from the headings' left edge, and a consistent left edge
+       matters far more to the eye than a consistent right one. The h1 and the
+       infobox still use the full article width. */
+    .serif p, .serif ul, .serif ol,
+    .serif h2, .serif h3, .serif h4,
+    .serif blockquote { max-width: var(--serif-measure); }
+    .serif strong, .serif b { font-weight: 600; }
+
+    /* Chrome and code stay monospace wherever they turn up inside a serif
+       region — the infobox, TOC and tables are UI, not prose. */
+    .serif code, .serif pre, .serif pre code,
+    .serif .infobox, .serif .toc, .serif .categories-box,
+    .serif .category-tag, .serif .post-meta,
+    .serif .hw-table, .serif .file-item {
+      font-family: var(--font-mono);
+      font-variant-numeric: normal;
+    }
+    .serif code { font-size: 0.78em; }
+    .serif .infobox p, .serif .toc li { max-width: none; }
+
+    /* Irvin, for the page's own title only. Direct child, so headings inside
+       nested content are unaffected. */
+    .serif-display > h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      line-height: 1.12;
+      letter-spacing: 0.01em;
+    }
+
+    /* Opting the infobox itself in: <div class="infobox serif">.
+       Two things this has to work around. It must out-rank the
+       `.serif .infobox` rule above, which pushes the infobox back to mono
+       whenever it sits inside a serif page — equal specificity on the first
+       selector, so it wins on source order, and the second selector covers
+       the nested case outright. And the label/value/caption sizes are set in
+       absolute rem, so they never inherit the 18px from .serif; at 0.8rem
+       Caslon is unreadably small, hence the bumps. */
+    .infobox.serif,
+    .serif .infobox.serif {
+      font-family: var(--font-serif);
+      font-variant-numeric: oldstyle-num;
+      font-size: var(--infobox-serif-size);
+    }
+    .infobox.serif .infobox-title,
+    .infobox.serif .infobox-subtitle,
+    .infobox.serif .infobox-caption,
+    .infobox.serif .infobox-label,
+    .infobox.serif .infobox-value {
+      font-family: var(--font-serif);
+    }
+    .infobox.serif .infobox-title { font-size: 1.15rem; }
+    .infobox.serif .infobox-subtitle { font-size: 0.88rem; }
+    .infobox.serif .infobox-caption { font-size: 0.85rem; }
+    .infobox.serif .infobox-label,
+    .infobox.serif .infobox-value { font-size: var(--infobox-serif-size); }
+    /* Caslon sets narrower than mono at the same size, so the label column can
+       give a little back to the values without "GitHub and contact" wrapping
+       badly. Keeps the long addresses on fewer lines. */
+    .infobox.serif .infobox-label { width: 100px; }
+
     /* Films & music styles */
     .film-list { list-style: none; margin: 0; padding: 0; counter-reset: filmrank; }
     .film-item {
@@ -648,6 +964,8 @@
     }
     .music-item:hover { border-color: var(--bg3); }
     .music-head { color: var(--blue); font-weight: 500; }
+    .music-note { color: var(--fg2); font-size: 0.9rem; margin-top: 0.35rem; }
+    .music-player { margin-top: 0.6rem; width: 100%; max-width: 420px; height: 34px; }
     .lb-footnote { color: var(--fg4); font-size: 0.8rem; margin-top: 0.5rem; }
 
     /* Tag cloud for filtering */
@@ -968,10 +1286,10 @@
       `,
 
       '/about': `
-        <div class="wiki-article">
+        <div class="wiki-article serif serif-display">
           <h1>S. D. V. Stephens</h1>
           
-          <div class="infobox">
+          <div class="infobox serif">
             <div class="infobox-header">
               <div class="infobox-title">S. D. V. Stephens</div>
               <div class="infobox-subtitle">Researcher · Mathematician</div>
@@ -1020,10 +1338,13 @@
             </ol>
           </div>
 
-          <p>Born in rural Texas, <strong>Samuel Desiderius Vichaama Stephens</strong> is a student and researcher working in neuroscience and mathematics. He holds research appointments at the Stanford University School of Medicine (Departments of Bioengineering and Neurology) and at Beth Israel Deaconess Medical Center and Harvard Medical School, where his work centers on statistical and simulation methods for critical-care medicine: causal inference, pharmacokinetic/pharmacodynamic (PKPD) modeling, and survival optimization for seizure prediction and treatment. Outside of research, he has interests in the philosophy of natural science and of education, and in areas of pure mathematics such as polyadic semigroups.</p>
+          <p>Born in rural Texas, <strong>Samuel Desiderius Vichaama Stephens</strong> is a student and researcher working in neuroscience and mathematics. He holds research appointments at the Stanford University School of Medicine (Departments of Bioengineering and Neurology) and formerly at Beth Israel Deaconess Medical Center and Harvard Medical School. His employment work centers on statistical and simulation methods for critical-care medicine: causal inference, pharmacokinetic/ pharmacodynamic (PKPD) modeling, and survival optimization for seizure prediction and treatment. Outside of research, he has interests in the philosophy of natural science and of education, and in areas of pure mathematics such as algebraic geometry, number theory, and polyadic semigroups. He is an aspiring academic, hoping to one day be a professor of either mathematics or genetics working in mathematical modeling of cognition and mental phenomena along with the potential genetic applications downstream from said modeling.He hopes to borrow many of the sophisticated modeling techniques from mathematical physics and pure mathematics rather than a strictly statistical approach.Stephens is also an avid reader and writer, accruing a great number of essays, some of which appear on his blog.</p>
 
           <h2 id="education">Education</h2>
           <p>Stephens has undergone a non-standard academic trajectory, which includes multiple institutions:</p>
+
+          <h3>Salem State University (Sep. 2026 – Present)</h3>
+          <p><strong>Bachelor of Science (B. S.)</strong> in mathematics; transfer student.</p>
          
           <h3>Massachusetts Institute of Technology (Feb. 2026 – Present)</h3>
           <p>Auditing 20.205[J] Principles and Applications of Genetic Engineering for Biotechnology and Neuroscience.</p>
@@ -1031,21 +1352,19 @@
           <h3>Harvard University (Aug. 2025 – Present)</h3>
           <p>Auditing coursework in mathematics including Studies in Algebra and Group Theory (55A), Studies in Real and Complex Analysis (55B), and Critical Theory (HIST 89).</p>
           
-          <h3>Wabash College (Jan. 2025 – May 2025)</h3>
-          <p>Coursework in Complex Analysis, Non-Fiction Creative Writing, Linguistics, Sociolinguistics, Principles of Neuroscience, and Organ Performance. Honors and Dean's Scholar.</p>
-          
           <h3>Additional Education</h3>
           <ul>
+            <li><strong>Wabash College</strong> (Jan. 2025 – May 2025) — Complex Analysis, Non-Fiction Creative Writing, Linguistics, Sociolinguistics, Principles of Neuroscience, and Organ Performance. Honors and Dean's Scholar.</li>
             <li><strong>Kenyon College</strong> (July 2023 – Jun. 2024) — Abstract Algebra I, Contemporary Mathematics Seminar, Symbolic Logic, Philosophy of Natural Science, Piano and Violin Practicum, Quest for Justice, and STEM Research Methods. KEEP-STEM Scholar (National Science Foundation).</li>
-            <li><strong>Institute for Social Ecology</strong> (2024) — Legacies of Environmental Radicalism</li>
+            <li><strong>Institute for Social Ecology</strong> (2024) — Legacies of Environmental Radicalism.</li>
             <li><strong>UT Dallas</strong> (Audit, 2024) — Combinatorics, Advanced Calculus</li>
-            <li><strong>Judge Barefoot Sanders Law Magnet</strong> (2019–2022) — H.S.D. Pre-Law Track, graduated with Honors and Distinction, 13 AP Exams, AP Capstone Scholar</li>
+            <li><strong>Judge Barefoot Sanders Law Magnet</strong> (2019–2022) — H.S.D. Pre-Law Track, graduated with Honors and Distinction, 13 AP Exams, AP Capstone Scholar.</li>
           </ul>
 
           <h2 id="research">Research</h2>
 
           <h3>Stanford University School of Medicine (Jun. 2026 – Present)</h3>
-          <p>Continuing the CICADAS&ndash;BOOGALOO line of work begun at BIDMC/HMS, now oriented toward real-world clinical use. Stephens introduced personalized adaptive thresholds based on SOFA scores and age, and is advancing implementation against EEG and the MORGOTH large-scale ICU epileptic dataset in conjunction with the CICADAS&ndash;BOOGALOO framework. The joint methods paper grounding this work is being prepared for submission, with target venues including <em>IEEE Transactions on Biomedical Engineering</em> and the <em>Journal of Neural Engineering</em>.</p>
+          <p>Continuing the CICADAS&ndash;BOOGALOO line of work begun at BIDMC/HMS, now oriented toward real-world clinical use. Stephens introduced personalized adaptive thresholds based on SOFA scores and age, and is advancing implementation against EEG and the MORGOTH large-scale ICU epileptic dataset in conjunction with the CICADAS&ndash;BOOGALOO framework. The joint methods paper grounding this work is being prepared for submission, with target venues including <em>IEEE Transactions on Biomedical Engineering</em> and the <em>Journal of Neural Engineering</em>. Addendum: currently under review with the <em>JNE</em>.</p>
 
           <h3>Beth Israel Medical Center & Harvard Medical School (Jun. 2026 – Present)</h3>
           <p>New lab, with the principal investigator and project scope currently being finalized. Held concurrently with the Stanford appointment.</p>
@@ -1053,12 +1372,11 @@
           <h3>Beth Israel Medical Center & Harvard Medical School (Sep. 2025 – Jun. 2026)</h3>
           <p>Developed BOOGALOO, the successor to CICADAS (Causal Inference for Critical-Care Anti-Seizure Treatment with Disease Dynamics, Automated PKPD/Trial Simulation, and Survival Optimization): methodological frameworks that recover unbiased causal treatment effects from observational ICU data, with PKPD-aware modeling for diseased patients. Conducted under the supervision of Dr. M. Brandon Westover.</p>
           
-          <h3>Independent Mathematical Research (Nov. 2024 – Present)</h3>
-          <p>Developing theoretic foundations for polyadic algebraic structures through extensions of classical group theory via changes in the adicity of operations. Preliminary axiomatization underway with novel theorem and proof construction. Interested in Lie polyadic algebras and groups for differential equations. Currently seeking advisor.</p>
-          
+<!--
           <h3>UT Dallas (Nov. 2022 – Jan. 2024)</h3>
-          <p>Collaborating on meta-analysis of the Bouba-Kiki effect regarding children with Misophonia and/or Autism Spectrum Disorder under Dr. Abdi. Currently on break. Will return to the literature review in a few years.</p>
-          
+          <p>Collaborating on meta-analysis of the Bouba-Kiki effect regarding children with Misophonia and/or Autism Spectrum Disorder under Dr. Abdi. Currently on break. Will return to the literature review in a few years.</p> 
+-->
+
           <h3>School for Health Professions, Dallas (Aug. 2021 – May 2022)</h3>
           <p>Principal investigator discovering novel functions of bacteria within the gut microbiome of <em>Z. atratus</em> related to biodegradation mechanisms for LDPE and polystyrene. Lab guidance by Dr. Harrington.</p>
 
@@ -1161,7 +1479,7 @@
       `,
 
       '/blog': `
-        <div class="wiki-article">
+        <div class="wiki-article blog-page">
           <h1>Blog</h1>
           <p>Writings on mathematics, philosophy, and miscellany.</p>
           <h2>Posts</h2>
@@ -1244,13 +1562,6 @@
         return;
       }
 
-      // Check for atlas routes (ANABASIS; direct-link only, intentionally not in nav)
-      const atlasParts = path.split('/').filter(p => p);
-      if (atlasParts[0] === 'atlas') {
-        if (atlasParts.length === 1) { await loadAtlasIndex(); return; }
-        if (atlasParts.length === 2) { await loadAtlasEntry(atlasParts[1]); return; }
-      }
-
       const content = pages[path];
       if (!content) {
         document.getElementById('app').innerHTML = `
@@ -1289,6 +1600,7 @@
         '/educational': '~/stephens/educational/'
       };
       document.getElementById('status-file').textContent = pathMap[path] || pathMap['/'];
+      setTitle(path);
       history.pushState({}, '', path);
       window.scrollTo({ top: 0, behavior: 'smooth' });
       
@@ -1349,14 +1661,22 @@
             if (it.composer) head += ` — ${it.composer}`;
             if (it.year) head += ` (${it.year})`;
             const meta = [it.instrumentation, it.duration].filter(Boolean).join(' · ');
+            // A self-hosted file gets an inline player; an off-site link
+            // (YouTube, Bandcamp, SoundCloud) stays a link, since those can't
+            // be embedded in an <audio> element.
+            const isLocalAudio = it.audio && it.audio.startsWith('/');
+            const player = isLocalAudio
+              ? `<audio class="music-player" controls preload="none" src="${it.audio}"></audio>`
+              : '';
             const links = [
               it.score ? `<a href="${it.score}" target="_blank">score</a>` : '',
-              it.audio ? `<a href="${it.audio}" target="_blank">audio</a>` : ''
+              (it.audio && !isLocalAudio) ? `<a href="${it.audio}" target="_blank">listen</a>` : ''
             ].filter(Boolean).join(' · ');
             html += `<li class="music-item"><span class="music-head">${head}</span>`
               + (meta ? `<div class="post-meta">${meta}</div>` : '')
               + (it.note ? `<div class="music-note">${it.note}</div>` : '')
               + (links ? `<div class="post-meta">${links}</div>` : '')
+              + player
               + '</li>';
           }
           html += '</ul>';
@@ -1434,7 +1754,7 @@
         const html = renderMarkdown(md);
         
         document.getElementById('app').innerHTML = `
-          <div class="wiki-article">
+          <div class="wiki-article blog-page">
             <a href="/blog" class="back-link" data-link>Back to blog</a>
             <div class="post-content">${html}</div>
             <div class="comments-section">
@@ -1445,6 +1765,10 @@
         `;
         
         document.getElementById('status-file').textContent = `~/stephens/blog/${slug}.md`;
+        // Title comes from the rendered post's own <h1> so it matches what
+        // meta.php pulls from posts.json, falling back to the slug.
+        const postH1 = document.querySelector('.post-content h1');
+        setTitle(postH1 ? postH1.textContent.trim() : slug);
         // Preserve giscus auth token in URL if present (needed for auth callback)
         const giscusParam = window.location.search.includes('giscus') ? window.location.search : '';
         history.pushState({}, '', `/blog/${slug}${giscusParam}`);
@@ -1636,7 +1960,7 @@
         html += '</div></div>';
         
         document.getElementById('app').innerHTML = html;
-        updateNavState('/notes', `~/stephens/notes/${courseSlug}/`, `/notes/${courseSlug}`);
+        updateNavState('/notes', `~/stephens/notes/${courseSlug}/`, `/notes/${courseSlug}`, course.title);
       } catch (e) {
         document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Course not found</h1></div>';
       }
@@ -1697,7 +2021,7 @@
         `;
         
         document.getElementById('app').innerHTML = html;
-        updateNavState('/notes', `~/stephens/notes/${courseSlug}/${sectionSlug}.md`, `/notes/${courseSlug}/${sectionSlug}`);
+        updateNavState('/notes', `~/stephens/notes/${courseSlug}/${sectionSlug}.md`, `/notes/${courseSlug}/${sectionSlug}`, currentSection?.title || sectionSlug);
         renderMath();
       } catch (e) {
         document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Section not found</h1></div>';
@@ -1858,7 +2182,7 @@
         
         html += '</div>';
         document.getElementById('app').innerHTML = html;
-        updateNavState('/homework', `~/stephens/homework/${courseSlug}/`, `/homework/${courseSlug}`);
+        updateNavState('/homework', `~/stephens/homework/${courseSlug}/`, `/homework/${courseSlug}`, data.title);
       } catch (e) {
         document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Course not found</h1></div>';
       }
@@ -1909,182 +2233,56 @@
         `;
         
         document.getElementById('app').innerHTML = html;
-        updateNavState('/homework', `~/stephens/homework/${courseSlug}/${assignmentSlug}.md`, `/homework/${courseSlug}/${assignmentSlug}`);
+        updateNavState('/homework', `~/stephens/homework/${courseSlug}/${assignmentSlug}.md`, `/homework/${courseSlug}/${assignmentSlug}`, current?.title || assignmentSlug);
         renderMath();
       } catch (e) {
         document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Assignment not found</h1></div>';
       }
     }
 
-    function updateNavState(basePath, statusPath, fullPath) {
+    // ===== Document title =================================================
+    // index.php injects the correct <title> on a full page load, but
+    // client-side navigation only rewrote the URL, so the tab kept whatever
+    // title the first-loaded page had. Mirrors the $static map in meta.php —
+    // if you change a title there, change it here too.
+    const SITE_NAME = 'S. D. V. Stephens';
+    const PAGE_TITLES = {
+      '/':            SITE_NAME,
+      '/about':       'About',
+      '/research':    'Research',
+      '/blog':        'Blog',
+      '/films':       'Films',
+      '/music':       'Music',
+      '/notes':       'Lecture Notes',
+      '/homework':    'Homework',
+      '/educational': 'Educational'
+    };
+
+    function setTitle(pathOrName) {
+      const named = PAGE_TITLES[pathOrName];
+      if (named !== undefined) {
+        document.title = named === SITE_NAME ? SITE_NAME : `${named} — ${SITE_NAME}`;
+      } else if (pathOrName) {
+        // A specific item (blog post, course, note section) passes its own name.
+        document.title = `${pathOrName} — ${SITE_NAME}`;
+      } else {
+        document.title = SITE_NAME;
+      }
+    }
+
+    function updateNavState(basePath, statusPath, fullPath, title) {
       document.querySelectorAll('.nav-tabs a').forEach(a => {
         const href = a.getAttribute('href');
         a.classList.toggle('active', href === basePath);
       });
       document.getElementById('status-file').textContent = statusPath;
+      setTitle(title || basePath);
       if (fullPath && window.location.pathname !== fullPath) {
         history.pushState({}, '', fullPath);
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ===== ANABASIS atlas (direct-link only; intentionally not in nav yet) =====
-    const ATLAS_LVLC = {0:'#b8bb26',1:'#8ec07c',2:'#fabd2f',3:'#fe8019',4:'#fb4934',5:'#d3869b'};
-    const ATLAS_LVLNAME = {0:'foundational',1:'pre-competition',2:'competition',3:'olympiad',4:'putnam',5:'and beyond'};
-    if (window.cytoscapeFcose) { try { cytoscape.use(window.cytoscapeFcose); } catch (e) {} }
-    let atlasCy = null;
-
-    async function ensureAtlasData() {
-      if (window.__ATLAS) return window.__ATLAS;
-      const [domains, index] = await Promise.all([
-        fetch('/atlas/atlas.json').then(r => r.json()),
-        fetch('/atlas/index.json').then(r => r.json()),
-      ]);
-      window.__ATLAS = { domains, index, ids: Object.keys(index) };
-      return window.__ATLAS;
-    }
-
-    async function loadAtlasIndex(preDomain) {
-      let A;
-      try { A = await ensureAtlasData(); }
-      catch (e) { document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Atlas unavailable</h1></div>'; return; }
-      const domTitle = {}; A.domains.forEach(d => domTitle[d.slug] = d.name);
-      const st = { q:'', sort:'domain', domain:(preDomain && A.domains.some(d=>d.slug===preDomain))?preDomain:'all', levels:new Set() };
-      const inp = 'background:#282828;border:1px solid #3c3836;color:#d5c4a1;font-family:inherit;font-size:12px;padding:8px;border-radius:8px;outline:none';
-      document.getElementById('app').innerHTML =
-        '<div class="wiki-article" style="max-width:none">'
-        + '<div class="note-breadcrumb">Atlas</div>'
-        + '<h1>ANABASIS &mdash; Atlas of Mathematical Results</h1>'
-        + '<p style="color:#a89984">A discovery-first map from arithmetic to Putnam level. Search or filter the '
-        + A.ids.length + ' nodes, or explore the prerequisite graph &mdash; every arrow points from a prerequisite to what it unlocks.</p>'
-        + '<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0">'
-        + '<input id="atlas-q" placeholder="Search name, id, tag…" autocomplete="off" spellcheck="false" style="flex:1;min-width:200px;'+inp+';font-size:13px;padding:9px 12px">'
-        + '<select id="atlas-sort" style="'+inp+'"><option value="domain">Group by domain</option><option value="level">Group by level</option><option value="az">A&ndash;Z</option></select>'
-        + '<select id="atlas-domf" style="'+inp+'"></select>'
-        + '<span id="atlas-levels" style="display:flex;gap:4px"></span></div>'
-        + '<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">'
-        + '<div id="atlas-list" style="flex:1;min-width:260px;max-height:560px;overflow:auto;border:1px solid #3c3836;border-radius:10px;padding:6px"></div>'
-        + '<div style="flex:2;min-width:320px;position:relative">'
-        + '<div id="atlas-cy" style="width:100%;height:560px;border:1px solid #3c3836;border-radius:10px;background:#1d2021"></div>'
-        + '<div id="atlas-legend" style="position:absolute;bottom:10px;left:10px;display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:#a89984;background:rgba(40,40,40,.85);border:1px solid #3c3836;border-radius:8px;padding:7px 10px"></div>'
-        + '</div></div></div>';
-      updateNavState('/atlas', '~/stephens/atlas/', preDomain ? ('/atlas/'+preDomain) : '/atlas');
-
-      const domf = document.getElementById('atlas-domf');
-      domf.innerHTML = '<option value="all">All domains</option>' + A.domains.map(d => '<option value="'+d.slug+'">'+d.name+'</option>').join('');
-      domf.value = st.domain;
-      document.getElementById('atlas-sort').value = st.sort;
-      const lv = document.getElementById('atlas-levels');
-      lv.innerHTML = [0,1,2,3,4,5].map(l => '<span data-l="'+l+'" style="cursor:pointer;font-size:11px;padding:3px 8px;border-radius:20px;border:1px solid #504945;color:#a89984">L'+l+'</span>').join('');
-      lv.querySelectorAll('[data-l]').forEach(c => c.onclick = () => {
-        const l = +c.dataset.l;
-        if (st.levels.has(l)) { st.levels.delete(l); c.style.background=''; c.style.color='#a89984'; }
-        else { st.levels.add(l); c.style.background=ATLAS_LVLC[l]; c.style.color='#1d2021'; }
-        renderList();
-      });
-      document.getElementById('atlas-legend').innerHTML = [0,1,2,3,4,5].map(l =>
-        '<span style="display:flex;align-items:center;gap:5px"><span style="width:9px;height:9px;border-radius:50%;background:'+ATLAS_LVLC[l]+'"></span>L'+l+' '+ATLAS_LVLNAME[l]+'</span>').join('');
-
-      const matches = () => A.ids.map(id => Object.assign({id}, A.index[id])).filter(n => {
-        if (st.domain !== 'all' && n.domain !== st.domain) return false;
-        if (st.levels.size && !st.levels.has(n.level)) return false;
-        if (st.q) { const hay = (n.name+' '+n.id+' '+(n.tags||[]).join(' ')+' '+n.domain).toLowerCase(); if (!hay.includes(st.q)) return false; }
-        return true;
-      });
-      function renderList() {
-        const ns = matches();
-        let groups = [];
-        if (st.sort === 'az') groups = [['', ns.slice().sort((a,b)=>a.name.localeCompare(b.name))]];
-        else if (st.sort === 'level') { for (let l=0;l<=5;l++){ const g=ns.filter(n=>n.level===l).sort((a,b)=>a.name.localeCompare(b.name)); if(g.length) groups.push(['Level '+l+' — '+ATLAS_LVLNAME[l], g]); } }
-        else { for (const d of A.domains.map(x=>x.slug)){ const g=ns.filter(n=>n.domain===d).sort((a,b)=>(a.level-b.level)||a.name.localeCompare(b.name)); if(g.length) groups.push([domTitle[d], g]); } }
-        let html = '';
-        for (const [t,g] of groups) {
-          if (t) html += '<div style="color:#8ec07c;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:9px 8px 4px">'+t+'</div>';
-          for (const n of g) html += '<div class="atlas-item" data-id="'+n.id+'" style="display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:6px;cursor:pointer"><span style="width:8px;height:8px;border-radius:50%;background:'+ATLAS_LVLC[n.level]+'"></span><span style="font-size:13px;color:#d5c4a1">'+n.name+'</span><span style="margin-left:auto;font-size:10px;color:#7c6f64">L'+n.level+'</span></div>';
-        }
-        if (!groups.length) html = '<div style="padding:20px;color:#7c6f64;text-align:center">No nodes match.</div>';
-        const el = document.getElementById('atlas-list');
-        el.innerHTML = html;
-        el.querySelectorAll('.atlas-item').forEach(it => {
-          it.onmouseenter = () => it.style.background = '#32302f';
-          it.onmouseleave = () => it.style.background = '';
-          it.onclick = () => navigate('/atlas/' + it.dataset.id);
-        });
-      }
-      document.getElementById('atlas-q').oninput = e => { st.q = e.target.value.toLowerCase(); renderList(); };
-      document.getElementById('atlas-sort').onchange = e => { st.sort = e.target.value; renderList(); };
-      domf.onchange = e => { st.domain = e.target.value; renderList(); buildAtlasGraph(st.domain); };
-      renderList();
-      buildAtlasGraph(st.domain);
-    }
-
-    function buildAtlasGraph(domain) {
-      const A = window.__ATLAS; if (!A || !window.cytoscape) return;
-      let ids;
-      if (domain === 'all') ids = new Set(A.ids);
-      else {
-        ids = new Set(A.ids.filter(id => A.index[id].domain === domain));
-        for (const id of [...ids]) (A.index[id].prereqs||[]).concat(A.index[id].unlocks||[]).forEach(x => { if (A.index[x]) ids.add(x); });
-      }
-      const els = [];
-      for (const id of ids) { const n = A.index[id]; els.push({ data:{id,label:n.name,lvl:n.level}, classes:(domain!=='all'&&n.domain!==domain)?'ext':'' }); }
-      for (const id of ids) (A.index[id].prereqs||[]).forEach(p => { if (ids.has(p)) els.push({ data:{id:p+'>'+id, source:p, target:id} }); });
-      if (atlasCy) { atlasCy.destroy(); atlasCy = null; }
-      atlasCy = cytoscape({
-        container: document.getElementById('atlas-cy'), elements: els,
-        style: [
-          { selector:'node', style:{ 'background-color':e=>ATLAS_LVLC[e.data('lvl')]||'#a89984', 'label':'data(label)', 'color':'#d5c4a1', 'font-family':'JetBrains Mono, monospace', 'font-size':'9px', 'width':15, 'height':15, 'text-wrap':'wrap', 'text-max-width':'130px', 'text-valign':'bottom', 'text-halign':'center', 'text-margin-y':3, 'min-zoomed-font-size':6 } },
-          { selector:'node.ext', style:{ 'opacity':.4 } },
-          { selector:'edge', style:{ 'width':1, 'line-color':'#504945', 'target-arrow-color':'#504945', 'target-arrow-shape':'triangle', 'arrow-scale':.7, 'curve-style':'bezier', 'opacity':.5 } },
-        ],
-        layout: (domain === 'all')
-          ? (window.cytoscapeFcose
-              ? { name:'fcose', animate:false, randomize:true, quality:'proof', nodeDimensionsIncludeLabels:true, nodeSeparation:140, idealEdgeLength:110, nodeRepulsion:12000, padding:50, packComponents:true, fit:true }
-              : { name:'cose', animate:false, nodeDimensionsIncludeLabels:true, idealEdgeLength:110, nodeRepulsion:12000, padding:50, nodeOverlap:24, fit:true })
-          : { name:'breadthfirst', directed:true, nodeDimensionsIncludeLabels:true, spacingFactor:1.5, padding:50, fit:true },
-        minZoom:.12, maxZoom:3, wheelSensitivity:.25,
-      });
-      atlasCy.on('tap', 'node', evt => navigate('/atlas/' + evt.target.id()));
-    }
-
-    async function loadAtlasEntry(seg) {
-      try {
-        const A = await ensureAtlasData();
-        if (A.domains.some(d => d.slug === seg)) { await loadAtlasIndex(seg); return; }
-        if (A.index[seg]) { await loadAtlasNode(seg, A.index, A.domains); return; }
-        document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>404 &mdash; no atlas entry</h1>'
-          + '<p><a href="/atlas" data-link>Back to the atlas</a></p></div>';
-        updateNavState('/atlas', '~/stephens/atlas/404', '/atlas/' + seg);
-      } catch (e) {
-        document.getElementById('app').innerHTML = '<div class="wiki-article"><h1>Atlas unavailable</h1></div>';
-      }
-    }
-
-    async function loadAtlasNode(id, index, domains) {
-      const meta = index[id];
-      const domName = (domains.find(d => d.slug === meta.domain) || {}).name || meta.domain;
-      const md = await (await fetch('/atlas/' + meta.domain + '/' + id + '.md')).text();
-      const rendered = renderNoteMarkdown(md);
-      const chip = (nid) => index[nid]
-        ? '<a href="/atlas/' + nid + '" class="category-tag" data-link>' + index[nid].name + '</a>'
-        : '<span class="category-tag">' + nid + '</span>';
-      const chipRow = (title, ids) => (ids && ids.length)
-        ? '<div class="categories-box"><div class="categories-title">' + title + '</div>'
-          + '<div class="categories-list">' + ids.map(chip).join(' ') + '</div></div>'
-        : '';
-      const html = '<div class="wiki-article note-section">'
-        + '<div class="note-breadcrumb"><a href="/atlas" data-link>Atlas</a> / '
-        + '<a href="/atlas/' + meta.domain + '" data-link>' + domName + '</a> / ' + meta.name + '</div>'
-        + '<h1>' + meta.name + '</h1>'
-        + '<div class="categories-list" style="margin-bottom:1rem"><span class="course-status">L' + meta.level + ' · ' + (ATLAS_LVLNAME[meta.level]||'') + '</span> '
-        + '<span class="category-tag">' + domName + '</span></div>'
-        + '<div class="note-content">' + rendered + '</div>'
-        + chipRow('Prerequisites', meta.prereqs) + chipRow('Unlocks', meta.unlocks)
-        + '</div>';
-      document.getElementById('app').innerHTML = html;
-      updateNavState('/atlas', '~/stephens/atlas/' + meta.domain + '/' + id + '.md', '/atlas/' + id);
-      renderMath();
-    }
 
     // File explorer folder functions
     async function loadExplorerFolders() {
@@ -2359,7 +2557,6 @@
       'educational': () => navigate('/educational'),
       'm': () => navigate('/music'),
       'music': () => navigate('/music'),
-      'atlas': () => navigate('/atlas'),
       
       // Help
       'help': () => showHelp(),

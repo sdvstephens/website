@@ -1,17 +1,18 @@
 {
-  "intro": "",
+  "_howto": "Each section renders only if it has items — empty a section's items array to hide it entirely. Per item: title, composer, year, instrumentation, duration, note, score, audio. All optional. 'score' is a path like /music/scores/name.pdf. An 'audio' value starting with / becomes an inline player; a full https:// URL becomes a 'listen' link instead. Replace the EXAMPLE entries with your own.",
+  "intro": "Original work, arrangements, and the pieces I keep returning to.",
   "sections": [
     {
       "title": "Original Works",
       "items": [
         {
-          "title": "TITLE",
-          "year": "",
-          "instrumentation": "",
-          "duration": "",
-          "note": "",
-          "score": "",
-          "audio": ""
+          "title": "EXAMPLE — replace or delete",
+          "year": "2026",
+          "instrumentation": "string quartet",
+          "duration": "11'",
+          "note": "One or two sentences on what the piece is doing.",
+          "score": "/music/scores/example.pdf",
+          "audio": "/music/audio/example.mp3"
         }
       ]
     },
@@ -19,13 +20,12 @@
       "title": "Arrangements",
       "items": [
         {
-          "title": "TITLE",
-          "composer": "ORIGINAL COMPOSER",
-          "year": "",
-          "instrumentation": "",
-          "note": "",
-          "score": "",
-          "audio": ""
+          "title": "EXAMPLE — replace or delete",
+          "composer": "Original Composer",
+          "year": "2026",
+          "instrumentation": "for two pianos",
+          "note": "What the arrangement changes, and why.",
+          "score": "/music/scores/example-arr.pdf"
         }
       ]
     },
@@ -33,10 +33,10 @@
       "title": "Recordings",
       "items": [
         {
-          "title": "TITLE",
-          "year": "",
-          "note": "",
-          "audio": ""
+          "title": "EXAMPLE — replace or delete",
+          "year": "2026",
+          "note": "Performer, venue, occasion.",
+          "audio": "https://example.com/link-to-recording"
         }
       ]
     },
@@ -44,9 +44,29 @@
       "title": "Favorite Works",
       "items": [
         {
-          "title": "TITLE",
-          "composer": "COMPOSER",
-          "note": ""
+          "title": "Partita for 8 Voices",
+          "composer": "Caroline Shaw",
+          "note": "Start at the Sarabande; the Passacaglia is the summit."
+        },
+        {
+          "title": "Grá agus Bás",
+          "composer": "Donnacha Dennehy",
+          "note": "Drone plus lament — the oldest formal substrate there is, retuned."
+        },
+        {
+          "title": "Akhnaten",
+          "composer": "Philip Glass",
+          "note": "Opera as ritual object."
+        },
+        {
+          "title": "Music for 18 Musicians",
+          "composer": "Steve Reich",
+          "note": "The pulse the whole post-minimal world still writes against."
+        },
+        {
+          "title": "Mouth Full of Ears",
+          "composer": "Sarah Goldfeather",
+          "note": "Unconventional sound with clear dramatic direction — the reference point."
         }
       ]
     }

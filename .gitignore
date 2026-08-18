@@ -7,6 +7,17 @@
 # data (IPs, user agents). This repo is public: keep all of it out.
 analytics/
 
+# Licensed webfonts. Adobe Caslon Pro is a desktop-licensed face and this repo
+# is public, so the binaries are deployed by FTP alongside analytics/ rather
+# than committed. Regenerate from the source OTFs with:
+#   python3 -m fontTools.ttLib.woff2 compress -o NAME.woff2 NAME.otf
+# NY Irvin (fsType 0) is unrestricted, but is ignored here too so the whole
+# directory has one rule rather than an exception list.
+assets/fonts/*.woff2
+
+# Local dev only — mirrors the .htaccess routing for `php -S`.
+router.php
+
 # Local backups produced by the publish scripts
 *.bak
 *.graphite-bak

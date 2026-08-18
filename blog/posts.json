@@ -1,5 +1,15 @@
 [
   {
+    "slug": "a-dream",
+    "title": "A Dream",
+    "date": "2026-08-04",
+    "excerpt": "A dream of DeLillo and debate",
+    "tags": [
+      "personal",
+      "dreams"
+    ]
+  },
+  {
     "slug": "states-of-calamity",
     "title": "States of Calamity",
     "date": "2026-07-24",
