@@ -1,7 +1,7 @@
 # .htaccess for the static build (upload with the contents of dist/).
-# Review before use. Replaces the single-page-app rules: there is no
-# index.php, meta.php, seo.php or crawler rule any more, because every
-# page is a finished HTML file.
+# Replaces the single-page-app rules: there is no index.php, meta.php,
+# seo.php or crawler rule any more, because every page is a finished HTML
+# file.
 
 # php -- BEGIN cPanel-generated handler, do not edit
 <IfModule mime_module>
@@ -10,7 +10,9 @@
 # php -- END cPanel-generated handler, do not edit
 
 Options -Indexes -MultiViews
-DirectoryIndex index.html
+# index.php is for the Open Web Analytics dashboard (/analytics/); every
+# page of the site itself is an index.html.
+DirectoryIndex index.html index.php
 # A real 404 status for missing pages (the old setup answered 200).
 ErrorDocument 404 /404.html
 

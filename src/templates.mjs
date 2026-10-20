@@ -18,7 +18,26 @@ export const SITE = {
     repo: 'sdvstephens/website', repoId: 'R_kgDOQop0kg',
     category: 'General', categoryId: 'DIC_kwDOQop0ks4CzyZd',
   },
+  // The same two trackers the single-page site had: Google Analytics, and
+  // Open Web Analytics (self-hosted in /analytics on the server). They run
+  // only on these hosts, so `npm run dev` and other local previews are never
+  // counted.
+  analytics: {
+    hosts: ['samuel-stephens.com', 'www.samuel-stephens.com'],
+    ga: 'G-6MV89TNBW4',
+    owa: { base: 'https://samuel-stephens.com/analytics/', siteId: '0b9ed5433ec7e3ae64dd39370d72bf91' },
+  },
 };
+
+function analyticsTag() {
+  const a = SITE.analytics;
+  if (!a || (!a.ga && !a.owa)) return '';
+  const ga = a.ga ? `window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','${a.ga}');`
+    + `var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id=${a.ga}';document.head.appendChild(g);` : '';
+  const owa = a.owa ? `window.owa_baseUrl='${a.owa.base}';window.owa_cmds=window.owa_cmds||[];owa_cmds.push(['setSiteId','${a.owa.siteId}'],['trackPageView'],['trackClicks']);`
+    + `var o=document.createElement('script');o.async=true;o.src=owa_baseUrl+'modules/base/dist/owa.tracker.js';document.head.appendChild(o);` : '';
+  return `\n<script>(function(){if(${JSON.stringify(a.hosts)}.indexOf(location.hostname)<0)return;${ga}${owa}})();</script>`;
+}
 
 // Primary navigation. Homework and Educational move to the footer: both
 // are close to empty today (see AUDIT.md), and five items fit one row on a phone.
@@ -66,7 +85,7 @@ export function layout(p, assets) {
 <link rel="preload" href="/assets/fonts/NYIrvin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v=${assets.css}">${p.hasMath ? `\n<link rel="stylesheet" href="/assets/math.css?v=${assets.math}">` : ''}
 <script>try{var d=document.documentElement,t=localStorage.getItem('theme');if(t)d.dataset.theme=t;if(sessionStorage.getItem('ex')==='1'&&innerWidth>=1300)d.classList.add('ex-open')}catch(e){}</script>
-<script src="/assets/site.js?v=${assets.js}" defer></script>
+<script src="/assets/site.js?v=${assets.js}" defer></script>${analyticsTag()}
 </head>
 <body data-path="${esc(p.file || '')}"${p.bodyClass ? ` class="${p.bodyClass}"` : ''}>
 <a class="skip" href="#main">Skip to content</a>
