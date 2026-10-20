@@ -1,28 +1,29 @@
+# Build output and dependencies
+node_modules/
+dist/
+.cache/
+
 # macOS cruft
 .DS_Store
 **/.DS_Store
 
-# Open Web Analytics — third-party app, deployed via FTP, NOT source.
-# owa-config.php holds live DB credentials and the logs contain visitor
-# data (IPs, user agents). This repo is public: keep all of it out.
+# Licensed webfonts. Adobe Caslon Pro is a desktop-licensed face and this repo
+# is public, so the binaries stay out of git. Regenerate from the source OTFs:
+#   python3 -m fontTools.ttLib.woff2 compress -o NAME.woff2 NAME.otf
+static/assets/fonts/*.woff2
+
+# Open Web Analytics lives only on the server (live DB credentials, visitor
+# logs). Never commit it.
 analytics/
 
-# Licensed webfonts. Adobe Caslon Pro is a desktop-licensed face and this repo
-# is public, so the binaries are deployed by FTP alongside analytics/ rather
-# than committed. Regenerate from the source OTFs with:
-#   python3 -m fontTools.ttLib.woff2 compress -o NAME.woff2 NAME.otf
-# NY Irvin (fsType 0) is unrestricted, but is ignored here too so the whole
-# directory has one rule rather than an exception list.
-assets/fonts/*.woff2
+# Notes for me about the site (the audit and the suggestions list). They quote
+# contact details and draft decisions, so they stay out of the public repo.
+AUDIT.md
+SUGGESTIONS.md
 
-# Local dev only — mirrors the .htaccess routing for `php -S`.
-router.php
-
-# Local backups produced by the publish scripts
+# Local backups and editor noise
 *.bak
 *.graphite-bak
-
-# Editor / tooling noise
 *.swp
 *.swo
 .vscode/

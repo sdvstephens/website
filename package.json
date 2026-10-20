@@ -1,0 +1,16 @@
+{
+  "name": "samuel-stephens.com",
+  "private": true,
+  "type": "module",
+  "description": "samuel-stephens.com: a static site built from Markdown and JSON content.",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node serve.mjs",
+    "dev": "node build.mjs --preview && node serve.mjs --watch"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "5.2.5",
+    "marked": "15.0.12",
+    "mathjax-full": "3.2.2"
+  }
+}

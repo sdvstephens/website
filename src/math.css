@@ -1,0 +1,16 @@
+/* math.css: appended after the MathJax CHTML stylesheet that build.mjs
+   generates. Only pages with math link this file. */
+mjx-container[jax="CHTML"][display="true"] {
+  display: block;
+  margin: 1em 0 !important;
+  padding: .15em 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+mjx-container[jax="CHTML"] { color: inherit; }
+/* Inline formulae never break, so on a phone a long one may overflow its
+   line; let the paragraph scroll instead of the page. */
+.prose p:has(> mjx-container:not([display])) { overflow-x: auto; overflow-y: hidden; }
+/* A TeX error in the source shows its TeX in red (build.mjs lists each one). */
+mjx-merror { background: none !important; color: var(--red) !important; border-bottom: 1px dotted var(--red); }

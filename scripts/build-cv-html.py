@@ -18,7 +18,7 @@ import re
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-OUT = ROOT / "sdvscvhtml.html"
+OUT = ROOT / "static" / "sdvscvhtml.html"
 DEFAULT_SRC = (
     pathlib.Path.home()
     / "Downloads"

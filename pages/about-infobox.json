@@ -1,0 +1,36 @@
+{
+  "_howto": "The about-page infobox. Each section has an optional heading and rows; a row's value is a string or a list of strings (HTML allowed). \"muted\": true greys a row out. Labels are free text, so \"Current\"/\"Former\" can become \"Nunc\"/\"Olim\" if you prefer.",
+  "title": "S. D. V. Stephens",
+  "subtitle": "Researcher · Mathematician",
+  "image": {
+    "src": "/sdvs.jpg",
+    "alt": "S. D. V. Stephens",
+    "caption": "S. D. V. Stephens, 2025"
+  },
+  "sections": [
+    {
+      "heading": "Academics and career",
+      "rows": [
+        { "label": "Fields", "value": ["Neurobioengineering", "Mathematics", "Philosophy", "Cognitive Science", "Education Policy", "Politics of Education", "Political Philosophy"] },
+        { "label": "Institutions", "value": ["Stanford University School of Medicine", "Beth Israel Medical Center", "Harvard Medical School", "City Council of Dallas"] },
+        { "label": "Education", "value": ["MIT (Audit)", "Harvard (Audit)", "Wabash College", "Kenyon College"] },
+        { "label": "Tools", "value": ["LaTeX, Python, R", "Neovim, Emacs"] }
+      ]
+    },
+    {
+      "heading": "Contact",
+      "rows": [
+        { "label": "Current", "value": ["sdvs[at]stanford.edu", "sdstephens[at]mgh.harvard.edu"] },
+        { "label": "Former", "value": ["sstephe9[at]bidmc.harvard.edu", "sdvs[at]mit.edu"], "muted": true }
+      ]
+    },
+    {
+      "heading": "Online",
+      "rows": [
+        { "label": "GitHub", "value": "<a href=\"https://github.com/sdvstephens\">sdvstephens</a>" },
+        { "label": "YouTube", "value": "<a href=\"https://youtube.com/@Vichaama\">@Vichaama</a>" },
+        { "label": "CV", "value": "<a href=\"/sdvscv.pdf\">PDF</a>" }
+      ]
+    }
+  ]
+}
