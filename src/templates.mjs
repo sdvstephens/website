@@ -106,7 +106,6 @@ ${p.body}
     <li><a href="/sdvscv.pdf">cv (pdf)</a></li>
     <li><a href="${SITE.github}" rel="me">github</a></li>
     <li><a href="${SITE.youtube}" rel="me">youtube</a></li>
-    <li><a href="/blog/feed.xml">feed</a></li>
     <li><a href="/help">help</a></li>
   </ul>
   <p class="keys">Keyboard: <kbd>:</kbd> commands, <kbd>/</kbd> search, <kbd>?</kbd> help.</p>
