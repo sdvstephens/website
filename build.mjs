@@ -157,6 +157,113 @@ function inlineFigures(html, file) {
   });
 }
 
+// ---------------------------------------------------------------- access
+// notes/<course>/access.json decides, per document, whether a PDF under
+// notes/<course>/readings/ is "hidden" (behind the readings password) or
+// "shown" (public), and whether the handout quotations are woven into the
+// pages. The build writes readings/.htaccess from it and marks hidden links.
+function loadAccess(slug) {
+  if (!exists('notes', slug, 'access.json')) return null;
+  const a = readJSON('notes', slug, 'access.json');
+  const dir = C('notes', slug, 'readings');
+  const files = [];
+  const walkDocs = (d, rel = '') => {
+    if (!fs.existsSync(d)) return;
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      if (e.name.startsWith('.')) continue;
+      if (e.isDirectory()) walkDocs(path.join(d, e.name), rel + e.name + '/');
+      else if (/\.pdf$/i.test(e.name)) files.push(rel + e.name);
+    }
+  };
+  walkDocs(dir);
+  const docs = a.documents || {};
+  const glob = (pat) => new RegExp('^' + pat.split('*').map((x) => x.replace(/[.+?^${}()|[\]\\]/g, '\\$&')).join('[^/]*') + '$');
+  const status = (rel) => {
+    if (docs[rel]) return docs[rel];
+    const hit = Object.keys(docs).find((k) => k.includes('*') && glob(k).test(rel));
+    return hit ? docs[hit] : (a.default || 'hidden');
+  };
+  for (const [k, v] of Object.entries(docs)) {
+    if (!['hidden', 'shown'].includes(v)) warn(`notes/${slug}/access.json: "${k}" is "${v}"; use "hidden" or "shown"`);
+  }
+  // <Files> in .htaccess matches a file's name in every subfolder, so a
+  // shown file must not share its name with a hidden one.
+  const byName = new Map();
+  for (const f of files) {
+    const n = path.basename(f);
+    if (byName.has(n) && status(byName.get(n)) !== status(f)) warn(`notes/${slug}/readings: ${byName.get(n)} and ${f} share a name but not a status`);
+    byName.set(n, f);
+  }
+  let quotes = {};
+  if (a.quotes === 'shown') {
+    const q = path.join(dir, 'quotes.json');
+    if (fs.existsSync(q)) quotes = JSON.parse(fs.readFileSync(q, 'utf8'));
+    else warn(`notes/${slug}/access.json: quotes are "shown" but readings/quotes.json is missing`);
+  }
+  return { ...a, files, status, quotes, prefix: `/notes/${slug}/readings/` };
+}
+
+function applyAccess(acc, number, html) {
+  if (!acc) return html;
+  // Mark links to hidden documents; say so in the readings box.
+  html = html.replace(/<a href="([^"]+)"/g, (m, href) => {
+    if (!href.startsWith(acc.prefix)) return m;
+    const rel = decodeURI(href.slice(acc.prefix.length));
+    return acc.status(rel) === 'hidden' ? `${m} class="doc-locked" title="Needs the readings password"` : m;
+  });
+  html = html.replace(/(<aside class="box box-readings"[^>]*><p class="box-head"><span class="box-label">Readings<\/span>)([\s\S]*?<\/aside>)/g, (m, head, rest) =>
+    head + (rest.includes('doc-locked') ? ' <span class="box-title">locked PDFs need the readings password</span>' : '') + rest);
+  // Handout quotations, when shown: each goes after the first paragraph
+  // that cites it ("Quotation 3", "quotations 1–3"); the rest go before the outline.
+  const list = acc.quotes[String(number).padStart(2, '0')] || acc.quotes[String(number)] || [];
+  if (!list.length) return html;
+  const placed = new Set();
+  const quote = (q) => `<blockquote class="handout-quote" id="quote-${q.n || q.id}"><p>${esc(q.text).replace(/\n\n+/g, '</p><p>')}</p><footer>${q.n ? `Quotation ${q.n} · ` : ''}${q.source ? renderTitle(q.source) : 'from the handout'}</footer></blockquote>`;
+  const byN = new Map(list.filter((q) => q.n).map((q) => [String(q.n), q]));
+  html = html.replace(/<p>([\s\S]*?)<\/p>/g, (m, inner) => {
+    const nums = [];
+    for (const [, a, b] of inner.matchAll(/[Qq]uotations? (\d+)(?:\s*[–-]\s*(\d+))?/g)) {
+      for (let n = +a; n <= +(b || a); n++) nums.push(String(n));
+    }
+    for (const [, more] of inner.matchAll(/[Qq]uotations? \d+(?:,\s*(\d+))/g)) nums.push(more);
+    const add = nums.filter((n) => byN.has(n) && !placed.has(n));
+    add.forEach((n) => placed.add(n));
+    return m + add.map((n) => quote(byN.get(n))).join('');
+  });
+  const rest = list.filter((q) => !q.n || !placed.has(String(q.n)));
+  if (rest.length) {
+    const block = `<h2 id="from-the-handout">From the handout</h2>${rest.map(quote).join('')}`;
+    html = html.includes('<details class="outline">') ? html.replace('<details class="outline">', block + '<details class="outline">') : html + block;
+  }
+  return html;
+}
+
+function readingsHtaccess(acc) {
+  const shown = acc.files.filter((f) => acc.status(f) === 'shown').map((f) => path.basename(f));
+  return `# Written by build.mjs from access.json. Don't edit this copy: change
+# "hidden"/"shown" in notes/<course>/access.json and publish.
+AuthType Basic
+AuthName "${acc.realm || 'Course readings'}"
+AuthUserFile ${acc.authUserFile}
+Require valid-user
+
+<Files ".ht*">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</Files>
+${shown.map((n) => `
+<Files "${n}">
+  Require all granted
+</Files>`).join('')}
+
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+`;
+}
+
+const accessByCourse = new Map();
 for (const c of noteCourses) {
   const course = exists('notes', c.slug, 'course.json') ? readJSON('notes', c.slug, 'course.json') : { chapters: [] };
   const sections = [];
@@ -170,7 +277,8 @@ for (const c of noteCourses) {
       const src = read('notes', c.slug, `${s.slug}.md`);
       const fm = frontmatter(src).data;
       const { html } = renderNotes(src, { section: s.number });
-      const body = inlineFigures(stripLeadingH1(html), file);
+      if (!accessByCourse.has(c.slug)) accessByCourse.set(c.slug, loadAccess(c.slug));
+      const body = applyAccess(accessByCourse.get(c.slug), s.number, inlineFigures(stripLeadingH1(html), file));
       sections.push({
         ...s, titleHtml: renderTitle(s.title), titleText: plainTitle(s.title),
         chapter: ch, file, html: body, stub: isStubText(html), href: `/notes/${c.slug}/${s.slug}`,
@@ -668,6 +776,13 @@ for (const sub of ['notes', 'homework', 'music']) {
     recursive: true,
     filter: (s) => !/[\\/]figures[\\/](src([\\/]|$)|preamble\.tex$)/.test(s) && (fs.statSync(s).isDirectory() || !/\.(md|json)$|\.DS_Store$/.test(s)),
   });
+}
+
+// Protected readings: the .htaccess comes from access.json.
+for (const [slug, acc] of accessByCourse) {
+  if (!acc) continue;
+  if (!acc.authUserFile) { warn(`notes/${slug}/access.json has no authUserFile`); continue; }
+  write(`notes/${slug}/readings/.htaccess`, readingsHtaccess(acc));
 }
 
 // Portrait: the original is 1688 px and 1 MB, shown at 200 px. Resize once.

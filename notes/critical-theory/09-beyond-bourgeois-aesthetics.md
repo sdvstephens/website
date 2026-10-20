@@ -2,8 +2,8 @@
 date: 2026-02-24
 ---
 
-:::readings PDFs are password-protected
-- Walter Benjamin, [“The Work of Art in the Age of Its Technical Reproducibility”](/notes/critical-theory/readings/benjamin-work-of-art.pdf) (1935–36)
+:::readings
+- Walter Benjamin, [“The Work of Art in the Age of Its Technical Reproducibility”](/notes/critical-theory/readings/benjamin-work-of-art.pdf) (1935–36) · [online at marxists.org](https://www.marxists.org/reference/subject/philosophy/works/ge/benjamin.htm), in Harry Zohn’s older translation
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-09.pdf): outline, quotations from Benjamin, and Adorno’s letter of 18 March 1936
 :::
 

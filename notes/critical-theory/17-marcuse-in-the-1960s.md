@@ -2,8 +2,8 @@
 date: 2026-03-31
 ---
 
-:::readings PDFs are password-protected
-- Herbert Marcuse, [*An Essay on Liberation*](/notes/critical-theory/readings/marcuse-essay-on-liberation.pdf) (1969)
+:::readings
+- Herbert Marcuse, [*An Essay on Liberation*](/notes/critical-theory/readings/marcuse-essay-on-liberation.pdf) (1969) · [online at marxists.org](https://www.marxists.org/reference/archive/marcuse/works/1969/essay-liberation.htm)
 - Angela Davis, [“Marcuse’s Legacies”](/notes/critical-theory/readings/davis-marcuses-legacies.pdf) (1998)
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-17.pdf): outline, *The New York Times* on the Frankfurt protests of May 1968, and quotations from Marcuse and Davis
 :::

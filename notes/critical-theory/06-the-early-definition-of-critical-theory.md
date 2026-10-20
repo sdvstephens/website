@@ -2,7 +2,7 @@
 date: 2026-02-12
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - Max Horkheimer, [“Traditional and Critical Theory”](/notes/critical-theory/readings/horkheimer-traditional-and-critical-theory.pdf) (1937)
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-06.pdf): outline, and quotations from Horkheimer
 :::

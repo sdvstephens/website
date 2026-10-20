@@ -3,7 +3,7 @@ date: 2026-04-16
 status: readings
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - Amy Allen, [“Adorno, Foucault, and the End of Progress: Critical Theory in Postcolonial Times”](/notes/critical-theory/readings/allen-adorno-foucault-decolonizing-critical-theory.pdf), in Penelope Deutscher and Cristina Lafont, eds., *Critical Theory in Critical Times* (2017)
 :::
 

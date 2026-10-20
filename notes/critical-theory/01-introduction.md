@@ -2,7 +2,7 @@
 date: 2026-01-27
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - No reading for the first lecture.
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-01.pdf): outline, and Lukács on the “Grand Hotel Abyss”
 :::

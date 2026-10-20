@@ -2,8 +2,8 @@
 date: 2026-03-03
 ---
 
-:::readings PDFs are password-protected
-- Walter Benjamin, [“On the Concept of History”](/notes/critical-theory/readings/benjamin-on-the-concept-of-history.pdf) (1940)
+:::readings
+- Walter Benjamin, [“On the Concept of History”](/notes/critical-theory/readings/benjamin-on-the-concept-of-history.pdf) (1940) · [online at marxists.org](https://www.marxists.org/reference/archive/benjamin/1940/history.htm)
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-11.pdf): outline; Ranke; Benjamin’s chess automaton and angel of history; letters between Adorno and Horkheimer; Klee’s *Angelus Novus*
 :::
 
@@ -41,7 +41,7 @@ Revolutions know this. The French Revolution made a new calendar, starting time 
 
 Against empty time Benjamin sets [[de:*Jetztzeit*|YETST-tsite|ˈjɛt͡st͡saɪ̯t]], “now-time,” something like the theologians’ [[la:*nunc stans*|noonk STAHNSS|nʊŋk stans]], the “standing now” of eternity. Every moment is the small gateway through which the Messiah might enter.
 
-This is why the essay opens with a dialectical image of historical materialism and theology. There once existed, the story goes, a chess-playing automaton: a puppet in Turkish dress, with a water pipe in its mouth, that could win any game. Mirrors made the table look transparent, but in fact a hunchbacked dwarf, a master of chess, sat inside working the puppet’s hands. The puppet called “historical materialism” is to win every time. It can, Benjamin says, so long as it enlists the services of theology, which today, as everyone knows, is small and ugly and has to keep out of sight. (Quotation 2.) Vulgar materialism is mere mechanism, and it must draw on theology for its animating power. Secularization is not the disappearance of theological insight but its encryption, its incorporation into secular thought.
+This is why the essay opens with a dialectical image of historical materialism and theology. There once existed, the story goes, a chess-playing automaton: a puppet in Turkish dress, with a water pipe in its mouth, that could win any game. Mirrors made the table look transparent, but in fact a hunchbacked dwarf, a master of chess, sat inside working the puppet’s hands. The puppet called “historical materialism” is to win every time. It can, Benjamin says, so long as it enlists the services of theology, which today, as everyone knows, is small and ugly and has to keep out of sight. (Quotation 2.) Vulgar materialism is mere mechanism, and it must draw on theology for its animating power. Secularization encrypts theological insight: it carries it into secular thought in hidden form.
 
 ### The storm from Paradise
 

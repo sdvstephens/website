@@ -2,7 +2,7 @@
 date: 2026-04-14
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - Nancy Fraser, [“What’s Critical About Critical Theory? The Case of Habermas and Gender”](/notes/critical-theory/readings/fraser-whats-critical-about-critical-theory.pdf) (1985)
 - There was no handout for this lecture; these notes are from my own notes only.
 :::
@@ -35,7 +35,7 @@ Judged that way, both Marxist and Habermasian theory fail at the same place. Wom
 
 ### Lifeworld and system
 
-Fraser’s target is Habermas’s central distinction between *lifeworld* and *system*. The lifeworld (in German [[de:*Lebenswelt*|LAY-bens-velt|ˈleːbn̩sˌvɛlt]]) is the domain of shared meanings, norms and identities, reproduced through communication: family, culture, the public sphere. The *system* is the domain coordinated not by communication but by the impersonal media of money and power: the economy and the state. The pathology of modernity, for Habermas, is that the system threatens and *colonizes* the lifeworld; we could also say that it reifies it.
+Fraser’s target is Habermas’s central distinction between *lifeworld* and *system*. The lifeworld (in German [[de:*Lebenswelt*|LAY-bens-velt|ˈleːbn̩sˌvɛlt]]) is the domain of shared meanings, norms and identities, reproduced through communication: family, culture, the public sphere. The *system* is the domain coordinated by the impersonal media of money and power: the economy and the state. The pathology of modernity, for Habermas, is that the system threatens and *colonizes* the lifeworld; we could also say that it reifies it.
 
 Fraser argues that this distinction does the same work as the liberal distinction between “private” and “public.” The public sphere sits in the lifeworld, and it is supposed to be open, but it is exclusionary (the homeless, for instance, are not welcome in it; think of how people regard the homeless in public libraries). Is this incidental, or is it built into the framework? Habermas is blind to the way gender cuts across all of his distinctions.
 

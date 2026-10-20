@@ -2,7 +2,7 @@
 date: 2026-02-26
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - Theodor W. Adorno, [“On the Fetish Character in Music and the Regression of Listening”](/notes/critical-theory/readings/adorno-fetish-character-in-music.pdf) (1938)
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-10.pdf): outline, and quotations from Adorno
 :::
@@ -42,7 +42,7 @@ Adorno was a philosopher, a sociologist, an aesthetician and a public critic, an
 
 The essay is, first, a rejoinder to Benjamin. We saw Adorno’s letter of 1936: Benjamin underestimates autonomous art and overestimates dependent art, and the Brechtian hope for the workers misreads them. (Quotation 1.) Now Adorno makes the case in detail, about music.
 
-He takes the fetishism of commodities from Marx and Lukács and finds it imprinted on music. “For all contemporary musical life,” he writes, “is dominated by the commodity form.” (Quotation 2.) In the musical commodity, exchange value takes over: what the listener loves is not the music but its success, its price, the fact that it is what everyone loves. The result is sameness and standardization. The same thing is offered to everybody, and the sacrifice of individuality, doing what everybody does, follows. Adorno connects this to Fromm’s sado-masochistic character: mass culture is masochistic. The listener who loves the commodity is like the prisoner who loves his cell because he has been left nothing else to love. (Quotation 3.)
+He takes the fetishism of commodities from Marx and Lukács and finds it imprinted on music. “For all contemporary musical life,” he writes, “is dominated by the commodity form.” (Quotation 2.) In the musical commodity, exchange value takes over: what the listener loves is the music’s success, its price, the fact that everyone loves it. The result is sameness and standardization. The same thing is offered to everybody, and the sacrifice of individuality, doing what everybody does, follows. Adorno connects this to Fromm’s sado-masochistic character: mass culture is masochistic. The listener who loves the commodity is like the prisoner who loves his cell because he has been left nothing else to love. (Quotation 3.)
 
 Masochism in listening means “agreement with everything dominant,” identification with power. But underneath the pleasure lies the knowledge that the shelter it gives is provisional, that everything must eventually collapse; even in surrendering, the listener feels he is betraying what is possible and being betrayed by what exists. (Quotation 4.)
 

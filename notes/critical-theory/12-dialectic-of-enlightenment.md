@@ -2,7 +2,7 @@
 date: 2026-03-05
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - Max Horkheimer and Theodor W. Adorno, [*Dialectic of Enlightenment*: the prefaces and chapter 1, “The Concept of Enlightenment”](/notes/critical-theory/readings/dialectic-of-enlightenment-prefaces-and-ch1.pdf) (1944/47; tr. Edmund Jephcott, Stanford, 2002), pp. xi–xix, 1–34
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-12.pdf): outline, and quotations from Benjamin, the Adorno–Horkheimer letters, and *Dialectic of Enlightenment*
 :::

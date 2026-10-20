@@ -2,8 +2,8 @@
 date: 2026-01-29
 ---
 
-:::readings PDFs are password-protected
-- Georg Lukács, [“What Is Orthodox Marxism?”](/notes/critical-theory/readings/lukacs-what-is-orthodox-marxism.pdf), in *History and Class Consciousness* (1923), all
+:::readings
+- Georg Lukács, [“What Is Orthodox Marxism?”](/notes/critical-theory/readings/lukacs-what-is-orthodox-marxism.pdf), in *History and Class Consciousness* (1923), all · [online at marxists.org](https://www.marxists.org/archive/lukacs/works/history/orthodox.htm)
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-02.pdf): outline, and quotations from Marx and Feuerbach on alienation
 :::
 

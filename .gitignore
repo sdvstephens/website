@@ -40,8 +40,8 @@ credentials
 __pycache__/
 *.pyc
 
-# Critical theory readings and handouts: copyrighted PDFs, served behind a
-# password (see notes/critical-theory/readings/.htaccess). Only the .htaccess
-# is committed; the PDFs and the .htpasswd stay on this machine and the server.
-notes/critical-theory/readings/*
-!notes/critical-theory/readings/.htaccess
+# Critical theory readings and handouts: copyrighted PDFs, the handout
+# quotations (quotes.json) and the password file stay on this machine and the
+# server. Who may open each PDF is set in notes/critical-theory/access.json;
+# the build writes the folder's .htaccess from it.
+notes/critical-theory/readings/

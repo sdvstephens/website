@@ -2,7 +2,7 @@
 date: 2026-02-19
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - Max Horkheimer, [“Authority and the Family”](/notes/critical-theory/readings/horkheimer-authority-and-the-family.pdf) (1936), all
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-08.pdf): outline, and quotations from Freud, Fromm and Horkheimer
 :::
@@ -33,13 +33,13 @@ The Institute’s research on authority runs through four large projects:
 
 ### What they have in common
 
-These are early sociological studies attempting to measure the psyche of a whole population. They combine qualitative interviews with quantitative surveys and questionnaires (the quantitative part was far easier than the qualitative), and they interpret the data psychoanalytically. They rely on strong tripartite typologies of character and on rankings, like the later “F-scale,” which measures how susceptible an individual is to fascist ideology. What they look for is not the objective causes of fascism but the subjective reaction to it: why are so many people drawn to it?
+These are early sociological studies attempting to measure the psyche of a whole population. They combine qualitative interviews with quantitative surveys and questionnaires (the quantitative part was far easier than the qualitative), and they interpret the data psychoanalytically. They rely on strong tripartite typologies of character and on rankings, like the later “F-scale,” which measures how susceptible an individual is to fascist ideology. They set aside the objective causes of fascism and ask about the subjective reaction to it: why are so many people drawn to it?
 
 ## *Studies on Authority and the Family* (1936)
 
 ### Fromm’s authoritarian character
 
-Fromm’s theoretical essay describes the authoritarian, or *sado-masochistic*, character. It has two sides: a desire to inflict cruelty and to dominate, and a desire to be the object of cruelty and domination. “The authoritarian structure of society,” Fromm writes, “both creates and satisfies needs which develop on the basis of sado-masochism.” (Quotation 2.)
+Fromm’s theoretical essay describes the authoritarian, or *sado-masochistic*, character. It has two sides: a desire to inflict cruelty and to dominate, and a desire to be the object of cruelty and domination. (Elon Musk fanboys, lol.) “The authoritarian structure of society,” Fromm writes, “both creates and satisfies needs which develop on the basis of sado-masochism.” (Quotation 2.)
 
 He sorts people into a strong tripartite typology: the *revolutionary* character, the *ambivalent* character, and the *authoritarian* character. The typology is deliberately, openly biased: it is part of a social practice aimed at a better world.
 
@@ -60,6 +60,8 @@ From family authority it is a short step to political authoritarianism. Horkheim
 ### Other possibilities
 
 People tend to read critical theory as total despair. But Horkheimer hints at other possibilities. He imagines a “future-oriented family,” “a new community of spouses and children,” a different way of ordering psychology and family life, and so culture, and so authority. In it the mothers would shape their children not as repressed, dominating, authority-loving figures. Even within the bourgeois family the seed is there. In sexual love, and above all in maternal care, the growth and happiness of the other person are *willed*; such unions feel opposed to the hostile reality outside. So the family not only educates for authority in bourgeois society: “it also cultivates the dream of a better condition for mankind.” (Quotation 8.)
+
+My own conclusion: I want to destroy the modern atomic family.
 
 ## Concluding remarks
 

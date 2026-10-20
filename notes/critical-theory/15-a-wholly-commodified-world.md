@@ -2,8 +2,8 @@
 date: 2026-03-24
 ---
 
-:::readings PDFs are password-protected
-- Max Horkheimer and Theodor W. Adorno, [“The Culture Industry: Enlightenment as Mass Deception”](/notes/critical-theory/readings/dialectic-of-enlightenment-culture-industry.pdf), in *Dialectic of Enlightenment* (1944/47; tr. Edmund Jephcott, Stanford, 2002), pp. 94–136
+:::readings
+- Max Horkheimer and Theodor W. Adorno, [“The Culture Industry: Enlightenment as Mass Deception”](/notes/critical-theory/readings/dialectic-of-enlightenment-culture-industry.pdf), in *Dialectic of Enlightenment* (1944/47; tr. Edmund Jephcott, Stanford, 2002), pp. 94–136 · [online at marxists.org](https://www.marxists.org/reference/archive/adorno/1944/culture-industry.htm), in John Cumming’s older translation
 - Theodor W. Adorno, [“Perennial Fashion—Jazz”](/notes/critical-theory/readings/adorno-perennial-fashion-jazz.pdf), in *Prisms*
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-15.pdf): outline, and quotations from “The Culture Industry” and “On Jazz”
 :::

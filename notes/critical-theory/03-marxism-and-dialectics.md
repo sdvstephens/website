@@ -2,8 +2,8 @@
 date: 2026-02-03
 ---
 
-:::readings PDFs are password-protected
-- Georg Lukács, “Reification and the Consciousness of the Proletariat,” in *History and Class Consciousness* (1923), pp. 83–110 (not posted)
+:::readings
+- Georg Lukács, “Reification and the Consciousness of the Proletariat,” in *History and Class Consciousness* (1923), pp. 83–110: part I, [“The Phenomenon of Reification,” online at marxists.org](https://www.marxists.org/archive/lukacs/works/history/hcc05.htm)
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-03.pdf): outline, and quotations from Marx and Lukács
 :::
 
@@ -27,7 +27,7 @@ Imagine a sculptor with a block of marble. The sculptor has an idea, beauty, whi
 
 Is there a “right way” for history to go? From close up, human history looks like a slaughter-bench. From a higher perspective, Hegel says, it has structure. *Rationality* here is the criterion for when things fit together and become transparent to us. A rational world is one we can explain, one that reflects our purposes, one in which we feel free: a world we can justify to ourselves.
 
-What is the endpoint? Hegel was of the opinion that his own world was, in its essentials, rational; his political philosophy ends in a constitutional monarchy, which few of his readers now find a satisfying last stop. And what happens when Geist reaches its final stage, its telos? “The end of history”: a dialectical standstill. (This is the idea Francis Fukuyama borrowed in 1989 to announce that liberal democracy was history’s last word, a claim the lecture did not treat kindly.)
+What is the endpoint? Hegel was of the opinion that his own world was, in its essentials, rational; his political philosophy ends in a constitutional monarchy, which few of his readers now find a satisfying last stop. And what happens when Geist reaches its final stage, its telos? “The end of history”: a dialectical standstill. (Francis Fukuyama borrowed this in 1989 to crown liberal democracy as the end of history. I love a dunk on Fukuyama, lol.)
 
 :::question Education
 Is education the realization of Geist: the path of education as telos? The story of Geist is very like an education story, a striving to understand. And if Geist works, is education a part of labor?
@@ -41,7 +41,7 @@ Marx credits Hegel with exactly this insight: the outstanding achievement of Heg
 
 ## The early Marx on alienation
 
-But in the world as it is, labor does not make us free. Under private property self-actualization is obstructed, and labor produces not freedom but unfreedom. Marx inverts Hegel’s dialectic: not self-realization but self-loss. The worker is distorted, alienated from his own labor, and so blocked from the self he could become. Labor should produce a more expansive sense of self; instead it produces a smaller one.
+But in the world as it is, labor does not make us free. Under private property self-actualization is obstructed, and labor produces unfreedom. Marx inverts Hegel’s dialectic: self-realization turns into self-loss. The worker is distorted, alienated from his own labor, and so blocked from the self he could become. Labor should produce a more expansive sense of self; instead it produces a smaller one.
 
 Go back to the sculptor. Objectification as such is good: putting yourself into an object is how you realize yourself. The problem is that the object is taken from you: alienated, appropriated. Worse, under capitalism the laborer is turned into the bourgeoisie’s marble, carved and sold. The worker, Marx says, becomes poorer the more wealth he produces; he becomes a cheaper commodity the more commodities he makes; the devaluation of the world of human beings grows in direct proportion to the increasing value of the world of things. His product confronts him “as something alien, as a power independent of the producer.” The laborer is severed from the object, from himself, from society, and from his “species being.” Marx’s words for this are [[de:*Entäußerung*|ent-OY-ser-oong|ɛntˈʔɔɪ̯səʁʊŋ]], externalization, and [[de:*Entfremdung*|ent-FREM-doong|ɛntˈfʁɛmdʊŋ]], estrangement. (Quotation 2.)
 
@@ -73,7 +73,7 @@ Lukács calls the result a *second nature*: laws, apparently independent of huma
 
 ### A paradox
 
-So there is a paradox. Both the bourgeoisie and the proletariat suffer this reification of consciousness. But the bourgeoisie’s position lets it, not exactly step outside the system, but observe its periphery and so see the structure as a whole; it arrives at a kind of pseudo-telos. That vantage point is less true than it looks: it is, invariably and inexorably, its own religious bondage. Two further thoughts from the margins: on this reading capitalism is *necessary*, since it must arise for us to dismantle it; and part of what holds people to it is fear of losing its telos, the one the bourgeoisie holds out.
+So there is a paradox. Both the bourgeoisie and the proletariat suffer this reification of consciousness. But the bourgeoisie’s position lets it observe the system’s periphery, though it cannot step outside, and so see the structure as a whole; it arrives at a kind of pseudo-telos. That vantage point is less true than it looks: it is, invariably and inexorably, its own religious bondage. Two further thoughts from the margins: on this reading capitalism is *necessary*, since it must arise for us to dismantle it; and part of what holds people to it is fear of losing its telos, the one the bourgeoisie holds out.
 
 ### Was Lukács clairvoyant?
 

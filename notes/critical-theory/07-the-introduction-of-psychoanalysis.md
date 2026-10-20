@@ -4,7 +4,7 @@ song: Maurice Ravel, *La Valse* (1920)
 song-url:
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - Erich Fromm, [“Methods and Function of an Analytic Social Psychology”](/notes/critical-theory/readings/fromm-methods-and-function-of-an-analytic-social-psychology.pdf) (1932)
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-07.pdf): outline, and quotations from Horkheimer and Fromm
 :::
@@ -31,7 +31,7 @@ Freud himself is ambiguous. Read one way, he is the “manly” conservative, a 
 
 Given the communist condemnation of psychoanalysis as individualist and bourgeois, why would a neo-Marxist want it? Because critical theory holds that nothing in bourgeois society is total falsehood. Bourgeois society, culture and ideology contain emancipatory, valuable, even desirable elements. One of them is a *hermeneutics of suspicion*: a way of reading that treats what appears on the surface as the symptom of something hidden. Freud reads the symptom for the repressed desire; Marx reads ideology (justice, morality and the rest) for the class interest beneath it. The two suspicions can be joined, in the service of class consciousness and class struggle. Freudian psychoanalysis, with its attention to symptoms, against Pavlovian behaviorism, with its attention only to material conditions: and [[hu:Lukács|LOO-kahch|ˈlukaːt͡ʃ]]’s theory of reification helps explain why the second is so tempting.
 
-And there was an urgent question for psychoanalysis to answer. Why would people adapt themselves to unfreedom? Why do we bend to authority and willingly submit to what harms us? In 1932 the Nazis won the largest share of the vote, and much of it came from working people. Why do people with nothing defend the order that keeps them with nothing? Are they enamored of irrational authority? Do they crave domination by tyrants? One answer: they identify with the authority, see themselves as cogs in the autocrat’s machine, and believe the greater good is worth it. To go further, we need Freud.
+And there was an urgent question for psychoanalysis to answer. Why would people adapt themselves to unfreedom? Why do we bend to authority and willingly submit to what harms us? In 1932 the Nazis won the largest share of the vote, and much of it came from working people. Why are broke boys defending capitalism? Are they enamored of irrational authority? Do they crave domination by tyrants? One answer: they identify with the authority, see themselves as cogs in the autocrat’s machine, and believe the greater good is worth it. To go further, we need Freud.
 
 ## Some introductory themes in psychoanalysis
 

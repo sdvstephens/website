@@ -2,8 +2,8 @@
 date: 2026-02-05
 ---
 
-:::readings PDFs are password-protected
-- Herbert Marcuse, [“The Foundation of Historical Materialism”](/notes/critical-theory/readings/marcuse-foundation-of-historical-materialism.pdf) (1932), all
+:::readings
+- Herbert Marcuse, [“The Foundation of Historical Materialism”](/notes/critical-theory/readings/marcuse-foundation-of-historical-materialism.pdf) (1932), all · [online at marxists.org](https://www.marxists.org/reference/archive/marcuse/works/historical-materialism/index.htm)
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-04.pdf): outline, and quotations from Marcuse
 :::
 
@@ -13,7 +13,7 @@ The *Economic and Philosophic Manuscripts* (EPM) were written by the young Marx,
 
 Lukács’s argument was that the commodity form is at once objective, the structure of the economy, and subjective, the structure of consciousness. Reification, from the Latin *res* (“thing”), in German [[de:*Verdinglichung*|fair-DING-likh-oong|fɛɐ̯ˈdɪŋlɪçʊŋ]], names the general problem that the “economy” itself becomes a thing: a second nature that seems to run by its own laws.
 
-When the manuscripts appeared, one young philosopher saw at once that they vindicated this reading: they showed Marx to be a Hegelian philosopher, not just an economist. That philosopher was Herbert [[de:Marcuse|mar-KOO-zeh|maʁˈkuːzə]], and his essay “The Foundation of Historical Materialism” (1932) is today’s reading.
+When the manuscripts appeared, one young philosopher saw at once that they vindicated this reading: they showed that Marx the economist was also a Hegelian philosopher. That philosopher was Herbert [[de:Marcuse|mar-KOO-zeh|maʁˈkuːzə]], and his essay “The Foundation of Historical Materialism” (1932) is today’s reading.
 
 ## Herbert Marcuse (1898–1979)
 

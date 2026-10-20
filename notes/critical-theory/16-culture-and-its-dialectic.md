@@ -2,7 +2,7 @@
 date: 2026-03-26
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - Theodor W. Adorno, [“Cultural Criticism and Society”](/notes/critical-theory/readings/adorno-cultural-criticism-and-society.pdf) (1949/1955), in *Prisms*
 - Theodor W. Adorno, [“Culture and *Kultur*”](/notes/critical-theory/readings/adorno-culture-and-kultur.pdf) (1957)
 - Theodor W. Adorno, [“Popular Music”](/notes/critical-theory/readings/adorno-popular-music.pdf) (the syllabus calls it “Light Music”), chapter 2 of *Introduction to the Sociology of Music* (1961–62; tr. 1976), pp. 21–38
@@ -58,7 +58,7 @@ Then comes one of the most surprising passages in Adorno. The way an American ch
 
 ### The advantages of light music
 
-And yet. Light music has advantages: proximity and humanity. It preserves an element of differentiation within the totality. Jazz has the potential of a musical breakout from mass culture by those who were refused admittance to it; its history is that of a heresy received into mass culture. (Quotation 9.) And the evergreens have a specific quality that cannot simply be dismissed. With wholly shopworn material they score an expressive hit on a specific and unmistakable target; the idiom has become second nature and permits something like spontaneity and immediacy. In America, reification sometimes recoils, unforced, into “a semblance of humanity and proximity—and not just into a semblance.” Popular music shelters a quality that was lost in “higher” music but was once essential to it: the relatively independent, qualitatively different individual element within a whole. (Quotation 10.)
+Light music also has advantages: proximity and humanity. It preserves an element of differentiation within the totality. Jazz has the potential of a musical breakout from mass culture by those who were refused admittance to it; its history is that of a heresy received into mass culture. (Quotation 9.) And the evergreens have a specific quality that cannot simply be dismissed. With wholly shopworn material they score an expressive hit on a specific and unmistakable target; the idiom has become second nature and permits something like spontaneity and immediacy. In America, reification sometimes recoils, unforced, into “a semblance of humanity and proximity—and not just into a semblance.” Popular music shelters a quality that was lost in “higher” music but was once essential to it: the relatively independent, qualitatively different individual element within a whole. (Quotation 10.)
 
 ## Concluding remarks
 

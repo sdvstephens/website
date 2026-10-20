@@ -2,8 +2,8 @@
 date: 2026-02-10
 ---
 
-:::readings PDFs are password-protected
-- Max Horkheimer, [“The Present Situation of Social Philosophy and the Tasks of the Institute for Social Research”](/notes/critical-theory/readings/horkheimer-present-situation-of-social-philosophy.pdf) (1931)
+:::readings
+- Max Horkheimer, [“The Present Situation of Social Philosophy and the Tasks of the Institute for Social Research”](/notes/critical-theory/readings/horkheimer-present-situation-of-social-philosophy.pdf) (1931) · [online at marxists.org](https://www.marxists.org/reference/archive/horkheimer/1931/present-situation.htm)
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-05.pdf): outline, and four passages from Horkheimer’s address
 :::
 
@@ -11,7 +11,7 @@ date: 2026-02-10
 
 David [[ru:Ryazanov|ree-ah-ZAH-nof|rʲɪɐˈzanəf]] found Marx’s *Economic and Philosophic Manuscripts*, and they were published in the original German in 1932. Georg [[hu:Lukács|LOO-kahch|ˈlukaːt͡ʃ]] had already argued, in “Reification and the Consciousness of the Proletariat” (1923), that the commodity form is objective (the economy) and subjective (consciousness) at once, so that reification, [[de:*Verdinglichung*|fair-DING-likh-oong|fɛɐ̯ˈdɪŋlɪçʊŋ]], reaches both the economy and the mind.
 
-Herbert [[de:Marcuse|mar-KOO-zeh|maʁˈkuːzə]]’s “The Foundation of Historical Materialism” (1932) drew the consequence. Marx was not merely writing an economic critique of capital; he was attempting something much larger, a critique of the total deformation of social life. Marxism, read through the manuscripts, is not economism but a comprehensive philosophy of human existence. Marcuse found in Marx what he had gone to [[de:Heidegger|HY-deg-er|ˈhaɪ̯dɛɡɐ]] to find, and in 1932 he joined the Institute.
+Herbert [[de:Marcuse|mar-KOO-zeh|maʁˈkuːzə]]’s “The Foundation of Historical Materialism” (1932) drew the consequence. Marx was attempting something much larger than an economic critique of capital: a critique of the total deformation of social life. Read through the manuscripts, Marxism is a comprehensive philosophy of human existence. Marcuse found in Marx what he had gone to [[de:Heidegger|HY-deg-er|ˈhaɪ̯dɛɡɐ]] to find, and in 1932 he joined the Institute.
 
 ## Founding and re-founding the Institute
 

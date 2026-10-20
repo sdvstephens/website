@@ -289,6 +289,12 @@ details.outline li { margin: .1em 0; }
 .course-intro { margin: 0 0 1.4em; }
 .entry-note { font: .62em var(--mono); color: var(--muted); margin-left: .5em; white-space: nowrap; }
 
+/* A quotation from the back of a lecture handout (shown when access.json allows). */
+.handout-quote { margin: 1.1em 0 1.5em; padding: .1em 0 .1em 1.05em; border-left: 2px solid var(--purple); color: var(--ink-soft); font-size: .95em; }
+.handout-quote p { margin: 0 0 .6em; }
+.handout-quote footer { font: .66em/1.5 var(--mono); color: var(--muted); }
+.box-readings a.doc-locked[href$=".pdf"]::after { content: " pdf · locked"; }
+
 /* Pronunciation guides after a foreign word: [[de:Geist|GUYST|ɡaɪst]]. */
 .pron { font-size: .78em; color: var(--muted); font-style: normal; white-space: nowrap; }
 .pron-like { letter-spacing: .01em; }

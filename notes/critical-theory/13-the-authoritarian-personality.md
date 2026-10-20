@@ -2,14 +2,14 @@
 date: 2026-03-10
 ---
 
-:::readings PDFs are password-protected
+:::readings
 - T. W. Adorno, Else Frenkel-Brunswik, Daniel J. Levinson and R. Nevitt Sanford, [*The Authoritarian Personality*](/notes/critical-theory/readings/authoritarian-personality-selections.pdf) (1950), selections
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-13.pdf): outline, the *Studies in Prejudice* series, and quotations from the book
 :::
 
 ## Recapitulation
 
-*Dialectic of Enlightenment* ended with a question: is its picture of enlightenment turning into myth a description, an exaggeration, or a warning? Today the question becomes concrete: fascism, not in Germany but in the liberal-democratic West, and the Institute’s attempt to study it with the tools of empirical sociology.
+*Dialectic of Enlightenment* ended with a question: is its picture of enlightenment turning into myth a description, an exaggeration, or a warning? Today the question becomes concrete: fascism in the liberal-democratic West, and the Institute’s attempt to study it with the tools of empirical sociology.
 
 ## The Institute in its American exile
 
@@ -53,7 +53,7 @@ The method combined quantitative surveys with qualitative interviews and psychoa
 
 The book’s premise is the rise of a new “anthropological species,” the *authoritarian type of man*. Unlike the old-style bigot, he combines the ideas and skills of a highly industrialized society with irrational or anti-rational beliefs. He is at once enlightened and superstitious, proud to be an individualist and in constant fear of not being like everyone else, jealous of his independence and inclined to submit blindly to power. (Quotation 2.) This type is distinctively modern, and increasingly common.
 
-What the study measures is not commitment to fascism but *susceptibility* to it: the potentially fascist personality. Several scales measure the degree of overt ideological commitment: the AS-scale (anti-Semitism), the E-scale (ethnocentrism), the PEC-scale (politico-economic conservatism). The famous **F-scale** (“F” for fascism) measures something underneath them: an implicit authoritarian personality that may predict that commitment.
+What the study measures is *susceptibility* to fascism: the potentially fascist personality. Several scales measure the degree of overt ideological commitment: the AS-scale (anti-Semitism), the E-scale (ethnocentrism), the PEC-scale (politico-economic conservatism). The famous **F-scale** (“F” for fascism) measures something underneath them: an implicit authoritarian personality that may predict that commitment.
 
 What are the marks of a high scorer on the F-scale? Conventionalism; submissiveness; aggression; anti-intraception, an antipathy to self-reflection; superstition and “stereotypy”; toughness; “destructiveness and cynicism”; and “projectivity,” the tendency to see the world as fearsome and dangerous, with a pronounced, moralizing concern with other people’s sexual activity. (Quotation 3.)
 
