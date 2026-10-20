@@ -51,6 +51,11 @@ const MACROS = {
   kb: '\\mathfrak{b}', kg: '\\mathfrak{g}', kh: '\\mathfrak{h}', kn: '\\mathfrak{n}',
   ku: '\\mathfrak{u}', kz: '\\mathfrak{z}', km: '\\mathfrak{m}', kp: '\\mathfrak{p}',
   kq: '\\mathfrak{q}', gl: '\\mathfrak{gl}', slie: '\\mathfrak{sl}',
+  // From ~/university/preamble.tex: slanted ≤ ≥, and a few the book uses.
+  leq: '\\leqslant', geq: '\\geqslant', opname: ['\\operatorname{#1}', 1],
+  llbracket: '\\mathopen{[\\![}', rrbracket: '\\mathclose{]\\!]}',
+  xlongrightarrow: ['\\xrightarrow{#1}', 1], dg: '^\\circ', lub: '\\text{lub}',
+  Lie: '\\unicode{xA3}', rchi: '\\chi',
 };
 for (const L of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
   MACROS['mc' + L] = `\\mathcal{${L}}`;
@@ -58,6 +63,8 @@ for (const L of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
   MACROS['bb' + L] = `\\mathbb{${L}}`;
 }
 for (const l of 'abcdefghijklmnopqrstuvwxyz') MACROS['mf' + l] = `\\mathfrak{${l}}`;
+for (const L of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') { MACROS['s' + L] = `{\\mathscr{${L}}}`; MACROS['bm' + L] = `\\boldsymbol{${L}}`; }
+for (const l of 'abcdefghijklmnopqrstuvwxyz') MACROS['bm' + l] = `\\boldsymbol{${l}}`;
 
 // ---------------------------------------------------------------- MathJax
 const adaptor = liteAdaptor();
@@ -133,6 +140,10 @@ function protect(md) {
 function restoreMath(html, math) {
   // A display formula alone in a paragraph should not sit inside <p>.
   html = html.replace(/<p>\s*MDTOKD(\d+)X\s*<\/p>/g, (_, i) => renderTex(math[+i], true));
+  // Inline math with punctuation against it ("$M$," "($x$)") stays on one
+  // line with it; browsers otherwise may start a line with the comma.
+  html = html.replace(/([(\[‘“]*)MDTOKI(\d+)X([.,;:!?)\]’”]*)/g, (m, pre, i, post) =>
+    (pre || post ? `<span class="nb">${pre}${renderTex(math[+i], false)}${post}</span>` : renderTex(math[+i], false)));
   return html.replace(/MDTOK([DI])(\d+)X/g, (_, kind, i) => renderTex(math[+i], kind === 'D'));
 }
 
@@ -185,15 +196,21 @@ const KINDS = {
   corollary: { label: 'Corollary', numbered: true },
   example: { label: 'Example', numbered: true },
   exercise: { label: 'Exercise', numbered: true },
+  question: { label: 'Question', numbered: true },
   remark: { label: 'Remark', numbered: false },
   note: { label: 'Note', numbered: false },
   proof: { label: 'Proof', numbered: false },
   solution: { label: 'Solution', numbered: false },
+  lede: { label: '', numbered: false },
 };
 
 /**
  * @param {string} src   Markdown with ::: containers
  * @param {object} opts  { section: '2.1' } numbers boxes 2.1.1, 2.1.2, … in reading order
+ *
+ * A box may carry its own number, `:::definition{2.4.2} Title`, as the
+ * notes generated from a LaTeX book do (scripts/book-to-notes.py); those
+ * are used as written and never recounted.
  */
 export function renderNotes(src, { section = '' } = {}) {
   const { body } = frontmatter(src);
@@ -201,16 +218,24 @@ export function renderNotes(src, { section = '' } = {}) {
   const boxes = [];
   let counter = 0;
   const stack = [{ kind: 'root', lines: [] }];
-  const OPEN = /^:::([a-z]+)[ \t]*(.*)$/;
+  const OPEN = /^:::([a-z]+)(?:\{([^}]*)\})?[ \t]*(.*)$/;
 
   const boxHtml = (f, inner) => {
     const k = KINDS[f.kind];
     if (f.kind === 'solution') {
       return `<details class="solution"><summary>Show solution</summary>${inner}</details>`;
     }
+    if (f.kind === 'lede') return `<div class="lede">${inner}</div>`;
     const num = f.number ? ` ${f.number}` : '';
-    const title = f.title ? ` <span class="box-title">(${marked.parseInline(f.title)})</span>` : '';
-    const head = `<span class="box-label">${k.label}${num}${title}.</span> `;
+    let head;
+    if (f.kind === 'proof' && f.title) {
+      // "Proof of Sylow's First Theorem", "Proof 2 (Gram–Schmidt)", or a topic: "Proof (Irreducibility of V)"
+      const t = marked.parseInline(f.title);
+      head = `<span class="box-label">${/^proofs?\b/i.test(f.title) ? t : `Proof (${t})`}.</span> `;
+    } else {
+      const title = f.title ? ` <span class="box-title">(${marked.parseInline(f.title)})</span>` : '';
+      head = `<span class="box-label">${k.label}${num}${title}.</span> `;
+    }
     // Run the label into the first paragraph, as a printed textbook does.
     let html = /^\s*<p>/.test(inner) ? inner.replace(/^\s*<p>/, `<p>${head}`) : `<p>${head}</p>${inner}`;
     if (f.kind === 'proof') {
@@ -218,7 +243,8 @@ export function renderNotes(src, { section = '' } = {}) {
         ? html.replace(/<\/p>\s*$/, ' <span class="qed" aria-label="end of proof">∎</span></p>')
         : html + '<p class="qed-line"><span class="qed" aria-label="end of proof">∎</span></p>';
     }
-    return `<div class="box box-${f.kind}">${html}</div>`;
+    const id = f.number ? ` id="${f.kind}-${f.number.replace(/\./g, '-')}"` : '';
+    return `<div class="box box-${f.kind}"${id}>${html}</div>`;
   };
   const close = () => {
     const f = stack.pop();
@@ -230,8 +256,9 @@ export function renderNotes(src, { section = '' } = {}) {
   for (const line of md.split('\n')) {
     const open = line.match(OPEN);
     if (open && KINDS[open[1]]) {
-      const frame = { kind: open[1], title: open[2].trim(), lines: [] };
-      if (KINDS[open[1]].numbered && section) frame.number = `${section}.${++counter}`;
+      const frame = { kind: open[1], title: open[3].trim(), lines: [] };
+      if (open[2]) frame.number = open[2].trim();
+      else if (KINDS[open[1]].numbered && section) frame.number = `${section}.${++counter}`;
       stack.push(frame);
       continue;
     }
@@ -243,7 +270,9 @@ export function renderNotes(src, { section = '' } = {}) {
   const restoreBoxes = (h) => h
     .replace(/<p>\s*MDTOKB(\d+)X\s*<\/p>/g, (_, i) => restoreBoxes(boxes[+i]))
     .replace(/MDTOKB(\d+)X/g, (_, i) => restoreBoxes(boxes[+i]));
-  const html = addHeadingIds(restoreMath(restoreBoxes(marked.parse(pipeGrids(stack[0].lines.join('\n')))), math));
+  let html = addHeadingIds(restoreMath(restoreBoxes(marked.parse(pipeGrids(stack[0].lines.join('\n')))), math));
+  // `<!-- list:paren-roman -->` before a list: LaTeX's enumerate[(i)] labels.
+  html = html.replace(/<!-- list:([a-z-]+) -->\s*<ol>/g, '<ol class="$1">');
   return { html, headings: headingsOf(html) };
 }
 
@@ -270,6 +299,40 @@ export function renderVerse(src) {
     return `<span class="l"${style}${num}>${marked.parseInline(content) || '&nbsp;'}</span>`;
   }).join('\n') + '</p>').join('\n');
   return { data, html, lines: n, firstLine: first };
+}
+
+/** A one-line title that may contain $…$ math and *emphasis*, as HTML. */
+export function renderTitle(src = '') {
+  if (!/[$*_`]/.test(src)) return src;
+  const { md, math } = protect(String(src));
+  return restoreMath(marked.parseInline(md), math);
+}
+
+/**
+ * The same title as plain text, for <title>, meta descriptions and search:
+ * "$\mathrm{SL}_2(\ZZ)$ and $S_5$" → "SL₂(ℤ) and S₅".
+ */
+const SUB = { 0: '₀', 1: '₁', 2: '₂', 3: '₃', 4: '₄', 5: '₅', 6: '₆', 7: '₇', 8: '₈', 9: '₉', n: 'ₙ', k: 'ₖ', i: 'ᵢ', j: 'ⱼ', p: 'ₚ' };
+const SUP = { 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹', n: 'ⁿ', '-': '⁻', '*': '*' };
+const SYM = {
+  ZZ: 'ℤ', QQ: 'ℚ', RR: 'ℝ', CC: 'ℂ', NN: 'ℕ', FF: '𝔽', HH: 'ℍ', supset: '⊃', subset: '⊂', subseteq: '⊆',
+  times: '×', otimes: '⊗', oplus: '⊕', to: '→', cong: '≅', le: '≤', leq: '≤', ge: '≥', geq: '≥', infty: '∞',
+  alpha: 'α', beta: 'β', gamma: 'γ', delta: 'δ', lambda: 'λ', mu: 'μ', pi: 'π', rho: 'ρ', sigma: 'σ', tau: 'τ',
+  phi: 'φ', varphi: 'φ', chi: 'χ', psi: 'ψ', omega: 'ω', Gamma: 'Γ', Delta: 'Δ', Lambda: 'Λ', Sigma: 'Σ', Omega: 'Ω',
+  in: '∈', cdot: '·', ldots: '…', cdots: '⋯', mid: '|', ast: '∗', star: '⋆', rtimes: '⋊', ltimes: '⋉',
+};
+export function plainTitle(src = '') {
+  return String(src).replace(/\$([^$]+)\$/g, (_, m) => {
+    let t = m
+      .replace(/\\(?:mathrm|operatorname|mathbf|mathit|mathsf|text|textrm)\{([^{}]*)\}/g, '$1')
+      .replace(/\\mathfrak\{([^{}]*)\}/g, '$1')
+      .replace(/\\mathbb\{([A-Z])\}/g, (_, L) => SYM[L + L] || L)
+      .replace(/\\([A-Za-z]+)/g, (_, c) => (c in SYM ? SYM[c] : c in MACROS && typeof MACROS[c] === 'string' && /^\\operatorname\{/.test(MACROS[c]) ? MACROS[c].slice(14, -1) : c))
+      .replace(/_\{([^{}]*)\}|_(.)/g, (_, a, b) => [...(a ?? b)].map((ch) => SUB[ch] ?? ch).join(''))
+      .replace(/\^\{([^{}]*)\}|\^(.)/g, (_, a, b) => [...(a ?? b)].map((ch) => SUP[ch] ?? ch).join(''))
+      .replace(/[{}]/g, '').replace(/\\[,;! ]/g, ' ');
+    return t.replace(/\s+/g, ' ').trim();
+  }).replace(/[*_`]/g, '');
 }
 
 /** Give h2/h3 ids (for links and the search index). */

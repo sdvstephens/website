@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node build.mjs",
     "serve": "node serve.mjs",
-    "dev": "node build.mjs --preview && node serve.mjs --watch"
+    "dev": "node build.mjs --preview && node serve.mjs --watch",
+    "book": "python3 scripts/book-to-notes.py --course math-55a && python3 scripts/book-figures.py --course math-55a"
   },
   "dependencies": {
     "@fontsource/jetbrains-mono": "5.2.5",

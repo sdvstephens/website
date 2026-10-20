@@ -1,0 +1,16 @@
+\begin{tikzpicture}[scale=0.8]
+    \coordinate (A) at (90:1.5);
+    \coordinate (B) at (210:1.5);
+    \coordinate (C) at (330:1.5);
+    \coordinate (MA) at ($(B)!0.5!(C)$);
+    \coordinate (MB) at ($(A)!0.5!(C)$);
+    \coordinate (MC) at ($(A)!0.5!(B)$);
+    \draw[dashed, gray] (A) -- (MA);
+    \draw[dashed, gray] (B) -- (MB);
+    \draw[dashed, gray] (C) -- (MC);
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    \fill (A) circle (1.5pt);
+    \fill (B) circle (1.5pt);
+    \fill (C) circle (1.5pt);
+    \draw[-{Stealth}, thick] (0,0.3) arc (90:330:0.3);
+\end{tikzpicture}

@@ -30,13 +30,23 @@ src/         markdown.mjs (Markdown and TeX), templates.mjs, site.css, site.js, 
 build.mjs    everything above → dist/
 serve.mjs    local server with the same URL rules as the live .htaccess
 scripts/     rebuild-posts.py (posts.json from frontmatter), generate_sitemap.py (runs the build),
+             book-to-notes.py and book-figures.py (a LaTeX book → notes; see below),
              build-cv-html.py (static/sdvscvhtml.html), latex_to_md.py, split_sections.py, extract_chemfig.py
 ```
 
 ## Writing
 
 - **Posts:** `blog/<slug>.md` with frontmatter (`title`, `date`, `excerpt`, `tags`; `draft: true` to hold one back). `scripts/rebuild-posts.py` regenerates `posts.json`; the publish scripts run it for you.
-- **Notes:** a section is `notes/<course>/<slug>.md`, listed in that course's `course.json`. Boxes are `:::definition`, `:::theorem`, `:::proposition`, `:::lemma`, `:::corollary`, `:::example`, `:::exercise`, `:::remark`, `:::note`, `:::proof`, `:::solution`, closed by `:::`, nestable, with an optional title after the name (`:::definition Valency`). Math is `$…$` and `$$…$$`, with the same macros as before.
+- **Notes:** a section is `notes/<course>/<slug>.md`, listed in that course's `course.json`. Boxes are `:::definition`, `:::theorem`, `:::proposition`, `:::lemma`, `:::corollary`, `:::example`, `:::exercise`, `:::question`, `:::remark`, `:::note`, `:::proof`, `:::solution`, closed by `:::`, nestable, with an optional title after the name (`:::definition Valency`) and an optional fixed number (`:::definition{2.4.2}`); numbered boxes get an anchor (`#definition-2-4-2`). `:::lede` is an unlabelled opening paragraph. Math is `$…$` and `$$…$$`, with the same macros as before.
+- **A book as notes:** `notes/math-55a` is generated from the LaTeX of *Studies in Algebra and Group Theory*. Edit the TeX, then
+
+  ```sh
+  npm run book                     # = the two commands below, with the source folder from course.json
+  python3 scripts/book-to-notes.py ~/Documents/university/<book folder> --course math-55a
+  python3 scripts/book-figures.py --course math-55a
+  ```
+
+  The first writes one page per `\section` (and an `N.0` page when a lecture has numbered material before its first section, as the PDF does), `course.json`, and the TikZ sources; numbering matches the PDF (Definition 2.4.2, Question 1, …) and is written into the Markdown as `:::definition{2.4.2} Title`. The second draws each `tikzpicture`/`tikzcd` with pdflatex and turns it into an SVG that uses the site's colours, so figures follow the light/dark theme; it needs `pdftocairo` (`brew install poppler`) and skips figures whose source has not changed. Figure descriptions for screen readers are in `notes/math-55a/figures/figures.json`. Keys you add to `course.json` by hand (`book`, `sectionTitles` for a section's title override, `description`) survive a rerun. Don't edit the generated `.md` files; they say so at the top.
 - **Poems:** see `poems/README.md`.
 - **About:** `pages/about.html`, and the infobox in `pages/about-infobox.json`.
 

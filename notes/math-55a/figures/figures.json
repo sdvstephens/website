@@ -1,0 +1,16 @@
+{
+  "fig-2-2-1": { "alt": "An equilateral triangle with its three dashed axes of reflection and an arrow for rotation about its centre." },
+  "fig-2-4-1": { "alt": "Subgroup lattice of Z/12: Z/12 at the top; ⟨2⟩ and ⟨3⟩ below it; ⟨4⟩ and ⟨6⟩ below those; {0} at the bottom; lines mark inclusion." },
+  "fig-2-5-1": { "alt": "Commutative square: φ×φ from G×G to H×H along the top, m_G down the left to G, m_H down the right to H, and φ from G to H along the bottom." },
+  "fig-3-1-1": { "alt": "Subgroup lattice of S3: S3 at the top, the subgroups ⟨ρ⟩, ⟨μ⟩, ⟨ρμ⟩ and ⟨ρ²μ⟩ in the middle row, and {e} at the bottom." },
+  "fig-3-6-1": { "alt": "Universal property of the free group: ι from S to F(S), f from S to G, and a unique dashed map f̃ from F(S) to G making the triangle commute." },
+  "fig-7-1-1": { "alt": "Universal property of the quotient: φ from V to W, q from V to V/U, and a unique dashed map φ̄ from V/U to W making the triangle commute." },
+  "fig-8-2-1": { "alt": "Universal property of the product: α from T to A and β from T to B factor through a unique dashed map φ from T to P followed by the projections π1 to A and π2 to B." },
+  "fig-8-2-2": { "alt": "Universal property of the coproduct: α from A to T and β from B to T factor through the inclusions ι1 and ι2 into S followed by a unique dashed map φ from S to T." },
+  "fig-11-4-1": { "alt": "A tetrahedron, a cube and a dodecahedron, labelled with their rotation groups: A4 of order 12 (2,3,3), S4 of order 24 (2,3,4), and A5 of order 60 (2,3,5)." },
+  "fig-12-2-1": { "alt": "Cayley graph of Z with generator 1: the integers −3 to 3 on a line, each joined to the next by an arrow." },
+  "fig-12-2-2": { "alt": "Cayley graph of S3 with generators s1 and s2: the six elements on a hexagon, edges alternating between s1 (blue) and s2 (red)." },
+  "fig-12-3-1": { "alt": "Three-strand braid diagrams for the generators s1, its inverse, and s2." },
+  "fig-12-3-2": { "alt": "The braid relation: the three-strand braids s1s2s1 and s2s1s2 side by side with an equals sign." },
+  "fig-12-4-1": { "alt": "The upper half-plane with the fundamental domain Δ shaded: the region above the unit circle between Re z = −1/2 and 1/2, with the neighbouring regions TΔ, T⁻¹Δ and SΔ." }
+}

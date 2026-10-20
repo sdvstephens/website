@@ -212,6 +212,7 @@ kbd { font: inherit; font-family: var(--mono); font-size: .9em; padding: 0 .3em;
 .prose p { margin: 0 0 1em; }
 .prose h2 { font: 600 1.32em/1.25 var(--serif); color: var(--orange); margin: 2em 0 .55em; scroll-margin-top: 1rem; }
 .prose h3 { font: 600 1.08em/1.3 var(--serif); color: var(--yellow); margin: 1.6em 0 .35em; scroll-margin-top: 1rem; }
+.prose h2 .num { font: 400 .6em var(--mono); color: var(--muted); margin-right: .45em; vertical-align: .14em; }
 .prose h4 { font: italic 600 1em/1.3 var(--serif); margin: 1.4em 0 .3em; }
 .prose a { text-decoration-line: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); }
 .prose a:hover { text-decoration-color: currentColor; }
@@ -249,7 +250,7 @@ kbd { font: inherit; font-family: var(--mono); font-size: .9em; padding: 0 .3em;
 .box-theorem { --box: var(--green); }
 .box-proposition, .box-lemma { --box: var(--orange); }
 .box-corollary { --box: var(--blue); }
-.box-example, .box-exercise { --box: var(--yellow); }
+.box-example, .box-exercise, .box-question { --box: var(--yellow); }
 .box-note, .box-remark { --box: var(--muted); }
 .box-proof { --box: var(--purple); border-left-style: dotted; }
 .box-theorem > p, .box-proposition > p, .box-lemma > p, .box-corollary > p,
@@ -261,6 +262,56 @@ kbd { font: inherit; font-family: var(--mono); font-size: .9em; padding: 0 .3em;
 .solution { margin: .8em 0 .2em; }
 .solution summary { font: .66em var(--mono); color: var(--yellow); cursor: pointer; }
 .solution[open] summary { margin-bottom: .6em; }
+
+/* A numbered box is a link target (#definition-2-4-2); show where you landed. */
+.box[id] { scroll-margin-top: 1.5rem; }
+.box:target { background: linear-gradient(90deg, color-mix(in srgb, var(--box, var(--yellow)) 9%, transparent), transparent 70%); }
+
+/* A chapter's opening paragraphs, at the top of its first section. */
+.lede { color: var(--ink-soft); margin: 0 0 2em; padding-bottom: 1.3em; border-bottom: 1px solid var(--rule); }
+.lede > :last-child { margin-bottom: 0; }
+
+.prose .center { text-align: center; }
+.nb { white-space: nowrap; }
+
+/* LaTeX enumerate labels: [(1)], [(i)], [(a)]. */
+.prose ol[class*="paren-"] { list-style: none; counter-reset: li; padding-left: 2.2em; }
+.prose ol[class*="paren-"] > li { counter-increment: li; position: relative; }
+.prose ol[class*="paren-"] > li::before {
+  position: absolute; right: calc(100% + .45em); color: var(--muted); font-style: normal;
+  content: "(" counter(li) ")";
+}
+.prose ol.paren-roman > li::before { content: "(" counter(li, lower-roman) ")"; }
+.prose ol.paren-alpha > li::before { content: "(" counter(li, lower-alpha) ")"; }
+.prose ol.paren-upper-roman > li::before { content: "(" counter(li, upper-roman) ")"; }
+.prose ol.paren-upper-alpha > li::before { content: "(" counter(li, upper-alpha) ")"; }
+.prose ol.lower-roman { list-style-type: lower-roman; }
+.prose ol.lower-alpha { list-style-type: lower-alpha; }
+
+/* Tables from LaTeX tabular (character tables): rules only where the
+   source had them, a stub column after c|, numbers centred. */
+.table-wrap { overflow-x: auto; margin: 1.3em 0 1.5em; }
+.prose table.tex-table { border-collapse: collapse; margin: 0 auto; font-size: .92em; font-variant-numeric: lining-nums tabular-nums; }
+.prose table.tex-table th, .prose table.tex-table td { border: 0; background: none; padding: .28em .8em; font-weight: 400; color: var(--ink); text-align: center; white-space: nowrap; }
+.prose table.tex-table .l { text-align: left; }
+.prose table.tex-table .r { text-align: right; }
+.prose table.tex-table thead tr:last-child > * { border-bottom: 1px solid var(--rule-strong); }
+.prose table.tex-table thead tr:not(:first-child) > * { color: var(--muted); font-size: .9em; }
+.prose table.tex-table.has-stub tr > :first-child { border-right: 1px solid var(--rule-strong); text-align: left; padding-left: 0; }
+
+/* TikZ figures, inlined as SVG in the theme's colours (scripts/book-figures.py). */
+.tex-fig { margin: 1.5em 0; text-align: center; overflow-x: auto; }
+.tex-svg { display: inline-block; max-width: 100%; height: auto; vertical-align: middle; }
+.box .tex-fig { margin: 1.1em 0; }
+
+/* A course that is a book: byline, facts, parts within a chapter. */
+.book-byline, .book-facts { font: .68em/1.6 var(--mono); color: var(--muted); display: flex; flex-wrap: wrap; gap: .3em 1.4em; }
+.book-byline { margin: -.5em 0 1.4em; color: var(--ink-soft); }
+.book-facts { margin: -.4em 0 1.2em; }
+.book-facts a { color: var(--link); }
+.book-facts .muted { color: var(--muted); }
+.part { font: italic 400 1.02em/1.3 var(--serif); color: var(--ink-soft); margin: 1.3rem 0 .5rem; }
+.toc-part { margin: .7em 0 .25em .75em; font-style: italic; color: var(--muted); }
 
 /* ------------------------------------------------------------- ledger
    A list whose index values hang in the rail, aligned on the baseline of
@@ -350,7 +401,15 @@ a.entry-title:hover { color: var(--link-hover); text-decoration: underline 1px; 
 .layout-post .rail { text-align: right; padding-top: .55em; }
 .toc-tree, .toc-tree ol, .rail .toc-list { list-style: none; margin: 0; padding: 0; }
 .toc-ch { display: block; margin: 1em 0 .3em; color: var(--yellow); font-weight: 600; }
-.toc-tree li:first-child > .toc-ch { margin-top: 0; }
+.toc-tree li:first-child > .toc-ch, .toc-tree li:first-child > details > .toc-ch { margin-top: 0; }
+.toc-tree summary.toc-ch { cursor: pointer; list-style: none; margin: .55em 0 .2em; }
+.toc-tree summary.toc-ch::-webkit-details-marker { display: none; }
+.toc-tree summary.toc-ch::before { content: "▸"; display: inline-block; width: .9em; margin-left: -.9em; color: var(--faint); font-size: .8em; transition: transform .15s; }
+.toc-tree details[open] > summary.toc-ch::before { transform: rotate(90deg); }
+.toc-tree details:not([open]) > summary.toc-ch { color: var(--ink-soft); font-weight: 400; }
+.toc-tree details[open] > summary.toc-ch { margin-bottom: .35em; }
+.toc-tree summary.toc-ch:hover { color: var(--link-hover); }
+.toc-tree > li > details { padding-left: .9em; }
 .toc-tree ol a, .toc-tree .stub > span, .rail .toc-list a {
   display: block;
   padding: .18em 0 .18em .75em;

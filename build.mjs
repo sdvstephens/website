@@ -24,7 +24,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   renderMarkdown, renderNotes, renderVerse, frontmatter, plainText, escapeHtml as esc,
-  mathStyleSheet, mathWarnings, setSource, addHeadingIds, headingsOf,
+  mathStyleSheet, mathWarnings, setSource, addHeadingIds, headingsOf, renderTitle, plainTitle,
 } from './src/markdown.mjs';
 import { layout, ledger, tagLinks, tagSlug, prevNext, SITE, NAV } from './src/templates.mjs';
 
@@ -58,6 +58,13 @@ const pages = [];
 const page = (p) => { pages.push({ inSitemap: true, ...p }); return p; };
 const stripLeadingH1 = (html) => html.replace(/^\s*<h1[^>]*>[\s\S]*?<\/h1>\s*/, '');
 const isStubText = (html) => /^content coming soon\.?$/i.test(plainText(stripLeadingH1(html)));
+// "2026-03-12" → "12 March 2026" (also "2026-03", "2026").
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+function longDate(d) {
+  const m = String(d || '').match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/);
+  if (!m) return String(d || '');
+  return [m[3] ? +m[3] : '', m[2] ? MONTHS[+m[2] - 1] : '', m[1]].filter(Boolean).join(' ');
+}
 
 // =============================================================== blog
 const postIndex = exists('blog', 'posts.json') ? readJSON('blog', 'posts.json') : [];
@@ -137,33 +144,69 @@ ${prevNext(newer && { href: newer.href, title: newer.title }, older && { href: o
 // =============================================================== notes
 const noteCourses = exists('notes', 'courses.json') ? readJSON('notes', 'courses.json') : [];
 const notes = [];
+
+// ![…](/notes/<course>/figures/<name>.svg) becomes the SVG itself, so the
+// figure takes the page's colours (scripts/book-figures.py draws it with the
+// theme's CSS variables) and scales with the text.
+function inlineFigures(html, file) {
+  return html.replace(/(?:<p>\s*)?<img src="(\/notes\/[^"]+\/figures\/[^"/]+\.svg)" alt="([^"]*)"\s*\/?>(?:\s*<\/p>)?/g, (m, src) => {
+    const f = C(src.slice(1));
+    if (!fs.existsSync(f)) { warn(`${file}: ${src} not found (run scripts/book-figures.py)`); return m; }
+    const svg = fs.readFileSync(f, 'utf8').replace(/^<\?xml[^>]*>\s*/, '').trim();
+    return `<figure class="tex-fig">${svg}</figure>`;
+  });
+}
+
 for (const c of noteCourses) {
   const course = exists('notes', c.slug, 'course.json') ? readJSON('notes', c.slug, 'course.json') : { chapters: [] };
   const sections = [];
   for (const ch of course.chapters || []) {
+    ch.titleHtml = renderTitle(ch.title);
+    ch.titleText = plainTitle(ch.title);
     for (const s of ch.sections || []) {
       const file = `notes/${c.slug}/${s.slug}.md`;
       if (!exists('notes', c.slug, `${s.slug}.md`)) { warn(`${file} listed in course.json but missing`); continue; }
       setSource(file);
       const { html } = renderNotes(read('notes', c.slug, `${s.slug}.md`), { section: s.number });
-      const body = stripLeadingH1(html);
-      sections.push({ ...s, chapter: ch, file, html: body, stub: isStubText(html), href: `/notes/${c.slug}/${s.slug}` });
+      const body = inlineFigures(stripLeadingH1(html), file);
+      sections.push({
+        ...s, titleHtml: renderTitle(s.title), titleText: plainTitle(s.title),
+        chapter: ch, file, html: body, stub: isStubText(html), href: `/notes/${c.slug}/${s.slug}`,
+      });
     }
   }
-  notes.push({ ...c, title: course.title || c.title, chapters: course.chapters || [], sections });
+  notes.push({ ...c, title: course.title || c.title, book: course.book, chapters: course.chapters || [], sections });
+}
+
+// Sections of a chapter, split where course.json gives them a new `part`
+// (chapter 17 of the 55a book: Commutative Ring Theory, Galois Theory, Lie Theory).
+function byPart(list) {
+  const groups = [];
+  for (const s of list) {
+    if (!groups.length || groups.at(-1).part !== (s.part || '')) groups.push({ part: s.part || '', items: [] });
+    groups.at(-1).items.push(s);
+  }
+  return groups;
 }
 
 function notesTree(course, currentSlug) {
   return `<p class="rail-head"><a href="/notes/${course.slug}/">${course.title}</a></p>
-<ol class="toc-tree">${course.chapters.map((ch) => `
-  <li><span class="toc-ch"><span class="num">${ch.number}</span> ${ch.title}</span>
-    <ol>${course.sections.filter((s) => s.chapter === ch).map((s) => {
-      const label = `<span class="num">${s.number}</span> ${s.title}`;
+<ol class="toc-tree">${course.chapters.map((ch) => {
+    const list = course.sections.filter((s) => s.chapter === ch);
+    // Long books: only the current chapter starts open; the others fold to one line.
+    const fold = course.chapters.length > 8;
+    const open = !fold || list.some((s) => s.slug === currentSlug);
+    const head = `<span class="num">${ch.number}</span> ${ch.titleHtml}`;
+    return `
+  <li>${fold ? `<details${open ? ' open' : ''}><summary class="toc-ch">${head}</summary>` : `<span class="toc-ch">${head}</span>`}
+    <ol>${byPart(list).map((g) => (g.part ? `<li class="toc-part">${renderTitle(g.part)}</li>` : '') + g.items.map((s) => {
+      const label = `<span class="num">${s.number}</span> ${s.titleHtml}`;
       if (s.slug === currentSlug) return `<li><a href="${s.href}" aria-current="page">${label}</a></li>`;
       if (s.stub) return `<li class="stub"><span title="Content coming soon">${label}</span></li>`;
       return `<li><a href="${s.href}">${label}</a></li>`;
-    }).join('')}</ol>
-  </li>`).join('')}
+    }).join('')).join('')}</ol>${fold ? '</details>' : ''}
+  </li>`;
+  }).join('')}
 </ol>`;
 }
 
@@ -176,27 +219,38 @@ page({
   body: `<h1 class="display">Lecture Notes</h1>
 <p class="standfirst">Mathematics and science lecture notes, inspired by Paul's Online Notes.</p>
 ${ledger(activeCourses.map((n) => ({
-    idx: `<span title="${written(n)} of ${n.sections.length} sections written">${written(n)}/${n.sections.length}</span>`,
+    idx: n.book ? `<span title="${n.chapters.length} chapters, ${n.sections.length} sections">book</span>` : `<span title="${written(n)} of ${n.sections.length} sections written">${written(n)}/${n.sections.length}</span>`,
     html: `<a class="entry-title" href="/notes/${n.slug}/">${n.title}</a><p class="excerpt">${n.description || ''}</p>`,
   })))}
 ${plannedCourses.length ? `<h2 class="group">Planned</h2>
 ${ledger(plannedCourses.map((n) => ({ muted: true, html: `<a class="entry-title" href="/notes/${n.slug}">${n.title}</a><p class="excerpt">${n.description || ''}</p>` })))}` : ''}`,
 });
 
+/** Title block of a course that is a book (course.json "book"). */
+function bookHead(n) {
+  const b = n.book;
+  const pdf = b.pdf && exists('notes', n.slug, b.pdf) ? `/notes/${n.slug}/${b.pdf}` : '';
+  const kb = pdf ? Math.round(fs.statSync(C(pdf.slice(1))).size / 1024) : 0;
+  const byline = [b.author, b.subtitle, b.date && longDate(b.date)].filter(Boolean).map((x) => `<span>${esc(x)}</span>`).join('');
+  return `<p class="book-byline">${byline}</p>
+${n.description ? `<p class="standfirst">${n.description}</p>` : ''}
+<p class="book-facts"><span>${n.chapters.length} chapters</span><span>${n.sections.length} sections</span>${pdf ? `<a href="${pdf}" download>PDF <span class="muted">${(kb / 1024).toFixed(1)} MB</span></a>` : ''}</p>`;
+}
+
 for (const n of notes) {
   page({
     path: `/notes/${n.slug}`, file: `notes/${n.slug}/`, section: 'notes', layout: 'ledger',
-    title: `${n.title} — Notes`, description: `Lecture notes for ${n.title}`,
+    title: `${n.title} — Notes`, description: n.book ? `${n.title}, by ${n.book.author}. ${n.description || ''}`.trim() : `Lecture notes for ${n.title}`,
     noindex: !n.sections.length, inSitemap: n.sections.length > 0,
     body: `<p class="crumbs"><a href="/notes/">notes</a> /</p>
 <h1 class="display">${n.title}</h1>
-${n.description ? `<p class="standfirst">${n.description}</p>` : ''}
-${n.sections.length ? `<p class="count">${written(n)} of ${n.sections.length} sections written</p>` : '<p>Notes coming soon.</p>'}
-${n.chapters.map((ch) => `<h2 class="chapter"><span class="idx">${ch.number}</span>${ch.title}</h2>
-${ledger(n.sections.filter((s) => s.chapter === ch).map((s) => ({
+${n.book ? bookHead(n) : `${n.description ? `<p class="standfirst">${n.description}</p>` : ''}
+${n.sections.length ? `<p class="count">${written(n)} of ${n.sections.length} sections written</p>` : '<p>Notes coming soon.</p>'}`}
+${n.chapters.map((ch) => `<h2 class="chapter"><span class="idx">${ch.number}</span>${ch.titleHtml}</h2>
+${byPart(n.sections.filter((s) => s.chapter === ch)).map((g) => (g.part ? `<h3 class="part">${renderTitle(g.part)}</h3>\n` : '') + ledger(g.items.map((s) => ({
     idx: s.number, muted: s.stub,
-    html: s.stub ? `<span class="entry-title">${s.title}</span>` : `<a class="entry-title" href="${s.href}">${s.title}</a>`,
-  })))}`).join('\n')}`,
+    html: s.stub ? `<span class="entry-title">${s.titleHtml}</span>` : `<a class="entry-title" href="${s.href}">${s.titleHtml}</a>`,
+  })))).join('\n')}`).join('\n')}`,
   });
 
   // Previous/next skip unwritten sections, so reading never lands on a stub.
@@ -206,15 +260,15 @@ ${ledger(n.sections.filter((s) => s.chapter === ch).map((s) => ({
     const after = n.sections.slice(at + 1).find((x) => !x.stub);
     page({
       path: s.href, file: s.file, section: 'notes', layout: 'notes',
-      title: `${s.title} — ${n.title}`, description: `Section ${s.number}: ${s.title} from ${n.title}`,
+      title: `${s.titleText} — ${n.title}`, description: `Section ${s.number}: ${s.titleText} from ${n.title}`,
       noindex: s.stub, inSitemap: !s.stub, railLabel: `${n.title} contents`,
       rail: notesTree(n, s.slug),
-      body: `<p class="crumbs"><a href="/notes/">notes</a> / <a href="/notes/${n.slug}/">${n.title}</a> / chapter ${s.chapter.number}: ${s.chapter.title}</p>
+      body: `<p class="crumbs"><a href="/notes/">notes</a> / <a href="/notes/${n.slug}/">${n.title}</a> / chapter ${s.chapter.number}: ${s.chapter.titleHtml}${s.part ? ` / ${renderTitle(s.part.replace(/^Part [IVX]+: /, ''))}` : ''}</p>
 <article class="note">
-<h1 class="note-title"><span class="num">${s.number}</span> ${s.title}</h1>
+<h1 class="note-title"><span class="num">${s.number}</span> ${s.titleHtml}</h1>
 <div class="prose">${s.html}</div>
 </article>
-${prevNext(before && { href: before.href, title: `${before.number} ${before.title}` }, after && { href: after.href, title: `${after.number} ${after.title}` })}`,
+${prevNext(before && { href: before.href, title: `${before.number} ${before.titleHtml}` }, after && { href: after.href, title: `${after.number} ${after.titleHtml}` })}`,
       search: s.stub ? '' : plainText(s.html),
       headings: headingsOf(s.html),
     });
@@ -334,12 +388,6 @@ ${meta ? `<p class="count">${meta}</p>` : ''}${it.note ? `<p class="excerpt">${i
 
 // =============================================================== poems
 // poems/<slug>.md, one poem per file. See poems/README.md.
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-function longDate(d) {
-  const m = String(d || '').match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/);
-  if (!m) return String(d || '');
-  return [m[3] ? +m[3] : '', m[2] ? MONTHS[+m[2] - 1] : '', m[1]].filter(Boolean).join(' ');
-}
 const poems = [];
 if (exists('poems')) {
   for (const f of fs.readdirSync(C('poems')).filter((f) => f.endsWith('.md') && f !== 'README.md').sort()) {
@@ -591,7 +639,7 @@ if (!fs.existsSync(path.join(DIST, 'assets', 'fonts', 'ACaslonPro-Regular.woff2'
 for (const sub of ['notes', 'homework', 'music']) {
   fs.cpSync(C(sub), path.join(DIST, sub), {
     recursive: true,
-    filter: (s) => fs.statSync(s).isDirectory() || !/\.(md|json)$|\.DS_Store$/.test(s),
+    filter: (s) => !/[\\/]figures[\\/]src([\\/]|$)/.test(s) && (fs.statSync(s).isDirectory() || !/\.(md|json)$|\.DS_Store$/.test(s)),
   });
 }
 
