@@ -6,7 +6,7 @@
       "title": "Original Works",
       "items": [
         {
-          "title": "EXAMPLE — replace or delete",
+          "title": "placeholder",
           "year": "2026",
           "instrumentation": "string quartet",
           "duration": "11'",
@@ -20,11 +20,11 @@
       "title": "Arrangements",
       "items": [
         {
-          "title": "EXAMPLE — replace or delete",
-          "composer": "Original Composer",
-          "year": "2026",
-          "instrumentation": "for two pianos",
-          "note": "What the arrangement changes, and why.",
+          "title": "Chamber Concerto in D Minor, RV 96: I. Allegro",
+          "composer": "Antonio Vivaldi",
+          "year": "2021",
+          "instrumentation": "for solo piano",
+          "note": "placeholder",
           "score": "/music/scores/example-arr.pdf"
         }
       ]
@@ -41,32 +41,32 @@
       ]
     },
     {
-      "title": "Favorite Works",
+      "title": "Favorite Works at The Moment",
       "items": [
         {
           "title": "Partita for 8 Voices",
           "composer": "Caroline Shaw",
-          "note": "Start at the Sarabande; the Passacaglia is the summit."
+          "note": "Will add my thoughts on this piece soon."
         },
         {
-          "title": "Grá agus Bás",
-          "composer": "Donnacha Dennehy",
-          "note": "Drone plus lament — the oldest formal substrate there is, retuned."
-        },
-        {
-          "title": "Akhnaten",
+          "title": "Glassworks",
           "composer": "Philip Glass",
-          "note": "Opera as ritual object."
+          "note": "Will add my thoughts on this piece soon."
         },
         {
-          "title": "Music for 18 Musicians",
-          "composer": "Steve Reich",
-          "note": "The pulse the whole post-minimal world still writes against."
+          "title": "Partita No. 2: Chaconne in D Minor",
+          "composer": "J. S. Bach, arr. F. Busoni",
+          "note": "Perhaps the greatest piano piece ever written."
+        },
+        {
+          "title": "La Nativit&eacute; du Seigneur: IX Dieu parmi nous",
+          "composer": "Olivier Messiaen",
+          "note": "My favorite movement from my favorite organ work."
         },
         {
           "title": "Mouth Full of Ears",
           "composer": "Sarah Goldfeather",
-          "note": "Unconventional sound with clear dramatic direction — the reference point."
+          "note": "Will add my thoughts on this piece soon."
         }
       ]
     }
