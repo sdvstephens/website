@@ -7,7 +7,7 @@ section: "1.8"
 
 DNA, a nucleic acid, is often used as a metaphor for the essence of something ("It's in her DNA"), and indeed, DNA contains life's genetic code. From medicine to evolution, from agriculture to forensics, the properties of nucleic acids affect our lives every day. It is with nucleic acids that the concept of "information" entered the biological vocabulary. Nucleic acids are uniquely capable of coding for and transmitting biological information.
 
-**Nucleic acids** are polymers specialized for the storage, transmission, and use of genetic information. There are two types of nucleic acids—**DNA** (**d**eoxyribo**n**ucleic **a**cid) and **RNA** (**r**ibo**n**ucleic **a**cid)—and both are macromolecules, polymers of monomers called nucleotides. The roles of DNA and RNA in the preservation, replication, and expression of genetic material will be descried in later chapters. Here we focus on the chemistry of the nucleic acids, revealing how their structures reflect their functions.
+**Nucleic acids** are polymers specialized for the storage, transmission, and use of genetic information. There are two types of nucleic acids—**DNA** (**d**eoxyribo**n**ucleic **a**cid) and **RNA** (**r**ibo**n**ucleic **a**cid)—and both are macromolecules, polymers of monomers called nucleotides. The roles of DNA and RNA in the preservation, replication, and expression of genetic material will be described in later chapters. Here we focus on the chemistry of the nucleic acids, revealing how their structures reflect their functions.
 
 ### Nucleotide Structure
 
@@ -17,16 +17,13 @@ The **pyrimidines** (single six-membered ring with two nitrogens):
 
 **Cytosine (C)**  |  **Thymine (T)**  |  **Uracil (U)** 
 
-![Structure 37](/notes/biology/figures/chemfig-037.svg)  | 
-![Structure 38](/notes/biology/figures/chemfig-038.svg)  | 
-![Structure 39](/notes/biology/figures/chemfig-039.svg)
+![Structure 37](/notes/biology/figures/chemfig-037.svg)  |  ![Structure 38](/notes/biology/figures/chemfig-038.svg)  |  ![Structure 39](/notes/biology/figures/chemfig-039.svg)
 
 The **purines** (fused five- and six-membered rings):
 
 **Adenine (A)**  |  **Guanine (G)** 
 
-![Structure 40](/notes/biology/figures/chemfig-040.svg)  | 
-![Structure 41](/notes/biology/figures/chemfig-041.svg)
+![Structure 40](/notes/biology/figures/chemfig-040.svg)  |  ![Structure 41](/notes/biology/figures/chemfig-041.svg)
 
 The two pentose sugars differ at the $2'$ carbon—ribose has an $\ce{-OH}$ group while deoxyribose has only $\ce{-H}$:
 

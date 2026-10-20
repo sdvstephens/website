@@ -1,0 +1,125 @@
+{
+ "chemfig-001": {
+  "alt": "Propane, CH3–CH2–CH3"
+ },
+ "chemfig-002": {
+  "alt": "Isopropanol: a central CH carrying an OH, between two methyl groups"
+ },
+ "chemfig-003": {
+  "alt": "1-Butanol, full structural formula: four carbons each with their hydrogens, ending in O–H"
+ },
+ "chemfig-004": {
+  "alt": "1-Butanol as a bond-line drawing: a four-carbon zigzag ending in OH"
+ },
+ "chemfig-005": {
+  "alt": "1-Butanol as a bond-line drawing: a four-carbon zigzag ending in OH"
+ },
+ "chemfig-006": {
+  "alt": "Cyclohexane: a hexagon of single bonds"
+ },
+ "chemfig-007": {
+  "alt": "Benzene: a hexagon with alternating double bonds"
+ },
+ "chemfig-008": {
+  "alt": "Water: an oxygen bonded to two hydrogens at an angle"
+ },
+ "chemfig-009": {
+  "alt": "Hydroxyl group, R–OH"
+ },
+ "chemfig-010": {
+  "alt": "Ethanol, CH3–CH2–OH"
+ },
+ "chemfig-011": {
+  "alt": "Aldehyde group: R–C(=O)–H"
+ },
+ "chemfig-012": {
+  "alt": "Acetaldehyde: CH3–C(=O)–H"
+ },
+ "chemfig-013": {
+  "alt": "Keto group: R–C(=O)–R"
+ },
+ "chemfig-014": {
+  "alt": "Acetone: CH3–C(=O)–CH3"
+ },
+ "chemfig-015": {
+  "alt": "Carboxyl group: R–C(=O)–OH"
+ },
+ "chemfig-016": {
+  "alt": "Acetic acid: CH3–C(=O)–OH"
+ },
+ "chemfig-017": {
+  "alt": "Amino group, R–NH2"
+ },
+ "chemfig-018": {
+  "alt": "Methylamine, CH3–NH2"
+ },
+ "chemfig-019": {
+  "alt": "Sulfhydryl group, R–SH"
+ },
+ "chemfig-020": {
+  "alt": "Mercaptoethanol, HO–CH2–CH2–SH"
+ },
+ "chemfig-021": {
+  "alt": "Methyl group, R–CH3"
+ },
+ "chemfig-022": {
+  "alt": "Butane, CH3–CH2–CH2–CH3"
+ },
+ "chemfig-023": {
+  "alt": "Isobutane: a central CH bonded to three methyl groups"
+ },
+ "chemfig-024": {
+  "alt": "cis-2-Butene: both methyl groups on the same side of the C=C double bond"
+ },
+ "chemfig-025": {
+  "alt": "trans-2-Butene: the methyl groups on opposite sides of the C=C double bond"
+ },
+ "chemfig-026": {
+  "alt": "A triglyceride: glycerol’s three carbons, each joined by an ester bond (O–C(=O)) to a fatty-acid chain R1, R2, R3"
+ },
+ "chemfig-027": {
+  "alt": "An amino acid: the alpha carbon bonded to an amino group (H2N), a hydrogen, an R group, and a carboxyl group (COOH)"
+ },
+ "chemfig-028": {
+  "alt": "Valine side chain: R = –CH(CH3)2"
+ },
+ "chemfig-029": {
+  "alt": "Leucine side chain: R = –CH2–CH(CH3)2"
+ },
+ "chemfig-030": {
+  "alt": "Isoleucine side chain: R = –CH(CH3)–CH2–CH3"
+ },
+ "chemfig-031": {
+  "alt": "Serine side chain: R = –CH2–OH"
+ },
+ "chemfig-032": {
+  "alt": "Threonine side chain: R = –CH(OH)–CH3"
+ },
+ "chemfig-033": {
+  "alt": "Aspartate side chain: R = –CH2–COO−"
+ },
+ "chemfig-034": {
+  "alt": "Glutamate side chain: R = –CH2–CH2–COO−"
+ },
+ "chemfig-035": {
+  "alt": "Lysine side chain: R = –(CH2)4–NH3+"
+ },
+ "chemfig-036": {
+  "alt": "Arginine side chain: R = –(CH2)3–NH–C(=NH2+)–NH2"
+ },
+ "chemfig-037": {
+  "alt": "Cytosine: a six-membered pyrimidine ring with an amino group and a carbonyl"
+ },
+ "chemfig-038": {
+  "alt": "Thymine: a pyrimidine ring with two carbonyls and a methyl group"
+ },
+ "chemfig-039": {
+  "alt": "Uracil: a pyrimidine ring with two carbonyls"
+ },
+ "chemfig-040": {
+  "alt": "Adenine: a purine (fused six- and five-membered rings) with an amino group"
+ },
+ "chemfig-041": {
+  "alt": "Guanine: a purine with a carbonyl and an amino group"
+ }
+}

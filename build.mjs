@@ -666,7 +666,7 @@ if (!fs.existsSync(path.join(DIST, 'assets', 'fonts', 'ACaslonPro-Regular.woff2'
 for (const sub of ['notes', 'homework', 'music']) {
   fs.cpSync(C(sub), path.join(DIST, sub), {
     recursive: true,
-    filter: (s) => !/[\\/]figures[\\/]src([\\/]|$)/.test(s) && (fs.statSync(s).isDirectory() || !/\.(md|json)$|\.DS_Store$/.test(s)),
+    filter: (s) => !/[\\/]figures[\\/](src([\\/]|$)|preamble\.tex$)/.test(s) && (fs.statSync(s).isDirectory() || !/\.(md|json)$|\.DS_Store$/.test(s)),
   });
 }
 

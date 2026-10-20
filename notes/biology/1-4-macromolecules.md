@@ -23,9 +23,9 @@ Aldehyde  |  ![Structure 11](/notes/biology/figures/chemfig-011.svg)  |  ![Struc
 
 Keto  |  ![Structure 13](/notes/biology/figures/chemfig-013.svg)  |  ![Structure 14](/notes/biology/figures/chemfig-014.svg) (acetone)  |  Polar 
 
-Carboxyl  |  ![Structure 15](/notes/biology/figures/chemfig-015.svg)  |  ![Structure 16](/notes/biology/figures/chemfig-016.svg) (acetic acid)  |  Acidic; $\ce{->}$ $\ce{COO^{-}$} 
+Carboxyl  |  ![Structure 15](/notes/biology/figures/chemfig-015.svg)  |  ![Structure 16](/notes/biology/figures/chemfig-016.svg) (acetic acid)  |  Acidic (ionizes to $\ce{COO-}$) 
 
-Amino  |  ![Structure 17](/notes/biology/figures/chemfig-017.svg)  |  ![Structure 18](/notes/biology/figures/chemfig-018.svg) (methylamine)  |  Basic; $\ce{->}$ $\ce{NH3+}$ 
+Amino  |  ![Structure 17](/notes/biology/figures/chemfig-017.svg)  |  ![Structure 18](/notes/biology/figures/chemfig-018.svg) (methylamine)  |  Basic (ionizes to $\ce{NH3+}$) 
 
 Sulfhydryl  |  ![Structure 19](/notes/biology/figures/chemfig-019.svg)  |  ![Structure 20](/notes/biology/figures/chemfig-020.svg)  |  Disulfide bridges 
 
@@ -36,13 +36,15 @@ Macromolecules have many different functional groups. A single large protein may
 
 **Structural isomers** differ in how their atoms are joined together. Consider two simple molecules, each composed of four carbon and ten hydrogen atoms bonded covalently, both with the formula $\ce{C4H10}$. These atoms can be linked in two different ways, resulting in different molecules: butane (used as a fuel) and isobutane (used as a refrigerant).
 
-**Butane:** ![Structure 22](/notes/biology/figures/chemfig-022.svg)   
-**Isobutane:** ![Structure 23](/notes/biology/figures/chemfig-023.svg)
+**Butane**  |  **Isobutane**
+
+![Structure 22](/notes/biology/figures/chemfig-022.svg)  |  ![Structure 23](/notes/biology/figures/chemfig-023.svg)
 
 ***Cis-trans** isomers* typically involve a double bond between two carbon atoms, where the carbons share two pairs of electrons. When the remaining two bonds of each of these carbons are to two different atoms or groups of atoms (e.g., a hydrogen and a methyl group), these can be oriented on the same side or different sides of the double-bonded molecule. If the different atoms or groups of atoms are on the same side, the double bond is called *cis*; if they are on opposite sides, the bond is *trans*. These molecules can have very different properties.
 
-***cis**-2-Butene:* ![Structure 24](/notes/biology/figures/chemfig-024.svg)   
-***trans**-2-Butene:* ![Structure 25](/notes/biology/figures/chemfig-025.svg)
+***cis*-2-Butene**  |  ***trans*-2-Butene**
+
+![Structure 24](/notes/biology/figures/chemfig-024.svg)  |  ![Structure 25](/notes/biology/figures/chemfig-025.svg)
 
 **Optical isomers** occur when a carbon atom has four different atoms or groups of atoms attached to it. This pattern allows for two different ways of making the attachments, each the mirror image of the other. Such a carbon is called an asymmetric carbon, and the two resulting molecules are optical isomers of one another. You can envision your right and left hands as optical isomers. Just as a glove is specific for a particular hand, some biochemical molecules that can interact with one optical isomer of a carbon compound are unable to "fit" the other.
 
@@ -50,13 +52,13 @@ Macromolecules have many different functional groups. A single large protein may
 
 Polymers are formed from monomers by a series of **condensation reactions** (in this case called dehydration reactions; both terms refer to the loss of water). Condensation reactions result in the formation of covalent bonds between monomers. A molecule of water is released with each covalent bond formed. A generic condensation reaction can be represented as:
 
-$\ce{H-A-OH + H-B-OH ->[\text{condensation}$][-H2O] H-A-B-OH}
+$$\ce{H-A-OH + H-B-OH ->[\text{condensation}][-H2O] H-A-B-OH}$$
 
 The condensation reactions that produce the different kinds of polymers differ in detail, but in all cases polymers form only if water molecules are removed and energy is added to the system. In living systems, specific energy-rich molecules supply the necessary energy.
 
 The reverse of a condensation reaction is a **hydrolysis reaction** (from Greek *hydro*, "water" + *lysis*, "break"). Hydrolysis reactions result in the breakdown of polymers into their component monomers. Water reacts with the covalent bonds that link the polymer together. For each covalent bond that is broken, a water molecule splits into two ions ($\ce{H+}$ and $\ce{OH-}$), each of which becomes part of one of the products:
 
-$\ce{H-A-B-OH + H2O ->[\text{hydrolysis}$] H-A-OH + H-B-OH}
+$$\ce{H-A-B-OH + H2O ->[\text{hydrolysis}] H-A-OH + H-B-OH}$$
 
 An important advantage of biochemical unity is that some organisms can acquire needed raw materials by eating other organisms. When you eat bread, the molecules you take in include carbohydrates, lipids, and proteins that can be broken down into monomers which are then polymerized into the varieties of those molecules needed by humans. For example, the storage proteins in wheat grains have a particular composition and sequence of the 20 amino acids. When you eat them in bread, these wheat proteins are broken down into amino acids. In your muscle, these amino acids from wheat are used to make the human proteins actin and myosin, which compose muscle fibers.
 

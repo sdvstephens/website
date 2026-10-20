@@ -44,7 +44,7 @@ Whether a molecule is polar or nonpolar depends primarily on whether it has pola
 
 Consider water. Oxygen is highly electronegative—it pulls electrons towards itself, depleting them somewhat from the hydrogens it is bonded to. This creates what is called a **dipole**: the oxygen end is partially negative ($\delta^{-}$) and the hydrogen ends are partially positive ($\delta^{+}$):
 
-$\ce{H-$O-H}   with   $\delta^{+}$ on H and $\delta^{-}$ on O
+$$\overset{\delta^{+}}{\mathrm{H}}{-}\overset{\delta^{-}}{\mathrm{O}}{-}\overset{\delta^{+}}{\mathrm{H}}$$
 
 The geometry of water is bent (not linear), so these dipoles do not cancel out, making water a polar molecule overall.
 
@@ -92,12 +92,11 @@ Although non-covalent bonds are individually weak, many of them together can pro
 
 The *bond length* of a molecule is the energy minimum at which the molecule is stable. 
 
-:::definition Coloumb's Law
-The energy between two ions is equal to the product of the two charges divided by the distance (radius) between the two nuclei, multiplied by a constant ($ 2.31  \times 10^{-19
+:::definition Coulomb's Law
+The energy between two ions is equal to the product of the two charges divided by the distance $r$ between the two nuclei, multiplied by a constant ($2.31 \times 10^{-19}\ \mathrm{J\cdot nm}$):
+
+$$E = 2.31 \times 10^{-19}\ \mathrm{J\cdot nm}\left(\frac{Q_{1}Q_{2}}{r}\right).$$
 :::
- J\cdot nm $); formulated as $$
-    E = 2.31 \times 10^{-19}Jnm\left(\frac{Q_{1}Q_{2}}{r}\right).
-$$ }
 
 ### Representing Organic Molecules
 
@@ -132,8 +131,9 @@ $\ce{C4H10O}$  |  $\ce{CH3CH2CH2CH2OH}$  |  ![Structure 5](/notes/biology/figure
 
 Rings are drawn as polygons. For instance, cyclohexane ($\ce{C6H12}$) and benzene ($\ce{C6H6}$):
 
-**Cyclohexane:** ![Structure 6](/notes/biology/figures/chemfig-006.svg)   
-**Benzene:** ![Structure 7](/notes/biology/figures/chemfig-007.svg)
+**Cyclohexane**  |  **Benzene**
+
+![Structure 6](/notes/biology/figures/chemfig-006.svg)  |  ![Structure 7](/notes/biology/figures/chemfig-007.svg)
 
 The alternating double bonds in benzene (sometimes drawn as a circle inside) indicate the delocalized electrons of the aromatic ring.
 

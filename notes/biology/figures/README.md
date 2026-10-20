@@ -1,4 +1,9 @@
-# Chemfig Structure Reference
+# Chemfig structures
+
+Each structure's chemfig source is in `src/chemfig-NNN.tex`; `preamble.tex` loads chemfig and mhchem.
+Redraw with `python3 scripts/book-figures.py --course biology` (needs pdflatex with chemfig, and
+pdftocairo). The SVGs use the site's colour variables, so they follow the light/dark theme, and
+`figures.json` holds the screen-reader descriptions.
 
 | SVG | Structure |
 |-----|-----------|

@@ -3,8 +3,10 @@
 book-figures.py: draw the TikZ figures of a LaTeX book as theme-aware SVG.
 
     python3 scripts/book-figures.py --course math-55a [--only fig-2-4-1]
+    python3 scripts/book-figures.py --course biology   (chemfig structures)
 
-Reads notes/<course>/figures/src/*.tex (written by book-to-notes.py), and
+Reads notes/<course>/figures/src/*.tex (written by book-to-notes.py, or by
+hand: the biology notes keep their chemfig structures there), and
 for each one compiles a standalone page with pdflatex, converts it with
 pdftocairo, and writes notes/<course>/figures/<name>.svg.
 
@@ -17,6 +19,9 @@ The SVG is made for inlining (build.mjs puts it straight into the page):
   - the size is in em (10 pt of TeX = 1em), so it scales with the text;
   - role="img" and a <title> from figures/figures.json describe it for
     screen readers.
+
+A course can add packages in notes/<course>/figures/preamble.tex (biology
+loads chemfig and mhchem there).
 
 Needs pdflatex (with tikz, tikz-cd and the braids library) and pdftocairo
 (poppler: `brew install poppler` on macOS). Unchanged figures are skipped.
@@ -156,6 +161,10 @@ def main():
     meta = json.load(open(meta_path)) if os.path.exists(meta_path) else {}
     stamp_path = os.path.join(src_dir, '.stamps.json')
     stamps = json.load(open(stamp_path)) if os.path.exists(stamp_path) else {}
+    extra_path = os.path.join(fig_dir, 'preamble.tex')
+    preamble = PREAMBLE
+    if os.path.exists(extra_path):
+        preamble = PREAMBLE.replace('\\begin{document}', open(extra_path, encoding='utf-8').read() + '\\begin{document}')
 
     names = sorted(f[:-4] for f in os.listdir(src_dir) if f.endswith('.tex'))
     if args.only:
@@ -164,13 +173,13 @@ def main():
     for name in names:
         body = open(os.path.join(src_dir, name + '.tex'), encoding='utf-8').read()
         alt = meta.get(name, {}).get('alt', 'Diagram')
-        key = hashlib.sha1((PREAMBLE + body + alt + open(__file__).read()).encode()).hexdigest()
+        key = hashlib.sha1((preamble + body + alt + open(__file__).read()).encode()).hexdigest()
         out = os.path.join(fig_dir, name + '.svg')
         if not args.force and stamps.get(name) == key and os.path.exists(out):
             continue
         with tempfile.TemporaryDirectory() as tmp:
             with open(os.path.join(tmp, 'fig.tex'), 'w', encoding='utf-8') as f:
-                f.write(PREAMBLE + body + '\n\\end{document}\n')
+                f.write(preamble + body + '\n\\end{document}\n')
             r = subprocess.run(['pdflatex', '-interaction=nonstopmode', '-halt-on-error', 'fig.tex'],
                                cwd=tmp, capture_output=True, text=True)
             if r.returncode != 0:

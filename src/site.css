@@ -235,8 +235,10 @@ kbd { font: inherit; font-family: var(--mono); font-size: .9em; padding: 0 .3em;
 .grid { border-collapse: collapse; }
 .grid td { padding: .25em 1.1em .25em 0; vertical-align: middle; }
 .grid img { display: block; max-width: none; }
-/* Chemfig figures are drawn in gruvbox-dark colours. */
-[data-theme="light"] .prose img[src*="/figures/"] { filter: invert(1) hue-rotate(180deg) brightness(1.16); mix-blend-mode: multiply; }
+/* Figures inside a grid of structures (the R groups in biology 1.7). */
+.grid .tex-fig { margin: .35em 0; text-align: left; }
+.grid td:has(.tex-fig) { padding-right: 2.4em; }
+.prose .caption { text-align: center; font-style: italic; font-size: .92em; color: var(--muted); margin-top: -.6em; }
 
 /* ------------------------------------------------------------- textbook boxes
    Printed-textbook style: a run-in label, a coloured left rule by kind,

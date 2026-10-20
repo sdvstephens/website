@@ -11,14 +11,13 @@ Proteins are the workhorses of the cell, performing most cellular functions: cat
 
 **Greek letter carbon naming.** In organic chemistry, carbons are labeled with Greek letters based on their distance from a reference functional group (usually a carboxyl or carbonyl). The carbon directly attached to the functional group is the **alpha carbon** ($C_{\alpha}$), the next one is **beta** ($C_{\beta}$), then **gamma** ($C_{\gamma}$), and so on:
 
-$\ce{C_{\delta}$-C_{\gamma}-C_{\beta}-C_{\alpha}-COOH}
+$$\mathrm{C}_{\delta}{-}\mathrm{C}_{\gamma}{-}\mathrm{C}_{\beta}{-}\mathrm{C}_{\alpha}{-}\mathrm{COOH}$$
 
 **The alpha carbon in amino acids.** In amino acids, the alpha carbon is the central carbon—the one directly bonded to the carboxyl group. It is the "hub" to which all four characteristic groups attach:
 
 ![Structure 27](/notes/biology/figures/chemfig-027.svg)
- 
 
-\small (the central C is $C_\alpha$)
+<p class="caption">The central C is $C_\alpha$.</p>
 
 The alpha carbon is bonded to four groups:
 
@@ -27,13 +26,13 @@ The alpha carbon is bonded to four groups:
 - **Hydrogen atom** ($\ce{-H}$)
 - **R group** (side chain): Varies among the 20 amino acids and determines properties
 
-**How to find $C_{\alpha**$ in any amino acid structure:}
+**How to find $C_{\alpha}$ in any amino acid structure:**
 
 1. Locate the carboxyl group ($\ce{-COOH}$ or $\ce{-COO^-}$)
 2. Find the carbon directly attached to the carboxyl carbon—that is $C_{\alpha}$
 3. Verify: $C_{\alpha}$ should also be bonded to the amino group ($\ce{-NH2}$ or $\ce{-NH3+}$)
 
-**Chirality at $C_{\alpha**$.} Because the alpha carbon has four *different* groups attached (H, $\ce{NH2}$, $\ce{COOH}$, R), it is a **chiral center**—meaning the molecule cannot be superimposed on its mirror image. This gives rise to L- and D- forms of amino acids. In biology, nearly all amino acids are the **L-form**. The only exception is **glycine** (Gly, G), where R = H, so the alpha carbon has two identical hydrogen substituents and is therefore achiral.
+**Chirality at $C_{\alpha}$.** Because the alpha carbon has four *different* groups attached (H, $\ce{NH2}$, $\ce{COOH}$, R), it is a **chiral center**—meaning the molecule cannot be superimposed on its mirror image. This gives rise to L- and D- forms of amino acids. In biology, nearly all amino acids are the **L-form**. The only exception is **glycine** (Gly, G), where R = H, so the alpha carbon has two identical hydrogen substituents and is therefore achiral.
 
 The R group determines whether an amino acid is:
 
@@ -49,7 +48,7 @@ The 20 common amino acids are classified into four categories based on their R g
 
 **Valine (Val, V)**  |  **Leucine (Leu, L)**  |  **Isoleucine (Ile, I)** 
 
-R = ![Structure 28](/notes/biology/figures/chemfig-028.svg)  |  R = ![Structure 29](/notes/biology/figures/chemfig-029.svg)  |  R = ![Structure 30](/notes/biology/figures/chemfig-030.svg)
+![Structure 28](/notes/biology/figures/chemfig-028.svg)  |  ![Structure 29](/notes/biology/figures/chemfig-029.svg)  |  ![Structure 30](/notes/biology/figures/chemfig-030.svg)
 
 Other nonpolar: Ala, Gly, Pro, Met, Phe, Trp.
 
@@ -57,7 +56,7 @@ Other nonpolar: Ala, Gly, Pro, Met, Phe, Trp.
 
 **Serine (Ser, S)**  |  **Threonine (Thr, T)** 
 
-R = ![Structure 31](/notes/biology/figures/chemfig-031.svg)  |  R = ![Structure 32](/notes/biology/figures/chemfig-032.svg)
+![Structure 31](/notes/biology/figures/chemfig-031.svg)  |  ![Structure 32](/notes/biology/figures/chemfig-032.svg)
 
 Other polar uncharged: Cys, Asn, Gln, Tyr.
 
@@ -65,13 +64,17 @@ Other polar uncharged: Cys, Asn, Gln, Tyr.
 
 **Aspartate (Asp, D)**  |  **Glutamate (Glu, E)** 
 
-R = ![Structure 33](/notes/biology/figures/chemfig-033.svg)  |  R = ![Structure 34](/notes/biology/figures/chemfig-034.svg)
+![Structure 33](/notes/biology/figures/chemfig-033.svg)  |  ![Structure 34](/notes/biology/figures/chemfig-034.svg)
 
 **4. Basic (positively charged) R groups** have amino groups that gain a proton at physiological pH, giving a $+1$ charge.
 
-**Lysine (Lys, K)**  |  **Arginine (Arg, R)** 
+**Lysine (Lys, K)**
 
-R = ![Structure 35](/notes/biology/figures/chemfig-035.svg)  |  R = ![Structure 36](/notes/biology/figures/chemfig-036.svg)
+![Structure 35](/notes/biology/figures/chemfig-035.svg)
+
+**Arginine (Arg, R)**
+
+![Structure 36](/notes/biology/figures/chemfig-036.svg)
 
 Histidine (His, H) is also basic but only partially charged at pH 7.
 
