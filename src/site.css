@@ -263,6 +263,35 @@ kbd { font: inherit; font-family: var(--mono); font-size: .9em; padding: 0 .3em;
 .solution summary { font: .66em var(--mono); color: var(--yellow); cursor: pointer; }
 .solution[open] summary { margin-bottom: .6em; }
 
+/* Lecture notes: date and music for the day under the title, the
+   readings for the lecture, and the handout outline folded at the end. */
+.note-meta { margin: -.6em 0 1.8em; font: .7em/1.6 var(--mono); color: var(--muted); }
+.note-meta p { margin: 0; }
+.song { margin-top: .35em !important; }
+.song-label { color: var(--purple); margin-right: .5em; }
+.song-label::before { content: "♪ "; }
+.song a, .song .song-title { font: italic 1.3em/1.4 var(--serif); color: var(--ink); }
+.song a { text-decoration-color: var(--rule-strong); }
+.song a:hover { text-decoration-color: currentColor; }
+.box-readings { --box: var(--blue); }
+.box-readings .box-head { margin-bottom: .35em; }
+.box-readings .box-title { font: .66em var(--mono); color: var(--muted); margin-left: .6em; }
+.box-readings ul { margin-top: .2em; padding-left: 1.1em; }
+.box-readings li { margin: .15em 0; }
+.box-readings a[href$=".pdf"]::after { content: " pdf"; font: .62em var(--mono); color: var(--muted); }
+details.outline { margin: 2.4em 0 0; border-top: 1px solid var(--rule); padding-top: .8em; }
+details.outline summary { font: .7em var(--mono); color: var(--muted); cursor: pointer; }
+details.outline[open] summary { margin-bottom: .8em; }
+details.outline ul ul, details.outline ol ul { margin: .15em 0 .4em; }
+details.outline li { margin: .1em 0; }
+.course-intro { margin: 0 0 1.4em; }
+.entry-note { font: .62em var(--mono); color: var(--muted); margin-left: .5em; white-space: nowrap; }
+
+/* Pronunciation guides after a foreign word: [[de:Geist|GUYST|ɡaɪst]]. */
+.pron { font-size: .78em; color: var(--muted); font-style: normal; white-space: nowrap; }
+.pron-like { letter-spacing: .01em; }
+.ipa { font-family: 'Gentium Plus', 'Charis SIL', 'Doulos SIL', 'Noto Serif', 'Times New Roman', 'DejaVu Serif', serif; }
+
 /* A numbered box is a link target (#definition-2-4-2); show where you landed. */
 .box[id] { scroll-margin-top: 1.5rem; }
 .box:target { background: linear-gradient(90deg, color-mix(in srgb, var(--box, var(--yellow)) 9%, transparent), transparent 70%); }

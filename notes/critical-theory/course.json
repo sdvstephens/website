@@ -1,5 +1,211 @@
 {
   "slug": "critical-theory",
   "title": "Critical Theory",
-  "chapters": []
+  "description": "Notes on Peter E. Gordon’s lecture course on Frankfurt School critical theory (Harvard, spring 2026): Lukács, Horkheimer, Benjamin, Adorno, Marcuse, Habermas, Fraser, and after.",
+  "chapterLabel": "week",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Introduction",
+      "sections": [
+        {
+          "number": "1",
+          "slug": "01-introduction",
+          "title": "Introduction"
+        },
+        {
+          "number": "2",
+          "slug": "02-marxism-in-transition",
+          "title": "Marxism in Transition"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "The Origins of Hegelian Marxism",
+      "sections": [
+        {
+          "number": "3",
+          "slug": "03-marxism-and-dialectics",
+          "title": "Marxism and Dialectics"
+        },
+        {
+          "number": "4",
+          "slug": "04-consciousness-and-reification",
+          "title": "Consciousness and Reification"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Foundations of the Institute for Social Research",
+      "sections": [
+        {
+          "number": "5",
+          "slug": "05-horkheimer-and-the-re-founding-of-the-institute",
+          "title": "Horkheimer and the Re-Founding of the Institute"
+        },
+        {
+          "number": "6",
+          "slug": "06-the-early-definition-of-critical-theory",
+          "title": "The Early Definition of Critical Theory"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Delineations of Critical Theory",
+      "sections": [
+        {
+          "number": "7",
+          "slug": "07-the-introduction-of-psychoanalysis",
+          "title": "The Introduction of Psychoanalysis"
+        },
+        {
+          "number": "8",
+          "slug": "08-the-social-psychology-of-family-and-state",
+          "title": "The Social Psychology of Family and State"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "The Politics of Mass Culture",
+      "sections": [
+        {
+          "number": "9",
+          "slug": "09-beyond-bourgeois-aesthetics",
+          "title": "Beyond Bourgeois Aesthetics"
+        },
+        {
+          "number": "10",
+          "slug": "10-mass-culture-and-the-commodity-form",
+          "title": "Mass Culture and the Commodity Form"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "History and Reason",
+      "sections": [
+        {
+          "number": "11",
+          "slug": "11-benjamins-angel",
+          "title": "Benjamin’s Angel"
+        },
+        {
+          "number": "12",
+          "slug": "12-dialectic-of-enlightenment",
+          "title": "Dialectic of Enlightenment"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Fascism and Authoritarianism",
+      "sections": [
+        {
+          "number": "13",
+          "slug": "13-the-authoritarian-personality",
+          "title": "The Authoritarian Personality"
+        },
+        {
+          "number": "14",
+          "slug": "14-psychoanalysis-and-mass-society",
+          "title": "Psychoanalysis and Mass Society"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "The Problem of the Culture Industry",
+      "sections": [
+        {
+          "number": "15",
+          "slug": "15-a-wholly-commodified-world",
+          "title": "A Wholly Commodified World?"
+        },
+        {
+          "number": "16",
+          "slug": "16-culture-and-its-dialectic",
+          "title": "Culture and Its Dialectic"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "The Student Movement",
+      "sections": [
+        {
+          "number": "17",
+          "slug": "17-marcuse-in-the-1960s",
+          "title": "Marcuse in the 1960s"
+        },
+        {
+          "number": "18",
+          "slug": "18-resistance-and-resignation",
+          "title": "Resistance and Resignation"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Critique and Communication",
+      "sections": [
+        {
+          "number": "19",
+          "slug": "19-habermass-critique-of-the-first-generation",
+          "title": "Habermas’s Critique of the First Generation"
+        },
+        {
+          "number": "20",
+          "slug": "20-the-presuppositions-of-communicative-reason",
+          "title": "The Presuppositions of Communicative Reason"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Contestations in Critical Theory I",
+      "sections": [
+        {
+          "number": "21",
+          "slug": "21-gender-in-critical-theory",
+          "title": "Gender in Critical Theory"
+        },
+        {
+          "number": "22",
+          "slug": "22-decolonizing-critical-theory",
+          "title": "Decolonizing Critical Theory"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Contestations in Critical Theory II",
+      "sections": [
+        {
+          "number": "23",
+          "slug": "23-the-recognition-debate",
+          "title": "The Recognition Debate"
+        },
+        {
+          "number": "24",
+          "slug": "24-redistribution-or-recognition",
+          "title": "Redistribution or Recognition"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Perennial Questions",
+      "sections": [
+        {
+          "number": "25",
+          "slug": "25-what-can-critique-still-mean",
+          "title": "What Can Critique Still Mean?"
+        }
+      ]
+    }
+  ]
 }

@@ -167,15 +167,41 @@ for (const c of noteCourses) {
       const file = `notes/${c.slug}/${s.slug}.md`;
       if (!exists('notes', c.slug, `${s.slug}.md`)) { warn(`${file} listed in course.json but missing`); continue; }
       setSource(file);
-      const { html } = renderNotes(read('notes', c.slug, `${s.slug}.md`), { section: s.number });
+      const src = read('notes', c.slug, `${s.slug}.md`);
+      const fm = frontmatter(src).data;
+      const { html } = renderNotes(src, { section: s.number });
       const body = inlineFigures(stripLeadingH1(html), file);
       sections.push({
         ...s, titleHtml: renderTitle(s.title), titleText: plainTitle(s.title),
         chapter: ch, file, html: body, stub: isStubText(html), href: `/notes/${c.slug}/${s.slug}`,
+        meta: lectureMeta(fm),
+        // `status: readings`: a lecture with readings but no notes yet. It
+        // keeps its page (the reading links) but doesn't count as written.
+        readingsOnly: fm.status === 'readings',
       });
     }
   }
-  notes.push({ ...c, title: course.title || c.title, book: course.book, chapters: course.chapters || [], sections });
+  // An optional notes/<course>/index.md introduces the course on its contents page.
+  const intro = exists('notes', c.slug, 'index.md') ? renderMarkdown(read('notes', c.slug, 'index.md')) : '';
+  notes.push({
+    ...c, title: course.title || c.title, book: course.book, chapters: course.chapters || [], sections, intro,
+    description: course.description || c.description, chapterLabel: course.chapterLabel || 'chapter',
+  });
+}
+
+// A lecture's date and its music for the day, from the section's frontmatter:
+//   date: 2026-02-17
+//   song: Ravel, *La Valse*
+//   song-url: https://…        (optional; the title links to the recording)
+function lectureMeta(fm) {
+  const parts = [];
+  if (fm.date) parts.push(`<p class="lecture-date"><time datetime="${esc(fm.date)}">${longDate(fm.date)}</time>${fm.lecturer ? ` · ${esc(fm.lecturer)}` : ''}</p>`);
+  if (fm.song) {
+    const title = renderTitle(fm.song);
+    const url = fm['song-url'] || fm.song_url || '';
+    parts.push(`<p class="song"><span class="song-label">Music for the day</span> ${url ? `<a href="${esc(url)}" rel="noopener">${title}</a>` : `<span class="song-title">${title}</span>`}</p>`);
+  }
+  return parts.join('\n');
 }
 
 // Sections of a chapter, split where course.json gives them a new `part`
@@ -196,7 +222,7 @@ function notesTree(course, currentSlug) {
     // Long books: only the current chapter starts open; the others fold to one line.
     const fold = course.chapters.length > 8;
     const open = !fold || list.some((s) => s.slug === currentSlug);
-    const head = `<span class="num">${ch.number}</span> ${ch.titleHtml}`;
+    const head = `<span class="num">${course.chapterLabel === 'week' ? 'wk ' : ''}${ch.number}</span> ${ch.titleHtml}`;
     return `
   <li>${fold ? `<details${open ? ' open' : ''}><summary class="toc-ch">${head}</summary>` : `<span class="toc-ch">${head}</span>`}
     <ol>${byPart(list).map((g) => (g.part ? `<li class="toc-part">${renderTitle(g.part)}</li>` : '') + g.items.map((s) => {
@@ -210,14 +236,14 @@ function notesTree(course, currentSlug) {
 </ol>`;
 }
 
-const written = (n) => n.sections.filter((s) => !s.stub).length;
+const written = (n) => n.sections.filter((s) => !s.stub && !s.readingsOnly).length;
 const activeCourses = notes.filter((n) => n.sections.length);
 const plannedCourses = notes.filter((n) => !n.sections.length);
 page({
   path: '/notes', file: 'notes/', section: 'notes', layout: 'ledger', title: 'Lecture Notes',
-  description: 'Mathematics and science lecture notes.',
+  description: 'Lecture notes in mathematics, science and critical theory.',
   body: `<h1 class="display">Lecture Notes</h1>
-<p class="standfirst">Mathematics and science lecture notes, inspired by Paul's Online Notes.</p>
+<p class="standfirst">Lecture notes in mathematics, science and critical theory; the mathematics follows the model of Paul's Online Notes.</p>
 ${ledger(activeCourses.map((n) => ({
     idx: n.book ? `<span title="${n.chapters.length} chapters, ${n.sections.length} sections">book</span>` : `<span title="${written(n)} of ${n.sections.length} sections written">${written(n)}/${n.sections.length}</span>`,
     html: `<a class="entry-title" href="/notes/${n.slug}/">${n.title}</a><p class="excerpt">${n.description || ''}</p>`,
@@ -245,11 +271,12 @@ for (const n of notes) {
     body: `<p class="crumbs"><a href="/notes/">notes</a> /</p>
 <h1 class="display">${n.title}</h1>
 ${n.book ? bookHead(n) : `${n.description ? `<p class="standfirst">${n.description}</p>` : ''}
-${n.sections.length ? `<p class="count">${written(n)} of ${n.sections.length} sections written</p>` : '<p>Notes coming soon.</p>'}`}
-${n.chapters.map((ch) => `<h2 class="chapter"><span class="idx">${ch.number}</span>${ch.titleHtml}</h2>
+${n.intro ? `<div class="prose course-intro">${n.intro}</div>` : ''}
+${n.sections.length ? `<p class="count">${written(n)} of ${n.sections.length} ${n.chapterLabel === 'week' ? 'lectures' : 'sections'} written</p>` : '<p>Notes coming soon.</p>'}`}
+${n.chapters.map((ch) => `<h2 class="chapter"><span class="idx">${n.chapterLabel === 'week' ? 'week ' : ''}${ch.number}</span>${ch.titleHtml}</h2>
 ${byPart(n.sections.filter((s) => s.chapter === ch)).map((g) => (g.part ? `<h3 class="part">${renderTitle(g.part)}</h3>\n` : '') + ledger(g.items.map((s) => ({
     idx: s.number, muted: s.stub,
-    html: s.stub ? `<span class="entry-title">${s.titleHtml}</span>` : `<a class="entry-title" href="${s.href}">${s.titleHtml}</a>`,
+    html: s.stub ? `<span class="entry-title">${s.titleHtml}</span>` : `<a class="entry-title" href="${s.href}">${s.titleHtml}</a>${s.readingsOnly ? ' <span class="entry-note">readings only</span>' : ''}`,
   })))).join('\n')}`).join('\n')}`,
   });
 
@@ -263,10 +290,10 @@ ${byPart(n.sections.filter((s) => s.chapter === ch)).map((g) => (g.part ? `<h3 c
       title: `${s.titleText} — ${n.title}`, description: `Section ${s.number}: ${s.titleText} from ${n.title}`,
       noindex: s.stub, inSitemap: !s.stub, railLabel: `${n.title} contents`,
       rail: notesTree(n, s.slug),
-      body: `<p class="crumbs"><a href="/notes/">notes</a> / <a href="/notes/${n.slug}/">${n.title}</a> / chapter ${s.chapter.number}: ${s.chapter.titleHtml}${s.part ? ` / ${renderTitle(s.part.replace(/^Part [IVX]+: /, ''))}` : ''}</p>
+      body: `<p class="crumbs"><a href="/notes/">notes</a> / <a href="/notes/${n.slug}/">${n.title}</a> / ${n.chapterLabel} ${s.chapter.number}: ${s.chapter.titleHtml}${s.part ? ` / ${renderTitle(s.part.replace(/^Part [IVX]+: /, ''))}` : ''}</p>
 <article class="note">
 <h1 class="note-title"><span class="num">${s.number}</span> ${s.titleHtml}</h1>
-<div class="prose">${s.html}</div>
+${s.meta ? `<div class="note-meta">${s.meta}</div>\n` : ''}<div class="prose">${s.html}</div>
 </article>
 ${prevNext(before && { href: before.href, title: `${before.number} ${before.titleHtml}` }, after && { href: after.href, title: `${after.number} ${after.titleHtml}` })}`,
       search: s.stub ? '' : plainText(s.html),

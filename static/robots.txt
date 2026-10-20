@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /analytics/
+Disallow: /notes/critical-theory/readings/
 
 Sitemap: https://samuel-stephens.com/sitemap.xml

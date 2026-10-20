@@ -1,0 +1,7 @@
+Each lecture’s page joins two sources: Professor Gordon’s handout for the day, and what I wrote down in the room. The handout’s outline is reproduced with his permission, folded, at the foot of the page; the quotations on its back are paraphrased and cited in the text, and the full passages are on the handout itself, linked under Readings. My notes are rewritten as continuous prose, as if the lecture were being given again. Some lectures have both sources, more have only the handout, one has only my notes, and the last few have neither, so their pages just list the readings.
+
+**Music for the day.** Some lectures opened with a piece of music. Where there was one, it is named under the lecture’s title, with a link to a recording.
+
+**Readings.** Each lecture lists its assigned readings and the day’s handout. The PDFs are copyrighted, so they sit behind a password; ask me for it. For the two books on the syllabus, *Dialectic of Enlightenment* and *Redistribution or Recognition?*, only the assigned chapters are posted.
+
+**Pronunciation.** The first time a German, French or Latin word (or a name that English readers often trip over) appears on a page, a guide follows it: a sounds-like spelling, with the stressed syllable in capitals, and the International Phonetic Alphabet, for example [[de:*Geist*|GUYST|ɡaɪ̯st]]. In the respellings, *kh* is the German *ch* of *Bach*, *ew* is a French *u* or German *ü* (say *ee* with rounded lips), *ur* is a German *ö* (say *ay* with rounded lips, no *r*), and *zh* is the *s* of *measure*.

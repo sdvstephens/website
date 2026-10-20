@@ -175,10 +175,23 @@ function pipeGrids(md) {
   return outBlocks.join('\n\n');
 }
 
+// ---------------------------------------------------------------- pronunciation
+// [[de:*Geist*|GUYST|ɡaɪst]] → the term (marked lang="de"), followed by a
+// small guide: a sounds-like respelling and the IPA. Used the first time a
+// foreign word appears on a page (the critical theory notes). Tie bars
+// (t͡s) are dropped when rendered: most fonts draw them badly, and ts reads the same.
+const SAY = /\[\[([a-z]{2,3}(?:-[A-Za-z]{2,4})?):([^|\]\n]+)\|([^|\]\n]+)\|([^\]\n]+)\]\]([’']s\b)?/g;
+function pronunciations(md) {
+  // A possessive stays with the word: Hegel’s (HAY-gel; …), not Hegel (…)’s.
+  return md.replace(SAY, (_, lang, term, like, ipa, poss = '') =>
+    `<span class="say"><span lang="${lang}">${term.trim()}</span>${poss} <span class="pron">(<span class="pron-like">${like.trim()}</span>; <span class="ipa" lang="und-fonipa">/${ipa.trim().replace(/^\/|\/$/g, '').replace(/\u0361/g, '')}/</span>)</span></span>`);
+}
+
 /** Blog posts and plain pages. */
 export function renderMarkdown(src, { grids = false } = {}) {
   const { body } = frontmatter(src);
   let { md, math } = protect(body);
+  md = pronunciations(md);
   if (grids) md = pipeGrids(md);
   return addHeadingIds(restoreMath(marked.parse(md), math));
 }
@@ -202,6 +215,8 @@ const KINDS = {
   proof: { label: 'Proof', numbered: false },
   solution: { label: 'Solution', numbered: false },
   lede: { label: '', numbered: false },
+  readings: { label: 'Readings', numbered: false },
+  outline: { label: 'Outline', numbered: false },
 };
 
 /**
@@ -214,7 +229,8 @@ const KINDS = {
  */
 export function renderNotes(src, { section = '' } = {}) {
   const { body } = frontmatter(src);
-  const { md, math } = protect(body);
+  let { md, math } = protect(body);
+  md = pronunciations(md);
   const boxes = [];
   let counter = 0;
   const stack = [{ kind: 'root', lines: [] }];
@@ -226,6 +242,14 @@ export function renderNotes(src, { section = '' } = {}) {
       return `<details class="solution"><summary>Show solution</summary>${inner}</details>`;
     }
     if (f.kind === 'lede') return `<div class="lede">${inner}</div>`;
+    // A lecture's handout outline: folded, so the prose reads first.
+    if (f.kind === 'outline') {
+      return `<details class="outline"><summary>${f.title ? marked.parseInline(f.title) : 'Outline'}</summary>${inner}</details>`;
+    }
+    if (f.kind === 'readings') {
+      const title = f.title ? ` <span class="box-title">${marked.parseInline(f.title)}</span>` : '';
+      return `<aside class="box box-readings" aria-label="Readings"><p class="box-head"><span class="box-label">Readings</span>${title}</p>${inner}</aside>`;
+    }
     const num = f.number ? ` ${f.number}` : '';
     let head;
     if (f.kind === 'proof' && f.title) {
