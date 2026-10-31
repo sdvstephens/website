@@ -9,17 +9,17 @@ date: 2026-02-10
 
 ## Recapitulation: Hegelian Marxism
 
-David [[ru:Ryazanov|ree-ah-ZAH-nof|rʲɪɐˈzanəf]] found Marx’s *Economic and Philosophic Manuscripts*, and they were published in the original German in 1932. Georg [[hu:Lukács|LOO-kahch|ˈlukaːt͡ʃ]] had already argued, in “Reification and the Consciousness of the Proletariat” (1923), that the commodity form is objective (the economy) and subjective (consciousness) at once, so that reification, [[de:*Verdinglichung*|fair-DING-likh-oong|fɛɐ̯ˈdɪŋlɪçʊŋ]], reaches both the economy and the mind.
+David Ryazanov found Marx’s *Economic and Philosophic Manuscripts*, and they were published in the original German in 1932. Georg Lukács had already argued, in “Reification and the Consciousness of the Proletariat” (1923), that the commodity form is objective (the economy) and subjective (consciousness) at once, so that reification, *Verdinglichung*, reaches both the economy and the mind.
 
-Herbert [[de:Marcuse|mar-KOO-zeh|maʁˈkuːzə]]’s “The Foundation of Historical Materialism” (1932) drew the consequence. Marx was attempting something much larger than an economic critique of capital: a critique of the total deformation of social life. Read through the manuscripts, Marxism is a comprehensive philosophy of human existence. Marcuse found in Marx what he had gone to [[de:Heidegger|HY-deg-er|ˈhaɪ̯dɛɡɐ]] to find, and in 1932 he joined the Institute.
+Herbert Marcuse’s “The Foundation of Historical Materialism” (1932) drew the consequence. Marx was attempting something much larger than an economic critique of capital: a critique of the total deformation of social life. Read through the manuscripts, Marxism is a comprehensive philosophy of human existence. Marcuse found in Marx what he had gone to Heidegger to find, and in 1932 he joined the Institute.
 
 ## Founding and re-founding the Institute
 
 ### Origins
 
-The [[de:Weimar|VY-mar|ˈvaɪ̯maʁ]] Republic was a socially, politically and philosophically experimental and exploratory place, and the Institute for Social Research was one of its experiments: an openly Marxist research institute. It was paid for with independent funds from Hermann Weil, a grain merchant, and his son Felix, and founded in 1923 in association with the University of Frankfurt. That association had a condition: the director had to be a professor at the university.
+The Weimar Republic was a socially, politically and philosophically experimental and exploratory place, and the Institute for Social Research was one of its experiments: an openly Marxist research institute. It was paid for with independent funds from Hermann Weil, a grain merchant, and his son Felix, and founded in 1923 in association with the University of Frankfurt. That association had a condition: the director had to be a professor at the university.
 
-The first director was Carl [[de:Grünberg|GREWN-bairk|ˈɡʁyːnbɛʁk]], who held a chair in economics and social science. Under him the Institute’s task was historical and documentary: an Archive for the History of Socialism and the Labor Movement. Grünberg fell ill and stepped down, and in 1930 Max [[de:Horkheimer|HORK-hy-mer|ˈhɔʁkhaɪ̯mɐ]] was appointed to both the directorship and a professorship.
+The first director was Carl Grünberg, who held a chair in economics and social science. Under him the Institute’s task was historical and documentary: an Archive for the History of Socialism and the Labor Movement. Grünberg fell ill and stepped down, and in 1930 Max Horkheimer was appointed to both the directorship and a professorship.
 
 ### The re-founding, 1930–31
 
@@ -27,7 +27,7 @@ On 24 January 1931 Horkheimer gave his inaugural address as the new director. Th
 
 ## Max Horkheimer (1895–1973)
 
-Horkheimer was born near Stuttgart, the son of Moritz Horkheimer, an industrialist, into a strictly observant Jewish family. He studied with Edmund [[de:Husserl|HOOSS-erl|ˈhʊsɐl]] and Heidegger in Freiburg, and was drawn to their phenomenology. He wrote his doctoral dissertation in philosophy at Frankfurt with Hans [[de:Cornelius|kor-NAY-lee-ooss|kɔʁˈneːli̯ʊs]], on “The Antinomy of Teleological Judgment,” and his habilitation, also with Cornelius, on “Kant’s *Critique of Judgment* as a Connecting Link between Theoretical and Practical Philosophy” (1925). His inaugural lecture as a university teacher, in May 1925, was called “Kant and Hegel.”
+Horkheimer was born near Stuttgart, the son of Moritz Horkheimer, an industrialist, into a strictly observant Jewish family. He studied with Edmund [[de:Husserl|HOOSS-erl]] and Heidegger in Freiburg, and was drawn to their phenomenology. He wrote his doctoral dissertation in philosophy at Frankfurt with Hans [[de:Cornelius|kor-NAY-lee-ooss]], on “The Antinomy of Teleological Judgment,” and his habilitation, also with Cornelius, on “Kant’s *Critique of Judgment* as a Connecting Link between Theoretical and Practical Philosophy” (1925). His inaugural lecture as a university teacher, in May 1925, was called “Kant and Hegel.”
 
 On paper, then, a very standard academic career: a young professor who had just finished his habilitation, highly educated, with a respectable interest in phenomenology. But he was also far to the left. He felt a real fury at the suffering of people in the streets, and a moral outrage at the distance between the impoverished and the bourgeoisie. Horkheimer was a philosopher, but a *social* philosopher: practical, committed to social change, ready to use the methods of sociology, and wanting to frame social change with philosophy and sociology together.
 
@@ -39,7 +39,7 @@ The address is called “The Present Situation of Social Philosophy and the Task
 
 ### The intellectual situation
 
-Horkheimer speaks into a particular moment. The modern research university in postwar Germany was questioning its own disciplinary boundaries, and philosophy was divided among rival movements: positivism, neo-Kantianism, the pessimism of [[de:Schopenhauer|SHOH-pen-how-er|ˈʃoːpn̩haʊ̯ɐ]], and Heidegger’s “melancholy.”
+Horkheimer speaks into a particular moment. The modern research university in postwar Germany was questioning its own disciplinary boundaries, and philosophy was divided among rival movements: positivism, neo-Kantianism, the pessimism of Schopenhauer, and Heidegger’s “melancholy.”
 
 His answer is interdisciplinarity together with empiricism. Chaotic specialization, he says, will not be overcome by bad syntheses of specialized results, and real empirical research will not come about by reducing its theoretical element to nothing. It is overcome to the extent that philosophy, as a theoretical undertaking oriented to the general and the essential, can give particular studies their “animating impulses,” while staying open enough to be changed by those studies in turn. (Quotation 1.)
 
@@ -49,7 +49,7 @@ So interdisciplinarity is necessary, but it must not come at the expense of any 
 
 Why “social” philosophy? Horkheimer tells a story about German Idealism.
 
-For Kant, the rational individual is the moral individual: you, the individual, give yourself your own rules. Horkheimer calls this a kind of “transcendental isolation.” For [[de:Hegel|HAY-gel|ˈheːɡl̩]], reason belongs to the social totality: [[de:*Geist*|GUYST|ɡaɪ̯st]] is the collective rationality of spirit. Hegel freed self-consciousness from introspection and moved the question of what we are into the work of history, where the subject gives itself objective form. Law, the economy, the state: these are all, for Hegel, *objective spirit*, the manifestation of collective consciousness.
+For Kant, the rational individual is the moral individual: you, the individual, give yourself your own rules. Horkheimer calls this a kind of “transcendental isolation.” For Hegel, reason belongs to the social totality: *Geist* is the collective rationality of spirit. Hegel freed self-consciousness from introspection and moved the question of what we are into the work of history, where the subject gives itself objective form. Law, the economy, the state: these are all, for Hegel, *objective spirit*, the manifestation of collective consciousness.
 
 Social philosophy, Horkheimer says, must not be bound by Kantian individualism and liberalism; it should take up the Hegelian vision of the social whole as the realm of objective spirit. Social reality should be rational, and Hegel’s perspective lets us see it from above, as a whole, and so see how it might be formed.
 

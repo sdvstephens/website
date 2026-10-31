@@ -15,24 +15,24 @@ date: 2026-03-10
 
 ### Comfort and anxiety
 
-America gave the Institute safety, but not peace. Personally there was [[de:Benjamin|BEN-yah-meen|ˈbɛnjamiːn]]’s death, and the fate of Adorno’s family. Generally there were the immigration quotas, hostility to refugees, and fascist and racist currents in American life itself.
+America gave the Institute safety, but not peace. Personally there was Benjamin’s death, and the fate of Adorno’s family. Generally there were the immigration quotas, hostility to refugees, and fascist and racist currents in American life itself.
 
 ### Right-wing populism, racism and nativism in America
 
-- the German-American [[de:Bund|BOONT|bʊnt]] (1936–1941), which held a rally of some twenty thousand people in Madison Square Garden in 1939;
+- the German-American [[de:Bund|BOONT]] (1936–1941), which held a rally of some twenty thousand people in Madison Square Garden in 1939;
 - the radio priest Father Charles Coughlin (late 1930s to early 1940s) and the agitator Martin Luther Thomas (late 1930s);
-- the internment of 120,000 Japanese and Japanese Americans, [[ja:Issei|EE-say|is.seː]] and [[ja:Nisei|NEE-say|ɲi.seː]], from 1942 to 1946;
+- the internment of 120,000 Japanese and Japanese Americans, [[ja:Issei|EE-say]] and [[ja:Nisei|NEE-say]], from 1942 to 1946;
 - the continuing lynching of Black Americans: Emmett Till, fourteen years old, was murdered in 1955.
 
 ### The Institute’s empirical studies in America
 
-The Institute’s American research appeared in the series *Studies in Prejudice*, edited by [[de:Horkheimer|HORK-hy-mer|ˈhɔʁkhaɪ̯mɐ]] and Samuel H. Flowerman (quotation 1):
+The Institute’s American research appeared in the series *Studies in Prejudice*, edited by Horkheimer and Samuel H. Flowerman (quotation 1):
 
 - *The Authoritarian Personality* (1950), by Adorno, Frenkel-Brunswik, Levinson and Sanford;
 - *Dynamics of Prejudice* (1950), by Bruno Bettelheim and Morris Janowitz, a study of veterans;
 - *Anti-Semitism and Emotional Disorder* (1950), by Nathan W. Ackerman and Marie Jahoda;
 - *Rehearsal for Destruction* (1949), by Paul W. Massing, on political anti-Semitism in imperial Germany;
-- *Prophets of Deceit* (1949), by Leo [[de:Löwenthal|LUR-ven-tahl|ˈløːvn̩taːl]] and Norbert Guterman, on the techniques of the American agitator.
+- *Prophets of Deceit* (1949), by Leo Löwenthal and Norbert Guterman, on the techniques of the American agitator.
 
 The motives were personal and political at once: the genocide of a whole culture in Europe, and a growing assault on the political left.
 

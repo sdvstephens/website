@@ -18,7 +18,7 @@ And there was an urgent question for them to answer: *why authoritarianism?* Why
 
 Freud himself pointed the way in *Group Psychology and the Analysis of the Ego* (1921): all the relations psychoanalysis had studied, he wrote, “may claim to be considered as social phenomena.” (Quotation 1.) His is a social theory of desire. So we can correlate political authority with authority in the family and authority in the psyche.
 
-The family had already been put on the table. Friedrich [[de:Engels|ENG-els|ˈɛŋl̩s]], in *The Origin of the Family, Private Property, and the State* (1884), argued that the historical defeat of matriarchy by patriarchy went together with the development of private property and bourgeois culture. Fromm adds a warning against reductive readings: “the relationship of super-ego to authority is dialectical.” Causation runs both ways. Political authority, and its attractive, even erotic pull, comes from the authority of the family, of the patriarch and potentially the matriarch; and the family’s authority is in turn shaped by the society around it.
+The family had already been put on the table. Friedrich [[de:Engels|ENG-els]], in *The Origin of the Family, Private Property, and the State* (1884), argued that the historical defeat of matriarchy by patriarchy went together with the development of private property and bourgeois culture. Fromm adds a warning against reductive readings: “the relationship of super-ego to authority is dialectical.” Causation runs both ways. Political authority, and its attractive, even erotic pull, comes from the authority of the family, of the patriarch and potentially the matriarch; and the family’s authority is in turn shaped by the society around it.
 
 ## The studies of authority
 
@@ -27,9 +27,9 @@ The family had already been put on the table. Friedrich [[de:Engels|ENG-els|ˈɛ
 The Institute’s research on authority runs through four large projects:
 
 - Fromm and others, *The Situation of the Working Class in Past and Present* (begun 1929);
-- [[de:*Studien über Autorität und Familie*|SHTOO-dee-en EW-ber ow-toh-ree-TAYT oont fah-MEE-lee-eh|ˈʃtuːdi̯ən ˈyːbɐ aʊ̯toʁiˈtɛːt ʊnt faˈmiːli̯ə]] (*Studies on Authority and the Family*), published in exile in Paris by [[fr:Félix Alcan|fay-LEEKS ahl-KAHN|feliks alkɑ̃]] in 1936: 850 pages, opened by three theoretical essays by [[de:Horkheimer|HORK-hy-mer|ˈhɔʁkhaɪ̯mɐ]], [[de:Marcuse|mar-KOO-zeh|maʁˈkuːzə]] and Fromm;
+- [[de:*Studien über Autorität und Familie*|SHTOO-dee-en EW-ber ow-toh-ree-TAYT oont fah-MEE-lee-eh]] (*Studies on Authority and the Family*), published in exile in Paris by [[fr:Félix Alcan|fay-LEEKS ahl-KAHN]] in 1936: 850 pages, opened by three theoretical essays by Horkheimer, Marcuse and Fromm;
 - Adorno and others, *The Authoritarian Personality* (1950);
-- Pollock and others, the [[de:*Gruppenexperiment*|GROO-pen-ex-peh-ree-ment|ˈɡʁʊpn̩ʔɛkspeʁiˌmɛnt]] (*Group Experiment*, 1955).
+- Pollock and others, the [[de:*Gruppenexperiment*|GROO-pen-ex-peh-ree-ment]] (*Group Experiment*, 1955).
 
 ### What they have in common
 
@@ -51,7 +51,7 @@ Look first at the question itself. To say that people *want* to be dominated may
 
 Horkheimer’s answer is cultural. One function of the entire cultural apparatus, in any period, has been to instill in those in subordinate positions the idea that some must necessarily dominate others. The cultural apparatus is so all-encompassing that we internalize it; authority in culture as a whole works this way, not only the authority of the state. Much of the psychic apparatus of the members of a class society serves to interiorize, or at least rationalize and supplement, physical coercion; our “social nature” comes down to the memory of the force by which human beings were made sociable, and which still threatens them if they forget. (Quotation 4.)
 
-This is the *interiorization* thesis, and it comes chiefly from [[de:Nietzsche|NEE-cheh|ˈniːt͡sʃə]]: [[de:*Verinnerlichung*|fair-IN-er-likh-oong|fɛɐ̯ˈʔɪnɐlɪçʊŋ]], “inward-turning.” In Nietzsche’s story, the moral code was introduced by the weak to subordinate the strong; the strong’s desires were tamed by implementing “virtue,” and power and violence turned inward. In Freud’s version, the power of the patriarch, the father, becomes the super-ego; with it we gain conscience, and so we become moral individuals. Horkheimer does not say this is simply bad. Interiorization is a theory of how morals develop, and he insists that new qualities arise in the process: religion, morality, art, conscience and duty are largely interiorized force, external law taken into the psyche, and yet in the individual’s psychic economy they are powers that lead him not only to accept existing conditions but at times to oppose them. (Quotation 5.)
+This is the *interiorization* thesis, and it comes chiefly from Nietzsche: [[de:*Verinnerlichung*|fair-IN-er-likh-oong]], “inward-turning.” In Nietzsche’s story, the moral code was introduced by the weak to subordinate the strong; the strong’s desires were tamed by implementing “virtue,” and power and violence turned inward. In Freud’s version, the power of the patriarch, the father, becomes the super-ego; with it we gain conscience, and so we become moral individuals. Horkheimer does not say this is simply bad. Interiorization is a theory of how morals develop, and he insists that new qualities arise in the process: religion, morality, art, conscience and duty are largely interiorized force, external law taken into the psyche, and yet in the individual’s psychic economy they are powers that lead him not only to accept existing conditions but at times to oppose them. (Quotation 5.)
 
 The family is the medium of interiorization. It shapes the child from his tenderest years; the child meets reality as it is reflected in the mirror of the family circle; and the family sees to it that the kind of character social life requires actually emerges, with the authority-oriented adaptability on which the bourgeois order depends. (Quotation 6.) The family perpetuates the human structure and shape, and the process is dialectical: family authority, the self, and authority in culture each act on the others.
 
@@ -65,7 +65,7 @@ My own conclusion: I want to destroy the modern atomic family.
 
 ## Concluding remarks
 
-Authority and authoritarianism live in culture, and culture has its own dialectic of unfreedom: it is both reification and a “sign of freedom.” That raises a question about critical theory itself: where does the theory stand within the society it portrays? The great debates on culture in the 1930s, between Walter [[de:Benjamin|BEN-yah-meen|ˈbɛnjamiːn]] and Adorno, come next.
+Authority and authoritarianism live in culture, and culture has its own dialectic of unfreedom: it is both reification and a “sign of freedom.” That raises a question about critical theory itself: where does the theory stand within the society it portrays? The great debates on culture in the 1930s, between Walter Benjamin and Adorno, come next.
 
 :::outline Handout outline (Professor Gordon)
 **I. Recapitulation: psychoanalysis and authority**
@@ -85,7 +85,7 @@ Authority and authoritarianism live in culture, and culture has its own dialecti
 
 - A. Authority and authoritarianism in the 1930s
   - Fromm, et al., *The Situation of the Working Class in Past and Present* (begun 1929)
-  - *Studien über Autorität und Familie.* [[de:*Forschungsberichte aus dem Institut für Sozialforschung*|FOR-shoongs-beh-rikh-teh owss daym in-stee-TOOT fewr zoh-TSYAHL-for-shoong|ˈfɔʁʃʊŋsbəˌʁɪçtə aʊ̯s deːm ɪnstiˈtuːt fyːɐ̯ zoˈt͡si̯aːlˌfɔʁʃʊŋ]] (Paris: Librairie Félix Alcan, 1936): 850 pages; 3 introductory essays by Horkheimer, Marcuse, and Fromm
+  - *Studien über Autorität und Familie.* [[de:*Forschungsberichte aus dem Institut für Sozialforschung*|FOR-shoongs-beh-rikh-teh owss daym in-stee-TOOT fewr zoh-TSYAHL-for-shoong]] (Paris: Librairie Félix Alcan, 1936): 850 pages; 3 introductory essays by Horkheimer, Marcuse, and Fromm
   - Adorno, et al., *The Authoritarian Personality* (1950)
   - Pollock, et al., *Gruppenexperiment* (1955)
 - B. Some general characteristics

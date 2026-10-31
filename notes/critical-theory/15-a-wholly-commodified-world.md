@@ -10,7 +10,7 @@ date: 2026-03-24
 
 ## Recapitulation
 
-Fascism in the liberal-democratic West; the Institute’s postwar empirical sociology; psychoanalysis and mass politics. Today the thread runs from mass politics to mass culture, and to a provocative term: the *culture industry*, in German [[de:*Kulturindustrie*|kool-TOOR-in-doo-stree|kʊlˈtuːɐ̯ʔɪndʊsˌtʁiː]]. “The whole world,” [[de:Horkheimer|HORK-hy-mer|ˈhɔʁkhaɪ̯mɐ]] and Adorno write, “is passed through the filter of the culture industry.” (Quotation 1.) The question hanging over the chapter is whether it is a principled and consistent Marxism, or a case of misrecognition.
+Fascism in the liberal-democratic West; the Institute’s postwar empirical sociology; psychoanalysis and mass politics. Today the thread runs from mass politics to mass culture, and to a provocative term: the *culture industry*, in German [[de:*Kulturindustrie*|kool-TOOR-in-doo-stree]]. “The whole world,” Horkheimer and Adorno write, “is passed through the filter of the culture industry.” (Quotation 1.) The question hanging over the chapter is whether it is a principled and consistent Marxism, or a case of misrecognition.
 
 ## The theory of the culture industry in *Dialectic of Enlightenment*
 
@@ -37,13 +37,13 @@ Resistance is impossible, and the cartoons show it in scenes of sadism. Donald D
 
 ### The elitism question
 
-Against this stands art as a “promise of happiness,” the [[fr:*promesse du bonheur*|proh-MESS dew boh-NUR|pʁɔmɛs dy bɔnœʁ]] of [[fr:Stendhal|stahn-DAHL|stɛ̃dal]]. Is popular culture, by contrast, a realm of pure and free expression? Adorno’s answer is more interesting than either side. “Light” art as such, entertainment, is not decadence. The purity of bourgeois art, set up as a realm of freedom against material practice, was bought from the outset by excluding the lower classes. Light art has accompanied autonomous art as its shadow: it is “the social bad conscience of serious art.” The split between them is itself the truth, and it cannot be reconciled by absorbing either into the other. (Quotation 10.)
+Against this stands art as a “promise of happiness,” the [[fr:*promesse du bonheur*|proh-MESS dew boh-NUR]] of [[fr:Stendhal|stahn-DAHL]]. Is popular culture, by contrast, a realm of pure and free expression? Adorno’s answer is more interesting than either side. “Light” art as such, entertainment, is not decadence. The purity of bourgeois art, set up as a realm of freedom against material practice, was bought from the outset by excluding the lower classes. Light art has accompanied autonomous art as its shadow: it is “the social bad conscience of serious art.” The split between them is itself the truth, and it cannot be reconciled by absorbing either into the other. (Quotation 10.)
 
 ## Adorno’s postwar cultural criticism
 
 ### *Prisms* (1955)
 
-[[de:*Prismen*|PRISS-men|ˈpʁɪsmən]] (1955) was Adorno’s first major collection of essays after his return to Frankfurt. Its opening essay asks about the method of cultural criticism: should it be *transcendent*, judging culture from outside, or *immanent*, judging it by its own standards? That is next lecture’s question.
+[[de:*Prismen*|PRISS-men]] (1955) was Adorno’s first major collection of essays after his return to Frankfurt. Its opening essay asks about the method of cultural criticism: should it be *transcendent*, judging culture from outside, or *immanent*, judging it by its own standards? That is next lecture’s question.
 
 ### Adorno on jazz
 
@@ -58,7 +58,7 @@ What music did Adorno actually know? Commercial dance-band jazz, Paul Whiteman a
 ## Concluding remarks
 
 - A German émigré’s misunderstanding?
-- “Culture” and [[de:*Kultur*|kool-TOOR|kʊlˈtuːɐ̯]]: questions of Eurocentrism and elitism.
+- “Culture” and [[de:*Kultur*|kool-TOOR]]: questions of Eurocentrism and elitism.
 - Is there a way out of commodified culture?
 - An exacting and consistent Marxism, or misrecognition?
 

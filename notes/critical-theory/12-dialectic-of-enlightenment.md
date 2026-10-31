@@ -9,13 +9,13 @@ date: 2026-03-05
 
 ## Recapitulation
 
-“There is no document of culture which is not at the same time a document of barbarism.” [[de:Benjamin|BEN-yah-meen|ˈbɛnjamiːn]]’s last testament, “On the Concept of History,” left [[de:Horkheimer|HORK-hy-mer|ˈhɔʁkhaɪ̯mɐ]] and Adorno with an image of history as catastrophe: the angel of history, his face turned to the past, blown backward into the future by the storm we call progress. (Quotations 1–3.) They took it with them to California.
+“There is no document of culture which is not at the same time a document of barbarism.” Benjamin’s last testament, “On the Concept of History,” left Horkheimer and Adorno with an image of history as catastrophe: the angel of history, his face turned to the past, blown backward into the future by the storm we call progress. (Quotations 1–3.) They took it with them to California.
 
 ## Horkheimer and Adorno in Los Angeles, 1940–1949
 
 ### Weimar on the Pacific
 
-Southern California in the 1940s was full of refugees from fascism: Bertolt [[de:Brecht|BREKHT|bʁɛçt]], Kurt Weill, Arnold [[de:Schoenberg|SHURN-bairk|ˈʃøːnbɛʁk]], Thomas and Heinrich Mann, Fritz Lang, Peter Lorre, Erich Maria Remarque. People called it “[[de:Weimar|VY-mar|ˈvaɪ̯maʁ]] on the Pacific.” Dislocation, a new language, a strange culture: all of it marked Adorno and Horkheimer.
+Southern California in the 1940s was full of refugees from fascism: Bertolt Brecht, Kurt Weill, Arnold [[de:Schoenberg|SHURN-bairk]], Thomas and Heinrich Mann, Fritz Lang, Peter Lorre, Erich Maria Remarque. People called it “Weimar on the Pacific.” Dislocation, a new language, a strange culture: all of it marked Adorno and Horkheimer.
 
 ### The Institute in California
 
@@ -25,7 +25,7 @@ Horkheimer directed the series *Studies in Prejudice*, working with the American
 
 ### Origins and structure
 
-The book began as Horkheimer’s plan, in New York, for a “dialectical logic.” Adorno joined him as co-writer, and they moved to Los Angeles. Horkheimer’s wife, Rose (“Maidon”) [[de:Riekher|REE-ker|ˈʁiːkɐ]], sat in on the sessions and helped transcribe them; the book was dictated, argued out aloud.
+The book began as Horkheimer’s plan, in New York, for a “dialectical logic.” Adorno joined him as co-writer, and they moved to Los Angeles. Horkheimer’s wife, Rose (“Maidon”) [[de:Riekher|REE-ker]], sat in on the sessions and helped transcribe them; the book was dictated, argued out aloud.
 
 Its structure:
 
@@ -39,7 +39,7 @@ Its structure:
 
 ### The argument in general
 
-“Enlightenment” here is a *trans-historical* category, not the name of the eighteenth-century movement. It means the ideal of reason as emancipatory, and the ironic betrayal of that ideal. The preface insists that freedom is inseparable from enlightenment: the book indicts enlightenment, but it also aims at its rescue, its [[de:*Rettung*|RET-oong|ˈʁɛtʊŋ]].
+“Enlightenment” here is a *trans-historical* category, not the name of the eighteenth-century movement. It means the ideal of reason as emancipatory, and the ironic betrayal of that ideal. The preface insists that freedom is inseparable from enlightenment: the book indicts enlightenment, but it also aims at its rescue, its [[de:*Rettung*|RET-oong]].
 
 ### What is the “dialectic” of enlightenment?
 
@@ -69,7 +69,7 @@ The *Odyssey* is the book’s great example. The epic hero defeats the mythic cr
 
 ## Concluding questions
 
-- The critique of [[de:Hegel|HAY-gel|ˈheːɡl̩]]. With the concept of *determinate negation*, Hegel gave thought a way to criticize without simply rejecting. But by finally declaring the known result of the whole process, totality in the system and in history, to be the absolute, he violated the prohibition and himself fell into mythology. (Quotation 10.) Determinate negation, or “the absolute”?
+- The critique of Hegel. With the concept of *determinate negation*, Hegel gave thought a way to criticize without simply rejecting. But by finally declaring the known result of the whole process, totality in the system and in history, to be the absolute, he violated the prohibition and himself fell into mythology. (Quotation 10.) Determinate negation, or “the absolute”?
 - Is this an exhaustive, “totalizing” critique of reason? If reason is so compromised, with what are we criticizing it?
 - How can reason survive such an indictment?
 - Is the book a description, an exaggeration, or a warning? That question carries us to fascism after 1945, next time.

@@ -176,15 +176,15 @@ function pipeGrids(md) {
 }
 
 // ---------------------------------------------------------------- pronunciation
-// [[de:*Geist*|GUYST|ɡaɪst]] → the term (marked lang="de"), followed by a
-// small guide: a sounds-like respelling and the IPA. Used the first time a
-// foreign word appears on a page (the critical theory notes). Tie bars
-// (t͡s) are dropped when rendered: most fonts draw them badly, and ts reads the same.
-const SAY = /\[\[([a-z]{2,3}(?:-[A-Za-z]{2,4})?):([^|\]\n]+)\|([^|\]\n]+)\|([^\]\n]+)\]\]([’']s\b)?/g;
+// [[de:*Geist*|GUYST]] → the term (marked lang="de"), followed by a small
+// sounds-like respelling, stressed syllable in capitals. Used once per course,
+// the first time a foreign word or name appears (the critical theory notes).
+// An old third field (IPA) is accepted and ignored.
+const SAY = /\[\[([a-z]{2,3}(?:-[A-Za-z]{2,4})?):([^|\]\n]+)\|([^|\]\n]+)(?:\|[^\]\n]*)?\]\]([’']s\b)?/g;
 function pronunciations(md) {
-  // A possessive stays with the word: Hegel’s (HAY-gel; …), not Hegel (…)’s.
-  return md.replace(SAY, (_, lang, term, like, ipa, poss = '') =>
-    `<span class="say"><span lang="${lang}">${term.trim()}</span>${poss} <span class="pron">(<span class="pron-like">${like.trim()}</span>; <span class="ipa" lang="und-fonipa">/${ipa.trim().replace(/^\/|\/$/g, '').replace(/\u0361/g, '')}/</span>)</span></span>`);
+  // A possessive stays with the word: Hegel’s (HAY-gel), not Hegel (HAY-gel)’s.
+  return md.replace(SAY, (_, lang, term, like, poss = '') =>
+    `<span class="say"><span lang="${lang}">${term.trim()}</span>${poss} <span class="pron">(<span class="pron-like">${like.trim()}</span>)</span></span>`);
 }
 
 /** Blog posts and plain pages. */

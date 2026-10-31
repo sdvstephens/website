@@ -9,23 +9,23 @@ date: 2026-03-03
 
 ## Recapitulation
 
-Adorno and [[de:Benjamin|BEN-yah-meen|ˈbɛnjamiːn]]: was theirs a conversation without a conclusion, or an unresolved dialectic? Benjamin left a dictum that belongs to both of them: “There is no document of culture which is not at the same time a document of barbarism.” Today we read his last testament, written in 1940, months before his death.
+Adorno and Benjamin: was theirs a conversation without a conclusion, or an unresolved dialectic? Benjamin left a dictum that belongs to both of them: “There is no document of culture which is not at the same time a document of barbarism.” Today we read his last testament, written in 1940, months before his death.
 
 ## Benjamin, “On the Concept of History” (1940)
 
 ### Preliminary remarks
 
-The text is often called the “Theses on the Philosophy of History,” though that is not its actual title. Its form, a sequence of numbered theses, has antecedents in Gotthold [[de:Lessing|LESS-ing|ˈlɛsɪŋ]]’s *The Education of the Human Race* (1780) and Marx’s “Theses on [[de:Feuerbach|FOY-er-bahkh|ˈfɔɪ̯ɐbax]].” It works through “dialectical images” (the chess player, the angel) rather than arguments laid end to end. It is a critique of historicism and an argument for historical materialism, and it is a set of general reflections on the philosophy of history and on our concepts of time.
+The text is often called the “Theses on the Philosophy of History,” though that is not its actual title. Its form, a sequence of numbered theses, has antecedents in Gotthold [[de:Lessing|LESS-ing]]’s *The Education of the Human Race* (1780) and Marx’s “Theses on Feuerbach.” It works through “dialectical images” (the chess player, the angel) rather than arguments laid end to end. It is a critique of historicism and an argument for historical materialism, and it is a set of general reflections on the philosophy of history and on our concepts of time.
 
 ### The critique of historicism
 
-Benjamin’s first target is historicism, the German tradition of [[de:*Historismus*|hiss-toh-RISS-mooss|hɪstoˈʁɪsmʊs]]: Leopold von [[de:Ranke|RAHN-keh|ˈʁaŋkə]], Wilhelm [[de:Dilthey|DIL-tye|ˈdɪltaɪ̯]], Friedrich [[de:Meinecke|MY-neh-keh|ˈmaɪ̯nəkə]].
+Benjamin’s first target is historicism, the German tradition of [[de:*Historismus*|hiss-toh-RISS-mooss]]: Leopold von [[de:Ranke|RAHN-keh]], Wilhelm [[de:Dilthey|DIL-tye]], Friedrich [[de:Meinecke|MY-neh-keh]].
 
-Ranke, the great German nationalist historian, famously declined the office of judging the past or instructing the future; history, he said, merely wants to show [[de:*wie es eigentlich gewesen*|vee ess EYE-gent-likh geh-VAY-zen|viː ɛs ˈaɪ̯ɡn̩tlɪç ɡəˈveːzn̩]], “how it actually was.” (Quotation 1.) Dilthey’s method was historical empathy, [[de:*Verstehen*|fair-SHTAY-en|fɛɐ̯ˈʃteːən]], “understanding” the past from within. The French medievalist [[fr:Fustel de Coulanges|fews-TEL duh koo-LAHNZH|fystɛl də kulɑ̃ʒ]] advised the historian who wishes to relive an era to “blot out everything he knows about the later course of history.” Empathy, in short, tries to isolate a past moment as a whole, sealed off from us.
+Ranke, the great German nationalist historian, famously declined the office of judging the past or instructing the future; history, he said, merely wants to show [[de:*wie es eigentlich gewesen*|vee ess EYE-gent-likh geh-VAY-zen]], “how it actually was.” (Quotation 1.) Dilthey’s method was historical empathy, [[de:*Verstehen*|fair-SHTAY-en]], “understanding” the past from within. The French medievalist [[fr:Fustel de Coulanges|fews-TEL duh koo-LAHNZH]] advised the historian who wishes to relive an era to “blot out everything he knows about the later course of history.” Empathy, in short, tries to isolate a past moment as a whole, sealed off from us.
 
 According to Benjamin, historicist empathy is empathy *with the victors*. Why? Because the past as it “actually was” is the past as its rulers made it and recorded it; to enter it sympathetically is to take their side.
 
-Benjamin’s second target is closer to home: the evolutionary socialism of Eduard [[de:Bernstein|BAIRN-shtine|ˈbɛʁnʃtaɪ̯n]], socialist revisionism. Gradualism repeats the error of theodicy: if history is steady progress toward a good end, past suffering is justified by what it leads to, and once again we sympathize with the victors. The third target is vulgar Marxist economism, with its faith in technological development. Its economism imagines history as a machine that will deliver socialism. And its image of history as the mastery of nature is one that underwrites fascism.
+Benjamin’s second target is closer to home: the evolutionary socialism of Eduard Bernstein, socialist revisionism. Gradualism repeats the error of theodicy: if history is steady progress toward a good end, past suffering is justified by what it leads to, and once again we sympathize with the victors. The third target is vulgar Marxist economism, with its faith in technological development. Its economism imagines history as a machine that will deliver socialism. And its image of history as the mastery of nature is one that underwrites fascism.
 
 ### The argument for historical materialism
 
@@ -39,13 +39,13 @@ The past is “citable” in all its moments. Past moments “flash up” in a m
 
 Revolutions know this. The French Revolution made a new calendar, starting time over. In the July Revolution of 1830, Benjamin tells us, people in several parts of Paris fired at the clocks in the towers.
 
-Against empty time Benjamin sets [[de:*Jetztzeit*|YETST-tsite|ˈjɛt͡st͡saɪ̯t]], “now-time,” something like the theologians’ [[la:*nunc stans*|noonk STAHNSS|nʊŋk stans]], the “standing now” of eternity. Every moment is the small gateway through which the Messiah might enter.
+Against empty time Benjamin sets [[de:*Jetztzeit*|YETST-tsite]], “now-time,” something like the theologians’ [[la:*nunc stans*|noonk STAHNSS]], the “standing now” of eternity. Every moment is the small gateway through which the Messiah might enter.
 
 This is why the essay opens with a dialectical image of historical materialism and theology. There once existed, the story goes, a chess-playing automaton: a puppet in Turkish dress, with a water pipe in its mouth, that could win any game. Mirrors made the table look transparent, but in fact a hunchbacked dwarf, a master of chess, sat inside working the puppet’s hands. The puppet called “historical materialism” is to win every time. It can, Benjamin says, so long as it enlists the services of theology, which today, as everyone knows, is small and ugly and has to keep out of sight. (Quotation 2.) Vulgar materialism is mere mechanism, and it must draw on theology for its animating power. Secularization encrypts theological insight: it carries it into secular thought in hidden form.
 
 ### The storm from Paradise
 
-Benjamin owned Paul [[de:Klee|KLAY|kleː]]’s painting [[la:*Angelus Novus*|AHN-geh-looss NOH-vooss|ˈaŋ.ɡe.lʊs ˈnɔ.wʊs]] (1920), and in the ninth thesis it becomes the angel of history. The angel’s face is turned toward the past. Where we see a chain of events, he sees one single catastrophe, piling wreckage on wreckage at his feet. He would like to stay, to wake the dead and make whole what has been smashed. But a storm is blowing from Paradise; it has caught in his wings so violently that he cannot close them, and it drives him irresistibly into the future, to which his back is turned, while the pile of debris before him grows toward the sky. “This storm is what we call progress.” (Quotation 3.)
+Benjamin owned Paul [[de:Klee|KLAY]]’s painting [[la:*Angelus Novus*|AHN-geh-looss NOH-vooss]] (1920), and in the ninth thesis it becomes the angel of history. The angel’s face is turned toward the past. Where we see a chain of events, he sees one single catastrophe, piling wreckage on wreckage at his feet. He would like to stay, to wake the dead and make whole what has been smashed. But a storm is blowing from Paradise; it has caught in his wings so violently that he cannot close them, and it drives him irresistibly into the future, to which his back is turned, while the pile of debris before him grows toward the sky. “This storm is what we call progress.” (Quotation 3.)
 
 Read through the image:
 
@@ -56,7 +56,7 @@ Read through the image:
 
 ### Its afterlife
 
-The theses reached [[de:Horkheimer|HORK-hy-mer|ˈhɔʁkhaɪ̯mɐ]] and Adorno after Benjamin’s death, while they were writing *Dialectic of Enlightenment*. Adorno wrote to Horkheimer that the text contained Benjamin’s final concepts, and that none of his works showed him closer to their own intentions: history as permanent catastrophe, the critique of progress and of the mastery of nature, the place of culture. Horkheimer answered that the theses would keep them busy for some time, “and he will still be with us”; the identity of culture and barbarism had been the subject of one of his last conversations with Benjamin, in a café near the [[fr:Gare Montparnasse|gar mohn-par-NAHSS|ɡaʁ mɔ̃paʁnas]]. (Quotation 4, from Rolf Wiggershaus, *The Frankfurt School*.) That book is next.
+The theses reached Horkheimer and Adorno after Benjamin’s death, while they were writing *Dialectic of Enlightenment*. Adorno wrote to Horkheimer that the text contained Benjamin’s final concepts, and that none of his works showed him closer to their own intentions: history as permanent catastrophe, the critique of progress and of the mastery of nature, the place of culture. Horkheimer answered that the theses would keep them busy for some time, “and he will still be with us”; the identity of culture and barbarism had been the subject of one of his last conversations with Benjamin, in a café near the [[fr:Gare Montparnasse|gar mohn-par-NAHSS]]. (Quotation 4, from Rolf Wiggershaus, *The Frankfurt School*.) That book is next.
 
 :::outline Handout outline (Professor Gordon)
 **I. Recapitulation**

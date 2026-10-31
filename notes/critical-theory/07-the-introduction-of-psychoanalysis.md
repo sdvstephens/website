@@ -9,11 +9,11 @@ song-url:
 - [Professor Gordon’s handout](/notes/critical-theory/readings/handouts/lecture-07.pdf): outline, and quotations from Horkheimer and Fromm
 :::
 
-The music for the day was Maurice [[fr:Ravel|rah-VEL|ʁavɛl]]’s [[fr:*La Valse*|lah VAHLSS|la vals]], an ironic, Straussian waltz: Vienna’s dance, played until it comes apart.
+The music for the day was Maurice [[fr:Ravel|rah-VEL]]’s [[fr:*La Valse*|lah VAHLSS]], an ironic, Straussian waltz: Vienna’s dance, played until it comes apart.
 
 ## Recapitulation: the formative years, 1930–1940
 
-Critical theory took shape in its formative decade under terrible conditions. From 1933 the Nazis purged and killed communists and leftists generally, and the members of the Frankfurt School had to find landing places abroad. Most of them would have preferred to stay in Germany, and exile, to places like bustling New York, was deeply disorienting. The young theory needed new definitions as it grew, and it began to draw on new resources: culture, high culture and its sociology, the sociology of literature and of taste, bourgeois culture as a whole, and psychoanalysis. Its themes in these years are psychoanalysis, sociology, the family, authoritarianism and fascism; the aesthetic dimension ([[de:Benjamin|BEN-yah-meen|ˈbɛnjamiːn]], Adorno, [[de:Löwenthal|LUR-ven-tahl|ˈløːvn̩taːl]]); and an emerging philosophy of history (Benjamin, Adorno, [[de:Horkheimer|HORK-hy-mer|ˈhɔʁkhaɪ̯mɐ]]). It is out of this that Horkheimer and Adorno will produce their bombshell of a new dialectic, *Dialectic of Enlightenment*.
+Critical theory took shape in its formative decade under terrible conditions. From 1933 the Nazis purged and killed communists and leftists generally, and the members of the Frankfurt School had to find landing places abroad. Most of them would have preferred to stay in Germany, and exile, to places like bustling New York, was deeply disorienting. The young theory needed new definitions as it grew, and it began to draw on new resources: culture, high culture and its sociology, the sociology of literature and of taste, bourgeois culture as a whole, and psychoanalysis. Its themes in these years are psychoanalysis, sociology, the family, authoritarianism and fascism; the aesthetic dimension (Benjamin, Adorno, Löwenthal); and an emerging philosophy of history (Benjamin, Adorno, Horkheimer). It is out of this that Horkheimer and Adorno will produce their bombshell of a new dialectic, *Dialectic of Enlightenment*.
 
 Today: psychoanalysis. Psychoanalysis and Marxism look like opposites. In critical theory they enter a happy and fruitful marriage.
 
@@ -29,7 +29,7 @@ Freud himself is ambiguous. Read one way, he is the “manly” conservative, a 
 
 ### Why psychoanalysis at all?
 
-Given the communist condemnation of psychoanalysis as individualist and bourgeois, why would a neo-Marxist want it? Because critical theory holds that nothing in bourgeois society is total falsehood. Bourgeois society, culture and ideology contain emancipatory, valuable, even desirable elements. One of them is a *hermeneutics of suspicion*: a way of reading that treats what appears on the surface as the symptom of something hidden. Freud reads the symptom for the repressed desire; Marx reads ideology (justice, morality and the rest) for the class interest beneath it. The two suspicions can be joined, in the service of class consciousness and class struggle. Freudian psychoanalysis, with its attention to symptoms, against Pavlovian behaviorism, with its attention only to material conditions: and [[hu:Lukács|LOO-kahch|ˈlukaːt͡ʃ]]’s theory of reification helps explain why the second is so tempting.
+Given the communist condemnation of psychoanalysis as individualist and bourgeois, why would a neo-Marxist want it? Because critical theory holds that nothing in bourgeois society is total falsehood. Bourgeois society, culture and ideology contain emancipatory, valuable, even desirable elements. One of them is a *hermeneutics of suspicion*: a way of reading that treats what appears on the surface as the symptom of something hidden. Freud reads the symptom for the repressed desire; Marx reads ideology (justice, morality and the rest) for the class interest beneath it. The two suspicions can be joined, in the service of class consciousness and class struggle. Freudian psychoanalysis, with its attention to symptoms, against Pavlovian behaviorism, with its attention only to material conditions: and Lukács’s theory of reification helps explain why the second is so tempting.
 
 And there was an urgent question for psychoanalysis to answer. Why would people adapt themselves to unfreedom? Why do we bend to authority and willingly submit to what harms us? In 1932 the Nazis won the largest share of the vote, and much of it came from working people. Why are broke boys defending capitalism? Are they enamored of irrational authority? Do they crave domination by tyrants? One answer: they identify with the authority, see themselves as cogs in the autocrat’s machine, and believe the greater good is worth it. To go further, we need Freud.
 
@@ -37,13 +37,13 @@ And there was an urgent question for psychoanalysis to answer. Why would people 
 
 ### The discovery of the unconscious
 
-Freud trained in Paris with Jean-Martin Charcot at the [[fr:Salpêtrière|sahl-peh-tree-AIR|salpɛtʁijɛʁ]], who had turned the attention of psychiatry to the nervous illnesses: neuroses, hysteria and the rest. The patients were usually members of the bourgeoisie, and often women, and hysteria was what doctors sought to treat. What caused it? Why were these people so unhappy, so ill, so evidently suffering?
+Freud trained in Paris with Jean-Martin Charcot at the [[fr:Salpêtrière|sahl-peh-tree-AIR]], who had turned the attention of psychiatry to the nervous illnesses: neuroses, hysteria and the rest. The patients were usually members of the bourgeoisie, and often women, and hysteria was what doctors sought to treat. What caused it? Why were these people so unhappy, so ill, so evidently suffering?
 
 Freud’s early case studies suggested that neurotic symptoms are surface manifestations of deep psychic distress; obvious now, not then. There is a conscious life and an unconscious life, and the unconscious is the realm of desire and instinctual drive. Freud then generalized: this is true of everyone, healthy or ill. Dreams and slips of the tongue are the unconscious breaking through (you mean to say one thing and say your mother). Speaking becomes the vehicle by which desire shows itself, and that is the foundation of an analytic, *talking* psychology: talking as the cure.
 
 ### Freud’s metapsychology: a “hydraulic” theory of the mind
 
-The self, for Freud, is made of three agencies, which in his German are simply [[de:*das Es*|dahss ESS|das ɛs]], [[de:*das Ich*|dahss IKH|das ɪç]] and [[de:*das Über-Ich*|dahss EW-ber-ikh|das ˈyːbɐʔɪç]], “the It,” “the I,” and “the Over-I,” which English translators made into Latin:
+The self, for Freud, is made of three agencies, which in his German are simply [[de:*das Es*|dahss ESS]], [[de:*das Ich*|dahss IKH]] and [[de:*das Über-Ich*|dahss EW-ber-ikh]], “the It,” “the I,” and “the Over-I,” which English translators made into Latin:
 
 - the **ego**: agency, governed by the *reality principle*;
 - the **id**: libido, governed by the *pleasure principle*, representing the desires of the self;
@@ -59,7 +59,7 @@ You can already see what this offers critical theory: an account of why people g
 
 ### Freud’s social theory
 
-Freud’s social theory is both conservative and critical-emancipatory. In *Beyond the Pleasure Principle* (1920) he introduced a second drive alongside libido: aggression, the *death drive*. Is human happiness even possible, then? In *Civilization and Its Discontents* (1930; in German [[de:*Das Unbehagen in der Kultur*|dahss OON-beh-hah-gen in dair kool-TOOR|das ˈʊnbəhaːɡn̩ ɪn deːɐ̯ kʊlˈtuːɐ̯]], the “unease” or “malaise” in culture) the answer is grim. Repression is necessary if we are to live together, because the death drive craves violence. We are violent, irrational creatures kept in check by the super-ego, and unconscious guilt is what drives our neurosis and depression.
+Freud’s social theory is both conservative and critical-emancipatory. In *Beyond the Pleasure Principle* (1920) he introduced a second drive alongside libido: aggression, the *death drive*. Is human happiness even possible, then? In *Civilization and Its Discontents* (1930; in German [[de:*Das Unbehagen in der Kultur*|dahss OON-beh-hah-gen in dair kool-TOOR]], the “unease” or “malaise” in culture) the answer is grim. Repression is necessary if we are to live together, because the death drive craves violence. We are violent, irrational creatures kept in check by the super-ego, and unconscious guilt is what drives our neurosis and depression.
 
 ## Erich Fromm (1900–1980)
 

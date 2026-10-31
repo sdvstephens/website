@@ -213,25 +213,51 @@ function applyAccess(acc, number, html) {
   });
   html = html.replace(/(<aside class="box box-readings"[^>]*><p class="box-head"><span class="box-label">Readings<\/span>)([\s\S]*?<\/aside>)/g, (m, head, rest) =>
     head + (rest.includes('doc-locked') ? ' <span class="box-title">locked PDFs need the readings password</span>' : '') + rest);
-  // Handout quotations, when shown: each goes after the first paragraph
-  // that cites it ("Quotation 3", "quotations 1–3"); the rest go before the outline.
+  // Handout quotations, when shown, as callouts in the flow of the notes.
+  // A [[quote:ID]] line in the Markdown puts one exactly there; otherwise a
+  // quotation goes after the paragraph (or list item) that first cites it
+  // ("Quotation 3", "quotations 1–3"), and anything left over goes before
+  // the outline. With quotes hidden the markers vanish.
+  const MARK = /<p>\[\[quote:([\w-]+)\]\]<\/p>\s*/g;
   const list = acc.quotes[String(number).padStart(2, '0')] || acc.quotes[String(number)] || [];
-  if (!list.length) return html;
+  if (!list.length) return html.replace(MARK, '');
+  const key = (q) => String(q.n || q.id);
+  const byKey = new Map(list.map((q) => [key(q), q]));
   const placed = new Set();
-  const quote = (q) => `<blockquote class="handout-quote" id="quote-${q.n || q.id}"><p>${esc(q.text).replace(/\n\n+/g, '</p><p>')}</p><footer>${q.n ? `Quotation ${q.n} · ` : ''}${q.source ? renderTitle(q.source) : 'from the handout'}</footer></blockquote>`;
-  const byN = new Map(list.filter((q) => q.n).map((q) => [String(q.n), q]));
-  html = html.replace(/<p>([\s\S]*?)<\/p>/g, (m, inner) => {
+  const quote = (q) => `<aside class="box box-quote" id="quote-${key(q)}"><p class="box-head"><span class="box-label">${q.n ? `Quotation ${q.n}` : 'From the handout'}</span> <span class="box-title">${q.source ? renderTitle(q.source) : ''}</span></p><blockquote><p>${esc(q.text).replace(/\n\n+/g, '</p><p>')}</p></blockquote></aside>`;
+  html = html.replace(MARK, (m, id) => {
+    const q = byKey.get(id);
+    if (!q) { warn(`lecture ${number}: [[quote:${id}]] matches no quotation in readings/quotes.json`); return ''; }
+    placed.add(id);
+    return quote(q);
+  });
+  const cited = (inner) => {
     const nums = [];
     for (const [, a, b] of inner.matchAll(/[Qq]uotations? (\d+)(?:\s*[–-]\s*(\d+))?/g)) {
       for (let n = +a; n <= +(b || a); n++) nums.push(String(n));
     }
     for (const [, more] of inner.matchAll(/[Qq]uotations? \d+(?:,\s*(\d+))/g)) nums.push(more);
-    const add = nums.filter((n) => byN.has(n) && !placed.has(n));
+    const add = [...new Set(nums)].filter((n) => byKey.has(n) && !placed.has(n));
     add.forEach((n) => placed.add(n));
-    return m + add.map((n) => quote(byN.get(n))).join('');
+    return add.map((n) => quote(byKey.get(n))).join('');
+  };
+  // Outside the folded outline only: the outline cites the handout too.
+  const cut = html.indexOf('<details class="outline">');
+  let head = cut < 0 ? html : html.slice(0, cut);
+  const tail = cut < 0 ? '' : html.slice(cut);
+  head = head.replace(/<p>([\s\S]*?)<\/p>/g, (m, inner) => m + cited(inner));
+  // List items without paragraphs of their own: the callout goes inside the item.
+  head = head.replace(/<li>((?:(?!<li>|<\/li>|<p>|<ul>|<ol>)[\s\S])*?)<\/li>/g, (m, inner) => {
+    const boxes = cited(inner);
+    return boxes ? `<li>${inner}${boxes}</li>` : m;
   });
-  const rest = list.filter((q) => !q.n || !placed.has(String(q.n)));
+  // Point each citation at its callout.
+  head = head.replace(/(\(|\s)([Qq]uotation (\d+))(?=[.,;):\s])/g, (m, pre, text, n) =>
+    placed.has(n) ? `${pre}<a class="quote-ref" href="#quote-${n}">${text}</a>` : m);
+  html = head + tail;
+  const rest = list.filter((q) => !placed.has(key(q)));
   if (rest.length) {
+    warn(`lecture ${number}: quotations ${rest.map(key).join(', ')} are cited nowhere; they go before the outline`);
     const block = `<h2 id="from-the-handout">From the handout</h2>${rest.map(quote).join('')}`;
     html = html.includes('<details class="outline">') ? html.replace('<details class="outline">', block + '<details class="outline">') : html + block;
   }
@@ -240,19 +266,22 @@ function applyAccess(acc, number, html) {
 
 function readingsHtaccess(acc) {
   const shown = acc.files.filter((f) => acc.status(f) === 'shown').map((f) => path.basename(f));
-  return `# Written by build.mjs from access.json. Don't edit this copy: change
-# "hidden"/"shown" in notes/<course>/access.json and publish.
-AuthType Basic
+  // With nothing hidden, no password at all (the folder still lists nothing).
+  const anyHidden = acc.files.some((f) => acc.status(f) === 'hidden') || (!acc.files.length && acc.default !== 'shown');
+  const auth = anyHidden ? `AuthType Basic
 AuthName "${acc.realm || 'Course readings'}"
 AuthUserFile ${acc.authUserFile}
 Require valid-user
-
+` : '# Every document is shown, so there is no password.\n';
+  return `# Written by build.mjs from access.json. Don't edit this copy: change
+# "hidden"/"shown" in notes/<course>/access.json and publish.
+${auth}
 <Files ".ht*">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
 </Files>
-${shown.map((n) => `
+${(anyHidden ? shown : []).map((n) => `
 <Files "${n}">
   Require all granted
 </Files>`).join('')}

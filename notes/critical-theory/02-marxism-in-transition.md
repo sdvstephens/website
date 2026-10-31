@@ -9,9 +9,9 @@ date: 2026-01-29
 
 ## Where we are
 
-Critical theory, in our sense, is the work of the Institute for Social Research, the [[de:*Institut für Sozialforschung*|in-stee-TOOT fewr zoh-TSYAHL-for-shoong|ɪnstiˈtuːt fyːɐ̯ zoˈt͡si̯aːlˌfɔʁʃʊŋ]], from 1923 on. It draws on three sources at once: German Idealism from Kant to [[de:Hegel|HAY-gel|ˈheːɡl̩]], Marxism, and psychoanalysis. And as we read it we should keep asking the question from last time: is this theory mystifying its object, or demystifying it?
+Critical theory, in our sense, is the work of the Institute for Social Research, the *Institut für Sozialforschung*, from 1923 on. It draws on three sources at once: German Idealism from Kant to Hegel, Marxism, and psychoanalysis. And as we read it we should keep asking the question from last time: is this theory mystifying its object, or demystifying it?
 
-The generations again: first [[de:Horkheimer|HORK-hy-mer|ˈhɔʁkhaɪ̯mɐ]], Adorno, [[de:Marcuse|mar-KOO-zeh|maʁˈkuːzə]], Fromm, Pollock, [[de:Löwenthal|LUR-ven-tahl|ˈløːvn̩taːl]]; second, [[de:Habermas|HAH-ber-mahss|ˈhaːbɐmaːs]]; third, [[de:Honneth|HON-et|ˈhɔnət]], Fraser, Benhabib; and the newest, [[de:Jaeggi|YEH-gee|ˈjɛɡi]], Forst, Celikates, Saar.
+The generations again: first Horkheimer, Adorno, Marcuse, Fromm, Pollock, Löwenthal; second, Habermas; third, Honneth, Fraser, Benhabib; and the newest, Jaeggi, Forst, Celikates, Saar.
 
 Today’s task is to see the world that critical theory was born into: a socialist movement that split in two.
 
@@ -22,8 +22,8 @@ Today’s task is to see the world that critical theory was born into: a sociali
 Behind every quarrel in the socialist movement of these years lies one problem: the consciousness of the working class. Marx expected the workers to come to see their situation and change it. What if they don’t? Three answers competed.
 
 - **Party vanguardism**, the Marxism-Leninism of the Bolsheviks: the workers will not get there on their own, so a disciplined party of professional revolutionaries must lead them.
-- **Socialist revisionism**, associated with Eduard [[de:Bernstein|BAIRN-shtine|ˈbɛʁnʃtaɪ̯n]]: revolution is not coming; socialism will arrive gradually, through reforms won within parliamentary democracy.
-- **Working-class spontaneity**, associated with Rosa [[de:Luxemburg|LOOK-sem-boork|ˈlʊksəmbʊʁk]]: the masses learn in struggle, in strikes and uprisings, and revolutionary consciousness grows from their own action rather than from a party’s instructions.
+- **Socialist revisionism**, associated with Eduard [[de:Bernstein|BAIRN-shtine]]: revolution is not coming; socialism will arrive gradually, through reforms won within parliamentary democracy.
+- **Working-class spontaneity**, associated with Rosa [[de:Luxemburg|LOOK-sem-boork]]: the masses learn in struggle, in strikes and uprisings, and revolutionary consciousness grows from their own action rather than from a party’s instructions.
 
 ### The war and the split: nationalism or internationalism?
 
@@ -37,15 +37,15 @@ In 1917 the Bolsheviks came to power in Russia, at first alongside the workers�
 
 ### The postwar situation
 
-Germany’s defeat brought the founding of the [[de:Weimar|VY-mar|ˈvaɪ̯maʁ]] Republic, and the revolutionary hopes of 1918 and 1919 failed: the Bavarian Socialist Republic, for one, was put down within weeks.
+Germany’s defeat brought the founding of the [[de:Weimar|VY-mar]] Republic, and the revolutionary hopes of 1918 and 1919 failed: the Bavarian Socialist Republic, for one, was put down within weeks.
 
 ### Soviet ideology and Western theory
 
 From here two Marxisms go their separate ways. In the Soviet sphere the party tends toward authoritarianism and censorship and, in the end, Stalin’s dictatorship, and Marxism hardens into state dogma: “dialectical materialism,” a doctrine to be repeated. In the West, socialist parties work inside parliamentary systems, and Marxism develops into a diverse *intellectual* movement. Three books mark the moment:
 
-- Ernst [[de:Bloch|BLOKH|blɔx]], *The Spirit of Utopia* (1918);
-- Karl [[de:Korsch|KORSH|kɔʁʃ]], *Marxism and Philosophy* (1923);
-- Georg [[hu:Lukács|LOO-kahch|ˈlukaːt͡ʃ]], *History and Class Consciousness* (1923).
+- Ernst [[de:Bloch|BLOKH]], *The Spirit of Utopia* (1918);
+- Karl [[de:Korsch|KORSH]], *Marxism and Philosophy* (1923);
+- Georg Lukács, *History and Class Consciousness* (1923).
 
 ## The rebirth of Hegelian, or “Western,” Marxism
 
@@ -53,13 +53,21 @@ From here two Marxisms go their separate ways. In the Soviet sphere the party te
 
 To see what Lukács did, we need the Hegelian background of Marx himself, which is a story of the young Marx and the later Marx.
 
-For Hegel, history is the work of spirit, [[de:*Geist*|GUYST|ɡaɪ̯st]]: the collective life of human reason, coming over time to understand itself and to make a world in which it is at home. Marx keeps the shape of this story and changes its subject. History becomes the self-realization of *humanity*, and the medium of that self-realization is *labor*. We make ourselves by making our world.
+For Hegel, history is the work of spirit, [[de:*Geist*|GUYST]]: the collective life of human reason, coming over time to understand itself and to make a world in which it is at home. Marx keeps the shape of this story and changes its subject. History becomes the self-realization of *humanity*, and the medium of that self-realization is *labor*. We make ourselves by making our world.
 
-Marx came to Hegel by way of Ludwig [[de:Feuerbach|FOY-er-bahkh|ˈfɔɪ̯ɐbax]], the most prominent of the “Left Hegelians.” Feuerbach’s *Essence of Christianity* (1841) had argued that God is humanity’s own essence, projected outward and then worshipped as something alien: the more human God becomes, the more of themselves human beings have put into him. Marx takes this structure of self-alienation and applies it to work.
+Marx came to Hegel by way of Ludwig [[de:Feuerbach|FOY-er-bahkh]], the most prominent of the “Left Hegelians.” Feuerbach’s *Essence of Christianity* (1841) had argued that God is humanity’s own essence, projected outward and then worshipped as something alien: the more human God becomes, the more of themselves human beings have put into him. Marx takes this structure of self-alienation and applies it to work.
 
-He did so most clearly in the Paris Manuscripts of 1844, the “Left Hegelian” phase of his thinking. In working on the objective world, Marx says, the human being proves itself a *species-being*, a [[de:*Gattungswesen*|GAH-toongs-vay-zen|ˈɡatʊŋsˌveːzn̩]]: through production, nature appears as our work and our reality, and we see ourselves in a world we have created. Under capitalism this goes wrong. The more the worker produces, the more powerful the alien world of objects he creates over against himself, and the poorer his inner world becomes. It is, Marx says, the same in religion: “The more man puts into God, the less he retains in himself.”
+[[quote:feuerbach]]
+
+He did so most clearly in the Paris Manuscripts of 1844, the “Left Hegelian” phase of his thinking. In working on the objective world, Marx says, the human being proves itself a *species-being*, a [[de:*Gattungswesen*|GAH-toongs-vay-zen]]: through production, nature appears as our work and our reality, and we see ourselves in a world we have created. Under capitalism this goes wrong. The more the worker produces, the more powerful the alien world of objects he creates over against himself, and the poorer his inner world becomes. It is, Marx says, the same in religion: “The more man puts into God, the less he retains in himself.”
+
+[[quote:species-being]]
+
+[[quote:young-marx]]
 
 The later Marx, in *Capital*, describes the same loss in the language of political economy. Every means of developing production becomes a means of dominating and exploiting the producer; it turns the worker into a fragment of a human being, “a mere appendage of the machine,” and turns his whole life into labor-time. (The full passages, from the 1844 manuscripts and from chapter 25 of *Capital*, are on the back of the handout.)
+
+[[quote:later-marx]]
 
 ### Lukács and the turn to Hegelian dialectics
 

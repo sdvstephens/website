@@ -9,20 +9,20 @@ date: 2026-02-26
 
 ## Recapitulation: Marxism and modernism
 
-[[hu:Lukács|LOO-kahch|ˈlukaːt͡ʃ]] showed us the commodity form at work in consciousness: reification. Walter [[de:Benjamin|BEN-yah-meen|ˈbɛnjamiːn]] took a more hopeful view of the same modern world. The dissolution of the aura, he thought, frees art from ritual, and the mass circulation of reproducible artworks holds out a new promise of mass agency. Today Adorno answers him.
+Lukács showed us the commodity form at work in consciousness: reification. Walter Benjamin took a more hopeful view of the same modern world. The dissolution of the aura, he thought, frees art from ritual, and the mass circulation of reproducible artworks holds out a new promise of mass agency. Today Adorno answers him.
 
 ## Theodor W. Adorno
 
 ### Life
 
-Theodor Adorno was born in Frankfurt in 1903, the son of Oscar [[de:Wiesengrund|VEE-zen-groont|ˈviːzn̩ɡʁʊnt]], a wine merchant, and Maria [[it:Calvelli-Adorno|kahl-VEL-lee ah-DOR-noh|kalˈvɛlli aˈdɔrno]], a singer; he published for years as “Wiesengrund-Adorno.” He studied philosophy at the University of Frankfurt with Hans [[de:Cornelius|kor-NAY-lee-ooss|kɔʁˈneːli̯ʊs]] and wrote his dissertation on [[de:Husserl|HOOSS-erl|ˈhʊsɐl]]. He also studied composition, in Vienna, with Alban [[de:Berg|BAIRK|bɛʁk]], and music runs through everything he wrote. His habilitation, on [[da:Kierkegaard|KEER-keh-gor|ˈkʰiɐ̯kəˌkɒːˀ]], was supervised by Paul [[de:Tillich|TIL-ikh|ˈtɪlɪç]], a socialist and theologian. In exile he first tried to take a new doctorate at Oxford with Gilbert Ryle (1934–38); then came New York in 1938, Los Angeles in 1941, and the return to Frankfurt in 1949, where he held a professorship at the [[de:Goethe|GUR-teh|ˈɡøːtə]] University and became a prominent public intellectual. He died in 1969.
+Theodor Adorno was born in Frankfurt in 1903, the son of Oscar [[de:Wiesengrund|VEE-zen-groont]], a wine merchant, and Maria [[it:Calvelli-Adorno|kahl-VEL-lee ah-DOR-noh]], a singer; he published for years as “Wiesengrund-Adorno.” He studied philosophy at the University of Frankfurt with Hans Cornelius and wrote his dissertation on Husserl. He also studied composition, in Vienna, with Alban Berg, and music runs through everything he wrote. His habilitation, on [[da:Kierkegaard|KEER-keh-gor]], was supervised by Paul [[de:Tillich|TIL-ikh]], a socialist and theologian. In exile he first tried to take a new doctorate at Oxford with Gilbert Ryle (1934–38); then came New York in 1938, Los Angeles in 1941, and the return to Frankfurt in 1949, where he held a professorship at the Goethe University and became a prominent public intellectual. He died in 1969.
 
 ### Major works
 
 - *Kierkegaard: Construction of the Aesthetic* (1933)
-- *Dialectic of Enlightenment: Philosophical Fragments* (1944–47), with [[de:Horkheimer|HORK-hy-mer|ˈhɔʁkhaɪ̯mɐ]]
+- *Dialectic of Enlightenment: Philosophical Fragments* (1944–47), with Horkheimer
 - *The Authoritarian Personality* (1950), with a research team
-- [[la:*Minima Moralia*|MEE-nee-mah moh-RAH-lee-ah|ˈmi.ni.ma moˈra.li.a]]: *Reflections from Damaged Life* (1951)
+- [[la:*Minima Moralia*|MEE-nee-mah moh-RAH-lee-ah]]: *Reflections from Damaged Life* (1951)
 - *Prisms: Cultural Criticism and Society* (1955)
 - *Negative Dialectics* (1966)
 - *Aesthetic Theory* (1970)
@@ -31,7 +31,7 @@ Theodor Adorno was born in Frankfurt in 1903, the son of Oscar [[de:Wiesengrund|
 
 Adorno was a philosopher, a sociologist, an aesthetician and a public critic, and a few traits run through all of it:
 
-- a love of aphorism, paradox and exaggeration, with antecedents in Kierkegaard, [[de:Nietzsche|NEE-cheh|ˈniːt͡sʃə]] and the Viennese satirist Karl [[de:Kraus|KROWSS|kʁaʊ̯s]];
+- a love of aphorism, paradox and exaggeration, with antecedents in Kierkegaard, Nietzsche and the Viennese satirist Karl [[de:Kraus|KROWSS]];
 - an unresolved tension between his Marxism and his taste for high-modernist European art;
 - an ethic of strong democratic responsibility, and an anti-authoritarian style of “negativism”;
 - a bitter rejection of the existing order, in unresolved dialectic with an animating spirit of utopia.
@@ -78,7 +78,7 @@ Benjamin’s cultural criticism is vulnerable to capitalist reappropriation: the
   - habilitation on Kierkegaard with Paul Tillich (socialist and theologian)
   - exile, attempts at new doctorate in Oxford with Gilbert Ryle (1934–1938)
   - New York, 1938; Los Angeles, 1941; return to Frankfurt, 1949
-  - renewed professorship at [[de:Goethe-Universität|GUR-teh-oo-nee-vair-zee-TAYT|ˈɡøːtə ʔunivɛʁziˈtɛːt]] Frankfurt; work as public intellectual
+  - renewed professorship at [[de:Goethe-Universität|GUR-teh-oo-nee-vair-zee-TAYT]] Frankfurt; work as public intellectual
   - death 1969
 - B. Major works
   - *Kierkegaard: The Construction of the Aesthetic* (1933)

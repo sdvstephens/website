@@ -290,15 +290,20 @@ details.outline li { margin: .1em 0; }
 .entry-note { font: .62em var(--mono); color: var(--muted); margin-left: .5em; white-space: nowrap; }
 
 /* A quotation from the back of a lecture handout (shown when access.json allows). */
-.handout-quote { margin: 1.1em 0 1.5em; padding: .1em 0 .1em 1.05em; border-left: 2px solid var(--purple); color: var(--ink-soft); font-size: .95em; }
-.handout-quote p { margin: 0 0 .6em; }
-.handout-quote footer { font: .66em/1.5 var(--mono); color: var(--muted); }
+/* A handout quotation, as a callout where the notes cite it. */
+.box-quote { --box: var(--purple); }
+.box-quote .box-head { margin-bottom: .3em; }
+.box-quote blockquote { margin: 0; padding: 0; border: 0; font-style: normal; font-size: .95em; color: var(--ink-soft); }
+.box-quote .box-title { color: var(--muted); font-size: .92em; }
+.box-quote blockquote p { margin: 0 0 .6em; }
+.box-quote blockquote > :last-child { margin-bottom: 0; }
+li .box-quote { margin: .7em 0 1em; }
+a.quote-ref { color: inherit; text-decoration-color: color-mix(in srgb, var(--purple) 55%, transparent); }
 .box-readings a.doc-locked[href$=".pdf"]::after { content: " pdf · locked"; }
 
-/* Pronunciation guides after a foreign word: [[de:Geist|GUYST|ɡaɪst]]. */
+/* Pronunciation guide after a foreign word: [[de:Geist|GUYST]]. */
 .pron { font-size: .78em; color: var(--muted); font-style: normal; white-space: nowrap; }
 .pron-like { letter-spacing: .01em; }
-.ipa { font-family: 'Gentium Plus', 'Charis SIL', 'Doulos SIL', 'Noto Serif', 'Times New Roman', 'DejaVu Serif', serif; }
 
 /* A numbered box is a link target (#definition-2-4-2); show where you landed. */
 .box[id] { scroll-margin-top: 1.5rem; }

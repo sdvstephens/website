@@ -11,9 +11,9 @@ date: 2026-03-26
 
 ## Recapitulation
 
-Was Adorno’s theory of the culture industry a German émigré’s misunderstanding? It raises questions of Eurocentrism and elitism: “culture” against [[de:*Kultur*|kool-TOOR|kʊlˈtuːɐ̯]]. Is it an exacting, consistent Marxism, or a misrecognition? Above all there is the problem of totalizing criticism: if the whole world passes through the filter of the culture industry (quotation 1), is there any way out of commodified culture?
+Was Adorno’s theory of the culture industry a German émigré’s misunderstanding? It raises questions of Eurocentrism and elitism: “culture” against *Kultur*. Is it an exacting, consistent Marxism, or a misrecognition? Above all there is the problem of totalizing criticism: if the whole world passes through the filter of the culture industry (quotation 1), is there any way out of commodified culture?
 
-Against the culture industry Adorno set autonomous art as a [[fr:*promesse du bonheur*|proh-MESS dew boh-NUR|pʁɔmɛs dy bɔnœʁ]], a promise of happiness. And we asked why he would not see popular music, jazz included, as a transcript of both suffering and aspiration, an unresolved dialectic. Today we find more nuance in Adorno than the culture-industry chapter suggests.
+Against the culture industry Adorno set autonomous art as a *promesse du bonheur*, a promise of happiness. And we asked why he would not see popular music, jazz included, as a transcript of both suffering and aspiration, an unresolved dialectic. Today we find more nuance in Adorno than the culture-industry chapter suggests.
 
 ## The method of cultural critique: “Cultural Criticism and Society” (1955)
 
@@ -34,7 +34,7 @@ Critique is the negation of ideology: the negation of what affirms the false. Bu
 
 **Immanent critique** works from within. It takes seriously the principle that ideology is not untrue in itself; what is untrue is its claim to correspond to reality. Through the analysis of a work’s form and meaning, it seeks the contradiction between the work’s objective idea and that claim. A successful work, for immanent criticism, is not one that resolves objective contradictions in a spurious harmony, but one that expresses the idea of harmony negatively, by embodying the contradictions, pure and uncompromised, in its innermost structure. (Quotation 7.)
 
-Adorno does not simply choose. To insist on the choice between immanence and transcendence, he says, is to fall back into the traditional logic that [[de:Hegel|HAY-gel|ˈheːɡl̩]] criticized in Kant: every method that sets limits goes beyond them. “Dialectics means intransigence towards all reification.”
+Adorno does not simply choose. To insist on the choice between immanence and transcendence, he says, is to fall back into the traditional logic that Hegel criticized in Kant: every method that sets limits goes beyond them. “Dialectics means intransigence towards all reification.”
 
 ## “Culture and *Kultur*” (1957)
 
@@ -48,13 +48,13 @@ American culture, by contrast, lacks transcendence. But that is not simply a lac
 
 ### Utopia in everyday happiness
 
-Then comes one of the most surprising passages in Adorno. The way an American child can eat an ice-cream cone with such undisturbed intensity, he writes, and find a fulfilled infantile happiness in every moment, in a way almost unimaginable for German children, is really an element of fulfilled utopia: the utter contentment, the freedom from fear, that belongs to the idea of a chiliastic kingdom. (Quotation 8.) The same thought appears in [[la:*Minima Moralia*|MEE-nee-mah moh-RAH-lee-ah|ˈmi.ni.ma moˈra.li.a]] §37, “This Side of the Pleasure Principle”: only someone who could situate utopia in blind somatic pleasure, Adorno says, has a stable and valid idea of truth. Adorno’s utopia is sensual.
+Then comes one of the most surprising passages in Adorno. The way an American child can eat an ice-cream cone with such undisturbed intensity, he writes, and find a fulfilled infantile happiness in every moment, in a way almost unimaginable for German children, is really an element of fulfilled utopia: the utter contentment, the freedom from fear, that belongs to the idea of a chiliastic kingdom. (Quotation 8.) The same thought appears in *Minima Moralia* §37, “This Side of the Pleasure Principle”: only someone who could situate utopia in blind somatic pleasure, Adorno says, has a stable and valid idea of truth. Adorno’s utopia is sensual.
 
 ## *Introduction to the Sociology of Music* (1961–62)
 
 ### The critique of “light” music
 
-“Light” music (Strauss waltzes, [[it:*opera buffa*|OH-peh-rah BOOF-fah|ˈɔːpera ˈbuffa]], the American “evergreens” or standards) shows conformity even in its apparent individuality. Adorno mocks the “plastic acoustic curves” of the evergreen “Deep Purple” (1933/1938).
+“Light” music (Strauss waltzes, [[it:*opera buffa*|OH-peh-rah BOOF-fah]], the American “evergreens” or standards) shows conformity even in its apparent individuality. Adorno mocks the “plastic acoustic curves” of the evergreen “Deep Purple” (1933/1938).
 
 ### The advantages of light music
 
@@ -62,7 +62,7 @@ Light music also has advantages: proximity and humanity. It preserves an element
 
 ## Concluding remarks
 
-Critique toward what end? Every critique presupposes emancipation. Next, the man who said so most openly: Herbert [[de:Marcuse|mar-KOO-zeh|maʁˈkuːzə]] and the student movement.
+Critique toward what end? Every critique presupposes emancipation. Next, the man who said so most openly: Herbert Marcuse and the student movement.
 
 :::outline Handout outline (Professor Gordon)
 **I. Recapitulation**

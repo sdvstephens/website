@@ -10,27 +10,29 @@ date: 2026-03-31
 
 ## Recapitulation
 
-Art as a [[fr:*promesse du bonheur*|proh-MESS dew boh-NUR|pʁɔmɛs dy bɔnœʁ]], a promise of happiness; utopia and happiness in everyday life. We saw Adorno find utopia in an American child eating an ice-cream cone (“Culture and [[de:*Kultur*|kool-TOOR|kʊlˈtuːɐ̯]]”) and in “blind somatic pleasure” (“This Side of the Pleasure Principle,” in [[la:*Minima Moralia*|MEE-nee-mah moh-RAH-lee-ah|ˈmi.ni.ma moˈra.li.a]]). Today, the critical theorist who made that sensual utopia into a politics.
+Art as a *promesse du bonheur*, a promise of happiness; utopia and happiness in everyday life. We saw Adorno find utopia in an American child eating an ice-cream cone (“Culture and *Kultur*”) and in “blind somatic pleasure” (“This Side of the Pleasure Principle,” in *Minima Moralia*). Today, the critical theorist who made that sensual utopia into a politics.
 
 ## The Frankfurt School in the 1960s
 
 ### Postwar German political culture
 
-West Germany in the 1950s was conservative and anticommunist: the Germany of Konrad [[de:Adenauer|AH-deh-now-er|ˈaːdənaʊ̯ɐ]] and the Christian Democrats. And it was a culture that repressed its Nazi past. Adorno confronted that repression directly in a lecture of 1959, published in 1960: “What Does Coming to Terms with the Past Mean?”
+West Germany in the 1950s was conservative and anticommunist: the Germany of Konrad [[de:Adenauer|AH-deh-now-er]] and the Christian Democrats. And it was a culture that repressed its Nazi past. Adorno confronted that repression directly in a lecture of 1959, published in 1960: “What Does Coming to Terms with the Past Mean?”
 
 ### The rise of the student movement
 
-A new generation rose up against postwar conformism and against their parents’ silence about the fascist past. They protested the American military bases in West Germany and the war in Vietnam. Outside a parliament dominated by a grand coalition, they formed the “extra-parliamentary opposition,” the [[de:*Außerparlamentarische Opposition*|OW-ser-par-lah-men-TAH-ri-sheh oh-poh-zee-TSYOHN|ˈaʊ̯sɐpaʁlamɛnˌtaːʁɪʃə ʔɔpoziˈt͡si̯oːn]], or APO.
+A new generation rose up against postwar conformism and against their parents’ silence about the fascist past. They protested the American military bases in West Germany and the war in Vietnam. Outside a parliament dominated by a grand coalition, they formed the “extra-parliamentary opposition,” the [[de:*Außerparlamentarische Opposition*|OW-ser-par-lah-men-TAH-ri-sheh oh-poh-zee-TSYOHN]], or APO.
 
 ### The Institute as ally, and as establishment
 
-The Institute’s antifascist agenda in the 1950s and 1960s made it a natural ally of the student activists, and in general it supported them. But it was also the establishment. On 30 May 1968 the [[de:Bundestag|BOON-des-tahk|ˈbʊndəstaːk]] passed the “emergency laws,” giving the government extraordinary powers in a crisis, against the opposition of the League of German Socialist Students. In Frankfurt, *The New York Times* reported, leftist students blockaded the university, and fought other students trying to get in to class. On 31 January 1969 members of the APO, led by Adorno’s own student Hans-Jürgen [[de:Krahl|KRAHL|kʁaːl]], occupied the Institute. Adorno called the police. A leaflet of the time declared: “Adorno as an institution is dead.”
+The Institute’s antifascist agenda in the 1950s and 1960s made it a natural ally of the student activists, and in general it supported them. But it was also the establishment. On 30 May 1968 the [[de:Bundestag|BOON-des-tahk]] passed the “emergency laws,” giving the government extraordinary powers in a crisis, against the opposition of the League of German Socialist Students. In Frankfurt, *The New York Times* reported, leftist students blockaded the university, and fought other students trying to get in to class. On 31 January 1969 members of the APO, led by Adorno’s own student Hans-Jürgen [[de:Krahl|KRAHL]], occupied the Institute. Adorno called the police. A leaflet of the time declared: “Adorno as an institution is dead.”
+
+[[quote:nyt]]
 
 ## Herbert Marcuse: life and thought
 
 ### Biography (19 July 1898 – 29 July 1979)
 
-Herbert [[de:Marcuse|mar-KOO-zeh|maʁˈkuːzə]] was born in Berlin and educated in Freiburg. He attempted a habilitation with [[de:Heidegger|HY-deg-er|ˈhaɪ̯dɛɡɐ]], *[[de:Hegel|HAY-gel|ˈheːɡl̩]]’s Ontology and the Foundation of a Theory of Historicity* (1932), and joined the Institute in 1933. He emigrated to the United States in 1934 and lived in Morningside Heights in New York. During the war he worked for the OSS; afterwards he taught at Harvard, Brandeis and the University of California, San Diego, and acquired the reputation of “father of the New Left.”
+Herbert Marcuse was born in Berlin and educated in Freiburg. He attempted a habilitation with Heidegger, *Hegel’s Ontology and the Foundation of a Theory of Historicity* (1932), and joined the Institute in 1933. He emigrated to the United States in 1934 and lived in Morningside Heights in New York. During the war he worked for the OSS; afterwards he taught at Harvard, Brandeis and the University of California, San Diego, and acquired the reputation of “father of the New Left.”
 
 ### Selected major works
 
@@ -52,7 +54,7 @@ The consumer economy and corporate capitalism, Marcuse argues, have created a *s
 
 ### Eros against Thanatos
 
-If our servitude is anchored in the instincts, then liberation must reach into a dimension that Marxist theory hardly considered: the “biological” dimension, where vital needs and satisfactions assert themselves. Liberation presupposes different instinctual needs, different reactions of body as well as mind. (Quotation 2.) It is a politics of Eros, the life drive, against [[grc:Thanatos|THAN-ah-toss|ˈtʰa.na.tos]], the death drive Freud set beside it.
+If our servitude is anchored in the instincts, then liberation must reach into a dimension that Marxist theory hardly considered: the “biological” dimension, where vital needs and satisfactions assert themselves. Liberation presupposes different instinctual needs, different reactions of body as well as mind. (Quotation 2.) It is a politics of Eros, the life drive, against [[grc:Thanatos|THAN-ah-toss]], the death drive Freud set beside it.
 
 ### The importance of the aesthetic
 
