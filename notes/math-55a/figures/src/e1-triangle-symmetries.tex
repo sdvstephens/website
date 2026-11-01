@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=1.6]
+  % vertices of an equilateral triangle centred at the origin
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (90:1);
+  \coordinate (B) at (210:1);
+  \coordinate (C) at (330:1);
+  % reflection axes (through each vertex and the midpoint of the opposite side)
+  \draw[gray, dashed] ($(O)!1.35!(A)$) -- ($(O)!-0.85!(A)$);
+  \draw[gray, dashed] ($(O)!1.35!(B)$) -- ($(O)!-0.85!(B)$);
+  \draw[gray, dashed] ($(O)!1.35!(C)$) -- ($(O)!-0.85!(C)$);
+  % the triangle
+  \draw[very thick] (A) -- (B) -- (C) -- cycle;
+  % centre and rotation arrow
+  \fill (O) circle (0.035);
+  \draw[-{Stealth[length=4pt]}, blue] (0.17,0) arc (0:300:0.17);
+  % double arrows indicating the reflections
+  \draw[{Stealth[length=3pt]}-{Stealth[length=3pt]}, red] ($(A)+(-0.18,0.2)$) -- ($(A)+(0.18,0.2)$);
+  \draw[{Stealth[length=3pt]}-{Stealth[length=3pt]}, red] ($(B)+(210:0.22)+(120:0.17)$) -- ($(B)+(210:0.22)+(300:0.17)$);
+  \draw[{Stealth[length=3pt]}-{Stealth[length=3pt]}, red] ($(C)+(330:0.22)+(60:0.17)$) -- ($(C)+(330:0.22)+(240:0.17)$);
+\end{tikzpicture}

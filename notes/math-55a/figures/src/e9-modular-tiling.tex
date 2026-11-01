@@ -1,0 +1,51 @@
+\begin{tikzpicture}[x=3.0cm,y=3.0cm]
+\fill[gray!25] (-0.5,2.40) -- (-0.5,0.8660) arc[start angle=120,end angle=60,radius=1] -- (0.5,2.40) -- cycle;
+\begin{scope}
+\clip (-2,0) rectangle (2,2.40);
+\draw (-3,0) circle[radius=1];
+\draw (-2,0) circle[radius=1];
+\draw (-1,0) circle[radius=1];
+\draw (0,0) circle[radius=1];
+\draw (1,0) circle[radius=1];
+\draw (2,0) circle[radius=1];
+\draw (3,0) circle[radius=1];
+\draw (-2.3333,0) circle[radius=0.3333];
+\draw (-1.6667,0) circle[radius=0.3333];
+\draw (-1.3333,0) circle[radius=0.3333];
+\draw (-0.6667,0) circle[radius=0.3333];
+\draw (-0.3333,0) circle[radius=0.3333];
+\draw (0.3333,0) circle[radius=0.3333];
+\draw (0.6667,0) circle[radius=0.3333];
+\draw (1.3333,0) circle[radius=0.3333];
+\draw (1.6667,0) circle[radius=0.3333];
+\draw (2.3333,0) circle[radius=0.3333];
+\end{scope}
+\draw (-1.5,0) -- (-1.5,2.40);
+\draw (-0.5,0) -- (-0.5,2.40);
+\draw (0.5,0) -- (0.5,2.40);
+\draw (1.5,0) -- (1.5,2.40);
+\draw[dashed] (-2,0) -- (2,0);
+\draw (-2,0) -- (-2,-0.06) node[below] {\small $-2$};
+\draw (-1,0) -- (-1,-0.06) node[below] {\small $-1$};
+\draw (0,0) -- (0,-0.06) node[below] {\small $0$};
+\draw (1,0) -- (1,-0.06) node[below] {\small $1$};
+\draw (2,0) -- (2,-0.06) node[below] {\small $2$};
+\node[font=\small,inner sep=0pt] at (-1.80,1.80) {$T^{-2}$};
+\node[font=\small,inner sep=0pt] at (-1.00,1.80) {$T^{-1}$};
+\node[font=\small,inner sep=0pt] at (0.00,1.80) {$I$};
+\node[font=\small,inner sep=0pt] at (1.00,1.80) {$T$};
+\node[font=\small,inner sep=0pt] at (1.80,1.80) {$T^{2}$};
+\node[font=\small,inner sep=0pt] at (-1.80,0.79) {$T^{-2}S$};
+\node[font=\small,inner sep=0pt] at (-1.00,0.79) {$T^{-1}S$};
+\node[font=\small,inner sep=0pt] at (0.00,0.79) {$S$};
+\node[font=\small,inner sep=0pt] at (1.00,0.79) {$TS$};
+\node[font=\small,inner sep=0pt] at (1.80,0.79) {$T^{2}S$};
+\node[font=\scriptsize,inner sep=0pt] at (-1.70,0.45) {$T^{-1}STS$};
+\node[font=\scriptsize,inner sep=0pt] at (-1.30,0.45) {$T^{-1}ST$};
+\node[font=\scriptsize,inner sep=0pt] at (-0.68,0.45) {$STS$};
+\node[font=\scriptsize,inner sep=0pt] at (-0.32,0.45) {$ST$};
+\node[font=\scriptsize,inner sep=0pt] at (0.30,0.45) {$ST^{-1}$};
+\node[font=\scriptsize,inner sep=0pt] at (0.68,0.45) {$TST$};
+\node[font=\scriptsize,inner sep=0pt] at (1.30,0.45) {$TST^{-1}$};
+\node[font=\scriptsize,inner sep=0pt] at (1.70,0.45) {$T^{2}ST$};
+\end{tikzpicture}

@@ -848,3 +848,11 @@ html.zen body { padding-left: 0 !important; }
 .unlock button { font: .8em var(--mono); padding: .35em .8em; background: none; color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 2px; cursor: pointer; }
 .unlock button:hover, .unlock button:focus-visible { border-color: var(--orange); color: var(--orange); }
 .unlock .unlock-error { color: var(--red); font: .8em var(--mono); }
+/* the original PDF of a lecture, behind a light password (build.mjs originalHtml) */
+.note-meta .original { margin-top: .35em; }
+.original-label { color: var(--orange); margin-right: .5em; }
+.original a { color: var(--ink); }
+.original input { font: 1em var(--mono); padding: .1em .4em; width: 9em; background: var(--ground); color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 2px; }
+.original button { font: 1em var(--mono); padding: .1em .6em; background: none; color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 2px; cursor: pointer; }
+.original button:hover, .original button:focus-visible { border-color: var(--orange); color: var(--orange); }
+.original .unlock-error { color: var(--red); }

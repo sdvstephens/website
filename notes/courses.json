@@ -16,12 +16,12 @@
   },
   {
     "slug": "math-55a",
-    "title": "Math 55a",
-    "description": "Harvard Math 55a, written up as a book: sets and groups, linear algebra, categories, inner product spaces, modules, group actions, and the representation theory of finite groups."
+    "title": "Studies in Algebra and Group Theory",
+    "description": "Harvard Math 55a, fall 2025, taught by Denis Auroux: groups, linear algebra, bilinear forms and inner products, multilinear algebra, modules and group actions, the Sylow theorems, presentations, and the representation theory of finite groups."
   },
   {
     "slug": "math-55b",
-    "title": "Math 55b",
+    "title": "Studies in Real and Complex Analysis",
     "description": "Real and complex analysis (Harvard Math 55 second semester)"
   },
   {

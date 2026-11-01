@@ -10,7 +10,7 @@ source-pages: 1-5
 
 :::readings Review sessions and handouts
 - Lillian MacArthur, [Week 1 review: metric and topological spaces](/notes/math-55b/readings/review-week-1-metric-and-topological-spaces.pdf)
-- Joe Harris, [revised by Denis Auroux, Metric spaces](/notes/math-55b/readings/harris-auroux-metric-spaces.pdf)
+- Joe Harris, revised by Denis Auroux, [Metric spaces](/notes/math-55b/readings/harris-auroux-metric-spaces.pdf)
 :::
 
 ## About the course

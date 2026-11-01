@@ -1,0 +1,19 @@
+\begin{tikzpicture}[line join=round, >=Stealth]
+  \draw[thick] (0,0) circle (1.2);
+  % great circle perpendicular to the axis
+  \begin{scope}[rotate=30]
+    \draw[gray] (0,1.2) arc[start angle=90, end angle=270, x radius=0.35, y radius=1.2];
+    \draw[gray, dashed] (0,-1.2) arc[start angle=-90, end angle=90, x radius=0.35, y radius=1.2];
+  \end{scope}
+  % axis through the two poles
+  \draw[blue, semithick] (-1.039,-0.6) -- (-1.9,-1.097);
+  \draw[blue, semithick, dashed] (-1.039,-0.6) -- (1.039,0.6);
+  \draw[blue, semithick] (1.039,0.6) -- (1.9,1.097);
+  \fill[blue] (1.039,0.6) circle (2pt);
+  \fill[blue] (-1.039,-0.6) circle (2pt);
+  \node[right] at (1.25,0.4) {pole $v$};
+  \node[left] at (-1.25,-0.4) {pole $-v$};
+  % rotation about the axis
+  \draw[->, red, rotate around={30:(1.6,0.924)}] (1.62,1.2) arc[start angle=85, end angle=405, x radius=0.1, y radius=0.27];
+  \node[red, above] at (1.75,1.25) {$T$};
+\end{tikzpicture}

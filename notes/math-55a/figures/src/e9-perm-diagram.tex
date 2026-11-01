@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+\draw (-0.3,0) -- (3.10,0); \draw (-0.3,-2.20) -- (3.10,-2.20);
+\draw[thick] (0.000,0) .. controls (0.000,-1.100) and (1.400,-1.100) .. (1.400,-2.200);
+\fill (0.000,0) circle (1.3pt); \fill (1.400,-2.200) circle (1.3pt);
+\draw[thick] (0.700,0) .. controls (0.700,-1.100) and (0.000,-1.100) .. (0.000,-2.200);
+\fill (0.700,0) circle (1.3pt); \fill (0.000,-2.200) circle (1.3pt);
+\draw[thick] (1.400,0) .. controls (1.400,-1.100) and (2.100,-1.100) .. (2.100,-2.200);
+\fill (1.400,0) circle (1.3pt); \fill (2.100,-2.200) circle (1.3pt);
+\draw[thick] (2.100,0) .. controls (2.100,-1.100) and (2.800,-1.100) .. (2.800,-2.200);
+\fill (2.100,0) circle (1.3pt); \fill (2.800,-2.200) circle (1.3pt);
+\draw[thick] (2.800,0) .. controls (2.800,-1.100) and (0.700,-1.100) .. (0.700,-2.200);
+\fill (2.800,0) circle (1.3pt); \fill (0.700,-2.200) circle (1.3pt);
+\node[above] at (0,0) {$1$}; \node[above] at (0.700,0) {$2$}; \node[above] at (1.750,0) {$\cdots$}; \node[above] at (2.800,0) {$n$};
+\node[below] at (0,-2.20) {$\sigma(2)$}; \node[below] at (1.400,-2.20) {$\sigma(1)$};
+\end{tikzpicture}

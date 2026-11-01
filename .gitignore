@@ -49,3 +49,10 @@ notes/critical-theory/readings/
 # Math 55b review-session notes and handouts by the course staff: served from
 # the site, kept out of the public repo.
 notes/math-55b/readings/
+
+# Math 55a review-session notes and handouts by the course staff (shown, out of git).
+notes/math-55a/readings/
+
+# Original PDFs of lecture notes (Math 55a, 55b) and the password that names
+# their folder on the server (build.mjs, "Original PDFs"): never in the repo.
+notes/*/originals/

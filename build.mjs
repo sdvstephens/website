@@ -332,7 +332,7 @@ for (const c of noteCourses) {
     ...c, title: course.title || c.title, book: course.book, chapters: course.chapters || [], sections, intro,
     description: course.description || c.description, chapterLabel: course.chapterLabel || 'chapter',
     sectionLabel: course.sectionLabel || (course.chapterLabel === 'week' ? 'lectures' : 'sections'),
-    lock: course.lock,
+    lock: course.lock, originals: course.originals,
   });
 }
 
@@ -402,6 +402,21 @@ ${plannedCourses.length ? `<h2 class="group">Planned</h2>
 ${ledger(plannedCourses.map((n) => ({ muted: true, html: `<a class="entry-title" href="/notes/${n.slug}">${n.title}</a><p class="excerpt">${n.description || ''}</p>` })))}` : ''}`,
 });
 
+// The original PDF a lecture was transcribed from (course.json section
+// "original": "lecture-01.pdf"). The file sits in notes/<course>/originals/,
+// out of git, and is published under a folder named from the password (see
+// "Original PDFs" below), so the page holds only the password's SHA-256;
+// the browser works out the folder from the right password (src/site.js).
+// "originalOpen": true: the file is in readings/ instead, and open to all.
+function originalHtml(n, s) {
+  const what = renderTitle(s.originalLabel || n.originals?.label || 'The original notes');
+  if (s.originalOpen) return `<p class="original"><span class="original-label">Original</span> <a href="/notes/${n.slug}/readings/${esc(s.original)}">${what} (PDF)</a></p>`;
+  if (!n.originals?.sha256) { warn(`notes/${n.slug}: section ${s.number} has an "original" but the course has no "originals" password`); return ''; }
+  return `<form class="original original-locked" data-course="${n.slug}" data-hash="${esc(n.originals.sha256)}" data-file="${esc(s.original)}">
+<p><span class="original-label">Original</span> <span class="original-what">${what} (PDF)</span>, behind a password for now: <input type="password" autocomplete="off" required aria-label="Password" placeholder="password"> <button type="submit">Open</button> <span class="unlock-error" hidden>That isn’t it.</span></p>
+</form>`;
+}
+
 /** Title block of a course that is a book (course.json "book"). */
 function bookHead(n) {
   const b = n.book;
@@ -443,7 +458,7 @@ ${byPart(n.sections.filter((s) => s.chapter === ch)).map((g) => (g.part ? `<h3 c
       body: `<p class="crumbs"><a href="/notes/">notes</a> / <a href="/notes/${n.slug}/">${n.title}</a> / ${n.chapterLabel} ${s.chapter.number}: ${s.chapter.titleHtml}${s.part ? ` / ${renderTitle(s.part.replace(/^Part [IVX]+: /, ''))}` : ''}</p>
 <article class="note">
 <h1 class="note-title"><span class="num">${s.number}</span> ${s.titleHtml}</h1>
-${s.meta ? `<div class="note-meta">${s.meta}</div>\n` : ''}${s.locked ? `<form class="unlock" data-course="${n.slug}" data-hash="${esc(n.lock.sha256)}">
+${s.meta || s.original ? `<div class="note-meta">${s.meta}${s.original ? originalHtml(n, s) : ''}</div>\n` : ''}${s.locked ? `<form class="unlock" data-course="${n.slug}" data-hash="${esc(n.lock.sha256)}">
 <p>${n.lock.message ? renderTitle(n.lock.message) : 'These notes are locked for now.'}</p>
 <p><label>Password <input type="password" autocomplete="off" required></label> <button type="submit">Open</button></p>
 <p class="unlock-error" hidden>That isn’t it.</p>
@@ -821,8 +836,35 @@ if (!fs.existsSync(path.join(DIST, 'assets', 'fonts', 'ACaslonPro-Regular.woff2'
 for (const sub of ['notes', 'homework', 'music']) {
   fs.cpSync(C(sub), path.join(DIST, sub), {
     recursive: true,
-    filter: (s) => !/[\\/]figures[\\/](src([\\/]|$)|preamble\.tex$)/.test(s) && (fs.statSync(s).isDirectory() || !/\.(md|json)$|\.DS_Store$/.test(s)),
+    filter: (s) => !/[\\/]figures[\\/](src([\\/]|$)|preamble\.tex$)/.test(s) && !/[\\/]notes[\\/][^\\/]+[\\/]originals([\\/]|$)/.test(s)
+      && (fs.statSync(s).isDirectory() || !/\.(md|json)$|\.DS_Store$/.test(s)),
   });
+}
+
+// Original PDFs (course.json "originals"): notes/<course>/originals/ holds the
+// PDFs and a file .password (both out of git). They are published under
+// notes/<course>/originals-<key>/, where <key> is the first 24 hex digits of
+// SHA-256("originals:" + password), so only someone with the password finds
+// them. A light lock, not security.
+for (const n of notes) {
+  if (!n.originals) continue;
+  const dir = C('notes', n.slug, 'originals');
+  const pwFile = path.join(dir, '.password');
+  const wanted = n.sections.filter((s) => s.original && !s.originalOpen).map((s) => s.original);
+  if (!fs.existsSync(pwFile)) { if (wanted.length) warn(`notes/${n.slug}/originals/.password missing: original PDFs not published`); continue; }
+  const pw = fs.readFileSync(pwFile, 'utf8').trim();
+  const sha = (t) => crypto.createHash('sha256').update(t).digest('hex');
+  if (sha(pw) !== n.originals.sha256) { warn(`notes/${n.slug}/originals/.password does not match course.json "originals"`); continue; }
+  const out = `notes/${n.slug}/originals-${sha('originals:' + pw).slice(0, 24)}`;
+  for (const f of wanted) {
+    if (!fs.existsSync(path.join(dir, f))) { warn(`notes/${n.slug}/originals/${f} missing`); continue; }
+    fs.mkdirSync(path.join(DIST, out), { recursive: true });
+    fs.copyFileSync(path.join(dir, f), path.join(DIST, out, f));
+  }
+  if (fs.existsSync(path.join(DIST, out))) write(`${out}/.htaccess`, '<IfModule mod_headers.c>\nHeader set X-Robots-Tag "noindex, nofollow"\n</IfModule>\n');
+}
+for (const n of notes) for (const s of n.sections) {
+  if (s.original && s.originalOpen && !exists('notes', n.slug, 'readings', s.original)) warn(`notes/${n.slug}/readings/${s.original} missing`);
 }
 
 // Protected readings: the .htaccess comes from access.json.

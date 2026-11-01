@@ -1,0 +1,30 @@
+\begin{tikzpicture}[scale=1]
+  % h: horizontal flip (reflection across the vertical axis)
+  \begin{scope}[shift={(0,0)}]
+    \draw[thick] (-0.5,-0.5) rectangle (0.5,0.5);
+    \draw[gray, dashed] (0,-0.75) -- (0,0.75);
+    \draw[{Stealth[length=3pt]}-{Stealth[length=3pt]}, red] (-0.3,0.88) -- (0.3,0.88);
+    \node at (0,-1.1) {$h$};
+  \end{scope}
+  % r: rotation by 90 degrees
+  \begin{scope}[shift={(2,0)}]
+    \draw[thick] (-0.5,-0.5) rectangle (0.5,0.5);
+    \fill (0,0) circle (0.03);
+    \draw[-{Stealth[length=4pt]}, blue] (0.2,0) arc (0:270:0.2);
+    \node at (0,-1.1) {$r$};
+  \end{scope}
+  % h o r: reflection across the diagonal y = x
+  \begin{scope}[shift={(4,0)}]
+    \draw[thick] (-0.5,-0.5) rectangle (0.5,0.5);
+    \draw[gray, dashed] (-0.72,-0.72) -- (0.72,0.72);
+    \draw[{Stealth[length=3pt]}-{Stealth[length=3pt]}, red] ($(0.68,0.68)+(-0.2,0.2)$) -- ($(0.68,0.68)+(0.2,-0.2)$);
+    \node at (0,-1.1) {$h \circ r$};
+  \end{scope}
+  % r o h: reflection across the diagonal y = -x
+  \begin{scope}[shift={(6,0)}]
+    \draw[thick] (-0.5,-0.5) rectangle (0.5,0.5);
+    \draw[gray, dashed] (-0.72,0.72) -- (0.72,-0.72);
+    \draw[{Stealth[length=3pt]}-{Stealth[length=3pt]}, red] ($(-0.68,0.68)+(-0.2,-0.2)$) -- ($(-0.68,0.68)+(0.2,0.2)$);
+    \node at (0,-1.1) {$r \circ h$};
+  \end{scope}
+\end{tikzpicture}

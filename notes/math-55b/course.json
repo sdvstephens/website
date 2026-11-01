@@ -1,12 +1,8 @@
 {
   "slug": "math-55b",
-  "title": "Math 55b",
+  "title": "Studies in Real and Complex Analysis",
   "description": "Harvard Math 55b, spring 2026, taught by Denis Auroux: point-set topology, the fundamental group and covering spaces, analysis in one and several variables, differential forms, and the start of complex analysis.",
   "sectionLabel": "lectures and notes",
-  "lock": {
-    "sha256": "e54525ef1b5233219502b491694bfa7b8d35f32c67fadb3f6c34502b6ce2e26c",
-    "message": "Professor Auroux’s lecture notes are locked for now."
-  },
   "chapters": [
     {
       "number": 1,
@@ -16,19 +12,19 @@
           "number": "1",
           "slug": "01-metric-spaces",
           "title": "Metric Spaces",
-          "locked": true
+          "original": "lecture-01.pdf"
         },
         {
           "number": "2",
           "slug": "02-topologies-bases-subspaces-and-products",
           "title": "Topologies, Bases, Subspaces and Products",
-          "locked": true
+          "original": "lecture-02.pdf"
         },
         {
           "number": "3",
           "slug": "03-limit-points-and-hausdorff-spaces",
           "title": "Limit Points and Hausdorff Spaces",
-          "locked": true
+          "original": "lecture-03.pdf"
         },
         {
           "number": "N1",
@@ -112,31 +108,31 @@
           "number": "4",
           "slug": "04-infinite-products-and-connectedness",
           "title": "Infinite Products and Connectedness",
-          "locked": true
+          "original": "lecture-04.pdf"
         },
         {
           "number": "5",
           "slug": "05-uniform-convergence-and-connectedness",
           "title": "Uniform Convergence and Connectedness",
-          "locked": true
+          "original": "lecture-05.pdf"
         },
         {
           "number": "6",
           "slug": "06-path-connectedness-and-compact-spaces",
           "title": "Path-Connectedness and Compact Spaces",
-          "locked": true
+          "original": "lecture-06.pdf"
         },
         {
           "number": "7",
           "slug": "07-compact-subsets-of-euclidean-space",
           "title": "Compact Subsets of Euclidean Space",
-          "locked": true
+          "original": "lecture-07.pdf"
         },
         {
           "number": "8",
           "slug": "08-compactness-in-metric-spaces",
           "title": "Compactness in Metric Spaces",
-          "locked": true
+          "original": "lecture-08.pdf"
         },
         {
           "number": "N9",
@@ -178,25 +174,26 @@
           "number": "9",
           "slug": "09-completeness-and-compactifications",
           "title": "Completeness and Compactifications",
-          "locked": true
+          "original": "lecture-09.pdf"
         },
         {
           "number": "10",
           "slug": "10-countability-separation-and-urysohn-metrization",
           "title": "Countability, Separation and Urysohn Metrization",
-          "locked": true
+          "original": "lecture-10.pdf"
         },
         {
           "number": "M1",
           "slug": "midterm-1-review",
           "title": "Midterm 1 Review",
-          "locked": true
+          "original": "midterm-1-review.pdf",
+          "originalLabel": "Professor Auroux’s handwritten review sheet"
         },
         {
           "number": "12",
           "slug": "12-the-quotient-topology",
           "title": "The Quotient Topology",
-          "locked": true
+          "original": "lecture-12.pdf"
         },
         {
           "number": "N14",
@@ -238,37 +235,37 @@
           "number": "13",
           "slug": "13-homotopy-and-products-of-paths",
           "title": "Homotopy and Products of Paths",
-          "locked": true
+          "original": "lecture-13.pdf"
         },
         {
           "number": "14",
           "slug": "14-the-fundamental-group",
           "title": "The Fundamental Group",
-          "locked": true
+          "original": "lecture-14.pdf"
         },
         {
           "number": "15",
           "slug": "15-covering-spaces-and-path-lifting",
           "title": "Covering Spaces and Path Lifting",
-          "locked": true
+          "original": "lecture-15.pdf"
         },
         {
           "number": "16",
           "slug": "16-the-fundamental-group-of-the-circle-and-its-applications",
           "title": "The Fundamental Group of the Circle and Its Applications",
-          "locked": true
+          "original": "lecture-16.pdf"
         },
         {
           "number": "17",
           "slug": "17-the-lifting-lemma-and-the-classification-of-covering-spaces",
           "title": "The Lifting Lemma and the Classification of Covering Spaces",
-          "locked": true
+          "original": "lecture-17.pdf"
         },
         {
           "number": "18",
           "slug": "18-the-seifert-van-kampen-theorem",
           "title": "The Seifert–Van Kampen Theorem",
-          "locked": true
+          "original": "lecture-18.pdf"
         },
         {
           "number": "N19",
@@ -298,31 +295,32 @@
           "number": "19",
           "slug": "19-sequences-series-and-power-series",
           "title": "Sequences, Series and Power Series",
-          "locked": true
+          "original": "lecture-19.pdf"
         },
         {
           "number": "20",
           "slug": "20-differentiation-taylor-s-theorem-and-the-riemann-integral",
           "title": "Differentiation, Taylor’s Theorem and the Riemann Integral",
-          "locked": true
+          "original": "lecture-20.pdf"
         },
         {
           "number": "21",
           "slug": "21-the-riemann-integral-and-the-arzel-ascoli-theorem",
           "title": "The Riemann Integral and the Arzelà–Ascoli Theorem",
-          "locked": true
+          "original": "lecture-21.pdf"
         },
         {
           "number": "22",
           "slug": "22-convolution-and-the-stone-weierstrass-theorem",
           "title": "Convolution and the Stone–Weierstrass Theorem",
-          "locked": true
+          "original": "lecture-22.pdf"
         },
         {
           "number": "M2",
           "slug": "midterm-2-review",
           "title": "Midterm 2 Review",
-          "locked": true
+          "original": "midterm-2-review.pdf",
+          "originalLabel": "Professor Auroux’s handwritten review sheet"
         },
         {
           "number": "N22",
@@ -352,25 +350,25 @@
           "number": "23",
           "slug": "23-fourier-series-differentiation-in-several-variables",
           "title": "Fourier Series; Differentiation in Several Variables",
-          "locked": true
+          "original": "lecture-23.pdf"
         },
         {
           "number": "24",
           "slug": "24-the-inverse-and-implicit-function-theorems",
           "title": "The Inverse and Implicit Function Theorems",
-          "locked": true
+          "original": "lecture-24.pdf"
         },
         {
           "number": "26",
           "slug": "26-change-of-variables-and-differential-forms",
           "title": "Change of Variables and Differential Forms",
-          "locked": true
+          "original": "lecture-26.pdf"
         },
         {
           "number": "27",
           "slug": "27-stokes-theorem-introduction-to-complex-analysis",
           "title": "Stokes’ Theorem; Introduction to Complex Analysis",
-          "locked": true
+          "original": "lecture-27.pdf"
         }
       ]
     },
@@ -382,15 +380,19 @@
           "number": "28",
           "slug": "28-analytic-functions-the-riemann-sphere-and-power-series",
           "title": "Analytic Functions: the Riemann Sphere and Power Series",
-          "locked": true
+          "original": "lecture-28.pdf"
         },
         {
           "number": "29",
           "slug": "29-cauchy-s-theorem-and-the-integral-formula",
           "title": "Cauchy’s Theorem and the Integral Formula",
-          "locked": true
+          "original": "lecture-29.pdf"
         }
       ]
     }
-  ]
+  ],
+  "originals": {
+    "sha256": "e54525ef1b5233219502b491694bfa7b8d35f32c67fadb3f6c34502b6ce2e26c",
+    "label": "Professor Auroux’s handwritten notes"
+  }
 }

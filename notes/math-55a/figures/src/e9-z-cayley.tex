@@ -1,0 +1,15 @@
+\begin{tikzpicture}[>=Stealth]
+\fill (-2*1.3,0) circle (1.6pt) node[above=2pt] {$-2$};
+\fill (-1*1.3,0) circle (1.6pt) node[above=2pt] {$-1$};
+\fill (0*1.3,0) circle (1.6pt) node[above=2pt] {$0$};
+\fill (1*1.3,0) circle (1.6pt) node[above=2pt] {$1$};
+\fill (2*1.3,0) circle (1.6pt) node[above=2pt] {$2$};
+\draw[->] (-2.6*1.3,0) -- (-2.45*1.3,0); \draw (-2.45*1.3,0) -- (-2*1.3,0);
+\draw[->] (-2*1.3,0) -- (-1.45*1.3,0) node[below=1pt] {\small $1$}; \draw (-1.45*1.3,0) -- (-1*1.3,0);
+\draw[->] (-1*1.3,0) -- (-0.45*1.3,0) node[below=1pt] {\small $1$}; \draw (-0.45*1.3,0) -- (0*1.3,0);
+\draw[->] (0*1.3,0) -- (0.55*1.3,0) node[below=1pt] {\small $1$}; \draw (0.55*1.3,0) -- (1*1.3,0);
+\draw[->] (1*1.3,0) -- (1.55*1.3,0) node[below=1pt] {\small $1$}; \draw (1.55*1.3,0) -- (2*1.3,0);
+\draw[->] (2*1.3,0) -- (2.45*1.3,0); \draw (2.45*1.3,0) -- (2.6*1.3,0);
+\node at (2.6*1.3,0) [right] {$\cdots$};
+\node at (-2.6*1.3,0) [left] {$\cdots$};
+\end{tikzpicture}

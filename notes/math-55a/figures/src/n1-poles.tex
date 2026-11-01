@@ -1,0 +1,14 @@
+\begin{tikzpicture}[scale=1.2]
+  \draw[thick] (0,0) circle (1);
+  \draw[gray] (-1,0) arc[start angle=180, end angle=360, x radius=1, y radius=0.3];
+  \draw[gray, dashed] (1,0) arc[start angle=0, end angle=180, x radius=1, y radius=0.3];
+  % axis of rotation, tilted
+  \draw[dotted, thick] (-0.75,-1.65) -- (-0.4,-0.88);
+  \draw[dashed] (-0.4,-0.88) -- (0.4,0.88);
+  \draw[dotted, thick] (0.4,0.88) -- (0.75,1.65);
+  \fill[blue] (0.4,0.88) circle (1.5pt);
+  \fill[blue] (-0.4,-0.88) circle (1.5pt);
+  \node[blue, right, font=\small] at (0.45,0.95) {pole};
+  \node[blue, left, font=\small] at (-0.45,-0.95) {pole};
+  \draw[->, red] (0.95,1.25) arc[start angle=-20, end angle=200, x radius=0.25, y radius=0.08];
+\end{tikzpicture}

@@ -1,0 +1,45 @@
+\begin{tikzpicture}[line join=round, >=Stealth]
+  % ---- left: 3-fold axis through a vertex and the centre of the opposite face
+  \begin{scope}
+    \coordinate (T) at (0.1,2.2);
+    \coordinate (P1) at (-1.2,0);
+    \coordinate (P2) at (1.2,0);
+    \coordinate (P3) at (0.3,0.6);
+    \coordinate (C) at (0.1,0.2);
+    \draw[thick] (T) -- (P1) -- (P2) -- cycle;
+    \draw[thick, dashed, gray] (P1) -- (P3) -- (P2);
+    \draw[thick, dashed, gray] (T) -- (P3);
+    % axis
+    \draw[blue, semithick] (0.1,2.2) -- (0.1,2.95);
+    \draw[blue, semithick, dashed] (T) -- (0.1,0);
+    \draw[blue, semithick] (0.1,0) -- (0.1,-0.7);
+    \fill[blue] (C) circle (1.3pt);
+    % rotation arrow
+    \draw[->, red] (-0.25,2.68) arc[start angle=200, end angle=520, x radius=0.37, y radius=0.12];
+    \node[red, right] at (0.5,2.8) {$120^\circ$};
+    \node at (0.1,-1.15) {order $3$ (8 such)};
+  \end{scope}
+  % ---- right: 2-fold axis through midpoints of two opposite edges
+  \begin{scope}[xshift=4.6cm]
+    \coordinate (T) at (0.1,2.2);
+    \coordinate (P1) at (-1.2,0);
+    \coordinate (P2) at (1.2,0);
+    \coordinate (P3) at (0.3,0.6);
+    \coordinate (M1) at ($(T)!0.5!(P1)$);
+    \coordinate (M2) at ($(P2)!0.5!(P3)$);
+    \draw[thick] (T) -- (P1) -- (P2) -- cycle;
+    \draw[thick, dashed, gray] (P1) -- (P3) -- (P2);
+    \draw[thick, dashed, gray] (T) -- (P3);
+    % axis
+    \draw[blue, semithick] (M1) -- ($(M1)!-0.55!(M2)$);
+    \draw[blue, semithick, dashed] (M1) -- (M2);
+    \draw[blue, semithick] (M2) -- ($(M2)!-0.55!(M1)$);
+    \fill[blue] (M1) circle (1.3pt);
+    \fill[blue] (M2) circle (1.3pt);
+    % rotation arrow around the axis near its upper-left end
+    \coordinate (E) at ($(M1)!-0.4!(M2)$);
+    \draw[->, red, rotate around={-31.6:(E)}] ($(E)+(0.02,0.3)$) arc[start angle=85, end angle=405, x radius=0.12, y radius=0.3];
+    \node[red, above left] at ($(E)+(0.05,0.3)$) {$180^\circ$};
+    \node at (0.1,-1.15) {order $2$ (3 such)};
+  \end{scope}
+\end{tikzpicture}

@@ -703,4 +703,40 @@
       }
     });
   }
+
+  // ------------------------------------------------------------ original PDFs
+  // Also light: the PDFs sit in a folder named from the password
+  // (build.mjs, "Original PDFs"), so the right password finds the link.
+  const $$ = (q) => [...document.querySelectorAll(q)];
+  const originals = $$('form.original-locked');
+  if (originals.length) {
+    const sha = async (t) => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)))]
+      .map((b) => b.toString(16).padStart(2, '0')).join('');
+    const open = (form, dir) => {
+      const p = document.createElement('p');
+      p.className = 'original';
+      p.innerHTML = '<span class="original-label">Original</span> ';
+      const a = document.createElement('a');
+      a.href = `/notes/${form.dataset.course}/originals-${dir}/${form.dataset.file}`;
+      a.innerHTML = $('.original-what', form).innerHTML;
+      p.append(a);
+      form.replaceWith(p);
+    };
+    for (const form of originals) {
+      const key = `originals:${form.dataset.course}`;
+      try { const dir = localStorage.getItem(key); if (dir) { open(form, dir); continue; } } catch (e) { /* private mode */ }
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const input = $('input', form);
+        if (await sha(input.value) === form.dataset.hash) {
+          const dir = (await sha(`originals:${input.value}`)).slice(0, 24);
+          try { localStorage.setItem(key, dir); } catch (e2) { /* private mode */ }
+          for (const f of $$('form.original-locked')) if (f.dataset.course === form.dataset.course) open(f, dir);
+        } else {
+          $('.unlock-error', form).hidden = false;
+          input.select();
+        }
+      });
+    }
+  }
 })();

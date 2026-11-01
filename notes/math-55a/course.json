@@ -1,7 +1,13 @@
 {
   "slug": "math-55a",
   "title": "Studies in Algebra and Group Theory",
-  "book": {
+  "description": "Harvard Math 55a, fall 2025, taught by Denis Auroux: groups, linear algebra, bilinear forms and inner products, multilinear algebra, modules and group actions, the Sylow theorems, presentations, and the representation theory of finite groups.",
+  "sectionLabel": "lectures and notes",
+  "originals": {
+    "sha256": "b6ee2f86299441fb8c2832d8f80cf7e88131a0eb2c4f7920a6530ad8326ff4d8",
+    "label": "Professor Auroux’s handwritten notes"
+  },
+  "bookSource": {
     "source": "~/Documents/university/Studies-in-Algebra-and-Group-Theory",
     "subtitle": "Harvard University",
     "author": "S. D. V. Stephens",
@@ -14,598 +20,1286 @@
   "chapters": [
     {
       "number": 1,
-      "title": "Set Theory",
+      "title": "Sets and Groups",
       "sections": [
         {
-          "number": "1.1",
+          "number": "1",
+          "slug": "01-groups-subgroups-and-homomorphisms",
+          "title": "Groups, Subgroups and Homomorphisms",
+          "original": "lecture-01.pdf"
+        },
+        {
+          "number": "2",
+          "slug": "02-cardinality-subgroups-and-cyclic-groups",
+          "title": "Cardinality, Subgroups and Cyclic Groups",
+          "original": "lecture-02.pdf"
+        },
+        {
+          "number": "3",
+          "slug": "03-equivalence-relations-and-cosets",
+          "title": "Equivalence Relations and Cosets",
+          "original": "lecture-03.pdf"
+        },
+        {
+          "number": "4",
+          "slug": "04-lagranges-theorem-normal-subgroups-and-quotients",
+          "title": "Lagrange’s Theorem, Normal Subgroups and Quotients",
+          "original": "lecture-04.pdf"
+        },
+        {
+          "number": "5",
+          "slug": "05-exact-sequences-permutations-free-groups-rings-and-fields",
+          "title": "Exact Sequences, Permutations, Free Groups; Rings and Fields",
+          "original": "lecture-05.pdf"
+        },
+        {
+          "number": "B1.1",
           "slug": "1-1-ordered-pairs",
-          "title": "Ordered Pairs"
+          "title": "Ordered Pairs",
+          "from": "book",
+          "bookNumber": "1.1",
+          "part": "From my book"
         },
         {
-          "number": "1.2",
+          "number": "B1.2",
           "slug": "1-2-relations",
-          "title": "Relations"
+          "title": "Relations",
+          "from": "book",
+          "bookNumber": "1.2",
+          "part": "From my book"
         },
         {
-          "number": "1.3",
+          "number": "B1.3",
           "slug": "1-3-functions",
-          "title": "Functions"
+          "title": "Functions",
+          "from": "book",
+          "bookNumber": "1.3",
+          "part": "From my book"
         },
         {
-          "number": "1.4",
+          "number": "B1.4",
           "slug": "1-4-families",
-          "title": "Families"
+          "title": "Families",
+          "from": "book",
+          "bookNumber": "1.4",
+          "part": "From my book"
         },
         {
-          "number": "1.5",
+          "number": "B1.5",
           "slug": "1-5-inverses-and-composites",
-          "title": "Inverses and Composites"
+          "title": "Inverses and Composites",
+          "from": "book",
+          "bookNumber": "1.5",
+          "part": "From my book"
+        },
+        {
+          "number": "B2.1",
+          "slug": "2-1-the-group-axioms",
+          "title": "The group axioms",
+          "from": "book",
+          "bookNumber": "2.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B2.2",
+          "slug": "2-2-fundamental-examples",
+          "title": "Fundamental examples",
+          "from": "book",
+          "bookNumber": "2.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B2.3",
+          "slug": "2-3-constructions-products-and-sums",
+          "title": "Constructions: Products and sums",
+          "from": "book",
+          "bookNumber": "2.3",
+          "part": "From my book"
+        },
+        {
+          "number": "B2.4",
+          "slug": "2-4-subgroups",
+          "title": "Subgroups",
+          "from": "book",
+          "bookNumber": "2.4",
+          "part": "From my book"
+        },
+        {
+          "number": "B2.5",
+          "slug": "2-5-homomorphisms",
+          "title": "Homomorphisms",
+          "from": "book",
+          "bookNumber": "2.5",
+          "part": "From my book"
+        },
+        {
+          "number": "B2.6",
+          "slug": "2-6-the-order-of-an-element",
+          "title": "The order of an element and its properties",
+          "from": "book",
+          "bookNumber": "2.6",
+          "part": "From my book"
+        },
+        {
+          "number": "B3.0",
+          "slug": "3-0-cardinality",
+          "title": "Cardinality",
+          "from": "book",
+          "bookNumber": "3.0",
+          "part": "From my book"
+        },
+        {
+          "number": "B3.1",
+          "slug": "3-1-quotient-groups",
+          "title": "Quotient groups",
+          "from": "book",
+          "bookNumber": "3.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B3.3",
+          "slug": "3-3-the-isomorphism-theorems",
+          "title": "The isomorphism theorems",
+          "from": "book",
+          "bookNumber": "3.3",
+          "part": "From my book"
+        },
+        {
+          "number": "B3.4",
+          "slug": "3-4-the-symmetric-group",
+          "title": "The symmetric group",
+          "from": "book",
+          "bookNumber": "3.4",
+          "part": "From my book"
+        },
+        {
+          "number": "B3.5",
+          "slug": "3-5-exact-sequences",
+          "title": "Exact sequences",
+          "from": "book",
+          "bookNumber": "3.5",
+          "part": "From my book"
+        },
+        {
+          "number": "N1",
+          "slug": "notebook-naive-set-theory-axioms",
+          "title": "Naive Set Theory Axioms",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N2",
+          "slug": "notebook-introduction-to-groups",
+          "title": "Introduction to Groups",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N3",
+          "slug": "notebook-laws-of-composition-artin-2-1-2-6",
+          "title": "Laws of Composition (Artin 2.1–2.6)",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N4",
+          "slug": "notebook-cardinality-products-subgroups-and-homomorphisms",
+          "title": "Cardinality, Products, Subgroups and Homomorphisms",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N5",
+          "slug": "notebook-subgroups-of-z-cyclic-groups-and-equivalence-relations",
+          "title": "Subgroups of ℤ, Cyclic Groups and Equivalence Relations",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N6",
+          "slug": "notebook-cosets-lagranges-theorem-and-normal-subgroups",
+          "title": "Cosets, Lagrange’s Theorem and Normal Subgroups",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N7",
+          "slug": "notebook-exact-sequences-the-symmetric-group-and-commutators",
+          "title": "Exact Sequences, the Symmetric Group and Commutators",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N8",
+          "slug": "notebook-lecture-1-and-2-review-functions-cardinality-and-groups",
+          "title": "Lecture 1 and 2 Review: Functions, Cardinality and Groups",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N9",
+          "slug": "notebook-sets-functions-and-equivalence-relations",
+          "title": "Sets, Functions and Equivalence Relations",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N10",
+          "slug": "notebook-left-and-right-inverses-a-bijection-n-n-n",
+          "title": "Left and Right Inverses; a Bijection ℕ × ℕ → ℕ",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N11",
+          "slug": "notebook-problem-set-inverses-and-subgroups",
+          "title": "Problem set: inverses and subgroups",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N12",
+          "slug": "notebook-cyclic-groups-permutations-in-s3",
+          "title": "Cyclic groups: permutations in S₃",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N13",
+          "slug": "notebook-things-i-forgor-cosets-normal-subgroups-quotients",
+          "title": "Things I forgor: cosets, normal subgroups, quotients",
+          "part": "From my notebooks"
         }
       ]
     },
     {
       "number": 2,
-      "title": "Group Theory Basics",
+      "title": "Rings, Fields and Vector Spaces",
       "sections": [
         {
-          "number": "2.1",
-          "slug": "2-1-the-group-axioms",
-          "title": "The group axioms"
+          "number": "6",
+          "slug": "06-rings-fields-and-vector-spaces",
+          "title": "Rings, Fields, and Vector Spaces",
+          "original": "lecture-06.pdf"
         },
         {
-          "number": "2.2",
-          "slug": "2-2-fundamental-examples",
-          "title": "Fundamental examples"
+          "number": "7",
+          "slug": "07-bases-dimension-and-matrices-of-linear-maps",
+          "title": "Bases, Dimension, and Matrices of Linear Maps",
+          "original": "lecture-07.pdf"
         },
         {
-          "number": "2.3",
-          "slug": "2-3-constructions-products-and-sums",
-          "title": "Constructions: Products and sums"
+          "number": "B4.1",
+          "slug": "4-1-ring-and-field-homomorphisms",
+          "title": "Ring and Field Homomorphisms",
+          "from": "book",
+          "bookNumber": "4.1",
+          "part": "From my book"
         },
         {
-          "number": "2.4",
-          "slug": "2-4-subgroups",
-          "title": "Subgroups"
+          "number": "B4.2",
+          "slug": "4-2-polynomial-rings-and-field-extensions",
+          "title": "Polynomial Rings and Field Extensions",
+          "from": "book",
+          "bookNumber": "4.2",
+          "part": "From my book"
         },
         {
-          "number": "2.5",
-          "slug": "2-5-homomorphisms",
-          "title": "Homomorphisms"
+          "number": "B4.3",
+          "slug": "4-3-characteristic-of-a-field",
+          "title": "Characteristic of a Field",
+          "from": "book",
+          "bookNumber": "4.3",
+          "part": "From my book"
         },
         {
-          "number": "2.6",
-          "slug": "2-6-the-order-of-an-element",
-          "title": "The order of an element and its properties"
+          "number": "B4.4",
+          "slug": "4-4-vector-spaces",
+          "title": "Vector Spaces",
+          "from": "book",
+          "bookNumber": "4.4",
+          "part": "From my book"
+        },
+        {
+          "number": "B4.5",
+          "slug": "4-5-span-linear-independence-and-basis",
+          "title": "Span, Linear Independence, and Basis",
+          "from": "book",
+          "bookNumber": "4.5",
+          "part": "From my book"
+        },
+        {
+          "number": "B4.6",
+          "slug": "4-6-finite-dimensional-vector-spaces",
+          "title": "Finite-Dimensional Vector Spaces and Dimension",
+          "from": "book",
+          "bookNumber": "4.6",
+          "part": "From my book"
+        },
+        {
+          "number": "N14",
+          "slug": "notebook-rn-and-cn-definition-of-vector-space",
+          "title": "ℝⁿ and ℂⁿ; Definition of Vector Space",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N15",
+          "slug": "notebook-exercises-complex-numbers-and-fn",
+          "title": "Exercises: complex numbers and Fⁿ",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N16",
+          "slug": "notebook-axler-chapter-1-exercises",
+          "title": "Axler Chapter 1 Exercises",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N17",
+          "slug": "notebook-commutative-rings-and-fields",
+          "title": "Commutative Rings and Fields",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N18",
+          "slug": "notebook-fields-characteristic-and-vector-spaces",
+          "title": "Fields, Characteristic and Vector Spaces",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N19",
+          "slug": "notebook-span-and-linear-independence",
+          "title": "Span and Linear Independence",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N20",
+          "slug": "notebook-span-linear-independence-and-bases",
+          "title": "Span, Linear Independence and Bases",
+          "part": "From my notebooks"
         }
       ]
     },
     {
       "number": 3,
-      "title": "Group Relations",
+      "title": "Linear Maps and Operators",
       "sections": [
         {
-          "number": "3.0",
-          "slug": "3-0-cardinality",
-          "title": "Cardinality"
+          "number": "8",
+          "slug": "08-matrices-direct-sums-and-quotient-spaces",
+          "title": "Matrices, Direct Sums and Quotient Spaces",
+          "original": "lecture-08.pdf"
         },
         {
-          "number": "3.1",
-          "slug": "3-1-quotient-groups",
-          "title": "Quotient groups"
+          "number": "9",
+          "slug": "09-dual-spaces-and-linear-operators",
+          "title": "Dual Spaces and Linear Operators",
+          "original": "lecture-09.pdf"
         },
         {
-          "number": "3.2",
-          "slug": "3-2-group-actions-and-symmetry",
-          "title": "Group actions and symmetry"
+          "number": "10",
+          "slug": "10-eigenvectors-and-upper-triangular-matrices",
+          "title": "Eigenvectors and Upper-Triangular Matrices",
+          "original": "lecture-10.pdf"
         },
         {
-          "number": "3.3",
-          "slug": "3-3-the-isomorphism-theorems",
-          "title": "The isomorphism theorems"
+          "number": "11",
+          "slug": "11-generalized-eigenspaces-and-jordan-normal-form",
+          "title": "Generalized Eigenspaces and Jordan Normal Form",
+          "original": "lecture-11.pdf"
         },
         {
-          "number": "3.4",
-          "slug": "3-4-the-symmetric-group",
-          "title": "The symmetric group"
+          "number": "12",
+          "slug": "12-jordan-normal-form-cayley-hamilton-and-categories",
+          "title": "Jordan Normal Form, Cayley–Hamilton, and Categories",
+          "original": "lecture-12.pdf"
         },
         {
-          "number": "3.5",
-          "slug": "3-5-exact-sequences",
-          "title": "Exact sequences"
+          "number": "M1",
+          "slug": "midterm-1-review",
+          "title": "Midterm 1 Review",
+          "original": "auroux-midterm-1-review.pdf",
+          "originalOpen": true,
+          "originalLabel": "Professor Auroux’s handwritten review sheet"
         },
         {
-          "number": "3.6",
-          "slug": "3-6-free-groups-and-presentations",
-          "title": "Free groups and presentations"
+          "number": "B5.0",
+          "slug": "5-0-linear-maps",
+          "title": "Linear Maps",
+          "from": "book",
+          "bookNumber": "5.0",
+          "part": "From my book"
+        },
+        {
+          "number": "B5.1",
+          "slug": "5-1-matrix-representation",
+          "title": "Matrix Representation of Linear Maps",
+          "from": "book",
+          "bookNumber": "5.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B5.2",
+          "slug": "5-2-change-of-basis",
+          "title": "Change of basis",
+          "from": "book",
+          "bookNumber": "5.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B6.1",
+          "slug": "6-1-kernel-and-image",
+          "title": "Kernel and Image",
+          "from": "book",
+          "bookNumber": "6.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B6.2",
+          "slug": "6-2-duality",
+          "title": "Duality",
+          "from": "book",
+          "bookNumber": "6.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B7.0",
+          "slug": "7-0-annihilators",
+          "title": "Annihilators",
+          "from": "book",
+          "bookNumber": "7.0",
+          "part": "From my book"
+        },
+        {
+          "number": "B7.1",
+          "slug": "7-1-quotient-spaces",
+          "title": "Quotient Spaces",
+          "from": "book",
+          "bookNumber": "7.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B7.2",
+          "slug": "7-2-linear-operators-and-endomorphisms",
+          "title": "Linear Operators and Endomorphisms",
+          "from": "book",
+          "bookNumber": "7.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B7.3",
+          "slug": "7-3-invariant-subspaces",
+          "title": "Invariant Subspaces",
+          "from": "book",
+          "bookNumber": "7.3",
+          "part": "From my book"
+        },
+        {
+          "number": "B7.4",
+          "slug": "7-4-eigenvalues-and-eigenvectors",
+          "title": "Eigenvalues and Eigenvectors",
+          "from": "book",
+          "bookNumber": "7.4",
+          "part": "From my book"
+        },
+        {
+          "number": "B7.5",
+          "slug": "7-5-lets-get-general-up-in-here",
+          "title": "Let’s get general up in here!",
+          "from": "book",
+          "bookNumber": "7.5",
+          "part": "From my book"
+        },
+        {
+          "number": "B7.6",
+          "slug": "7-6-nilpotent-operators",
+          "title": "Nilpotent Operators",
+          "from": "book",
+          "bookNumber": "7.6",
+          "part": "From my book"
+        },
+        {
+          "number": "B7.7",
+          "slug": "7-7-jordan-normal-form",
+          "title": "Jordan Normal Form",
+          "from": "book",
+          "bookNumber": "7.7",
+          "part": "From my book"
+        },
+        {
+          "number": "B7.8",
+          "slug": "7-8-characteristic-and-minimal-polynomials",
+          "title": "Characteristic and Minimal Polynomials",
+          "from": "book",
+          "bookNumber": "7.8",
+          "part": "From my book"
+        },
+        {
+          "number": "N21",
+          "slug": "notebook-linear-maps-duality-and-eigenvectors",
+          "title": "Linear Maps, Duality and Eigenvectors",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N22",
+          "slug": "notebook-review-part-1-linear-algebra",
+          "title": "Review Part 1: Linear Algebra",
+          "part": "From my notebooks"
         }
       ]
     },
     {
       "number": 4,
-      "title": "Vector Spaces and Linear Algebra",
+      "title": "Categories, Bilinear Forms and Inner Products",
       "sections": [
         {
-          "number": "4.1",
-          "slug": "4-1-ring-and-field-homomorphisms",
-          "title": "Ring and Field Homomorphisms"
+          "number": "14",
+          "slug": "14-functors-bilinear-forms-and-inner-products",
+          "title": "Functors, Bilinear Forms, and Inner Products",
+          "original": "lecture-14.pdf"
         },
         {
-          "number": "4.2",
-          "slug": "4-2-polynomial-rings-and-field-extensions",
-          "title": "Polynomial Rings and Field Extensions"
+          "number": "15",
+          "slug": "15-inner-product-spaces-orthogonal-and-self-adjoint-operators",
+          "title": "Inner Product Spaces, Orthogonal and Self-Adjoint Operators",
+          "original": "lecture-15.pdf"
         },
         {
-          "number": "4.3",
-          "slug": "4-3-characteristic-of-a-field",
-          "title": "Characteristic of a Field"
+          "number": "16",
+          "slug": "16-adjoints-the-spectral-theorem-and-orthogonal-operators",
+          "title": "Adjoints, the Spectral Theorem, and Orthogonal Operators",
+          "original": "lecture-16.pdf"
         },
         {
-          "number": "4.4",
-          "slug": "4-4-vector-spaces",
-          "title": "Vector Spaces"
+          "number": "17",
+          "slug": "17-hermitian-inner-products-the-complex-spectral-theorem-and-classifying-bilinear-forms",
+          "title": "Hermitian Inner Products, the Complex Spectral Theorem, and Classifying Bilinear Forms",
+          "original": "lecture-17.pdf"
         },
         {
-          "number": "4.5",
-          "slug": "4-5-span-linear-independence-and-basis",
-          "title": "Span, Linear Independence, and Basis"
+          "number": "B8.1",
+          "slug": "8-1-the-language-of-categories",
+          "title": "The Language of Categories",
+          "from": "book",
+          "bookNumber": "8.1",
+          "part": "From my book"
         },
         {
-          "number": "4.6",
-          "slug": "4-6-finite-dimensional-vector-spaces",
-          "title": "Finite-Dimensional Vector Spaces and Dimension"
+          "number": "B8.2",
+          "slug": "8-2-universal-properties",
+          "title": "Universal Properties",
+          "from": "book",
+          "bookNumber": "8.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B9.1",
+          "slug": "9-1-inner-products",
+          "title": "Inner Products",
+          "from": "book",
+          "bookNumber": "9.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B9.2",
+          "slug": "9-2-orthonormal-bases",
+          "title": "Orthonormal Bases",
+          "from": "book",
+          "bookNumber": "9.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B9.3",
+          "slug": "9-3-the-adjoint",
+          "title": "The Adjoint",
+          "from": "book",
+          "bookNumber": "9.3",
+          "part": "From my book"
+        },
+        {
+          "number": "B9.4",
+          "slug": "9-4-self-adjoint-and-normal-operators",
+          "title": "Self-Adjoint and Normal Operators",
+          "from": "book",
+          "bookNumber": "9.4",
+          "part": "From my book"
+        },
+        {
+          "number": "B9.5",
+          "slug": "9-5-orthogonal-and-unitary-operators",
+          "title": "Orthogonal and Unitary Operators",
+          "from": "book",
+          "bookNumber": "9.5",
+          "part": "From my book"
+        },
+        {
+          "number": "N23",
+          "slug": "notebook-functors",
+          "title": "Functors",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N24",
+          "slug": "notebook-orthogonal-operators",
+          "title": "Orthogonal Operators",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N25",
+          "slug": "notebook-midterm-review-generalized-eigenspaces-bilinear-forms-and-inner-products",
+          "title": "Midterm Review: Generalized Eigenspaces, Bilinear Forms and Inner Products",
+          "part": "From my notebooks"
         }
       ]
     },
     {
       "number": 5,
-      "title": "Linear Maps",
+      "title": "Multilinear Algebra",
       "sections": [
         {
-          "number": "5.0",
-          "slug": "5-0-linear-maps",
-          "title": "Linear Maps"
+          "number": "18",
+          "slug": "18-symplectic-forms-and-tensor-products",
+          "title": "Symplectic Forms and Tensor Products",
+          "original": "lecture-18.pdf"
         },
         {
-          "number": "5.1",
-          "slug": "5-1-matrix-representation",
-          "title": "Matrix Representation of Linear Maps"
+          "number": "19",
+          "slug": "19-trace-symmetric-and-exterior-algebras-determinant",
+          "title": "Trace, Symmetric and Exterior Algebras, Determinant",
+          "original": "lecture-19.pdf"
         },
         {
-          "number": "5.2",
-          "slug": "5-2-change-of-basis",
-          "title": "Change of basis"
+          "number": "20",
+          "slug": "20-determinants-and-modules-over-a-ring",
+          "title": "Determinants, and Modules over a Ring",
+          "original": "lecture-20.pdf"
+        },
+        {
+          "number": "N26",
+          "slug": "notebook-tensor-products",
+          "title": "Tensor Products",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N27",
+          "slug": "notebook-tensor-products-trace-and-symmetric-tensors",
+          "title": "Tensor products, trace, and symmetric tensors",
+          "part": "From my notebooks"
         }
       ]
     },
     {
       "number": 6,
-      "title": "Kernals, images, and more",
+      "title": "Modules and Group Actions",
       "sections": [
         {
-          "number": "6.1",
-          "slug": "6-1-kernel-and-image",
-          "title": "Kernel and Image"
+          "number": "21",
+          "slug": "21-finitely-generated-abelian-groups-group-actions",
+          "title": "Finitely Generated Abelian Groups; Group Actions",
+          "original": "lecture-21.pdf"
         },
         {
-          "number": "6.2",
-          "slug": "6-2-duality",
-          "title": "Duality"
+          "number": "22",
+          "slug": "22-group-actions-burnsides-lemma-and-the-class-equation",
+          "title": "Group Actions, Burnside’s Lemma and the Class Equation",
+          "original": "lecture-22.pdf"
+        },
+        {
+          "number": "B10.1",
+          "slug": "10-1-modules-over-a-ring",
+          "title": "Modules over a Ring",
+          "from": "book",
+          "bookNumber": "10.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B10.2",
+          "slug": "10-2-classification-of-finitely-generated-abelian-groups",
+          "title": "Classification of Finitely Generated Abelian Groups",
+          "from": "book",
+          "bookNumber": "10.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B3.2",
+          "slug": "3-2-group-actions-and-symmetry",
+          "title": "Group actions and symmetry",
+          "from": "book",
+          "bookNumber": "3.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B11.1",
+          "slug": "11-1-group-actions-orbits-stabilizers-and-counting",
+          "title": "Group Actions: Orbits, Stabilizers, and Counting",
+          "from": "book",
+          "bookNumber": "11.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B11.2",
+          "slug": "11-2-actions-of-g-on-itself",
+          "title": "Actions of $G$ on Itself",
+          "from": "book",
+          "bookNumber": "11.2",
+          "part": "From my book"
+        },
+        {
+          "number": "N28",
+          "slug": "notebook-ideals-finitely-generated-abelian-groups",
+          "title": "Ideals; finitely generated abelian groups",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N29",
+          "slug": "notebook-finitely-generated-abelian-groups-presentations-and-primitive-elements",
+          "title": "Finitely generated abelian groups: presentations and primitive elements",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N30",
+          "slug": "notebook-primary-decomposition-of-a-finite-abelian-group",
+          "title": "Primary decomposition of a finite abelian group",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N31",
+          "slug": "notebook-group-actions",
+          "title": "Group actions",
+          "part": "From my notebooks"
         }
       ]
     },
     {
       "number": 7,
-      "title": "More maps and spaces",
+      "title": "Finite Groups",
       "sections": [
         {
-          "number": "7.0",
-          "slug": "7-0-annihilators",
-          "title": "Annihilators"
+          "number": "23",
+          "slug": "23-finite-subgroups-of-so-3",
+          "title": "Finite Subgroups of SO(3)",
+          "original": "lecture-23.pdf"
         },
         {
-          "number": "7.1",
-          "slug": "7-1-quotient-spaces",
-          "title": "Quotient Spaces"
+          "number": "24",
+          "slug": "24-conjugacy-classes-symmetric-and-alternating-groups",
+          "title": "Conjugacy Classes, Symmetric and Alternating Groups",
+          "original": "lecture-24.pdf"
         },
         {
-          "number": "7.2",
-          "slug": "7-2-linear-operators-and-endomorphisms",
-          "title": "Linear Operators and Endomorphisms"
+          "number": "25",
+          "slug": "25-simplicity-of-the-alternating-group-the-sylow-theorems",
+          "title": "Simplicity of the Alternating Group; the Sylow Theorems",
+          "original": "lecture-25.pdf"
         },
         {
-          "number": "7.3",
-          "slug": "7-3-invariant-subspaces",
-          "title": "Invariant Subspaces"
+          "number": "26",
+          "slug": "26-semidirect-products-and-first-applications-of-sylow",
+          "title": "Semidirect Products and First Applications of Sylow",
+          "original": "lecture-26.pdf"
         },
         {
-          "number": "7.4",
-          "slug": "7-4-eigenvalues-and-eigenvectors",
-          "title": "Eigenvalues and Eigenvectors"
+          "number": "M2",
+          "slug": "midterm-2-review-linear-algebra-and-group-theory",
+          "title": "Midterm 2 Review: Linear Algebra and Group Theory",
+          "original": "auroux-midterm-2-review.pdf",
+          "originalOpen": true,
+          "originalLabel": "Professor Auroux’s handwritten review sheet"
         },
         {
-          "number": "7.5",
-          "slug": "7-5-lets-get-general-up-in-here",
-          "title": "Let’s get general up in here!"
+          "number": "28",
+          "slug": "28-proofs-of-the-sylow-theorems-groups-of-order-12",
+          "title": "Proofs of the Sylow Theorems; Groups of Order 12",
+          "original": "lecture-28.pdf"
         },
         {
-          "number": "7.6",
-          "slug": "7-6-nilpotent-operators",
-          "title": "Nilpotent Operators"
+          "number": "B11.3",
+          "slug": "11-3-the-sylow-theorems",
+          "title": "The Sylow Theorems",
+          "from": "book",
+          "bookNumber": "11.3",
+          "part": "From my book"
         },
         {
-          "number": "7.7",
-          "slug": "7-7-jordan-normal-form",
-          "title": "Jordan Normal Form"
+          "number": "B11.4",
+          "slug": "11-4-finite-subgroups-of-so-3",
+          "title": "Finite Subgroups of $\\mathrm{SO}(3)$",
+          "from": "book",
+          "bookNumber": "11.4",
+          "part": "From my book"
         },
         {
-          "number": "7.8",
-          "slug": "7-8-characteristic-and-minimal-polynomials",
-          "title": "Characteristic and Minimal Polynomials"
+          "number": "B11.5",
+          "slug": "11-5-conjugacy-in-s-n-and-the-alternating",
+          "title": "Conjugacy in $S_n$ and the Alternating Group",
+          "from": "book",
+          "bookNumber": "11.5",
+          "part": "From my book"
+        },
+        {
+          "number": "B11.6",
+          "slug": "11-6-semidirect-products",
+          "title": "Semidirect Products",
+          "from": "book",
+          "bookNumber": "11.6",
+          "part": "From my book"
+        },
+        {
+          "number": "N32",
+          "slug": "notebook-finite-subgroups-of-so-3",
+          "title": "Finite subgroups of SO(3)",
+          "part": "From my notebooks"
+        },
+        {
+          "number": "N33",
+          "slug": "notebook-the-conjugation-action-lecture-25",
+          "title": "The Conjugation Action (Lecture 25)",
+          "part": "From my notebooks"
         }
       ]
     },
     {
       "number": 8,
-      "title": "Categories: An Interlude",
+      "title": "Presentations and the Modular Group",
       "sections": [
         {
-          "number": "8.1",
-          "slug": "8-1-the-language-of-categories",
-          "title": "The Language of Categories"
+          "number": "29",
+          "slug": "29-presentations-cayley-graphs-and-normal-forms",
+          "title": "Presentations, Cayley Graphs, and Normal Forms",
+          "original": "lecture-29.pdf"
         },
         {
-          "number": "8.2",
-          "slug": "8-2-universal-properties",
-          "title": "Universal Properties"
+          "number": "30",
+          "slug": "30-the-modular-group-and-representations-of-abelian-groups",
+          "title": "The Modular Group and Representations of Abelian Groups",
+          "original": "lecture-30.pdf"
+        },
+        {
+          "number": "B3.6",
+          "slug": "3-6-free-groups-and-presentations",
+          "title": "Free groups and presentations",
+          "from": "book",
+          "bookNumber": "3.6",
+          "part": "From my book"
+        },
+        {
+          "number": "B12.1",
+          "slug": "12-1-free-groups-and-presentations",
+          "title": "Free Groups and Presentations",
+          "from": "book",
+          "bookNumber": "12.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B12.2",
+          "slug": "12-2-cayley-graphs",
+          "title": "Cayley Graphs",
+          "from": "book",
+          "bookNumber": "12.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B12.3",
+          "slug": "12-3-the-braid-group",
+          "title": "The Braid Group",
+          "from": "book",
+          "bookNumber": "12.3",
+          "part": "From my book"
+        },
+        {
+          "number": "B12.4",
+          "slug": "12-4-sl-2-z-and-psl-2-z",
+          "title": "$\\mathrm{SL}_2(\\ZZ)$ and $\\mathrm{PSL}_2(\\ZZ)$",
+          "from": "book",
+          "bookNumber": "12.4",
+          "part": "From my book"
+        },
+        {
+          "number": "N34",
+          "slug": "notebook-generators-presentations-and-cayley-graphs",
+          "title": "Generators, Presentations and Cayley Graphs",
+          "part": "From my notebooks"
         }
       ]
     },
     {
       "number": 9,
-      "title": "Inner Product Spaces",
+      "title": "Representation Theory",
       "sections": [
         {
-          "number": "9.1",
-          "slug": "9-1-inner-products",
-          "title": "Inner Products"
+          "number": "31",
+          "slug": "31-complete-reducibility-and-schurs-lemma",
+          "title": "Complete Reducibility and Schur’s Lemma",
+          "original": "lecture-31.pdf"
         },
         {
-          "number": "9.2",
-          "slug": "9-2-orthonormal-bases",
-          "title": "Orthonormal Bases"
+          "number": "32",
+          "slug": "32-schurs-lemma-and-the-representations-of-s-3",
+          "title": "Schur’s Lemma and the Representations of $S_3$",
+          "original": "lecture-32.pdf"
         },
         {
-          "number": "9.3",
-          "slug": "9-3-the-adjoint",
-          "title": "The Adjoint"
+          "number": "33",
+          "slug": "33-characters-of-representations",
+          "title": "Characters of Representations",
+          "original": "lecture-33.pdf"
         },
         {
-          "number": "9.4",
-          "slug": "9-4-self-adjoint-and-normal-operators",
-          "title": "Self-Adjoint and Normal Operators"
+          "number": "34",
+          "slug": "34-orthogonality-of-characters-and-character-tables",
+          "title": "Orthogonality of Characters and Character Tables",
+          "original": "lecture-34.pdf"
         },
         {
-          "number": "9.5",
-          "slug": "9-5-orthogonal-and-unitary-operators",
-          "title": "Orthogonal and Unitary Operators"
+          "number": "35",
+          "slug": "35-irreducible-characters-form-a-basis-characters-of-s5-and-a5",
+          "title": "Irreducible Characters Form a Basis; Characters of S₅ and A₅",
+          "original": "lecture-35.pdf"
+        },
+        {
+          "number": "36",
+          "slug": "36-restriction-induction-and-frobenius-reciprocity",
+          "title": "Restriction, Induction and Frobenius Reciprocity",
+          "original": "lecture-36.pdf"
+        },
+        {
+          "number": "37",
+          "slug": "37-frobenius-reciprocity-real-and-quaternionic-representations",
+          "title": "Frobenius Reciprocity; Real and Quaternionic Representations",
+          "original": "lecture-37.pdf"
+        },
+        {
+          "number": "B13.1",
+          "slug": "13-1-representations-and-subrepresentations",
+          "title": "Representations and Subrepresentations",
+          "from": "book",
+          "bookNumber": "13.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B13.2",
+          "slug": "13-2-maschkes-theorem-and-complete-reducibility",
+          "title": "Maschke’s Theorem and Complete Reducibility",
+          "from": "book",
+          "bookNumber": "13.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B13.3",
+          "slug": "13-3-schurs-lemma",
+          "title": "Schur’s Lemma",
+          "from": "book",
+          "bookNumber": "13.3",
+          "part": "From my book"
+        },
+        {
+          "number": "B13.4",
+          "slug": "13-4-characters",
+          "title": "Characters",
+          "from": "book",
+          "bookNumber": "13.4",
+          "part": "From my book"
+        },
+        {
+          "number": "B13.5",
+          "slug": "13-5-character-orthogonality",
+          "title": "Character Orthogonality",
+          "from": "book",
+          "bookNumber": "13.5",
+          "part": "From my book"
+        },
+        {
+          "number": "B13.6",
+          "slug": "13-6-character-tables",
+          "title": "Character Tables",
+          "from": "book",
+          "bookNumber": "13.6",
+          "part": "From my book"
+        },
+        {
+          "number": "B13.7",
+          "slug": "13-7-characters-form-an-orthonormal-basis",
+          "title": "Characters Form an Orthonormal Basis",
+          "from": "book",
+          "bookNumber": "13.7",
+          "part": "From my book"
+        },
+        {
+          "number": "B14.1",
+          "slug": "14-1-characters-as-an-orthonormal-basis",
+          "title": "Characters as an Orthonormal Basis",
+          "from": "book",
+          "bookNumber": "14.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B14.2",
+          "slug": "14-2-the-representation-ring",
+          "title": "The Representation Ring",
+          "from": "book",
+          "bookNumber": "14.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B14.3",
+          "slug": "14-3-character-table-of-s-5",
+          "title": "Character Table of $S_5$",
+          "from": "book",
+          "bookNumber": "14.3",
+          "part": "From my book"
+        },
+        {
+          "number": "B14.4",
+          "slug": "14-4-character-table-of-a-5",
+          "title": "Character Table of $A_5$",
+          "from": "book",
+          "bookNumber": "14.4",
+          "part": "From my book"
+        },
+        {
+          "number": "B15.1",
+          "slug": "15-1-restriction",
+          "title": "Restriction",
+          "from": "book",
+          "bookNumber": "15.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B15.2",
+          "slug": "15-2-induced-representations",
+          "title": "Induced Representations",
+          "from": "book",
+          "bookNumber": "15.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B15.3",
+          "slug": "15-3-frobenius-reciprocity",
+          "title": "Frobenius Reciprocity",
+          "from": "book",
+          "bookNumber": "15.3",
+          "part": "From my book"
+        },
+        {
+          "number": "B15.4",
+          "slug": "15-4-dimension-formulas-and-irreducibility",
+          "title": "Dimension Formulas and Irreducibility",
+          "from": "book",
+          "bookNumber": "15.4",
+          "part": "From my book"
+        },
+        {
+          "number": "B15.5",
+          "slug": "15-5-example-s-4-supset-s-3",
+          "title": "Example: $S_4 \\supset S_3$",
+          "from": "book",
+          "bookNumber": "15.5",
+          "part": "From my book"
+        },
+        {
+          "number": "B16.1",
+          "slug": "16-1-real-representations",
+          "title": "Real Representations",
+          "from": "book",
+          "bookNumber": "16.1",
+          "part": "From my book"
+        },
+        {
+          "number": "B16.2",
+          "slug": "16-2-complexification",
+          "title": "Complexification",
+          "from": "book",
+          "bookNumber": "16.2",
+          "part": "From my book"
+        },
+        {
+          "number": "B16.3",
+          "slug": "16-3-characterizing-real-representations",
+          "title": "Characterizing Real Representations",
+          "from": "book",
+          "bookNumber": "16.3",
+          "part": "From my book"
+        },
+        {
+          "number": "B16.4",
+          "slug": "16-4-the-frobeniusschur-indicator",
+          "title": "The Frobenius–Schur Indicator",
+          "from": "book",
+          "bookNumber": "16.4",
+          "part": "From my book"
+        },
+        {
+          "number": "B16.5",
+          "slug": "16-5-quaternionic-representations",
+          "title": "Quaternionic Representations",
+          "from": "book",
+          "bookNumber": "16.5",
+          "part": "From my book"
+        },
+        {
+          "number": "B16.6",
+          "slug": "16-6-the-frobeniusschur-indicator",
+          "title": "The Frobenius–Schur Indicator",
+          "from": "book",
+          "bookNumber": "16.6",
+          "part": "From my book"
+        },
+        {
+          "number": "B16.7",
+          "slug": "16-7-examples",
+          "title": "Examples",
+          "from": "book",
+          "bookNumber": "16.7",
+          "part": "From my book"
+        },
+        {
+          "number": "N35",
+          "slug": "notebook-induced-representations-and-frobenius-reciprocity",
+          "title": "Induced representations and Frobenius reciprocity",
+          "part": "From my notebooks"
         }
       ]
     },
     {
       "number": 10,
-      "title": "Modules and Finitely Generated Abelian Groups",
+      "title": "Review for the Final",
       "sections": [
         {
-          "number": "10.1",
-          "slug": "10-1-modules-over-a-ring",
-          "title": "Modules over a Ring"
+          "number": "R1",
+          "slug": "final-review-part-1-linear-algebra",
+          "title": "Final Review, Part 1: Linear Algebra",
+          "original": "auroux-final-review-1.pdf",
+          "originalOpen": true,
+          "originalLabel": "Professor Auroux’s handwritten review sheet"
         },
         {
-          "number": "10.2",
-          "slug": "10-2-classification-of-finitely-generated-abelian-groups",
-          "title": "Classification of Finitely Generated Abelian Groups"
+          "number": "R2",
+          "slug": "final-review-part-2-group-theory-and-representations",
+          "title": "Final Review, Part 2: Group Theory and Representations",
+          "original": "auroux-final-review-2.pdf",
+          "originalOpen": true,
+          "originalLabel": "Professor Auroux’s handwritten review sheet"
         }
       ]
     },
     {
       "number": 11,
-      "title": "Group Actions, Conjugacy, and the Sylow Theorems",
+      "title": "Further Topics",
       "sections": [
         {
-          "number": "11.1",
-          "slug": "11-1-group-actions-orbits-stabilizers-and-counting",
-          "title": "Group Actions: Orbits, Stabilizers, and Counting"
-        },
-        {
-          "number": "11.2",
-          "slug": "11-2-actions-of-g-on-itself",
-          "title": "Actions of $G$ on Itself"
-        },
-        {
-          "number": "11.3",
-          "slug": "11-3-the-sylow-theorems",
-          "title": "The Sylow Theorems"
-        },
-        {
-          "number": "11.4",
-          "slug": "11-4-finite-subgroups-of-so-3",
-          "title": "Finite Subgroups of $\\mathrm{SO}(3)$"
-        },
-        {
-          "number": "11.5",
-          "slug": "11-5-conjugacy-in-s-n-and-the-alternating",
-          "title": "Conjugacy in $S_n$ and the Alternating Group"
-        },
-        {
-          "number": "11.6",
-          "slug": "11-6-semidirect-products",
-          "title": "Semidirect Products"
-        }
-      ]
-    },
-    {
-      "number": 12,
-      "title": "Generators, Presentations, and Cayley Graphs",
-      "sections": [
-        {
-          "number": "12.1",
-          "slug": "12-1-free-groups-and-presentations",
-          "title": "Free Groups and Presentations"
-        },
-        {
-          "number": "12.2",
-          "slug": "12-2-cayley-graphs",
-          "title": "Cayley Graphs"
-        },
-        {
-          "number": "12.3",
-          "slug": "12-3-the-braid-group",
-          "title": "The Braid Group"
-        },
-        {
-          "number": "12.4",
-          "slug": "12-4-sl-2-z-and-psl-2-z",
-          "title": "$\\mathrm{SL}_2(\\ZZ)$ and $\\mathrm{PSL}_2(\\ZZ)$"
-        }
-      ]
-    },
-    {
-      "number": 13,
-      "title": "Representation Theory",
-      "sections": [
-        {
-          "number": "13.1",
-          "slug": "13-1-representations-and-subrepresentations",
-          "title": "Representations and Subrepresentations"
-        },
-        {
-          "number": "13.2",
-          "slug": "13-2-maschkes-theorem-and-complete-reducibility",
-          "title": "Maschke’s Theorem and Complete Reducibility"
-        },
-        {
-          "number": "13.3",
-          "slug": "13-3-schurs-lemma",
-          "title": "Schur’s Lemma"
-        },
-        {
-          "number": "13.4",
-          "slug": "13-4-characters",
-          "title": "Characters"
-        },
-        {
-          "number": "13.5",
-          "slug": "13-5-character-orthogonality",
-          "title": "Character Orthogonality"
-        },
-        {
-          "number": "13.6",
-          "slug": "13-6-character-tables",
-          "title": "Character Tables"
-        },
-        {
-          "number": "13.7",
-          "slug": "13-7-characters-form-an-orthonormal-basis",
-          "title": "Characters Form an Orthonormal Basis"
-        }
-      ]
-    },
-    {
-      "number": 14,
-      "title": "The Representation Ring; Characters of $S_5$ and $A_5$",
-      "sections": [
-        {
-          "number": "14.1",
-          "slug": "14-1-characters-as-an-orthonormal-basis",
-          "title": "Characters as an Orthonormal Basis"
-        },
-        {
-          "number": "14.2",
-          "slug": "14-2-the-representation-ring",
-          "title": "The Representation Ring"
-        },
-        {
-          "number": "14.3",
-          "slug": "14-3-character-table-of-s-5",
-          "title": "Character Table of $S_5$"
-        },
-        {
-          "number": "14.4",
-          "slug": "14-4-character-table-of-a-5",
-          "title": "Character Table of $A_5$"
-        }
-      ]
-    },
-    {
-      "number": 15,
-      "title": "Restriction and Induction of Representations",
-      "sections": [
-        {
-          "number": "15.1",
-          "slug": "15-1-restriction",
-          "title": "Restriction"
-        },
-        {
-          "number": "15.2",
-          "slug": "15-2-induced-representations",
-          "title": "Induced Representations"
-        },
-        {
-          "number": "15.3",
-          "slug": "15-3-frobenius-reciprocity",
-          "title": "Frobenius Reciprocity"
-        },
-        {
-          "number": "15.4",
-          "slug": "15-4-dimension-formulas-and-irreducibility",
-          "title": "Dimension Formulas and Irreducibility"
-        },
-        {
-          "number": "15.5",
-          "slug": "15-5-example-s-4-supset-s-3",
-          "title": "Example: $S_4 \\supset S_3$"
-        }
-      ]
-    },
-    {
-      "number": 16,
-      "title": "Real and Quaternionic Representations",
-      "sections": [
-        {
-          "number": "16.1",
-          "slug": "16-1-real-representations",
-          "title": "Real Representations"
-        },
-        {
-          "number": "16.2",
-          "slug": "16-2-complexification",
-          "title": "Complexification"
-        },
-        {
-          "number": "16.3",
-          "slug": "16-3-characterizing-real-representations",
-          "title": "Characterizing Real Representations"
-        },
-        {
-          "number": "16.4",
-          "slug": "16-4-the-frobeniusschur-indicator",
-          "title": "The Frobenius–Schur Indicator"
-        },
-        {
-          "number": "16.5",
-          "slug": "16-5-quaternionic-representations",
-          "title": "Quaternionic Representations"
-        },
-        {
-          "number": "16.6",
-          "slug": "16-6-the-frobeniusschur-indicator",
-          "title": "The Frobenius–Schur Indicator"
-        },
-        {
-          "number": "16.7",
-          "slug": "16-7-examples",
-          "title": "Examples"
-        }
-      ]
-    },
-    {
-      "number": 17,
-      "title": "Further Topics in Algebra",
-      "sections": [
-        {
-          "number": "17.1",
+          "number": "B17.1",
           "slug": "17-1-integral-domains-and-divisibility",
           "title": "Integral Domains and Divisibility",
+          "from": "book",
+          "bookNumber": "17.1",
           "part": "Part I: Commutative Ring Theory"
         },
         {
-          "number": "17.2",
+          "number": "B17.2",
           "slug": "17-2-euclidean-domains",
           "title": "Euclidean Domains",
+          "from": "book",
+          "bookNumber": "17.2",
           "part": "Part I: Commutative Ring Theory"
         },
         {
-          "number": "17.3",
+          "number": "B17.3",
           "slug": "17-3-principal-ideal-domains",
           "title": "Principal Ideal Domains",
+          "from": "book",
+          "bookNumber": "17.3",
           "part": "Part I: Commutative Ring Theory"
         },
         {
-          "number": "17.4",
+          "number": "B17.4",
           "slug": "17-4-unique-factorization-domains",
           "title": "Unique Factorization Domains",
+          "from": "book",
+          "bookNumber": "17.4",
           "part": "Part I: Commutative Ring Theory"
         },
         {
-          "number": "17.5",
+          "number": "B17.5",
           "slug": "17-5-noetherian-rings",
           "title": "Noetherian Rings",
+          "from": "book",
+          "bookNumber": "17.5",
           "part": "Part I: Commutative Ring Theory"
         },
         {
-          "number": "17.6",
+          "number": "B17.6",
           "slug": "17-6-field-extensions",
           "title": "Field Extensions",
+          "from": "book",
+          "bookNumber": "17.6",
           "part": "Part II: Galois Theory"
         },
         {
-          "number": "17.7",
+          "number": "B17.7",
           "slug": "17-7-splitting-fields-and-normal-extensions",
           "title": "Splitting Fields and Normal Extensions",
+          "from": "book",
+          "bookNumber": "17.7",
           "part": "Part II: Galois Theory"
         },
         {
-          "number": "17.8",
+          "number": "B17.8",
           "slug": "17-8-the-galois-group",
           "title": "The Galois Group",
+          "from": "book",
+          "bookNumber": "17.8",
           "part": "Part II: Galois Theory"
         },
         {
-          "number": "17.9",
+          "number": "B17.9",
           "slug": "17-9-the-fundamental-theorem-of-galois-theory",
           "title": "The Fundamental Theorem of Galois Theory",
+          "from": "book",
+          "bookNumber": "17.9",
           "part": "Part II: Galois Theory"
         },
         {
-          "number": "17.10",
+          "number": "B17.10",
           "slug": "17-10-cyclotomic-extensions",
           "title": "Cyclotomic Extensions",
+          "from": "book",
+          "bookNumber": "17.10",
           "part": "Part II: Galois Theory"
         },
         {
-          "number": "17.11",
+          "number": "B17.11",
           "slug": "17-11-solvability-by-radicals",
           "title": "Solvability by Radicals",
+          "from": "book",
+          "bookNumber": "17.11",
           "part": "Part II: Galois Theory"
         },
         {
-          "number": "17.12",
+          "number": "B17.12",
           "slug": "17-12-matrix-lie-groups",
           "title": "Matrix Lie Groups",
+          "from": "book",
+          "bookNumber": "17.12",
           "part": "Part III: Lie Groups and Lie Algebras"
         },
         {
-          "number": "17.13",
+          "number": "B17.13",
           "slug": "17-13-lie-algebras",
           "title": "Lie Algebras",
+          "from": "book",
+          "bookNumber": "17.13",
           "part": "Part III: Lie Groups and Lie Algebras"
         },
         {
-          "number": "17.14",
+          "number": "B17.14",
           "slug": "17-14-the-exponential-map",
           "title": "The Exponential Map",
+          "from": "book",
+          "bookNumber": "17.14",
           "part": "Part III: Lie Groups and Lie Algebras"
         },
         {
-          "number": "17.15",
+          "number": "B17.15",
           "slug": "17-15-homomorphisms-and-representations",
           "title": "Homomorphisms and Representations",
+          "from": "book",
+          "bookNumber": "17.15",
           "part": "Part III: Lie Groups and Lie Algebras"
         },
         {
-          "number": "17.16",
+          "number": "B17.16",
           "slug": "17-16-structure-and-classification",
           "title": "Structure and Classification",
+          "from": "book",
+          "bookNumber": "17.16",
           "part": "Part III: Lie Groups and Lie Algebras"
         }
       ]

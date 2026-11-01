@@ -1,0 +1,42 @@
+\begin{tikzpicture}[line join=round, >=Stealth]
+  % ---- panel 1: rotation about the axis perpendicular to the plane
+  \begin{scope}
+    \draw[gray] (-1.9,-0.75) -- (1.4,-0.75) -- (1.9,0.75) -- (-1.4,0.75) -- cycle;
+    \draw[thick] (90:1 and 0.4)
+      \foreach \k in {1,...,4} { -- ({90+72*\k}:1 and 0.4) } -- cycle;
+    \draw[blue, semithick] (0,0) -- (0,1.75);
+    \draw[blue, semithick, dashed] (0,0) -- (0,-0.75);
+    \draw[blue, semithick] (0,-0.75) -- (0,-1.35);
+    \fill[blue] (0,0) circle (1.5pt);
+    \draw[->, red] (-0.32,1.35) arc[start angle=200, end angle=520, x radius=0.33, y radius=0.11];
+    \node[red, right] at (0.4,1.45) {$\frac{2\pi k}{n}$};
+    \node at (0,-1.75) {$n$ rotations};
+  \end{scope}
+  % ---- panel 2: flip = rotation by pi about an axis in the plane
+  \begin{scope}[xshift=4.6cm]
+    \draw[gray] (-1.9,-0.75) -- (1.4,-0.75) -- (1.9,0.75) -- (-1.4,0.75) -- cycle;
+    \draw[thick] (60:1 and 0.4)
+      \foreach \k in {1,...,4} { -- ({60+72*\k}:1 and 0.4) } -- cycle;
+    \draw[blue, semithick, dashed] (-1.07,-0.75) -- (1.07,0.75);
+    \draw[blue, semithick] (1.07,0.75) -- (1.5,1.05);
+    \draw[blue, semithick] (-1.07,-0.75) -- (-1.5,-1.05);
+    \fill[blue] (0,0) circle (1.5pt);
+    \draw[->, red, rotate around={35:(-1.35,-0.945)}] (-1.33,-0.67) arc[start angle=85, end angle=405, x radius=0.1, y radius=0.27];
+    \node[red] at (-1.85,-1.2) {$\pi$};
+    \node at (0,-1.75) {$n$ flips};
+  \end{scope}
+  % ---- special cases n = 1, n = 2
+  \begin{scope}[xshift=8.4cm, yshift=-0.2cm]
+    \draw[thick] (0,0) .. controls (0.5,0.55) and (1.15,0.45) .. (1.15,0)
+                       .. controls (1.15,-0.45) and (0.5,-0.55) .. (0,0);
+    \fill (0,0) circle (1.8pt);
+    \node at (0.55,-1.55) {$n=1$};
+  \end{scope}
+  \begin{scope}[xshift=10.3cm, yshift=-0.2cm]
+    \draw[thick] (0,0) .. controls (0.4,0.5) and (1.0,0.5) .. (1.4,0)
+                       .. controls (1.0,-0.5) and (0.4,-0.5) .. (0,0);
+    \fill (0,0) circle (1.8pt);
+    \fill (1.4,0) circle (1.8pt);
+    \node at (0.7,-1.55) {$n=2$};
+  \end{scope}
+\end{tikzpicture}

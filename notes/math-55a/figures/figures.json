@@ -1,16 +1,152 @@
 {
-  "fig-2-2-1": { "alt": "An equilateral triangle with its three dashed axes of reflection and an arrow for rotation about its centre." },
-  "fig-2-4-1": { "alt": "Subgroup lattice of Z/12: Z/12 at the top; ⟨2⟩ and ⟨3⟩ below it; ⟨4⟩ and ⟨6⟩ below those; {0} at the bottom; lines mark inclusion." },
-  "fig-2-5-1": { "alt": "Commutative square: φ×φ from G×G to H×H along the top, m_G down the left to G, m_H down the right to H, and φ from G to H along the bottom." },
-  "fig-3-1-1": { "alt": "Subgroup lattice of S3: S3 at the top, the subgroups ⟨ρ⟩, ⟨μ⟩, ⟨ρμ⟩ and ⟨ρ²μ⟩ in the middle row, and {e} at the bottom." },
-  "fig-3-6-1": { "alt": "Universal property of the free group: ι from S to F(S), f from S to G, and a unique dashed map f̃ from F(S) to G making the triangle commute." },
-  "fig-7-1-1": { "alt": "Universal property of the quotient: φ from V to W, q from V to V/U, and a unique dashed map φ̄ from V/U to W making the triangle commute." },
-  "fig-8-2-1": { "alt": "Universal property of the product: α from T to A and β from T to B factor through a unique dashed map φ from T to P followed by the projections π1 to A and π2 to B." },
-  "fig-8-2-2": { "alt": "Universal property of the coproduct: α from A to T and β from B to T factor through the inclusions ι1 and ι2 into S followed by a unique dashed map φ from S to T." },
-  "fig-11-4-1": { "alt": "A tetrahedron, a cube and a dodecahedron, labelled with their rotation groups: A4 of order 12 (2,3,3), S4 of order 24 (2,3,4), and A5 of order 60 (2,3,5)." },
-  "fig-12-2-1": { "alt": "Cayley graph of Z with generator 1: the integers −3 to 3 on a line, each joined to the next by an arrow." },
-  "fig-12-2-2": { "alt": "Cayley graph of S3 with generators s1 and s2: the six elements on a hexagon, edges alternating between s1 (blue) and s2 (red)." },
-  "fig-12-3-1": { "alt": "Three-strand braid diagrams for the generators s1, its inverse, and s2." },
-  "fig-12-3-2": { "alt": "The braid relation: the three-strand braids s1s2s1 and s2s1s2 side by side with an equals sign." },
-  "fig-12-4-1": { "alt": "The upper half-plane with the fundamental domain Δ shaded: the region above the unit circle between Re z = −1/2 and 1/2, with the neighbouring regions TΔ, T⁻¹Δ and SΔ." }
+  "fig-2-2-1": {
+    "alt": "An equilateral triangle with its three dashed axes of reflection and an arrow for rotation about its centre."
+  },
+  "fig-2-4-1": {
+    "alt": "Subgroup lattice of Z/12: Z/12 at the top; ⟨2⟩ and ⟨3⟩ below it; ⟨4⟩ and ⟨6⟩ below those; {0} at the bottom; lines mark inclusion."
+  },
+  "fig-2-5-1": {
+    "alt": "Commutative square: φ×φ from G×G to H×H along the top, m_G down the left to G, m_H down the right to H, and φ from G to H along the bottom."
+  },
+  "fig-3-1-1": {
+    "alt": "Subgroup lattice of S3: S3 at the top, the subgroups ⟨ρ⟩, ⟨μ⟩, ⟨ρμ⟩ and ⟨ρ²μ⟩ in the middle row, and {e} at the bottom."
+  },
+  "fig-3-6-1": {
+    "alt": "Universal property of the free group: ι from S to F(S), f from S to G, and a unique dashed map f̃ from F(S) to G making the triangle commute."
+  },
+  "fig-7-1-1": {
+    "alt": "Universal property of the quotient: φ from V to W, q from V to V/U, and a unique dashed map φ̄ from V/U to W making the triangle commute."
+  },
+  "fig-8-2-1": {
+    "alt": "Universal property of the product: α from T to A and β from T to B factor through a unique dashed map φ from T to P followed by the projections π1 to A and π2 to B."
+  },
+  "fig-8-2-2": {
+    "alt": "Universal property of the coproduct: α from A to T and β from B to T factor through the inclusions ι1 and ι2 into S followed by a unique dashed map φ from S to T."
+  },
+  "fig-11-4-1": {
+    "alt": "A tetrahedron, a cube and a dodecahedron, labelled with their rotation groups: A4 of order 12 (2,3,3), S4 of order 24 (2,3,4), and A5 of order 60 (2,3,5)."
+  },
+  "fig-12-2-1": {
+    "alt": "Cayley graph of Z with generator 1: the integers −3 to 3 on a line, each joined to the next by an arrow."
+  },
+  "fig-12-2-2": {
+    "alt": "Cayley graph of S3 with generators s1 and s2: the six elements on a hexagon, edges alternating between s1 (blue) and s2 (red)."
+  },
+  "fig-12-3-1": {
+    "alt": "Three-strand braid diagrams for the generators s1, its inverse, and s2."
+  },
+  "fig-12-3-2": {
+    "alt": "The braid relation: the three-strand braids s1s2s1 and s2s1s2 side by side with an equals sign."
+  },
+  "fig-12-4-1": {
+    "alt": "The upper half-plane with the fundamental domain Δ shaded: the region above the unit circle between Re z = −1/2 and 1/2, with the neighbouring regions TΔ, T⁻¹Δ and SΔ."
+  },
+  "r55a-quotient-factor": {
+    "alt": "Commutative triangle: the map phi from V to W factors as the quotient map q from V to V/U followed by a dashed map phi-bar from V/U to W, which exists exactly when U is contained in the kernel of phi."
+  },
+  "n1-cosets": {
+    "alt": "A box labelled G containing two disjoint circles: the subgroup K and its left coset aK, with one element ak marked inside aK."
+  },
+  "n1-circle-symmetry": {
+    "alt": "A circle Sigma lying in the xy-plane with the z-axis through its centre, a rotation arrow about the z-axis and a dashed line in the plane about which a half-turn is drawn."
+  },
+  "n1-dihedral": {
+    "alt": "A regular pentagon in the xy-plane with a red arrow showing the rotation by 2 pi over n about the z-axis and a dashed flip axis through a vertex."
+  },
+  "n1-pyramid": {
+    "alt": "A pyramid over a regular pentagon with a dotted vertical axis and a rotation arrow labelled 2 pi over n, illustrating cyclic symmetry."
+  },
+  "n1-polyhedra": {
+    "alt": "Line drawings of a tetrahedron, a cube and an octahedron, with hidden edges dashed."
+  },
+  "n1-poles": {
+    "alt": "A sphere with a tilted rotation axis passing through it; the two points where the axis meets the sphere are marked as poles."
+  },
+  "n2-tensor-universal-property": {
+    "alt": "Commutative triangle: the map beta from V x W to the tensor product V tensor W, followed by the linear map alpha-tilde from V tensor W to U, equals the bilinear map alpha from V x W to U."
+  },
+  "n3-cayley-z": {
+    "alt": "Cayley graph of the integers with generator 1: the integers -2 to 2 on a line, with an arrow labelled 1 from each n to n+1, continuing in both directions."
+  },
+  "n3-cayley-s3": {
+    "alt": "Cayley graph of S3 with generators s1 = (12) and s2 = (23): a hexagon through e, s1, s1 s2, s1 s2 s1, s2 s1, s2, with edges alternately labelled s1 and s2."
+  },
+  "n3-cayley-grid": {
+    "alt": "A small piece of a square-grid Cayley graph, as for Z squared, with edges continuing off the picture in every direction."
+  },
+  "n3-triangle-symmetries": {
+    "alt": "An equilateral triangle with vertices a, b, c, its three reflection axes drawn dashed, and an arrow showing rotation by 120 degrees about the centre."
+  },
+  "e1-triangle-symmetries": {
+    "alt": "An equilateral triangle with its three dashed reflection axes, each through a vertex and the midpoint of the opposite side, a rotation arrow around the centre, and small double arrows at the vertices indicating the reflections."
+  },
+  "e1-square-symmetries": {
+    "alt": "Four squares illustrating symmetries of the square: h, the flip across the vertical axis; r, rotation by 90 degrees; h∘r, the reflection across the diagonal from bottom left to top right; and r∘h, the reflection across the other diagonal."
+  },
+  "e1-triangle-labeled": {
+    "alt": "An equilateral triangle with its centre marked and vertices labelled 1 at bottom left, 2 at bottom right and 3 at the top."
+  },
+  "e3-quotient-factorization": {
+    "alt": "Commutative triangle: the map phi from V to W equals the quotient map q from V to V/U followed by the induced map phi-bar from V/U to W."
+  },
+  "e5-tensor-universal-property": {
+    "alt": "Commutative triangle for the universal property of the tensor product: the bilinear map b from V x W to U factors as beta from V x W to V tensor W followed by a unique linear map phi from V tensor W to U."
+  },
+  "e5-multilinear-universal-property": {
+    "alt": "Commutative triangle for the universal property of the k-fold tensor product: the multilinear map m from V_1 x ... x V_k to W factors as mu into V_1 tensor ... tensor V_k followed by a unique linear map phi to W."
+  },
+  "e6-tensor-universal": {
+    "alt": "Commutative triangle: a multilinear map m from V_1 x ... x V_k to W factors as the canonical map mu to V_1 tensor ... tensor V_k followed by a unique linear map phi to W."
+  },
+  "e7-tetrahedron-axes": {
+    "alt": "Two tetrahedra: on the left a vertical rotation axis through the top vertex and the center of the bottom face, marked with a 120 degree rotation (order 3, 8 such rotations); on the right a rotation axis through the midpoints of two opposite edges, marked with a 180 degree rotation (order 2, 3 such rotations)."
+  },
+  "e7-ngon-symmetries": {
+    "alt": "A regular pentagon lying in a plane, shown twice: once with a rotation axis perpendicular to the plane through its center (n rotations by 2 pi k over n), once with an axis lying in the plane through a vertex and the center (n flips by pi); to the right, the degenerate polygons for n = 1 (a loop with one marked vertex) and n = 2 (a lens with two marked vertices)."
+  },
+  "e7-cone-ngon": {
+    "alt": "A pyramid (cone) over a regular pentagon, hidden edges dashed, with an arrow below indicating rotation by 2 pi k over n about its vertical axis."
+  },
+  "e7-platonic-solids": {
+    "alt": "The five regular polyhedra side by side with hidden edges dashed: tetrahedron, cube, octahedron, dodecahedron, icosahedron."
+  },
+  "e7-poles": {
+    "alt": "A sphere with a rotation axis T passing through its center; the axis meets the sphere in two antipodal points, the poles v and minus v, and a great circle perpendicular to the axis is drawn on the sphere."
+  },
+  "e7-dodecahedron-five-tetrahedra": {
+    "alt": "A dodecahedron drawn in gray with its 20 vertices colored in five colors, four of each color; the four blue vertices are connected, showing that they span a regular tetrahedron, and the other color classes are the other four tetrahedra."
+  },
+  "e9-z-cayley": {
+    "alt": "Cayley graph of the integers with generator 1: a horizontal line of vertices labelled -2, -1, 0, 1, 2, continuing in both directions, with an arrow labelled 1 from each vertex to the next."
+  },
+  "e9-s3-cayley": {
+    "alt": "Cayley graph of S3 with generators s1=(12) and s2=(23): a hexagon whose vertices are e, s1=(12), s1s2=(123), (13), s2s1=(132), s2=(23), with edges alternately labelled s1 and s2."
+  },
+  "e9-s4-permutohedron": {
+    "alt": "Cayley graph of S4 with generators s1, s2, s3 drawn as a permutohedron: 24 vertices labelled by permutations in one-line notation, 1234 at the bottom and 4321 at the top, edges coloured by generator, forming square and hexagonal faces; edges at the back are dashed."
+  },
+  "e9-perm-diagram": {
+    "alt": "A permutation drawn as a diagram: n points on a top line labelled 1, 2, ..., n joined by strands to points on a bottom line; the strand from 1 ends at the point labelled sigma(1) and the strand from 2 at the point labelled sigma(2)."
+  },
+  "e9-si-layer": {
+    "alt": "The generator s_i as a diagram: vertical strands between two horizontal lines, except that the strands in positions i and i+1 cross once."
+  },
+  "e9-sn-moves": {
+    "alt": "The three moves on permutation diagrams: (1) two successive crossings of the same pair of strands equal two straight strands, s_i squared equals e; (2) crossings of far-apart pairs of strands can slide past each other, s_i s_j = s_j s_i when |i-j| is at least 2; (3) three crossings among three strands can be rearranged, s_i s_{i+1} s_i = s_{i+1} s_i s_{i+1}."
+  },
+  "e9-braid-gens": {
+    "alt": "Braid group generators: s_i, in which the strand starting in position i passes over the strand starting in position i+1; s_i inverse, in which it passes under; and the braid relation, two equivalent three-strand braids s_i s_{i+1} s_i and s_{i+1} s_i s_{i+1}."
+  },
+  "e9-braid-closure": {
+    "alt": "Left: a braid on four strands between two horizontal lines, with strands crossing over and under one another. Right: the same braid with its closure, each bottom endpoint joined by a blue arc around the right side back to the corresponding top endpoint."
+  },
+  "e9-permutation-braid": {
+    "alt": "A permutation braid on four strands: each pair of strands crosses at most once, and at every crossing the strand moving to the right passes over."
+  },
+  "e9-modular-tiling": {
+    "alt": "Tiling of the upper half plane by images of the fundamental domain of PSL2(Z): the shaded region I above the unit circle between Re z = -1/2 and 1/2, neighbouring vertical strips T, T^2, T^-1, T^-2, the regions S, TS, T^2S, T^-1S, T^-2S under the unit circles centred at the integers, and smaller regions such as ST, STS, ST^-1, TST bounded by circles of radius 1/3; the real axis is marked from -2 to 2."
+  },
+  "e11-virtual-reps-lattice": {
+    "alt": "A square lattice of points representing R(G) for a group with two irreducibles V_1 and V_2: points with both coordinates nonnegative are black and form the cone of actual representations, while all other points are red and are only virtual representations."
+  }
 }
