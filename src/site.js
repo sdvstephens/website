@@ -679,4 +679,28 @@
     }, { rootMargin: '400px' });
     io.observe(slot);
   }
+
+  // ------------------------------------------------------------ locked notes
+  // A light lock, not security: the page carries the notes, hidden, and the
+  // SHA-256 of the password; the right password shows them and is remembered.
+  const lock = $('form.unlock');
+  if (lock) {
+    const key = `unlock:${lock.dataset.course}`;
+    const want = lock.dataset.hash;
+    const show = () => { lock.hidden = true; $('.locked-content').hidden = false; };
+    const sha = async (t) => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)))]
+      .map((b) => b.toString(16).padStart(2, '0')).join('');
+    try { if (localStorage.getItem(key) === want) show(); } catch (e) { /* private mode */ }
+    lock.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const input = $('input', lock);
+      if (await sha(input.value) === want) {
+        try { localStorage.setItem(key, want); } catch (e2) { /* private mode */ }
+        show();
+      } else {
+        $('.unlock-error', lock).hidden = false;
+        input.select();
+      }
+    });
+  }
 })();

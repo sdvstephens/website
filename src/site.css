@@ -839,3 +839,12 @@ html.zen body { padding-left: 0 !important; }
   body { background: #fff; color: #000; padding: 0 !important; }
   .page { display: block; }
 }
+
+/* A locked note (course.json "locked"): the password form in place of the text. */
+.unlock { margin: 1.5em 0 2.5em; padding: .9em 1.1em; border-left: 2px solid var(--orange); font-size: .95em; }
+.unlock p { margin: .3em 0; }
+.unlock label { font: .8em var(--mono); color: var(--muted); }
+.unlock input { font: 1rem var(--mono); padding: .25em .45em; margin-left: .5em; width: 12em; background: var(--ground); color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 2px; }
+.unlock button { font: .8em var(--mono); padding: .35em .8em; background: none; color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 2px; cursor: pointer; }
+.unlock button:hover, .unlock button:focus-visible { border-color: var(--orange); color: var(--orange); }
+.unlock .unlock-error { color: var(--red); font: .8em var(--mono); }

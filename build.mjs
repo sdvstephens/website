@@ -319,6 +319,10 @@ for (const c of noteCourses) {
         readingsOnly: fm.status === 'readings',
         // `status: incomplete`: the notes stop partway (still counts as written).
         incomplete: fm.status === 'incomplete',
+        // "locked": true in course.json, with a course "lock": a light
+        // password screen in the browser (no server check), kept out of
+        // search, the sitemap and search engines.
+        locked: !!(s.locked && course.lock && course.lock.sha256),
       });
     }
   }
@@ -328,6 +332,7 @@ for (const c of noteCourses) {
     ...c, title: course.title || c.title, book: course.book, chapters: course.chapters || [], sections, intro,
     description: course.description || c.description, chapterLabel: course.chapterLabel || 'chapter',
     sectionLabel: course.sectionLabel || (course.chapterLabel === 'week' ? 'lectures' : 'sections'),
+    lock: course.lock,
   });
 }
 
@@ -421,7 +426,7 @@ ${n.sections.length ? `<p class="count">${written(n)} of ${n.sections.length} ${
 ${n.chapters.map((ch, i) => `${ch.part && ch.part !== n.chapters[i - 1]?.part ? `<h2 class="course-part">${renderTitle(ch.part)}</h2>\n` : ''}<h2 class="chapter"><span class="idx">${n.chapterLabel === 'week' ? 'week ' : ''}${ch.number}</span>${ch.titleHtml}</h2>
 ${byPart(n.sections.filter((s) => s.chapter === ch)).map((g) => (g.part ? `<h3 class="part">${renderTitle(g.part)}</h3>\n` : '') + ledger(g.items.map((s) => ({
     idx: s.number, muted: s.stub,
-    html: s.stub ? `<span class="entry-title">${s.titleHtml}</span>` : `<a class="entry-title" href="${s.href}">${s.titleHtml}</a>${s.readingsOnly ? ' <span class="entry-note">readings only</span>' : ''}${s.incomplete ? ' <span class="entry-note">in progress</span>' : ''}`,
+    html: s.stub ? `<span class="entry-title">${s.titleHtml}</span>` : `<a class="entry-title" href="${s.href}">${s.titleHtml}</a>${s.readingsOnly ? ' <span class="entry-note">readings only</span>' : ''}${s.incomplete ? ' <span class="entry-note">in progress</span>' : ''}${s.locked ? ' <span class="entry-note">locked</span>' : ''}`,
   })))).join('\n')}`).join('\n')}`,
   });
 
@@ -433,16 +438,21 @@ ${byPart(n.sections.filter((s) => s.chapter === ch)).map((g) => (g.part ? `<h3 c
     page({
       path: s.href, file: s.file, section: 'notes', layout: 'notes',
       title: `${s.titleText} — ${n.title}`, description: `Section ${s.number}: ${s.titleText} from ${n.title}`,
-      noindex: s.stub, inSitemap: !s.stub, railLabel: `${n.title} contents`,
+      noindex: s.stub || s.locked, inSitemap: !s.stub && !s.locked, railLabel: `${n.title} contents`,
       rail: notesTree(n, s.slug),
       body: `<p class="crumbs"><a href="/notes/">notes</a> / <a href="/notes/${n.slug}/">${n.title}</a> / ${n.chapterLabel} ${s.chapter.number}: ${s.chapter.titleHtml}${s.part ? ` / ${renderTitle(s.part.replace(/^Part [IVX]+: /, ''))}` : ''}</p>
 <article class="note">
 <h1 class="note-title"><span class="num">${s.number}</span> ${s.titleHtml}</h1>
-${s.meta ? `<div class="note-meta">${s.meta}</div>\n` : ''}<div class="prose">${s.html}</div>
+${s.meta ? `<div class="note-meta">${s.meta}</div>\n` : ''}${s.locked ? `<form class="unlock" data-course="${n.slug}" data-hash="${esc(n.lock.sha256)}">
+<p>${n.lock.message ? renderTitle(n.lock.message) : 'These notes are locked for now.'}</p>
+<p><label>Password <input type="password" autocomplete="off" required></label> <button type="submit">Open</button></p>
+<p class="unlock-error" hidden>That isn’t it.</p>
+</form>
+<div class="prose locked-content" hidden>${s.html}</div>` : `<div class="prose">${s.html}</div>`}
 </article>
 ${prevNext(before && { href: before.href, title: `${before.number} ${before.titleHtml}` }, after && { href: after.href, title: `${after.number} ${after.titleHtml}` })}`,
-      search: s.stub ? '' : plainText(s.html),
-      headings: headingsOf(s.html),
+      search: s.stub || s.locked ? '' : plainText(s.html),
+      headings: s.locked ? [] : headingsOf(s.html),
     });
   }
 }

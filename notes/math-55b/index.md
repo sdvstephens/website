@@ -1,4 +1,4 @@
-Each numbered lecture is transcribed from Professor Denis Auroux’s handwritten lecture notes for the course, with the date it was given. His notes for a lecture often ran past what he got through, and the next lecture picked up from there; those leftover pages are folded at the end of a lecture, with a link to the lecture that covered them. There are no notes for lectures 11 and 25.
+Each numbered lecture is transcribed from Professor Denis Auroux’s handwritten lecture notes for the course, with the date it was given. His notes for a lecture often ran past what he got through, and the next lecture picked up from there; those leftover pages are folded at the end of a lecture, with a link to the lecture that covered them. There are no notes for lectures 11 and 25. For now the lecture pages and the two midterm review sheets, which are his too, are behind a password.
 
 After the lectures, each chapter has my own notes on the same material: a notebook I kept through the term, and prelecture notes from reading ahead in Rudin and Munkres. The two midterm review sheets sit with the lectures.
 
