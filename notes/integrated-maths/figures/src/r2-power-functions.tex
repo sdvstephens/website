@@ -1,0 +1,43 @@
+\begin{tikzpicture}[scale=0.85]
+  % f(x) = x
+  \begin{scope}
+    \draw[-Latex] (-2,0) -- (2,0) node[right] {\scriptsize $x$};
+    \draw[-Latex] (0,-2) -- (0,2);
+    \foreach \t in {-1,1} {\draw (\t,0.08) -- (\t,-0.08); \draw (0.08,\t) -- (-0.08,\t);}
+    \node[below] at (1,-0.05) {\scriptsize $1$}; \node[below] at (-1,-0.05) {\scriptsize $-1$};
+    \draw[thick, green, Latex-Latex] (-1.8,-1.8) -- (1.8,1.8);
+    \foreach \p in {(-1,-1),(0,0),(1,1)} \fill[red] \p circle (2pt);
+    \node at (0,2.4) {$f(x)=x$};
+  \end{scope}
+  % f(x) = x^2
+  \begin{scope}[xshift=5.2cm]
+    \draw[-Latex] (-2,0) -- (2,0) node[right] {\scriptsize $x$};
+    \draw[-Latex] (0,-2) -- (0,2);
+    \foreach \t in {-1,1} {\draw (\t,0.08) -- (\t,-0.08); \draw (0.08,\t) -- (-0.08,\t);}
+    \node[below] at (1,-0.05) {\scriptsize $1$}; \node[below] at (-1,-0.05) {\scriptsize $-1$};
+    \draw[thick, green, Latex-Latex, domain=-1.38:1.38, samples=60] plot (\x, {\x*\x});
+    \foreach \p in {(-1,1),(0,0),(1,1)} \fill[red] \p circle (2pt);
+    \node at (0,2.4) {$f(x)=x^2$};
+  \end{scope}
+  % f(x) = x^3 and dashed x^5
+  \begin{scope}[yshift=-5.2cm]
+    \draw[-Latex] (-2,0) -- (2,0) node[right] {\scriptsize $x$};
+    \draw[-Latex] (0,-2) -- (0,2);
+    \foreach \t in {-1,1} {\draw (\t,0.08) -- (\t,-0.08); \draw (0.08,\t) -- (-0.08,\t);}
+    \node[below] at (1,-0.05) {\scriptsize $1$}; \node[below] at (-1,-0.05) {\scriptsize $-1$};
+    \draw[thick, green, Latex-Latex, domain=-1.23:1.23, samples=60] plot (\x, {\x*\x*\x});
+    \draw[thick, blue, dashed, domain=-1.13:1.13, samples=60] plot (\x, {\x*\x*\x*\x*\x});
+    \foreach \p in {(-1,-1),(0,0),(1,1)} \fill[red] \p circle (2pt);
+    \node at (0,2.4) {$f(x)=x^3$ \ {\color{blue}(dashed: $x^5$)}};
+  \end{scope}
+  % f(x) = x^4
+  \begin{scope}[xshift=5.2cm, yshift=-5.2cm]
+    \draw[-Latex] (-2,0) -- (2,0) node[right] {\scriptsize $x$};
+    \draw[-Latex] (0,-2) -- (0,2);
+    \foreach \t in {-1,1} {\draw (\t,0.08) -- (\t,-0.08); \draw (0.08,\t) -- (-0.08,\t);}
+    \node[below] at (1,-0.05) {\scriptsize $1$}; \node[below] at (-1,-0.05) {\scriptsize $-1$};
+    \draw[thick, green, Latex-Latex, domain=-1.18:1.18, samples=80] plot (\x, {\x*\x*\x*\x});
+    \foreach \p in {(-1,1),(0,0),(1,1)} \fill[red] \p circle (2pt);
+    \node at (0,2.4) {$f(x)=x^4$};
+  \end{scope}
+\end{tikzpicture}

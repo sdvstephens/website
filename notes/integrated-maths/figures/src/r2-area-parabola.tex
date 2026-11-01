@@ -1,0 +1,12 @@
+% x-axis: 1 unit = 500 ft; y-axis: 1 unit = 200,000 sq ft
+\begin{tikzpicture}[xscale=1.4, yscale=0.9]
+  \draw[-Latex] (-0.4,0) -- (3.6,0) node[right] {$x$};
+  \draw[-Latex] (0,-0.9) -- (0,3.6) node[above] {$A(x)$};
+  \draw[thick, Latex-Latex, domain=-0.18:3.18, samples=80] plot (\x, {1.25*(3*\x-\x*\x)});
+  \node[circle, fill=black, inner sep=1.4pt] at (1.5,2.8125) {};
+  \node[above] at (1.5,2.8125) {$(750,\,562{,}500)$};
+  \node[circle, fill=black, inner sep=1.4pt] at (0,0) {};
+  \node[below right] at (0,0) {$0$};
+  \node[circle, fill=black, inner sep=1.4pt] at (3,0) {};
+  \node[below left] at (3,0) {$1500$};
+\end{tikzpicture}

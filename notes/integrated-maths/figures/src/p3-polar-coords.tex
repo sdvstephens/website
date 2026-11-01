@@ -1,0 +1,9 @@
+\begin{tikzpicture}[scale=1.1, every node/.style={font=\small}]
+  \draw[->] (-1,0) -- (3,0) node[right] {$x$};
+  \draw[->] (0,-0.6) -- (0,2.2) node[above] {$y$};
+  \coordinate (P) at (35:2.4);
+  \draw[thick, blue] (0,0) -- (P) node[midway, above left] {$r$};
+  \fill (P) circle (1.8pt) node[above right] {$(r,\theta)$};
+  \draw[->] (0.6,0) arc[start angle=0, end angle=35, radius=0.6];
+  \node at (17:0.85) {$\theta$};
+\end{tikzpicture}

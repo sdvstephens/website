@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=0.85]
+  \begin{scope}
+    \draw[-Latex] (-2,0) -- (2,0) node[right] {\scriptsize $x$};
+    \draw[-Latex] (0,-1.8) -- (0,1.8);
+    \foreach \p in {(-1,-1),(0,0),(1,1)} \fill[red] \p circle (2.2pt);
+    \node[right, red] at (1,1) {\scriptsize $(1,1)$};
+    \node[left, red] at (-1,-1) {\scriptsize $(-1,-1)$};
+    \node[below right, red] at (0,0) {\scriptsize $(0,0)$};
+    \node at (0,2.3) {$n$ odd};
+  \end{scope}
+  \begin{scope}[xshift=5.5cm]
+    \draw[-Latex] (-2,0) -- (2,0) node[right] {\scriptsize $x$};
+    \draw[-Latex] (0,-1.8) -- (0,1.8);
+    \foreach \p in {(-1,1),(0,0),(1,1)} \fill[red] \p circle (2.2pt);
+    \node[right, red] at (1,1) {\scriptsize $(1,1)$};
+    \node[left, red] at (-1,1) {\scriptsize $(-1,1)$};
+    \node[below right, red] at (0,0) {\scriptsize $(0,0)$};
+    \node at (0,2.3) {$n$ even};
+  \end{scope}
+\end{tikzpicture}

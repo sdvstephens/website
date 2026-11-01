@@ -1,0 +1,8 @@
+\begin{tikzpicture}[scale=0.7, every node/.style={font=\scriptsize}]
+  \draw[->] (-5,0) -- (5,0) node[right] {$x$};
+  \draw[->] (0,-0.4) -- (0,3) node[above] {$y$};
+  \draw[red, thick, domain=-4:4, samples=60] plot (\x,{1+\x*\x/16});
+  \fill (-4,2) circle (2pt) node[above left] {$(-4,2)$};
+  \fill (4,2) circle (2pt) node[above right] {$(4,2)$};
+  \fill (0,1) circle (2pt) node[below right] {$(0,1)$};
+\end{tikzpicture}

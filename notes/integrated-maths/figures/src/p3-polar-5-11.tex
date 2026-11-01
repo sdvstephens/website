@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=0.42, every node/.style={font=\scriptsize}]
+  \draw[->] (-7,0) -- (7,0) node[right] {$0^\circ/360^\circ$};
+  \draw[->] (0,-7) -- (0,7) node[above] {$90^\circ$};
+  \node[left] at (-7,0) {$180^\circ$};
+  \node[below] at (0,-7) {$270^\circ$};
+  \draw[thick] (0,0) circle (5);
+  \node[below right] at (5,0) {$5$};
+  \node[below left] at (-5,0) {$-5$};
+  \node[above right] at (0,5) {$5$};
+  \node[below right] at (0,-5) {$-5$};
+  \node at (110:5.8) {$r=5$};
+  \foreach \a in {30,45,60} \draw[gray, dashed] (0,0) -- (\a:6.3) node[above] {$\a^\circ$};
+  \draw[red, thick, <->] (200:7.2) -- (20:7.2);
+  \node[red, right] at (20:7.2) {$\theta=20^\circ$};
+  \draw[->] (1.5,0) arc[start angle=0, end angle=20, radius=1.5];
+  \node at (10:2.3) {$20^\circ$};
+\end{tikzpicture}

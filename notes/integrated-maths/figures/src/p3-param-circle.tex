@@ -1,0 +1,11 @@
+\begin{tikzpicture}[scale=0.75, every node/.style={font=\scriptsize}]
+  \draw[->] (-0.3,0) -- (7,0) node[right] {$x$};
+  \draw[->] (0,-0.3) -- (0,7) node[above] {$y$};
+  \foreach \x in {1,...,6} \draw (\x,0.08) -- (\x,-0.08) node[below] {$\x$};
+  \foreach \y in {1,...,6} \draw (0.08,\y) -- (-0.08,\y) node[left] {$\y$};
+  \draw[red, thick, dashed] (3,4) circle (2);
+  \fill (3,4) circle (1.2pt);
+  \foreach \a/\lab/\pos in {0/{t=0,\ 2\pi}/right, 45/{t=\frac{\pi}{4}}/above right, 90/{t=\frac{\pi}{2}}/above, 135/{t=\frac{3\pi}{4}}/above left, 180/{t=\pi}/left, 225/{t=\frac{5\pi}{4}}/below left, 270/{t=\frac{3\pi}{2}}/below, 315/{t=\frac{7\pi}{4}}/below right} {
+    \fill ({3+2*cos(\a)},{4+2*sin(\a)}) circle (2pt) node[\pos] {$\lab$};
+  }
+\end{tikzpicture}

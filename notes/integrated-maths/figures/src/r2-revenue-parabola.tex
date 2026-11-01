@@ -1,0 +1,12 @@
+% x-axis: 1 unit = 100 items; y-axis: 1 unit = 2500 dollars
+\begin{tikzpicture}[xscale=1.6, yscale=0.9]
+  \draw[-Latex] (-0.6,0) -- (3.8,0) node[right] {$x$};
+  \draw[-Latex] (0,-1) -- (0,3.8) node[above] {$R(x)$};
+  \draw[thick, Latex-Latex, domain=-0.25:3.25, samples=80] plot (\x, {(-100*\x*\x/3+100*\x)/25});
+  \node[circle, fill=black, inner sep=1.4pt] at (0,0) {};
+  \node[below right] at (0,0) {$0$};
+  \node[circle, fill=black, inner sep=1.4pt] at (3,0) {};
+  \node[below left] at (3,0) {$300$};
+  \node[circle, fill=black, inner sep=1.4pt] at (1.5,3) {};
+  \node[above] at (1.5,3) {$(150,\,7500)$};
+\end{tikzpicture}

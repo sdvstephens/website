@@ -1,0 +1,26 @@
+\begin{tikzpicture}[scale=1.1,line cap=round,line join=round]
+  % box with edges s (width), t (depth), r (height)
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (3,0);
+  \coordinate (C) at (4.3,1.0);
+  \coordinate (D) at (1.3,1.0);
+  \coordinate (A') at (0,1.8);
+  \coordinate (B') at (3,1.8);
+  \coordinate (C') at (4.3,2.8);
+  \coordinate (D') at (1.3,2.8);
+  % hidden edges
+  \draw[gray,dashed] (A) -- (D) -- (C);
+  \draw[gray,dashed] (D) -- (D');
+  % visible edges
+  \draw[thick] (A) -- (B) -- (C) -- (C') -- (D') -- (A') -- cycle;
+  \draw[thick] (A') -- (B') -- (C');
+  \draw[thick] (B) -- (B');
+  % face diagonal b on the bottom face (s by t)
+  \draw[blue,thick,dashed] (A) -- node[pos=0.6,below right=-1pt] {$b$} (C);
+  % space diagonal d
+  \draw[red,thick] (A) -- node[pos=0.33,above left=-1pt] {$d$} (C');
+  % edge labels
+  \node[below] at ($(A)!0.5!(B)$) {$s$};
+  \node[below right] at ($(B)!0.5!(C)$) {$t$};
+  \node[left] at ($(A)!0.5!(A')$) {$r$};
+\end{tikzpicture}

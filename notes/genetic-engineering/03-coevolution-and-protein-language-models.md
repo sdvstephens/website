@@ -37,7 +37,6 @@ $$
 - DNA: a $4\times 4$ matrix.
 
 Contact maps / crystal structure. Represent the protein as a contact map.
-<!-- page 9: the notes leave a placeholder here ("contact map goes here"); no contact map was inserted. -->
 
 ## Pseudolikelihood and masked language modeling
 

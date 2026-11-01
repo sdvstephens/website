@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=0.9, line cap=round]
+  \coordinate (B) at (0,0);
+  \coordinate (A) at (5.48,0);
+  \coordinate (C) at (0,2.44);
+  \draw[thick] (A) -- (B) -- (C) -- cycle;
+  \draw (0.25,0) -- (0.25,0.25) -- (0,0.25);
+  \node[below left] at (B) {$B$};
+  \node[right] at (A) {$A$};
+  \node[above left] at (C) {$C$};
+  \node[left] at (0,1.22) {$a$};
+  \node[below] at (2.74,0) {$c$};
+  \node[above right] at (2.74,1.22) {$b = 6$};
+  \draw (A) ++(180:1.1) arc[start angle=180, end angle=156, radius=1.1];
+  \node at ($(A)+(168:1.5)$) {$24^\circ$};
+  \draw (C) ++(-90:0.6) arc[start angle=-90, end angle=-24, radius=0.6];
+  \node[right] at ($(C)+(-85:1.0)$) {$\theta = 66^\circ$};
+\end{tikzpicture}

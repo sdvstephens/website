@@ -74,7 +74,7 @@ Converse: since $q:X\to X/{\sim}$ is continuous, if $\bar f$ is continuous then 
 :::
 
 :::example
-$X=\RR^{n+1}-\{0\}$; define an equivalence relation $x\sim y$ iff $x,y$ lie on the same line through the origin, i.e. $x=\alpha y$ for some $\alpha\in\RR$, $\alpha\ne0$. This is an equivalence relation. The quotient space is **projective $n$-space**, $\RR\PP^n=X/{\sim}$ with the quotient topology (“the space of lines through $0$ in $\RR^{n+1}$“).
+$X=\RR^{n+1}-\{0\}$; define an equivalence relation $x\sim y$ iff $x,y$ lie on the same line through the origin, i.e. $x=\alpha y$ for some $\alpha\in\RR$, $\alpha\ne0$. This is an equivalence relation. The quotient space is **projective $n$-space**, $\RR\PP^n=X/{\sim}$ with the quotient topology (“the space of lines through $0$ in $\RR^{n+1}$”).
 
 - A neighborhood of $[x]\in\RR\PP^n$ (the equivalence class of $x\in X$, i.e. the line through $0$ and $x$) corresponds to a “cone-like” open set in $\RR^{n+1}-\{0\}$ containing this line and all nearby lines through $0$.
 
@@ -171,7 +171,7 @@ Hence they are homotopy equivalent to $S^1$ (and to each other, and to $\RR^2-\{
 :::
 
 :::example
-$\RR^2-\{p,q\}$ deformation retracts onto the wedge of two $S^1$‘s, $S^1\vee S^1$ (“figure 8” space), or also onto the “theta graph” (homotopy equivalent to the figure 8, not homeomorphic!).
+$\RR^2-\{p,q\}$ deformation retracts onto the wedge of two $S^1$’s, $S^1\vee S^1$ (“figure 8” space), or also onto the “theta graph” (homotopy equivalent to the figure 8, not homeomorphic!).
 
 ![The plane minus p and q retracts onto a figure 8 or onto a theta graph](/notes/math-55b/figures/a3-figure-eight-theta.svg)
 :::

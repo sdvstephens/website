@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=2.4, font=\small]
+  \draw[thick] (1,0) arc (0:180:1);
+  \draw[gray] (-1,0) -- (1,0);
+  \coordinate (O) at (0,0);
+  \foreach \a/\l in {30/{30^\circ=\tfrac{\pi}{6}}, 45/{45^\circ=\tfrac{\pi}{4}}, 60/{60^\circ=\tfrac{\pi}{3}}, 90/{90^\circ=\tfrac{\pi}{2}}} {
+    \draw (O) -- (\a:1);
+    \node[anchor=south west, inner sep=1pt, font=\scriptsize] at (\a:1.02) {$\l$};
+  }
+  \fill (-1,0) circle (0.02) node[left] {$A$};
+  \fill (1,0) circle (0.02) node[right] {$B$};
+  \node[align=left, anchor=west] at (1.55,0.45) {$\overset{\frown}{AB} = \pi$\\ $AB = 2$};
+\end{tikzpicture}

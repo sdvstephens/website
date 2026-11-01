@@ -50,4 +50,3 @@ Assume $E, E', B$ are path-connected and $B$ is locally path-connected (then so 
 :::theorem
 Let $p: E \to B$ and $p': E' \to B$ be covering maps. …
 :::
-<!-- The notebook stops in the middle of this theorem statement (page 45). -->

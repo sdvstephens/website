@@ -62,7 +62,7 @@ $$
 
 For sets $X, Y$, the **cartesian product** $X\times Y$ is the set of all $(x,y)$ with $x\in X$, $y\in Y$.
 
-A **relation** on $X\times Y$ is a subset of $X\times Y$ (if $X=Y$ then we say “a relation on $X$“). Let $R$ be such a subset. We write $xRy$ for $(x,y)\in R$.
+A **relation** on $X\times Y$ is a subset of $X\times Y$ (if $X=Y$ then we say “a relation on $X$”). Let $R$ be such a subset. We write $xRy$ for $(x,y)\in R$.
 
 The most important relations are the following.
 

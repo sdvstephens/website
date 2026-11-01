@@ -1,0 +1,17 @@
+\begin{tikzpicture}[xscale=0.7, yscale=0.28]
+  \draw[-Latex] (-5.5,0) -- (4.5,0) node[right] {\scriptsize $x$};
+  \draw[-Latex] (0,-10.5) -- (0,6) node[above] {\scriptsize $f(x)$};
+  \draw[thick, red, Latex-Latex, domain=-4.32:3.3, samples=120] plot (\x, {0.2*(\x+1)*(\x+1)*(\x+4)*(\x-3)});
+  \node[circle, fill=purple, inner sep=1.6pt] at (-4,0) {};
+  \node[below left] at (-4,0) {\scriptsize $-4$};
+  \node[circle, fill=purple, inner sep=1.6pt] at (-1,0) {};
+  \node[above] at (-1,0) {\scriptsize $-1$};
+  \node[circle, fill=purple, inner sep=1.6pt] at (3,0) {};
+  \node[below right] at (3,0) {\scriptsize $3$};
+  \node[circle, fill=red, inner sep=1.6pt] at (1,-8) {};
+  \node[right] at (1,-8) {\scriptsize $(1,-8)$};
+  \draw (0.12,-8) -- (-0.12,-8) node[left] {\scriptsize $-8$};
+  \node[purple, align=center] at (-4.6,3.2) {\scriptsize cross};
+  \node[purple, align=center] at (-1,2.2) {\scriptsize bounce};
+  \node[purple, align=center] at (3.7,3.2) {\scriptsize cross};
+\end{tikzpicture}

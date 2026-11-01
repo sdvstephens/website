@@ -146,7 +146,6 @@ which is uniform convergence.
 Power series form a ring (we can add and multiply them); facts about sums and products of numerical series imply that, where convergent, the sum/product as series is indeed equal to the sum/product as functions.
 
 :::outline Notes not reached in this lecture, covered at the start of [Lecture 20](/notes/math-55b/20-differentiation-taylor-s-theorem-and-the-riemann-integral)
-<!-- REPEAT-BEGIN: from here to REPEAT-END, the professor's notes repeat this material verbatim at the start of Lecture 20 (L20 pages 1-2, which add one sentence about analytic functions). It is transcribed in both sections; drop one copy if the site should not repeat it. -->
 
 **Differentiation in one variable**
 
@@ -230,5 +229,4 @@ $$
 There exist nonzero functions whose Taylor polynomials are all zero! E.g. $f(x)=\exp\left(-\frac1{x^2}\right)$, $f(0)=0$: $f\in C^\infty$ (all derivatives exist) and $f^{(k)}(0)=0$ for all $k$, so the Taylor polynomials are all zero! The Taylor series of $f$ at $0$ converges, but $\neq f$! (In other examples, it can also have $R=0$, i.e. never be convergent for $x\neq a$.)
 :::
 
-<!-- REPEAT-END -->
 :::

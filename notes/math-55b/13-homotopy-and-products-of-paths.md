@@ -60,7 +60,7 @@ By the same argument, the cylinder $S^1\times I$ and the Möbius band deformatio
 ![The cylinder and the Möbius band, as glued squares, retracting onto their middle circle](/notes/math-55b/figures/a4-cylinder-mobius.svg)
 
 :::example
-$\RR^2-\{p,q\}$ deformation retracts onto the wedge of two $S^1$‘s, $S^1\vee S^1$ (the “figure 8” space), or also onto the “theta graph” (which is homotopy equivalent to $\infty$, but not homeomorphic to it!).
+$\RR^2-\{p,q\}$ deformation retracts onto the wedge of two $S^1$’s, $S^1\vee S^1$ (the “figure 8” space), or also onto the “theta graph” (which is homotopy equivalent to $\infty$, but not homeomorphic to it!).
 
 ![Figure eight and theta graph, each separating the two punctures p and q](/notes/math-55b/figures/a4-figure-eight-theta.svg)
 :::

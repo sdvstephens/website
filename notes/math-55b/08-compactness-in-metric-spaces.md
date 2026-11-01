@@ -134,7 +134,7 @@ Since $C_{n_k}$ has diameter $<\frac\eps2$, $C_{n_k}\subset B_{\eps/2}(x_{n_k})\
 Now we can prove **sequentially compact $\Rightarrow$ compact**:
 
 :::proof
-Given an open cover $X = \bigcup_{i\in I} U_i$, by the Lebesgue numbers lemma there is $\delta>0$ such that every subset of diameter $<\delta$ is entirely inside a single $U_i$. Fix $\eps\in(0,\frac\delta2)$: by the ε-ball lemma, $X$ is covered by finitely many $\eps$-balls. Each of these has diameter $\le 2\eps<\delta$, so is contained in some $U_i$. This gives a finite subcover, replacing each $\eps$-ball by one $U_i$ containing it (and discarding the rest of the $U_i$‘s).
+Given an open cover $X = \bigcup_{i\in I} U_i$, by the Lebesgue numbers lemma there is $\delta>0$ such that every subset of diameter $<\delta$ is entirely inside a single $U_i$. Fix $\eps\in(0,\frac\delta2)$: by the ε-ball lemma, $X$ is covered by finitely many $\eps$-balls. Each of these has diameter $\le 2\eps<\delta$, so is contained in some $U_i$. This gives a finite subcover, replacing each $\eps$-ball by one $U_i$ containing it (and discarding the rest of the $U_i$’s).
 :::
 
 **Completeness**

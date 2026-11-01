@@ -1,0 +1,11 @@
+\begin{tikzpicture}[>=Stealth, font=\small, scale=1.1]
+  \draw[->] (0,0) -- (3.3,0);
+  \draw[->] (0,0) -- (0,3.4);
+  \draw[thick, blue, domain=0:2.3, samples=50] plot (\x, {0.25*\x*\x*\x}) node[above right] {$f(x) = x^3$};
+  \draw[dotted, thick] (0.9,0) -- (0.9,{0.25*0.9*0.9*0.9});
+  \draw[dotted, thick] (2,0) -- (2,{0.25*2*2*2});
+  \node[below] at (0.9,0) {$x$};
+  \node[below] at (2,0) {$b$};
+  \node[right] at (0.9,0.09) {$x^3$};
+  \node[right] at (2,1) {$b^3$};
+\end{tikzpicture}

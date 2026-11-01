@@ -1,0 +1,32 @@
+\begin{tikzpicture}[scale=3, font=\small]
+  % 45-45-90 triangle
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (0,0.7071);
+  \coordinate (C) at (0.7071,0);
+  \draw[thick] (A) -- (B) -- (C) -- cycle;
+  \draw (A) rectangle (0.07,0.07);
+  \node[below left] at (A) {$A$};
+  \node[above] at (B) {$B$};
+  \node[below right] at (C) {$C$};
+  \node[above right] at ($(B)!0.5!(C)$) {$1$};
+  \node[left] at ($(A)!0.5!(B)$) {$\tfrac{\sqrt2}{2}$};
+  \node[below] at ($(A)!0.5!(C)$) {$\tfrac{\sqrt2}{2}$};
+  \pic[draw, angle radius=0.16cm*3, "$45^\circ$", angle eccentricity=1.9] {angle=A--B--C};
+  \pic[draw, angle radius=0.16cm*3, "$45^\circ$", angle eccentricity=1.9] {angle=B--C--A};
+  % 30-60-90 triangle
+  \begin{scope}[xshift=1.3cm]
+    \coordinate (A2) at (0,0);
+    \coordinate (B2) at (0,0.5);
+    \coordinate (C2) at (0.8660,0);
+    \draw[thick] (A2) -- (B2) -- (C2) -- cycle;
+    \draw (A2) rectangle (0.07,0.07);
+    \node[below left] at (A2) {$A'$};
+    \node[above] at (B2) {$B'$};
+    \node[below right] at (C2) {$C'$};
+    \node[above right] at ($(B2)!0.5!(C2)$) {$1$};
+    \node[left] at ($(A2)!0.5!(B2)$) {$\tfrac12$};
+    \node[below] at ($(A2)!0.5!(C2)$) {$\tfrac{\sqrt3}{2}$};
+    \pic[draw, angle radius=0.12cm*3, "$60^\circ$", angle eccentricity=2.1] {angle=A2--B2--C2};
+    \pic[draw, angle radius=0.2cm*3, "$30^\circ$", angle eccentricity=1.7] {angle=B2--C2--A2};
+  \end{scope}
+\end{tikzpicture}

@@ -1,0 +1,11 @@
+\begin{tikzpicture}[scale=0.8, every node/.style={font=\scriptsize}]
+  \draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+  \draw[->] (0,-0.3) -- (0,5.8) node[above] {$y$};
+  \foreach \x in {-1,1} \draw (\x,0.08) -- (\x,-0.08) node[below] {$\x$};
+  \foreach \y in {1,3,5} \draw (0.08,\y) -- (-0.08,\y) node[left] {$\y$};
+  \draw[red, thick] (0,3) ellipse (1 and 2);
+  \foreach \a/\lab/\pos in {0/{\theta=0}/below right, 90/{\theta=\frac{\pi}{2}}/right, 180/{\theta=\pi}/above right, 270/{\theta=\frac{3\pi}{2}}/left} {
+    \fill ({sin(\a)},{3-2*cos(\a)}) circle (2pt) node[\pos] {$\lab$};
+  }
+  \foreach \a in {45,135,225,315} \fill ({sin(\a)},{3-2*cos(\a)}) circle (1.5pt);
+\end{tikzpicture}

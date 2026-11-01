@@ -13,7 +13,7 @@ Let $X\neq\varnothing$ and $R$ a relation on $X$. We say $R$ is a **partial orde
 - (ii) $xRy$ and $yRx\implies x=y$;
 - (iii) $xRx$ for all $x$.
 
-A set with a partial ordering is also called a “**poset**”. If $R$ also satisfies “(iv) if $x,y\in X$ then either $xRy$ or $yRx$“, then $R$ is called a **total (or linear) ordering**.
+A set with a partial ordering is also called a “**poset**”. If $R$ also satisfies “(iv) if $x,y\in X$ then either $xRy$ or $yRx$”, then $R$ is called a **total (or linear) ordering**.
 :::
 
 :::example

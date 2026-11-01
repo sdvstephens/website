@@ -32,7 +32,7 @@ Property: what are the continuous maps from a quotient space? (Equivalent to the
 
 ![Commutative triangle: f from X to Y factors as the quotient map q followed by f-bar](/notes/math-55b/figures/b2-quotient-universal.svg)
 
-If $[x] = [x']$ we need $\bar f([x]) = \bar f([x'])$, so we need $x \sim x' \Rightarrow f(x) = f(x')$: “$f$ is compatible with $\sim$“. This is to say there is a bijection
+If $[x] = [x']$ we need $\bar f([x]) = \bar f([x'])$, so we need $x \sim x' \Rightarrow f(x) = f(x')$: “$f$ is compatible with $\sim$”. This is to say there is a bijection
 $$\{f: X \to Y \text{ such that } x \sim x' \Rightarrow f(x) = f(x')\} \overset{1:1}{\longleftrightarrow} \{\bar f: X/{\sim} \to Y\}.$$
 
 :::theorem

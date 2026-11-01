@@ -8,8 +8,6 @@ lecturer: Denis Auroux
 source-pages: 1-4
 ---
 
-<!-- REPEAT-BEGIN: from here to REPEAT-END repeats the end of Lecture 19 (L19 pages 3-4), with one added sentence on analytic functions at the end. It is transcribed in both sections; drop one copy if the site should not repeat it. -->
-
 ## Differentiation in one variable
 
 (Rudin Chapter 5 $=$ McMullen §5.)
@@ -94,8 +92,6 @@ There exist nonzero functions whose Taylor polynomials are all zero! E.g. $f(x)=
 Most $C^\infty$ functions aren’t **analytic**, i.e. can’t be written as power series.
 :::
 
-<!-- REPEAT-END -->
-
 ## Spaces of $C^k$ functions
 
 Let
@@ -146,8 +142,6 @@ If $f(x)=\sum a_nx^n$ is a power series with radius of convergence $R$, then $f(
 :::proof
 $f=\sum a_nx^n$ and $g=\sum na_nx^{n-1}$ have the same radius of convergence, so the partial sums for both converge uniformly over compact subsets of $(-R,R)$; hence $f\in C^1$ and $f'=g$. Repeat for successive derivatives ($g\in C^1$, so $f\in C^2$, …).
 :::
-
-<!-- REPEAT-BEGIN: from here to REPEAT-END, the professor's notes repeat this material at the start of Lecture 21 (L21 pages 1-2, with two small corrections). It is transcribed in both sections; drop one copy if the site should not repeat it. -->
 
 ## Integration
 
@@ -236,5 +230,4 @@ $$
 using continuity of $f$ at $x$ to estimate the integral for $h\to0$.
 :::
 
-<!-- REPEAT-END -->
 :::

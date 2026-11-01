@@ -82,13 +82,10 @@ $$\Hom_{\mathbf{Toph}}(Y,Z)\times\Hom_{\mathbf{Toph}}(X,Y)\to\Hom_{\mathbf{Toph}
 gives us $(\beta,\alpha)\mapsto\beta\circ\alpha$.
 
 ![Bundles of paths for a class α from X to Y and a class β from Y to Z, and the composite class β∘α from X to Z](/notes/category-theory/figures/c1-toph-composition.svg)
-<!-- page 10 also has two rougher sketches of composing bundles of paths (a ball crossed by arrows and a triangle of bundles) before this one; the labelled version above is the one redrawn -->
 
 b) We need to know the identity, which is just the class of the continuous identity map of $X$ to itself. Easy.
 
-c) Associativity. <!-- page 10 has an unlabelled sketch here of three composable bundles of paths between four points; not redrawn -->
-
+c) Associativity.
 Two objects in $\mathbf{Toph}$ are isomorphic if all their equivalence classes …
-<!-- the notes stop mid-sentence here, at the bottom of page 10; page 11 is blank -->
 :::
 :::

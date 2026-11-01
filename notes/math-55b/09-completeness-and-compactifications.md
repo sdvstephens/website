@@ -109,7 +109,7 @@ $\mathcal T_Y$ is a topology on $Y=X\cup\{\infty\}$, and $Y$ is a compactificati
 :::
 
 :::proof
-- Axioms of a topology: case by case for $U$‘s and $(Y-K)$‘s. Arbitrary unions and finite intersections of a single type of open set are still of the same type (note: $\bigcap(Y-K_i)=Y-\bigcup K_i$, and a finite union of compact subsets of $X$ is compact). Moreover,
+- Axioms of a topology: case by case for $U$’s and $(Y-K)$’s. Arbitrary unions and finite intersections of a single type of open set are still of the same type (note: $\bigcap(Y-K_i)=Y-\bigcup K_i$, and a finite union of compact subsets of $X$ is compact). Moreover,
 $$\begin{aligned}U\cap(Y-K)&=U\cap(X-K)\quad\text{open in }X,\\ U\cup(Y-K)&=Y-\big(K\cap(X-U)\big),\end{aligned}$$
 where $K\cap(X-U)$ is closed in $K$, hence compact. ✓
 
@@ -250,7 +250,7 @@ Assuming $U_{q_0},\dots,U_{q_n}$ have already been chosen, we construct $U_{q_{n
 $$q_k=\max\big(\{q_0,\dots,q_n\}\cap[0,q_{n+1})\big),\qquad q_\ell=\min\big(\{q_0,\dots,q_n\}\cap(q_{n+1},1]\big),$$
 so $q_k<q_{n+1}<q_\ell$ and none of the rationals already considered lie in between. Then by the induction hypothesis, $\overline{U_{q_k}}\subset U_{q_\ell}$, hence using normality $\exists$ open $V$ such that $\overline{U_{q_k}}\subset V\subset\overline V\subset U_{q_\ell}$; let $U_{q_{n+1}}=V$.
 
-By induction, we construct in this way all the $U_q$‘s, and indeed $p<q\Rightarrow\overline{U_p}\subset U_q$.
+By induction, we construct in this way all the $U_q$’s, and indeed $p<q\Rightarrow\overline{U_p}\subset U_q$.
 
 ![Nested open sets U_0, U_1/3, U_1/2, U_2/3, U_1 around A](/notes/math-55b/figures/a3-urysohn-nested.svg)
 

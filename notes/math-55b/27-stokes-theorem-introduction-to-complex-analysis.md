@@ -291,7 +291,7 @@ $$
 \frac{\partial}{\partial z}(z^k\bar z^\ell) = kz^{k-1}\bar z^\ell,\qquad\frac{\partial}{\partial\bar z}(z^k\bar z^\ell) = \ell z^k\bar z^{\ell-1},
 $$
 
-so such a polynomial is analytic iff there are no $\bar z$‘s in the expression.
+so such a polynomial is analytic iff there are no $\bar z$’s in the expression.
 :::
 
 :::example Rational functions

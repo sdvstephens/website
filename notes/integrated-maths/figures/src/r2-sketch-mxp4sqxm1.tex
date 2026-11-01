@@ -1,0 +1,11 @@
+\begin{tikzpicture}[xscale=0.7, yscale=0.1]
+  \draw[-Latex] (-6,0) -- (3,0) node[right] {\scriptsize $x$};
+  \draw[-Latex] (0,-20) -- (0,24) node[above] {\scriptsize $h(x)$};
+  \draw[thick, purple, Latex-Latex, domain=-5.4:1.6, samples=120] plot (\x, {-(\x+4)*(\x+4)*(\x-1)});
+  \node[circle, fill=purple, inner sep=1.4pt] at (-4,0) {};
+  \node[below] at (-4,0) {\scriptsize $-4$};
+  \node[circle, fill=purple, inner sep=1.4pt] at (1,0) {};
+  \node[above right] at (1,0) {\scriptsize $1$};
+  \node[circle, fill=purple, inner sep=1.4pt] at (0,16) {};
+  \node[above right] at (0,16) {\scriptsize $(0,16)$};
+\end{tikzpicture}

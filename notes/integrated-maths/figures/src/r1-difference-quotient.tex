@@ -1,0 +1,13 @@
+\begin{tikzpicture}[font=\small, >=Stealth]
+\draw[black,->] (0,0.24) -- (5.04,0.24);
+\draw[black,->] (0.24,0) -- (0.24,3.44);
+\draw[black,thick] (0.96,1.279) -- (4.4,2.755);
+\draw[gray,dashed] (1.52,0.24) -- (1.52,1.52) -- (0.24,1.52);
+\draw[gray,dashed] (3.76,0.24) -- (3.76,2.48) -- (0.24,2.48);
+\fill[black] (1.52,1.52) circle (0.08);
+\fill[black] (3.76,2.48) circle (0.08);
+\node[left,font=\scriptsize,text=black,inner sep=2pt,align=center] at (0.24,1.52) {$f(x)$};
+\node[left,font=\scriptsize,text=black,inner sep=2pt,align=center] at (0.24,2.48) {$f(x+h)$};
+\draw[black,rounded corners=2pt] (1.52,0.09) -- (1.64,-0.02) -- (2.52,-0.02) -- (2.64,-0.13) -- (2.76,-0.02) -- (3.64,-0.02) -- (3.76,0.09);
+\node[anchor=north,text=black,font=\scriptsize] at (2.64,-0.21) {$h$};
+\end{tikzpicture}

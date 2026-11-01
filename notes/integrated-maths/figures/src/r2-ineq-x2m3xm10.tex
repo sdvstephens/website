@@ -1,0 +1,14 @@
+\begin{tikzpicture}[xscale=0.6, yscale=0.5]
+  \draw[Latex-Latex] (-6,0) -- (9,0) node[right] {$x$};
+  \draw[thick, red, domain=-3:6, samples=80] plot (\x, {0.12*(\x+2)*(\x-5)});
+  \draw (-2,0.15) -- (-2,-0.15);
+  \draw (5,0.15) -- (5,-0.15);
+  \node[below left] at (-2,-0.1) {$-2$};
+  \node[below right] at (5,-0.1) {$5$};
+  \node at (-4,0.6) {F};
+  \node at (1.5,0.6) {T};
+  \node at (7,0.6) {F};
+  \draw[blue, very thick] (-2,0) -- (5,0);
+  \node[circle, fill=blue, inner sep=1.8pt] at (-2,0) {};
+  \node[circle, fill=blue, inner sep=1.8pt] at (5,0) {};
+\end{tikzpicture}

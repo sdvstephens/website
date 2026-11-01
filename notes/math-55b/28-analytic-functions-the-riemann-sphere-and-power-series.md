@@ -52,7 +52,7 @@ By contrast, a polynomial in 2 variables $P(x,y)$ can be rewritten as a polynomi
 
 $$\pd{}{z}\left(z^k\bar z^\ell\right)=kz^{k-1}\bar z^\ell,\qquad\pd{}{\bar z}\left(z^k\bar z^\ell\right)=\ell z^k\bar z^{\ell-1},$$
 
-so such a polynomial is analytic iff there are no $\bar z$‘s in the expression.
+so such a polynomial is analytic iff there are no $\bar z$’s in the expression.
 
 ### Rational functions
 
@@ -219,7 +219,7 @@ By algebraic manipulations, $\exp(z+w)=\exp(z)\exp(w)$. In particular $e^{-z}=\f
 
 What about the logarithm? For $w\in\CC^*$, we want to define $\log(w)=z$ such that $e^z=w$. Such a $z$ exists, but isn’t unique: we can add integer multiples of $2\pi i$. $\operatorname{Re}\log(w)$ is well defined though, and equal to $\log|w|$ (for the usual $\log$ on $\RR_+$).
 
-In general “$\log(w)=\log|w|+i\arg(w)$“ is not well defined and continuous on $\CC^*$; but it’s OK over simply connected subsets of $\CC^*$ (we can’t go around $0$, so $\arg$ is well defined). This is consistent with what we’ve seen about the lifting problem for
+In general “$\log(w)=\log|w|+i\arg(w)$” is not well defined and continuous on $\CC^*$; but it’s OK over simply connected subsets of $\CC^*$ (we can’t go around $0$, so $\arg$ is well defined). This is consistent with what we’ve seen about the lifting problem for
 
 ![Lifting the inclusion of U into C-star through exp](/notes/math-55b/figures/a8-log-lift.svg)
 

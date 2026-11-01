@@ -54,7 +54,7 @@ If $\overline{E}=X$, then $E$ is said to be **dense** in $X$. (E.g. $\overline{\
 
 $X$ is **separable** if $X$ has a countable AND dense subset (e.g. $\QQ^n\subseteq\RR^n$, $\QQ^n$ countable dense).
 
-A sequence $\{x_n\}\in X^{\NN}$ (we may use the technically inaccurate term “$\{x_n\}$ is ‘in’ $X$“) **converges** to $x\in X$ (symbolically: $x_n\to x$ or $\lim x_n=x$) if $\lim_{n\to\infty}d(x_n,x)=0$.
+A sequence $\{x_n\}\in X^{\NN}$ (we may use the technically inaccurate term “$\{x_n\}$ is ‘in’ $X$”) **converges** to $x\in X$ (symbolically: $x_n\to x$ or $\lim x_n=x$) if $\lim_{n\to\infty}d(x_n,x)=0$.
 
 :::proposition
 Let $X$ be a metric space, $E\subset X$ and $x\in X$. The following are equivalent:
@@ -115,7 +115,7 @@ $$\diam E=\sup\{\rho(x,y)\mid x,y\in E\}.$$
 
 $E$ is **bounded** if $\diam E<\infty$.
 
-If $E\subset X$ and $\{V_\alpha\}_{\alpha\in A}$ is a family of sets such that $E\subset\bigcup_{\alpha\in A}V_\alpha$, then $\{V_\alpha\}_{\alpha\in A}$ is called a **cover** of $E$, and $E$ is said to be **covered** by the $V_\alpha$‘s.
+If $E\subset X$ and $\{V_\alpha\}_{\alpha\in A}$ is a family of sets such that $E\subset\bigcup_{\alpha\in A}V_\alpha$, then $\{V_\alpha\}_{\alpha\in A}$ is called a **cover** of $E$, and $E$ is said to be **covered** by the $V_\alpha$’s.
 
 $E$ is called **totally bounded** if, for every $\eps>0$, $E$ can be covered by finitely many balls of radius $\eps$. Totally bounded necessitates boundedness.
 

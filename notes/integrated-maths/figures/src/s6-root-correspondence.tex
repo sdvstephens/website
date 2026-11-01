@@ -1,0 +1,37 @@
+\begin{tikzpicture}[>=Stealth, font=\small]
+  % ---------- top diagram: g has no repeated roots ----------
+  \begin{scope}
+    \draw (0,0) ellipse (1.1 and 1.9);
+    \draw (3.6,0) ellipse (1.1 and 1.9);
+    \node at (-1.6,-0.3) {$g$};
+    \node (a1) at (0,0.6) {$(x-r_1)$};
+    \node at (0,0.05) {$\vdots$};
+    \node (an) at (0,-0.6) {$(x-r_n)$};
+    \node (b0) at (3.6,1.0) {$(x-r_0)$};
+    \node (bd) at (3.6,0.45) {$\vdots$};
+    \node (bn) at (3.6,-0.3) {$(x-r_n)$};
+    \node (bn1) at (3.6,-0.8) {$(x-r_{n+1})$};
+    \draw[->] (a1.east) -- (bd.west);
+    \draw[->] (an.east) -- node[above, pos=0.6] {$f$} (bn.west);
+    \draw[->] (0.3,1.9) to[bend left=40] node[above] {$h$} (3.3,1.9);
+    \node at (1.8,1.45) {bijective};
+  \end{scope}
+  % ---------- bottom diagram: g has a repeated root ----------
+  \begin{scope}[yshift=-4.6cm]
+    \draw (0,0) ellipse (1.1 and 1.9);
+    \draw (3.6,0) ellipse (1.1 and 1.9);
+    \node at (-1.6,-0.3) {$g$};
+    \node (c1) at (0,0.4) {$(x-r_1)^2$};
+    \node at (0,-0.15) {$\vdots$};
+    \node (cn) at (0,-0.8) {$(x-r_n)$};
+    \node (d0) at (3.6,1.1) {$(x-r_0)$};
+    \node (d1) at (3.6,0.6) {$(x-r_1)$};
+    \node at (3.6,0.05) {$\vdots$};
+    \node (dn) at (3.6,-0.5) {$(x-r_n)$};
+    \node (dn1) at (3.6,-1.0) {$(x-r_{n+1})$};
+    \draw[->] ([yshift=2pt]c1.east) -- ([yshift=2pt]d1.west);
+    \draw[->] ([yshift=-2pt]c1.east) -- ([yshift=-2pt]d1.west);
+    \draw[->] (cn.east) -- node[above, pos=0.6] {$f$} (dn.west);
+    \draw[->] (0.3,-1.9) to[bend right=40] node[below] {$h$} (3.3,-1.9);
+  \end{scope}
+\end{tikzpicture}

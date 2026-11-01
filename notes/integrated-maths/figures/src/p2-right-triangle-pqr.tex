@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=0.3, line cap=round]
+  \coordinate (Q) at (0,0);
+  \coordinate (R) at (24,0);
+  \coordinate (P) at (0,7);
+  \draw[thick] (P) -- (Q) -- (R) -- cycle;
+  \draw (0.8,0) -- (0.8,0.8) -- (0,0.8);
+  \node[below left] at (Q) {$Q$};
+  \node[right] at (R) {$R$};
+  \node[above left] at (P) {$P$};
+  \node[left] at (0,3.5) {$7$};
+  \node[below] at (12,0) {$24$};
+  \node[above right] at (12,3.5) {$q = 25$};
+  \draw (P) ++(-90:2) arc[start angle=-90, end angle=-16.26, radius=2];
+  \node at ($(P)+(-55:3)$) {$\alpha$};
+  \draw (R) ++(180:4) arc[start angle=180, end angle=163.74, radius=4];
+  \node at ($(R)+(172:5.5)$) {$\beta$};
+\end{tikzpicture}

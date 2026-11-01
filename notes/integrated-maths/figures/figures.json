@@ -1,0 +1,251 @@
+{
+  "q1-im1-sets-pictures": {
+    "alt": "Four pictures of sets as circles: one holding a cat, a fork, a watermelon and a chair; one labelled all numbers; two overlapping circles; and two separate circles that do not touch."
+  },
+  "q1-pr1-4x3-tiling": {
+    "alt": "A 4 by 3 board covered by six 2 by 1 dominoes: three horizontal dominoes stacked in the left half, one horizontal domino across the top row of the right half, and two vertical dominoes below it."
+  },
+  "q1-ap-ordinate-2x2": {
+    "alt": "Graph of f(x) = 2x squared rising from the origin, with dotted vertical segments at x and at b marking the ordinates 2x squared and 2b squared."
+  },
+  "q1-ap-ordinate-x3": {
+    "alt": "Graph of f(x) = x cubed rising from the origin, with dotted vertical segments at x and at b marking the ordinates x cubed and b cubed."
+  },
+  "q1-ap-number-line": {
+    "alt": "A number line with arrows at both ends and tick marks labelled x, then dots, minus 1, 0, 1, dots, and y."
+  },
+  "q1-ap-sup-max": {
+    "alt": "Two number lines. On the left, the closed interval S from 0 to 1 ends in a filled dot at 1 labelled max S, with the upper bounds hatched to its right. On the right, the interval T from 0 to 1 ends in an open dot at 1 labelled least upper bound or sup T, with the upper bounds hatched to its right."
+  },
+  "q1-ap-venn": {
+    "alt": "Four diagrams of two sets A and B drawn as circles: overlapping circles with both shaded for the union; overlapping circles with only the overlap shaded for the intersection; two separate circles for disjoint sets, whose intersection is empty; and two separate shaded circles showing that a union can also look like this."
+  },
+  "r1-work-hours-mapping": {
+    "alt": "Mapping diagram from work hours to pay: 25 to $500, 53 to $310, 30 to $490 and 40 to $490; a dashed arrow from 30 to $310 is crossed out, since one input may not have two outputs."
+  },
+  "r1-difference-quotient": {
+    "alt": "Sketch for the difference quotient: a line through the points at heights f(x) and f(x+h) on the vertical axis, whose horizontal separation is h."
+  },
+  "r1-vertical-line-test": {
+    "alt": "Vertical line test: (a) input and output axes with a vertical line at one input; (b) a line and (c) a parabola meet every vertical line once, so they are functions; (d) a sideways parabola, (e) a circle and (f) a vertical line meet some vertical line more than once, so they are non-functions."
+  },
+  "r1-features-graph": {
+    "alt": "Graph of f on [-6,11] through (-6,-3), (-4,0), (-2,3), (0,5), (4,3), (6,0), (8,-3), (10,0) and (11,1); the line y=2 meets it at x=-3 and x=5, and the x-axis is shaded green where f is positive and blue where it is negative."
+  },
+  "r1-domain-range-graphs": {
+    "alt": "Four graphs: (a) a sine-like curve on [-pi, pi] with outputs between -1 and 1; (b) an increasing exponential-type curve that stays above the x-axis; (c) a curve rising from the origin to an open circle at (4,5); (d) a curve rising from minus infinity near x=0 to an open circle at (7,12)."
+  },
+  "r1-even-odd-graphs": {
+    "alt": "Four graphs: (a) an even function on [-4,4], symmetric about the y-axis, with (-4,2), (-3,0), (0,3), (3,0), (4,2); (b) an odd cubic-like curve through (-2,-1), the origin and (2,1); (c) an exponential-type curve that is neither even nor odd; (d) the odd function 1/x through (-1,-1) and (1,1)."
+  },
+  "r1-incr-decr-graphs": {
+    "alt": "Four graphs with the x-axis marked into falling and rising stretches: (a) the even graph through (-4,2), (-3,0), (0,3), (3,0), (4,2); (b) the odd curve with turning points (-2,-1) and (2,1); (c) a curve with low points at x=-2 and x=2 and a high point at x=0; (d) a log-like curve that only rises."
+  },
+  "r1-extrema-graphs-1": {
+    "alt": "Two graphs: (a) a closed curve from (-3,2) down to (-1,-1), up to (3,5) and down to (6,0); (b) a curve from the closed point (0,-3) up to an open circle at (3,5) and down to an open circle at (6,2)."
+  },
+  "r1-extrema-graphs-2": {
+    "alt": "Four graphs: (c) from (-4,5) down to (-1,2), up to (2,4), down to (5,1); (d) from (-2,2) down to (-1,1), up to (2,4), then falling without bound beside a dashed vertical line; (e) from (-4,3) down to (-2,0), up to (0,5), down to (3,1), then rising without bound beside a dashed vertical line; (f) a curve with closed endpoints whose low and high turning points, including (5,5), are open circles."
+  },
+  "r1-avg-rate-of-change": {
+    "alt": "An increasing curve with the points (a, f(a)) and (b, f(b)) joined by a red secant line; the horizontal run is b - a and the vertical rise is f(b) - f(a)."
+  },
+  "r1-piecewise-1": {
+    "alt": "Graph of the piecewise function equal to x cubed for x < 1 and 3x - 2 for x >= 1, through (-1,-1), (0,0), (1,1) and (3,7); a dotted line at x = 1 marks where the rule changes."
+  },
+  "r1-piecewise-2": {
+    "alt": "Graph of the piecewise function equal to x squared for x < 0, 2 at x = 0 and 2x + 1 for x > 0: open circles at (0,0) and (0,1), a closed point at (0,2), and the points (-2,4) and (2,5)."
+  },
+  "r1-piecewise-3": {
+    "alt": "Graph of the piecewise function equal to x + 3 for -4 <= x < -2 and -2x - 3 for x >= -2: a segment from (-4,-1) up to (-2,1), then a line falling through (0,-3) and (1,-5)."
+  },
+  "r1-parent-functions": {
+    "alt": "Eight basic graphs with their key points: the constant f(x)=b, f(x)=x^2, f(x)=x, f(x)=|x|, f(x)=x^3, f(x)=sqrt(x), f(x)=cube root of x, and f(x)=1/x with its vertical asymptote x=0 and horizontal asymptote y=0."
+  },
+  "r1-transformations-shifts": {
+    "alt": "Four shifted graphs: x^2+3 (vertex at (0,3)), |x+2| (vertex at (-2,0)), (x+1)^3-1 (centred at (-1,-1)), and sqrt(x-2)+3 (starting at (2,3))."
+  },
+  "r1-transformations-stretch": {
+    "alt": "Four graphs: 2x^2 through (-1,2), (0,0), (1,2); the reflected cube root -cbrt(x); (1/2)x^3 through (-1,-1/2), (0,0), (1,1/2); and sqrt(-x), which starts at the origin and runs to the left."
+  },
+  "r1-transform-abs": {
+    "alt": "Graph of f(x) = -(1/2)|x-3| + 2: an upside-down V with vertex (3,2) through (2,1.5), (4,1.5) and (0,1/2), with arrows showing the shift right 3 units and up 2 units."
+  },
+  "r1-transform-cubic": {
+    "alt": "Graph of g(x) = -(1/3)(x+1)^3 - 1: a decreasing cubic centred at (-1,-1), through (-2,-2/3) and (0,-4/3)."
+  },
+  "r1-transform-reciprocal": {
+    "alt": "Graph of f(x) = 3/(x-2) + 1 with dashed asymptotes x = 2 and y = 1 and the key points (1,-2) and (3,4)."
+  },
+  "r1-transform-sqrt": {
+    "alt": "Graph of g(x) = 2 sqrt(1-x) + 3: starts at (1,3), passes through (0,5) and rises slowly to the left."
+  },
+  "r1-quadratic-roots": {
+    "alt": "Three upward parabolas: one touching the x-axis at a single point (1 real solution), one crossing it twice (2 real solutions), and one lying entirely above it (no real solutions, 2 complex ones)."
+  },
+  "r2-x-method": {
+    "alt": "Two X-shaped factoring diagrams: for x^2+7x+6 the top is 7, the bottom 6 and the sides 6 and 1; for 3x^2+5x+2 the top is 5, the bottom 6 and the sides 3/3 and 2/3, which give the factors (x+1) and (3x+2)."
+  },
+  "r2-perfect-square-x": {
+    "alt": "An X diagram with b on top, b/2 on both sides and a times c on the bottom, labelled as giving a perfect square."
+  },
+  "r2-parabola-direction": {
+    "alt": "Two parabolas: the one labelled a>0 opens upward and the one labelled a<0 opens downward."
+  },
+  "r2-graph-2x2p8xp5": {
+    "alt": "Graph of f(x)=2x^2+8x+5, an upward parabola with vertex (-2,-3), y-intercept (0,5) and x-intercepts near -3.22 and -0.78."
+  },
+  "r2-graph-m2x2m4xp2": {
+    "alt": "Graph of g(x)=-2x^2-4x+2, a downward parabola with vertex (-1,4), y-intercept (0,2) and x-intercepts near -2.41 and 0.41."
+  },
+  "r2-graph-m4x2m4xm1": {
+    "alt": "Graph of f(x)=-4x^2-4x-1, a narrow downward parabola whose vertex (-1/2,0) touches the x-axis, passing through (0,-1) and (-1,-1)."
+  },
+  "r2-graph-3x2p2xp5": {
+    "alt": "Graph of g(x)=3x^2+2x+5, an upward parabola with vertex (-1/3,14/3) and y-intercept (0,5) that never meets the x-axis."
+  },
+  "r2-ineq-x2px-20": {
+    "alt": "Number line with an upward parabola crossing it at -5 and 4; the rays left of -5 and right of 4 are shaded, with open circles at -5 and 4."
+  },
+  "r2-ineq-x2m3xm10": {
+    "alt": "Number line with -2 and 5 marked and the regions labelled F, T, F; an upward parabola dips below the line between them, and the closed interval from -2 to 5 is shaded."
+  },
+  "r2-revenue-parabola": {
+    "alt": "Downward parabola of revenue R(x) crossing the x-axis at 0 and 300, with its vertex at (150, 7500)."
+  },
+  "r2-fence-rectangle": {
+    "alt": "A rectangle whose height is labelled x and whose width is labelled y."
+  },
+  "r2-area-parabola": {
+    "alt": "Downward parabola of area A(x)=1500x-x^2 crossing the x-axis at 0 and 1500, with its vertex at (750, 562,500)."
+  },
+  "r2-power-functions": {
+    "alt": "Four graphs with the points at x=-1, 0, 1 marked: f(x)=x, a line; f(x)=x^2, a parabola; f(x)=x^3, an S-shaped curve with x^5 dashed beside it; and f(x)=x^4, a flat-bottomed U."
+  },
+  "r2-power-keypoints": {
+    "alt": "Key points of x^n: for n odd, (-1,-1), (0,0) and (1,1); for n even, (-1,1), (0,0) and (1,1)."
+  },
+  "r2-power-transformed": {
+    "alt": "Graphs of G(x)=3(x+2)^5-3, which flattens at (-2,-3) and crosses the x-axis at (-1,0), and F(x)=3-(x-2)^4, an upside-down flat-topped U with peak (2,3) through (1,2) and (3,2)."
+  },
+  "r2-power-sketches": {
+    "alt": "Four quick sketches: f(x)=2x is a line through the origin; f(x)=-x^3 falls from upper left to lower right; f(x)=-3x^2 is a downward parabola; f(x)=7x^4 is a narrow upward U."
+  },
+  "r2-mult-touch-cross": {
+    "alt": "Left: two curves that touch the x-axis and turn back (even multiplicity: bounce or touch, never cross). Right: a curve crossing the x-axis at x=2, with a zoomed number line marking 1.9999, 2 and 2.0001 (odd multiplicity: cross)."
+  },
+  "r2-end-behavior": {
+    "alt": "End behavior: f(x)=3x^5-2x^2+1 falls on the left and rises on the right; g(x)=-5x^4-2x^3+7 falls on both ends."
+  },
+  "r2-zeros-graph-a": {
+    "alt": "A cubic-shaped graph rising from the lower left, crossing the x-axis at 0, 1 and 2, and rising to the upper right."
+  },
+  "r2-zeros-graph-b": {
+    "alt": "A graph rising on both ends that crosses the x-axis at -4, touches it and turns back at -1, crosses at 3, and passes through (1,-8)."
+  },
+  "r2-zeros-graph-c": {
+    "alt": "A cubic-shaped graph falling from the upper left, crossing the x-axis at -1, passing through (0,-1), crossing at 1 and 2, and falling to the lower right."
+  },
+  "r2-sketch-x2xm3": {
+    "alt": "Graph of f(x)=x^2(x-3): it touches the x-axis at the origin, dips through (1,-2) and (2,-4), and crosses the x-axis at 3."
+  },
+  "r2-sketch-m2xp2xm2cubed": {
+    "alt": "Graph of f(x)=-2(x+2)(x-2)^3: it crosses the x-axis at -2, peaks near x=-1, passes through (0,32), flattens as it crosses at 2, and falls on both ends."
+  },
+  "r2-sketch-mxp4sqxm1": {
+    "alt": "Graph of h(x)=-(x+4)^2(x-1): it touches the x-axis at -4, rises through (0,16), then crosses the x-axis at 1 and falls."
+  },
+  "p1-special-triangles": {
+    "alt": "Two right triangles with hypotenuse 1: a 45-45-90 triangle ABC with right angle at A and legs root 2 over 2, and a 30-60-90 triangle A'B'C' with right angle at A', 60 degrees at B', 30 degrees at C', legs one half and root 3 over 2."
+  },
+  "p1-unit-circle-triangle": {
+    "alt": "Unit circle with a point (cos theta, sin theta) at angle theta; a right triangle from the origin has hypotenuse 1, horizontal leg x = cos theta and vertical leg y = sin theta."
+  },
+  "p1-radian-circle": {
+    "alt": "Upper half of the unit circle with rays at 30, 45, 60 and 90 degrees labelled pi/6, pi/4, pi/3 and pi/2; the endpoints A and B of the diameter are marked, with arc AB = pi and AB = 2."
+  },
+  "p1-sine-graph": {
+    "alt": "Graph of y = sin x from 0 to 2 pi, passing through (0,0), a maximum of 1 at pi/2, (pi,0), a minimum of -1 at 3pi/2, and (2pi,0)."
+  },
+  "p1-sine-shift": {
+    "alt": "Graph of y = sin(x - pi/2) from -2 pi to 2 pi, with minimum -1 at x = 0 and maxima of 1 at x = -pi and x = pi, drawn over a dashed graph of y = sin x."
+  },
+  "p1-angle-addition-triangle": {
+    "alt": "Right triangle ABC with the right angle at B and angle alpha at C; D lies on BC with AD = 1, E is the foot of the perpendicular from D to AC, and angle DAE is beta."
+  },
+  "p2-arctan-triangles": {
+    "alt": "Coordinate plane with points (0,1), (0,2), (2,2) and (3,0) joined into three right triangles that meet at (0,1), where their three angles together make a straight angle."
+  },
+  "p2-right-triangle-abc": {
+    "alt": "Right triangle ABC with the right angle at B, hypotenuse AC = b = 6, angle 24 degrees at A, angle theta = 66 degrees at C, and legs a = BC and c = AB."
+  },
+  "p2-right-triangle-pqr": {
+    "alt": "Right triangle PQR with the right angle at Q, legs PQ = 7 and QR = 24, hypotenuse PR = 25, angle alpha at P and angle beta at R."
+  },
+  "p3-param-line": {
+    "alt": "The line traced by x = 2 - 3t, y = 1 + 2t on a grid, with the points for t = -3 through 3 marked and labelled; the line falls from upper left to lower right."
+  },
+  "p3-param-circle": {
+    "alt": "The points x = 3 + 2cos t, y = 4 + 2sin t for t = 0, pi/4, ..., 7pi/4 lying on a dashed circle of radius 2 centred at (3, 4)."
+  },
+  "p3-param-ellipse": {
+    "alt": "The ellipse x = sin(theta), y = 3 - 2cos(theta): centred at (0, 3), one unit wide on each side and two units tall on each side, from y = 1 at theta = 0 up to y = 5 at theta = pi."
+  },
+  "p3-hyperbola": {
+    "alt": "The hyperbola x^2 - 3y^2 = 1 in red, opening left and right with vertices at plus and minus 1, and the hyperbola 3y^2 - x^2 = 1 in blue, opening up and down, sharing the dashed asymptotes y = plus or minus x over root 3."
+  },
+  "p3-cycloid": {
+    "alt": "A wheel of radius 1 rolling right along the ground; the yellow spot, which started at the paint dot on the ground, has traced a blue cycloid arch, the wheel has turned through angle theta, and a red segment joins the paint dot to the spot."
+  },
+  "p3-ex-circle": {
+    "alt": "On a grid, the circle of radius 3 centred at the origin traced by x = 3cos 2t, y = -3sin 2t."
+  },
+  "p3-ex-ellipse": {
+    "alt": "The tall thin ellipse x = -3 + cos(theta), y = 2 + 5sin(theta), centred at (-3, 2), of width 2, reaching from y = -3 to y = 7."
+  },
+  "p3-ex-parabola": {
+    "alt": "The arc of the parabola y = 1 + x^2/16 for x from -4 to 4, from (-4, 2) down to (0, 1) and back up to (4, 2)."
+  },
+  "p3-ex-circle-2": {
+    "alt": "The circle of radius 2 centred at (2, 0), passing through (2, 2), with an open dot at the origin, which the curve x = 4/(1 + t^2), y = 4t/(1 + t^2) never reaches."
+  },
+  "p3-polar-coords": {
+    "alt": "A point (r, theta) in polar coordinates: a segment of length r from the origin, making angle theta with the positive x-axis."
+  },
+  "p3-polar-5-11": {
+    "alt": "In the polar plane, the circle r = 5 and, in red, the whole line through the origin at angle 20 degrees; dashed rays mark 30, 45 and 60 degrees."
+  },
+  "p3-polar-5-12": {
+    "alt": "The circle r = 6 sin(theta), of radius 3 centred at (0, 3), with the plotted points (3, 30 degrees), (3 root 3, 60 degrees), (6, 90 degrees), (3 root 3, 120 degrees), (3, 150 degrees) and the origin."
+  },
+  "p3-ellipse-axes": {
+    "alt": "An ellipse x^2/a^2 + y^2/b^2 = 1 with a > b, with the points (plus or minus a, 0) and (0, plus or minus b) marked; the semi-major axis a and the semi-minor axis b are drawn as segments from the centre."
+  },
+  "p3-ellipse-vertical": {
+    "alt": "The ellipse x^2/9 + y^2/25 = 1 through (plus or minus 3, 0) and (0, plus or minus 5): its vertical major axis has length 10 and its horizontal minor axis has length 6."
+  },
+  "p3-ellipse-foci": {
+    "alt": "An ellipse with foci f1 and f2 on the major axis. A point P on the ellipse is joined to both foci by segments d1 and d2. The top point of the ellipse is joined to f1, giving a right triangle with legs b and q and hypotenuse a. Equal gaps m and n separate each focus from the nearer end of the ellipse."
+  },
+  "p3-complex-6-9": {
+    "alt": "In the complex plane, the points w = 2 + 3i, its conjugate 2 - 3i, and -w = -2 - 3i."
+  },
+  "s3-synthetic-division": {
+    "alt": "Synthetic division of x^3 + 7x^2 - x + 11 by x - 5: the leading 1 is brought down, each bottom-row entry is multiplied by 5 and written under the next coefficient, and the columns are added, giving 1, 12, 59 with remainder 306."
+  },
+  "s5-ex-7-4-2-sketch": {
+    "alt": "Sketch of the graph of a polynomial f rising from f(0) = -3 below the x-axis, through a root at x = 1/3, up to f(1) = 34."
+  },
+  "s5-ex-7-5-1-graph": {
+    "alt": "Graph of the cubic f(x) = 0.2(x-3)(x+2)(x+3), crossing the x-axis at -3, -2 and 3, with f(0) = -3.6 and f(1) = -4.8 marked."
+  },
+  "s6-root-correspondence": {
+    "alt": "Two mapping diagrams from Problem 7.29: on top, the distinct linear factors of g are each sent by f to a matching factor of f and the map h is labelled bijective; below, g has a repeated factor (x minus r1) squared whose two copies are both sent to the single factor (x minus r1) of f."
+  },
+  "s8-box-diagonal": {
+    "alt": "A rectangular box with edges r, s and t; a dashed blue face diagonal b runs across the s-by-t bottom face, and a red space diagonal d runs from a bottom corner to the opposite top corner."
+  },
+  "s8-quartic-lines": {
+    "alt": "Sketch of a W-shaped quartic-type curve crossed by two straight lines, each line meeting the curve in four marked points."
+  }
+}

@@ -67,7 +67,7 @@ $A\subset\RR^n$ open $\Rightarrow$ $A$ is connected iff $A$ is path-connected.
 :::
 
 :::proof
-Assume $A$ open in $\RR^n$: then the path components of $A$ (i.e. equivalence classes for the equivalence relation “can be joined by a continuous path in $A$“) are *open*. Indeed, if $x\in A$ then there is $r>0$ such that $B_r(x)\subset A$, and any two points of $B_r(x)$ can be connected inside $A$ by a straight line segment. So all of $B_r(x)$ is in the same path component. Now: if $A$ is not path-connected then
+Assume $A$ open in $\RR^n$: then the path components of $A$ (i.e. equivalence classes for the equivalence relation “can be joined by a continuous path in $A$”) are *open*. Indeed, if $x\in A$ then there is $r>0$ such that $B_r(x)\subset A$, and any two points of $B_r(x)$ can be connected inside $A$ by a straight line segment. So all of $B_r(x)$ is in the same path component. Now: if $A$ is not path-connected then
 
 $$A = (\text{one path component})\cup\Big(\bigcup \text{all other path components}\Big)$$
 

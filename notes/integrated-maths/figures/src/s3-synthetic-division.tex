@@ -1,0 +1,35 @@
+\begin{tikzpicture}[x=1.25cm,y=0.85cm,>=Stealth]
+  % divisor and bars
+  \node at (-0.15,0) {$5$};
+  \draw (0.25,0.4) -- (0.25,-1.35);
+  \draw (0.25,-1.35) -- (4.6,-1.35);
+  \draw (3.55,-1.45) -- (3.55,-2.35);
+  % row 1: coefficients
+  \node (a1) at (1,0) {$1$};
+  \node (a2) at (2,0) {$7$};
+  \node (a3) at (3,0) {$-1$};
+  \node (a4) at (4,0) {$11$};
+  % row 2: products
+  \node (b2) at (2,-0.9) {$5$};
+  \node (b3) at (3,-0.9) {$60$};
+  \node (b4) at (4,-0.9) {$295$};
+  % row 3: sums
+  \node (c1) at (1,-1.9) {$1$};
+  \node (c2) at (2,-1.9) {$12$};
+  \node (c3) at (3,-1.9) {$59$};
+  \node (c4) at (4,-1.9) {$306$};
+  % bring down the leading coefficient
+  \draw[->,gray] (a1) -- (c1);
+  % multiply by 5 and write under the next coefficient
+  \draw[->,blue] (c1) -- node[above left=-2pt,font=\scriptsize] {$\times 5$} (b2);
+  \draw[->,blue] (c2) -- node[above left=-2pt,font=\scriptsize] {$\times 5$} (b3);
+  \draw[->,blue] (c3) -- node[above left=-2pt,font=\scriptsize] {$\times 5$} (b4);
+  % add down each column
+  \draw[->,red] (b2) -- (c2);
+  \draw[->,red] (b3) -- (c3);
+  \draw[->,red] (b4) -- (c4);
+  % row labels
+  \node[anchor=west,font=\small] at (4.8,0) {coefficients of $x^3+7x^2-x+11$};
+  \node[anchor=west,font=\small] at (4.8,-0.9) {$5\times$ (entry below and to the left)};
+  \node[anchor=west,font=\small] at (4.8,-1.9) {column sums: quotient $\mid$ remainder};
+\end{tikzpicture}

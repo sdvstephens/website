@@ -1,0 +1,19 @@
+\begin{tikzpicture}[scale=0.9, every node/.style={font=\scriptsize}]
+  \def\T{2.3}
+  \draw[->] (-0.5,0) -- (8.2,0) node[right] {ground};
+  \draw[blue, thick, domain=0:6.2832, samples=120, variable=\s] plot ({\s - sin(\s r)},{1 - cos(\s r)});
+  \fill (0,0) circle (2pt) node[below] {paint dot};
+  \coordinate (C) at (\T,1);
+  \coordinate (B) at (\T,0);
+  \coordinate (P) at ({\T - sin(\T r)},{1 - cos(\T r)});
+  \draw[thick] (C) circle (1);
+  \fill (C) circle (1.5pt);
+  \draw (C) -- (B);
+  \draw (C) -- (P);
+  \fill[orange] (P) circle (2.5pt) node[above left] {spot};
+  \draw[->] ($(C)+(0,-0.35)$) arc[start angle=-90, end angle={-90-\T*180/3.14159}, radius=0.35];
+  \node at ($(C)+(-0.35,-0.25)$) {$\theta$};
+  \draw[red, thick] (0,0) -- (P);
+  \draw[->] (\T+1.2,1) -- (\T+2.2,1);
+  \node[below] at (B) {$\theta$ ft rolled};
+\end{tikzpicture}

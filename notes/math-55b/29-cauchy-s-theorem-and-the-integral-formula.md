@@ -18,7 +18,7 @@ $$\exp(z)=\sum_{n=0}^\infty\frac{z^n}{n!}.$$
 
 What about the logarithm? For $w\in\CC^*$, we want to define $\log(w)=z$ such that $e^z=w$. Such a $z$ exists, but isn’t unique: we can add integer multiples of $2\pi i$. $\operatorname{Re}\log(w)$ is well defined though, and equal to $\log|w|$ (for the usual $\log$ on $\RR_+$).
 
-In general “$\log(w)=\log|w|+i\arg(w)$“ is not well defined and continuous on $\CC^*$; but it’s OK over simply connected subsets of $\CC^*$ (we can’t go around $0$, so $\arg$ is well defined). This is consistent with what we’ve seen about the lifting problem for
+In general “$\log(w)=\log|w|+i\arg(w)$” is not well defined and continuous on $\CC^*$; but it’s OK over simply connected subsets of $\CC^*$ (we can’t go around $0$, so $\arg$ is well defined). This is consistent with what we’ve seen about the lifting problem for
 
 ![Lifting the inclusion of U into C-star through exp](/notes/math-55b/figures/a8-log-lift.svg)
 

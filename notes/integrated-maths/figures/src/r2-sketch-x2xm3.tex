@@ -1,0 +1,15 @@
+\begin{tikzpicture}[xscale=0.9, yscale=0.4]
+  \draw[-Latex] (-2,0) -- (4.8,0) node[right] {\scriptsize $x$};
+  \draw[-Latex] (0,-6.5) -- (0,8.5) node[above] {\scriptsize $f(x)$};
+  \foreach \t in {1,2,3,4} \draw (\t,0.2) -- (\t,-0.2);
+  \node[above] at (4,0.2) {\scriptsize $4$};
+  \foreach \t in {-2,-4} \draw (0.1,\t) -- (-0.1,\t) node[left] {\scriptsize $\t$};
+  \draw[thick, green, Latex-Latex, domain=-1.2:3.6, samples=100] plot (\x, {\x*\x*(\x-3)});
+  \node[circle, fill=green, inner sep=1.8pt] at (0,0) {};
+  \node[circle, fill=green, inner sep=1.8pt] at (3,0) {};
+  \node[above left] at (3,0) {\scriptsize $3$};
+  \node[circle, fill=green, inner sep=1.8pt] at (1,-2) {};
+  \node[right] at (1,-2) {\scriptsize $(1,-2)$};
+  \node[circle, fill=green, inner sep=1.8pt] at (2,-4) {};
+  \node[below right] at (2,-4) {\scriptsize $(2,-4)$};
+\end{tikzpicture}

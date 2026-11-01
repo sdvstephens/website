@@ -88,8 +88,8 @@ Since $R$ is countable, $\mu([0,1))=\sum_{r\in R}\mu(N_r)$. But by (iii), $\mu([
 :::theorem Banach–Tarski Paradox
 Let $U,V$ be open bounded sets in $\RR^n$, $n\ge3$. There exist $k\in\NN$ and subsets $E_i,F_i$, $i\in\{1,\dots,k\}$, of $\RR^n$ such that:
 
-- (a) the $E_i$‘s are disjoint and their union is $U$;
-- (b) the $F_i$‘s are disjoint and $\bigcup_i^k F_i=V$;
+- (a) the $E_i$’s are disjoint and their union is $U$;
+- (b) the $F_i$’s are disjoint and $\bigcup_i^k F_i=V$;
 - (c) $E_i\cong F_i$ (congruent) for all $i\in\{1,\dots,k\}$.
 :::
 

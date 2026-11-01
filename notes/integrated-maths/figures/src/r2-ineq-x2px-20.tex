@@ -1,0 +1,10 @@
+\begin{tikzpicture}[xscale=0.6, yscale=0.5]
+  \draw[Latex-Latex] (-8,0) -- (7,0) node[right] {$x$};
+  \draw[thick, red, domain=-6.3:5.3, samples=80] plot (\x, {0.12*(\x+5)*(\x-4)});
+  \draw (-5,0.15) -- (-5,-0.15) node[below left] {$-5$};
+  \draw (4,0.15) -- (4,-0.15) node[below right] {$4$};
+  \draw[blue, very thick, -Latex] (-5,0) -- (-7.9,0);
+  \draw[blue, very thick, -Latex] (4,0) -- (6.9,0);
+  \draw[blue, fill=white] (-5,0) circle (4pt);
+  \draw[blue, fill=white] (4,0) circle (4pt);
+\end{tikzpicture}

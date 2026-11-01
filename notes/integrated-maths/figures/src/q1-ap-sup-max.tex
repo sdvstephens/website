@@ -1,0 +1,27 @@
+\begin{tikzpicture}[>=Stealth, font=\small]
+  % S = [0,1]: max S = 1
+  \draw[thick] (0,0) -- (2,0);
+  \fill (0,0) circle (2pt) node[below=3pt] {$0$};
+  \fill (2,0) circle (2pt) node[below=3pt] {$1$};
+  \draw[->] (2.05,0) -- (4.2,0);
+  \fill[pattern=north east lines] (2.1,0) rectangle (3.9,0.25);
+  \draw (2.1,0.4) -- (2.1,0.5) -- (3.9,0.5) -- (3.9,0.4);
+  \node[above] at (3,0.5) {upper bounds};
+  \draw (0,-0.55) -- (0,-0.65) -- (2,-0.65) -- (2,-0.55);
+  \node[below] at (1,-0.65) {$S$};
+  \draw[<-] (2.1,-0.15) -- (2.7,-0.7) node[below right=-2pt] {$\max S$};
+  % T = [0,1): sup T = 1, no max
+  \begin{scope}[xshift=6cm]
+    \draw[thick] (0,0) -- (1.93,0);
+    \fill (0,0) circle (2pt) node[below=3pt] {$0$};
+    \draw[fill=white] (2,0) circle (2pt);
+    \node[below=3pt] at (2,0) {$1$};
+    \draw[->] (2.07,0) -- (4.2,0);
+    \fill[pattern=north east lines] (2.1,0) rectangle (3.9,0.25);
+    \draw (2.1,0.4) -- (2.1,0.5) -- (3.9,0.5) -- (3.9,0.4);
+    \node[above] at (3,0.5) {upper bounds};
+    \draw (0,-0.55) -- (0,-0.65) -- (1.95,-0.65) -- (1.95,-0.55);
+    \node[below] at (1,-0.65) {$T$};
+    \draw[<-] (2.1,-0.15) -- (2.7,-0.7) node[below right=-2pt, align=left] {least upper bound,\\ or $\sup T$};
+  \end{scope}
+\end{tikzpicture}

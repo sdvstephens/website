@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+  \begin{scope}
+    \draw[-Latex] (-2,0) -- (2,0) node[right] {\scriptsize $x$};
+    \draw[-Latex] (0,-1.8) -- (0,1.8);
+    \draw[thick, blue, Latex-Latex, domain=-1.0:1.12, samples=80] plot (\x, {(3*\x*\x*\x*\x*\x-2*\x*\x+1)/2.2});
+    \node[align=center] at (0,-2.4) {$f(x)=3x^5-2x^2+1$\\ $f(x)\approx 3x^5$ as $x\to\pm\infty$};
+  \end{scope}
+  \begin{scope}[xshift=5.5cm]
+    \draw[-Latex] (-2,0) -- (2,0) node[right] {\scriptsize $x$};
+    \draw[-Latex] (0,-1.8) -- (0,1.8);
+    \draw[thick, blue, Latex-Latex, domain=-1.33:1.04, samples=80] plot (\x, {(-5*\x*\x*\x*\x-2*\x*\x*\x+7)/4.5});
+    \node[align=center] at (0,-2.4) {$g(x)=-5x^4-2x^3+7$\\ $g(x)\approx -5x^4$ as $x\to\pm\infty$};
+  \end{scope}
+\end{tikzpicture}

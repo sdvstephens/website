@@ -8,8 +8,6 @@ lecturer: Denis Auroux
 source-pages: 1-4
 ---
 
-<!-- REPEAT-BEGIN: from here to REPEAT-END repeats the end of Lecture 20 (L20 pages 3-4), with the professor's two corrections ("do" → "are"; < → ≤ in the last two estimates of the proof). It is transcribed in both sections; drop one copy if the site should not repeat it. -->
-
 ## Integration in one real variable
 
 The definite integral of continuous functions is a **linear operator**
@@ -93,8 +91,6 @@ $$
 $$
 using continuity of $f$ at $x$ to estimate the integral for $h\to0$.
 :::
-
-<!-- REPEAT-END -->
 
 ## Integration and convergence
 

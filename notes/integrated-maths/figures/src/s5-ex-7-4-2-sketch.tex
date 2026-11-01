@@ -1,0 +1,8 @@
+\begin{tikzpicture}[scale=1.4]
+  \draw[->, gray] (-1.2,0) -- (2.6,0) node[right, black] {$x$};
+  \draw[->, gray] (0,-1.7) -- (0,2.4) node[above, black] {$y$};
+  \draw[thick, blue] plot[smooth] coordinates {(-0.12,-1.5) (0,-1.1) (0.6,0) (1.1,0.9) (1.5,1.9)};
+  \fill (0,-1.1) circle (1.6pt) node[right=4pt] {$f(0) = -3$};
+  \fill (0.6,0) circle (1.6pt) node[above left] {$f(\tfrac13) = 0$};
+  \fill (1.5,1.9) circle (1.6pt) node[right=4pt] {$f(1) = 34$};
+\end{tikzpicture}

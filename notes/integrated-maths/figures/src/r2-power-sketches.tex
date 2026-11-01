@@ -1,0 +1,22 @@
+\begin{tikzpicture}[scale=0.6]
+  \begin{scope}
+    \draw (-1.8,0) -- (1.8,0); \draw (0,-1.8) -- (0,1.8);
+    \draw[thick, red, Latex-Latex] (-0.9,-1.8) -- (0.9,1.8);
+    \node at (0,2.4) {\small $f(x)=2x$};
+  \end{scope}
+  \begin{scope}[xshift=4.5cm]
+    \draw (-1.8,0) -- (1.8,0); \draw (0,-1.8) -- (0,1.8);
+    \draw[thick, red, Latex-Latex, domain=-1.2:1.2, samples=60] plot (\x, {-\x*\x*\x});
+    \node at (0,2.4) {\small $f(x)=-x^3$};
+  \end{scope}
+  \begin{scope}[xshift=9cm]
+    \draw (-1.8,0) -- (1.8,0); \draw (0,-1.8) -- (0,1.8);
+    \draw[thick, red, Latex-Latex, domain=-0.77:0.77, samples=60] plot (\x, {-3*\x*\x});
+    \node at (0,2.4) {\small $f(x)=-3x^2$};
+  \end{scope}
+  \begin{scope}[xshift=13.5cm]
+    \draw (-1.8,0) -- (1.8,0); \draw (0,-1.8) -- (0,1.8);
+    \draw[thick, red, Latex-Latex, domain=-0.71:0.71, samples=80] plot (\x, {7*\x*\x*\x*\x});
+    \node at (0,2.4) {\small $f(x)=7x^4$};
+  \end{scope}
+\end{tikzpicture}

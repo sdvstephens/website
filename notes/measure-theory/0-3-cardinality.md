@@ -25,7 +25,6 @@ Let $f\colon X\hookrightarrow Y$ be injective. Pick $x_0\in X$ and define $g\col
 :::proposition
 For any $X,Y\neq\varnothing$, either $\operatorname{card}(X)\ge\operatorname{card}(Y)$ or $\operatorname{card}(X)\le\operatorname{card}(Y)$.
 :::
-<!-- The notes write "Pf." after this proposition and leave the rest blank. -->
 
 :::theorem Schröder–Bernstein
 If $|X|\le|Y|$ and $|Y|\le|X|$, then $|X|=|Y|$.

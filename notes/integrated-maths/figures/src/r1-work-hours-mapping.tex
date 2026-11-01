@@ -1,0 +1,19 @@
+\begin{tikzpicture}[font=\small, >=Stealth]
+\node[font=\small] at (0,3.2) {\underline{Work hours}};
+\node[font=\small] at (3.4,3.2) {\underline{Pay}};
+\node (h25) at (0,2.4) {$25$};
+\node (h53) at (0,1.6) {$53$};
+\node (h30) at (0,0.8) {$30$};
+\node (h40) at (0,0) {$40$};
+\node (p500) at (3.4,2.4) {\$500};
+\node (p310) at (3.4,1.6) {\$310};
+\node (p490) at (3.4,0.8) {\$490};
+\draw[->,thick] (h25) -- (p500);
+\draw[->,thick] (h53) -- (p310);
+\draw[->,thick] (h30) -- (p490);
+\draw[->,thick] (h40.east) -- (3.55,0) -- (p490.south);
+\draw[->,dashed,red] (h30.north east) -- (p310.south west);
+\coordinate (m) at ($(h30.north east)!0.5!(p310.south west)$);
+\draw[red,thick] (m) circle (0.17);
+\draw[red,thick] ($(m)+(-0.12,-0.12)$) -- ($(m)+(0.12,0.12)$);
+\end{tikzpicture}

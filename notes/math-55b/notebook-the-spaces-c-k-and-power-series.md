@@ -31,4 +31,3 @@ If $f(x) = \sum a_n x^n$ is a power series with radius of convergence $R$, then 
 ### Integration
 
 The definite integral of a continuous function is a *linear operator* $I_a^b: C^0([a,b], \RR) \to \RR$, $f \mapsto I_a^b(f) = \int_a^b f\,dx$, for each $a < b \in \RR$, satisfying …
-<!-- The notebook stops here (page 49); page 50 is blank. The integration material continues on notebook pages 46-47 (next section). -->
