@@ -1,0 +1,24 @@
+\begin{tikzpicture}[font=\small, >={Stealth}]
+  % outlet channel (to the left)
+  \draw[thick] (-3.2,0.35) -- (-0.35,0.35);
+  \draw[thick] (-3.2,-0.35) -- (-0.35,-0.35);
+  % top inlet (oil)
+  \draw[thick] (-0.35,0.35) -- (-0.35,2.0);
+  \draw[thick] (0.35,0.35) -- (0.35,2.0);
+  % bottom inlet (cells & beads)
+  \draw[thick] (-0.35,-0.35) -- (-0.35,-2.0);
+  \draw[thick] (0.35,-0.35) -- (0.35,-2.0);
+  % right inlet (water)
+  \draw[thick] (0.35,0.35) -- (2.4,0.35);
+  \draw[thick] (0.35,-0.35) -- (2.4,-0.35);
+  % flows
+  \draw[thick,->] (0,2.0) -- (0,1.0);
+  \node[above] at (0,2.0) {oil};
+  \draw[thick,->] (0,-2.0) -- (0,-1.0);
+  \node[below] at (0,-2.0) {cells \& beads};
+  \draw[thick,->] (2.4,0) -- (1.0,0);
+  \node[right] at (2.4,0) {water};
+  % droplets
+  \foreach \x in {-2.6,-1.9,-1.2} \draw[thick] (\x,0) circle (0.22);
+  \draw[thick,->] (-2.9,0.6) -- (-3.6,0.6);
+\end{tikzpicture}

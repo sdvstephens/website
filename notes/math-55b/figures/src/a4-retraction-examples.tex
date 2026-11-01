@@ -1,0 +1,45 @@
+\begin{tikzpicture}[>=Stealth]
+% S^1 -> p
+\begin{scope}
+\draw[thick] (0,0) circle (0.7);
+\fill[blue] (-20:0.7) circle (2.2pt);
+\node[right] at (-20:0.75) {$p$};
+\node at (0,-1.1) {$S^1\to p$};
+\node at (0,-1.55) {\small constant map};
+\end{scope}
+% S^2 -> S^2_+
+\begin{scope}[xshift=2.6cm]
+\fill[blue, fill opacity=0.25] (-0.7,0) arc (180:0:0.7) arc (0:-180:0.7 and 0.18);
+\draw[thick] (0,0) circle (0.7);
+\draw (-0.7,0) arc (180:360:0.7 and 0.18);
+\draw[dashed] (0.7,0) arc (0:180:0.7 and 0.18);
+\node at (0.95,0.75) {$S^2_+$};
+\node at (0,-1.1) {$S^2\to S^2_+$};
+\node at (0,-1.55) {\small $(x,y,z)\mapsto(x,y,|z|)$};
+\end{scope}
+\node[blue, align=center] at (1.3,1.35) {\small retractions, $i\circ r\not\simeq\mathrm{id}_X$};
+\draw[blue] (4.3,-1.7) -- (4.3,1.5);
+% R^2-{0} -> S^1
+\begin{scope}[xshift=5.9cm]
+\draw (-0.95,-0.8) rectangle (0.95,0.8);
+\draw[blue, thick] (0,0) circle (0.5);
+\foreach \a in {0,60,...,300} {
+  \draw[->, blue] (\a:0.12) -- (\a:0.4);
+}
+\foreach \a in {30,150,210,330} \draw[->, blue] (\a:1.05) -- (\a:0.6);
+\draw[->, blue] (90:0.78) -- (90:0.6);
+\draw[->, blue] (270:0.78) -- (270:0.6);
+\draw[fill=white] (0,0) circle (1.5pt);
+\node at (0,-1.1) {$\mathbb{R}^2-\{0\}\to S^1$};
+\node at (0,-1.55) {\small $x\mapsto x/|x|$};
+\end{scope}
+% Mobius -> S^1
+\begin{scope}[xshift=8.9cm]
+\draw (-0.8,-0.6) rectangle (0.8,0.6);
+\draw[->, thick] (-0.8,-0.25) -- (-0.8,0.25);
+\draw[->, thick] (0.8,0.25) -- (0.8,-0.25);
+\draw[blue, very thick] (-0.8,0) -- (0.8,0);
+\node at (0,-1.1) {M\"obius band $\to S^1$};
+\end{scope}
+\node[blue] at (7.4,1.35) {\small deformation retractions};
+\end{tikzpicture}

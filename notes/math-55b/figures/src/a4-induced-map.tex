@@ -1,0 +1,20 @@
+\begin{tikzpicture}[>=Stealth]
+\draw[thick] (0,0) -- (1.2,0);
+\draw[thick] (0,-0.1) -- (0,0.1);
+\draw[thick] (1.2,-0.1) -- (1.2,0.1);
+\node[below] at (0.6,-0.1) {$I$};
+\draw[->] (1.5,0.4) to[bend left] node[above] {$f$} (2.6,0.4);
+\begin{scope}[xshift=4cm]
+\draw[thick] plot[smooth cycle, tension=0.9] coordinates {(-1.2,0) (-0.6,1.0) (0.6,1.1) (1.2,0.1) (0.5,-0.9) (-0.7,-0.8)};
+\draw plot[smooth cycle, tension=0.9] coordinates {(-0.5,-0.3) (-0.2,0.5) (0.5,0.6) (0.6,-0.1) (0.1,-0.4)};
+\fill (-0.5,-0.3) circle (1.5pt) node[below left] {$x_0$};
+\node at (1.25,-0.85) {$X$};
+\end{scope}
+\draw[->] (5.5,0.6) to[bend left] node[above] {$h$} (6.6,0.6);
+\begin{scope}[xshift=8cm]
+\draw[thick] plot[smooth cycle, tension=0.9] coordinates {(-1.1,-0.2) (-0.8,1.1) (0.4,1.4) (1.2,0.6) (0.8,-0.9) (-0.4,-1.0)};
+\draw plot[smooth cycle, tension=0.9] coordinates {(-0.2,-0.6) (-0.6,0.4) (-0.2,1.0) (0.4,0.8) (0.1,0.1)};
+\fill (-0.2,-0.6) circle (1.5pt) node[below] {$y_0$};
+\node at (1.3,-0.85) {$Y$};
+\end{scope}
+\end{tikzpicture}

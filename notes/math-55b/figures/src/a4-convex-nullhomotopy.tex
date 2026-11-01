@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\draw[thick] plot[smooth cycle, tension=0.8] coordinates {(0,0) (-1,0.8) (-0.9,1.7) (0.2,1.9) (1.2,2.0) (1.5,1.0)};
+\begin{scope}[scale=0.55]
+\draw[blue, thick] plot[smooth cycle, tension=0.8] coordinates {(0,0) (-1,0.8) (-0.9,1.7) (0.2,1.9) (1.2,2.0) (1.5,1.0)};
+\end{scope}
+\foreach \p in {(-1,0.8),(-0.9,1.7),(0.2,1.9),(1.2,2.0),(1.5,1.0)} \draw[blue] (0,0) -- \p;
+\fill (0,0) circle (1.6pt) node[below] {$x_0$};
+\node at (1.75,1.7) {$f$};
+\node[blue] at (0.95,0.75) {$f_t$};
+\end{tikzpicture}

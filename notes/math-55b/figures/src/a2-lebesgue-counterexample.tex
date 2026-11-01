@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=1.1]
+\fill[red, opacity=0.3] (0.25,0.04) rectangle (5,3.6);
+\fill[blue, opacity=0.3] (0.25,-0.7) -- (5,-0.7) -- (5,0.2) -- plot[domain=5:0.28, samples=80] (\x,{1/\x}) -- cycle;
+\draw[blue, very thick] (0.25,0) -- (5,0);
+\draw[red, very thick, domain=0.28:5, samples=80] plot (\x,{1/\x});
+\node[red] at (2.6,2.4) {$U_1$};
+\node[blue] at (2.6,-0.4) {$U_2$};
+\node[red, font=\small] at (1.6,1.0) {$xy=1$};
+\node[blue, font=\small, right] at (5,-0.05) {$x$-axis};
+\draw[-{Stealth}] (5.25,0.55) -- (5.05,0.12);
+\node[right, font=\small] at (5.2,0.6) {distance $\to 0$};
+\end{tikzpicture}

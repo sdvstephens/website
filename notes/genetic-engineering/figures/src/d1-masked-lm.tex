@@ -1,0 +1,22 @@
+\begin{tikzpicture}[font=\small, >={Stealth}]
+  % masked input
+  \draw[thick] (0,-1) rectangle (0.4,1);
+  \draw[thick] (0.2,0.45) circle (0.13);
+  \draw[thick] (0.2,-0.45) circle (0.13);
+  \node[left] (m) at (-0.6,0) {masked};
+  \draw[thick] (m.east) -- (0.07,0.45);
+  \draw[thick] (m.east) -- (0.07,-0.45);
+  % model
+  \draw[thick,->] (0.55,0.3) -- (1.25,0.3);
+  \draw[thick, pattern=north east lines] (1.35,-0.1) rectangle (2.15,0.7);
+  \draw[thick,->] (2.3,0.3) -- (3.0,0.3);
+  % hidden
+  \draw[thick] (3.1,-1) rectangle (3.5,1);
+  \draw[thick,->] (3.6,0) -- (4.0,0);
+  % output
+  \draw[thick] (4.1,-1) rectangle (4.5,1);
+  \draw[thick] (4.3,0.45) circle (0.13);
+  \draw[thick] (4.3,-0.45) circle (0.13);
+  \draw[thick,<->] (4.65,0.45) -- (5.1,0.45) -- (5.1,-0.45) -- (4.65,-0.45);
+  \node[right] at (5.15,0) {rediscovers};
+\end{tikzpicture}

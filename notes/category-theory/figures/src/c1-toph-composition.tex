@@ -1,0 +1,18 @@
+\begin{tikzpicture}[>=Stealth]
+  \coordinate (X) at (0,0);
+  \coordinate (Y) at (3.5,0);
+  \coordinate (Z) at (3.5,-3);
+  \foreach \p in {X,Y,Z} \fill (\p) circle (1.5pt);
+  \node[left] at (X) {$X$};
+  \node[right] at (Y) {$Y$};
+  \node[below] at (Z) {$Z$};
+  % class alpha: X -> Y
+  \foreach \b in {-25,0,25} \draw[->] (X) to[bend left=\b] (Y);
+  \node at (1.75,0.75) {$\alpha$};
+  % class beta: Y -> Z
+  \foreach \b in {-25,0,25} \draw[->] (Y) to[bend left=\b] (Z);
+  \node at (4.3,-1.5) {$\beta$};
+  % composite class: X -> Z
+  \foreach \b in {-15,0,15} \draw[->, blue] (X) to[bend right=20+\b] (Z);
+  \node[blue] at (0.9,-2.3) {$\beta\circ\alpha$};
+\end{tikzpicture}

@@ -1,0 +1,26 @@
+\begin{tikzpicture}[>=Stealth]
+\draw[thick] (-2.5,2) -- (3.4,2);
+\node at (-2.75,2) {$\cdots$};
+\node at (3.65,2) {$\cdots$};
+\node[right] at (3.9,2) {$\mathbb{R}$};
+\foreach \x/\l in {-1.8/-2\pi,-0.9/-\pi,0/0,0.9/\pi,1.8/2\pi,2.7/3\pi} {
+  \draw (\x,1.93) -- (\x,2.07);
+  \node[above] at (\x,2.05) {\scriptsize $\l$};
+}
+\foreach \a/\b in {-1.8/-0.9,0/0.9,1.8/2.7} {
+  \draw[red, very thick] (\a,2) -- (\b,2);
+  \fill[red] (\a,2) circle (1.6pt); \fill[red] (\b,2) circle (1.6pt);
+}
+% interval
+\draw[red, very thick] (-3.6,0) -- (-2.6,0);
+\draw[red, thick] (-3.6,-0.1) -- (-3.6,0.1); \draw[red, thick] (-2.6,-0.1) -- (-2.6,0.1);
+\node[red, below] at (-3.6,-0.1) {$0$};
+\node[red, below] at (-2.6,-0.1) {$1$};
+\draw[->] (-2.3,0) -- (-0.4,0) node[midway, below] {$f$};
+\draw[->] (-2.8,0.4) -- (-1.8,1.6) node[midway, left] {$\tilde f$};
+% circle
+\draw[thick] (0.6,0) circle (0.6);
+\draw[red, very thick, ->] (1.2,0) arc (0:180:0.6);
+\node at (1.55,-0.35) {$S^1$};
+\draw[->] (0.6,1.7) -- (0.6,0.75) node[midway, right] {$p$};
+\end{tikzpicture}

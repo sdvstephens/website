@@ -1,0 +1,35 @@
+\begin{tikzpicture}[scale=1, every node/.style={font=\small}]
+% helper: edges drawn in two halves, arrowhead at midpoint
+% (a) cylinder
+\begin{scope}
+\draw[thick] (0,0) -- (1.6,0);
+\draw[thick] (0,1.6) -- (1.6,1.6);
+\draw[thick, blue, -{Stealth}] (0,0) -- (0,0.9); \draw[thick, blue] (0,0.85) -- (0,1.6);
+\draw[thick, blue, -{Stealth}] (1.6,0) -- (1.6,0.9); \draw[thick, blue] (1.6,0.85) -- (1.6,1.6);
+\node[align=center] at (0.8,-0.75) {cylinder $S^1\times[0,1]$\\ $(0,t)\sim(1,t)$};
+\end{scope}
+% (b) Mobius
+\begin{scope}[xshift=3.6cm]
+\draw[thick] (0,0) -- (1.6,0);
+\draw[thick] (0,1.6) -- (1.6,1.6);
+\draw[thick, blue, -{Stealth}] (0,0) -- (0,0.9); \draw[thick, blue] (0,0.85) -- (0,1.6);
+\draw[thick, blue, -{Stealth}] (1.6,1.6) -- (1.6,0.7); \draw[thick, blue] (1.6,0.75) -- (1.6,0);
+\node[align=center] at (0.8,-0.75) {M\"obius band\\ $(0,t)\sim(1,1-t)$};
+\end{scope}
+% (c) torus
+\begin{scope}[xshift=7.2cm]
+\draw[thick, -{Stealth}{Stealth}] (0,0) -- (0.95,0); \draw[thick] (0.9,0) -- (1.6,0);
+\draw[thick, -{Stealth}{Stealth}] (0,1.6) -- (0.95,1.6); \draw[thick] (0.9,1.6) -- (1.6,1.6);
+\draw[thick, green, -{Stealth}] (0,0) -- (0,0.9); \draw[thick, green] (0,0.85) -- (0,1.6);
+\draw[thick, green, -{Stealth}] (1.6,0) -- (1.6,0.9); \draw[thick, green] (1.6,0.85) -- (1.6,1.6);
+\node[align=center] at (0.8,-0.95) {torus $S^1\times S^1$\\ $(x,0)\sim(x,1)$\\ $(0,y)\sim(1,y)$};
+\end{scope}
+% (d) Klein bottle
+\begin{scope}[xshift=10.8cm]
+\draw[thick, -{Stealth}{Stealth}] (0,0) -- (0.95,0); \draw[thick] (0.9,0) -- (1.6,0);
+\draw[thick, -{Stealth}{Stealth}] (0,1.6) -- (0.95,1.6); \draw[thick] (0.9,1.6) -- (1.6,1.6);
+\draw[thick, purple, -{Stealth}] (0,1.6) -- (0,0.7); \draw[thick, purple] (0,0.75) -- (0,0);
+\draw[thick, purple, -{Stealth}] (1.6,0) -- (1.6,0.9); \draw[thick, purple] (1.6,0.85) -- (1.6,1.6);
+\node[align=center] at (0.8,-0.75) {Klein bottle};
+\end{scope}
+\end{tikzpicture}

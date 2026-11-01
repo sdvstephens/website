@@ -1,0 +1,20 @@
+\begin{tikzpicture}[>=Stealth]
+  % left: the category C with two objects and three arrows a -> b
+  \node at (0,1.9) {$\mathcal{C}$};
+  \draw[gray, rounded corners] (-1,-1.6) rectangle (1,1.5);
+  \node (a) at (0,1) {$a$};
+  \node (b) at (0,-1) {$b$};
+  \draw[->] (a) -- (b);
+  \draw[->] (a) to[bend right=40] (b);
+  \draw[->] (a) to[bend left=40] (b);
+  % arrow
+  \draw[->, thick] (1.3,0) -- node[above] {hom-functor} (3.9,0);
+  % right: Set, with the set C(a,b)
+  \node at (6,1.9) {$\mathbf{Set}$};
+  \draw[gray, rounded corners] (4.2,-1.6) rectangle (7.8,1.5);
+  \draw (6,0) ellipse (1.2 and 0.8);
+  \fill (5.5,0.1) circle (1.5pt);
+  \fill (6,-0.25) circle (1.5pt);
+  \fill (6.5,0.1) circle (1.5pt);
+  \node at (6,-1.15) {$\mathcal{C}(a,b)$};
+\end{tikzpicture}

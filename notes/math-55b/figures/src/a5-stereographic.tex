@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+\draw (-3.6,-0.4) -- (2.6,-0.4) -- (3.6,0.4) -- (-2.6,0.4) -- cycle;
+\draw (0,0) circle (1.5);
+\draw (-1.5,0) arc (180:360:1.5 and 0.3);
+\draw[dashed] (1.5,0) arc (0:180:1.5 and 0.3);
+\coordinate (N) at (0,1.5);
+\coordinate (p) at (-1.299,0.75);
+\coordinate (fp) at (-2.598,0);
+\coordinate (q) at (0.75,-1.299);
+\coordinate (fq) at (0.402,0);
+\draw[red] ($(N)!-0.12!(fp)$) -- ($(N)!1.18!(fp)$);
+\draw[red] ($(N)!-0.12!(q)$) -- ($(N)!1.25!(q)$);
+\fill[red] (N) circle (2pt);
+\node[above right] at (N) {$N$};
+\fill[blue] (p) circle (1.5pt) node[above right, blue] {$p$};
+\fill[blue] (fp) circle (1.5pt) node[above left, blue] {$f(p)$};
+\fill[blue] (q) circle (1.5pt) node[right, blue] {$q$};
+\fill[blue] (fq) circle (1.5pt) node[above right, blue] {$f(q)$};
+\node at (0.3,-1.85) {$S^n$};
+\node[right] at (3.7,0.3) {$\mathbb{R}^n\times\{0\}$};
+\node at (3.2,1.8) {$\mathbb{R}^{n+1}$};
+\end{tikzpicture}

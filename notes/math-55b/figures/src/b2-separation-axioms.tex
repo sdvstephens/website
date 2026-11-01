@@ -1,0 +1,43 @@
+\begin{tikzpicture}[scale=1]
+% T1
+\fill (-0.6,0.5) circle (1.4pt) node[above left] {$x$};
+\draw[thick] (0.3,0) circle (0.55);
+\fill (0.3,0) circle (1.4pt) node[below] {$y$};
+\node at (0.3,0.75) {$V$};
+\node at (0,-1.2) {$T_1$};
+% T2
+\begin{scope}[xshift=3cm]
+\draw[thick, pattern=north east lines] (-0.6,0) circle (0.5);
+\draw[thick, pattern=north east lines] (0.6,0) circle (0.5);
+\fill[white] (-0.6,0) circle (2.5pt); \fill (-0.6,0) circle (1.4pt);
+\fill[white] (0.6,0) circle (2.5pt); \fill (0.6,0) circle (1.4pt);
+\node at (-0.6,-0.25) {\scriptsize $x$};
+\node at (0.6,-0.25) {\scriptsize $y$};
+\node at (-0.6,0.7) {$U$};
+\node at (0.6,0.7) {$V$};
+\node at (0,-1.2) {$T_2$ (Hausdorff)};
+\end{scope}
+% T3
+\begin{scope}[xshift=6cm]
+\draw[thick] (-0.65,0) circle (0.4);
+\fill (-0.65,0) circle (1.4pt) node[below] {$x$};
+\draw[thick] (0.65,0) circle (0.6);
+\draw[pattern=north east lines] (0.65,0) circle (0.3);
+\node at (0.65,-0.42) {\scriptsize $B$};
+\node at (-0.65,0.6) {$U$};
+\node at (0.65,0.8) {$V$};
+\node at (0,-1.2) {$T_3$ (regular)};
+\end{scope}
+% T4
+\begin{scope}[xshift=9cm]
+\draw[thick] (-0.7,0) circle (0.6);
+\draw[pattern=north east lines] (-0.7,0) circle (0.3);
+\node at (-0.7,-0.42) {\scriptsize $A$};
+\draw[thick] (0.7,0) circle (0.6);
+\draw[pattern=north east lines] (0.7,0) circle (0.3);
+\node at (0.7,-0.42) {\scriptsize $B$};
+\node at (-0.7,0.8) {$U$};
+\node at (0.7,0.8) {$V$};
+\node at (0,-1.2) {$T_4$ (normal)};
+\end{scope}
+\end{tikzpicture}

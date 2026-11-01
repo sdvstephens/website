@@ -1,0 +1,9 @@
+\begin{tikzpicture}[>=Stealth]
+\fill (0,0) circle (1.5pt) node[below] {$x$};
+\fill (2,0.8) circle (1.5pt) node[above] {$y$};
+\fill (4,0.4) circle (1.5pt) node[right] {$z$};
+\draw[thick, ->] (0,0) .. controls (0.6,0.9) and (1.4,1.1) .. (2,0.8);
+\draw[thick, ->] (2,0.8) .. controls (3.2,0.3) and (2.6,-0.6) .. (4,0.4);
+\node at (0.8,1.05) {$f$};
+\node at (3.1,-0.25) {$g$};
+\end{tikzpicture}

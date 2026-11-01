@@ -1,0 +1,6 @@
+\begin{tikzpicture}
+\draw[red, thick] (0,0) rectangle (2,2);
+\draw (1,1) circle (0.07);
+\foreach \a in {0,45,...,315} \draw[->] (1,1) ++(\a:0.22) -- ++(\a:0.55);
+\node at (2.5,1) {$/\!\sim$};
+\end{tikzpicture}

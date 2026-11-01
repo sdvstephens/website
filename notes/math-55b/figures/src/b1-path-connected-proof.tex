@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+  \draw[thick] plot[smooth cycle] coordinates {(0,0) (0.3,1.2) (1.4,1.4) (2.1,0.7) (1.8,-0.3) (0.8,-0.5)};
+  \node at (1.2,-0.8) {$U$};
+  \draw[thick] plot[smooth cycle] coordinates {(2.5,0.4) (2.8,1.4) (3.9,1.3) (4.2,0.4) (3.6,-0.4) (2.8,-0.3)};
+  \node at (3.4,-0.7) {$V$};
+  \fill (0.8,0.5) circle (1.5pt) node[below] {$x$};
+  \fill (3.5,0.6) circle (1.5pt) node[below] {$y$};
+  \draw[red, very thick] (0.8,0.5) .. controls (1.4,0.8) and (1.9,0.8) .. (2.3,0.75);
+  \draw[green, very thick] (2.3,0.75) .. controls (2.8,0.72) and (3.2,0.7) .. (3.5,0.6);
+  \node[above] at (2.3,0.9) {$f$};
+  \begin{scope}[yshift=-2cm]
+    \draw[red, very thick] (0.5,0) -- (2.2,0);
+    \draw[green, very thick] (2.2,0) -- (3.9,0);
+    \fill (0.5,0) circle (1.5pt) node[below] {$a$};
+    \fill (3.9,0) circle (1.5pt) node[below] {$b$};
+    \node[red, above] at (1.35,0) {$f^{-1}(U)$};
+    \node[green, above] at (3.05,0) {$f^{-1}(V)$};
+  \end{scope}
+\end{tikzpicture}

@@ -1,0 +1,39 @@
+\begin{tikzpicture}[>=Stealth, v/.style={circle, fill, inner sep=1.3pt}, lab/.style={font=\small, align=center}]
+  % star graph (one centre, three leaves)
+  \node[v] (c) at (0,0) {};
+  \node[v] (c1) at (0,0.8) {};
+  \node[v] (c2) at (-0.8,0) {};
+  \node[v] (c3) at (0,-0.8) {};
+  \draw (c) -- (c1) (c) -- (c2) (c) -- (c3);
+  \node[lab] at (0,-1.5) {same shape \&\\ same morphism};
+  % same shape, drawn differently
+  \node[v] (d) at (4.2,2.4) {};
+  \node[v] (d1) at (4.8,3.1) {};
+  \node[v] (d2) at (3.5,2.2) {};
+  \node[v] (d3) at (4.2,1.6) {};
+  \draw (d) -- (d1) (d) -- (d2) (d) -- (d3);
+  \node[lab, right] at (5.2,2.4) {same shape,\\ different morphisms};
+  % four-cycle
+  \node[v] (e1) at (4.2,0.3) {};
+  \node[v] (e2) at (3.5,-0.4) {};
+  \node[v] (e3) at (4.9,-0.4) {};
+  \node[v] (e4) at (4.2,-1.1) {};
+  \draw (e1) -- (e2) -- (e4) -- (e3) -- (e1);
+  \node[lab, right] at (5.2,-0.4) {different shape,\\ different morphisms};
+  % the four-cycle drawn with a crossing
+  \node[v] (t1) at (3.5,-3.6) {};
+  \node[v] (t2) at (3.95,-2.9) {};
+  \node[v] (t3) at (4.9,-2.8) {};
+  \node[v] (t4) at (4.8,-3.7) {};
+  \draw (t1) -- (t2) -- (t4) -- (t3) -- (t1);
+  \node[lab, right] at (5.2,-3.3) {same morphism,\\ different shape};
+  % maps
+  \draw[->] (0.4,0.4) -- (3.2,2.1);
+  \draw[->] (0.4,-0.2) -- (3.2,-0.4);
+  \draw (4.14,-1.4) -- (4.14,-2.35);
+  \draw (4.26,-1.4) -- (4.26,-2.35);
+  \draw[-{Stealth[length=6pt, width=9pt]}] (4.2,-2.3) -- (4.2,-2.55);
+  % brace
+  \draw (8.3,0.4) -- (8.5,0.4) -- (8.5,-1.2) -- (8.3,-1.2);
+  \node[right] at (8.5,-0.4) {$A_4$};
+\end{tikzpicture}

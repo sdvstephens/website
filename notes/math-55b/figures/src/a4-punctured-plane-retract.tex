@@ -1,0 +1,11 @@
+\begin{tikzpicture}[>=Stealth]
+\draw[blue, thick] (0,0) circle (1);
+\foreach \a in {0,45,...,315} {
+  \draw[->, blue] (\a:0.22) -- (\a:0.85);
+  \draw[->, blue] (\a:1.9) -- (\a:1.15);
+}
+\draw[fill=white] (0,0) circle (2pt);
+\node[below right=1pt] at (0,0) {\scriptsize $0$};
+\node[blue] at (67.5:1.35) {$S^1$};
+\node at (-1.9,1.6) {$\mathbb{R}^2-\{0\}$};
+\end{tikzpicture}

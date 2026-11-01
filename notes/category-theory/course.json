@@ -1,0 +1,55 @@
+{
+  "slug": "category-theory",
+  "title": "Category Theory",
+  "description": "Notes on category theory: why abstraction matters in programming, then categories, isomorphisms, opposite and product categories, exercises with my solutions, and functors. In progress.",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Categories",
+      "sections": [
+        {
+          "number": "1.1",
+          "slug": "1-1-programming-and-abstraction",
+          "title": "Programming and Abstraction"
+        },
+        {
+          "number": "1.2",
+          "slug": "1-2-a-first-sketch",
+          "title": "A First Sketch: Categories, Functors and the Hom-Functor"
+        },
+        {
+          "number": "1.3",
+          "slug": "1-3-categories",
+          "title": "Categories"
+        },
+        {
+          "number": "1.4",
+          "slug": "1-4-opposite-and-product-categories",
+          "title": "Constructing Categories: Opposites and Products"
+        },
+        {
+          "number": "1.5",
+          "slug": "1-5-exercises",
+          "title": "Exercises on Categories"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Functors and Natural Transformations",
+      "sections": [
+        {
+          "number": "2.1",
+          "slug": "2-1-functors",
+          "title": "Functors"
+        },
+        {
+          "number": "2.2",
+          "slug": "2-2-natural-transformations",
+          "title": "Natural Transformations",
+          "planned": true
+        }
+      ]
+    }
+  ]
+}

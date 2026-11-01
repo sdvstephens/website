@@ -1,0 +1,17 @@
+\begin{tikzpicture}[x=1.15cm,y=1cm]
+  % shrinking envelope
+  \draw[gray,dashed,domain=0:6.6,samples=80] plot (\x,{1.4*exp(-0.5*\x)});
+  \draw[gray,dashed,domain=0:6.6,samples=80] plot (\x,{-1.4*exp(-0.5*\x)});
+  % the two "tails" of the sequence
+  \draw[blue,thick,domain=0:6.6,samples=300] plot (\x,{1.4*exp(-0.5*\x)*sin(deg(3*\x+1.2))});
+  \draw[red,thick,domain=0:6.6,samples=300] plot (\x,{1.4*exp(-0.5*\x)*sin(deg(3*\x+2.9))});
+  \node[blue,left] at (0,1.25) {$\{x_n\}$};
+  \node[red,left] at (0,-0.45) {$\{x_m\}$};
+  % direction of n, m
+  \draw[-{Stealth},thick] (0,-1.9) -- (6.9,-1.9) node[right] {$n,m\to\infty$};
+  % the gap shrinking
+  \draw[gray,{Stealth}-] (0.35,1.2) -- (0.35,1.75) node[above] {shrinks};
+  \draw[gray,{Stealth}-] (0.35,-1.2) -- (0.35,-1.75) node[below right] {shrinks};
+  \draw[{Stealth}-{Stealth}] (5.6,-0.12) -- (5.6,0.12);
+  \node[right,align=left,font=\small] at (5.75,0.55) {$\rho(x_n,x_m)\to 0$\\ as $n,m\to\infty$};
+\end{tikzpicture}

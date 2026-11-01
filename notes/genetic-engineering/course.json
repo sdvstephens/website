@@ -1,0 +1,44 @@
+{
+  "slug": "genetic-engineering",
+  "title": "Genetic Engineering",
+  "description": "Notes from MIT 9.26, Principles and Applications of Genetic Engineering for Biotechnology and Neuroscience (spring 2026): genome editing, CRISPR, protein language models, spatial omics, regeneration and single-cell genomics.",
+  "sectionLabel": "lectures",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Lectures",
+      "sections": [
+        {
+          "number": "1",
+          "slug": "01-introduction-recombinant-dna-to-genome-editing",
+          "title": "Introduction: Recombinant DNA to Genome Editing"
+        },
+        {
+          "number": "2",
+          "slug": "02-crispr-from-bacterial-immunity-to-genome-editing",
+          "title": "CRISPR: From Bacterial Immunity to Genome Editing"
+        },
+        {
+          "number": "3",
+          "slug": "03-coevolution-and-protein-language-models",
+          "title": "Coevolution and Protein Language Models"
+        },
+        {
+          "number": "5",
+          "slug": "05-spatial-omics-starmap-and-the-molecular-brain-atlas",
+          "title": "Spatial Omics: STARmap and the Molecular Brain Atlas"
+        },
+        {
+          "number": "9",
+          "slug": "09-stem-cells-wound-healing-and-regeneration",
+          "title": "Stem Cells, Wound Healing and Regeneration"
+        },
+        {
+          "number": "10",
+          "slug": "10-spatial-and-temporal-genomics",
+          "title": "Spatial and Temporal Genomics"
+        }
+      ]
+    }
+  ]
+}

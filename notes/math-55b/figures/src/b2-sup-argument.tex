@@ -1,0 +1,19 @@
+\begin{tikzpicture}[scale=1]
+\draw[thick] (0,0) -- (8,0);
+\draw[thick] (0.12,0.2) -- (0,0.2) -- (0,-0.2) -- (0.12,-0.2);
+\draw[thick] (7.88,0.2) -- (8,0.2) -- (8,-0.2) -- (7.88,-0.2);
+\node[below=4pt] at (0,0) {$0$};
+\node[below=4pt] at (8,0) {$1$};
+\draw[blue, thick] (5,0) ellipse (1.1 and 0.5);
+\node[blue, above] at (5,0.5) {$U_{i_0} \ni a$};
+\draw (5,0.1) -- (5,-0.1);
+\node[below=3pt] at (5,0) {$a$};
+\draw (4.1,0.1) -- (4.1,-0.1);
+\node[below=3pt] at (3.85,0) {$a-\varepsilon$};
+\fill[red] (4.5,0) circle (1.4pt);
+\node[red, above] at (4.5,0.02) {$x$};
+\draw[red, thick] (0,-0.75) -- (4.5,-0.75);
+\draw[red] (0,-0.65) -- (0,-0.85);
+\draw[red] (4.5,-0.65) -- (4.5,-0.85);
+\node[red, below] at (2.25,-0.75) {$[0,x] \subset U_{i_1}\cup\dots\cup U_{i_n}$};
+\end{tikzpicture}

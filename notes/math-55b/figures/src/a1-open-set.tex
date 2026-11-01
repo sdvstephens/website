@@ -1,0 +1,11 @@
+\begin{tikzpicture}[>=Stealth, line width=0.7pt]
+\draw[thick] plot[smooth cycle, tension=0.8] coordinates {(0,0.3) (1.4,-0.3) (3,0.1) (3.4,1.5) (2.2,2.5) (0.4,2.1)};
+\node at (3.6,2.3) {$U$};
+\coordinate (p) at (1.7,1.1);
+\draw[dashed,blue] (p) circle (0.75);
+\draw[->,blue] (p) -- ++(50:0.75);
+\node[blue] at ($(p)+(0.05,0.45)$) {\small $r$};
+\fill (p) circle (1.8pt);
+\node[below] at (p) {$p$};
+\node[blue] at (1.7,2.1) {\small $B_r(p)$};
+\end{tikzpicture}

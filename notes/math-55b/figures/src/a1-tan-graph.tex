@@ -1,0 +1,10 @@
+\begin{tikzpicture}[>=Stealth, line width=0.7pt, scale=1.1]
+\draw[->] (-2.2,0) -- (2.2,0);
+\draw[->] (0,-2.4) -- (0,2.4);
+\draw[dashed, gray] (-1.5708,-2.3) -- (-1.5708,2.3);
+\draw[dashed, gray] (1.5708,-2.3) -- (1.5708,2.3);
+\draw[blue, thick, domain=-1.14:1.14, samples=80, smooth] plot (\x, {tan(\x r)});
+\node[below left] at (-1.5708,0) {$-\frac{\pi}{2}$};
+\node[below right] at (1.5708,0) {$\frac{\pi}{2}$};
+\node[blue, right] at (1.15,2.1) {$\tan x$};
+\end{tikzpicture}

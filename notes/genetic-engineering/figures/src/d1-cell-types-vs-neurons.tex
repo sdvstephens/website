@@ -1,0 +1,20 @@
+\begin{tikzpicture}[font=\small, >={Stealth}]
+  % left panel
+  \draw[thick,->] (0,0) -- (4,0) node[midway, below=2mm] {\# of neurons};
+  \draw[thick,->] (0,0) -- (0,3) node[midway, left=2mm, align=center] {\# of\\cell\\types};
+  \draw[thick,->] (0.3,0.2) -- (3.6,1.1);
+  \node[align=center] at (2,3.8) {info + model weights\\$\Rightarrow$ \# of neurons $\uparrow$};
+  % right panel
+  \begin{scope}[xshift=6.2cm]
+    \draw[thick,->] (0,0) -- (4,0) node[midway, below=2mm] {\# of neurons};
+    \draw[thick,->] (0,0) -- (0,3) node[midway, left=2mm, align=center] {\# of\\cell\\types};
+    \draw[thick,->] (0.4,0.1) -- (1.0,2.9);
+    \node[align=center] at (2,3.8) {algorithms \& objective functions\\$\Rightarrow$ \# of cell types $\uparrow$};
+  \end{scope}
+  % brace underneath
+  \draw[thick] (0,-0.8) .. controls (0,-1.1) and (0.3,-1.1) .. (1,-1.1) -- (4.6,-1.1)
+    .. controls (5.0,-1.1) and (5.1,-1.2) .. (5.1,-1.4)
+    .. controls (5.1,-1.2) and (5.2,-1.1) .. (5.6,-1.1) -- (9.2,-1.1)
+    .. controls (9.9,-1.1) and (10.2,-1.1) .. (10.2,-0.8);
+  \node[below] at (5.1,-1.4) {less or more complex};
+\end{tikzpicture}

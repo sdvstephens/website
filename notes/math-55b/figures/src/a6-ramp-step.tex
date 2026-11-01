@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+  \begin{scope}
+    \draw[->] (-1.5,0) -- (2.5,0) node[right] {$x$};
+    \draw[->] (0,-0.3) -- (0,1.6);
+    \draw[blue, very thick] (-1.4,0) -- (0,0) -- (0.6,1) -- (2.2,1);
+    \draw[dashed, gray] (0,1) node[left, black] {$1$} -- (0.6,1);
+    \draw (0.6,0.08) -- (0.6,-0.08) node[below] {$\frac1n$};
+    \node[below left] at (0,0) {$0$};
+    \node[blue, above] at (1.5,1) {$f_n$};
+  \end{scope}
+  \begin{scope}[xshift=5.5cm]
+    \draw[->] (-1.5,0) -- (2.5,0) node[right] {$x$};
+    \draw[->] (0,-0.3) -- (0,1.6);
+    \draw[blue, very thick] (-1.4,0) -- (0,0);
+    \draw[blue, very thick] (0,1) -- (2.2,1);
+    \fill[blue] (0,0) circle (2pt);
+    \draw[blue, fill=white] (0,1) circle (2pt);
+    \node[left] at (0,1) {$1$};
+    \node[below left] at (0,0) {$0$};
+    \node[blue, above] at (1.5,1) {$f$};
+  \end{scope}
+\end{tikzpicture}

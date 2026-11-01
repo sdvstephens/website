@@ -1,0 +1,30 @@
+\begin{tikzpicture}[line width=0.8pt, every node/.style={font=\small}, >={Stealth[length=4pt]}]
+  % cylinder S^1 x I, retracting onto the middle circle
+  \draw (0,1.4) ellipse (0.8 and 0.2);
+  \draw (-0.8,0) arc[start angle=180, end angle=360, x radius=0.8, y radius=0.2];
+  \draw[dashed] (0.8,0) arc[start angle=0, end angle=180, x radius=0.8, y radius=0.2];
+  \draw (-0.8,0) -- (-0.8,1.4) (0.8,1.4) -- (0.8,0);
+  \draw[blue] (-0.8,0.7) arc[start angle=180, end angle=360, x radius=0.8, y radius=0.2];
+  \draw[blue, dashed] (0.8,0.7) arc[start angle=0, end angle=180, x radius=0.8, y radius=0.2];
+  \foreach \x in {-0.5,0,0.5} {
+    \draw[blue, ->] (\x,1.2) -- (\x,0.6);
+    \draw[blue, ->] (\x,-0.15) -- (\x,0.43);
+  }
+  \node at (0,-0.6) {$S^1\times I$};
+  % Moebius band, retracting onto its middle circle
+  \begin{scope}[shift={(3.6,0.7)}, scale=0.75]
+    \def\w{0.45}
+    \draw[domain=0:720, samples=300, smooth, variable=\u]
+      plot ({1.6*(1+\w*cos(\u/2))*cos(\u+60)}, {0.45*(1+\w*cos(\u/2))*sin(\u+60) + \w*sin(\u/2)});
+    \draw[blue, domain=0:360, samples=120, smooth, variable=\u] plot ({1.6*cos(\u)}, {0.45*sin(\u)});
+    \foreach \u in {150, 210, 255, 300, 345} {
+      \draw[blue, ->]
+        ({1.6*((1+0.85*\w*cos((\u-60)/2))*cos(\u))}, {0.45*(1+0.85*\w*cos((\u-60)/2))*sin(\u) + 0.85*\w*sin((\u-60)/2)}) --
+        ({1.6*((1+0.2*\w*cos((\u-60)/2))*cos(\u))}, {0.45*(1+0.2*\w*cos((\u-60)/2))*sin(\u) + 0.2*\w*sin((\u-60)/2)});
+      \draw[blue, ->]
+        ({1.6*((1-0.85*\w*cos((\u-60)/2))*cos(\u))}, {0.45*(1-0.85*\w*cos((\u-60)/2))*sin(\u) - 0.85*\w*sin((\u-60)/2)}) --
+        ({1.6*((1-0.2*\w*cos((\u-60)/2))*cos(\u))}, {0.45*(1-0.2*\w*cos((\u-60)/2))*sin(\u) - 0.2*\w*sin((\u-60)/2)});
+    }
+    \node at (0,-1.75) {M\"obius band};
+  \end{scope}
+\end{tikzpicture}

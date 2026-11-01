@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+  \draw[thick] (0,0) rectangle (5,3);
+  \node at (-0.3,2.8) {$X$};
+  \draw[thick] (0.2,0.3) .. controls (1.5,1.8) and (3.5,2.2) .. (4.8,1.2);
+  \node at (4.7,0.85) {$Y$};
+  \draw[dashed, gray] (2.5,1.75) ellipse (0.9 and 0.6);
+  \node[gray] at (2.5,0.95) {$U$};
+  \begin{scope}
+    \clip (2.5,1.75) ellipse (0.9 and 0.6);
+    \draw[red, line width=2.2pt] (0.2,0.3) .. controls (1.5,1.8) and (3.5,2.2) .. (4.8,1.2);
+  \end{scope}
+  \node[red] at (3.2,2.75) {$U\cap Y$};
+  \draw[->, red] (3.2,2.55) -- (2.9,2.0);
+\end{tikzpicture}

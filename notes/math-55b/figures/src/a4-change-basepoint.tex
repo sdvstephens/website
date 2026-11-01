@@ -1,0 +1,11 @@
+\begin{tikzpicture}[>=Stealth]
+\draw[thick] plot[smooth cycle, tension=0.8] coordinates {(0,0) (-1.2,0.3) (-1.4,1.2) (-0.5,1.5) (0.3,1.0)};
+\draw[thick, ->] (-1.0,1.42) -- (-0.85,1.5);
+\node at (-1.1,1.75) {$f$};
+\draw[thick, ->] (0.05,-0.06) .. controls (0.9,-0.25) and (1.8,-0.1) .. (2.5,0.1);
+\draw[thick, ->] (2.45,0.22) .. controls (1.8,0.05) and (0.9,-0.08) .. (0.1,0.08);
+\fill (0,0) circle (1.6pt) node[below left] {$x_0$};
+\fill (2.55,0.15) circle (1.6pt) node[right] {$x_1$};
+\node at (1.3,-0.5) {$\alpha$};
+\node at (1.3,0.35) {$\bar\alpha$};
+\end{tikzpicture}

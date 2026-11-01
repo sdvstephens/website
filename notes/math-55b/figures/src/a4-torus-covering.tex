@@ -1,0 +1,20 @@
+\begin{tikzpicture}[>=Stealth]
+\foreach \x in {-0.45,-0.15,0.3,0.6,0.9,1.2,1.5,1.85,2.15,2.45} \draw[blue] (\x,-0.6) -- (\x,2.7);
+\foreach \y in {-0.45,-0.15,0.3,0.6,0.9,1.2,1.5,1.85,2.15,2.45} \draw[blue] (-0.6,\y) -- (2.7,\y);
+\foreach \x in {0,1.7} \draw[thick] (\x,-0.6) -- (\x,2.7);
+\foreach \y in {0,1.7} \draw[thick] (-0.6,\y) -- (2.7,\y);
+\fill (0,0) circle (1.6pt); \fill (1.7,0) circle (1.6pt); \fill (0,1.7) circle (1.6pt); \fill (1.7,1.7) circle (1.6pt);
+\node[below left, fill=white, inner sep=1pt] at (0,0) {\scriptsize $(0,0)$};
+\node[below right, fill=white, inner sep=1pt] at (1.7,0) {\scriptsize $(2\pi,0)$};
+\node[above left, fill=white, inner sep=1pt] at (0,1.7) {\scriptsize $(0,2\pi)$};
+\draw[->] (3.0,1.05) -- (4.2,1.05) node[midway, above] {$p\times p$};
+\begin{scope}[xshift=6cm, yshift=1.05cm]
+\draw[thick] (0,0) ellipse (1.6 and 0.8);
+\draw[thick] (-0.7,0.05) .. controls (-0.3,-0.25) and (0.3,-0.25) .. (0.7,0.05);
+\draw[thick] (-0.55,-0.05) .. controls (-0.2,0.18) and (0.2,0.18) .. (0.55,-0.05);
+\draw[blue] (0,0) ellipse (1.15 and 0.5);
+\draw[blue] (0,-0.5) ellipse (0.13 and 0.3);
+\draw[blue] (-0.9,-0.3) ellipse (0.13 and 0.28);
+\draw[blue] (0.9,-0.3) ellipse (0.13 and 0.28);
+\end{scope}
+\end{tikzpicture}

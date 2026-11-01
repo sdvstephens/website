@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+\draw (0,0) ellipse (2.4 and 1);
+\node at (2.7,0.8) {$E$};
+\fill (-0.4,0.3) circle (1.3pt) node[above] {$e_0$};
+\fill (-0.2,-0.45) circle (1.3pt) node[below left] {$e_1$};
+\draw[blue, ->] (-0.4,0.3) .. controls (-2.0,1.0) and (-2.0,-0.5) .. (-0.4,0.3);
+\node[blue] at (-1.6,-0.35) {$h$};
+\draw[red, ->] (-0.4,0.3) to[out=0,in=90] (1.7,-0.05) to[out=-90,in=0] (-0.2,-0.45);
+\node[red] at (1.5,0.6) {$\tilde\alpha$};
+\draw[->] (0,-1.15) -- (0,-1.85);
+\draw (0,-3) ellipse (2.4 and 0.9);
+\node at (2.7,-2.3) {$B$};
+\fill (-0.3,-3) circle (1.3pt) node[below] {$b_0$};
+\draw[blue, ->] (-0.3,-3) .. controls (-1.9,-2.3) and (-1.9,-3.6) .. (-0.3,-3);
+\node[blue] at (-1.5,-2.45) {$p\circ h$};
+\draw[red, ->] (-0.3,-3) to[out=10,in=90] (1.7,-3) to[out=-90,in=-10] (-0.3,-3);
+\node[red] at (1.9,-3.3) {$\alpha$};
+\end{tikzpicture}

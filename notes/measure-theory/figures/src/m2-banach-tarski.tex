@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+  % small ball
+  \draw[thick] (0,0) circle (0.9);
+  \draw[gray] (0,0) ellipse (0.9 and 0.28);
+  \foreach \a in {200,230,260,290,320} {
+    \draw[blue] ($(0,0)+(\a:0.62)$) circle (0.17);
+  }
+  \node[align=center,below] at (0,-1.05) {small ball\\(e.g.\ a pea)};
+  % big ball
+  \begin{scope}[shift={(6,0)}]
+    \draw[thick] (0,0) circle (2);
+    \draw[gray] (0,0) ellipse (2 and 0.6);
+    \draw[gray] (0,0) ellipse (0.7 and 2);
+    \foreach \a in {120,145,170,195,220,245,270} {
+      \draw[blue] ($(0,0)+(\a:1.72)$) circle (0.17);
+    }
+    \node[align=center,below] at (0,-2.15) {big ball\\(e.g.\ Earth)};
+  \end{scope}
+  % arrows: pieces are moved (congruently) from one ball to the other
+  \draw[-{Stealth},thick] (0.8,0.7) to[bend left=30] (4.3,1.1);
+  \draw[-{Stealth},thick] (0.8,-0.7) to[bend right=30] (4.3,-1.1);
+\end{tikzpicture}

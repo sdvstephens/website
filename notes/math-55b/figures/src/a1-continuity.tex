@@ -1,0 +1,15 @@
+\begin{tikzpicture}[>=Stealth, line width=0.7pt]
+% delta-ball around p
+\fill[orange, fill opacity=0.35] (0,0) circle (0.7);
+\draw (0,0) circle (0.7);
+\fill (0,0) circle (1.6pt) node[below] {$p$};
+\node[left] at (-0.8,0) {$\exists\,\delta$-ball};
+% arrow f
+\draw[->] (1,0.3) to[bend left=25] node[above] {$f$} (2.8,0.3);
+% epsilon-ball around f(p)
+\draw (4.3,0) circle (1.2);
+\fill[orange, fill opacity=0.35] plot[smooth cycle, tension=0.9] coordinates {(3.5,-0.2) (3.9,0.5) (4.5,0.45) (5.0,0.6) (4.9,-0.2) (4.3,-0.6)};
+\draw plot[smooth cycle, tension=0.9] coordinates {(3.5,-0.2) (3.9,0.5) (4.5,0.45) (5.0,0.6) (4.9,-0.2) (4.3,-0.6)};
+\fill (4.3,0) circle (1.6pt) node[below] {$f(p)$};
+\node[right, align=left] at (5.6,0) {given\\ $\varepsilon$-ball};
+\end{tikzpicture}

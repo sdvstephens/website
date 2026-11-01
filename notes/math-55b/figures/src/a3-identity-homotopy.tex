@@ -1,0 +1,14 @@
+\begin{tikzpicture}[line width=0.8pt, every node/.style={font=\small}, >={Stealth[length=5pt]}]
+  \fill[gray!40] (0,0) -- (2,0) -- (1,2) -- (0,2) -- cycle;
+  \draw (0,0) rectangle (2,2);
+  \draw (2,0) -- (1,2);
+  \node at (0.55,0.9) {$f$};
+  \node at (1.65,1.45) {$y$};
+  \node[rotate=-63.4] at (1.33,0.95) {\scriptsize $s=1-\tfrac t2$};
+  \node[below] at (1,0) {$f$};
+  \node[above] at (1,2) {$f * e_y$};
+  \node[below left] at (0,0) {$x$};
+  \node[below right] at (2,0) {$y$};
+  \draw[->] (-0.35,0.6) -- (-0.35,1.4) node[midway, left] {$t$};
+  \draw[->] (0.6,-0.6) -- (1.4,-0.6) node[midway, below] {$s$};
+\end{tikzpicture}

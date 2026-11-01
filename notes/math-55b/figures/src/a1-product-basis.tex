@@ -1,0 +1,20 @@
+\begin{tikzpicture}[>=Stealth, line width=0.7pt]
+\draw[->] (-0.5,0) -- (5,0) node[right] {$X$};
+\draw[->] (0,-0.5) -- (0,3.4) node[above] {$Y$};
+% U1 x V1 (blue), U2 x V2 (red)
+\fill[purple, fill opacity=0.4] (2,1.6) rectangle (3.4,2.2);
+\draw[blue] (1,0.6) rectangle (3.4,2.2);
+\draw[red] (2,1.6) rectangle (4.2,3);
+% intervals on X axis
+\draw[blue, very thick] (1,-0.12) -- (3.4,-0.12);
+\draw[red, very thick] (2,-0.28) -- (4.2,-0.28);
+\node[blue, below] at (1.8,-0.2) {$U_1$};
+\node[red, below] at (3.8,-0.35) {$U_2$};
+% intervals on Y axis
+\draw[blue, very thick] (-0.12,0.6) -- (-0.12,2.2);
+\draw[red, very thick] (-0.28,1.6) -- (-0.28,3);
+\node[blue, left] at (-0.2,1) {$V_1$};
+\node[red, left] at (-0.35,2.6) {$V_2$};
+\node[blue] at (1.9,1) {\small $U_1\times V_1$};
+\node[red] at (3.6,2.7) {\small $U_2\times V_2$};
+\end{tikzpicture}

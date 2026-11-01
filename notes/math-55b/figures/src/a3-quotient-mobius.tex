@@ -1,0 +1,27 @@
+\begin{tikzpicture}[line width=0.8pt, every node/.style={font=\small}, >={Stealth[length=5pt]}]
+  % square, (0,t) ~ (1,1-t)
+  \draw (0,0) -- (1.3,0) (0,1.3) -- (1.3,1.3);
+  \draw[red, ->] (0,0) -- (0,0.72);  \draw[red] (0,0.7) -- (0,1.3);
+  \draw[red, ->] (1.3,1.3) -- (1.3,0.58);  \draw[red] (1.3,0.6) -- (1.3,0);
+  \draw[blue, pattern=north east lines, pattern color=blue] (0,0.8) arc[start angle=-90, end angle=90, radius=0.2] -- cycle;
+  \draw[blue, pattern=north east lines, pattern color=blue] (1.3,0.5) arc[start angle=90, end angle=270, radius=0.2] -- cycle;
+  \fill[blue] (0,1.0) circle (1.5pt) (1.3,0.3) circle (1.5pt);
+  \draw[->] (1.7,0.65) -- (2.4,0.65);
+  % Moebius band (projected parametric surface)
+  \begin{scope}[shift={(4.4,0.65)}, scale=0.75]
+    \def\w{0.45}
+    \foreach \u in {0,12,...,348}{
+      \draw[gray, line width=0.3pt]
+        ({1.6*((1-\w*cos(\u/2))*cos(\u+60))}, {0.45*(1-\w*cos(\u/2))*sin(\u+60) - \w*sin(\u/2)}) --
+        ({1.6*((1+\w*cos(\u/2))*cos(\u+60))}, {0.45*(1+\w*cos(\u/2))*sin(\u+60) + \w*sin(\u/2)});
+    }
+    \draw[domain=0:720, samples=300, smooth, variable=\u]
+      plot ({1.6*(1+\w*cos(\u/2))*cos(\u+60)}, {0.45*(1+\w*cos(\u/2))*sin(\u+60) + \w*sin(\u/2)});
+    \draw[red, line width=1pt]
+      ({1.6*((1-\w*cos(105))*cos(270))}, {0.45*(1-\w*cos(105))*sin(270) - \w*sin(105)}) --
+      ({1.6*((1+\w*cos(105))*cos(270))}, {0.45*(1+\w*cos(105))*sin(270) + \w*sin(105)});
+    \draw[blue, pattern=north east lines, pattern color=blue] (0,-0.45) circle (0.2);
+    \fill[blue] (0,-0.45) circle (2pt);
+    \node[blue] at (0.5,-0.55) {$U$};
+  \end{scope}
+\end{tikzpicture}

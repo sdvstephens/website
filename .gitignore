@@ -45,3 +45,7 @@ __pycache__/
 # server. Who may open each PDF is set in notes/critical-theory/access.json;
 # the build writes the folder's .htaccess from it.
 notes/critical-theory/readings/
+
+# Math 55b review-session notes and handouts by the course staff: served from
+# the site, kept out of the public repo.
+notes/math-55b/readings/

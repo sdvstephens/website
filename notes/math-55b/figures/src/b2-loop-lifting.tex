@@ -1,0 +1,13 @@
+\begin{tikzpicture}[scale=1]
+\draw[thick] (0,2.6) ellipse (2.2 and 0.8);
+\node at (2.6,3.2) {$E$};
+\draw[thick] (0,0) ellipse (2.2 and 0.8);
+\node at (2.6,0.6) {$B$};
+\fill (-1.2,2.6) circle (1.5pt) node[left] {$e_0$};
+\draw[red, thick] (-1.2,2.6) .. controls (0,3.3) and (1.2,2.9) .. (1.2,2.6) .. controls (1.2,2.2) and (0,1.9) .. (-1.2,2.6);
+\node[red] at (0.2,2.35) {$\tilde f$};
+\fill (-1.2,0) circle (1.5pt) node[left] {$b_0$};
+\draw[blue, thick] (-1.2,0) .. controls (0,0.7) and (1.2,0.3) .. (1.2,0) .. controls (1.2,-0.4) and (0,-0.7) .. (-1.2,0);
+\node[blue] at (0.2,-0.25) {$f$};
+\draw[thick, ->] (2.9,2.2) -- node[right] {$p$} (2.9,0.4);
+\end{tikzpicture}

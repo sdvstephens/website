@@ -1,0 +1,33 @@
+\begin{tikzpicture}[font=\small,
+  spc/.style={rectangle, draw=black, thick, fill=white, minimum width=3.2mm, minimum height=5mm, inner sep=0pt}]
+  % cas genes as arrows
+  \filldraw[thick, fill=red, fill opacity=0.45, draw=black] (0,-0.3) -- (2.9,-0.3) -- (3.2,0) -- (2.9,0.3) -- (0,0.3) -- cycle;
+  \filldraw[thick, fill=green, fill opacity=0.45, draw=black] (3.3,-0.3) -- (4.9,-0.3) -- (5.2,0) -- (4.9,0.3) -- (3.3,0.3) -- cycle;
+  \filldraw[thick, fill=purple, fill opacity=0.45, draw=black] (5.3,-0.3) -- (6.1,-0.3) -- (6.4,0) -- (6.1,0.3) -- (5.3,0.3) -- cycle;
+  \filldraw[thick, fill=blue, fill opacity=0.45, draw=black] (6.5,-0.3) -- (7.3,-0.3) -- (7.6,0) -- (7.3,0.3) -- (6.5,0.3) -- cycle;
+  \node[above] at (1.6,0.3) {\textit{cas9}};
+  \node[above] at (4.25,0.3) {\textit{cas1}};
+  \node[above] at (5.85,0.3) {\textit{cas6}};
+  \node[above] at (7.05,0.3) {\textit{cas7}};
+  % leader
+  \draw[thick] (7.6,0) -- (7.8,0);
+  \draw[thick, rounded corners=2.5mm, fill=white] (7.8,-0.17) rectangle (8.6,0.17);
+  \node[font=\scriptsize] at (8.2,0) {L};
+  % repeats (black diamonds)
+  \foreach \x/\n in {8.85/r1, 9.65/r2, 10.45/r3, 11.25/r4} {
+    \fill[black] (\x-0.17,0) -- (\x,0.3) -- (\x+0.17,0) -- (\x,-0.3) -- cycle;
+    \coordinate (\n) at (\x,-0.3);
+  }
+  % spacers (white boxes)
+  \node[spc, font=\scriptsize] (s1) at (9.25,0) {1};
+  \node[spc, font=\scriptsize] (s2) at (10.05,0) {2};
+  \node[spc, font=\scriptsize] (s3) at (10.85,0) {3};
+  \node at (11.75,0) {$\cdots$};
+  % annotations
+  \node (replab) at (10.05,-1.4) {repeats};
+  \foreach \r in {r1,r2,r3,r4} \draw[-{Stealth}] (replab.north) -- (\r);
+  \node[align=center, anchor=west] (spclab) at (11.0,1.25) {spacers (unique sequences)};
+  \foreach \s in {s1,s2,s3} \draw[-{Stealth}, gray] (spclab.west) -- (\s.north);
+  \node (leadlab) at (7.7,-1.4) {leader};
+  \draw[-{Stealth}] (leadlab.north) -- (8.2,-0.22);
+\end{tikzpicture}

@@ -1,0 +1,34 @@
+\begin{tikzpicture}[line width=0.8pt, every node/.style={font=\small}]
+  % Normal (T4): closed A, B inside disjoint opens U, V
+  \node at (1.1,2.1) {Normal ($T_4$)};
+  \draw[pattern=north east lines, pattern color=gray] (0.5,0.55) .. controls (0.25,0.9) and (0.6,1.15) .. (0.85,1.05)
+     .. controls (1.05,0.95) and (1.0,0.55) .. (0.8,0.4) .. controls (0.65,0.3) and (0.6,0.4) .. cycle;
+  \node[fill=none] at (0.68,0.75) {$A$};
+  \draw[blue] (0.65,0.72) circle (0.62);
+  \node[blue] at (0.1,1.45) {$U$};
+  \draw[pattern=north east lines, pattern color=gray] (1.6,0.5) .. controls (1.45,0.9) and (1.85,1.1) .. (2.1,0.95)
+     .. controls (2.3,0.8) and (2.2,0.4) .. (1.95,0.35) .. controls (1.8,0.3) and (1.65,0.35) .. cycle;
+  \node at (1.9,0.68) {$B$};
+  \draw[blue] (1.45,0.75) .. controls (1.3,1.3) and (1.9,1.45) .. (2.3,1.25)
+     .. controls (2.6,1.05) and (2.6,0.35) .. (2.2,0.15) .. controls (1.8,-0.05) and (1.4,0.2) .. cycle;
+  \node[blue] at (1.5,1.5) {$V$};
+  % Regular (T3): point x and closed B
+  \node at (4.6,2.1) {Regular ($T_3$)};
+  \fill (3.9,0.75) circle (1.5pt) node[above=1pt] {$x$};
+  \draw[blue] (3.9,0.75) circle (0.42);
+  \node[blue] at (3.4,1.35) {$U$};
+  \draw[pattern=north east lines, pattern color=gray] (4.85,0.5) .. controls (4.7,0.9) and (5.1,1.1) .. (5.35,0.95)
+     .. controls (5.55,0.8) and (5.45,0.4) .. (5.2,0.35) .. controls (5.05,0.3) and (4.9,0.35) .. cycle;
+  \node at (5.15,0.68) {$B$};
+  \draw[blue] (4.7,0.75) .. controls (4.55,1.3) and (5.15,1.45) .. (5.55,1.25)
+     .. controls (5.85,1.05) and (5.85,0.35) .. (5.45,0.15) .. controls (5.05,-0.05) and (4.65,0.2) .. cycle;
+  \node[blue] at (4.75,1.5) {$V$};
+  % Hausdorff (T2): points x and y
+  \node at (7.7,2.1) {Hausdorff ($T_2$)};
+  \fill (7.2,0.75) circle (1.5pt) node[above=1pt] {$x$};
+  \draw[blue] (7.2,0.75) circle (0.42);
+  \node[blue] at (6.75,1.35) {$U$};
+  \fill (8.2,0.75) circle (1.5pt) node[above=1pt] {$y$};
+  \draw[blue] (8.2,0.75) circle (0.42);
+  \node[blue] at (8.65,1.35) {$V$};
+\end{tikzpicture}

@@ -210,6 +210,7 @@ const KINDS = {
   example: { label: 'Example', numbered: true },
   exercise: { label: 'Exercise', numbered: true },
   question: { label: 'Question', numbered: true },
+  problem: { label: 'Problem', numbered: true },
   remark: { label: 'Remark', numbered: false },
   note: { label: 'Note', numbered: false },
   proof: { label: 'Proof', numbered: false },

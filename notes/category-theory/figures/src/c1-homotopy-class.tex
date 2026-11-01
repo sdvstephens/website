@@ -1,0 +1,10 @@
+\begin{tikzpicture}[>=Stealth]
+  \fill (0,0) circle (1.5pt) node[left] {$X$};
+  \fill (4,0) circle (1.5pt) node[right] {$Y$};
+  \foreach \b in {-40,-20,0,20,40} {
+    \draw (0,0) to[bend left=\b] (4,0);
+  }
+  \draw[->, gray] (1.4,0.55) -- (1.4,-0.55);
+  \draw[->, gray] (2,0.7) -- (2,-0.7);
+  \draw[->, gray] (2.6,0.55) -- (2.6,-0.55);
+\end{tikzpicture}

@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=1.5]
+  \draw[gray] (0,0) circle (1);
+  \coordinate (A) at (-1,0);
+  \coordinate (B) at (1,0);
+  \coordinate (Z) at (110:1);
+  \fill (A) circle (1.2pt) node[left] {$-1$};
+  \fill (B) circle (1.2pt) node[right] {$1$};
+  \fill (Z) circle (1.2pt) node[above] {$z\in S^1$};
+  \draw[->, thick] (A) -- node[left] {$1+z$} (Z);
+  \draw[->, thick] (Z) -- node[above right] {$1-z$} (B);
+  \pic[draw, angle radius=6pt] {right angle = A--Z--B};
+\end{tikzpicture}

@@ -1,0 +1,12 @@
+{
+ "c1-commutative-diagram": "5459e9adddd35d6a0b3df3fa2e82168d249d732f",
+ "c1-composition": "b19dac8ef5f84dde4275348ba9112202e623913d",
+ "c1-graph-maps": "c0c1fde280f59b52fb8d2d9b7a84ecc97657afc7",
+ "c1-group-one-object": "81ef6a5d218f3df4b82825727cf50b7a4683576d",
+ "c1-hom-functor": "3eca4e1307d94187350775cd7c8860640a2e8964",
+ "c1-homotopy-class": "3f6b215dd7c7aeb67047aa80362dbe5c9b1971af",
+ "c1-natural-transformation": "97dc93a67c988cc38f226c6a35e50d6d7d481216",
+ "c1-small-categories": "0ba2d48f48c7f1c2f657f6c6bc6160d62a1881e4",
+ "c1-tensor-triangle": "154cbb95c031d95e4b1be02c9d01e2b7edb402c3",
+ "c1-toph-composition": "50fb1b5c437c7886f4083ed847831d61e2f96929"
+}

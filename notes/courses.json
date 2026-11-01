@@ -25,9 +25,24 @@
     "description": "Real and complex analysis (Harvard Math 55 second semester)"
   },
   {
+    "slug": "measure-theory",
+    "title": "Measure Theory",
+    "description": "Measure and integration, following Folland’s Real Analysis; a work in progress"
+  },
+  {
+    "slug": "category-theory",
+    "title": "Category Theory",
+    "description": "Categories, isomorphisms, opposite and product categories, and functors; in progress"
+  },
+  {
     "slug": "biology",
     "title": "Biology",
     "description": "Molecular biology, cell biology, genetics, and biochemistry"
+  },
+  {
+    "slug": "genetic-engineering",
+    "title": "Genetic Engineering",
+    "description": "MIT 9.26: genome editing, CRISPR, protein language models, spatial omics and regeneration"
   },
   {
     "slug": "critical-theory",

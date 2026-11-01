@@ -1,0 +1,26 @@
+\begin{tikzpicture}[>=Stealth]
+\begin{scope}
+\draw[dotted, thick] (0,0) .. controls (0.7,0.7) and (1.4,0.7) .. (2,0.3);
+\fill (0,0) circle (2pt);
+\fill (2,0.3) circle (1.2pt) node[right] {$y$};
+\node[below] at (0,0) {$x$};
+\node[above left] at (0,0.05) {$e_x$};
+\node at (1,0.85) {$f$};
+\end{scope}
+\node at (3,0.3) {$\rightsquigarrow$};
+\begin{scope}[xshift=3.8cm]
+\draw[dotted, thick] (0,0) .. controls (0.7,0.7) and (1.4,0.7) .. (2,0.3);
+\draw[thick, red] (0,0) .. controls (0.3,0.32) and (0.6,0.45) .. (0.9,0.48);
+\draw[thick, red] (0,-0.05) .. controls (0.32,0.25) and (0.6,0.38) .. (0.9,0.41);
+\fill (0,0) circle (1.2pt) node[below] {$x$};
+\fill (2,0.3) circle (1.2pt) node[right] {$y$};
+\end{scope}
+\node at (6.8,0.3) {$\rightsquigarrow$};
+\begin{scope}[xshift=7.6cm]
+\draw[thick, red] (0,0) .. controls (0.7,0.7) and (1.4,0.7) .. (2,0.3);
+\draw[thick, red] (0,-0.07) .. controls (0.7,0.6) and (1.4,0.6) .. (2,0.3);
+\fill (0,0) circle (1.2pt) node[below] {$x$};
+\fill (2,0.3) circle (1.2pt) node[right] {$y$};
+\node[red] at (1,-0.1) {$f*\bar f$};
+\end{scope}
+\end{tikzpicture}

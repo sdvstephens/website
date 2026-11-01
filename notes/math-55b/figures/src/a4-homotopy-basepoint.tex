@@ -1,0 +1,42 @@
+\begin{tikzpicture}[>=Stealth]
+% cylinder X x I
+\draw (0,0) ellipse (1 and 0.3);
+\draw (0,2.4) ellipse (1 and 0.3);
+\draw (-1,0) -- (-1,2.4);
+\draw (1,0) -- (1,2.4);
+\draw[dashed] (0,1.2) ellipse (1 and 0.3);
+\draw[dotted] (-0.3,-0.28) -- (-0.3,2.12);
+\fill (-0.3,-0.28) circle (1.5pt);
+\fill (-0.3,2.12) circle (1.5pt);
+\node[left] at (-1,-0.35) {$(x_0,0)$};
+\node[left] at (-1,2.75) {$(x_0,1)$};
+\draw[thick] plot[smooth cycle, tension=0.8] coordinates {(-0.3,-0.28) (0.2,-0.12) (0.6,-0.22) (0.3,-0.45)};
+\node[right] at (1,-0.3) {$f$};
+\draw[blue, thick] (-0.22,2.12) -- (-0.22,0.92);
+\draw[blue, thick] plot[smooth cycle, tension=0.8] coordinates {(-0.22,0.92) (0.2,1.08) (0.6,0.98) (0.3,0.75)};
+\draw[->, blue] (1.25,0.8) -- (1.25,1.6) node[midway, right] {$t$};
+\node at (-1.9,1.2) {$X\times I$};
+\node[align=left, font=\small] at (2.6,2.6) {$F$: path homotopy\\ in $(X\times I,(x_0,1))$};
+% map H
+\draw[->] (2.2,1.2) to[bend left=15] node[above] {$H$} (3.4,1.2);
+% Y
+\begin{scope}[xshift=6.3cm, yshift=0.9cm]
+\draw[thick] (0,0) ellipse (2.7 and 1.5);
+\node at (2.9,1.2) {$Y$};
+\coordinate (y0) at (-1.6,0.5);
+\coordinate (ym) at (-0.1,0.75);
+\coordinate (y1) at (1.4,0.8);
+\draw[thick, ->] (y0) .. controls (-1,0.75) and (-0.5,0.78) .. (ym);
+\draw[thick] (ym) .. controls (0.4,0.78) and (1,0.8) .. (y1);
+\node[above] at (-0.8,0.8) {$\alpha$};
+\draw[thick] plot[smooth cycle, tension=0.8] coordinates {(-1.6,0.5) (-1.9,-0.2) (-1.5,-0.6) (-1.2,-0.1)};
+\draw[thick] plot[smooth cycle, tension=0.8] coordinates {(1.4,0.8) (1.6,0.1) (2.1,-0.3) (2.0,0.4)};
+\draw[blue, thick] plot[smooth cycle, tension=0.8] coordinates {(-0.1,0.75) (-0.4,0.0) (0.0,-0.5) (0.3,0.1)};
+\draw[blue, thick] (-0.05,0.85) .. controls (0.4,0.88) and (1,0.9) .. (1.35,0.9);
+\fill (y0) circle (1.5pt) node[above left] {$y_0$};
+\fill (y1) circle (1.5pt) node[below right] {$y_1$};
+\node at (-1.4,-0.9) {$h\circ f$};
+\node[blue] at (0.1,-0.85) {$h_t\circ f$};
+\node at (1.9,-0.65) {$k\circ f$};
+\end{scope}
+\end{tikzpicture}

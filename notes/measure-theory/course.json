@@ -1,0 +1,161 @@
+{
+  "slug": "measure-theory",
+  "title": "Measure Theory",
+  "description": "Measure and integration, following Folland’s <em>Real Analysis</em>. Written as the course goes: a work in progress.",
+  "chapters": [
+    {
+      "number": 0,
+      "title": "Prologue",
+      "sections": [
+        {
+          "number": "0.1",
+          "slug": "0-1-the-language-of-set-theory",
+          "title": "The Language of Set Theory"
+        },
+        {
+          "number": "0.2",
+          "slug": "0-2-orderings",
+          "title": "Orderings"
+        },
+        {
+          "number": "0.3",
+          "slug": "0-3-cardinality",
+          "title": "Cardinality"
+        },
+        {
+          "number": "0.4",
+          "slug": "0-4-more-about-well-ordering",
+          "title": "More about Well Ordering"
+        },
+        {
+          "number": "0.5",
+          "slug": "0-5-the-extended-real-number-system",
+          "title": "The Extended Real Number System"
+        },
+        {
+          "number": "0.6",
+          "slug": "0-6-metric-spaces",
+          "title": "Metric Spaces"
+        }
+      ]
+    },
+    {
+      "number": 1,
+      "title": "Measures",
+      "sections": [
+        {
+          "number": "1.1",
+          "slug": "1-1-introduction",
+          "title": "Introduction"
+        },
+        {
+          "number": "1.2",
+          "slug": "1-2-sigma-algebras",
+          "title": "$\\sigma$-algebras"
+        },
+        {
+          "number": "1.3",
+          "slug": "1-3-measures",
+          "title": "Measures",
+          "planned": true
+        },
+        {
+          "number": "1.4",
+          "slug": "1-4-outer-measures",
+          "title": "Outer Measures",
+          "planned": true
+        },
+        {
+          "number": "1.5",
+          "slug": "1-5-borel-measures-on-the-real-line",
+          "title": "Borel Measures on the Real Line",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Integration",
+      "sections": [
+        {
+          "number": "2.1",
+          "slug": "2-1-measurable-functions",
+          "title": "Measurable Functions",
+          "planned": true
+        },
+        {
+          "number": "2.2",
+          "slug": "2-2-integration-of-nonnegative-functions",
+          "title": "Integration of Nonnegative Functions",
+          "planned": true
+        },
+        {
+          "number": "2.3",
+          "slug": "2-3-integration-of-complex-functions",
+          "title": "Integration of Complex Functions",
+          "planned": true
+        },
+        {
+          "number": "2.4",
+          "slug": "2-4-modes-of-convergence",
+          "title": "Modes of Convergence",
+          "planned": true
+        },
+        {
+          "number": "2.5",
+          "slug": "2-5-product-measures",
+          "title": "Product Measures",
+          "planned": true
+        },
+        {
+          "number": "2.6",
+          "slug": "2-6-the-n-dimensional-lebesgue-integral",
+          "title": "The $n$-dimensional Lebesgue Integral",
+          "planned": true
+        },
+        {
+          "number": "2.7",
+          "slug": "2-7-integration-in-polar-coordinates",
+          "title": "Integration in Polar Coordinates",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Signed Measures and Differentiation",
+      "sections": [
+        {
+          "number": "3.1",
+          "slug": "3-1-signed-measures",
+          "title": "Signed Measures",
+          "planned": true
+        },
+        {
+          "number": "3.2",
+          "slug": "3-2-the-lebesgue-radon-nikodym-theorem",
+          "title": "The Lebesgue–Radon–Nikodym Theorem",
+          "planned": true
+        },
+        {
+          "number": "3.3",
+          "slug": "3-3-complex-measures",
+          "title": "Complex Measures",
+          "planned": true
+        },
+        {
+          "number": "3.4",
+          "slug": "3-4-differentiation-on-euclidean-space",
+          "title": "Differentiation on Euclidean Space",
+          "planned": true
+        },
+        {
+          "number": "3.5",
+          "slug": "3-5-functions-of-bounded-variation",
+          "title": "Functions of Bounded Variation",
+          "planned": true
+        }
+      ]
+    }
+  ]
+}

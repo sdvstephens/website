@@ -301,9 +301,11 @@ for (const c of noteCourses) {
     ch.titleText = plainTitle(ch.title);
     for (const s of ch.sections || []) {
       const file = `notes/${c.slug}/${s.slug}.md`;
-      if (!exists('notes', c.slug, `${s.slug}.md`)) { warn(`${file} listed in course.json but missing`); continue; }
+      // "planned": true in course.json: a section in the outline with no file yet.
+      const hasFile = exists('notes', c.slug, `${s.slug}.md`);
+      if (!hasFile && !s.planned) { warn(`${file} listed in course.json but missing`); continue; }
       setSource(file);
-      const src = read('notes', c.slug, `${s.slug}.md`);
+      const src = hasFile ? read('notes', c.slug, `${s.slug}.md`) : 'Content coming soon.';
       const fm = frontmatter(src).data;
       const { html } = renderNotes(src, { section: s.number });
       if (!accessByCourse.has(c.slug)) accessByCourse.set(c.slug, loadAccess(c.slug));
@@ -315,6 +317,8 @@ for (const c of noteCourses) {
         // `status: readings`: a lecture with readings but no notes yet. It
         // keeps its page (the reading links) but doesn't count as written.
         readingsOnly: fm.status === 'readings',
+        // `status: incomplete`: the notes stop partway (still counts as written).
+        incomplete: fm.status === 'incomplete',
       });
     }
   }
@@ -323,6 +327,7 @@ for (const c of noteCourses) {
   notes.push({
     ...c, title: course.title || c.title, book: course.book, chapters: course.chapters || [], sections, intro,
     description: course.description || c.description, chapterLabel: course.chapterLabel || 'chapter',
+    sectionLabel: course.sectionLabel || (course.chapterLabel === 'week' ? 'lectures' : 'sections'),
   });
 }
 
@@ -332,6 +337,7 @@ for (const c of noteCourses) {
 //   song-url: https://…        (optional; the title links to the recording)
 function lectureMeta(fm) {
   const parts = [];
+  if (fm.status === 'incomplete') parts.push('<p class="note-status">In progress: these notes stop partway.</p>');
   if (fm.date) parts.push(`<p class="lecture-date"><time datetime="${esc(fm.date)}">${longDate(fm.date)}</time>${fm.lecturer ? ` · ${esc(fm.lecturer)}` : ''}</p>`);
   if (fm.song) {
     const title = renderTitle(fm.song);
@@ -354,13 +360,15 @@ function byPart(list) {
 
 function notesTree(course, currentSlug) {
   return `<p class="rail-head"><a href="/notes/${course.slug}/">${course.title}</a></p>
-<ol class="toc-tree">${course.chapters.map((ch) => {
+<ol class="toc-tree">${course.chapters.map((ch, i) => {
     const list = course.sections.filter((s) => s.chapter === ch);
     // Long books: only the current chapter starts open; the others fold to one line.
     const fold = course.chapters.length > 8;
     const open = !fold || list.some((s) => s.slug === currentSlug);
     const head = `<span class="num">${course.chapterLabel === 'week' ? 'wk ' : ''}${ch.number}</span> ${ch.titleHtml}`;
-    return `
+    const partHead = ch.part && ch.part !== course.chapters[i - 1]?.part ? `
+  <li class="toc-course-part">${renderTitle(ch.part)}</li>` : '';
+    return `${partHead}
   <li>${fold ? `<details${open ? ' open' : ''}><summary class="toc-ch">${head}</summary>` : `<span class="toc-ch">${head}</span>`}
     <ol>${byPart(list).map((g) => (g.part ? `<li class="toc-part">${renderTitle(g.part)}</li>` : '') + g.items.map((s) => {
       const label = `<span class="num">${s.number}</span> ${s.titleHtml}`;
@@ -409,11 +417,11 @@ for (const n of notes) {
 <h1 class="display">${n.title}</h1>
 ${n.book ? bookHead(n) : `${n.description ? `<p class="standfirst">${n.description}</p>` : ''}
 ${n.intro ? `<div class="prose course-intro">${n.intro}</div>` : ''}
-${n.sections.length ? `<p class="count">${written(n)} of ${n.sections.length} ${n.chapterLabel === 'week' ? 'lectures' : 'sections'} written</p>` : '<p>Notes coming soon.</p>'}`}
-${n.chapters.map((ch) => `<h2 class="chapter"><span class="idx">${n.chapterLabel === 'week' ? 'week ' : ''}${ch.number}</span>${ch.titleHtml}</h2>
+${n.sections.length ? `<p class="count">${written(n)} of ${n.sections.length} ${n.sectionLabel} written</p>` : '<p>Notes coming soon.</p>'}`}
+${n.chapters.map((ch, i) => `${ch.part && ch.part !== n.chapters[i - 1]?.part ? `<h2 class="course-part">${renderTitle(ch.part)}</h2>\n` : ''}<h2 class="chapter"><span class="idx">${n.chapterLabel === 'week' ? 'week ' : ''}${ch.number}</span>${ch.titleHtml}</h2>
 ${byPart(n.sections.filter((s) => s.chapter === ch)).map((g) => (g.part ? `<h3 class="part">${renderTitle(g.part)}</h3>\n` : '') + ledger(g.items.map((s) => ({
     idx: s.number, muted: s.stub,
-    html: s.stub ? `<span class="entry-title">${s.titleHtml}</span>` : `<a class="entry-title" href="${s.href}">${s.titleHtml}</a>${s.readingsOnly ? ' <span class="entry-note">readings only</span>' : ''}`,
+    html: s.stub ? `<span class="entry-title">${s.titleHtml}</span>` : `<a class="entry-title" href="${s.href}">${s.titleHtml}</a>${s.readingsOnly ? ' <span class="entry-note">readings only</span>' : ''}${s.incomplete ? ' <span class="entry-note">in progress</span>' : ''}`,
   })))).join('\n')}`).join('\n')}`,
   });
 
@@ -810,7 +818,8 @@ for (const sub of ['notes', 'homework', 'music']) {
 // Protected readings: the .htaccess comes from access.json.
 for (const [slug, acc] of accessByCourse) {
   if (!acc) continue;
-  if (!acc.authUserFile) { warn(`notes/${slug}/access.json has no authUserFile`); continue; }
+  const anyHidden = acc.files.some((f) => acc.status(f) === 'hidden');
+  if (anyHidden && !acc.authUserFile) { warn(`notes/${slug}/access.json hides documents but has no authUserFile`); continue; }
   write(`notes/${slug}/readings/.htaccess`, readingsHtaccess(acc));
 }
 

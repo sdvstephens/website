@@ -1,0 +1,527 @@
+{
+  "b1-ball-in-ball": {
+    "alt": "An open ball B_r(p) containing a point q at distance delta from p, with a smaller ball B_epsilon(q) drawn entirely inside B_r(p)."
+  },
+  "b1-continuity": {
+    "alt": "A map f from X to Y sending the ball B_delta(p) around p into a region f(B_delta(p)) that lies inside the ball B_epsilon(f(p))."
+  },
+  "b1-subspace-topology": {
+    "alt": "A rectangle X containing a curve Y; a dashed open set U of X meets the curve in a highlighted arc U intersect Y, an open set of the subspace topology."
+  },
+  "b1-product-basis": {
+    "alt": "Two overlapping open rectangles U1 x V1 and U2 x V2 in X x Y with their intersection shaded, and next to them a disk covered by infinitely many small rectangles."
+  },
+  "b1-tan-homeo": {
+    "alt": "Graph of tan x on the open interval from -pi/2 to pi/2, with vertical asymptotes at both ends, showing a bounded interval homeomorphic to the whole real line."
+  },
+  "b1-closure": {
+    "alt": "A hatched disk A with a dashed (missing) boundary, and next to it its closure: the same hatched disk with a solid boundary."
+  },
+  "b1-interior-boundary": {
+    "alt": "A hatched disk with dashed boundary labelled int(A), and a bare circle labelled the boundary of A."
+  },
+  "b1-limit-points": {
+    "alt": "A hatched region A with two red limit points, one inside and one on the edge, and a separate green point away from the region marked as not a limit point (an isolated point)."
+  },
+  "b1-nested-balls": {
+    "alt": "A point p on the edge of a shaded set A with nested balls around p of shrinking radius, each containing a chosen point p_n of A, so that p_n approaches p."
+  },
+  "b1-hausdorff": {
+    "alt": "Two disjoint open disks U1 and U2 around distinct points x1 and x2."
+  },
+  "b1-lebesgue": {
+    "alt": "Inside a space X, a sequence of shrinking sets C1, C2, C3 containing points x1, x2, x3 that accumulate at a point a, around which a dashed ball B_epsilon(a) is drawn."
+  },
+  "b1-xn-convergence": {
+    "alt": "Graphs of x^n on [0,1] for several n, bending down towards the x-axis; the pointwise limit is 0 on [0,1) and jumps to 1 at x = 1."
+  },
+  "b1-uniform-limit": {
+    "alt": "Graph of a function f with a gray band of half-width epsilon/3 around it containing the graph of f_n; points p and q in a small open interval U on the x-axis map to nearby values."
+  },
+  "b1-disconnected": {
+    "alt": "Two separate hatched blobs U and V with dashed boundaries, illustrating a space that is not connected."
+  },
+  "b1-interval-proof": {
+    "alt": "A real line with an interval U containing x and an adjacent interval V containing y, and the segment [x,y] drawn inside E."
+  },
+  "b1-annulus": {
+    "alt": "An annulus split into a left piece A and a right piece B that overlap in two separate red patches at top and bottom: the union is connected but the intersection is not."
+  },
+  "b1-common-point": {
+    "alt": "Three overlapping ellipses, all of which contain a common point p."
+  },
+  "b1-product-connected": {
+    "alt": "The square X x Y with a horizontal line X x {y0} and a vertical line {x} x Y crossing at (x, y0); their union A_x passes through (x0, y0)."
+  },
+  "b1-path": {
+    "alt": "An interval [a,b] mapped by f into a blob X, tracing a curve from the point x to the point y."
+  },
+  "b1-concatenation": {
+    "alt": "A path f1 from x to y followed by a path f2 from y to z."
+  },
+  "b1-path-connected-proof": {
+    "alt": "Two disjoint blobs U and V with a path from x in U to y in V, red inside U and green inside V; below, the interval [a,b] split into the red preimage of U and the green preimage of V."
+  },
+  "b1-topologist-sine": {
+    "alt": "Graph of sin(1/x) for x > 0, oscillating faster and faster between -1 and 1 as x approaches 0, together with the origin marked in red."
+  },
+  "b2-ball-in-open-set": {
+    "alt": "An open set A in the plane containing a point x and an open ball B_r(x) inside A, with a straight-line segment joining two points of the ball."
+  },
+  "b2-sup-argument": {
+    "alt": "The interval [0,1] with a point a, an open set U_{i_0} around a containing (a - epsilon, a + epsilon), a point x of A just above a - epsilon, and the interval [0,x] covered by finitely many U_i."
+  },
+  "b2-compactifications": {
+    "alt": "Three compactifications: the circle S^1 as R plus one point at infinity, the interval [0,1] as R plus the two points minus and plus infinity, and the sphere S^2 as R^2 plus a point at infinity."
+  },
+  "b2-one-point-cover": {
+    "alt": "The space X covered by small open sets, with one open set A_{i_0} = Y - K containing the added point infinity; the complement K in X is compact."
+  },
+  "b2-locally-compact": {
+    "alt": "A compact set K containing an open neighbourhood U of a point x."
+  },
+  "b2-separation-axioms": {
+    "alt": "Four panels: T1 (an open set around y missing x), T2 (disjoint open sets around x and y), T3 (disjoint open sets around a point x and a closed set B), T4 (disjoint open sets around closed sets A and B)."
+  },
+  "b2-metric-normal": {
+    "alt": "Disjoint closed sets A and B in a metric space with a ball of radius epsilon_a/2 around a point a of A and a ball of radius epsilon_b/2 around a point b of B, the two balls disjoint."
+  },
+  "b2-normality-reformulation": {
+    "alt": "A closed set A (where f = 0) inside an open set V whose closure lies inside an open set U; outside U, f = 1."
+  },
+  "b2-interval-to-circle": {
+    "alt": "The interval [0,1] mapped onto the circle S^1 by gluing 0 to 1; half-open intervals at both ends of [0,1] become one open arc around the glued point."
+  },
+  "b2-square-identifications": {
+    "alt": "Four unit squares with edge gluings shown by arrows: the cylinder (left and right edges glued in the same direction), the Mobius band (left and right glued in opposite directions), the torus (both pairs of opposite edges glued in the same direction), and the Klein bottle (top and bottom glued in the same direction, left and right in opposite directions)."
+  },
+  "b2-quotient-universal": {
+    "alt": "Commutative triangle: f from X to Y, the quotient map q from X to X/~, and the induced map f-bar from X/~ to Y with f = f-bar composed with q."
+  },
+  "b2-rpn-cone": {
+    "alt": "A line [x] through the origin in R^{n+1} - {0} inside a shaded double cone of nearby lines through the origin, which is an open neighbourhood of [x] in RP^n."
+  },
+  "b2-homotopy": {
+    "alt": "The square X x I with a vertical segment above a point x, mapped by H into Y; the bottom edge maps to the curve f, the top edge to the curve g, and the segment to a path from f(x) through H(x,t) to g(x)."
+  },
+  "b2-loop-lifting": {
+    "alt": "A covering p from E down to B: a loop f at b_0 in B and its lift, a loop f-tilde at e_0 in E."
+  },
+  "b2-general-lifting": {
+    "alt": "Lifting diagram: f from (Y, y_0) to (B, b_0), the covering map p from (E, e_0) to (B, b_0), and a dashed lift f-tilde from (Y, y_0) to (E, e_0)."
+  },
+  "b2-covering-equivalence": {
+    "alt": "Commutative triangle: a homeomorphism h from E to E' with covering maps p from E to B and p' from E' to B, so that p = p' composed with h."
+  },
+  "b3-sphere-torus": {
+    "alt": "A sphere drawn next to a torus, the two surfaces being compared as an example of a qualitative topological property."
+  },
+  "b3-nbhd-open": {
+    "alt": "A large disc N_r(p) centred at p containing a point q at distance r minus h from p, with a small disc of radius h around q; a point s in the small disc forms a triangle with p and q whose sides are labelled r minus h, less than h, and less than r."
+  },
+  "b3-three-point-topologies": {
+    "alt": "Five ovals each containing the points a, b, c, with red loops marking the open sets of five topologies on {a, b, c}: the trivial topology, {empty, {a}, {a,b}, X}, {empty, {b}, X}, {empty, {a}, {b,c}, X}, and {empty, {b}, {a,b}, {b,c}, X}."
+  },
+  "b3-interval-around-x": {
+    "alt": "A number line with the open interval from a to b drawn in red and, inside it, a shorter blue interval from x minus delta to x plus delta centred at the point x."
+  },
+  "a1-metrics-comparison": {
+    "alt": "Two points x and y in the plane: the Euclidean distance d is the straight segment between them, the distance d_1 runs along an L-shaped path (horizontal then vertical), and d_infinity is the longer of the two legs, here the horizontal one."
+  },
+  "a1-open-set": {
+    "alt": "An open set U drawn as a blob, with a point p inside it and a dashed open ball B_r(p) of some radius r around p lying entirely inside U."
+  },
+  "a1-continuity": {
+    "alt": "A delta-ball around p is mapped by f into the given epsilon-ball around f(p): the image of the delta-ball is a shaded region inside the epsilon-ball."
+  },
+  "a1-basis-intersection": {
+    "alt": "Two overlapping basis sets B_1 and B_2, with a point x in their intersection and a smaller basis set B' containing x and contained in the intersection."
+  },
+  "a1-interval-in-plane": {
+    "alt": "The real line drawn inside the plane, with the interval (0,1) highlighted in red and an open disc U whose intersection with the line is exactly (0,1)."
+  },
+  "a1-product-basis": {
+    "alt": "In the plane X times Y, a blue rectangle U_1 x V_1 and a red rectangle U_2 x V_2 overlap; their intersection, shaded, is again a rectangle, built from the overlaps of the intervals on each axis."
+  },
+  "a1-tan-graph": {
+    "alt": "Graph of tan x on the open interval from minus pi over 2 to pi over 2, with dashed vertical asymptotes at both ends, showing a homeomorphism from this interval onto the real line."
+  },
+  "a1-closure-interior-boundary": {
+    "alt": "Four versions of a disc-shaped set with a hair attached: A (boundary partly included, hair with open end), its closure (solid boundary, hair with closed end), its interior (dashed boundary, no hair), and its boundary (circle plus hair, unfilled)."
+  },
+  "a1-limit-points": {
+    "alt": "A shaded set A with three points and dashed neighbourhoods: a point inside A and a point on its edge are limit points, while a point away from A whose neighbourhood misses A is not."
+  },
+  "a1-hausdorff-balls": {
+    "alt": "Two points x_1 and x_2 with disjoint open balls B_epsilon(x_1) and B_epsilon(x_2) around them."
+  },
+  "a1-hausdorff-nbhds": {
+    "alt": "Two points x and y with disjoint open neighbourhoods U containing x and V containing y."
+  },
+  "a1-manifolds": {
+    "alt": "A circle S^1 in the plane, and a sphere and a torus in three-dimensional space, as examples of topological manifolds."
+  },
+  "a1-tripod": {
+    "alt": "A Y-shaped graph made of three segments meeting at a single vertex, which is not a manifold because of the vertex."
+  },
+  "a1-separation": {
+    "alt": "Two disjoint hatched regions U and V whose union is a space that is not connected."
+  },
+  "a2-not-connected": {
+    "alt": "Two disjoint hatched blobs, labelled 'not connected': a space made of two separate pieces."
+  },
+  "a2-intersection-not-connected": {
+    "alt": "Two overlapping horseshoe-shaped regions A (red, left) and B (blue, right) in the plane forming an annulus; each is connected but their intersection consists of two separate pieces, at the top and at the bottom."
+  },
+  "a2-product-crosses": {
+    "alt": "The rectangle X times Y with the horizontal line at height y0 and vertical lines above x (blue) and x' (red); each cross A_x is the union of the horizontal line and one vertical line, and all crosses share the horizontal line."
+  },
+  "a2-two-paths": {
+    "alt": "An orange annulus X with two points x and y joined by two different paths: a short blue path over the top and a longer green path going around the other side."
+  },
+  "a2-sine-curve": {
+    "alt": "Graph of y = sin(1/x) for x > 0, oscillating between -1 and 1 faster and faster as x approaches 0, together with the origin marked as an extra point."
+  },
+  "a2-interval-cover": {
+    "alt": "The interval [0,1] with several overlapping blue open intervals U_{i_1}, ..., U_{i_n} covering up to a, and a red interval (a - epsilon, a + epsilon) around a, giving a finite cover of [0, a + epsilon)."
+  },
+  "a2-hausdorff-point-compact": {
+    "alt": "A gray compact set K containing points y1, y2, y3 with neighborhoods V_{y1}, V_{y2}, V_{y3} (blue, red, green) covering K, and a point x outside K with nested neighborhoods U_{y1}, U_{y2}, U_{y3} in matching colors, each disjoint from the corresponding V."
+  },
+  "a2-tube-lemma": {
+    "alt": "The rectangle X times Y with the vertical slice above x0 inside a blue open set N; light blue product boxes around the slice lie in N, and a red vertical strip U times Y around x0 fits inside N."
+  },
+  "a2-lebesgue-counterexample": {
+    "alt": "The plane covered by two open sets: U1 (red) containing the hyperbola branch xy = 1 and U2 (blue) containing the x-axis; the hyperbola and the axis get arbitrarily close as x grows, so no single positive number works as a Lebesgue number."
+  },
+  "a2-compactifications": {
+    "alt": "Compactifications: the open interval completed to the segment [0,1] by adding two endpoints, or to a circle S^1 by adding one point; the open square completed to the closed square, to the sphere S^2 by adding one point, or to a torus by adding two circles."
+  },
+  "a3-compactifications": {
+    "alt": "Compactifications of (0,1): the closed interval [0,1] or a circle with one added point; compactifications of the open square: the closed square, a sphere S^2 with one added point, or a torus."
+  },
+  "a3-separation-axioms": {
+    "alt": "Three pictures: in a normal space disjoint closed sets A and B lie in disjoint open sets U and V; in a regular space a point x and a closed set B lie in disjoint open sets; in a Hausdorff space two points x and y lie in disjoint open sets."
+  },
+  "a3-metric-normal-balls": {
+    "alt": "Two overlapping balls, of radius epsilon_a around a point a and of radius epsilon_b around a point b."
+  },
+  "a3-shrink-lemma": {
+    "alt": "A shaded closed set A inside a dashed open set V, which sits inside a larger open set U."
+  },
+  "a3-urysohn-nested": {
+    "alt": "Nested open sets around a shaded closed set A: U_0 inside U_{1/3} inside U_{1/2} inside U_{2/3} inside U_1 = X - B."
+  },
+  "a3-urysohn-continuity": {
+    "alt": "An open set U_q containing the closure of U_p and a point x_0 lying in U_q but outside the closure of U_p."
+  },
+  "a3-gluing-examples": {
+    "alt": "Gluing examples: the interval [0,1] with endpoints glued becomes a circle; the square with top and bottom edges glued becomes a cylinder [0,1] x S^1, whose two end circles glued give the torus S^1 x S^1."
+  },
+  "a3-circle-quotient": {
+    "alt": "The map f from [0,1] to the circle: small neighborhoods of 0 and of 1 together map to an open arc around p_0 = (1,0). Below, g on [0,1) sends [0, epsilon) to a half-open arc V that is not open in the circle."
+  },
+  "a3-wedge-three-circles": {
+    "alt": "Three circles X_1, X_2, X_3, each with a marked base point, glued at their base points to form a three-petal wedge A."
+  },
+  "a3-quotient-triangle-p": {
+    "alt": "Commutative triangle: f from X to Y factors as the quotient map p from X to X/~ followed by the induced map f-bar from X/~ to Y."
+  },
+  "a3-square-edges": {
+    "alt": "The unit square with its left edge labeled A, right edge A', bottom edge B and top edge B'."
+  },
+  "a3-quotient-cylinder": {
+    "alt": "Square with left and right edges both oriented upward; half-disk neighborhoods of matching points on the two edges become one disk neighborhood on the resulting cylinder."
+  },
+  "a3-quotient-mobius": {
+    "alt": "Square with left edge oriented up and right edge oriented down; half-disk neighborhoods of (0,t) and (1,1-t) combine into one disk neighborhood U on the resulting Mobius band."
+  },
+  "a3-quotient-torus": {
+    "alt": "Square with left and right edges oriented upward and top and bottom edges oriented rightward; half-disk neighborhoods of matching points on top and bottom combine into one disk on the resulting torus."
+  },
+  "a3-quotient-klein": {
+    "alt": "Square with left and right edges oriented upward and top and bottom edges oriented in opposite directions, glued into a Klein bottle drawn with a self-intersection in 3-space."
+  },
+  "a3-quotient-torus-corners": {
+    "alt": "Square with the torus edge identifications; the four quarter-disk neighborhoods at the corners combine into one disk around a single point of the torus."
+  },
+  "a3-wedge-two-circles": {
+    "alt": "Two circles whose marked base points are glued together, giving the figure 8 space."
+  },
+  "a3-quotient-triangle-q": {
+    "alt": "Commutative triangle: f from X to Y factors as the quotient map q from X to X/~ followed by the induced map f-bar from X/~ to Y."
+  },
+  "a3-rp-cone": {
+    "alt": "A line through the origin 0 and a point x, surrounded by a shaded double cone of nearby lines through 0, which is an open set representing a neighborhood of [x] in projective space."
+  },
+  "a3-path-homotopy": {
+    "alt": "A space with a hole and two points x_0 and x_1: paths f and g above the hole can be deformed into each other, while a path h going below the hole cannot be deformed into f or g."
+  },
+  "a3-straight-line-homotopy": {
+    "alt": "Paths f and g from x_0 to x_1; for each s a straight segment joins f(s) to g(s), and an intermediate path at time t passes through the point on that segment."
+  },
+  "a3-punctured-plane-paths": {
+    "alt": "The punctured plane with the origin removed: path f from x_0 = (-1,0) to x_1 = (1,0) runs through the upper half plane, path g through the lower half plane."
+  },
+  "a3-retract-punctured-plane": {
+    "alt": "Unit circle S^1 in the punctured plane, with arrows pushing points from inside and outside radially onto the circle."
+  },
+  "a3-retract-cylinder-mobius": {
+    "alt": "A cylinder S^1 x I and a Mobius band, each with arrows sliding points onto its middle circle."
+  },
+  "a3-figure-eight-theta": {
+    "alt": "The plane minus two points p and q retracts onto a figure 8 (wedge of two circles) around p and q, or onto a theta graph: a circle with a vertical diameter separating p from q."
+  },
+  "a3-path-concatenation": {
+    "alt": "A path f from x to y followed by a path g from y to z."
+  },
+  "a3-concatenation-homotopy": {
+    "alt": "A square split vertically into halves F and G, with f and g along the bottom, f' and g' along the top, time t upward and s to the right."
+  },
+  "a3-identity-homotopy": {
+    "alt": "Square for the homotopy from f to f * e_y: a diagonal line s = 1 - t/2 separates a shaded region where f is traversed from a triangle mapped to the constant y."
+  },
+  "a3-inverse-homotopy": {
+    "alt": "The constant path e_x deforming into f * f-bar: at intermediate times the path goes out along f partway and comes straight back to x."
+  },
+  "a3-associativity-homotopy": {
+    "alt": "Square for the associativity homotopy: lines s = (1+t)/4 and s = (2+t)/4 divide it into regions f, g, h, with breakpoints 1/4, 1/2 at the bottom ((f*g)*h) and 1/2, 3/4 at the top (f*(g*h))."
+  },
+  "a4-punctured-plane-retract": {
+    "alt": "The punctured plane deformation retracting onto the unit circle: arrows from inside and outside the circle point radially toward it."
+  },
+  "a4-cylinder-mobius": {
+    "alt": "Square models of the cylinder and the Mobius band, with points sliding vertically onto the middle horizontal circle; the side edges are glued straight for the cylinder and with a twist for the Mobius band."
+  },
+  "a4-figure-eight-theta": {
+    "alt": "The plane minus two points p and q retracts onto a figure eight (two circles joined at one point, around p and q) or onto a theta graph (a circle with a vertical diameter separating p and q)."
+  },
+  "a4-path-product": {
+    "alt": "A path f from x to y followed by a path g from y to z, forming the product path f*g."
+  },
+  "a4-product-homotopy": {
+    "alt": "The unit square split into two halves labelled F and G, with f and g along the bottom edge and f' and g' along the top, showing the homotopy F*G."
+  },
+  "a4-identity-homotopy": {
+    "alt": "The unit square with a slanted line from (1,0) to (1/2,1); left of the line the homotopy follows f, right of it the homotopy is constant at y, going from f at the bottom to f*e_y at the top."
+  },
+  "a4-inverse-homotopy": {
+    "alt": "Three stages of the homotopy from the constant path at x to f*f-bar: the path goes out along f a growing distance and comes back."
+  },
+  "a4-associativity": {
+    "alt": "The unit square divided by two slanted lines s=(1+t)/4 and s=(2+t)/4 into regions f, g, h, interpolating between (f*g)*h at the bottom (breaks at 1/4, 1/2) and f*(g*h) at the top (breaks at 1/2, 3/4)."
+  },
+  "a4-convex-nullhomotopy": {
+    "alt": "A loop f based at x0 in a convex region shrinking along straight segments toward x0; an intermediate loop f_t is shown."
+  },
+  "a4-change-basepoint": {
+    "alt": "A loop f at x0 and a path alpha from x0 to x1 with its reverse alpha-bar, giving the loop alpha-bar*f*alpha at x1."
+  },
+  "a4-induced-map": {
+    "alt": "The interval I mapped by f to a loop at x0 in X, which h then maps to a loop at y0 in Y."
+  },
+  "a4-retraction-examples": {
+    "alt": "Left: retractions that are not deformation retractions (a circle collapsing to a point p; the sphere folding onto its upper hemisphere). Right: deformation retractions (punctured plane onto a circle; Mobius band onto its core circle)."
+  },
+  "a4-homotopy-basepoint": {
+    "alt": "A cylinder X x I containing the path homotopy F, which goes down the vertical segment above x0, around the loop f at height t, and back up; H maps it into Y, where the base point traces the path alpha from y0 to y1 and the loops h o f, h_t o f, k o f are shown."
+  },
+  "a4-pi1-chain": {
+    "alt": "The chain of homomorphisms f_*, g_*, f^1_* between pi_1(X,x0), pi_1(Y,y0), pi_1(X,x1), pi_1(Y,y1), with the composites (g o f)_* and (f o g)_* drawn as curved arrows."
+  },
+  "a4-evenly-covered": {
+    "alt": "A stack of disjoint orange slices making up p^{-1}(U), each mapping homeomorphically by p onto the red open set U below."
+  },
+  "a4-trivial-covering": {
+    "alt": "The trivial covering: several copies of X stacked as X x A, projecting down onto X."
+  },
+  "a4-helix-covering": {
+    "alt": "The real line drawn as a helix over the circle, with the preimage of the right half-circle U marked in red as disjoint arcs, one per turn."
+  },
+  "a4-squaring-covering": {
+    "alt": "A circle is homeomorphic to a doubled loop that wraps twice around and maps down onto a circle by z -> z^2."
+  },
+  "a4-torus-covering": {
+    "alt": "A square grid in the plane with lattice points (0,0), (2pi,0), (0,2pi) mapping by p x p onto a torus."
+  },
+  "a4-torus-wedge": {
+    "alt": "A torus with a longitude circle and a meridian circle meeting at (b,b); their union is the figure eight S^1 v S^1."
+  },
+  "a4-grid-wedge-covering": {
+    "alt": "The grid of horizontal and vertical lines through multiples of 2pi in the plane maps by p x p onto the figure eight: horizontal lines go to one circle, vertical lines to the other."
+  },
+  "a4-lifting-triangle": {
+    "alt": "Commutative triangle: f from X to B, the covering p from E to B, and the dashed lift f-tilde from X to E."
+  },
+  "a4-half-circle-lift": {
+    "alt": "The upper half-circle path f in S^1 and some of its lifts to the real line, the red segments [-2pi,-pi], [0,pi], [2pi,3pi]."
+  },
+  "a4-loop-lift": {
+    "alt": "A loop f around the circle based at b0 lifts to a path in the real line from 0 to 2pi, which is not a loop."
+  },
+  "a4-no-retraction": {
+    "alt": "The closed disk B^2 with arrows pushing outward toward the boundary circle S^1, with base point x0 on the boundary."
+  },
+  "a4-brouwer-rays": {
+    "alt": "Inside the unit disk, rays from f(p) through p and from f(q) through q extended until they hit the boundary circle at h(p) and h(q)."
+  },
+  "a5-no-retraction": {
+    "alt": "The closed disk B^2 with arrows pushing every point outward onto the boundary circle S^1, which contains the base point x_0: the picture of a retraction that cannot exist."
+  },
+  "a5-brouwer-ray": {
+    "alt": "A disk with two points p and q; for each, a segment starts at f(p) (resp. f(q)), passes through p (resp. q), and continues to the point h(p) (resp. h(q)) where it meets the boundary circle."
+  },
+  "a5-cylinder-to-disk": {
+    "alt": "The cylinder S^1 x I with its bottom circle highlighted maps onto the disk B^2 by (x,t) -> t x: the vertical segments become radii and the whole bottom circle is collapsed to the center of the disk."
+  },
+  "a5-square-to-cylinder": {
+    "alt": "The square I x I carrying the path-homotopy F from the loop f (bottom edge) to the constant loop (top edge), with both vertical sides mapped to x_0; gluing the two vertical sides gives the cylinder S^1 x I carrying H, a homotopy from h (bottom circle) to a constant map (top circle)."
+  },
+  "a5-rpn-double-cover": {
+    "alt": "The sphere S^n with a small neighborhood U of a point x and the antipodal neighborhood -U of -x; both map onto the same small neighborhood V = p(U) of [x] = [-x] in RP^n."
+  },
+  "a5-comb-space": {
+    "alt": "The comb-like subset of the plane made of the horizontal axis together with vertical lines at x = 1/n (n >= 1) and at x = 0; a small red disk around a point of the line x = 0 away from the axis meets infinitely many vertical lines, so its intersection with the set is not path-connected."
+  },
+  "a5-lifting-diagram": {
+    "alt": "Lifting diagram: f from (Y,y_0) to (B,b_0), the covering map p from (E,e_0) to (B,b_0), and a dashed lift f-tilde from (Y,y_0) to (E,e_0)."
+  },
+  "a5-lift-well-defined": {
+    "alt": "Two paths alpha and beta from y_0 to y_1 in Y map under f to paths f o alpha and f o beta from b_0 to f(y_1) in B, which lift to two paths in E from e_0 that end at the same point f-tilde(y_1)."
+  },
+  "a5-lift-continuity": {
+    "alt": "Proof of continuity of the lift: a path-connected neighborhood U of y_1 in Y, with alpha from y_0 to y_1 and gamma from y_1 to y inside U; in B, the evenly covered neighborhood V of f(y_1); in E, the slice W over V containing f-tilde(y_1), mapped homeomorphically onto V by pi = p restricted to W, so that f-tilde(y) = pi^{-1}(f(y))."
+  },
+  "a5-covering-equivalence": {
+    "alt": "Commutative triangle: h from E to E', with the covering maps p from E and p' from E' to B, so that p = p' o h."
+  },
+  "a5-lifts-h-hprime": {
+    "alt": "Two lifting diagrams: h lifts p from E through p' from E' to B, and h' lifts p' from E' through p from E to B."
+  },
+  "a5-hprime-h-lift": {
+    "alt": "Lifting diagram: h' o h from E to E is a lift of p from E to B through p."
+  },
+  "a5-hprime-h-composite": {
+    "alt": "The maps h from E to E' and h' from E' back to E, with their composite from E to E, all lying over B via p, p' and p."
+  },
+  "a5-change-basepoint": {
+    "alt": "In E, a loop h based at e_0 and a path alpha-tilde from e_0 to another point e_1 of the same fiber; below, in B, their images: the loop p o h and the loop alpha = p o alpha-tilde, both based at b_0."
+  },
+  "a5-q0-lift": {
+    "alt": "Lifting diagram: q_0 from E_0 to E' lifts the universal covering p_0 from E_0 to B through the covering p' from E' to B."
+  },
+  "a5-infinite-tree": {
+    "alt": "An infinite tree in which every vertex has four edges (two horizontal, two vertical), with edge lengths halving at each level, mapping onto the figure eight: horizontal edges wrap around the loop a and vertical edges around the loop b."
+  },
+  "a5-hawaiian-earrings": {
+    "alt": "The Hawaiian earrings: circles C_n of radius 1/n centered at (1/n, 0) for n >= 1, all passing through the origin and nested inside one another."
+  },
+  "a5-sphere-UV": {
+    "alt": "The sphere S^2 covered by two open sets: U, a cap reaching from the north pole to just below the equator, and V, a cap reaching from the south pole to just above the equator; they overlap in a band around the equator."
+  },
+  "a5-figure8-UV": {
+    "alt": "The figure eight as a union of two open sets: U is the left circle together with short arcs of the right circle near the crossing point x_0, and V is the right circle together with short arcs of the left circle near x_0."
+  },
+  "a5-loop-subdivision": {
+    "alt": "A space X = U union V drawn as a tall blob, U the upper part and V the lower part, overlapping in a horizontal band containing x_0; a loop at x_0 is cut into pieces f_1 (in U), f_2 (in V), f_3 (in U), and the cut points f(a_i) all lie in the band U intersect V."
+  },
+  "a5-circle-two-arcs": {
+    "alt": "The circle written as the union of two open arcs, one missing a small piece on the right and one missing a small piece on the left; their intersection consists of two separate arcs (top and bottom), so it is not path-connected."
+  },
+  "a5-stereographic": {
+    "alt": "Stereographic projection: the sphere S^n with north pole N and the equatorial plane R^n x {0}; the line through N and a point p of the upper hemisphere meets the plane at f(p) outside the sphere, and the line through N and a point q of the lower hemisphere meets it at f(q) inside the equator."
+  },
+  "a5-figure8-ab": {
+    "alt": "The figure eight space: two circles joined at one point, with the loop b going around the left circle and the loop a going around the right circle."
+  },
+  "a5-svk-universal": {
+    "alt": "Commutative diagram: pi_1(U,x_0) and pi_1(V,x_0) include into the free product pi_1(U,x_0) * pi_1(V,x_0), which maps by h to pi_1(X,x_0); the composites agree with j_{1*} and j_{2*}."
+  },
+  "a5-free-product-universal": {
+    "alt": "Commutative diagram: the inclusion of G_j into the free product G followed by h from G to H equals h_j."
+  },
+  "a5-wedge-circles": {
+    "alt": "A wedge of n circles: loops S_1, S_2, ..., S_n, all attached at the single common point x_0, like the petals of a flower."
+  },
+  "a5-torus-UV": {
+    "alt": "The torus as a square with opposite sides identified (top with bottom, left with right, matching arrows); a point p in the middle with a dashed disk around it."
+  },
+  "a5-torus-retract": {
+    "alt": "The punctured square (the torus minus p) with arrows pushing everything radially away from the puncture onto the boundary of the square (in red), which after the identifications is a wedge of two circles."
+  },
+  "a5-torus-loop-f": {
+    "alt": "The torus square with edges labeled a (top and bottom) and b (left and right); inside the dashed disk V around p, a red loop f circling p once, which generates pi_1 of U intersect V."
+  },
+  "a5-rp2-models": {
+    "alt": "RP^2 as the sphere modulo the antipodal map, represented by the (hatched) upper hemisphere with antipodal points of the equator identified; equivalently the disk B^2 with antipodal boundary points identified, so the two boundary half-circles, each labeled c, are glued."
+  },
+  "a5-rp2-UV": {
+    "alt": "RP^2 as the disk with antipodal boundary points identified (boundary arcs labeled c): U is everything except the center point p, V is a smaller disk around p, and the red loop f around p generates pi_1 of U intersect V."
+  },
+  "a5-klein-square": {
+    "alt": "The Klein bottle as a square: top and bottom edges both labeled a with arrows in the same direction, left edge labeled b pointing down and right edge labeled b pointing up; a point p in the middle with a dashed disk around it and a loop f circling p."
+  },
+  "a5-torus-double-cover": {
+    "alt": "The torus T as a square with opposite sides identified, cut by a dashed vertical line at x = 1/2; an arrow carries a point (x, y) in the left half to (x + 1/2, 1 - y) in the right half; identifying these pairs gives the Klein bottle K."
+  },
+  "a6-x-sin-inv-x": {
+    "alt": "Graph of x sin(1/x), oscillating faster and faster near the origin between the dashed lines y = x and y = -x."
+  },
+  "a6-x2-sin-inv-x": {
+    "alt": "Graph of x^2 sin(1/x), oscillating near the origin between the dashed parabolas y = x^2 and y = -x^2."
+  },
+  "a6-riemann-refine": {
+    "alt": "A function f (red) on [a,b] squeezed between a coarse upper step function S and a coarse lower step function s (black), with a finer lower step function s' (blue, dashed) lying between s and f."
+  },
+  "a6-uniform-steps": {
+    "alt": "A continuous function f (red) on [a,b] with a partition into subintervals of width less than delta; on each subinterval the bar heights S_i (max) and lines s_i (min) differ by less than epsilon."
+  },
+  "a6-tent": {
+    "alt": "Tent function f_n on [0,1]: rises linearly from 0 to height 2n at x = 1/(2n), falls back to 0 at x = 1/n, and is 0 from 1/n to 1."
+  },
+  "a6-ramp-step": {
+    "alt": "Left: f_n is 0 for x <= 0, rises linearly to 1 at x = 1/n, then stays 1. Right: its pointwise limit f, equal to 0 for x <= 0 (filled dot at the origin) and 1 for x > 0."
+  },
+  "a6-ramp-ab": {
+    "alt": "The function f_n on [a,b] with a < 0: equal to 0 up to x = 0, rising linearly to 1 at x = 1/n, then constant 1 up to b."
+  },
+  "a6-bump-kernel": {
+    "alt": "Bell-shaped graph of K_n(x) = c_n (1 - x^2)^n on [-1,1], with peak height c_n at 0 and width of order 1/sqrt(n)."
+  },
+  "a6-convexity": {
+    "alt": "Graph of (1 - t)^n on [0,1] (blue) lying above its tangent line 1 - nt at t = 0 (gray), illustrating the convexity bound."
+  },
+  "a7-grid-parallelepipeds": {
+    "alt": "A curved 3-by-3 grid drawn on a surface M; the corner cell at the point x_i is shaded as the small parallelepiped spanned by the vectors v_1 and v_k."
+  },
+  "a7-square-boundary": {
+    "alt": "The boundary of a shaded square equals the square's four edges traversed counterclockwise, shown by arrows on each edge."
+  },
+  "a7-path-homotopy": {
+    "alt": "Two paths gamma and gamma-prime from x_0 to x, with intermediate paths between them sweeping out a shaded surface S."
+  },
+  "a7-gluing": {
+    "alt": "Two adjacent rectangles M_1 and M_2 sharing a common edge N, drawn thick."
+  },
+  "a7-z-squared": {
+    "alt": "A square grid on [-1,1] by [-1,1] with red vertical and green horizontal lines, and its image under z maps to z squared: a lens-shaped region from -1 to 1 horizontally and -2 to 2 vertically, filled with two families of parabolas that cross at right angles."
+  },
+  "a8-stereographic": {
+    "alt": "Stereographic projection: a unit sphere cut by the complex plane along its equator (the unit circle); a line from the north pole (0,0,1), which goes to infinity, passes through the plane at (x+iy)/(1-z) and meets the sphere again at the point (x,y,z)."
+  },
+  "a8-disk-to-half-plane": {
+    "alt": "Two Riemann spheres joined by an arrow f: on the left, the lower hemisphere D (the unit disk) is shaded, with infinity at the top, 0 at the bottom and -i, 1, i, -1 on the equator; on the right, the image sphere has -1 sent to infinity at the top, 1 sent to 0 at the bottom, i sent to 1 on the front meridian, 0 sent to i on the right, and the shaded right hemisphere is the upper half plane H."
+  },
+  "a8-thales": {
+    "alt": "A unit circle with points -1 and 1 and a point z on the circle; the vector 1+z runs from -1 to z and the vector 1-z runs from z to 1, meeting at a right angle at z."
+  },
+  "a8-log-lift": {
+    "alt": "Lifting diagram: the inclusion i from U to C-star, the map exp from C down to C-star, and a dashed arrow from U to C asking for a lift (a branch of log)."
+  },
+  "a8-continuation-discs": {
+    "alt": "The complex plane with the pole of 1/(1-z) marked at 1; a disc of radius 2 centred at -1 and a disc of radius 1 centred at 2, each reaching the pole on its boundary."
+  },
+  "a8-cauchy-hole": {
+    "alt": "Inside an open set U, a shaded region D bounded on the outside by a closed curve gamma and on the inside by a small circle C_r around the point z_0, which is removed."
+  }
+}

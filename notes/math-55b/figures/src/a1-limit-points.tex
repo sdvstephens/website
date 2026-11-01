@@ -1,0 +1,17 @@
+\begin{tikzpicture}[>=Stealth, line width=0.7pt]
+\fill[orange, fill opacity=0.35] plot[smooth cycle, tension=0.8] coordinates {(0,0) (0.4,-0.5) (2,-0.55) (3.1,-0.3) (3.3,0.3) (2.4,0.55) (0.8,0.5)};
+\draw plot[smooth cycle, tension=0.8] coordinates {(0,0) (0.4,-0.5) (2,-0.55) (3.1,-0.3) (3.3,0.3) (2.4,0.55) (0.8,0.5)};
+\node at (0.8,0) {$A$};
+% interior point
+\fill (2.2,0) circle (1.4pt);
+\draw[dashed] (2.2,0) circle (0.25);
+% boundary point
+\fill (3.28,-0.05) circle (1.4pt);
+\draw[dashed] (3.28,-0.05) circle (0.25);
+% outside point
+\fill (4.1,0.75) circle (1.4pt);
+\draw[dashed] (4.1,0.75) circle (0.25);
+\draw[<-] (4.45,0.75) -- (5,0.75) node[right] {not a limit point};
+\draw[<-] (3.6,-0.25) -- (5,-0.45) node[right] {limit points};
+\draw[<-] (2.25,-0.3) .. controls (2.6,-0.9) and (4,-0.8) .. (5,-0.5);
+\end{tikzpicture}

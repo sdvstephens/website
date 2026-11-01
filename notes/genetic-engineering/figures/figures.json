@@ -1,0 +1,20 @@
+{
+  "d1-crispr-locus": {
+    "alt": "A CRISPR locus drawn left to right: the cas9, cas1, cas6 and cas7 genes as arrows, then a leader sequence, then the array, in which black diamond-shaped repeats alternate with numbered white boxes, the spacers or unique sequences."
+  },
+  "d1-gremlin-network": {
+    "alt": "The GREMLIN model as a network: three coloured sequence positions are each one-hot encoded into a group of input nodes x, every input node connects to every output node through weights w, each output node has a bias b, and the outputs give the predicted one-hot sequence x'."
+  },
+  "d1-plm-schematic": {
+    "alt": "Sketch of a protein language model: a small matrix feeds into a stack of layers, the middle layer is a pairwise grid whose rows and columns are highlighted, further layers follow to the output, and a long arrow connects the first layer to the last."
+  },
+  "d1-masked-lm": {
+    "alt": "Masked language modelling: two positions of an input sequence are masked, the sequence passes through the model to a hidden layer and then to an output in which the model rediscovers the two masked positions."
+  },
+  "d1-droplet-junction": {
+    "alt": "A microfluidic cross junction: oil enters from the top, cells and beads from the bottom and water from the right, and droplets each enclosing a cell leave through the channel on the left."
+  },
+  "d1-cell-types-vs-neurons": {
+    "alt": "Two sketched graphs of the number of cell types against the number of neurons: on the left (info and model weights increase the number of neurons) the line rises gently, and on the right (algorithms and objective functions increase the number of cell types) it rises steeply; a brace under both reads 'less or more complex'."
+  }
+}

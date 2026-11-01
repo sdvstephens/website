@@ -1,0 +1,15 @@
+\begin{tikzpicture}[scale=1.1]
+  \draw[->, gray] (-3.4,0) -- (3.6,0) node[right] {$\operatorname{Re} z$};
+  \draw[->, gray] (0,-2.2) -- (0,2.3) node[above] {$\operatorname{Im} z$};
+  % disc around -1, radius 2
+  \draw[blue] (-1,0) circle (2);
+  \fill[blue] (-1,0) circle (1.3pt) node[below left] {$-1$};
+  \node[blue] at (-2.3,1.75) {$R=2$};
+  % disc around 2, radius 1
+  \draw[red] (2,0) circle (1);
+  \fill[red] (2,0) circle (1.3pt) node[below] {$2$};
+  \node[red] at (3.15,0.95) {$R=1$};
+  % the pole
+  \node at (1,0) {$\times$};
+  \node[above right] at (1,0) {$1$};
+\end{tikzpicture}

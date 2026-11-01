@@ -1,0 +1,10 @@
+\begin{tikzpicture}[>=Stealth]
+\foreach \y in {0,0.45,0.9,1.35} {
+  \draw[fill=orange, fill opacity=0.35] (0,\y+1.6) ellipse (1.1 and 0.22);
+}
+\draw (1.25,1.38) -- (1.35,1.38) -- (1.35,3.17) -- (1.25,3.17);
+\node[right] at (1.4,2.27) {$p^{-1}(U)=\bigsqcup V_\alpha$};
+\draw[->] (0,1.2) -- (0,0.5) node[midway, right] {$p$};
+\draw[fill=red, fill opacity=0.35] (0,0) ellipse (1.1 and 0.25);
+\node[right] at (1.2,0) {$U$};
+\end{tikzpicture}

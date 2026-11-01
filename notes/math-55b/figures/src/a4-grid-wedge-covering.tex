@@ -1,0 +1,14 @@
+\begin{tikzpicture}[>=Stealth]
+\foreach \y in {0,1.2,2.4} \draw[blue, thick] (-0.5,\y) -- (3.0,\y);
+\foreach \x in {0,1.2,2.4} \draw[red, thick] (\x,-0.5) -- (\x,2.9);
+\fill (0,0) circle (1.6pt); \fill (1.2,0) circle (1.6pt); \fill (0,1.2) circle (1.6pt);
+\node[below left, fill=white, inner sep=1pt] at (0,0) {\scriptsize $(0,0)$};
+\node[below right, fill=white, inner sep=1pt] at (1.2,0) {\scriptsize $(2\pi,0)$};
+\node[above right, fill=white, inner sep=1pt] at (0,1.2) {\scriptsize $(0,2\pi)$};
+\draw[->] (3.3,1.2) to[bend left=15] node[above] {$p\times p$} (4.5,1.2);
+\draw[blue, thick] (5.5,1.2) circle (0.7);
+\draw[red, thick] (6.9,1.2) circle (0.7);
+\fill (6.2,1.2) circle (1.6pt);
+\node[blue, align=center, font=\small] at (5.0,0.0) {horizontal lines\\ map here};
+\node[red, align=center, font=\small] at (7.6,0.0) {vertical lines\\ map here};
+\end{tikzpicture}

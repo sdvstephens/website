@@ -1,0 +1,49 @@
+\begin{tikzpicture}[font=\small,
+  nd/.style={circle, draw=black, thick, minimum size=4mm, inner sep=0pt},
+  on/.style={nd, fill=black},
+  sm/.style={circle, draw=black, thick, minimum size=3mm, inner sep=0pt}]
+  % sequence: three positions
+  \filldraw[draw=black, thick, fill=red, fill opacity=0.6] (-0.3,0.45) rectangle (0.3,1.05);
+  \filldraw[draw=black, thick, fill=green, fill opacity=0.6] (-0.3,-0.3) rectangle (0.3,0.3);
+  \filldraw[draw=black, thick, fill=blue, fill opacity=0.6] (-0.3,-1.05) rectangle (0.3,-0.45);
+  \node[below] at (0,-1.1) {sequence};
+  % one-hot input x: 3 groups of 3
+  \foreach \g/\yc/\on/\py in {1/2.2/1/0.75, 2/0/2/0, 3/-2.2/3/-0.75} {
+    \foreach \k in {1,2,3} {
+      \pgfmathsetmacro{\yy}{\yc+0.6-0.6*(\k-1)}
+      \ifnum\k=\on
+        \node[on] (x\g\k) at (1.8,\yy) {};
+      \else
+        \node[nd] (x\g\k) at (1.8,\yy) {};
+      \fi
+      \draw[thick] (0.3,\py) -- (x\g\k.west);
+    }
+  }
+  % output layer with bias b
+  \foreach \g/\yc in {1/2.2, 2/0, 3/-2.2} {
+    \foreach \k in {1,2,3} {
+      \pgfmathsetmacro{\yy}{\yc+0.6-0.6*(\k-1)}
+      \node[nd] (b\g\k) at (4.6,\yy) {};
+    }
+  }
+  % weights w: all-to-all
+  \foreach \a in {1,2,3} \foreach \i in {1,2,3}
+    \foreach \b in {1,2,3} \foreach \j in {1,2,3}
+      \draw[gray, very thin] (x\a\i.east) -- (b\b\j.west);
+  % output x'
+  \foreach \g/\yc/\on in {1/2.2/1, 2/0/2, 3/-2.2/3} {
+    \foreach \k in {1,2,3} {
+      \pgfmathsetmacro{\yy}{\yc+0.6-0.6*(\k-1)}
+      \ifnum\k=\on
+        \node[sm, fill=black] (o\g\k) at (5.6,\yy) {};
+      \else
+        \node[sm] (o\g\k) at (5.6,\yy) {};
+      \fi
+      \draw[-{Stealth}] (b\g\k.east) -- (o\g\k.west);
+    }
+  }
+  \node at (1.8,3.4) {$x$};
+  \node at (3.2,3.4) {$w$};
+  \node at (4.6,3.4) {$b$};
+  \node at (5.6,3.4) {$x'$};
+\end{tikzpicture}

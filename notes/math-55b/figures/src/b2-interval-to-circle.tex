@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=1]
+\draw[thick] (0,0) -- (3,0);
+\fill (0,0) circle (1.6pt);
+\fill (3,0) circle (1.6pt);
+\draw[red, very thick] (0,0) -- (0.5,0);
+\draw[red, thick] (0.5,0) node {\Large )};
+\draw[red, very thick] (2.5,0) -- (3,0);
+\draw[red, thick] (2.5,0) node {\Large (};
+\node[below=3pt] at (0,0) {$0$};
+\node[below=3pt] at (3,0) {$1$};
+\node at (1.5,-0.6) {$[0,1]$};
+\draw[->, thick] (3.6,0) -- node[above] {$0\sim 1$} node[below] {$q$} (4.9,0);
+\draw[thick] (6.2,0) circle (0.9);
+\draw[red, very thick] (6.2,0) ++(60:0.9) arc (60:120:0.9);
+\fill (6.2,0.9) circle (1.6pt);
+\node at (7.4,-0.6) {$S^1$};
+\end{tikzpicture}

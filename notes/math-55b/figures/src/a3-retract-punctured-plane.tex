@@ -1,0 +1,9 @@
+\begin{tikzpicture}[line width=0.8pt, every node/.style={font=\small}, >={Stealth[length=4pt]}]
+  \draw[blue] (0,0) circle (1);
+  \node[blue] at (1.05,1.05) {$S^1$};
+  \draw (0,0) circle (1.5pt);
+  \foreach \a in {0,45,...,315} {
+    \draw[blue, ->] (\a:0.3) -- (\a:0.85);
+    \draw[blue, ->] (\a+20:1.75) -- (\a+20:1.15);
+  }
+\end{tikzpicture}

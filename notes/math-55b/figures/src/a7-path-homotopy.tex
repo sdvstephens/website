@@ -1,0 +1,16 @@
+\begin{tikzpicture}[>=Stealth, thick]
+  \coordinate (A) at (0,0);
+  \coordinate (B) at (4,1.6);
+  \fill[gray, opacity=0.18] (A) .. controls (1.6,-0.9) and (3.6,-0.3) .. (B)
+                            .. controls (2.7,2.4) and (0.6,1.6) .. (A);
+  \draw[->] (A) .. controls (1.6,-0.9) and (3.6,-0.3) .. (B);
+  \draw[->] (A) .. controls (0.6,1.6) and (2.7,2.4) .. (B);
+  \draw[->, thin] (A) .. controls (1.2,-0.3) and (3.3,0.3) .. (B);
+  \draw[->, thin] (A) .. controls (0.9,0.4) and (3.0,1.2) .. (B);
+  \draw[->, thin] (A) .. controls (0.7,1.0) and (2.8,1.8) .. (B);
+  \fill (A) circle (1.8pt) node[left] {$x_0$};
+  \fill (B) circle (1.8pt) node[right] {$x$};
+  \node at (2.9,-0.55) {$\gamma$};
+  \node at (1.2,1.65) {$\gamma'$};
+  \node at (2.05,0.75) {$S$};
+\end{tikzpicture}

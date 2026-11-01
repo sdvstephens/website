@@ -1,0 +1,10 @@
+{
+  "_help": [
+    "Who may open each PDF in notes/math-55b/readings/ (review-session notes and handouts by the course staff; the folder stays out of git).",
+    "\"shown\": public. \"hidden\": behind a password, which needs authUserFile (an .htpasswd on the server, as for critical theory).",
+    "Keys are paths inside readings/; \"default\" covers any PDF not listed. Change a value and publish."
+  ],
+  "default": "shown",
+  "realm": "Math 55b readings",
+  "documents": {}
+}

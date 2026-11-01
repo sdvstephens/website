@@ -1,0 +1,10 @@
+\begin{tikzpicture}[>=Stealth, line width=0.7pt]
+\coordinate (x) at (0,0);
+\coordinate (y) at (3,1.5);
+\draw[<->,blue] ($(x)+(0.12,0.1)$) -- ($(y)+(-0.12,-0.02)$) node[midway,above left] {$d$};
+\draw[<->,red] ($(x)+(0.15,0)$) -- (3,0) -- ($(y)+(0,-0.15)$);
+\node[red,right] at (3,0.6) {$d_1$};
+\draw[<->,green] (0.15,-0.45) -- (3,-0.45) node[midway,below] {$d_\infty$};
+\fill (x) circle (2pt) node[left] {$x$};
+\fill (y) circle (2pt) node[above right] {$y$};
+\end{tikzpicture}

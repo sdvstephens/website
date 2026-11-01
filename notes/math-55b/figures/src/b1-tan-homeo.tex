@@ -1,0 +1,10 @@
+\begin{tikzpicture}[scale=0.9]
+  \draw[->] (-2.4,0) -- (2.4,0) node[right] {$x$};
+  \draw[->] (0,-2.8) -- (0,2.8) node[above] {$y$};
+  \draw[dashed, gray] (-1.5708,-2.8) -- (-1.5708,2.8);
+  \draw[dashed, gray] (1.5708,-2.8) -- (1.5708,2.8);
+  \node[below left] at (-1.5708,0) {\small $-\tfrac{\pi}{2}$};
+  \node[below right] at (1.5708,0) {\small $\tfrac{\pi}{2}$};
+  \draw[thick, blue, domain=-1.2:1.2, samples=60] plot (\x, {tan(\x r)});
+  \node[blue] at (1.0,2.4) {\small $\tan$};
+\end{tikzpicture}

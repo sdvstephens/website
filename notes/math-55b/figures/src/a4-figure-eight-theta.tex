@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+\draw[blue, thick] (0,0) circle (1);
+\draw[blue, thick] (2,0) circle (1);
+\fill (1,0) circle (1.8pt);
+\draw[fill=white] (0,0) circle (2pt) node[above=2pt] {$p$};
+\draw[fill=white] (2,0) circle (2pt) node[above=2pt] {$q$};
+\node[blue] at (1,-1.35) {$S^1\vee S^1$};
+\begin{scope}[xshift=5.2cm]
+\draw[blue, thick] (0,0) circle (1);
+\draw[blue, thick] (0,1) -- (0,-1);
+\draw[fill=white] (-0.5,0) circle (2pt) node[above=2pt] {$p$};
+\draw[fill=white] (0.5,0) circle (2pt) node[above=2pt] {$q$};
+\node[blue] at (0,-1.35) {theta graph};
+\end{scope}
+\end{tikzpicture}

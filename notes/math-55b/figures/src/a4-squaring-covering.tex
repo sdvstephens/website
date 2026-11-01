@@ -1,0 +1,7 @@
+\begin{tikzpicture}[>=Stealth]
+\draw[thick] (-2.6,1.55) circle (0.45);
+\node at (-1.65,1.55) {$\cong$};
+\draw[thick] plot[domain=0:720, samples=300, variable=\t] ({cos(\t)}, {0.3*sin(\t)+0.12*sin(\t/2)+1.55});
+\draw[->] (0,1.0) -- (0,0.45) node[midway, right] {$z\mapsto z^2$};
+\draw[thick] (0,0) ellipse (1 and 0.3);
+\end{tikzpicture}

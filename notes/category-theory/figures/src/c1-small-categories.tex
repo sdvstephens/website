@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+\node (P) at (0,0) {\begin{tikzcd}
+\bullet \arrow[r, shift left] \arrow[r, shift right] & \bullet
+\end{tikzcd}};
+\node at (1.6,0) {and};
+\node (Q) at (4,0) {\begin{tikzcd}
+ & B \arrow[dr, "g"] & \\
+A \arrow[ur, "f"] \arrow[rr, "gf"'] & & C
+\end{tikzcd}};
+\node at (6.3,0) {and};
+\node (R) at (9.4,0) {\begin{tikzcd}[column sep=large, row sep=large]
+ & \bullet \arrow[r, "f"] \arrow[dl, "kj"'] \arrow[d, "j"] \arrow[dr, "hj=gf" description] & \bullet \arrow[d, "g"] \\
+\bullet & \bullet \arrow[l, "k"] \arrow[r, "h"'] & \bullet
+\end{tikzcd}};
+\end{tikzpicture}

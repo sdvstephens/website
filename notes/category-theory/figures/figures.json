@@ -1,0 +1,32 @@
+{
+  "c1-composition": {
+    "alt": "Four objects drawn as dots, each with an identity loop, joined by arrows f, g and h, with curved arrows for the composites g∘f and h∘g."
+  },
+  "c1-natural-transformation": {
+    "alt": "Two functors F and G from a category C to a category D drawn as curved arrows, with a double arrow α between them for a natural transformation from F to G."
+  },
+  "c1-hom-functor": {
+    "alt": "A category C with objects a and b and three arrows from a to b, sent by the hom-functor to the set C(a,b) in Set, drawn as a set with three elements."
+  },
+  "c1-commutative-diagram": {
+    "alt": "A commutative diagram: f from A to B then g from B to E along the top and right, and h from A to C, i from C to D, j from D to E along the left and bottom."
+  },
+  "c1-small-categories": {
+    "alt": "Three small categories: two parallel arrows between two dots; a triangle A to B to C with composite gf from A to C; and five dots with arrows f, g, h, j, k and composites kj and hj = gf."
+  },
+  "c1-group-one-object": {
+    "alt": "A single object A with several loops, picturing a group as a category with one object."
+  },
+  "c1-tensor-triangle": {
+    "alt": "A triangle with arrows from V to V⊗W, from V⊗W to W, and directly from V to W."
+  },
+  "c1-graph-maps": {
+    "alt": "Scratch sketch of the category of graphs: a star graph mapped to another star drawn differently (same shape, different morphisms) and to a four-cycle (different shape, different morphisms), and the four-cycle redrawn with a crossing (same morphism, different shape), with the label A4."
+  },
+  "c1-homotopy-class": {
+    "alt": "Several paths between points X and Y with arrows sweeping between them, picturing one homotopy class of maps from X to Y."
+  },
+  "c1-toph-composition": {
+    "alt": "Bundles of paths for a class α from X to Y and a class β from Y to Z, and in blue the composite class β∘α from X to Z."
+  }
+}

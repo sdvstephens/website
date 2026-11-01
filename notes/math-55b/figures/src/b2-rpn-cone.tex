@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=1]
+\fill[blue, fill opacity=0.15] (0,0) -- (2.4,1.25) -- (2.4,0.05) -- cycle;
+\fill[blue, fill opacity=0.15] (0,0) -- (-2.4,-1.25) -- (-2.4,-0.05) -- cycle;
+\draw[thick] (-2.6,-1.35) -- (2.6,1.35);
+\draw[thick] (-2.6,-0.05) -- (2.6,0.05);
+\draw[thick, blue] (-2.6,-0.65) -- (2.6,0.65);
+\draw[dashed] (2.4,0.65) ellipse (0.15 and 0.6);
+\draw[dashed] (-2.4,-0.65) ellipse (0.15 and 0.6);
+\draw[thick, fill=white] (0,0) circle (2pt);
+\node[above left] at (0,0.05) {$0$};
+\node[blue, right] at (2.6,0.65) {$[x]$};
+\end{tikzpicture}

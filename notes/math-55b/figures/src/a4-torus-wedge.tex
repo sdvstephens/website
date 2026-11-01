@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+\node at (-2.3,0) {$S^1\times S^1$};
+\draw[thick] (0,0) ellipse (1.6 and 0.8);
+\draw[thick] (-0.7,0.05) .. controls (-0.3,-0.25) and (0.3,-0.25) .. (0.7,0.05);
+\draw[thick] (-0.55,-0.05) .. controls (-0.2,0.18) and (0.2,0.18) .. (0.55,-0.05);
+\draw[blue, thick] (0,0) ellipse (1.15 and 0.5);
+\draw[red, thick] (0,-0.8) arc (-90:90:0.13 and 0.3);
+\draw[red, thick, dashed] (0,-0.2) arc (90:270:0.13 and 0.3);
+\fill (0,-0.5) circle (1.6pt);
+\node[right] at (1.2,-0.75) {\small $(b,b)$};
+\draw[->, gray] (1.25,-0.7) -- (0.08,-0.52);
+\node at (2.3,0) {$\supset$};
+\draw[blue, thick] (3.6,0) circle (0.6);
+\draw[red, thick] (4.8,0) circle (0.6);
+\fill (4.2,0) circle (1.6pt);
+\node[align=left] at (7.0,0) {$B_0$ = ``figure eight''\\ \phantom{$B_0$ =} $S^1\vee S^1$};
+\end{tikzpicture}

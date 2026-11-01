@@ -1,0 +1,13 @@
+\begin{tikzpicture}[>=Stealth]
+\fill[gray!35] (0,0) -- (3,0) -- (1.5,3) -- (0,3) -- cycle;
+\draw (0,0) rectangle (3,3);
+\draw[thick] (3,0) -- (1.5,3) node[pos=0.45, sloped, above] {\scriptsize $s=1-\frac t2$};
+\node at (0.9,1.4) {$f$};
+\node at (2.6,2.3) {$y$};
+\node[below] at (1.5,0) {$f$};
+\node[above] at (1.5,3) {$f*e_y$};
+\node[below left] at (0,0) {$x$};
+\node[below right] at (3,0) {$y$};
+\draw[->] (-0.5,1) -- (-0.5,2) node[midway,left] {$t$};
+\draw[->] (1,-0.7) -- (2,-0.7) node[right] {$s$};
+\end{tikzpicture}

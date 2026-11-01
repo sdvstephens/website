@@ -1,0 +1,11 @@
+{
+  "m1-limsup-liminf": {
+    "alt": "Two panels for three sets E1, E2, E3: on the left, the tail unions for k = 1, 2, 3 shrink and their intersection gives the limit superior; on the right, the tail intersections for k = 1, 2, 3 grow from a single point to a lens to the whole set E3, and their union gives the limit inferior."
+  },
+  "m2-cauchy-sequence": {
+    "alt": "Sketch of a Cauchy sequence: two oscillating curves for the terms x_n and x_m inside a dashed envelope that shrinks as n and m go to infinity, so the gap rho(x_n, x_m) tends to 0."
+  },
+  "m2-banach-tarski": {
+    "alt": "Banach-Tarski sketch: small pieces of a small ball (e.g. a pea), drawn as little circles, are moved by arrows into a much bigger ball (e.g. Earth)."
+  }
+}
