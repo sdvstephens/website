@@ -1,7 +1,7 @@
 {
   "slug": "integrated-maths",
   "title": "Integrated Mathematics",
-  "description": "From arithmetic up: the plan for Basic Mathematics and Integrated Maths I–IV, with my notebooks on college algebra, AoPS Intermediate Algebra and Precalculus, proofs, Apostol’s Calculus and modern algebra.",
+  "description": "Post arithmetic, integrated mathematics is an in-progress approach lightly inspired by the 1960s “new math” style of mathematics pedagogy. It begins with Basic Mathematics and works through Integrated Maths I–IV. Inspiration for course material comes from AoPS books, Apostol’s Calculus, and Harvard’s Math 55a/55b. It is a problem-solving based approach that attempts to integrate, as a treat, historical information within the course content.",
   "chapters": [
     {
       "number": 1,

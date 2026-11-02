@@ -1,0 +1,19 @@
+\begin{tikzpicture}[>=Stealth]
+% lexicon
+\node[font=\small] at (1,2.9) {LEXICON};
+\draw[blue, thick] (0,0.6) rectangle (2,2.6);
+\node (m1) at (0.6,2.25) {$m_1$};
+\node (m2) at (1.2,1.85) {$m_2$};
+\node at (0.75,1.45) {$m_3\ \cdots$};
+\node at (1.3,1.0) {$m_n$};
+% workspace (a cube)
+\node[font=\small] at (5.4,2.9) {WORKSPACE};
+\draw[blue, thick] (4,0) rectangle (6.3,2.3);
+\draw[blue, thick] (4,2.3) -- (4.5,2.7) -- (6.8,2.7) -- (6.3,2.3);
+\draw[blue, thick] (6.8,2.7) -- (6.8,0.4) -- (6.3,0);
+\node (w2) at (4.6,1.2) {$m_2$};
+\node at (5.5,0.85) {$m_3$};
+\node at (4.6,0.45) {$\cdots$};
+\draw[->, gray] (m2.east) -- node[sloped, below, font=\scriptsize, align=center, text=black]{add inscriptions\\of lexical items\\to WS} (w2.north west);
+\node[font=\small, anchor=west] at (7.2,1.35) {$\to$ input to Merge};
+\end{tikzpicture}

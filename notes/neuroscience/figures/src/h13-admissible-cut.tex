@@ -1,0 +1,29 @@
+\begin{tikzpicture}[nd/.style={circle, draw, thick, fill=white, inner sep=0pt, minimum size=0.26cm}, lf/.style={circle, draw, thick, fill=gray, inner sep=0pt, minimum size=0.26cm}]
+\node[lf] (ar0) at (0.000,-0.700) {};
+\node[lf] (ar100) at (0.500,-2.100) {};
+\node[lf] (ar101) at (1.000,-2.100) {};
+\node[nd] (ar10) at (0.750,-1.400) {};
+\node[lf] (ar110) at (1.500,-2.100) {};
+\node[lf] (ar1110) at (2.000,-2.800) {};
+\node[lf] (ar1111) at (2.500,-2.800) {};
+\node[nd] (ar111) at (2.250,-2.100) {};
+\node[nd] (ar11) at (1.875,-1.400) {};
+\node[nd] (ar1) at (1.312,-0.700) {};
+\node[nd] (ar) at (0.656,0.000) {};
+\draw[thick] (ar) -- (ar0);
+\draw[thick] (ar10) -- (ar100);
+\draw[thick] (ar10) -- (ar101);
+\draw[thick] (ar1) -- (ar10);
+\draw[thick] (ar11) -- (ar110);
+\draw[thick] (ar111) -- (ar1110);
+\draw[thick] (ar111) -- (ar1111);
+\draw[thick] (ar11) -- (ar111);
+\draw[thick] (ar1) -- (ar11);
+\draw[thick] (ar) -- (ar1);
+\draw[blue, very thick] ($(ar)!0.5!(ar0)!0.22cm!90:(ar0)$) -- ($(ar)!0.5!(ar0)!0.22cm!-90:(ar0)$);
+\draw[blue, very thick] ($(ar1)!0.5!(ar10)!0.22cm!90:(ar10)$) -- ($(ar1)!0.5!(ar10)!0.22cm!-90:(ar10)$);
+\draw[blue, very thick] ($(ar11)!0.5!(ar111)!0.22cm!90:(ar111)$) -- ($(ar11)!0.5!(ar111)!0.22cm!-90:(ar111)$);
+\draw[red, thick] (ar0) circle (0.3cm);
+\draw[red, thick] (0.75,-1.8) ellipse (0.58cm and 0.68cm);
+\draw[red, thick] (2.25,-2.5) ellipse (0.58cm and 0.68cm);
+\end{tikzpicture}

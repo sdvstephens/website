@@ -1,0 +1,22 @@
+\begin{tikzpicture}[>=Stealth]
+% left: free symmetric Merge, a non-planar tree
+\node[draw, ellipse, align=center, font=\small] at (1.2,2.6) {free symmetric\\Merge};
+\draw[thick] (0,0) -- (0.6,1.3) -- (1.2,0); \draw[thick] (0.3,0.65) -- (0.6,0);
+\node[below] at (0,0) {$\alpha$}; \node[below] at (0.6,0) {$\beta$}; \node[below] at (1.2,0) {$\gamma$};
+\node[anchor=west, font=\small] at (1.3,1.2) {$\{\{\alpha,\beta\},\gamma\}$};
+\node[anchor=west, font=\small] at (1.6,0.2) {non-planar};
+\draw[dashed, <->] (0,-0.55) to[out=-60, in=-120] (0.6,-0.55);
+\draw[dashed, <->] (-0.15,-0.6) to[out=-80, in=-100, looseness=1.2] (1.25,-0.6);
+% implication
+\node at (4.0,0.8) {$\Rightarrow$};
+% right: a semantic space with the images of the lexical items
+\begin{scope}[xshift=5.2cm]
+\node[draw, ellipse, align=center, font=\small] at (1.8,2.6) {semantic spaces};
+\draw[thick] plot[smooth cycle] coordinates {(0,0.2) (0.6,-0.6) (2.0,-0.9) (3.3,-0.4) (3.4,1.0) (2.6,1.8) (2.0,0.8) (1.2,1.4) (0.2,1.3)};
+\fill (0.5,0.5) circle (1.5pt) node[right, font=\small] {$s(\alpha)$};
+\fill (1.1,0.0) circle (1.5pt) node[right, font=\small] {$s(\beta)$};
+\fill (2.7,1.0) circle (1.5pt) node[left, font=\small] {$s(\gamma)$};
+\node[font=\small, anchor=west] at (2.2,-0.45) {metric};
+\node[font=\small, align=left, anchor=west] at (3.5,1.9) {manifold\\embedding};
+\end{scope}
+\end{tikzpicture}

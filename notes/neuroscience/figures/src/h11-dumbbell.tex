@@ -1,0 +1,11 @@
+\begin{tikzpicture}[scale=1,>=Stealth]
+  \draw[thick] plot[smooth cycle,tension=0.7] coordinates {(-3.2,0.2) (-2.6,1.4) (-1.4,1.6) (-0.6,0.6) (0,0.25) (0.6,0.4) (0.9,1.3) (1.6,1.6) (2.6,1.1) (3.1,0) (2.4,-1.4) (1.2,-1.5) (0.6,-0.5) (0,-0.25) (-0.6,-0.5) (-1.6,-1.5) (-2.8,-1.0)};
+  % the dividing curve gamma across the neck
+  \draw[dashed] (0,-0.9) -- (0,0.9) node[above] {$\gamma$};
+  % neck width delta
+  \draw[<->] (-0.22,-0.25) -- (-0.22,0.25);
+  \node[left] at (-0.25,0) {$\delta$};
+  \node at (-1.8,0.1) {area $A_1$};
+  \node at (1.8,0.0) {area $A_2$};
+  \node at (-2.5,1.6) {$W$};
+\end{tikzpicture}

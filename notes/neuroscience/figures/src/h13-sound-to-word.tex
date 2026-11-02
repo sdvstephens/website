@@ -1,0 +1,9 @@
+\begin{tikzpicture}[>=Stealth, box/.style={align=center, font=\small}]
+\node[box] (a) {acoustic\\signal};
+\node[box, right=1.3cm of a] (b) {neuro-auditory\\representation\\(\emph{neurogram})};
+\node[box, right=1.3cm of b] (c) {neuro-phonological\\representation\\(\emph{phonological sketch})};
+\node[box, right=1.3cm of c] (d) {lexical\\item};
+\draw[->] (a) -- node[below, font=\scriptsize]{1} (b);
+\draw[->] (b) -- node[below, font=\scriptsize]{2} (c);
+\draw[->] (c) -- node[below, font=\scriptsize]{3} (d);
+\end{tikzpicture}

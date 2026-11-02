@@ -1,0 +1,48 @@
+\begin{tikzpicture}[scale=1.4, font=\small, dot/.style={circle, fill=black, inner sep=1.3pt}]
+% ---------- a simplicial complex ----------
+\begin{scope}
+  \coordinate (P1) at (0.05,0.65);
+  \coordinate (P2) at (0.40,0.10);
+  \coordinate (P3) at (1.35,0.35);
+  \coordinate (P4) at (0.75,1.32);
+  \coordinate (Q1) at (1.15,1.85);
+  \coordinate (Q2) at (1.85,2.05);
+  \coordinate (Q3) at (1.78,1.32);
+  \coordinate (R1) at (2.38,1.48);
+  \coordinate (R2) at (2.50,1.95);
+  \coordinate (R3) at (2.05,0.75);
+  \coordinate (S1) at (1.80,0.30);
+  \coordinate (S2) at (2.30,0.20);
+  % solid tetrahedron P1 P2 P3 P4
+  \fill[green!50!black, opacity=0.35] (P1) -- (P2) -- (P3) -- (P4) -- cycle;
+  \fill[green!50!black, opacity=0.2] (P2) -- (P3) -- (P4) -- cycle;
+  \draw[thick] (P1) -- (P2) -- (P3) -- (P4) -- cycle (P2) -- (P4);
+  \draw[thick, dashed] (P1) -- (P3);
+  % triangles
+  \fill[green!50!black, opacity=0.3] (P4) -- (Q1) -- (Q3) -- cycle;
+  \fill[green!50!black, opacity=0.3] (Q1) -- (Q2) -- (Q3) -- cycle;
+  \fill[green!50!black, opacity=0.3] (Q3) -- (R1) -- (R3) -- cycle;
+  \draw[thick] (P4) -- (Q1) -- (Q3) -- cycle (Q1) -- (Q2) -- (Q3);
+  \draw[thick] (Q3) -- (R1) -- (R3) -- cycle;
+  % edges and a hollow triangle
+  \draw[thick] (R1) -- (R2);
+  \draw[thick] (R3) -- (S1) -- (S2) -- cycle;
+  \foreach \p in {P1,P2,P3,P4,Q1,Q2,Q3,R1,R2,R3,S1,S2} \node[dot] at (\p) {};
+  \node at (1.25,-0.45) {simplicial complex};
+\end{scope}
+% ---------- not a simplicial complex ----------
+\begin{scope}[xshift=4.2cm]
+  \coordinate (A1) at (0,0.3);
+  \coordinate (A2) at (1.9,0.0);
+  \coordinate (A3) at (1.1,1.9);
+  \coordinate (B1) at (-0.1,1.35);
+  \coordinate (B2) at (2.2,1.55);
+  \coordinate (B3) at (1.5,0.7);
+  \fill[blue, opacity=0.25] (A1) -- (A2) -- (A3) -- cycle;
+  \fill[blue, opacity=0.25] (B1) -- (B2) -- (B3) -- cycle;
+  \draw[thick] (A1) -- (A2) -- (A3) -- cycle;
+  \draw[thick] (B1) -- (B2) -- (B3) -- cycle;
+  \foreach \p in {A1,A2,A3,B1,B2,B3} \node[dot] at (\p) {};
+  \node at (1.05,-0.45) {not a simplicial complex};
+\end{scope}
+\end{tikzpicture}

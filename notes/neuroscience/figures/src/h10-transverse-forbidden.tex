@@ -1,0 +1,10 @@
+\begin{tikzpicture}[thick, line cap=round,
+  mid/.style={postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrow{Stealth[length=6pt]}}}}]
+\draw[mid] (-0.5,0) ++(55:1) arc[start angle=55, end angle=-55, radius=1];
+\draw[mid] (2.6,0) ++(125:1) arc[start angle=125, end angle=235, radius=1];
+\begin{scope}[xshift=3.6cm]
+  \draw[-{Stealth[length=6pt]}] (0,0.8) -- (1.1,-0.8);
+  \draw[white, line width=5pt] (0.98,0.8) -- (-0.12,-0.8);
+  \draw[-{Stealth[length=6pt]}] (1.1,0.8) -- (0,-0.8);
+\end{scope}
+\end{tikzpicture}

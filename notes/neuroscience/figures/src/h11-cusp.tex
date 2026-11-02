@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=0.85,>=Stealth]
+  % source plane (x_1,x_2) with the critical curve x_2 = -3 x_1^2
+  \begin{scope}
+    \draw[->] (-2.2,0) -- (2.2,0) node[right] {$x_1$};
+    \draw[->] (0,-3.3) -- (0,1.2) node[above] {$x_2$};
+    \draw[blue,very thick,domain=-1:1,samples=40] plot ({\x},{-3*\x*\x});
+    \node[blue] at (1.5,-2.6) {$C_f$};
+  \end{scope}
+  \draw[->,thick] (2.8,-1) -- (4.4,-1) node[midway,above] {$f$};
+  % target plane (y_1,y_2) with the critical values: a semicubical cusp
+  \begin{scope}[xshift=7.2cm]
+    \fill[blue!15,domain=-1:1,samples=60] plot ({-2*\x*\x*\x},{-3*\x*\x}) -- cycle;
+    \draw[->] (-2.4,0) -- (2.4,0) node[right] {$y_1$};
+    \draw[->] (0,-3.3) -- (0,1.2) node[above] {$y_2$};
+    \draw[blue,very thick,domain=-1:1,samples=60] plot ({-2*\x*\x*\x},{-3*\x*\x});
+    \node[align=center,font=\small] at (0,-2.2) {3 preimages};
+    \node[align=center,font=\small] at (1.4,0.6) {1 preimage};
+    \node[blue] at (2.05,-2.7) {$f(C_f)$};
+  \end{scope}
+\end{tikzpicture}

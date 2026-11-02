@@ -1,0 +1,11 @@
+\begin{tikzpicture}[>=Stealth, font=\scriptsize,
+  unit/.style={circle, draw, fill=gray, fill opacity=0.3, minimum size=4mm, inner sep=0pt}]
+  \foreach \k in {0,...,5} {
+    \node[unit] (v\k) at ({60*\k}:1.6) {};
+    \draw[<-, dashed, gray] (v\k) -- ({60*\k}:2.5) node[anchor={180+60*\k}, text=black, align=center] {input\\ value};
+  }
+  \foreach \i in {0,...,5} \foreach \j in {0,...,5} {
+    \ifnum\i<\j \draw (v\i) -- (v\j); \fi
+  }
+  \node[fill=white, inner sep=1pt] at (0,0) {weight matrix};
+\end{tikzpicture}

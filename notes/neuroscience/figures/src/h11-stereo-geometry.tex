@@ -1,0 +1,31 @@
+\begin{tikzpicture}[scale=1,>=Stealth]
+  \coordinate (O) at (0,0);
+  \coordinate (O') at (6,-1.2);
+  \coordinate (P) at (2.4,-3.4);
+  % the two ray spaces S(O), S(O')
+  \draw (O) circle (1.6);
+  \draw[densely dashed,gray] (1.6,0) arc (0:180:1.6 and 0.45);
+  \draw[gray] (-1.6,0) arc (180:360:1.6 and 0.45);
+  \draw (O') circle (1.6);
+  \draw[densely dashed,gray] ($(O')+(1.6,0)$) arc (0:180:1.6 and 0.45);
+  \draw[gray] ($(O')+(-1.6,0)$) arc (180:360:1.6 and 0.45);
+  \node at (-1.25,1.45) {$\mathcal S(O)$};
+  \node at (7.3,0.25) {$\mathcal S(O')$};
+  % baseline and the two rays to P
+  \draw (O) -- (O');
+  \draw (O) -- (P) -- (O');
+  % ray at O' parallel to r: the translate gamma(r)
+  \draw[red,thick,->] (O') -- (6.923,-2.507);
+  \node[red,right] at (6.923,-2.507) {$\gamma(r)$};
+  % angles alpha, alpha'
+  \draw (0.6*0.981,-0.6*0.196) arc (-11.31:-54.78:0.6);
+  \node at (0.95,-0.55) {$\alpha$};
+  \draw ($(O')+(-0.6*0.981,0.6*0.196)$) arc (168.69:211.43:0.6);
+  \node at (5.05,-1.5) {$\alpha'$};
+  % points
+  \foreach \p/\lab/\pos in {(1.569,-0.314)/e/above right, (4.431,-0.886)/{e'}/above left, (0.923,-1.307)/r/left, (4.635,-2.034)/{r'}/below left}
+    \fill \p circle (1.6pt) node[\pos] {$\lab$};
+  \fill (O) circle (1.6pt) node[above left] {$O$};
+  \fill (O') circle (1.6pt) node[above right] {$O'$};
+  \fill[blue] (P) circle (1.8pt) node[below] {$P$};
+\end{tikzpicture}

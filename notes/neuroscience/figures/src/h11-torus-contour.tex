@@ -1,0 +1,13 @@
+\begin{tikzpicture}[scale=1,>=Stealth]
+  % outer fold curve of the projected torus
+  \draw[thick] (0,0) ellipse (4 and 1.6);
+  % inner fold curves, crossing near the ends and ending in cusps
+  \draw[thick] plot[smooth,tension=0.6] coordinates {(-3.0,-0.35) (-2.5,0) (-1.5,0.5) (0,0.68) (1.5,0.5) (2.5,0) (3.0,-0.35)};
+  \draw[thick] plot[smooth,tension=0.6] coordinates {(-3.0,0.35) (-2.5,0) (-1.5,-0.5) (0,-0.68) (1.5,-0.5) (2.5,0) (3.0,0.35)};
+  % hidden fold arcs joining the cusps
+  \draw[thick,densely dashed] (-3.0,-0.35) .. controls (-2.82,-0.22) and (-2.82,0.22) .. (-3.0,0.35);
+  \draw[thick,densely dashed] (3.0,-0.35) .. controls (2.82,-0.22) and (2.82,0.22) .. (3.0,0.35);
+  % cusp points
+  \foreach \p in {(-3.0,-0.35),(-3.0,0.35),(3.0,-0.35),(3.0,0.35)}
+    \draw[fill=white] \p circle (2pt);
+\end{tikzpicture}

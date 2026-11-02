@@ -1,0 +1,21 @@
+\begin{tikzpicture}[>=Stealth, w/.style={anchor=base west, inner sep=1pt, font=\small}]
+% passive: the tiger was chased ___ by the lion
+\node[w] (a1) at (0,0) {The};
+\node[w] (a2) at ($(a1.base east)+(0.12,0)$) {tiger};
+\node[w] (a3) at ($(a2.base east)+(0.12,0)$) {was chased};
+\node[w, minimum width=0.9cm] (a4) at ($(a3.base east)+(0.12,0)$) {};
+\node[w] (a5) at ($(a4.base east)+(0.12,0)$) {by the lion.};
+\draw (a2.south west) -- (a2.south east);
+\draw ($(a4.base west)+(0,-0.08)$) -- ($(a4.base east)+(0,-0.08)$);
+\draw (a2.south) to[out=-80, in=-100, looseness=0.7] ($(a4.base)+(0,-0.08)$);
+% wh-movement: which song did the band play ___ at the concert?
+\begin{scope}[yshift=-1.4cm]
+\node[w] (b1) at (0,0) {Which song};
+\node[w] (b2) at ($(b1.base east)+(0.12,0)$) {did the band play};
+\node[w, minimum width=0.9cm] (b3) at ($(b2.base east)+(0.12,0)$) {};
+\node[w] (b4) at ($(b3.base east)+(0.12,0)$) {at the concert?};
+\draw (b1.south west) -- (b1.south east);
+\draw ($(b3.base west)+(0,-0.08)$) -- ($(b3.base east)+(0,-0.08)$);
+\draw (b1.south) to[out=-80, in=-100, looseness=0.6] ($(b3.base)+(0,-0.08)$);
+\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,15 @@
+\begin{tikzpicture}[scale=1.1,>=Stealth]
+  \draw[->] (0,0) -- (6.2,0) node[right] {$x$};
+  \draw[->] (0,0) -- (0,3.2) node[above] {$y$};
+  % neighbourhood U of the point P
+  \draw[gray] (3,{1.6+0.5*sin(deg(3-1.2))}) circle (0.95);
+  \node[gray] at (3.75,0.85) {$\mathcal U$};
+  % the arc y = h(x)
+  \draw[thick,blue,domain=0.4:5.9,samples=80] plot (\x,{1.6+0.5*sin(deg(\x-1.2))});
+  \node[blue,right] at (5.0,1.45) {$y=h(x)$};
+  % deformed arc y = h(x) + t delta h(x), delta h supported in U
+  \draw[thick,red,dashed,domain=2.25:3.75,samples=60] plot (\x,{1.6+0.5*sin(deg(\x-1.2))+0.45*cos(120*(\x-3))^2});
+  \node[red] at (1.65,2.75) {$y=h+t\,\delta h$};
+  \draw[->,red] (2.15,2.6) -- (2.75,2.45);
+  \fill (3,{1.6+0.5*sin(deg(3-1.2))}) circle (1.5pt) node[below right] {$P$};
+\end{tikzpicture}

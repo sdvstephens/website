@@ -1,0 +1,15 @@
+\begin{tikzpicture}[line cap=round, >={Stealth[length=6pt]}]
+\draw[thick] (-2.2,1.6) -- (2.6,1.6);
+\draw[->, thick] (0,1.6) -- (0,3.15);
+\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.72 with {\arrow{Stealth[length=6pt]}}}]
+  (-0.8,2.2) -- (2.0,2.8);
+\fill (0,2.37) circle (2pt);
+\node[below right] at (0,2.37) {$u$};
+\node[left] at (-0.05,2.75) {$V_uP$};
+\node[right] at (2.0,2.85) {$H_uP$};
+\draw[->, thick] (0,1.25) -- (0,0.35);
+\node[right] at (0.05,0.8) {$\pi$};
+\draw[thick] (-2.2,0) -- (2.6,0);
+\fill (0,0) circle (2pt);
+\node[below] at (0,-0.05) {$p$};
+\end{tikzpicture}

@@ -25,7 +25,8 @@
           "year": "2021",
           "instrumentation": "for solo piano",
           "note": "placeholder",
-          "score": "/music/scores/example-arr.pdf"
+          "score": "/music/scores/example-arr.pdf",
+          "audio": "https://youtu.be/MfAI0IuN4n8"
         }
       ]
     },

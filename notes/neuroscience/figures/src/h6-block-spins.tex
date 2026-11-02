@@ -1,0 +1,28 @@
+\begin{tikzpicture}[>=Stealth, scale=0.75]
+  % position of spin i (0..7) along an axis: spins in pairs (blocks), pairs in pairs (superblocks)
+  \foreach \i in {0,...,7} {
+    \foreach \j in {0,...,7} {
+      \pgfmathsetmacro{\x}{\i*0.6 + int(\i/2)*0.35 + int(\i/4)*0.3}
+      \pgfmathsetmacro{\y}{\j*0.6 + int(\j/2)*0.35 + int(\j/4)*0.3}
+      \draw (\x,\y) circle (0.17);
+      \draw[->, thick, green] (\x,\y-0.25) -- (\x,\y+0.27);
+    }
+  }
+  % blocks of 2x2 spins
+  \foreach \a in {0,...,3} {
+    \foreach \b in {0,...,3} {
+      \pgfmathsetmacro{\x}{2*\a*0.6 + \a*0.35 + int(\a/2)*0.3}
+      \pgfmathsetmacro{\y}{2*\b*0.6 + \b*0.35 + int(\b/2)*0.3}
+      \draw[thick] (\x-0.33,\y-0.38) rectangle (\x+0.93,\y+0.98);
+    }
+  }
+  % superblocks of 2x2 blocks
+  \foreach \a in {0,1} {
+    \foreach \b in {0,1} {
+      \pgfmathsetmacro{\x}{4*\a*0.6 + 2*\a*0.35 + \a*0.3}
+      \pgfmathsetmacro{\y}{4*\b*0.6 + 2*\b*0.35 + \b*0.3}
+      \draw[thick] (\x-0.47,\y-0.52) rectangle (\x+2.62,\y+2.67);
+    }
+  }
+  \draw[thick] (-0.62,-0.67) rectangle (6.17,6.22);
+\end{tikzpicture}

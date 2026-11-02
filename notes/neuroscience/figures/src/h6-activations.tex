@@ -1,0 +1,17 @@
+\begin{tikzpicture}[font=\small]
+  \begin{axis}[width=9cm, height=6.5cm, xmin=-3, xmax=3, ymin=-1.1, ymax=2,
+      axis lines=middle, xtick={-3,-2,-1,1,2,3}, ytick={-1,1,2},
+      xlabel={$x$}, ylabel={$y$},
+      legend pos=outer north east, legend cell align=left, legend style={font=\footnotesize}]
+    \addplot[blue, thick, domain=-3:3, samples=120] {1/(1+exp(-x))};
+    \addlegendentry{sigmoid $1/(1+e^{-x})$}
+    \addplot[green, thick, domain=-3:3, samples=120] {tanh(x)};
+    \addlegendentry{$\tanh x$}
+    \addplot[purple, thick, dashed, domain=-3:3, samples=121] {max(0,x)};
+    \addlegendentry{ReLU $\max\{0,x\}$}
+    \addplot[orange, thick, domain=-3:3, samples=121] {0.1*x + 0.9*max(0,x)};
+    \addlegendentry{leaky ReLU, $\epsilon=0.1$}
+    \addplot[red, thick, domain=-3:3, samples=120] {ln(1+exp(x))};
+    \addlegendentry{soft ReLU $\log(1+e^{x})$}
+  \end{axis}
+\end{tikzpicture}

@@ -1,0 +1,30 @@
+\begin{tikzpicture}[>=Stealth, font=\small,
+  hid/.style={rectangle, rounded corners=2pt, draw, fill=blue, fill opacity=0.25, text opacity=1, minimum width=12mm, minimum height=6mm},
+  outp/.style={circle, draw, fill=red, fill opacity=0.25, text opacity=1, minimum size=7mm, inner sep=0pt},
+  inp/.style={circle, draw, fill=green, fill opacity=0.25, text opacity=1, minimum size=7mm, inner sep=0pt},
+  lab/.style={font=\scriptsize}]
+  % folded
+  \node[hid] (h) at (0,0) {$h$};
+  \node[outp] (o) at (0,1.4) {$o$};
+  \node[inp] (x) at (0,-1.4) {$x$};
+  \draw[->] (x) -- node[right, lab] {$U$} (h);
+  \draw[->] (h) -- node[right, lab] {$W$} (o);
+  \draw[->] (h.west) .. controls (-1.6,0.9) and (-1.6,-0.9) .. node[left, lab] {$V$} ([yshift=-1mm]h.south west);
+  % unfold arrow
+  \draw[->, very thick, blue] (1.2,0) -- (2.4,0);
+  \node[above] at (1.8,0.1) {unfold};
+  % unfolded
+  \node at (3.0,0) {$\cdots$};
+  \foreach \t/\lbl/\xx in {a/{t-1}/4.4, b/{t}/6.4, c/{t+1}/8.4} {
+    \node[hid] (h\t) at (\xx,0) {$h_{\lbl}$};
+    \node[outp] (o\t) at (\xx,1.4) {$o_{\lbl}$};
+    \node[inp] (x\t) at (\xx,-1.4) {$x_{\lbl}$};
+    \draw[->] (x\t) -- node[right, lab] {$U$} (h\t);
+    \draw[->] (h\t) -- node[right, lab] {$W$} (o\t);
+  }
+  \draw[->] (3.3,0) -- node[below, lab] {$V$} (ha);
+  \draw[->] (ha) -- node[below, lab] {$V$} (hb);
+  \draw[->] (hb) -- node[below, lab] {$V$} (hc);
+  \draw[->] (hc) -- node[below, lab] {$V$} (9.8,0);
+  \node at (10.1,0) {$\cdots$};
+\end{tikzpicture}

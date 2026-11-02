@@ -1,0 +1,29 @@
+\begin{tikzpicture}[>=Stealth, font=\small,
+  inp/.style={circle, draw, fill=green, fill opacity=0.25, text opacity=1, minimum size=7mm, inner sep=0pt}]
+  \node[inp] (x1) at (0,2.4) {$x_1$};
+  \node[inp] (x2) at (0,1.5) {$x_2$};
+  \node[inp] (x3) at (0,0.6) {$x_3$};
+  \node at (0,-0.35) {$\vdots$};
+  \node[inp] (xn) at (0,-1.4) {$x_n$};
+  \node (one) at (1.3,3.3) {$1$};
+  \node[circle, draw, fill=blue, fill opacity=0.2, text opacity=1, minimum size=15mm] (sum) at (3.6,0.6) {\Large$\Sigma$};
+  \draw[->, dashed] (one) -- node[above right, pos=0.4] {$w_0$} (sum);
+  \draw[->] (x1) -- node[above, pos=0.55] {$w_1$} (sum);
+  \draw[->] (x2) -- node[above, pos=0.55] {$w_2$} (sum);
+  \draw[->] (x3) -- node[above, pos=0.55] {$w_3$} (sum);
+  \draw[->] (xn) -- node[below right, pos=0.5] {$w_n$} (sum);
+  \node[red] at (1.2,3.75) {weights};
+  % threshold unit
+  \node[circle, draw, fill=blue, fill opacity=0.2, minimum size=17mm] (thr) at (6.6,0.6) {};
+  \draw[->, gray] (6.0,0.4) -- (7.25,0.4);
+  \draw[->, gray] (6.45,0.05) -- (6.45,1.25);
+  \draw[thick] (6.05,0.4) -- (6.75,0.4) -- (6.75,0.95) -- (7.15,0.95);
+  \node[font=\scriptsize] at (6.75,0.22) {$b$};
+  \draw[->] (sum) -- node[above] {$w^t x$} (thr);
+  \node (bb) at (5.7,2.5) {$b$};
+  \draw[->, thick] (bb) -- (thr);
+  \node[red, right] at (5.9,2.5) {threshold};
+  \draw[->] (thr) -- (9.2,0.6);
+  \node[anchor=west] at (5.4,-1.0) {$H(w^t x-b)=\begin{cases}1 & w^t x-b\ge 0\\ 0 & \text{otherwise}\end{cases}$};
+  \node[red] at (6.2,-1.75) {activation};
+\end{tikzpicture}

@@ -1,0 +1,14 @@
+\begin{tikzpicture}[>=Stealth, box/.style={draw, rounded corners, align=center, font=\small, minimum height=1cm, inner sep=4pt}]
+% a schematic speech waveform
+\draw[gray] plot[domain=0:2, samples=400, smooth] (\x, {0.45*sin(\x*2600)*(0.15+0.85*abs(sin(\x*430))^2)});
+\node[box] (ng) at (4,0) {neurogram};
+\node[box] (ph) at (7,0) {phonological\\sketch};
+\node[box] (lx) at (9.8,0) {lexical\\access};
+\node[box] (as) at (7,2.4) {analysis by\\synthesis};
+\draw[->] (2.2,0) -- (ng);
+\draw[->] (ng) -- (ph);
+\draw[->] (ph) -- (lx);
+\draw[<->] (ph) -- (as);
+\draw[->] (lx.north) to[out=90, in=0] (as.east);
+\draw[->] (as.west) to[out=180, in=90] node[pos=0.35, above left, font=\scriptsize\itshape, align=center]{top-down\\predictions} (ng.north);
+\end{tikzpicture}

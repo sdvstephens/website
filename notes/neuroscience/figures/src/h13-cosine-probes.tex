@@ -1,0 +1,13 @@
+\begin{tikzpicture}[>=Stealth]
+\foreach \k/\ax/\cap/\ang/\cs in {0/48/{Similar vectors}/{close to $0^\circ$}/{close to $1$}, 1/115/{Orthogonal vectors}/{close to $90^\circ$}/{close to $0$}, 2/196/{Opposite vectors}/{close to $180^\circ$}/{close to $-1$}} {
+  \begin{scope}[xshift=\k*4.6cm]
+    \draw[<->] (-1.5,0) -- (1.5,0);
+    \draw[<->] (0,-1.5) -- (0,1.5);
+    \draw[->, thick, purple] (0,0) -- (20:1.35) node[right, font=\scriptsize, text=black] {$y$};
+    \draw[->, thick, orange] (0,0) -- (\ax:1.35) node[above, font=\scriptsize, text=black] {$x$};
+    \draw (20:0.35) arc[start angle=20, end angle=\ax, radius=0.35];
+    \node[font=\scriptsize] at ({(20+\ax)/2}:0.55) {$\theta$};
+    \node[align=center, font=\scriptsize] at (0,-2.2) {angle $\theta$ \ang,\\ $\cos\theta$ \cs:\\ \textbf{\cap}};
+  \end{scope}
+}
+\end{tikzpicture}

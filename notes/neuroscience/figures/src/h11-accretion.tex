@@ -1,0 +1,28 @@
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \coordinate (A) at (-1.6,-3.0);
+  \coordinate (B) at (1.1,-3.4);
+  \coordinate (C) at (0.705,-0.709);
+  \coordinate (D) at (0.9996,0.0293);
+  \coordinate (E) at (4.437,3.0);
+  \coordinate (F) at (0.913,3.0);
+  % background and occluder
+  \draw[line width=2.5pt] (-0.8,3.0) -- (5.0,3.0);
+  \draw[fill=gray!20] (0,0) circle (1);
+  % newly exposed background seen from B
+  \draw[line width=2.5pt,blue] (F) -- (E);
+  % tangent rays: from A through C to E, from B through D to F
+  \draw[thick] (A) -- (E);
+  \draw[thick] (B) -- (F);
+  % further rays from B
+  \draw (B) -- (C);
+  \draw (B) -- (E);
+  % angles at B
+  \draw[red,thick] ($(B)+(91.68:1.7)$) arc (91.68:98.35:1.7);
+  \node[red] at (0.72,-1.75) {$\alpha$};
+  \fill[blue!20] (B) -- ($(B)+(62.46:0.9)$) arc (62.46:91.68:0.9) -- cycle;
+  \draw[blue] ($(B)+(62.46:0.9)$) arc (62.46:91.68:0.9);
+  \node[blue] at (1.75,-2.55) {$\beta$};
+  % labels
+  \foreach \p/\lab/\pos in {A/A/below left, B/B/below, C/C/left, D/D/right, E/E/above, F/F/above}
+    \fill (\p) circle (1.6pt) node[\pos] {$\lab$};
+\end{tikzpicture}

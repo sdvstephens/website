@@ -1,0 +1,25 @@
+\begin{tikzpicture}[scale=1.1,>=Stealth]
+  % sphere and equator
+  \draw (0,0) circle (2);
+  \draw[densely dashed,gray] (2,0) arc (0:180:2 and 0.6);
+  \draw (-2,0) arc (180:360:2 and 0.6);
+  % axes
+  \draw[->] (0,-2.5) -- (0,2.8) node[above] {$Z$};
+  \draw[->] (-2.6,0) -- (2.9,0) node[right] {$Y$};
+  \draw[->] (0,0) -- (-2.52,-1.08) node[below left] {$X$};
+  % projection of the ray onto the equatorial plane
+  \draw[dashed] (0,0) -- (0.853,-0.230);
+  \draw[dotted,thick] (0.853,-0.230) -- (0.853,1.408);
+  % the ray r through P
+  \draw[blue,thick,->] (0,0) -- (1.493,2.464) node[above right] {$r$};
+  \fill[blue] (1.109,1.830) circle (1.6pt) node[right] {$P$};
+  \node[blue] at (0.8,0.82) {$\rho$};
+  % angle phi from the Z axis to the ray
+  \draw[->] (0,0.75) arc (90:58.8:0.75);
+  \node at (0.18,1.0) {$\phi$};
+  % angle theta in the equatorial plane, from the X axis
+  \draw[->] ({0.75*cos(235)},{0.25*sin(235)}) arc (235:318:0.75 and 0.25);
+  \node at (0.3,-0.48) {$\theta$};
+  \fill (0,0) circle (1.4pt);
+  \node at (-0.25,0.22) {$O$};
+\end{tikzpicture}

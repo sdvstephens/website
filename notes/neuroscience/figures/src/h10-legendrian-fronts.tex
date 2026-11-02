@@ -1,0 +1,52 @@
+\begin{tikzpicture}[line cap=round, thick, scale=0.62]
+% ---------- left: a front of a Legendrian unknot (two cusps, two crossings)
+\begin{scope}
+\coordinate (L) at (0,0); \coordinate (R) at (6.2,0);
+\coordinate (T1) at (1.25,0.85); \coordinate (B1) at (1.25,-0.85);
+\coordinate (T2) at (3.05,0.85); \coordinate (B2) at (3.05,-0.85);
+\coordinate (T3) at (4.85,0.85); \coordinate (B3) at (4.85,-0.85);
+\draw (L) to[out=0,in=180] (T1) to[out=0,in=180] (B2) to[out=0,in=180] (T3) to[out=0,in=180] (R);
+\draw (L) to[out=0,in=180] (B1) to[out=0,in=180] (T2) to[out=0,in=180] (B3) to[out=0,in=180] (R);
+% over-strands: the one with negative slope
+\begin{scope}\clip (2.15,0) circle (0.3);
+  \draw[white, line width=5pt] (T1) to[out=0,in=180] (B2);
+  \draw (T1) to[out=0,in=180] (B2);
+\end{scope}
+\begin{scope}\clip (3.95,0) circle (0.3);
+  \draw[white, line width=5pt] (T2) to[out=0,in=180] (B3);
+  \draw (T2) to[out=0,in=180] (B3);
+\end{scope}
+\end{scope}
+% ---------- right: a front of a Legendrian trefoil (six cusps, three crossings)
+\begin{scope}[xshift=7.6cm, yshift=0.0cm]
+\coordinate (L) at (0,0); \coordinate (R) at (7.1,0);
+\coordinate (PL) at (2.05,2.1); \coordinate (TL) at (2.05,-2.0);
+\coordinate (PR) at (5.25,2.15); \coordinate (TR) at (5.25,-2.0);
+\coordinate (A) at (4.2,0.78); \coordinate (B) at (4.17,-0.32);
+\coordinate (C) at (3.05,0.78); \coordinate (D) at (3.08,-0.32);
+\path[name path=p1] (PL) to[out=0,in=180] (A);
+\path[name path=p4] (PR) to[out=180,in=0] (C);
+\path[name path=p2] (A) to[out=180,in=0] (D);
+\path[name path=p5] (C) to[out=0,in=180] (B);
+\path[name path=p3] (D) to[out=0,in=180] (TR);
+\path[name path=p6] (B) to[out=180,in=0] (TL);
+\path[name intersections={of=p1 and p4, by=X1}];
+\path[name intersections={of=p2 and p5, by=X2}];
+\path[name intersections={of=p3 and p6, by=X3}];
+\draw (L) to[out=0,in=180] (PL) to[out=0,in=180] (A);
+\draw (A) to[out=180,in=0] (D);
+\draw (D) to[out=0,in=180] (TR) to[out=0,in=180] (R);
+\draw (R) to[out=180,in=0] (PR) to[out=180,in=0] (C);
+\draw (C) to[out=0,in=180] (B);
+\draw (B) to[out=180,in=0] (TL) to[out=180,in=0] (L);
+\begin{scope}\clip (X1) circle (0.28);
+  \draw[white, line width=5pt] (PL) to[out=0,in=180] (A); \draw (PL) to[out=0,in=180] (A);
+\end{scope}
+\begin{scope}\clip (X2) circle (0.22);
+  \draw[white, line width=5pt] (C) to[out=0,in=180] (B); \draw (C) to[out=0,in=180] (B);
+\end{scope}
+\begin{scope}\clip (X3) circle (0.28);
+  \draw[white, line width=5pt] (D) to[out=0,in=180] (TR); \draw (D) to[out=0,in=180] (TR);
+\end{scope}
+\end{scope}
+\end{tikzpicture}

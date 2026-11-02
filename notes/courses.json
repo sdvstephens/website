@@ -2,7 +2,7 @@
   {
     "slug": "integrated-maths",
     "title": "Integrated Mathematics",
-    "description": "Prealgebra through precalculus, plus number theory, probability, graph theory, and set theory"
+    "description": "Post arithmetic, integrated mathematics is an in-progress approach lightly inspired by the 1960s “new math” style of mathematics pedagogy. It begins with Basic Mathematics and works through Integrated Maths I–IV. Inspiration for course material comes from AoPS books, Apostol’s Calculus, and Harvard’s Math 55a/55b. It is a problem-solving based approach that attempts to integrate, as a treat, historical information within the course content."
   },
   {
     "slug": "calculus-i",
@@ -47,7 +47,7 @@
   {
     "slug": "neuroscience",
     "title": "Basic Neuroscience and Geometry of Neuroscience",
-    "description": "Neurons, behavior, the senses and disorders; then geometric, topological and categorical models of the brain, vision and language"
+    "description": "Basic Neuroscience comprises: the minimal knowledge needed to operate in the academic world and should be standard knowledge for those wishing to engage in anything orbital to neuroscience; neurons and signalling, behavior, the senses, methods and disorders, from the PSY 212 (SSU) lecture slides and my notebook. Geometry of Neuroscience is much more ambitious, though I keep them together here: Matilde Marcolli’s Caltech course on dynamical, topological, geometric and categorical models of the brain, vision and language."
   },
   {
     "slug": "critical-theory",

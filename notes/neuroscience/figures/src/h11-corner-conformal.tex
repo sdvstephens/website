@@ -1,0 +1,24 @@
+\begin{tikzpicture}[scale=1,>=Stealth]
+  % z-plane: the sector -alpha/2 < arg z < alpha/2
+  \begin{scope}
+    \fill[pattern=north east lines,pattern color=gray] (0,0) -- (-55:1.9) arc (-55:55:1.9) -- cycle;
+    \draw[->] (-1.4,0) -- (2.3,0);
+    \draw[->] (0,-2) -- (0,2.1);
+    \draw[thick] (0,0) -- (55:2.1);
+    \draw[thick] (0,0) -- (-55:2.1);
+    \draw (0.45,0) arc (0:55:0.45);
+    \node at (0.62,0.3) {$\tfrac{\alpha}{2}$};
+    \node[align=left,font=\small] at (2.0,1.9) {$\mathcal R_1:\ -\tfrac{\alpha}{2}<\arg z<\tfrac{\alpha}{2}$};
+    \node[font=\small] at (0,-2.4) {$z$-plane};
+  \end{scope}
+  % the conformal map flattening the corner
+  \draw[->,thick] (2.6,0.9) to[bend left=30] node[above] {$w=z^{\pi/\alpha}$} (4.6,0.9);
+  % w-plane: the half-plane Re w > 0
+  \begin{scope}[xshift=6.2cm]
+    \fill[pattern=north east lines,pattern color=gray] (0,-1.9) arc (-90:90:1.9) -- cycle;
+    \draw[->] (-1.4,0) -- (2.3,0);
+    \draw[thick,->] (0,-2) -- (0,2.1);
+    \node[font=\small] at (1.6,1.9) {$\mathcal R_2:\ \operatorname{Re}(w)>0$};
+    \node[font=\small] at (0,-2.4) {$w$-plane};
+  \end{scope}
+\end{tikzpicture}

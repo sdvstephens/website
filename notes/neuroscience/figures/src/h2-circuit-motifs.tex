@@ -1,0 +1,110 @@
+\begin{tikzpicture}[
+  font=\small,
+  ex/.style={circle, fill=green, draw=green, minimum size=11pt, inner sep=0pt},
+  ih/.style={circle, fill=red, draw=red, minimum size=11pt, inner sep=0pt},
+  exc/.style={green, line width=1.2pt, -{Triangle[length=5pt,width=7pt]}},
+  inh/.style={red, line width=1.2pt, -{Circle[length=5pt]}},
+  ttl/.style={anchor=west, font=\small\bfseries}
+]
+% ---------- A. Feedforward excitation
+\begin{scope}[shift={(0,0)}]
+  \node[ttl] at (-0.3,0.9) {A. Feedforward excitation};
+  \node[ex] (a1) at (0,0) {};
+  \node[ex] (a2) at (1.4,0) {};
+  \draw[exc] (a1) -- (a2);
+  \draw[exc] (a2) -- (2.6,0);
+\end{scope}
+% ---------- B. Feedforward inhibition
+\begin{scope}[shift={(0,-2.2)}]
+  \node[ttl] at (-0.3,0.9) {B. Feedforward inhibition};
+  \node[ex] (b1) at (0,0) {};
+  \node[ih] (b2) at (1.2,0) {};
+  \node[ex] (b3) at (2.4,0) {};
+  \draw[exc] (b1) -- (b2);
+  \draw[inh] (b2) -- (b3);
+  \draw[exc] (b3) -- (3.4,0);
+\end{scope}
+% ---------- C. Convergence / divergence
+\begin{scope}[shift={(0,-5.0)}]
+  \node[ttl] at (-0.3,1.3) {C. Convergence/divergence};
+  \node[ex] (c1) at (0,0.65) {};
+  \node[ex] (c2) at (0,0) {};
+  \node[ex] (c3) at (0,-0.65) {};
+  \node[ex] (cc) at (1.5,0) {};
+  \node[ex] (d1) at (2.9,0.65) {};
+  \node[ex] (d2) at (2.9,0) {};
+  \node[ex] (d3) at (2.9,-0.65) {};
+  \draw[exc] (c1) to[out=0,in=90] (cc);
+  \draw[exc] (c2) -- (cc);
+  \draw[exc] (c3) to[out=0,in=-90] (cc);
+  \draw[exc] (cc) to[out=0,in=180] (d1);
+  \draw[exc] (cc) -- (d2);
+  \draw[exc] (cc) to[out=0,in=180] (d3);
+  \foreach \n in {d1,d2,d3} \draw[exc] (\n) -- ++(1.0,0);
+\end{scope}
+% ---------- D. Lateral inhibition
+\begin{scope}[shift={(5.6,0)}]
+  \node[ttl] at (-0.3,0.9) {D. Lateral inhibition};
+  \node[ex] (l1) at (0,0) {};
+  \node[ex] (l2) at (0,-0.75) {};
+  \node[ex] (l3) at (0,-1.5) {};
+  \node[ih] (r1) at (1.0,0) {};
+  \node[ih] (r3) at (1.0,-1.5) {};
+  \draw[inh] (r1) -- (l1);
+  \draw[inh] (r3) -- (l3);
+  \draw[green, line width=1.2pt] (l2) -- (0.75,-0.75);
+  \draw[exc] (0.75,-0.75) to[out=0,in=-90] (r1);
+  \draw[exc] (0.75,-0.75) to[out=0,in=90] (r3);
+  \draw[exc] (0.75,-0.75) -- (1.8,-0.75);
+\end{scope}
+% ---------- legend
+\begin{scope}[shift={(11.0,0)}]
+  \draw[exc] (0,0) -- (1,0); \node[anchor=west] at (1.1,0) {Excitation};
+  \draw[inh] (0,-0.5) -- (1,-0.5); \node[anchor=west] at (1.1,-0.5) {Inhibition};
+\end{scope}
+% ---------- E. Feedback / recurrent inhibition
+\begin{scope}[shift={(5.6,-3.2)}]
+  \node[ttl] at (-0.3,0.9) {E. Feedback/recurrent inhibition};
+  \node[font=\small\bfseries] at (-0.6,0) {E1};
+  \node[ex] (e1) at (0,0) {};
+  \node[ex] (e2) at (1.5,0) {};
+  \node[ih] (e3) at (0.55,-0.85) {};
+  \draw[exc] (e1) -- (e2);
+  \draw[exc] (e2) -- (2.6,0);
+  \draw[exc] (e2) to[out=-60,in=0] (e3);
+  \draw[inh] (e3) -- (e1);
+  % E2
+  \node[font=\small\bfseries] at (-0.6,-2.0) {E2};
+  \node[ih] (q1) at (0,-1.9) {};
+  \node[ih] (q2) at (1.2,-1.9) {};
+  \node[ih] (q3) at (1.2,-3.1) {};
+  \node[ih] (q4) at (0,-3.1) {};
+  \draw[inh] (q1) -- (q2);
+  \draw[inh] (q2) -- (q3);
+  \draw[inh] (q3) -- (q4);
+  \draw[inh] (q4) -- (q1);
+\end{scope}
+% ---------- F. Feedback / recurrent excitation
+\begin{scope}[shift={(11.6,-3.2)}]
+  \node[ttl] at (-0.3,0.9) {F. Feedback/recurrent excitation};
+  \node[font=\small\bfseries] at (-0.6,0) {F1};
+  \node[ex] (f1) at (0,0) {};
+  \node[ex] (f2) at (1.5,0) {};
+  \draw[exc] (f1) -- (f2);
+  \draw[exc] (f2) -- (2.6,0);
+  \draw[exc] (f2) to[out=-60,in=-60,looseness=1.2] (f1);
+  % F2
+  \node[font=\small\bfseries] at (-0.6,-1.45) {F2};
+  \node[ex] (g0) at (-0.2,-2.1) {};
+  \node[ex] (gc) at (1.1,-2.1) {};
+  \node[ex] (gr) at (2.3,-2.1) {};
+  \node[ex] (gb) at (2.3,-3.3) {};
+  \node[ex] (gl) at (1.1,-3.3) {};
+  \draw[exc] (g0) -- (gc);
+  \draw[exc] (gc) to[out=30,in=90,looseness=8] node[pos=0.5,above right,font=\scriptsize,black] {$a$} (gc);
+  \draw[exc] (gc) -- (gr);
+  \draw[exc] (gr) -- (gb);
+  \draw[exc] (gb) -- (gl);
+  \draw[exc] (gl) -- node[left,font=\scriptsize,black] {$b$} (gc);
+\end{scope}
+\end{tikzpicture}

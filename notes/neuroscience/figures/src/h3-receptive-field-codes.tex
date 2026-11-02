@@ -1,0 +1,58 @@
+\begin{tikzpicture}[font=\small]
+% ---------- Panel A: tuning curves on a line ----------
+\begin{scope}
+  \node[font=\bfseries] at (-0.4,2.1) {A};
+  % shaded region where exactly neurons 1,2,3 fire: x in (1.4,2.0)
+  \fill[gray!40] (1.4,0)
+    -- plot[domain=1.4:1.7, samples=25] (\x,{1.5*cos(90*(\x-2.4))^2})
+    -- plot[domain=1.7:2.0, samples=25] (\x,{1.5*cos(90*(\x-1.0))^2})
+    -- (2.0,0) -- cycle;
+  \foreach \c/\l in {1.0/1, 1.6/2, 2.4/3, 3.6/4, 4.4/5} {
+    \draw[thick] plot[domain=\c-1:\c+1, samples=50] (\x,{1.5*cos(90*(\x-\c))^2});
+    \node[above] at (\c,1.5) {\l};
+  }
+  \draw[-Stealth] (-0.4,0) -- (5.8,0);
+  \draw (-0.2,0.1) -- (-0.2,-0.1);
+  \draw[decorate, decoration={brace, mirror, amplitude=4pt}, red, thick]
+    (1.4,-0.12) -- (2.0,-0.12);
+  \draw[red, thick] (1.7,-0.3) -- (1.7,-0.6) -- (4.0,-0.6) -- (4.0,-0.9);
+  % activity pattern
+  \node[anchor=east] at (2.9,-1.15) {activity pattern};
+  \foreach \i/\f in {1/1,2/1,3/1,4/0,5/0} {
+    \ifnum\f=1
+      \draw[fill=gray] (2.85+0.3*\i,-1.15) circle (0.1);
+    \else
+      \draw (2.85+0.3*\i,-1.15) circle (0.1);
+    \fi
+  }
+  \node[anchor=east] at (2.9,-1.55) {codeword};
+  \foreach \i/\f in {1/1,2/1,3/1,4/0,5/0} {
+    \node at (2.85+0.3*\i,-1.55) {\f};
+  }
+\end{scope}
+% ---------- Panel B: two-dimensional receptive fields ----------
+\begin{scope}[xshift=8cm, yshift=0.2cm, scale=0.85]
+  \node[font=\bfseries] at (-1.4,2.4) {B};
+  \begin{scope}
+    \clip (2.0,-0.6) circle (1);
+    \fill[gray!40] (3.0,0.8) circle (1);
+  \end{scope}
+  \foreach \x/\y/\l/\a in {0/1/1/150, 0.5/-0.5/2/235, 2.0/-0.6/3/290, 1.5/1.25/4/90, 3.0/0.8/5/30} {
+    \draw[thick] (\x,\y) circle (1);
+    \node at ($(\x,\y)+(\a:0.7)$) {\l};
+  }
+  \draw[red, thick] (2.55,0.1) .. controls (2.7,-0.6) and (2.9,-0.9) .. (2.95,-1.85);
+  \node[anchor=east] at (1.6,-2.15) {activity pattern};
+  \foreach \i/\f in {1/0,2/0,3/1,4/0,5/1} {
+    \ifnum\f=1
+      \draw[fill=gray] (1.55+0.45*\i,-2.15) circle (0.12);
+    \else
+      \draw (1.55+0.45*\i,-2.15) circle (0.12);
+    \fi
+  }
+  \node[anchor=east] at (1.6,-2.65) {codeword};
+  \foreach \i/\f in {1/0,2/0,3/1,4/0,5/1} {
+    \node at (1.55+0.45*\i,-2.65) {\f};
+  }
+\end{scope}
+\end{tikzpicture}

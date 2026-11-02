@@ -1,7 +1,7 @@
 {
   "slug": "neuroscience",
   "title": "Basic Neuroscience and Geometry of Neuroscience",
-  "description": "Two parts. Basic Neuroscience: neurons and signalling, behavior, the senses, methods and disorders, from the PSY 212 lecture slides and my notebook. Geometry of Neuroscience: Matilde Marcolli’s Caltech course on dynamical, topological, geometric and categorical models of the brain, vision and language.",
+  "description": "Basic Neuroscience comprises: the minimal knowledge needed to operate in the academic world and should be standard knowledge for those wishing to engage in anything orbital to neuroscience; neurons and signalling, behavior, the senses, methods and disorders, from the PSY 212 (SSU) lecture slides and my notebook. Geometry of Neuroscience is much more ambitious, though I keep them together here: Matilde Marcolli’s Caltech course on dynamical, topological, geometric and categorical models of the brain, vision and language.",
   "sectionLabel": "lectures and notes",
   "chapters": [
     {
@@ -182,14 +182,12 @@
         {
           "number": "G3",
           "slug": "g03-the-neuron-as-a-dynamical-system",
-          "title": "The Neuron as a Dynamical System",
-          "planned": true
+          "title": "The Neuron as a Dynamical System"
         },
         {
           "number": "G4",
           "slug": "g04-neural-codes-and-neural-rings-topology-and-algebraic-geometry",
-          "title": "Neural Codes and Neural Rings: Topology and Algebraic Geometry",
-          "planned": true
+          "title": "Neural Codes and Neural Rings: Topology and Algebraic Geometry"
         }
       ]
     },
@@ -218,8 +216,7 @@
         {
           "number": "G7",
           "slug": "g07-coding-and-learning-in-networks",
-          "title": "Coding and Learning in Networks",
-          "planned": true
+          "title": "Coding and Learning in Networks"
         },
         {
           "number": "G8",
@@ -246,8 +243,7 @@
         {
           "number": "G11",
           "slug": "g11-contact-geometry-of-the-visual-cortex",
-          "title": "Contact Geometry of the Visual Cortex",
-          "planned": true
+          "title": "Contact Geometry of the Visual Cortex"
         }
       ]
     },
@@ -259,14 +255,12 @@
         {
           "number": "G12",
           "slug": "g12-differential-topology-of-image-segmentation-and-invariance",
-          "title": "Differential Topology of Image Segmentation and Invariance",
-          "planned": true
+          "title": "Differential Topology of Image Segmentation and Invariance"
         },
         {
           "number": "G13",
           "slug": "g13-image-segmentation-the-mumford-shah-functional",
-          "title": "Image Segmentation: the Mumford–Shah Functional",
-          "planned": true
+          "title": "Image Segmentation: the Mumford–Shah Functional"
         },
         {
           "number": "G14",
@@ -288,14 +282,12 @@
         {
           "number": "G16",
           "slug": "g16-language-and-the-brain",
-          "title": "Language and the Brain",
-          "planned": true
+          "title": "Language and the Brain"
         },
         {
           "number": "G17",
           "slug": "g17-a-mathematical-model-of-language",
-          "title": "A Mathematical Model of Language",
-          "planned": true
+          "title": "A Mathematical Model of Language"
         }
       ]
     }

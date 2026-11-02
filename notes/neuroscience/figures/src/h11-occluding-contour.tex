@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=1,>=Stealth]
+  % background wall and occluding object
+  \draw[line width=2.5pt] (-2.6,2.4) -- (2.2,2.4);
+  \draw[fill=gray!20] (0,0) circle (1);
+  % from O: the ray through B is tangent to the object (fold / occluding contour)
+  \draw[blue,thick] (1.3,-4.2) -- (0.833,2.4);
+  % from O': the ray through B' is tangent, the ray through B crosses transversally
+  \draw[red,thick] (3.0,-0.6) -- (-2.113,2.4);
+  \draw[red,thick,dashed] (3.0,-0.6) -- (0.998,0.071);
+  % points
+  \fill (0.998,0.071) circle (1.8pt) node[right=2pt] {$B$};
+  \fill (0.506,0.863) circle (1.8pt) node[above right] {$B'$};
+  \fill (0.833,2.4) circle (1.6pt) node[above] {$C$};
+  \fill (-2.113,2.4) circle (1.6pt) node[above] {$C'$};
+  \fill[blue] (1.3,-4.2) circle (1.8pt) node[below] {$O$};
+  \fill[red] (3.0,-0.6) circle (1.8pt) node[right] {$O'$};
+\end{tikzpicture}

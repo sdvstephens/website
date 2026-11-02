@@ -409,5 +409,296 @@
   },
   "h12-inside-split": {
     "alt": "A node N^j with two children: N^p, the apex of a triangle over wk ... wm, and N^q, the apex of a triangle over w(m+1) ... wl."
+  },
+  "h2-circuit-motifs": {
+    "alt": "Six neural circuit motifs drawn with green excitatory and red inhibitory neurons: feedforward excitation, feedforward inhibition, convergence and divergence, lateral inhibition, feedback inhibition (a three-neuron loop and a ring of four inhibitory neurons) and feedback excitation (a two-neuron loop and a neuron with a self-connection inside an excitatory loop)."
+  },
+  "h2-action-potential": {
+    "alt": "Schematic action potential: voltage in millivolts against time in milliseconds, rising from a resting state of -70 mV past a threshold of -55 mV to a peak of +40 mV, then repolarizing and undershooting during the refractory period, with two small failed initiations that stay below threshold."
+  },
+  "h2-hh-circuit": {
+    "alt": "Hodgkin-Huxley equivalent circuit of the membrane: between the extracellular and intracellular sides, parallel branches for sodium, potassium, chloride and leak currents, each a conductance in series with a battery for the reversal potential (sodium and potassium conductances variable), in parallel with the membrane capacitance."
+  },
+  "h2-hh-traces": {
+    "alt": "Three simulated voltage traces of the Hodgkin-Huxley model over 50 ms: for injected current -3 the potential settles near -68 mV without firing, for 5 it fires one spike and returns to rest through damped oscillations, for 10 it fires a periodic train of spikes."
+  },
+  "h2-hh-limit-cycle": {
+    "alt": "The Hodgkin-Huxley limit cycle for injected current 10, projected to the plane of voltage (from -75 to +30 mV) and the potassium activation variable n (from about 0.39 to 0.75), traversed counterclockwise around the unstable equilibrium near -60 mV."
+  },
+  "h2-vdp-relaxation": {
+    "alt": "A solution u(t) of the van der Pol equation with zeta = 5 and c = 1 for t from 10 to 50: a relaxation oscillation of period about 11.6 that drifts slowly from 2 towards 1 and from -2 towards -1 and jumps quickly between the two levels."
+  },
+  "h2-fhn-nullclines": {
+    "alt": "Schematic of the cubic v = -(A/alpha) u (u - theta)(u - 1) and the line v = beta u / (1 - gamma) meeting in three fixed points: the origin (stable), a first fixed point near (theta, 0) (saddle) and a second fixed point near (1, 0) (stable)."
+  },
+  "h2-fhn-bifurcation": {
+    "alt": "Computed bifurcation diagram of the discrete FitzHugh-Nagumo map with theta = 0.51, alpha = 0.01, beta = 0.02, gamma = 0.8, plotting u against A from 3 to 7: fixed points at u = 0 and u = 1 undergo period-doubling cascades starting near A = 3.92 and A = 4.08, turn into chaotic bands with periodic windows, and the two chaotic regions merge near A = 6.5."
+  },
+  "h2-fhn-phase-plane": {
+    "alt": "Phase plane of the FitzHugh-Nagumo model with membrane potential u horizontally and recovery variable w vertically: the cubic nullcline w = u - u^3/3, the line w = (u + 0.7)/0.8, the resting state at their intersection, several trajectories with arrows, and FitzHugh's region labels (resting, quasi-threshold, self-excitatory, regenerative, active, absolutely refractory, relatively refractory, hyperpolarized, depolarized, no man's land)."
+  },
+  "h3-simplicial-complex": {
+    "alt": "Left: a simplicial complex made of a solid tetrahedron, filled triangles, edges and a hollow triangle glued along common faces. Right: two triangles that cross each other in a region that is not a face of either, so they do not form a simplicial complex."
+  },
+  "h3-receptive-field-codes": {
+    "alt": "Panel A: five bump-shaped tuning curves on a line; a stimulus in the shaded interval activates neurons 1, 2 and 3, giving codeword 11100. Panel B: five overlapping discs in the plane; a stimulus in the shaded region lies only in discs 3 and 5, giving codeword 00101."
+  },
+  "h3-convex-obstruction": {
+    "alt": "Two cases of the convexity argument. Left: two overlapping ovals U1 and U2 with p1 in U1 only and p2 in U2 only; the segment from p1 to p2 crosses their intersection. Right: two elongated ovals crossing near the top; the segment from p1 to p2 runs below the crossing and leaves both ovals."
+  },
+  "h3-nerve-of-discs": {
+    "alt": "Seven dashed open discs with their nerve drawn on the disc centres: four discs with a common point give a solid tetrahedron, three give a triangle attached to it, and two more overlapping pairs give a path of two edges."
+  },
+  "h3-complex-and-1-skeleton": {
+    "alt": "Left: a simplicial complex on vertices 1 to 9 with a solid tetrahedron on 1, 2, 3, 4, a filled triangle on 5, 6, 7, and edges 3-5, 5-8, 7-8 and 7-9. Right: its 1-skeleton, the graph of all its vertices and edges."
+  },
+  "h3-boundary-maps": {
+    "alt": "Boundary maps on oriented simplices: an edge from v0 to v1 maps to [v1] - [v0]; a triangle maps to its three edges oriented around the boundary, [v1,v2] - [v0,v2] + [v0,v1]; a tetrahedron maps to its four faces, [v1,v2,v3] - [v0,v2,v3] + [v0,v1,v3] - [v0,v1,v2]."
+  },
+  "h3-chain-complex": {
+    "alt": "Three nested ovals for C_{p+1}, C_p and C_{p-1}, each containing cycles Z and inside them boundaries B, all touching at the zero element; the boundary map sends all of C_{p+1} onto B_p and the cycles Z_{p+1} to zero, and likewise from C_p to C_{p-1}."
+  },
+  "h3-three-receptive-fields": {
+    "alt": "Four arrangements of three convex receptive fields: A, three discs in general position inside a square stimulus space; B, two overlapping discs 1 and 2 inside an oval 3 that is the whole stimulus space; C, three nested discs 1 inside 2 inside 3 within a square; D, two overlapping discs 1 and 2 with a thin oval 3 lying across their overlap."
+  },
+  "h3-covering-dimension": {
+    "alt": "A square covered by six discs; an arrow marks a point lying in three of the discs and another arrow a point lying in two. No point lies in more than three discs."
+  },
+  "h3-expander-vs-not": {
+    "alt": "Left: an expander-like graph on ten vertices arranged in a circle, each vertex with three edges, many crossing through the centre. Right: a poorly connected graph made of two dense clusters of five vertices joined by a single edge."
+  },
+  "h3-bipartite-expander": {
+    "alt": "A bipartite graph with eight square output vertices on top and nine round input vertices below; the three middle inputs, boxed and labelled S, each send three edges upward, reaching seven distinct outputs, the neighbourhood N(S)."
+  },
+  "h3-tanner-graph": {
+    "alt": "Bipartite graph of a linear code: seven variable nodes x1 to x7 on the left joined to three check nodes on the right, one for each constraint x1+x3+x4+x7=0, x1+x2+x4+x6=0 and x1+x2+x3+x5=0."
+  },
+  "h3-glomerulus": {
+    "alt": "Two grey boxes, each a constraint node network of eight units arranged around a hatched central node (2^{z_C-1} units), above a row of input neurons; each box is wired to z_C = 4 of the input neurons."
+  },
+  "h6-mcculloch-pitts": {
+    "alt": "A McCulloch–Pitts artificial neuron: inputs x_1 to x_n with weights w_1 to w_n, plus a weight w_0 on a constant input 1, feed a summation unit that outputs w^t x; a threshold unit with threshold b then outputs the step function H(w^t x − b), equal to 1 when w^t x − b ≥ 0 and 0 otherwise."
+  },
+  "h6-linear-classification": {
+    "alt": "Linear classification in the plane: points of class C_1 lie on the side of the line w_1x_1 + w_2x_2 + b = 0 where the expression is positive, points of class C_2 on the side where it is at most zero; the line is the decision boundary."
+  },
+  "h6-xor": {
+    "alt": "The XOR problem: (a) the four corners of the unit square, with value 1 at (0,1) and (1,0) and value 0 at (0,0) and (1,1), which no single line separates; (b) a two-layer network with inputs x_1, x_2, hidden units 1 and 2, and output unit 3; (c) the two parallel lines computed by units 1 and 2, which unit 3 combines to separate the two classes."
+  },
+  "h6-feedforward": {
+    "alt": "A feedforward neural network with an input layer, a hidden layer and an output layer of four units each; every unit of one layer connects to every unit of the next, and information flows from top to bottom only."
+  },
+  "h6-universal-approx": {
+    "alt": "Three plots on the interval [0,1]: (a) the output of one sigmoid neuron with large weight, a sharp step at s = 0.4, with a gentler sigmoid dashed for comparison; (b) two neurons with steps at 0.4 and 0.6 and output weights 0.8 and −0.8, giving a bump of height 0.8 on [0.4, 0.6]; (c) five such pairs giving a step function with heights 0.3, −1.3, −0.4, −1.3, 1.1 on the intervals of length 0.2."
+  },
+  "h6-activations": {
+    "alt": "Graphs on [−3, 3] of five activation functions: the sigmoid 1/(1+e^{−x}), tanh x, ReLU max{0,x}, leaky ReLU with ε = 0.1, and soft ReLU log(1+e^x)."
+  },
+  "h6-backprop-net": {
+    "alt": "A fully connected network with three layers of three, four and two units; the third unit of layer 2 is labeled with its bias b^2_3 and the first unit of layer 3 with its activation a^3_1."
+  },
+  "h6-rnn-unfold": {
+    "alt": "A recurrent network and its unfolding in time: on the left, input x feeds hidden state h through weights U, h feeds output o through weights W, and h feeds back to itself through weights V; on the right, the same network unrolled as a chain h_{t−1}, h_t, h_{t+1} linked by V, each with its own input x_t and output o_t."
+  },
+  "h6-hopfield-energy": {
+    "alt": "Energy landscape of a Hopfield network: energy plotted against states as a wavy curve; a state high on a slope moves downhill under updates to a local minimum, the attractor, and the shaded region of states flowing to it is the basin of attraction; a second well on the right reaches the minimum energy level."
+  },
+  "h6-hopfield-graph": {
+    "alt": "A Hopfield network as a complete graph on six units, every pair joined by an edge of the weight matrix, each unit receiving an external input value."
+  },
+  "h6-block-spins": {
+    "alt": "Block-spin coarse graining: an 8 by 8 array of up spins grouped into 2 by 2 blocks, the blocks grouped into 2 by 2 superblocks, and the superblocks into one outer box, showing successive coarse grainings."
+  },
+  "h6-boltzmann-family": {
+    "alt": "Four network graphs: (a) a Hopfield network, a complete graph on visible units; (b) a Boltzmann machine, a complete graph on hidden units h_1 to h_3 and visible units v_1 to v_4; (c) a restricted Boltzmann machine, a complete bipartite graph between a visible layer x and a hidden layer h; (d) a deep belief network, a stack of such bipartite layers x, h^(1), h^(2), h^(3) of decreasing size."
+  },
+  "h10-bundles-s1": {
+    "alt": "A cylinder and a Möbius band, each drawn as a bundle of lines over a red core circle: on the cylinder the fiber lines stay parallel, on the Möbius band they turn over once going around."
+  },
+  "h10-std-contact": {
+    "alt": "The standard contact structure on three-space: small contact planes at grid points of the xy-plane, horizontal along the yz-plane and twisting steadily as x increases."
+  },
+  "h10-ot-foliations": {
+    "alt": "Two disks showing the model characteristic foliations of an overtwisted disk: straight leaves from a central singular point to the boundary circle, and three leaves spiraling from the center towards a boundary circle that is a closed leaf."
+  },
+  "h10-tight-ot": {
+    "alt": "Contact planes drawn as small disks along six rays leaving the z-axis, for the tight structure ker(dz + r^2 dθ), where they tilt towards vertical, and for the overtwisted structure ker(cos r dz + r sin r dθ), where they turn through a half-turn by r = π."
+  },
+  "h10-char-singularities": {
+    "alt": "Generic singular points of a characteristic foliation: on the left, leaves curving out of a single point; on the right, a saddle point where the leaves are hyperbolas around two crossing lines."
+  },
+  "h10-legendrian-fronts": {
+    "alt": "Front projections of Legendrian knots with horizontal cusps: on the left a twisted unknot with two cusps and two crossings, on the right a trefoil with six cusps and three crossings."
+  },
+  "h10-transverse-forbidden": {
+    "alt": "Three segments that cannot appear in the xz-projection of a transverse knot: a right-bulging and a left-bulging vertical tangency each traversed downwards, and a crossing of two downward strands with the down-left strand in front."
+  },
+  "h10-braid-generator": {
+    "alt": "The braid generator sigma_i: horizontal strands 1 to n, all straight except strands i and i+1, which cross once with strand i passing over."
+  },
+  "h10-braid-relation": {
+    "alt": "The braid relation on three strands: the braid sigma_1 sigma_2 sigma_1 on the left is equivalent to sigma_2 sigma_1 sigma_2 on the right."
+  },
+  "h10-gabor-odd": {
+    "alt": "Profile of an odd Gabor filter: a sine wave damped by a Gaussian, with one negative and one positive lobe, between dashed Gaussian envelopes."
+  },
+  "h10-horizontal-vertical": {
+    "alt": "A point u of the total space with its vertical subspace V_uP pointing up along the fiber and a slanted horizontal subspace H_uP, and the projection pi down to the point p of the base."
+  },
+  "h10-local-trivialization": {
+    "alt": "A bundle over U_i with the image of a local section sigma_i drawn as a curve, the pushed-forward vector sigma_i* X, the projection pi to the base M, and the map phi_i inverse sending the section point to (p, e) in U_i times G."
+  },
+  "h10-fiber-planes": {
+    "alt": "Contact planes over one retinal point stacked along the orientation axis theta from 0 to pi, each containing the theta direction and turning with theta, with the orthogonal vector X_3 drawn in red."
+  },
+  "h10-gabor-even": {
+    "alt": "Profile of an even Gabor filter: a cosine wave damped by a Gaussian, with a positive central lobe and two negative flanks, between dashed Gaussian envelopes."
+  },
+  "h10-blowup-fiber": {
+    "alt": "The real blowup of the plane at a point p: above p, a vertical stack of lines through the fiber axis in all directions, matching the lines through p drawn faintly in the base plane."
+  },
+  "h10-exp-map": {
+    "alt": "The exponential map on the sphere: the tangent vector xi at the point x in the tangent line T_x S^2 is carried along the red geodesic gamma(t) to the point y = exp_x(xi)."
+  },
+  "h11-ray-projection": {
+    "alt": "A sphere centred at the observation point O with axes X, Y, Z; a ray r from O through a point P at distance rho, making angle phi with the Z axis, whose projection to the equatorial plane makes angle theta with the X axis."
+  },
+  "h11-stereo-geometry": {
+    "alt": "Two ray-space spheres centred at O and O', a scene point P joined to both centres, the rays r and r' where those segments cross the spheres, the points e and e' where the baseline OO' crosses the spheres, the angles alpha and alpha' between baseline and rays, and the ray gamma(r) at O' parallel to r, which differs from r'."
+  },
+  "h11-occluding-contour": {
+    "alt": "A round object in front of a background wall; the ray from O through the point B is tangent to the object, so B is on the occluding contour for O, while the ray from O' meets the object transversally at B and is tangent instead at B'."
+  },
+  "h11-fold-sphere": {
+    "alt": "A sphere projected vertically onto a plane: the equator is the fold curve, its image is the boundary of the shaded disc, with local coordinates x1, x2 at a fold point and y1, y2 at its image."
+  },
+  "h11-cusp": {
+    "alt": "The cusp map (x1, x2) to (x1^3 + x1 x2, x2): on the left the parabola of critical points x2 = -3 x1^2, on the right its image, a semicubical cusp whose inside points have three preimages and outside points one."
+  },
+  "h11-torus-contour": {
+    "alt": "The apparent contour of a torus: an outer oval fold curve and two inner fold arcs that cross near each end and end in four cusps, with hidden arcs joining the cusps drawn dashed."
+  },
+  "h11-accretion": {
+    "alt": "A round occluder in front of a wall; the tangent ray from A touches it at C and reaches the wall at E, the tangent ray from B touches it at D and reaches the wall at F; angle alpha at B between the rays to C and D, angle beta at B between the rays to F and E, the wall segment FE highlighted."
+  },
+  "h11-ising": {
+    "alt": "Left: a square split by a curve Gamma into regions where f = a1 and f = a2. Right: a square lattice of sites split by a staircase path Gamma into sites with f = +1 and f = -1."
+  },
+  "h11-curvilinear": {
+    "alt": "A curve Gamma with arclength direction s, crossed by a family of normal lines, with the normal direction r drawn at one point: curvilinear coordinates near Gamma."
+  },
+  "h11-curve-variation": {
+    "alt": "The graph y = h(x) of an arc through a point P, a disc U around P, and a deformed arc y = h + t delta h that differs from the original only inside U."
+  },
+  "h11-corner-conformal": {
+    "alt": "The sector -alpha/2 < arg z < alpha/2 in the z-plane mapped by w = z^(pi/alpha) onto the right half-plane Re(w) > 0 in the w-plane."
+  },
+  "h11-kink": {
+    "alt": "Two arcs gamma_i and gamma_j meeting at P at a corner, with angle alpha-plus on the side of the region U-plus and alpha-minus on the side of U-minus, inside two concentric circles around P."
+  },
+  "h11-cut-corner": {
+    "alt": "A corner of angle alpha-plus at P, cut off by a chord joining the two points at distance epsilon/2 from P along the two arcs, shrinking the region U-plus below and enlarging U-minus above."
+  },
+  "h11-triple-point": {
+    "alt": "Three arcs gamma_i, gamma_j, gamma_k meeting at a vertex inside a small disc U, with the angles alpha_ij, alpha_jk, alpha_ik between consecutive arcs marked."
+  },
+  "h11-four-arcs": {
+    "alt": "Left: four arcs meeting at a point P inside a disc. Right: the same configuration replaced by two triple points joined by a short segment, the original arcs shown dotted."
+  },
+  "h11-cusp-corner": {
+    "alt": "Left: two arcs gamma_i and gamma_j leaving P tangentially, forming a cusp with a thin region U-plus between them. Right: a single arc from P that branches into gamma_i and gamma_j at the boundary of the disc."
+  },
+  "h11-dumbbell": {
+    "alt": "A dumbbell-shaped domain W made of two lobes of areas A1 and A2 joined by a neck of width delta, with a dashed curve gamma cutting across the neck."
+  },
+  "h13-sound-to-word": {
+    "alt": "Three steps from sound to word: the acoustic signal becomes a neurogram, then a phonological sketch, then a lexical item."
+  },
+  "h13-analysis-by-synthesis": {
+    "alt": "Analysis by synthesis: a speech waveform feeds the neurogram, phonological sketch and lexical access, with an analysis-by-synthesis stage sending top-down predictions back to the neurogram."
+  },
+  "h13-red-apple-tree": {
+    "alt": "Syntax tree of 'The red apple that I cut is on this table', with a dashed arrow linking 'cut' to its object, the red apple."
+  },
+  "h13-ada-loves-winston": {
+    "alt": "Bottom-up versus top-down structure building for 'Ada loves Winston', with the number of building steps triggered by each word."
+  },
+  "h13-movement-gaps": {
+    "alt": "Two sentences with long-distance dependencies: arcs join 'tiger' and 'which song' to the empty positions they are interpreted in."
+  },
+  "h13-backward-anaphora": {
+    "alt": "Backward anaphora: 'she' and 'the firefighter' share a referent, and 'she' is held in working memory until the noun arrives."
+  },
+  "h13-dual-stream": {
+    "alt": "The dual-stream picture of language: a dorsal stream through articulation and the sensory-motor interface, a ventral stream through the lexical interface and the combinatoric network."
+  },
+  "h13-pajamas-trees": {
+    "alt": "Two parse trees for 'I shot an elephant in my pajamas', with the prepositional phrase attached to the verb phrase or to the noun phrase."
+  },
+  "h13-merge-nested": {
+    "alt": "A complete binary rooted tree with eight leaves, with circles around its subtrees showing the nested Merge operations that built it."
+  },
+  "h13-merge-generated-trees": {
+    "alt": "The tree obtained by merging alpha with the merge of beta and gamma, and three six-leaf binary rooted trees generated by Merge."
+  },
+  "h13-head-direction": {
+    "alt": "Head-initial English 'eat an apple' versus head-final Japanese 'ringo-o tabe-ru' as syntax trees."
+  },
+  "h13-lexicon-workspace": {
+    "alt": "Lexical items copied from the lexicon into the workspace, which is the input to Merge."
+  },
+  "h13-workspace-forest": {
+    "alt": "A workspace as a forest: the disjoint union of three binary rooted trees."
+  },
+  "h13-accessible-terms": {
+    "alt": "A workspace of three trees with accessible terms circled: subtrees below non-root vertices in red, a whole component in orange."
+  },
+  "h13-hopf-unit": {
+    "alt": "Commutative diagram for the unit axiom of a Hopf algebra."
+  },
+  "h13-hopf-counit": {
+    "alt": "Commutative diagram for the counit axiom of a Hopf algebra."
+  },
+  "h13-hopf-bialgebra": {
+    "alt": "Commutative diagram expressing the compatibility of product and coproduct: Delta of a product equals the product of the Deltas after swapping the middle factors."
+  },
+  "h13-hopf-unit-counit": {
+    "alt": "Two triangles: the counit is multiplicative and the coproduct of the unit is the unit tensor the unit."
+  },
+  "h13-admissible-cut": {
+    "alt": "An admissible cut of a six-leaf tree: three cut edges, no two on a path from the root, with the cut-off subtrees circled."
+  },
+  "h13-grafting": {
+    "alt": "The grafting operator B joining trees T1 to Tn under a new common root."
+  },
+  "h13-merge-graph-n3": {
+    "alt": "The Merge graph on three leaves: External, Sideward and Internal Merge arrows among three cherry-plus-leaf forests and three three-leaf trees."
+  },
+  "h13-young-diagram": {
+    "alt": "The Young diagram of the partition {4,2,2,1} of 9."
+  },
+  "h13-forests-4221": {
+    "alt": "Two workspaces with leaf partition {4,2,2,1}: a balanced or a comb four-leaf tree, two cherries and a single leaf."
+  },
+  "h13-partition-graph-4": {
+    "alt": "The Merge graph for four leaves projected to the partitions {2,1,1}, {2,2}, {3,1}, {4}, with edge multiplicities."
+  },
+  "h13-comb-tree": {
+    "alt": "The comb tree T_n with leaves alpha_n down to alpha_1."
+  },
+  "h13-externalization": {
+    "alt": "Externalization: the projection from planar to abstract trees, a language-dependent section back, and the constraints selecting the trees of a language L."
+  },
+  "h13-semantic-parsing": {
+    "alt": "A non-planar syntactic object mapped into a semantic space with a metric, where the lexical items land at points s(alpha), s(beta), s(gamma)."
+  },
+  "h13-interfaces-overview": {
+    "alt": "Free symmetric Merge feeding two channels, externalization into planar trees and embedding into semantic spaces, which combine."
+  },
+  "h13-relu": {
+    "alt": "Graph of the ReLU function max(0, x)."
+  },
+  "h13-cosine-probes": {
+    "alt": "Cosine similarity of two vectors at angles near 0, 90 and 180 degrees: similar, orthogonal and opposite vectors."
   }
 }

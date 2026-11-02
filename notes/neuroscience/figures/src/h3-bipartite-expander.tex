@@ -1,0 +1,19 @@
+\begin{tikzpicture}[font=\small,
+  outv/.style={draw=gray, thick, minimum size=0.42cm, inner sep=0pt},
+  inpv/.style={circle, draw=gray!60, minimum size=0.36cm, inner sep=0pt}]
+% output vertices (squares) 1..8
+\foreach \k in {1,...,8} \node[outv] (o\k) at ({0.9*(\k-1)},1.9) {};
+% input vertices: nine circles, the middle three form S
+\foreach \j in {0,...,8} \coordinate (i\j) at ({-0.35+0.875*\j},0);
+\foreach \j in {0,1,2,6,7,8} \node[inpv, fill=gray!20] at (i\j) {};
+% edges from S (each input vertex has valence z = 3)
+\foreach \k in {1,4,5} \draw[purple, thick] (i3) -- (o\k.south);
+\foreach \k in {3,5,7} \draw[green!50!black, thick] (i4) -- (o\k.south);
+\foreach \k in {3,6,8} \draw[blue, thick] (i5) -- (o\k.south);
+\node[circle, fill=purple, minimum size=0.36cm, inner sep=0pt] at (i3) {};
+\node[circle, fill=green!50!black, minimum size=0.36cm, inner sep=0pt] at (i4) {};
+\node[circle, fill=blue, minimum size=0.36cm, inner sep=0pt] at (i5) {};
+\draw[very thick, dashed] ($(i3)+(-0.35,-0.3)$) rectangle ($(i5)+(0.35,0.3)$);
+\node at ($(i4)+(0,-0.6)$) {$S$};
+\node at (3.15,2.5) {$N(S)$};
+\end{tikzpicture}

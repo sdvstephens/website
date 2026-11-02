@@ -1,0 +1,29 @@
+\begin{tikzpicture}[>=Stealth, w/.style={anchor=base west, inner sep=1pt, font=\small}]
+% top: both expressions pick out the same referent
+\node[w] (a1) at (0,0) {Because};
+\node[w] (a2) at ($(a1.base east)+(0.12,0)$) {she};
+\node[w] (a3) at ($(a2.base east)+(0.12,0)$) {extinguished the flames, the};
+\node[w] (a4) at ($(a3.base east)+(0.12,0)$) {firefighter};
+\node[w] (a5) at ($(a4.base east)+(0.12,0)$) {saved them.};
+\draw (a2.south west) -- (a2.south east);
+\draw (a4.south west) -- (a4.south east);
+\node[draw, rounded corners, font=\scriptsize\itshape, inner sep=3pt] (ref) at ($(a2.south)!0.5!(a4.south)+(0,-0.9)$) {the firefighter (referent)};
+\draw[->] (a2.south) to[out=-90, in=180] (ref.west);
+\draw[->] (a4.south) to[out=-90, in=0] (ref.east);
+% bottom: what working memory does
+\begin{scope}[yshift=-2.4cm]
+\node[w] (b1) at (0,0) {Because};
+\node[w] (b2) at ($(b1.base east)+(0.12,0)$) {she};
+\node[w] (b3) at ($(b2.base east)+(0.12,0)$) {extinguished the flames, the};
+\node[w] (b4) at ($(b3.base east)+(0.12,0)$) {firefighter};
+\node[w] (b5) at ($(b4.base east)+(0.12,0)$) {saved them.};
+\draw (b2.south west) -- (b2.south east);
+\draw (b4.south west) -- (b4.south east);
+\coordinate (p) at ($(b2.south)+(0,-1.0)$);
+\coordinate (q) at ($(b4.south)+(0,-1.0)$);
+\fill (p) circle (1.5pt); \fill (q) circle (1.5pt);
+\draw[dashed, ->] (b2.south) -- node[left, font=\scriptsize, align=right]{add to\\working memory} (p);
+\draw[dashed, ->] (p) -- node[below, font=\scriptsize]{hold in memory} (q);
+\draw[dashed, ->] (q) -- node[right, font=\scriptsize, align=left]{integrate\\with noun} (b4.south);
+\end{scope}
+\end{tikzpicture}

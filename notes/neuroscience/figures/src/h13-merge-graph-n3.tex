@@ -1,0 +1,48 @@
+\begin{tikzpicture}[>=Stealth,
+  pics/cherryleaf/.style n args={3}{code={
+    \draw[thick] (0,0) -- (0.25,0.45) -- (0.5,0);
+    \fill (0,0) circle (2pt); \fill (0.5,0) circle (2pt); \fill (1.0,0) circle (2pt);
+    \node[below, font=\small] at (0,-0.05) {$#1$};
+    \node[below, font=\small] at (0.5,-0.05) {$#2$};
+    \node[below, font=\small] at (1.0,-0.05) {$#3$};
+  }},
+  pics/treethree/.style n args={3}{code={
+    \draw[thick] (0,0) -- (0.5,0.9) -- (1.0,0);
+    \draw[thick] (0.25,0.45) -- (0.5,0);
+    \fill (0,0) circle (2pt); \fill (0.5,0) circle (2pt); \fill (1.0,0) circle (2pt);
+    \node[below, font=\small] at (0,-0.05) {$#1$};
+    \node[below, font=\small] at (0.5,-0.05) {$#2$};
+    \node[below, font=\small] at (1.0,-0.05) {$#3$};
+  }},
+  lab/.style={font=\scriptsize}]
+% vertices: left column = forests (cherry + leaf), right column = trees
+\pic at (0,0) {cherryleaf={\alpha}{\beta}{\gamma}};
+\pic at (0,-3) {cherryleaf={\beta}{\gamma}{\alpha}};
+\pic at (0,-6) {cherryleaf={\alpha}{\gamma}{\beta}};
+\pic at (5.5,0) {treethree={\alpha}{\beta}{\gamma}};
+\pic at (5.5,-3) {treethree={\beta}{\gamma}{\alpha}};
+\pic at (5.5,-6) {treethree={\alpha}{\gamma}{\beta}};
+% External Merge
+\foreach \y in {0,-3,-6} { \draw[->, thick] (1.4,\y+0.35) -- node[above, lab]{EM} (5.1,\y+0.35); }
+% Sideward Merge between forests
+\foreach \y in {0,-3} {
+  \draw[->, blue] (0.2,\y-0.6) -- node[left, lab]{SM} (0.2,\y-2.1);
+  \draw[->, blue] (0.8,\y-2.1) -- node[right, lab]{SM} (0.8,\y-0.6);
+}
+\draw[->, blue] (-0.35,0.0) .. controls (-1.4,-1.5) and (-1.4,-4.3) .. node[right, lab]{SM} (-0.35,-5.8);
+\draw[->, blue] (-0.75,-5.8) .. controls (-1.9,-4.3) and (-1.9,-1.5) .. node[left, lab]{SM} (-0.75,0.0);
+% Internal Merge between trees
+\foreach \y in {0,-3} {
+  \draw[->, red] (5.7,\y-0.6) -- node[left, lab]{IM} (5.7,\y-2.0);
+  \draw[->, red] (6.3,\y-2.0) -- node[right, lab]{IM} (6.3,\y-0.6);
+}
+\draw[->, red] (6.85,0.6) .. controls (7.9,-1.0) and (7.9,-4.0) .. node[left, lab]{IM} (6.85,-5.6);
+\draw[->, red] (7.25,-5.6) .. controls (8.4,-4.0) and (8.4,-1.0) .. node[right, lab]{IM} (7.25,0.6);
+% minimal Sideward Merge from trees back to forests (diagonal arrows)
+\draw[->, blue] (5.2,-2.55) -- (1.35,-0.15);
+\draw[->, blue] (5.2,-5.45) -- (1.15,-0.45);
+\draw[->, blue] (5.2,0.05) -- (1.35,-2.45);
+\draw[->, blue] (5.2,-5.75) -- (1.35,-3.05);
+\draw[->, blue] (5.2,-0.3) -- (1.15,-5.35);
+\draw[->, blue] (5.2,-3.25) -- (1.35,-5.65);
+\end{tikzpicture}

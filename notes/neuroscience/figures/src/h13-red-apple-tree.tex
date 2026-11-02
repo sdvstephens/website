@@ -1,0 +1,38 @@
+\begin{tikzpicture}[>=Stealth, w/.style={align=center, font=\small, inner sep=1pt}]
+\node[font=\small] at (5.6,0.6) {The red apple that I cut is on this table.};
+% branching points
+\coordinate (root) at (5.6,0);
+\coordinate (L) at (4.4,-0.8);
+\coordinate (R) at (8.4,-0.8);
+\coordinate (CP) at (5.9,-2.0);
+\coordinate (X) at (6.6,-2.9);
+\coordinate (Y) at (8.9,-2.0);
+\coordinate (Z) at (9.5,-3.0);
+% labelled nodes
+\node[w] (dp) at (3.0,-2.0) {$[\![\mathrm{the}]\!]\big([\![\mathrm{red\ apple}]\!]\big)$};
+\node[w] (the) at (2.1,-3.2) {D\\the};
+\node[w] (np) at (3.8,-3.0) {$[\![\mathrm{red\ apple}]\!]$};
+\node[w] (red) at (3.3,-4.2) {A\\red};
+\node[w] (apple) at (4.3,-4.2) {N\\apple};
+\node[w] (that) at (5.3,-3.2) {C\\that};
+\node[w] (I) at (6.2,-4.2) {Pro\\I};
+\node[w] (cut) at (7.0,-4.2) {V\\cut};
+\node[w] (is) at (7.8,-2.2) {V\\is};
+\node[w] (on) at (8.4,-3.4) {P\\on};
+\node[w] (this) at (9.1,-4.2) {D\\this};
+\node[w] (table) at (9.9,-4.2) {N\\table};
+% edges
+\draw (root) -- (L); \draw (root) -- (R);
+\draw (L) -- (dp.north); \draw (L) -- (CP);
+\draw (dp.south) -- (the.north); \draw (dp.south) -- (np.north);
+\draw (np.south) -- (red.north); \draw (np.south) -- (apple.north);
+\draw (CP) -- (that.north); \draw (CP) -- (X);
+\draw (X) -- (I.north); \draw (X) -- (cut.north);
+\draw (R) -- (is.north); \draw (R) -- (Y);
+\draw (Y) -- (on.north); \draw (Y) -- (Z);
+\draw (Z) -- (this.north); \draw (Z) -- (table.north);
+% dependency: the object of "cut" is the red apple
+\draw[dashed, thick, ->] (cut.south) to[out=-90, in=0] (4.2,-5.5) to[out=180, in=-90] (0.9,-3.6) to[out=90, in=180] (dp.west);
+% agreement between "this" and "table"
+\draw[dotted, thick] (this.south) to[out=-50, in=-130] (table.south);
+\end{tikzpicture}

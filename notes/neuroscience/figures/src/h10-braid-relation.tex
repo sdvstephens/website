@@ -1,0 +1,45 @@
+\begin{tikzpicture}[thick, line cap=round]
+\begin{scope}
+\draw (1.800,0.000) -- (1.800,-1.000);
+\draw (0.900,0.000) to[out=-90,in=90] (0.000,-1.000);
+\draw[white, line width=5pt, shorten <=3pt, shorten >=3pt] (0.000,0.000) to[out=-90,in=90] (0.900,-1.000);
+\draw (0.000,0.000) to[out=-90,in=90] (0.900,-1.000);
+\draw (0.000,-1.000) -- (0.000,-2.000);
+\draw (1.800,-1.000) to[out=-90,in=90] (0.900,-2.000);
+\draw[white, line width=5pt, shorten <=3pt, shorten >=3pt] (0.900,-1.000) to[out=-90,in=90] (1.800,-2.000);
+\draw (0.900,-1.000) to[out=-90,in=90] (1.800,-2.000);
+\draw (1.800,-2.000) -- (1.800,-3.000);
+\draw (0.900,-2.000) to[out=-90,in=90] (0.000,-3.000);
+\draw[white, line width=5pt, shorten <=3pt, shorten >=3pt] (0.000,-2.000) to[out=-90,in=90] (0.900,-3.000);
+\draw (0.000,-2.000) to[out=-90,in=90] (0.900,-3.000);
+\fill (0.000,0.000) circle (2pt);
+\fill (0.000,-3.000) circle (2pt);
+\fill (0.900,0.000) circle (2pt);
+\fill (0.900,-3.000) circle (2pt);
+\fill (1.800,0.000) circle (2pt);
+\fill (1.800,-3.000) circle (2pt);
+\node at (0.9,-3.5) {$\sigma_1\sigma_2\sigma_1$};
+\end{scope}
+\draw[{Stealth[length=6pt]}-{Stealth[length=6pt]}] (2.4,-1.5) -- (3.6,-1.5);
+\begin{scope}[xshift=4.2cm]
+\draw (0.000,0.000) -- (0.000,-1.000);
+\draw (1.800,0.000) to[out=-90,in=90] (0.900,-1.000);
+\draw[white, line width=5pt, shorten <=3pt, shorten >=3pt] (0.900,0.000) to[out=-90,in=90] (1.800,-1.000);
+\draw (0.900,0.000) to[out=-90,in=90] (1.800,-1.000);
+\draw (1.800,-1.000) -- (1.800,-2.000);
+\draw (0.900,-1.000) to[out=-90,in=90] (0.000,-2.000);
+\draw[white, line width=5pt, shorten <=3pt, shorten >=3pt] (0.000,-1.000) to[out=-90,in=90] (0.900,-2.000);
+\draw (0.000,-1.000) to[out=-90,in=90] (0.900,-2.000);
+\draw (0.000,-2.000) -- (0.000,-3.000);
+\draw (1.800,-2.000) to[out=-90,in=90] (0.900,-3.000);
+\draw[white, line width=5pt, shorten <=3pt, shorten >=3pt] (0.900,-2.000) to[out=-90,in=90] (1.800,-3.000);
+\draw (0.900,-2.000) to[out=-90,in=90] (1.800,-3.000);
+\fill (0.000,0.000) circle (2pt);
+\fill (0.000,-3.000) circle (2pt);
+\fill (0.900,0.000) circle (2pt);
+\fill (0.900,-3.000) circle (2pt);
+\fill (1.800,0.000) circle (2pt);
+\fill (1.800,-3.000) circle (2pt);
+\node at (0.9,-3.5) {$\sigma_2\sigma_1\sigma_2$};
+\end{scope}
+\end{tikzpicture}

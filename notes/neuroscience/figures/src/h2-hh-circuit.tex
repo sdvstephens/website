@@ -1,0 +1,61 @@
+\begin{tikzpicture}[
+  font=\small, line width=0.8pt,
+  dot/.style={circle, fill=black, inner sep=0pt, minimum size=4pt},
+  term/.style={circle, draw=black, inner sep=0pt, minimum size=6pt},
+  cur/.style={-{Latex[length=5pt]}}
+]
+% rails
+\draw (0,4) -- (7.2,4);
+\draw (0,0) -- (7.2,0);
+% terminals
+\draw (3.6,4) -- (3.6,4.645);
+\node[term] at (3.6,4.75) {};
+\node[above] at (3.6,4.85) {Extracellular};
+\draw[{Latex[length=4pt]}-{Latex[length=4pt]}] (3.6,4.08) -- (3.6,4.6);
+\node[right] at (3.65,4.35) {$I_m$};
+\draw (3.6,0) -- (3.6,-0.645);
+\node[term] at (3.6,-0.75) {};
+\node[below] at (3.6,-0.85) {Intracellular};
+% junction dots
+\foreach \x in {1.8,3.6,5.4} { \node[dot] at (\x,4) {}; \node[dot] at (\x,0) {}; }
+% one ion branch: x, current direction (1 = down, -1 = up), variable?, labels
+\foreach \x/\ion/\dir/\var in {0/{\mathrm{Na}^+}/1/1, 1.8/{\mathrm{K}^+}/-1/1, 3.6/{\mathrm{Cl}^-}/-1/0, 5.4/{\mathrm{Leak}}/-1/0} {
+  % wire top to resistor
+  \draw (\x,4) -- (\x,2.85);
+  % zigzag resistor from 2.85 down to 2.05
+  \draw (\x,2.85) -- ++(0.15,-0.0667) -- ++(-0.3,-0.1333) -- ++(0.3,-0.1333)
+        -- ++(-0.3,-0.1333) -- ++(0.3,-0.1333) -- ++(-0.3,-0.1333) -- ++(0.15,-0.0667);
+  % wire resistor to battery
+  \draw (\x,2.05) -- (\x,1.25);
+  % battery: long thin plate on top, short thick plate below
+  \draw (\x-0.3,1.25) -- (\x+0.3,1.25);
+  \draw[line width=2pt] (\x-0.15,1.05) -- (\x+0.15,1.05);
+  \draw (\x,1.05) -- (\x,0);
+  % labels
+  \node[right] at (\x+0.2,2.45) {$g_{\ion}$};
+  \node[right] at (\x+0.25,1.15) {$E_{\ion}$};
+  \node[right] at (\x+0.1,3.6) {$I_{\ion}$};
+  % current arrow on the wire
+  \ifnum\dir=1
+    \draw[cur] (\x,3.75) -- (\x,3.35);
+  \else
+    \draw[cur] (\x,3.35) -- (\x,3.75);
+  \fi
+  % variable conductance arrow
+  \ifnum\var=1
+    \draw[-{Latex[length=4pt]}] (\x-0.3,2.15) -- (\x+0.3,2.8);
+  \fi
+}
+% capacitor branch
+\draw (7.2,4) -- (7.2,2.55);
+\draw (6.9,2.55) -- (7.5,2.55);
+\draw (6.9,2.3) -- (7.5,2.3);
+\draw (7.2,2.3) -- (7.2,0);
+\node[right] at (7.6,2.42) {$C_m$};
+\node[font=\scriptsize] at (7.2,2.75) {$+\,+\,+\,+$};
+\node[font=\scriptsize] at (7.2,2.1) {$-\,-\,-\,-$};
+% V_m
+\draw[-{Latex[length=5pt]}] (-1.0,2.3) -- (-1.0,4);
+\draw[-{Latex[length=5pt]}] (-1.0,1.7) -- (-1.0,0);
+\node at (-1.0,2) {$V_m$};
+\end{tikzpicture}

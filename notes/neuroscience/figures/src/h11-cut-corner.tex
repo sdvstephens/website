@@ -1,0 +1,19 @@
+\begin{tikzpicture}[scale=1.2,>=Stealth]
+  \coordinate (P) at (0,0);
+  \coordinate (L) at (-155:3.2);
+  \coordinate (R) at (-25:3.2);
+  \coordinate (L1) at (-155:2);
+  \coordinate (R1) at (-25:2);
+  % the corner of Gamma at P, with angle alpha^+ below
+  \draw[thick,blue] (L) -- (P) -- (R);
+  % the cut: chord joining the points at distance eps/2 from P
+  \draw[thick,red] (L1) -- (R1);
+  \draw (-155:0.45) arc (-155:-25:0.45);
+  \node at (0,-0.68) {$\alpha^+$};
+  % dimension marks eps/2
+  \draw[|<->|] ($(P)+(115:0.28)$) -- ($(L1)+(115:0.28)$) node[midway,above] {$\varepsilon/2$};
+  \draw[|<->|] ($(P)+(65:0.28)$) -- ($(R1)+(65:0.28)$) node[midway,above] {$\varepsilon/2$};
+  \fill (P) circle (1.5pt) node[above=10pt] {$P$};
+  \node at (0,-1.35) {$\mathcal U^+$};
+  \node at (0,1.2) {$\mathcal U^-$};
+\end{tikzpicture}
