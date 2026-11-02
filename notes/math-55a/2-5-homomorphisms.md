@@ -10,109 +10,169 @@ title: Homomorphisms
 A ***homomorphism*** $\varphi : G \to H$ between groups is a map satisfying $$\varphi(ab) = \varphi(a)\varphi(b) \quad \text{for all } a, b \in G.$$
 :::
 
-:::proposition{2.5.1} Basic properties of homomorphisms
+:::proposition{2.5.2} Basic properties of homomorphisms
 Let $\varphi : G \to H$ be a homomorphism.
+
+<!-- list:paren-alpha -->
 
 1. $\varphi(e_G) = e_H$.
 2. $\varphi(a^{-1}) = \varphi(a)^{-1}$ for all $a \in G$.
-3. $\varphi(a^n) = \varphi(a)^n$ for all $n \in \mathbb{Z}$.
+3. $\varphi(a^n) = \varphi(a)^n$ for all $a\in G$ and $n \in \ZZ$.
 4. If $K \le G$, then $\varphi(K) \le H$.
 5. If $L \le H$, then $\varphi^{-1}(L) \le G$.
 :::
 
-:::proof Proofs of homomorphism properties
-**(1)** $\varphi(e_G) = \varphi(e_G e_G) = \varphi(e_G)\varphi(e_G)$. Multiply both sides by $\varphi(e_G)^{-1}$: $e_H = \varphi(e_G)$.
+:::proof
+**(a)** $\varphi(e_G) = \varphi(e_G e_G) = \varphi(e_G)\varphi(e_G)$. Multiply both sides by $\varphi(e_G)^{-1}$: $e_H = \varphi(e_G)$.
 
-**(2)** $\varphi(a)\varphi(a^{-1}) = \varphi(aa^{-1}) = \varphi(e_G) = e_H$. So $\varphi(a^{-1})$ is the inverse of $\varphi(a)$.
+**(b)** $\varphi(a)\varphi(a^{-1}) = \varphi(aa^{-1}) = \varphi(e_G) = e_H$, and similarly $\varphi(a^{-1})\varphi(a) = e_H$. So $\varphi(a^{-1})$ is the inverse of $\varphi(a)$.
 
-**(3)** For $n > 0$: induction. For $n = 0$: part (1). For $n < 0$: $\varphi(a^n) = \varphi((a^{-1})^{-n}) = \varphi(a^{-1})^{-n} = (\varphi(a)^{-1})^{-n} = \varphi(a)^n$.
+**(c)** For $n > 0$: induction, using $\varphi(a^n) = \varphi(a^{n-1})\varphi(a)$. For $n = 0$: part (a). For $n < 0$: $\varphi(a^n) = \varphi((a^{-1})^{-n}) = \varphi(a^{-1})^{-n} = (\varphi(a)^{-1})^{-n} = \varphi(a)^n$.
 
-**(4)** For $\varphi(a), \varphi(b) \in \varphi(K)$ (with $a, b \in K$): $\varphi(a)\varphi(b)^{-1} = \varphi(a)\varphi(b^{-1}) = \varphi(ab^{-1}) \in \varphi(K)$ since $ab^{-1} \in K$.
+**(d)** The set $\varphi(K)$ is nonempty, since $K$ is. For $\varphi(a), \varphi(b) \in \varphi(K)$ (with $a, b \in K$): $\varphi(a)\varphi(b)^{-1} = \varphi(a)\varphi(b^{-1}) = \varphi(ab^{-1}) \in \varphi(K)$, since $ab^{-1} \in K$. Apply the subgroup criterion.
 
-**(5)** For $a, b \in \varphi^{-1}(L)$: $\varphi(ab^{-1}) = \varphi(a)\varphi(b)^{-1} \in L$ (since $L \le H$), so $ab^{-1} \in \varphi^{-1}(L)$.
+**(e)** The set $\varphi^{-1}(L)$ contains $e_G$, since $\varphi(e_G) = e_H\in L$. For $a, b \in \varphi^{-1}(L)$: $\varphi(ab^{-1}) = \varphi(a)\varphi(b)^{-1} \in L$ (since $L \le H$), so $ab^{-1} \in \varphi^{-1}(L)$. Apply the subgroup criterion.
 :::
 
 :::note
-The homomorphism condition can be expressed as a *commutative diagram*: the two paths $G \times G \xrightarrow{m_G} G \xrightarrow{\varphi} H$ and $G \times G \xrightarrow{\varphi \times \varphi} H \times H \xrightarrow{m_H} H$ give the same result.
+The homomorphism condition can be expressed as a *commutative diagram*: the two paths $G \times G \xrightarrow{m_G} G \xrightarrow{\varphi} H$ and $G \times G \xrightarrow{\varphi \times \varphi} H \times H \xrightarrow{m_H} H$ give the same result. It does not matter whether we multiply first or apply $\varphi$ first.
 
 ![fig-2-5-1](/notes/math-55a/figures/fig-2-5-1.svg)
 :::
 
-:::definition{2.5.2} Types of homomorphisms
+:::definition{2.5.3} Types of homomorphisms
 Let $\varphi : G \to H$ be a homomorphism.
 
-1. $\varphi$ is a ***monomorphism*** (or ***embedding***) if it’s injective.
-2. $\varphi$ is an ***epimorphism*** if it’s surjective.
-3. $\varphi$ is an ***isomorphism*** if it’s bijective. We write $G \cong H$.
-4. An isomorphism $G \to G$ is called an ***automorphism***. The set of all automorphisms of $G$, denoted $\Aut(G)$, forms a group under composition.
+<!-- list:paren-alpha -->
+
+1. $\varphi$ is a ***monomorphism*** (or ***embedding***) if it is injective.
+2. $\varphi$ is an ***epimorphism*** if it is surjective.
+3. $\varphi$ is an ***isomorphism*** if it is bijective.
+4. An isomorphism $G \to G$ is called an ***automorphism*** of $G$. The set of all automorphisms of $G$ is denoted $\Aut(G)$.
 :::
 
-:::example{2.5.1} Important(ish) homomorphisms
-1. **Reduction mod $n$:** $\pi : \mathbb{Z} \to \mathbb{Z}/n\mathbb{Z}$, $\pi(a) = a \mod n$. Surjective, kernel $n\mathbb{Z}$.
-2. **Quotient mod $n$:** If $n \mid m$, then $\mathbb{Z}/m\mathbb{Z} \to \mathbb{Z}/n\mathbb{Z}$, $a \mapsto a \mod n$. Example: last-two-digits to last-digit, $\mathbb{Z}/100 \to \mathbb{Z}/10$.
-3. **Determinant:** $\det : \GL_n(\mathbb{R}) \to \mathbb{R}^*$. Homomorphism since $\det(AB) = \det(A)\det(B)$. Kernel is $\SL_n(\mathbb{R})$.
-4. **Exponential:** $\exp : (\mathbb{R}, +) \to (\mathbb{R}_{>0}, \times)$, $x \mapsto e^x$. Isomorphism with inverse $\ln$.
-5. **Complex exponential:** $\exp : (\mathbb{R}, +) \to (S^1, \times)$, $t \mapsto e^{2\pi i t}$. Surjective, kernel $\mathbb{Z}$. Induces $\mathbb{R}/\mathbb{Z} \cong S^1$.
+:::proposition{2.5.4} Composites and inverses
+Let $\varphi : G\to H$ and $\psi : H\to K$ be homomorphisms.
+
+<!-- list:paren-alpha -->
+
+1. $\psi\circ\varphi : G\to K$ is a homomorphism, and if $\varphi$ and $\psi$ are isomorphisms, so is $\psi\circ\varphi$.
+2. If $\varphi$ is an isomorphism, then so is its inverse $\varphi^{-1} : H\to G$.
+3. $\Aut(G)$ is a group under composition; it is a subgroup of $\Sym(G)$.
 :::
 
-## <span class="num">2.5.1</span> Isomorphisms and invariants
+:::proof
+(a) $\psi(\varphi(ab)) = \psi(\varphi(a)\varphi(b)) = \psi(\varphi(a))\psi(\varphi(b))$, and a composite of bijections is a bijection.
 
-:::definition{2.5.3} Isomorphic groups
-Groups $G$ and $H$ are ***isomorphic***, written $G \cong H$, if there exists an isomorphism $\varphi : G \to H$. Isomorphic groups are “the same” for all group-theoretic purposes.
+(b) $\varphi^{-1}$ is a bijection (Proposition [1.5.5](/notes/math-55a/1-5-inverses-and-composites#proposition-1-5-5)). For $h_1, h_2 \in H$, let $g_i = \varphi^{-1}(h_i)$. Then $\varphi^{-1}(h_1 h_2) = \varphi^{-1}(\varphi(g_1)\varphi(g_2)) = \varphi^{-1}(\varphi(g_1 g_2)) = g_1 g_2 = \varphi^{-1}(h_1)\varphi^{-1}(h_2)$.
+
+(c) $\Aut(G)\subseteq\Sym(G)$ contains $\id_G$, and it is closed under composition and inverses by (a) and (b).
+:::
+
+## <span class="num">2.5.1</span> Kernel and Image
+
+:::definition{2.5.5} Kernel and image
+Let $\varphi : G\to H$ be a homomorphism. The ***kernel*** and the ***image*** of $\varphi$ are $$\ker\varphi = \{a\in G\mid\varphi(a) = e_H\}, \qquad \Img\varphi = \varphi(G) = \{\varphi(a)\mid a\in G\}.$$
+:::
+
+:::proposition{2.5.6} Properties of the kernel and image
+Let $\varphi : G\to H$ be a homomorphism.
+
+<!-- list:paren-alpha -->
+
+1. $\ker\varphi$ is a subgroup of $G$, and $\Img\varphi$ is a subgroup of $H$.
+2. For $a,b\in G$, $\varphi(a) = \varphi(b)$ if and only if $a^{-1}b\in\ker\varphi$.
+3. $\varphi$ is injective if and only if $\ker\varphi = \{e_G\}$.
+4. $\varphi$ is surjective if and only if $\Img\varphi = H$.
+5. If $\varphi$ is injective, then $a\mapsto\varphi(a)$ is an isomorphism $G\to\Img\varphi$; so $G$ is isomorphic to the subgroup $\Img\varphi$ of $H$.
+:::
+
+:::proof
+(a) $\ker\varphi = \varphi^{-1}(\{e_H\})$ and $\Img\varphi = \varphi(G)$, so both are subgroups by Proposition [2.5.2](/notes/math-55a/2-5-homomorphisms#proposition-2-5-2)(d) and (e).
+
+(b) $\varphi(a) = \varphi(b)\iff\varphi(a)^{-1}\varphi(b) = e_H\iff\varphi(a^{-1}b) = e_H\iff a^{-1}b\in\ker\varphi$.
+
+(c) If $\varphi$ is injective and $a\in\ker\varphi$, then $\varphi(a) = e_H = \varphi(e_G)$, so $a = e_G$. Conversely, if $\ker\varphi = \{e_G\}$ and $\varphi(a) = \varphi(b)$, then $a^{-1}b = e_G$ by (b), so $a = b$.
+
+(d) This is the definition of surjectivity.
+
+(e) The map $G\to\Img\varphi$, $a\mapsto\varphi(a)$, is a homomorphism, injective because $\varphi$ is, and surjective by definition of $\Img\varphi$.
+:::
+
+:::example{2.5.7} Important(ish) homomorphisms
+<!-- list:paren-alpha -->
+
+1. **Inclusion:** if $H\le G$, the inclusion map $H\injto G$ is an injective homomorphism.
+2. **Reduction mod $n$:** $\pi : \ZZ \to \ZZ/n\ZZ$, where $\pi(a)$ is the remainder of $a$ on division by $n$. Both $\pi(a+b)$ and $\pi(a)+_n\pi(b)$ are the remainder of $a+b$, so $\pi$ is a homomorphism. It is surjective, with kernel $n\ZZ$.
+3. **Reduction from $\ZZ/m\ZZ$ to $\ZZ/n\ZZ$:** if $n \mid m$, then $\ZZ/m\ZZ \to \ZZ/n\ZZ$, sending $a$ to its remainder mod $n$, is a surjective homomorphism, because $a+_mb$ differs from $a+b$ by $0$ or $m$, a multiple of $n$. Example: last two digits $\mapsto$ last digit, $\ZZ/100\ZZ \to \ZZ/10\ZZ$.
+4. **Powers of an element:** for $a\in G$, the map $\ZZ\to G$, $n\mapsto a^n$, is a homomorphism, since $a^{m+n} = a^ma^n$. By Proposition [2.4.11](/notes/math-55a/2-4-subgroups#proposition-2-4-11), its image is the cyclic subgroup $\langle a\rangle$.
+5. **Determinant:** the determinant of Section [5.4](/notes/math-55a/5-4-determinants), $\det : \GL_n(\RR) \to \RR^*$, is a homomorphism, since $\det(AB) = \det(A)\det(B)$ (Theorem [5.4.7](/notes/math-55a/5-4-determinants#theorem-5-4-7)). Its kernel is $\SL_n(\RR)$.
+6. **Exponential:** $\exp : (\RR, +) \to (\RR_{>0}, \times)$, $x \mapsto e^x$, is an isomorphism, with inverse $\ln$.
+7. **Complex exponential:** $\RR \to S^1$, $t \mapsto e^{2\pi i t}$, is a surjective homomorphism from $(\RR,+)$ to $(S^1,\times)$ with kernel $\ZZ$. Restricted to $[0,1)$, it gives an isomorphism $\RR/\ZZ\to S^1$: every $z\in S^1$ equals $e^{2\pi it}$ for exactly one $t\in[0,1)$, and since $a+_1b$ differs from $a+b$ by an integer $m$ and $e^{2\pi im} = 1$, we have $e^{2\pi i(a+_1b)} = e^{2\pi ia}e^{2\pi ib}$.
+:::
+
+## <span class="num">2.5.2</span> Isomorphisms and Invariants
+
+:::definition{2.5.8} Isomorphic groups
+Groups $G$ and $H$ are ***isomorphic***, written $G \cong H$, if there exists an isomorphism $\varphi : G \to H$. Isomorphic groups are “the same” for all group-theoretic purposes: the elements and the law may have different names, but the structure is identical.
 :::
 
 What properties are preserved by isomorphisms? These are called *invariants*.
 
-:::proposition{2.5.2} Isomorphism invariants
+:::proposition{2.5.9} Isomorphism invariants
 If $G \cong H$, then:
+
+<!-- list:paren-alpha -->
 
 1. $|G| = |H|$ (same order);
 2. $G$ is abelian iff $H$ is abelian;
 3. $G$ is cyclic iff $H$ is cyclic;
-4. For each $n$, $G$ and $H$ have the same number of elements of order $n$;
-5. For each $n$, $G$ and $H$ have the same number of subgroups of order $n$.
+4. for each $n$, $G$ and $H$ have the same number of elements of order $n$;
+5. for each $n$, $G$ and $H$ have the same number of subgroups of order $n$.
 :::
 
-:::proof Proof (Why these are invariants)
-Let $\varphi : G \xrightarrow{\sim} H$ be an isomorphism.
+:::proof
+Let $\varphi : G \to H$ be an isomorphism. Since $\varphi^{-1} : H\to G$ is also an isomorphism (Proposition [2.5.4](/notes/math-55a/2-5-homomorphisms#proposition-2-5-4)), for (b) and (c) it suffices to prove one direction.
 
-**(1)** Bijections preserve cardinality.
+**(a)** $\varphi$ is a bijection.
 
-**(2)** If $G$ is abelian and $h_1, h_2 \in H$, write $h_i = \varphi(g_i)$. Then $h_1 h_2 = \varphi(g_1)\varphi(g_2) = \varphi(g_1 g_2) = \varphi(g_2 g_1) = \varphi(g_2)\varphi(g_1) = h_2 h_1$.
+**(b)** If $G$ is abelian and $h_1, h_2 \in H$, write $h_i = \varphi(g_i)$. Then $h_1 h_2 = \varphi(g_1)\varphi(g_2) = \varphi(g_1 g_2) = \varphi(g_2 g_1) = \varphi(g_2)\varphi(g_1) = h_2 h_1$.
 
-**(3)** If $G = \langle a \rangle$, then $H = \varphi(G) = \varphi(\langle a \rangle) = \langle \varphi(a) \rangle$.
+**(c)** If $G = \langle a \rangle = \{a^n\mid n\in\ZZ\}$, then $H = \varphi(G) = \{\varphi(a)^n\mid n\in\ZZ\} = \langle \varphi(a) \rangle$, using Proposition [2.5.2](/notes/math-55a/2-5-homomorphisms#proposition-2-5-2)(c).
 
-**(4)** $\ord(\varphi(a)) = \ord(a)$ since $\varphi(a)^n = \varphi(a^n) = e_H \iff a^n = e_G$.
+**(d)** For $a\in G$ and $n\in\ZZ$, $\varphi(a)^n = \varphi(a^n)$, which equals $e_H = \varphi(e_G)$ if and only if $a^n = e_G$, since $\varphi$ is injective. So $\ord(\varphi(a)) = \ord(a)$, and $\varphi$ restricts to a bijection from the elements of order $n$ in $G$ to those in $H$.
 
-**(5)** $\varphi$ induces a bijection between subgroups of $G$ and subgroups of $H$.
+**(e)** By Proposition [2.5.2](/notes/math-55a/2-5-homomorphisms#proposition-2-5-2), $K\mapsto\varphi(K)$ sends subgroups of $G$ to subgroups of $H$, and $L\mapsto\varphi^{-1}(L)$ sends subgroups of $H$ to subgroups of $G$. Since $\varphi$ is bijective, $\varphi^{-1}(\varphi(K)) = K$ and $\varphi(\varphi^{-1}(L)) = L$ (Proposition [1.5.2](/notes/math-55a/1-5-inverses-and-composites#proposition-1-5-2)), so these are inverse bijections between the subgroups of $G$ and those of $H$; and $|\varphi(K)| = |K|$, since $\varphi$ is injective.
 :::
 
-:::example{2.5.2} Non-isomorphic groups of same order
-$\mathbb{Z}/4$ and $\mathbb{Z}/2 \times \mathbb{Z}/2$ both have order 4, but:
+:::example{2.5.10} Non-isomorphic groups of the same order
+$\ZZ/4\ZZ$ and $\ZZ/2\ZZ \times \ZZ/2\ZZ$ both have order 4, but:
 
-- $\mathbb{Z}/4$ has an element of order 4 (namely, 1);
-- $\mathbb{Z}/2 \times \mathbb{Z}/2$ has no element of order 4 (all non-identity elements have order 2).
+- $\ZZ/4\ZZ$ has an element of order 4 (namely, 1);
+- $\ZZ/2\ZZ \times \ZZ/2\ZZ$ has no element of order 4, since $x+x = 0$ for every $x$ (all non-identity elements have order 2).
 
-So they’re not isomorphic. These are the only groups of order 4 up to isomorphism.
+So they are not isomorphic. In Question [2.6.10](/notes/math-55a/2-6-orders-of-elements-and-cyclic-groups#question-2-6-10) we show that these are the only groups of order 4 up to isomorphism.
 :::
 
-:::example{2.5.3} All groups of order 2 are isomorphic
-If $|G| = 2$, write $G = \{e, x\}$. Then $x \ne e$, so $x^2 \ne x$ (else $x = e$). Thus $x^2 = e$, and $G = \langle x \rangle \cong \mathbb{Z}/2$.
+:::example{2.5.11} All groups of order 2 are isomorphic
+If $|G| = 2$, write $G = \{e, x\}$ with $x \ne e$. If $x^2 = x$, then cancellation would give $x = e$; so $x^2 = e$, and the multiplication table of $G$ is $$\begin{array}{c|cc}
+ & e & x \\ \hline
+e & e & x \\
+x & x & e
+\end{array}$$ Any two groups of order 2 have this table up to renaming, so the bijection matching their identities and their other elements is an isomorphism. For example, $S_2 = \{e, (1\,2)\}$, $(\{\pm 1\},\times)$, and $(\ZZ/2\ZZ, +)$ are all isomorphic.
 :::
 
-:::question{3}
-1. Prove that $\Aut(\mathbb{Z}/n\mathbb{Z}) \cong (\mathbb{Z}/n\mathbb{Z})^\times$.
-2. Find $\Aut(\mathbb{Z})$.
-3. Prove that if $\varphi : G \to H$ is an isomorphism, then $\varphi^{-1} : H \to G$ is also an isomorphism.
-4. Prove that “is isomorphic to” is an equivalence relation on groups.
+Similarly, sending a symmetry of the triangle to the permutation of the vertices it induces is an isomorphism $D_3\to S_3$ (Example [2.2.13](/notes/math-55a/2-2-fundamental-examples#example-2-2-13)).
+
+:::question{2.5.12}
+<!-- list:paren-alpha -->
+
+1. Find $\Aut(\ZZ)$.
+2. Prove that “is isomorphic to” is an equivalence relation on groups.
 
 :::solution
-**(1)** An automorphism $\varphi$ of $\mathbb{Z}/n$ is determined by $\varphi(1)$, since $\varphi(k) = k\varphi(1)$. We need $\varphi(1)$ to generate $\mathbb{Z}/n$, i.e., $\gcd(\varphi(1), n) = 1$, i.e., $\varphi(1) \in (\mathbb{Z}/n)^\times$. Conversely, any $a \in (\mathbb{Z}/n)^\times$ defines an automorphism $\varphi_a : k \mapsto ka$. The map $a \mapsto \varphi_a$ is an isomorphism $(\mathbb{Z}/n)^\times \to \Aut(\mathbb{Z}/n)$ (check it’s a homomorphism and bijection).
+**(a)** An automorphism $\varphi$ of $\ZZ$ is determined by $\varphi(1)$, since $\varphi(k) = k\varphi(1)$ by Proposition [2.5.2](/notes/math-55a/2-5-homomorphisms#proposition-2-5-2)(c). Its image is $\{k\varphi(1)\mid k\in\ZZ\} = \langle\varphi(1)\rangle$, which must be all of $\ZZ$, so $\varphi(1) = \pm 1$. Both choices give automorphisms, $\id$ and $-\id$. Thus $\Aut(\ZZ) = \{\id, -\id\} \cong \ZZ/2\ZZ$ (Example [2.5.11](/notes/math-55a/2-5-homomorphisms#example-2-5-11)).
 
-**(2)** An automorphism of $\mathbb{Z}$ is determined by $\varphi(1)$. We need $\langle \varphi(1) \rangle = \mathbb{Z}$, so $\varphi(1) = \pm 1$. Thus $\Aut(\mathbb{Z}) = \{\id, -\id\} \cong \mathbb{Z}/2$.
-
-**(3)** $\varphi^{-1}$ is a bijection. For $h_1, h_2 \in H$, let $g_i = \varphi^{-1}(h_i)$. Then $\varphi^{-1}(h_1 h_2) = \varphi^{-1}(\varphi(g_1)\varphi(g_2)) = \varphi^{-1}(\varphi(g_1 g_2)) = g_1 g_2 = \varphi^{-1}(h_1)\varphi^{-1}(h_2)$.
-
-**(4)** Reflexive: $\id_G : G \to G$ is an isomorphism. Symmetric: if $\varphi : G \to H$ is an isomorphism, so is $\varphi^{-1} : H \to G$ by part (3). Transitive: if $\varphi : G \to H$ and $\psi : H \to K$ are isomorphisms, so is $\psi \circ \varphi : G \to K$.
+**(b)** Reflexive: $\id_G : G \to G$ is an isomorphism. Symmetric: if $\varphi : G \to H$ is an isomorphism, so is $\varphi^{-1} : H \to G$. Transitive: if $\varphi : G \to H$ and $\psi : H \to K$ are isomorphisms, so is $\psi \circ \varphi : G \to K$. The last two statements are Proposition [2.5.4](/notes/math-55a/2-5-homomorphisms#proposition-2-5-4).
 :::
 :::

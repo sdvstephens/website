@@ -49,7 +49,12 @@ BOXES = {
     'pf': ('proof', True),
     'nt': ('note', False),
 }
-SECTION_COUNTED = {'definition', 'theorem', 'proposition', 'lemma', 'corollary', 'example', 'exercise'}
+SECTION_COUNTED = {'definition', 'theorem', 'proposition', 'lemma', 'corollary', 'example', 'exercise', 'question'}
+# Labels (\label{..}) found in the first pass: name -> (number, kind, section number).
+LABELS = {}
+# Section number -> page slug, from the first pass; \ref links go there.
+SECTION_SLUGS = {}
+COURSE = ['']
 LIST_STYLES = {'(1)': 'paren-decimal', '(i)': 'paren-roman', '(a)': 'paren-alpha',
                '(A)': 'paren-upper-alpha', '(I)': 'paren-upper-roman',
                'i.': 'lower-roman', 'a.': 'lower-alpha', 'a)': 'alpha-paren'}
@@ -66,10 +71,13 @@ DROP = {'qedhere', 'pagebreak', 'newpage', 'clearpage', 'noindent', 'indent', 'h
         'medskip', 'bigskip', 'smallskip', 'centering', 'small', 'footnotesize', 'tiny', 'scriptsize',
         'large', 'Large', 'LARGE', 'huge', 'Huge', 'normalsize', 'par', 'linebreak', 'nolinebreak',
         'protect', 'relax', 'leavevmode', 'maketitle', 'tableofcontents', 'bfseries', 'itshape',
-        'normalfont', 'rmfamily', 'sffamily', 'ttfamily', 'selectfont', 'displaystyle'}
+        'normalfont', 'rmfamily', 'sffamily', 'ttfamily', 'selectfont', 'displaystyle',
+        'toprule', 'midrule', 'bottomrule'}
 # Commands whose arguments are dropped entirely.
 DROP_WITH_ARGS = {'label': 1, 'vspace': 1, 'hspace': 1, 'addcontentsline': 3, 'pdfbookmark': 2,
-                  'course': 1, 'input': 1, 'include': 1, 'setlength': 2, 'phantomsection': 0}
+                  'course': 1, 'input': 1, 'include': 1, 'setlength': 2, 'phantomsection': 0,
+                  'providecommand': 2, 'newcommand': 2, 'renewcommand': 2,
+                  'providecolor': 3, 'definecolor': 3, 'colorlet': 2}
 ACCENTS = {"'": '\u0301', '`': '\u0300', '^': '\u0302', '"': '\u0308', '~': '\u0303',
            '=': '\u0304', '.': '\u0307', 'c': '\u0327', 'v': '\u030c', 'u': '\u0306', 'H': '\u030b'}
 
@@ -260,6 +268,7 @@ class Book:
     # --- state set per lecture/section
     def start_lecture(self, n, src_name):
         self.chapter = n
+        self.eqno = 0
         self.src_name = src_name
         self.questions = 0
         self.fig_in_chapter = 0
@@ -271,12 +280,11 @@ class Book:
 
     # --- numbering
     def number(self, kind):
-        if kind == 'question':
-            self.questions += 1
-            return str(self.questions)
+        # The book numbers every theorem-like box (questions and exercises too)
+        # with one counter per section: Definition 3.2.4, then Theorem 3.2.5.
         if kind in SECTION_COUNTED:
-            self.counters[kind] = self.counters.get(kind, 0) + 1
-            return f'{self.chapter}.{self.section}.{self.counters[kind]}'
+            self.counters['all'] = self.counters.get('all', 0) + 1
+            return f'{self.chapter}.{self.section}.{self.counters["all"]}'
         return ''
 
     # ============================================================ blocks
@@ -500,7 +508,28 @@ class Book:
             return 'ı', j
         if name == 'today':
             return self.today, j
-        if name in ('cite', 'ref', 'eqref', 'cref', 'Cref', 'autoref'):
+        if name in ('ref', 'cref', 'Cref', 'autoref'):
+            arg, j = read_arg(s, j)
+            if arg in LABELS:
+                num, kind, sec = LABELS[arg]
+                slug = SECTION_SLUGS.get(sec)
+                if slug is None or getattr(self, 'in_title', False):
+                    return num, j
+                anchor = '' if kind == 'section' else f'#{kind}-{num.replace(".", "-")}'
+                return f'[{num}](/notes/{COURSE[0]}/{slug}{anchor})', j
+            if getattr(self, 'final_pass', False):
+                warn(f'{self.src_name}: \\{name}{{{arg}}} has no label in the book')
+            return '?', j
+        if name == 'eqref':
+            arg, j = read_arg(s, j)
+            if arg in LABELS:
+                num, kind, sec = LABELS[arg]
+                slug = SECTION_SLUGS.get(sec)
+                return (f'([{num}](/notes/{COURSE[0]}/{slug}))' if slug else f'({num})'), j
+            if getattr(self, 'final_pass', False):
+                warn(f'{self.src_name}: \\eqref{{{arg}}} has no label in the book')
+            return '(?)', j
+        if name == 'cite':
             arg, j = read_arg(s, j)
             warn(f'{self.src_name}: \\{name}{{{arg}}} has no target on the site')
             return arg, j
@@ -534,7 +563,14 @@ class Book:
             return 'blocks', [self.table(spec, body[k:])], end
         if env in ('tikzpicture', 'tikzcd'):
             return 'blocks', [self.figure(env, f'\\begin{{{env}}}{body}\\end{{{env}}}')], end
-        if env in ('align*', 'align', 'equation*', 'equation', 'gather*', 'gather', 'multline*'):
+        if env == 'equation':
+            # numbered within the chapter, as in the book: (15.1)
+            self.eqno = getattr(self, 'eqno', 0) + 1
+            num = f'{self.chapter}.{self.eqno}'
+            for lab in re.findall(r'\\label\{([^}]*)\}', body):
+                LABELS[lab] = (num, 'equation', f'{self.chapter}.{self.section}')
+            return 'inline', display_math(f'\\begin{{equation*}}{body}\\tag{{{num}}}\\end{{equation*}}'), end
+        if env in ('align*', 'align', 'equation*', 'gather*', 'gather', 'multline*'):
             return 'inline', display_math(f'\\begin{{{env}}}{body}\\end{{{env}}}'), end
         if env == 'solution':
             return 'blocks', [self.solution(body)], end
@@ -555,9 +591,14 @@ class Book:
         title = ''
         if titled:
             title_tex, j = read_arg(s, j)
+            self.in_title = True
             title = finish_inline(self.inline(title_tex)).strip()
+            self.in_title = False
         content_tex, j = read_arg(s, j)
         num = self.number(kind)
+        if num:
+            for lab in re.findall(r'\\label\{([^}]*)\}', content_tex):
+                LABELS[lab] = (num, kind, f'{self.chapter}.{self.section}')
         content = self.md(content_tex)
         if kind == 'proof':
             title = proof_title(title, content)
@@ -591,16 +632,29 @@ class Book:
     def list_md(self, env, opt, body):
         ordered = env == 'enumerate'
         style = LIST_STYLES.get((opt or '').strip()) if opt else None
+        depth = getattr(self, 'list_depth', 0)
+        resume = ordered and (opt or '').strip() == 'resume'
+        if ordered and (not opt or resume):
+            # book-style.tex: \setlist[enumerate]{label=(\alph*)}, level 2 (\roman*)
+            style = 'paren-alpha' if depth == 0 else 'paren-roman'
+            opt = None
         if opt and not style and ordered:
             warn(f'{self.src_name}: enumerate label {opt!r} shown as 1. 2. 3.')
         items = split_items(body)
+        last = getattr(self, 'last_enum', {})
+        self.last_enum = last
+        first_idx = last.get(depth, 0) + 1 if resume else 1
+        if ordered:
+            last[depth] = first_idx - 1 + len(items)
         lines = []
         if style:
             lines.append(f'<!-- list:{style} -->')
             lines.append('')
-        for idx, (label, item) in enumerate(items, 1):
+        for idx, (label, item) in enumerate(items, first_idx if ordered else 1):
             marker = f'{idx}. ' if ordered else '- '
+            self.list_depth = depth + (1 if ordered else 0)
             blocks = self.blocks(item)
+            self.list_depth = depth
             if label is not None and env == 'description':
                 blocks = [f'**{finish_inline(self.inline(label))}** ' + (blocks[0] if blocks else '')] + blocks[1:]
             if not blocks:
@@ -860,84 +914,112 @@ def main():
     if not inputs:
         sys.exit('master.tex has no \\input{lecture_XX}')
 
-    book = Book(args.course)
-    book.today = meta.get('date', '')
-    chapters, pages = [], []
+    COURSE[0] = args.course
 
-    for inp in inputs:
-        fname = inp if inp.endswith('.tex') else inp + '.tex'
-        raw = open(os.path.join(src, fname), encoding='utf-8').read()
-        tex = strip_comments(raw)
-        m = re.search(r'\\begin\{document\}(.*)\\end\{document\}', tex, re.S)
-        tex = m.group(1) if m else tex
-        lm = re.search(r'\\lecture\s*\{(\d+)\}\s*\{', tex)
-        if not lm:
-            warn(f'{fname}: no \\lecture{{N}}{{Title}}; skipped')
-            continue
-        n = int(lm.group(1))
-        title_tex, after = read_group(tex, lm.end() - 1)
-        # The preamble defines \lecture with three arguments and ignores the
-        # third, so TeX swallows whatever comes next: a paragraph break, or the
-        # first character of the text (lecture 3's stray "." disappears this way).
-        k = skip_space(tex, after, newlines=False)
-        if tex.startswith('\n', k):
-            k2 = skip_space(tex, k + 1, newlines=False)
-            if not tex.startswith('\n', k2):
-                _, after = read_arg(tex, k2)
-        else:
-            _, after = read_arg(tex, k)
-        body = tex[after:]
-        book.start_lecture(n, fname)
-        ch_title = finish_inline(book.inline(title_tex)).strip()
-        intro, parts = lecture_parts(body)
-        sections = []
-        part_label = None
+    def convert(final):
+        """One pass over the book. The first pass collects \\label targets and page
+        slugs; the second writes the pages with every \\ref resolved."""
+        MATH.clear()
+        if final:
+            warnings.clear()
+        book = Book(args.course)
+        book.final_pass = final
+        book.today = meta.get('date', '')
+        chapters, pages = [], []
+        n, sec_no, sections, part_label = None, 0, None, None
 
-        def emit(number, title, content_md, extra=None):
-            prev = old_slugs.get(number)
-            new_slug = f"{number.replace('.', '-')}-{slugify(title)}".strip('-')
-            slug = prev[0] if prev and slugify(prev[1]).split('-')[:2] == slugify(title).split('-')[:2] else new_slug
-            entry = {'number': number, 'slug': slug, 'title': title}
-            if part_label:
-                entry['part'] = part_label
-            sections.append(entry)
-            pages.append((slug, number, title, n, fname, content_md))
-
-        # material before the first \section
-        book.subsection = 0
-        intro_md = ''
-        if intro.strip():
-            if has_numbered(intro):
-                first_sub = re.match(r'\s*\\subsection\*?\s*\{', intro)
-                title = section_titles.get(f'{n}.0')
-                if not title and first_sub:
-                    title = finish_inline(book.inline(read_group(intro, first_sub.end() - 1)[0])).strip()
-                title = title or ch_title
-                content = book.md(intro)
-                emit(f'{n}.0', title, content)
+        for inp in inputs:
+            fname = inp if inp.endswith('.tex') else inp + '.tex'
+            raw = open(os.path.join(src, fname), encoding='utf-8').read()
+            tex = strip_comments(raw)
+            m = re.search(r'\\begin\{document\}(.*)\\end\{document\}', tex, re.S)
+            tex = m.group(1) if m else tex
+            lm = re.search(r'\\lecture\s*\{(\d+)\}\s*\{', tex)
+            if lm:
+                n = int(lm.group(1))
+                title_tex, after = read_group(tex, lm.end() - 1)
+                # The preamble defines \\lecture with three arguments and ignores the
+                # third, so TeX swallows whatever comes next: a paragraph break, or the
+                # first character of the text.
+                k = skip_space(tex, after, newlines=False)
+                if tex.startswith('\n', k):
+                    k2 = skip_space(tex, k + 1, newlines=False)
+                    if not tex.startswith('\n', k2):
+                        _, after = read_arg(tex, k2)
+                else:
+                    _, after = read_arg(tex, k)
+                body = tex[after:]
+                book.start_lecture(n, fname)
+                ch_title = finish_inline(book.inline(title_tex)).strip()
+                sections, sec_no, part_label = [], 0, None
+                chapters.append({'number': n, 'title': ch_title, 'sections': sections})
+                continuing = False
+            elif n is not None:
+                # A file without \\lecture continues the previous chapter
+                # (lecture_09b.tex is the second half of Chapter 9).
+                body = tex
+                book.src_name = fname
+                continuing = True
             else:
-                intro_md = book.md(intro)
-
-        sec_no = 0
-        for kind, title_tex, content_tex in parts:
-            if kind == 'part':
-                # \part*{I. Commutative Ring Theory} \addcontentsline{toc}{section}{Part I: ...}
-                acl = re.search(r'\\addcontentsline\{[^}]*\}\{[^}]*\}\{((?:[^{}]|\{[^{}]*\})*)\}', content_tex)
-                part_label = finish_inline(book.inline(acl.group(1) if acl else title_tex)).strip()
-                if content_tex.strip() and re.sub(r'\\addcontentsline\{[^}]*\}\{[^}]*\}\{(?:[^{}]|\{[^{}]*\})*\}', '', content_tex).strip():
-                    warn(f'{fname}: text between \\part and the next \\section was dropped')
+                warn(f'{fname}: no \\lecture{{N}}{{Title}}; skipped')
                 continue
-            sec_no += 1
-            number = f'{n}.{sec_no}'
-            book.start_section(str(sec_no))
-            book.subsection = 0
-            title = section_titles.get(number) or finish_inline(book.inline(title_tex)).strip()
-            content = book.md(content_tex)
-            if sec_no == 1 and intro_md:
-                content = f':::lede\n{intro_md}\n:::\n\n{content}'
-            emit(number, title, content)
+            intro, parts = lecture_parts(body)
 
-        chapters.append({'number': n, 'title': ch_title, 'sections': sections})
+            def emit(number, title, content_md):
+                prev = old_slugs.get(number)
+                new_slug = f"{number.replace('.', '-')}-{slugify(title)}".strip('-')
+                slug = prev[0] if prev and slugify(prev[1]).split('-')[:2] == slugify(title).split('-')[:2] else new_slug
+                entry = {'number': number, 'slug': slug, 'title': title}
+                if part_label:
+                    entry['part'] = part_label
+                sections.append(entry)
+                SECTION_SLUGS[number] = slug
+                pages.append((slug, number, title, n, fname, content_md))
+
+            # material before the first \\section
+            book.subsection = 0
+            intro_md = ''
+            if intro.strip() and not continuing:
+                if has_numbered(intro):
+                    first_sub = re.match(r'\s*\\subsection\*?\s*\{', intro)
+                    title = section_titles.get(f'{n}.0')
+                    if not title and first_sub:
+                        title = finish_inline(book.inline(read_group(intro, first_sub.end() - 1)[0])).strip()
+                    title = title or ch_title
+                    content = book.md(intro)
+                    emit(f'{n}.0', title, content)
+                else:
+                    intro_md = book.md(intro)
+            elif intro.strip() and book.md(intro).strip():
+                warn(f'{fname}: text before the first \\section of a continuation file was dropped')
+
+            for kind, title_tex, content_tex in parts:
+                if kind == 'part':
+                    acl = re.search(r'\\addcontentsline\{[^}]*\}\{[^}]*\}\{((?:[^{}]|\{[^{}]*\})*)\}', content_tex)
+                    part_label = finish_inline(book.inline(acl.group(1) if acl else title_tex)).strip()
+                    continue
+                sec_no += 1
+                number = f'{n}.{sec_no}'
+                book.start_section(str(sec_no))
+                book.subsection = 0
+                # labels outside any box (right after \\section) name the section
+                for lab in re.findall(r'\\label\{([^}]*)\}', content_tex):
+                    LABELS[lab] = (number, 'section', number)
+                # a label right after \\subsection{..} names the subsection
+                for k, sm in enumerate(re.finditer(r'\\subsection\s*\{', content_tex), 1):
+                    _, e = read_group(content_tex, sm.end() - 1)
+                    lm2 = re.match(r'\s*\\label\{([^}]*)\}', content_tex[e:])
+                    if lm2:
+                        LABELS[lm2.group(1)] = (f'{number}.{k}', 'section', number)
+                title = section_titles.get(number) or finish_inline(book.inline(title_tex)).strip()
+                content = book.md(content_tex)
+                if sec_no == 1 and intro_md:
+                    content = f':::lede\n{intro_md}\n:::\n\n{content}'
+                emit(number, title, content)
+        return book, chapters, pages
+
+    convert(final=False)
+    book, chapters, pages = convert(final=True)
 
     # "Lecture 3" in bold → a link to that chapter's first page
     first_page = {ch['number']: ch['sections'][0]['slug'] for ch in chapters if ch['sections']}

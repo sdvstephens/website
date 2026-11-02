@@ -3,80 +3,133 @@
 course: math-55a
 chapter: 2
 section: 2.2
-title: Fundamental examples
+title: Fundamental Examples
 ---
 
-## <span class="num">2.2.1</span> Integers and modular arithmetic
+Groups, like sets, can be finite, countably infinite, or uncountable (Section [1.7](/notes/math-55a/1-7-cardinality)); our examples include all three kinds.
 
-:::example{2.2.1} The integers
-The set $(\mathbb{Z}, +)$ is an abelian group with identity $0$ and inverse $-n$ for each $n$. This is the prototypical infinite cyclic group.
+:::example{2.2.1} The trivial group
+The one-element set $\{e\}$ with $ee = e$ is a group, the ***trivial group***. It is rarely an interesting example.
 :::
 
-:::example{2.2.2} Integers mod $n$
-$\mathbb{Z}/n\mathbb{Z} = \{0, 1, 2, \ldots, n-1\}$ with addition mod $n$: $$a + b \coloneqq \begin{cases}
-    a + b & \text{if } a + b < n \\
+## <span class="num">2.2.1</span> Integers and Modular Arithmetic
+
+:::example{2.2.2} The integers
+The set $(\ZZ, +)$ is an abelian group with identity $0$ and inverse $-n$ for each $n$; so are $\QQ$, $\RR$, and $\CC$ under addition. The natural numbers $(\NN,+)$, by contrast, form only a monoid, since $1$ has no inverse in $\NN$. We will see that $\ZZ$ is the prototypical infinite cyclic group (Theorem [2.6.2](/notes/math-55a/2-6-orders-of-elements-and-cyclic-groups#theorem-2-6-2)).
+:::
+
+:::example{2.2.3} Integers mod $n$
+For an integer $n\ge 1$, let $\ZZ/n\ZZ = \{0, 1, 2, \ldots, n-1\}$, also written $\ZZ/n$, with ***addition mod $n$***: $$a +_n b \coloneqq \begin{cases}
+    a + b & \text{if } a + b < n, \\
     a + b - n & \text{if } a + b \ge n.
-\end{cases}$$ Identity is $0$, inverse of $a$ is $n - a$ (mod $n$). This is an abelian group of order $n$.
+\end{cases}$$ Thus $a+_nb$ is the remainder of $a+b$ on division by $n$. The identity is $0$, and the inverse of $a\neq 0$ is $n - a$. For associativity, note that $a+_nb$ differs from $a+b$ by a multiple of $n$; hence $(a+_nb)+_nc$ and $a+_n(b+_nc)$ are both remainders of $a+b+c$ on division by $n$, and remainders are unique (Example [1.2.9](/notes/math-55a/1-2-relations#example-1-2-9)). So $\ZZ/n\ZZ$ is an abelian group of order $n$. We usually write $+$ for $+_n$.
 :::
 
-:::proposition{2.2.1} Units mod $n$
-The set $(\mathbb{Z}/n\mathbb{Z})^\times = \{a \in \mathbb{Z}/n\mathbb{Z} : \gcd(a, n) = 1\}$ forms a group under multiplication mod $n$. Its order is $\varphi(n)$, Euler’s totient function.
+In Example [1.6.5](/notes/math-55a/1-6-quotient-sets-and-fibers#example-1-6-5) we met the same group as the quotient set of $\ZZ$ by congruence mod $n$, with $[a]+[b] = [a+b]$; the bijection $r\mapsto[r]$ matches the two descriptions. The quotient description is the better one, and the next chapter develops it for arbitrary groups.
+
+:::example{2.2.4} The circle $\RR/\ZZ$
+Similarly, let $\RR/\ZZ = [0,1)\subseteq\RR$ with ***addition mod $1$***: $$a +_1 b \coloneqq \begin{cases}
+    a + b & \text{if } a + b < 1, \\
+    a + b - 1 & \text{if } a + b \ge 1.
+\end{cases}$$ Here $a+_1b$ is the fractional part of $a+b$, and the argument used for $\ZZ/n\ZZ$ shows that $\RR/\ZZ$ is an abelian group with identity $0$, the inverse of $a\neq 0$ being $1-a$. Wrapping $[0,1)$ around a circle of circumference $1$ turns addition mod $1$ into the addition of angles (Example [2.5.7](/notes/math-55a/2-5-homomorphisms#example-2-5-7)). The group $\RR/\ZZ$ reappears in the next chapter as the quotient of $\RR$ by its subgroup $\ZZ$.
 :::
 
-:::proof Proof that units form a group
-**Closure:** If $\gcd(a, n) = \gcd(b, n) = 1$, then $\gcd(ab, n) = 1$ (if a prime $p$ divides both $ab$ and $n$, it divides $a$ or $b$ by Euclid’s lemma—which we cite ahead of its proof below—contradicting coprimality).
+## <span class="num">2.2.2</span> Multiplicative Groups
 
-**Identity:** $1$ is coprime to $n$.
-
-**Inverses:** If $\gcd(a, n) = 1$, then by Bézout’s identity (cited here ahead of its proof in the subsection below), $\exists r, s$ with $ra + sn = 1$. Thus $ra \equiv 1 \pmod{n}$, so $r$ is a multiplicative inverse.
+:::example{2.2.5} Nonzero numbers
+$\QQ^* = \QQ \setminus \{0\}$, $\RR^* = \RR \setminus \{0\}$, and $\CC^* = \CC \setminus \{0\}$ are abelian groups under multiplication, with identity $1$ and inverse $1/x$.
 :::
 
-## <span class="num">2.2.2</span> Multiplicative groups of fields
-
-:::example{2.2.3} Multiplicative groups
-$\mathbb{Q}^* = \mathbb{Q} \setminus \{0\}$, $\mathbb{R}^* = \mathbb{R} \setminus \{0\}$, and $\mathbb{C}^* = \mathbb{C} \setminus \{0\}$ are abelian groups under multiplication, with identity $1$ and inverse $1/x$.
+:::example{2.2.6} The circle group
+The unit circle $S^1 = \{z \in \CC : |z| = 1\}$ is a group under multiplication, since $|zw| = |z||w|$ and $|1/z| = 1/|z|$. It is a *compact* abelian group and plays a role in Fourier analysis and representation theory. We will see in Example [2.5.7](/notes/math-55a/2-5-homomorphisms#example-2-5-7) that $t\mapsto e^{2\pi i t}$ identifies $\RR/\ZZ$ with $S^1$.
 :::
 
-:::example{2.2.4} The circle group
-The unit circle $S^1 = \{z \in \mathbb{C} : |z| = 1\}$ is a group under multiplication. It is isomorphic to $\mathbb{R}/\mathbb{Z}$ via $t \mapsto e^{2\pi i t}$. This is a *compact* abelian group and plays a role in Fourier analysis and representation theory.
+:::example{2.2.7} Roots of unity
+For each $n \ge 1$, the $n$th roots of unity $\mu_n = \{z \in \CC : z^n = 1\} = \{e^{2\pi i k/n} : k = 0, 1, \ldots, n-1\}$ form a group of order $n$ under multiplication: if $z^n = w^n = 1$, then $(zw)^n = 1$ and $(z^{-1})^n = 1$. We will see that $\mu_n$ is cyclic and isomorphic to $\ZZ/n\ZZ$ (Example [2.6.3](/notes/math-55a/2-6-orders-of-elements-and-cyclic-groups#example-2-6-3)).
 :::
 
-:::example{2.2.5} Roots of unity
-For each $n \ge 1$, the $n$th roots of unity $\mu_n = \{z \in \mathbb{C} : z^n = 1\} = \{e^{2\pi i k/n} : k = 0, 1, \ldots, n-1\}$ form a cyclic group of order $n$ under multiplication. We have $\mu_n \cong \mathbb{Z}/n\mathbb{Z}$.
+## <span class="num">2.2.3</span> Symmetric Groups and Cycle Notation
+
+:::definition{2.2.8} Permutation groups
+A ***permutation*** of a set $X$ is a bijection $\sigma : X \to X$. The set of all permutations of $X$, with composition as the law of composition, is denoted $\Sym(X)$ (also $\operatorname{Perm}(X)$).
 :::
 
-## <span class="num">2.2.3</span> Symmetric and permutation groups
-
-:::definition{2.2.1} Permutation group
-A ***permutation*** of a set $X$ is a bijection $\sigma : X \to X$. The set of all permutations of $X$ forms a group $\Sym(X)$ under composition, with identity $\id_X$ and inverse $\sigma^{-1}$.
+:::proposition{2.2.9} Permutations form a group
+$\Sym(X)$ is a group under composition, with identity $\id_X$; the inverse of $\sigma$ is the inverse function $\sigma^{-1}$.
 :::
 
-:::definition{2.2.2} Symmetric group
-The ***symmetric group*** on $n$ letters is $S_n = \Sym(\{1, 2, \ldots, n\})$. It has order $n!$ and is non-abelian for $n \ge 3$.
+:::proof
+A composite of bijections is a bijection (Proposition [1.5.6](/notes/math-55a/1-5-inverses-and-composites#proposition-1-5-6)), so composition is a law of composition on $\Sym(X)$, and it is associative by Proposition [1.5.4](/notes/math-55a/1-5-inverses-and-composites#proposition-1-5-4). The identity map $\id_X$ is a bijection with $\sigma\circ\id_X = \sigma = \id_X\circ\sigma$. Each $\sigma$ has an inverse function $\sigma^{-1}$, which is a bijection with $\sigma\circ\sigma^{-1} = \id_X = \sigma^{-1}\circ\sigma$ (Proposition [1.5.5](/notes/math-55a/1-5-inverses-and-composites#proposition-1-5-5)).
 :::
 
-:::example{2.2.6} Symmetries of a triangle
-$S_3$ can be visualized as symmetries of an equilateral triangle: 3 rotations (including identity) and 3 reflections.
+As with all maps, we compose permutations right to left: $\sigma\tau = \sigma\circ\tau$ means apply $\tau$ first, then $\sigma$.
+
+:::definition{2.2.10} Symmetric group
+The ***symmetric group*** on $n$ letters is $S_n = \Sym(\{1, 2, \ldots, n\})$.
+:::
+
+A permutation $\sigma\in S_n$ is determined by the list $\sigma(1),\ldots,\sigma(n)$, which contains each of $1,\ldots,n$ exactly once. There are $n$ choices for $\sigma(1)$, then $n-1$ for $\sigma(2)$, and so on, so $|S_n| = n!$. To write permutations down efficiently we use cycles.
+
+:::definition{2.2.11} Cycles
+Let $a_1,\ldots,a_k$ be distinct elements of $\{1,\ldots,n\}$. The ***cycle*** $(a_1\,a_2\,\cdots\,a_k)\in S_n$ is the permutation that sends $$a_1\mapsto a_2\mapsto\cdots\mapsto a_k\mapsto a_1$$ and fixes every other element. A cycle with $k$ entries is a ***$k$-cycle***, and a $2$-cycle $(a\,b)$, which swaps $a$ and $b$, is a ***transposition***. Two cycles are ***disjoint*** if they have no entries in common.
+:::
+
+The same cycle can be written starting from any of its entries: $(1\,2\,3) = (2\,3\,1) = (3\,1\,2)$. Its inverse runs backwards, $(a_1\,a_2\,\cdots\,a_k)^{-1} = (a_k\,\cdots\,a_2\,a_1)$, and a $1$-cycle $(a)$ is the identity, usually written $e$. Disjoint cycles move disjoint sets of elements, so they commute. Every permutation is a product of disjoint cycles; this is proved in the next chapter (Theorem [3.4.1](/notes/math-55a/3-4-the-symmetric-group#theorem-3-4-1)).
+
+:::example{2.2.12} Composing cycles
+In $S_3$, compute $(1\,2)(2\,3)$, remembering that the right-hand factor acts first: $$1\xmapsto{(2\,3)}1\xmapsto{(1\,2)}2,\qquad 2\xmapsto{(2\,3)}3\xmapsto{(1\,2)}3,\qquad 3\xmapsto{(2\,3)}2\xmapsto{(1\,2)}1.$$ So $(1\,2)(2\,3) = (1\,2\,3)$. In the other order, $1\mapsto 2\mapsto 3$, $2\mapsto 1\mapsto 1$, and $3\mapsto 3\mapsto 2$, so $(2\,3)(1\,2) = (1\,3\,2)$. Since the two products differ, $S_3$ is non-abelian. The same computation in $S_n$, where the letters other than $1,2,3$ are fixed, shows that $S_n$ is non-abelian for every $n\ge 3$.
+:::
+
+:::example{2.2.13} Symmetries of a triangle
+$S_3$ can be visualized as the symmetries of an equilateral triangle: the rigid motions of the plane that carry the triangle onto itself. There are 3 rotations (including the identity) and 3 reflections.
 
 ![fig-2-2-1](/notes/math-55a/figures/fig-2-2-1.svg)
 
-Labeling vertices $1, 2, 3$, rotations give permutations $e, (123), (132)$ and reflections give $(12), (13), (23)$. Thus $|S_3| = 6$.
+Labeling the vertices $1, 2, 3$, each symmetry permutes the vertices: the rotations give $e$, $(1\,2\,3)$, and $(1\,3\,2)$, and the reflections give $(1\,2)$, $(1\,3)$, and $(2\,3)$. These are six distinct permutations, and $|S_3| = 3! = 6$, so every permutation of the vertices comes from exactly one symmetry. Moreover, composing two symmetries composes the corresponding permutations. So $S_3$ also occurs as the group of symmetries of the triangle.
 :::
 
-## <span class="num">2.2.4</span> Matrix groups
+## <span class="num">2.2.4</span> Dihedral Groups
 
-:::definition{2.2.3} General linear group
-The ***general linear group*** $\GL_n(\mathbb{F})$ is the group of invertible $n \times n$ matrices over a field $\mathbb{F}$, under matrix multiplication. A matrix is invertible iff its determinant is nonzero.
+The triangle is the first of a family of examples, one for each regular polygon.
+
+:::definition{2.2.14} Dihedral groups
+Let $n\ge 3$. The ***dihedral group*** $D_n$ is the group of symmetries of a regular $n$-gon in the plane: its elements are the rigid motions of the plane that carry the $n$-gon onto itself, and its law of composition is composition of maps. We write $r$ for the counterclockwise rotation by $2\pi/n$ about the center, and $s$ for the reflection across a fixed line through the center and a vertex. As Proposition [2.2](/notes/math-55a/2-2-fundamental-examples) shows, $D_n$ has exactly $2n$ elements, the rotations $r^k$ and the reflections $r^ks$ ($0\le k\le n-1$), and $$r^n = e,\qquad s^2 = e,\qquad srs^{-1} = r^{-1}.$$
 :::
 
-:::definition{2.2.4} Special linear group
-The ***special linear group*** $\SL_n(\mathbb{F}) = \{A \in \GL_n(\mathbb{F}) : \det(A) = 1\}$ is a subgroup of $\GL_n(\mathbb{F})$.
+Composites and inverses of symmetries are symmetries, and composition of maps is associative, so $D_n$ is indeed a group.
+
+:::proposition{2.2.15} Structure of $D_n$
+The group $D_n$ has exactly $2n$ elements, $$D_n = \{e, r, r^2, \ldots, r^{n-1}, s, sr, sr^2, \ldots, sr^{n-1}\},$$ where $r^k$ is the rotation by $2\pi k/n$ and the $sr^k$ are the $n$ reflections. These elements satisfy $$r^n = e,\qquad s^2 = e,\qquad srs^{-1} = r^{-1}\quad(\text{equivalently, } sr = r^{-1}s).$$ Consequently $sr^k = r^{-k}s$ for all $k$, and the reflections can equally be written $r^ks$ ($0\le k\le n-1$): $D_n = \{r^k, r^ks\mid 0\le k\le n-1\}$.
 :::
+
+:::proof
+We use two facts from plane geometry: a symmetry of the $n$-gon permutes its vertices and carries adjacent vertices to adjacent vertices, and a symmetry is determined by what it does to the vertices. Number the vertices $0,1,\ldots,n-1$ counterclockwise, with vertex $0$ on the axis of $s$, and read vertex numbers mod $n$. Then, on vertices, $$r^m(j) = j+m,\qquad s(j) = -j,\qquad sr^m(j) = -j-m.$$ The first formula gives $r^n = e$, and the second gives $s^2 = e$, so $s^{-1} = s$. Also $srs^{-1}(j) = s(r(s(j))) = s(1-j) = j-1$, so $srs^{-1} = r^{-1}$; multiplying on the right by $s$ gives $sr = r^{-1}s$. Raising $srs^{-1} = r^{-1}$ to the $k$th power gives $sr^ks^{-1} = r^{-k}$, that is, $sr^k = r^{-k}s$; as $k$ runs over $0,\ldots,n-1$, so does the exponent of $r^{-k} = r^{n-k}$ taken mod $n$, so $\{sr^k\} = \{r^ks\}$.
+
+The $2n$ maps $j\mapsto j+m$ and $j\mapsto -j-m$ ($0\le m\le n-1$) are distinct: two maps of the same kind differ at $j=0$, and if $j+m\equiv -j-m'$ for all $j$, then taking $j = 0$ and $j = 1$ gives $2\equiv 0\pmod n$, which is impossible for $n\ge 3$. On the other hand, a symmetry $\sigma$ is determined by $\sigma(0)$, one of the $n$ vertices, and $\sigma(1)$, one of the two neighbors of $\sigma(0)$: once two adjacent vertices are placed, adjacency forces the images of the others, going around the polygon. So there are at most $2n$ symmetries, and the list is complete. The $r^m$ are the $n$ rotations. The $n$-gon also has $n$ reflection symmetries, across the lines through the center and a vertex or the midpoint of an edge; so the reflections are the remaining elements $sr^m$.
+:::
+
+For $n = 3$, the $6$ symmetries realize all $3! = 6$ permutations of the vertices, as in Example [2.2.13](/notes/math-55a/2-2-fundamental-examples#example-2-2-13). For $n\ge 4$ we have $2n<n!$, so most permutations of the vertices do not come from symmetries. Since $r^{-1}\neq r$ for $n\ge 3$, the relation $sr = r^{-1}s$ shows that $sr\neq rs$: every dihedral group is non-abelian.
+
+:::example{2.2.16} Symmetries of the square
+The group $D_4$ of symmetries of the square has $8$ elements: the rotations $e, r, r^2, r^3$ by $0$, $\pi/2$, $\pi$, and $3\pi/2$, and four reflections.
+
+![fig-2-2-2](/notes/math-55a/figures/fig-2-2-2.svg)
+
+With the vertices numbered as shown and $s$ the reflection across the diagonal through vertices $0$ and $2$, the formula $sr^m(j) = -j-m$ identifies the reflections: $sr$ swaps $0\leftrightarrow 3$ and $1\leftrightarrow 2$, so it is the reflection across the horizontal axis; $sr^2$ is the reflection across the diagonal through vertices $1$ and $3$; and $sr^3$ swaps $0\leftrightarrow 1$ and $2\leftrightarrow 3$, so it is the reflection across the vertical axis. In particular $rs = sr^{-1} = sr^3$ and $sr$ are the reflections across the two axes, which differ.
+:::
+
+## <span class="num">2.2.5</span> Matrix Groups
+
+:::definition{2.2.17} General linear group
+The ***general linear group*** $\GL_n(\RR)$ is the group of invertible $n \times n$ real matrices under matrix multiplication. It is a group: matrix multiplication is associative, the identity matrix $I$ is an identity, and a product of invertible matrices is invertible, with $(AB)^{-1} = B^{-1}A^{-1}$. In the same way we have $\GL_n(\CC)$ and $\GL_n(\QQ)$; once fields are defined (Definition [4.1.6](/notes/math-55a/4-1-rings-and-fields#definition-4-1-6)), $\GL_n(k)$ makes sense for any field $k$.
+:::
+
+Inside $\GL_n(k)$ sits the ***special linear group*** $\SL_n(k)$ of matrices with determinant $1$. Determinants are the subject of Section [5.4](/notes/math-55a/5-4-determinants), where we prove that a matrix is invertible if and only if its determinant is nonzero (Theorem [5.4.8](/notes/math-55a/5-4-determinants#theorem-5-4-8)) and that $\det(AB) = \det(A)\det(B)$ (Theorem [5.4.7](/notes/math-55a/5-4-determinants#theorem-5-4-7)); so $\SL_n(k)$ is a subgroup of $\GL_n(k)$. Until then $\SL_n$ appears only in examples.
 
 :::note
-Matrix groups are our first examples of *Lie groups*—groups that are also smooth manifolds. They are, in my opinion, the most exciting part of representation theory: a representation of $G$ is a homomorphism $\rho : G \to \GL_n(\mathbb{F})$, making $G$ act on $\mathbb{F}^n$ by linear transformations.
+Matrix groups over $\RR$ and $\CC$ are our first examples of *Lie groups*—groups that are also smooth manifolds. (Over a finite field such as $\ZZ/p\ZZ$, by contrast, $\GL_n$ is a finite group.) They are, in my opinion, the most exciting part of representation theory: a representation of $G$ is a homomorphism $\rho : G \to \GL_n(k)$ (Definition [13.1.1](/notes/math-55a/13-1-representations-and-subrepresentations#definition-13-1-1); homomorphisms are defined in Section [2.5](/notes/math-55a/2-5-homomorphisms)), making $G$ act on $k^n$ by linear transformations.
 :::
 
-:::example{2.2.7} Non-abelian example
-In $\GL_2(\mathbb{R})$, let $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$. Then: $$AB = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} \neq \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix} = BA.$$ So $\GL_2(\mathbb{R})$ is non-abelian.
+:::example{2.2.18} A non-abelian matrix group
+In $\GL_2(\RR)$, let $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$. Then $$AB = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} \neq \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix} = BA.$$ So $\GL_2(\RR)$ is non-abelian.
 :::

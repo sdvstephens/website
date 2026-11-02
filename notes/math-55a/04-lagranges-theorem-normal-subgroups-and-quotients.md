@@ -195,7 +195,7 @@ $$
 S_3 \overset{\text{sign}}{\twoheadrightarrow} \{\pm 1\} \cong \ZZ/2, \qquad \text{rotations} \mapsto +1, \quad \text{reflections} \mapsto -1.
 $$
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 5](/notes/math-55a/05-exact-sequences-permutations-free-groups-rings-and-fields)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L05}}
 :::definition
 Say a group $G$ is **simple** if it has no normal subgroups other than $G$ and $\{e\}$.
 :::

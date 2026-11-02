@@ -189,7 +189,7 @@ of $\dim V_i\in\{1,2\}$, and
 
 This gives a very nice way to think about an individual transformation as built from reflections and rotations on individual subspaces, but it’s pretty useless for understanding the composition of two orthogonal transformations (whose invariant subspaces are unrelated).
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 17](/notes/math-55a/17-hermitian-inner-products-the-complex-spectral-theorem-and-classifying-bilinear-forms)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L17}}
 **Hermitian inner products**
 
 Now on to the analogue of all this for complex vector spaces: **Hermitian inner products**.

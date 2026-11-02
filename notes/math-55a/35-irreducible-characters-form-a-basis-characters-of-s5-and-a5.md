@@ -177,7 +177,7 @@ The standard representation $V$ and its exterior powers $\Lambda^2V$, $\Lambda^3
 | $W$ | 5 | 1 | $-1$ | $-1$ | 0 | 1 | 1 |
 | $W' = W\otimes U'$ | 5 | $-1$ | $-1$ | 1 | 0 | 1 | $-1$ |
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 36](/notes/math-55a/36-restriction-induction-and-frobenius-reciprocity)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L36}}
 **Representations of $A_5$**
 
 Next, move on to $A_5$. The starting point is to restrict the irreducible representations of $S_5$ to $A_5$ and see which ones remain irreducible or decompose. Of course, different irreducible representations of $S_5$ can become isomorphic after restriction: namely, elements of $A_5$ act by $\id$ on $U'$, so $U'$ becomes trivial, and the restrictions of $V$ and $V' = V\otimes U'$ become isomorphic; similarly for $W$. The character table of $S_5$ gives, after restriction:

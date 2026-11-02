@@ -125,7 +125,7 @@ $$\chi_{\operatorname{Ind}W}(g) = \sum_{\substack{\sigma_i\in G/H\\ \text{s.t. }
 
 A key property for understanding induced representations is **Frobenius reciprocity**.
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 37](/notes/math-55a/37-frobenius-reciprocity-real-and-quaternionic-representations)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L37}}
 :::proposition
 If $U$ is a representation of $G$, and $W$ a representation of $H$, then every $H$-equivariant map $W\to\operatorname{Res}(U)$ extends uniquely to a $G$-equivariant map $\operatorname{Ind}(W)\to U$:
 $$\Hom_H(W,\operatorname{Res}(U))\simeq\Hom_G(\operatorname{Ind}(W),U).$$
@@ -183,7 +183,7 @@ Every character of a representation of $G$ is a linear combination with *rationa
 :::
 
 :::theorem Brauer
-Every character of a representation of $G$ is a linear combination with *integer* coefficients of characters of representations induced from 1-dimensional representations of *”elementary”* subgroups of $G$,
+Every character of a representation of $G$ is a linear combination with *integer* coefficients of characters of representations induced from 1-dimensional representations of *“elementary”* subgroups of $G$,
 
 where **elementary** means isomorphic to a product $C\times H$, with $H$ a $p$-group ($|H| = p^k$) and $C$ cyclic, $C\simeq\ZZ/n$, $p\nmid n$.
 :::

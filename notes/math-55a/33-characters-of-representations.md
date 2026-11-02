@@ -127,7 +127,7 @@ The first column is $\chi_V(e) = \Tr(\id) = \dim V$. The row for $V$ comes *eith
 
 Now we have a faster way of decomposing $V \otimes V$ into irreducibles: $\chi_{V \otimes V}(g) = \chi_V(g)^2$, so $\chi_{V \otimes V}$ takes the values $(4, 0, 1)$. Since $\chi_U, \chi_{U'}, \chi_V$ are linearly independent and $\chi_{V \otimes V} = \chi_U + \chi_{U'} + \chi_V$, we get $V \otimes V \simeq U \oplus U' \oplus V$. (This is equivalent to counting eigenvalues as we did last time, but somewhat faster!)
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 34](/notes/math-55a/34-orthogonality-of-characters-and-character-tables)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L34}}
 **Some magic with characters**
 
 If $V$ is a representation of $G$, the **invariant part** is $V^G = \{v \in V \mid gv = v \ \forall g \in G\}$.

@@ -6,12 +6,14 @@ section: 16.3
 title: Characterizing Real Representations
 ---
 
+A map $\tau : V \to V$ of complex vector spaces is ***antilinear*** (or conjugate-linear) if $\tau(v + w) = \tau(v) + \tau(w)$ and $\tau(\lambda v) = \ol{\lambda}\,\tau(v)$ for all $v, w \in V$ and $\lambda \in \CC$. The composite of two antilinear maps is linear, and the composite of a linear and an antilinear map is antilinear.
+
 :::proposition{16.3.1} Antilinear involution criterion
-A complex representation $V$ of $G$ is real if and only if there exists a $G$-equivariant, complex antilinear map $\tau : V \to V$ (i.e. $\tau(\lambda v) = \ol{\lambda} \tau(v)$ for all $\lambda \in \CC$) with $\tau^2 = \id$.
+A complex representation $V$ of $G$ is real if and only if there is a $G$-equivariant antilinear map $\tau : V \to V$ with $\tau^2 = \id$.
 :::
 
 :::proof
-($\Rightarrow$) If $V = V_0 \otimes_{\RR} {\CC}$, define $\tau(v + iw) = v - iw$ for $v, w \in V_0$ (complex conjugation with respect to the real form $V_0$). Then $\tau$ is antilinear, $\tau^2 = \id$, and $G$-equivariant since $g$ preserves $V_0$.
+($\Rightarrow$) If $V = (V_0)_{\CC}$, let $\tau(v + iw) = v - iw$ for $v, w \in V_0$: complex conjugation with respect to $V_0$. Then $\tau$ is antilinear, $\tau^2 = \id$, and $\tau$ is $G$-equivariant because each $g$ preserves $V_0$.
 
-($\Leftarrow$) Given such a $\tau$, every $v \in V$ decomposes as $$v = \underbrace{\frac{v + \tau(v)}{2}}_{\in V^{\tau}} + \underbrace{\frac{v - \tau(v)}{2}}_{\in V^{-\tau}}$$ where $V^\tau = \ker(\tau - \id)$ is the $+1$-eigenspace and $V^{-\tau} = \ker(\tau + \id)$ is the $-1$-eigenspace. Since $\tau$ is antilinear, $\tau(iv) = -i\tau(v)$, so $V^{-\tau} = iV^\tau$. Thus $V^\tau$ is an ${\RR}$-subspace (not a ${\CC}$-subspace!) with $V = V^\tau \oplus iV^\tau = V^\tau \otimes_{\RR} {\CC}$. Since $\tau$ is $G$-equivariant, $V_0 := V^\tau$ is preserved by $G$, giving a real representation with $V = V_0 \otimes_{\RR} {\CC}$.
+($\Leftarrow$) Let $V_0 = \{v \in V : \tau(v) = v\}$ and $V_1 = \{v \in V : \tau(v) = -v\}$. These are $\RR$-subspaces of $V$ (not $\CC$-subspaces), and every $v \in V$ decomposes as $$v = \underbrace{\frac{v + \tau(v)}{2}}_{\in V_0} + \underbrace{\frac{v - \tau(v)}{2}}_{\in V_1},$$ with $V_0 \cap V_1 = 0$. Since $\tau(iv) = -i\tau(v)$, multiplication by $i$ maps $V_0$ to $V_1$, and multiplication by $-i$ maps $V_1$ back to $V_0$; so $V_1 = iV_0$ and $V = V_0 \oplus iV_0$. Hence the map $(V_0)_{\CC} \to V$, $v + iw \mapsto v + iw$, is a $\CC$-linear isomorphism. Since $\tau$ commutes with every $g$, each $g$ preserves $V_0$, which is therefore a representation of $G$ over $\RR$, and the isomorphism $(V_0)_{\CC} \to V$ is $G$-equivariant.
 :::

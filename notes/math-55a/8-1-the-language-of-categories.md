@@ -7,7 +7,7 @@ title: The Language of Categories
 ---
 
 :::lede
-Many otherwise disparate fields of mathematics share fundamental structures. The language of categories systematizes these common patterns. While category theory won’t answer questions specific to a particular area, it suggests useful ways to think about problems by analogy with other settings. We’ve already encountered categorical ideas implicitly: the universal property of quotient spaces, the behavior of dual maps, and the isomorphism theorems all fit naturally into this framework.
+Many otherwise disparate fields of mathematics share fundamental structures. The language of categories systematizes these common patterns. While category theory won’t answer questions specific to a particular area, it suggests useful ways to think about problems by analogy with other settings. We’ve already encountered categorical ideas implicitly: the universal property of quotient spaces, the behavior of dual maps, and the isomorphism theorems all fit naturally into this framework. In this chapter we set up the basic vocabulary: categories, functors between them, natural transformations between functors, and universal properties.
 :::
 
 ## <span class="num">8.1.1</span> Objects and Morphisms
@@ -15,13 +15,13 @@ Many otherwise disparate fields of mathematics share fundamental structures. The
 The basic data of a category consists of objects and arrows between them, subject to axioms that capture the essential features of function composition.
 
 :::definition{8.1.1} Category
-A **category** $\mcC$ consists of:
+A ***category*** $\mcC$ consists of:
 
 <!-- list:paren-decimal -->
 
-1. A collection of **objects**, denoted $\operatorname{Ob}(\mcC)$.
-2. For every pair of objects $A, B \in \operatorname{Ob}(\mcC)$, a collection of **morphisms** from $A$ to $B$, denoted $\Mor(A, B)$ or $\Hom_{\mcC}(A, B)$.
-3. A **composition rule**: for every triple $A, B, C \in \operatorname{Ob}(\mcC)$, a map $$\Mor(A, B) \times \Mor(B, C) \longrightarrow \Mor(A, C)$$ sending $(f, g)$ to $g \circ f$.
+1. A collection of ***objects***, denoted $\operatorname{Ob}(\mcC)$.
+2. For every pair of objects $A, B \in \operatorname{Ob}(\mcC)$, a collection of ***morphisms*** from $A$ to $B$, denoted $\Mor(A, B)$ or $\Hom_{\mcC}(A, B)$.
+3. A ***composition rule***: for every triple $A, B, C \in \operatorname{Ob}(\mcC)$, a map $$\Mor(A, B) \times \Mor(B, C) \longrightarrow \Mor(A, C)$$ sending $(f, g)$ to $g \circ f$.
 
 These must satisfy two axioms:
 
@@ -35,9 +35,9 @@ These must satisfy two axioms:
 The identity morphism $\id_A$ is unique: if $\id_A'$ also satisfies the identity axiom, then $\id_A' = \id_A' \circ \id_A = \id_A$.
 :::
 
-We write $f : A \to B$ to indicate $f \in \Mor(A, B)$, and call $A$ the **domain** (or source) and $B$ the **codomain** (or target) of $f$.
+We write $f : A \to B$ to indicate $f \in \Mor(A, B)$, and call $A$ the ***domain*** (or source) and $B$ the ***codomain*** (or target) of $f$. When several categories are in play we write $\Mor_{\mcC}(A, B)$ to record the category.
 
-:::example{8.1.1} The category of sets
+:::example{8.1.2} The category of sets
 The category $\mathbf{Set}$ has:
 
 - Objects: all sets.
@@ -47,75 +47,75 @@ The category $\mathbf{Set}$ has:
 Variants include:
 
 - $\mathbf{FinSet}$: objects are finite sets, morphisms are functions.
-- $\mathbf{Set}_*$: **pointed sets**. Objects are pairs $(A, a)$ with $a \in A$ a distinguished element. Morphisms $(A, a) \to (B, b)$ are functions $f : A \to B$ with $f(a) = b$.
+- $\mathbf{Set}_*$: ***pointed sets***. Objects are pairs $(A, a)$ with $a \in A$ a distinguished element. Morphisms $(A, a) \to (B, b)$ are functions $f : A \to B$ with $f(a) = b$.
 :::
 
-:::example{8.1.2} The category of groups
+:::example{8.1.3} The category of groups
 The category $\mathbf{Grp}$ has:
 
 - Objects: all groups.
 - Morphisms: group homomorphisms.
 - Composition: composition of homomorphisms.
 
-The identity axiom holds because $\id_G : G \to G$ is a homomorphism. Variants:
+The identity axiom holds because $\id_G : G \to G$ is a homomorphism, and a composition of homomorphisms is a homomorphism. Variants:
 
 - $\mathbf{Ab}$: abelian groups and group homomorphisms.
 - $\mathbf{FinGrp}$: finite groups and homomorphisms.
 
-Similarly, we have categories $\mathbf{Ring}$ (rings and ring homomorphisms) and $\mathbf{CRing}$ (commutative rings).
+Similarly, we have categories $\mathbf{Ring}$ (rings and ring homomorphisms) and $\mathbf{CRing}$ (commutative rings and ring homomorphisms).
 :::
 
-:::example{8.1.3} The category of vector spaces
+:::example{8.1.4} The category of vector spaces
 Fix a field $k$. The category $\mathbf{Vect}_k$ has:
 
 - Objects: vector spaces over $k$.
 - Morphisms: $k$-linear maps.
 - Composition: composition of linear maps.
 
-The subcategory $\mathbf{FinVect}_k$ consists of finite-dimensional vector spaces. We’ve been studying $\mathbf{Vect}_k$ all along: $\Hom(V, W)$ is exactly $\Mor(V, W)$ in this category.
+The category $\mathbf{FinVect}_k$ has the finite-dimensional vector spaces over $k$ as objects, again with linear maps as morphisms. We’ve been studying $\mathbf{Vect}_k$ all along: $\Hom(V, W)$ is exactly $\Mor(V, W)$ in this category.
 :::
 
-:::example{8.1.4} The category of topological spaces
+:::example{8.1.5} The category of topological spaces
 The category $\mathbf{Top}$ has:
 
 - Objects: topological spaces.
 - Morphisms: continuous maps.
 - Composition: composition of continuous maps.
 
-The pointed variant $\mathbf{Top}_*$ has objects $(X, x_0)$ (a space with basepoint) and morphisms being continuous maps preserving basepoints. This category is fundamental in algebraic topology.
+The pointed variant $\mathbf{Top}_*$ has objects $(X, x_0)$ (a space with a basepoint) and morphisms the continuous maps preserving basepoints. This category is fundamental in algebraic topology.
 :::
 
 :::note
-In all these examples, objects are “decorated sets”—sets equipped with additional structure (a group operation, a topology, a vector space structure)—and morphisms are functions that respect this structure. This is typical of categories arising in practice, though the abstract definition permits more exotic examples. For instance, any poset $(P, \leq)$ defines a category: objects are elements of $P$, and $\Mor(a, b)$ contains a single element if $a \leq b$ and is empty otherwise. Composition is forced by transitivity.
+In all these examples, objects are “decorated sets”—sets equipped with additional structure (a group operation, a topology, a vector space structure)—and morphisms are functions that respect this structure. This is typical of categories arising in practice, though the abstract definition permits more exotic examples, such as the following one, in which morphisms are not functions at all.
 :::
 
-:::example{8.1.5} Posets as categories
+:::example{8.1.6} Posets as categories
 Let $(P, \leq)$ be a partially ordered set. Define a category $\mcC_P$ by:
 
 - $\operatorname{Ob}(\mcC_P) = P$.
-- $\Mor(a, b) = \begin{cases} \{*\} & \text{if } a \leq b \\ \varnothing & \text{otherwise} \end{cases}$
-- Composition: the unique element of $\Mor(a, b) \times \Mor(b, c)$ maps to the unique element of $\Mor(a, c)$ (by transitivity).
+- $\Mor(a, b) = \begin{cases} \{*\} & \text{if } a \leq b, \\ \varnothing & \text{otherwise.} \end{cases}$
+- Composition: if $a \leq b$ and $b \leq c$, the unique element of $\Mor(a, b) \times \Mor(b, c)$ is sent to the unique element of $\Mor(a, c)$, which is nonempty by transitivity.
 
-The identity axiom uses reflexivity ($a \leq a$), and associativity is trivial since all compositions are unique when defined.
+The identity axiom uses reflexivity ($a \leq a$), and associativity is automatic since each $\Mor(a, b)$ has at most one element.
 :::
 
 ## <span class="num">8.1.2</span> Isomorphisms
 
 The notion of “sameness” in a category is captured by isomorphisms.
 
-:::definition{8.1.2} Isomorphism
-Let $\mcC$ be a category and $A, B \in \operatorname{Ob}(\mcC)$. A morphism $f \in \Mor(A, B)$ is an **isomorphism** if there exists $g \in \Mor(B, A)$ such that $$g \circ f = \id_A \quad \text{and} \quad f \circ g = \id_B.$$ We write $A \cong B$ if such an isomorphism exists, and say $A$ and $B$ are **isomorphic**.
+:::definition{8.1.7} Isomorphism
+Let $\mcC$ be a category and $A, B \in \operatorname{Ob}(\mcC)$. A morphism $f \in \Mor(A, B)$ is an ***isomorphism*** if there exists $g \in \Mor(B, A)$ such that $$g \circ f = \id_A \quad \text{and} \quad f \circ g = \id_B.$$ We write $A \cong B$ if such an isomorphism exists, and say $A$ and $B$ are ***isomorphic***.
 :::
 
-:::proposition{8.1.1} Uniqueness of inverses
-If $f : A \to B$ is an isomorphism, then the morphism $g$ in the definition is unique. We denote it $f^{-1}$ and call it the **inverse** of $f$.
+:::proposition{8.1.8} Uniqueness of inverses
+If $f : A \to B$ is an isomorphism, then the morphism $g$ in the definition is unique. We denote it $f^{-1}$ and call it the ***inverse*** of $f$.
 :::
 
 :::proof
 Suppose $g, g' \in \Mor(B, A)$ both satisfy the conditions. Then $$g = g \circ \id_B = g \circ (f \circ g') = (g \circ f) \circ g' = \id_A \circ g' = g'.$$
 :::
 
-:::proposition{8.1.2} Properties of isomorphisms
+:::proposition{8.1.9} Properties of isomorphisms
 Let $\mcC$ be a category.
 
 <!-- list:paren-roman -->
@@ -128,14 +128,14 @@ Let $\mcC$ be a category.
 :::proof
 (i) $\id_A \circ \id_A = \id_A$.
 
-(ii) By definition, $f^{-1} \circ f = \id_A$ and $f \circ f^{-1} = \id_B$. This says exactly that $f$ is the inverse of $f^{-1}$.
+(ii) By definition, $f^{-1} \circ f = \id_A$ and $f \circ f^{-1} = \id_B$. This says exactly that $f$ is an inverse of $f^{-1}$.
 
 (iii) Compute: $$(f^{-1} \circ g^{-1}) \circ (g \circ f) = f^{-1} \circ (g^{-1} \circ g) \circ f = f^{-1} \circ \id_B \circ f = f^{-1} \circ f = \id_A.$$ Similarly, $(g \circ f) \circ (f^{-1} \circ g^{-1}) = \id_C$.
 :::
 
-:::example{8.1.6} Isomorphisms in familiar categories
+:::example{8.1.10} Isomorphisms in familiar categories
 - In $\mathbf{Set}$: isomorphisms are bijections.
-- In $\mathbf{Grp}$: isomorphisms are group isomorphisms (bijective homomorphisms).
+- In $\mathbf{Grp}$: isomorphisms are group isomorphisms (bijective homomorphisms; the inverse of a bijective homomorphism is automatically a homomorphism).
 - In $\mathbf{Vect}_k$: isomorphisms are invertible linear maps.
 - In $\mathbf{Top}$: isomorphisms are homeomorphisms (continuous bijections with continuous inverse).
 
@@ -143,35 +143,35 @@ In $\mathbf{FinVect}_k$, two objects are isomorphic iff they have the same dimen
 :::
 
 :::note
-In $\mathbf{Top}$, a bijective continuous map need not be an isomorphism—the inverse may fail to be continuous. For example, $\id : (\RR, \text{discrete}) \to (\RR, \text{standard})$ is a continuous bijection but not a homeomorphism. This illustrates that “isomorphism” in a category means more than just bijection on underlying sets.
+In $\mathbf{Top}$, a bijective continuous map need not be an isomorphism: the inverse may fail to be continuous. For example, $\id : (\RR, \text{discrete}) \to (\RR, \text{standard})$ is a continuous bijection but not a homeomorphism. So “isomorphism” in a category can mean more than “bijection on underlying sets.”
 :::
 
 ## <span class="num">8.1.3</span> Automorphism Groups
 
 The self-isomorphisms of an object form a group, connecting category theory back to group theory.
 
-:::definition{8.1.3} Automorphism group
-For an object $A$ in a category $\mcC$, the **automorphism group** of $A$ is $$\Aut(A) = \{f \in \Mor(A, A) : f \text{ is an isomorphism}\}.$$
+:::definition{8.1.11} Automorphism group
+For an object $A$ in a category $\mcC$, the ***automorphism group*** of $A$ is $$\Aut(A) = \{f \in \Mor(A, A) : f \text{ is an isomorphism}\}.$$
 :::
 
-:::theorem{8.1.1} Automorphisms form a group
+:::theorem{8.1.12} Automorphisms form a group
 $\Aut(A)$, equipped with composition, is a group.
 :::
 
 :::proof
-- **Closure:** If $f, g \in \Aut(A)$, then $g \circ f$ is an isomorphism by the previous proposition.
+- **Closure:** If $f, g \in \Aut(A)$, then $g \circ f$ is an isomorphism by Proposition [8.1.9](/notes/math-55a/8-1-the-language-of-categories#proposition-8-1-9)(iii).
 - **Associativity:** Inherited from the category axiom.
-- **Identity:** $\id_A \in \Aut(A)$ is the identity element.
-- **Inverses:** If $f \in \Aut(A)$, then $f^{-1} \in \Aut(A)$.
+- **Identity:** $\id_A \in \Aut(A)$ by Proposition [8.1.9](/notes/math-55a/8-1-the-language-of-categories#proposition-8-1-9)(i), and it is an identity element for composition.
+- **Inverses:** If $f \in \Aut(A)$, then $f^{-1} \in \Aut(A)$ by Proposition [8.1.9](/notes/math-55a/8-1-the-language-of-categories#proposition-8-1-9)(ii).
 :::
 
-:::example{8.1.7} Automorphism groups in practice
-- In $\mathbf{FinSet}$: if $|A| = n$, then $\Aut(A) \cong S_n$, the symmetric group.
-- In $\mathbf{FinVect}_k$: if $\dim V = n$, then $\Aut(V) \cong \GL_n(k)$, the general linear group.
-- In $\mathbf{Grp}$: $\Aut(G)$ is the group of group automorphisms. For $G = \ZZ/n$, we have $\Aut(\ZZ/n) \cong (\ZZ/n)^\times$.
+:::example{8.1.13} Automorphism groups in practice
+- In $\mathbf{FinSet}$: if $|A| = n$, then $\Aut(A)$ is the group of permutations of $A$, isomorphic to the symmetric group $S_n$.
+- In $\mathbf{FinVect}_k$: if $\dim V = n$, then $\Aut(V)$ is the group of invertible linear operators on $V$, isomorphic to $\GL_n(k)$ by choosing a basis.
+- In $\mathbf{Grp}$: $\Aut(G)$ is the group of group automorphisms of $G$. For $G = \ZZ/n$, we have $\Aut(\ZZ/n) \cong (\ZZ/n)^\times$: an endomorphism of $\ZZ/n$ is multiplication by some $\bar a$ (it is determined by the image $\bar a$ of $\bar 1$), and it is bijective iff $\bar a$ generates $\ZZ/n$, i.e., iff $\bar a$ is a unit.
 :::
 
-:::exercise{8.1.1} Isomorphic objects have isomorphic automorphism groups
+:::exercise{8.1.14} Isomorphic objects have isomorphic automorphism groups
 Let $f : A \to B$ be an isomorphism in a category $\mcC$. Show that the map $$c_f : \Aut(A) \to \Aut(B), \quad g \mapsto f \circ g \circ f^{-1}$$ is a group isomorphism.
 
 :::solution
@@ -184,21 +184,21 @@ Let $f : A \to B$ be an isomorphism in a category $\mcC$. Show that the map $$c_
 :::
 
 :::note
-This exercise shows that the automorphism group is an “isomorphism invariant”: isomorphic objects have isomorphic automorphism groups. The converse is false—non-isomorphic objects can have isomorphic automorphism groups. For instance, in $\mathbf{Grp}$, the cyclic group $\ZZ$ and the cyclic group $\ZZ/3$ both have automorphism group $\ZZ/2$ (inversion $n \mapsto -n$ in the first case, $\bar{1} \mapsto \bar{2}$ in the second), but $\ZZ \not\cong \ZZ/3$.
+This exercise shows that the automorphism group is an “isomorphism invariant”: isomorphic objects have isomorphic automorphism groups. The converse is false: non-isomorphic objects can have isomorphic automorphism groups. For instance, in $\mathbf{Grp}$, the cyclic groups $\ZZ$ and $\ZZ/3$ both have automorphism group $\ZZ/2$ (generated by inversion $n \mapsto -n$ in the first case and by $\bar{1} \mapsto \bar{2}$ in the second), but $\ZZ \not\cong \ZZ/3$.
 :::
 
-A category where every morphism is an isomorphism has a special name.
+A category in which every morphism is an isomorphism has a special name.
 
-:::definition{8.1.4} Groupoid
-A **groupoid** is a category in which every morphism is an isomorphism.
+:::definition{8.1.15} Groupoid
+A ***groupoid*** is a category in which every morphism is an isomorphism.
 :::
 
 :::note
-A groupoid generalizes the notion of a group: a group is precisely a groupoid with exactly one object. In a groupoid, morphisms can be composed only when the target of one matches the source of the other, but when composition is defined, it has inverses. The fundamental groupoid of a topological space, with objects being points and morphisms being homotopy classes of paths, is a key example in algebraic topology.
+A groupoid generalizes the notion of a group: a group is the same thing as a groupoid with exactly one object (the group being the automorphism group of that object). In a groupoid, morphisms can be composed only when the target of one matches the source of the other, but when composition is defined, it is associative, has identities, and has inverses. The fundamental groupoid of a topological space, whose objects are the points of the space and whose morphisms are homotopy classes of paths, is a key example in algebraic topology.
 :::
 
-:::example{8.1.8} Groupoids
-- The category whose objects are finite sets and whose morphisms are only bijections (not all functions) is a groupoid.
-- Any group $G$ defines a groupoid $\mathbf{B}G$ with one object $*$ and $\Mor(*, *) = G$.
-- The category whose objects are groups and whose morphisms are only group isomorphisms is a groupoid.
+:::example{8.1.16} Groupoids
+- The category whose objects are finite sets and whose morphisms are only the bijections (not all functions) is a groupoid.
+- Any group $G$ defines a groupoid $\mathbf{B}G$ with one object $*$, with $\Mor(*, *) = G$ and composition given by the group law.
+- The category whose objects are groups and whose morphisms are only the group isomorphisms is a groupoid.
 :::

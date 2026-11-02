@@ -159,7 +159,7 @@ i.e. any way of adding the initial letter of a shortest word of $P_{j+1}$ to the
 
 This gives rise to the “**Garside normal form**” and a solution to the word problem in $B_n$ (Garside 1969 + Thurston and Elrifai–Morton, early 1990s).
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 30](/notes/math-55a/30-the-modular-group-and-representations-of-abelian-groups)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L30}}
 **$SL_2(\ZZ)$ and $PSL_2(\ZZ)$**
 
 One more example:

@@ -178,7 +178,7 @@ M\cong\ZZ^n/\operatorname{Im}(T)\cong\ZZ/d_1\times\cdots\times\ZZ/d_r\times\ZZ^{
 $$
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 22](/notes/math-55a/22-group-actions-burnsides-lemma-and-the-class-equation)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L22}}
 **Group actions**
 
 (Artin §6.7.)

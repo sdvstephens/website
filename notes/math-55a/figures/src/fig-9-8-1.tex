@@ -1,0 +1,8 @@
+\begin{tikzpicture}[node distance=2.5cm, auto]
+  \node (VW) at (0,0) {\(V \times W\)};
+  \node (TW) at (2.5,2) {\(V \otimes W\)};
+  \node (U)  at (5,0) {\(U\)};
+  \draw[->] (VW) -- node[above left] {\(\beta\)} (TW);
+  \draw[->, dashed] (TW) -- node[above right] {\(\exists!\,\tilde{\alpha}\)} (U);
+  \draw[->] (VW) -- node[below] {\(\alpha\)} (U);
+\end{tikzpicture}

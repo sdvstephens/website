@@ -11,34 +11,43 @@ The simplest invariant subspaces are one-dimensional. These give rise to the fun
 ## <span class="num">7.4.1</span> Definitions and Basic Properties
 
 :::definition{7.4.1} Eigenvector and eigenvalue
-Let $\varphi \in \End(V)$. A nonzero vector $v \in V$ is an **eigenvector** of $\varphi$ if $$\varphi(v) = \lambda v$$ for some scalar $\lambda \in k$. The scalar $\lambda$ is called the **eigenvalue** corresponding to $v$.
+Let $\varphi \in \End(V)$. A nonzero vector $v \in V$ is an ***eigenvector*** of $\varphi$ if $$\varphi(v) = \lambda v$$ for some scalar $\lambda \in k$. The scalar $\lambda$ is called the ***eigenvalue*** corresponding to $v$, and $\lambda \in k$ is an eigenvalue of $\varphi$ if it corresponds to some eigenvector.
 :::
 
 :::note
-The condition $\varphi(v) = \lambda v$ says that $\varphi$ acts on the line spanned by $v$ as scaling by $\lambda$. Equivalently, $\operatorname{Span}\{v\}$ is a one-dimensional $\varphi$-invariant subspace. Conversely, any one-dimensional invariant subspace $U = \operatorname{Span}\{v\}$ consists of eigenvectors (with the same eigenvalue) plus zero.
+The condition $\varphi(v) = \lambda v$ says that $\varphi$ acts on the line spanned by $v$ as scaling by $\lambda$. Equivalently, $\operatorname{Span}\{v\}$ is a one-dimensional $\varphi$-invariant subspace. Conversely, a one-dimensional invariant subspace $U = \operatorname{Span}\{v\}$ has $\varphi(v) = \lambda v$ for some $\lambda$, so it consists of eigenvectors with the same eigenvalue, together with zero.
 :::
 
-:::proposition{7.4.1} Characterization of eigenvalues
+:::proposition{7.4.2} Characterization of eigenvalues
 For $\varphi \in \End(V)$ and $\lambda \in k$, the following are equivalent:
+
+<!-- list:paren-alpha -->
 
 1. $\lambda$ is an eigenvalue of $\varphi$.
 2. $\varphi - \lambda \id_V$ is not injective.
 3. $\ker(\varphi - \lambda \id_V) \neq \{0\}$.
-4. (If $V$ is finite-dimensional) $\varphi - \lambda \id_V$ is not surjective.
-5. (If $V$ is finite-dimensional) $\det(\varphi - \lambda \id_V) = 0$.
+
+If $V$ is finite-dimensional, they are also equivalent to:
+
+<!-- list:paren-alpha -->
+
+4. $\varphi - \lambda \id_V$ is not surjective (equivalently, not invertible).
+5. $\det(\varphi - \lambda \id_V) = 0$.
 :::
 
 :::proof
-(1) $\Leftrightarrow$ (2) $\Leftrightarrow$ (3): $\lambda$ is an eigenvalue iff there exists nonzero $v$ with $\varphi(v) = \lambda v$, iff $(\varphi - \lambda \id)(v) = 0$ for some nonzero $v$, iff $\ker(\varphi - \lambda \id) \neq \{0\}$.
+(a) $\Leftrightarrow$ (b) $\Leftrightarrow$ (c): $\lambda$ is an eigenvalue iff there exists nonzero $v$ with $\varphi(v) = \lambda v$, iff $(\varphi - \lambda \id)(v) = 0$ for some nonzero $v$, iff $\ker(\varphi - \lambda \id) \neq \{0\}$, iff $\varphi - \lambda\id$ is not injective (Theorem [6.1.4](/notes/math-55a/6-1-kernel-and-image#theorem-6-1-4)).
 
-(3) $\Leftrightarrow$ (4) $\Leftrightarrow$ (5): In finite dimensions, a linear operator is injective iff surjective iff invertible iff has nonzero determinant. So $\ker(\varphi - \lambda \id) \neq \{0\}$ iff $\det(\varphi - \lambda \id) = 0$.
+(b) $\Leftrightarrow$ (d): For an operator on a finite-dimensional space, injective, surjective and invertible are equivalent (Corollary [6.1.16](/notes/math-55a/6-1-kernel-and-image#corollary-6-1-16)).
+
+(d) $\Leftrightarrow$ (e): An operator on a finite-dimensional space is invertible if and only if its determinant (Definition [5.4.20](/notes/math-55a/5-4-determinants#definition-5-4-20)) is nonzero (Theorem [5.4.8](/notes/math-55a/5-4-determinants#theorem-5-4-8)).
 :::
 
-:::definition{7.4.2} Eigenspace
-For an eigenvalue $\lambda$ of $\varphi$, the **eigenspace** is $$E(\lambda, \varphi) = \ker(\varphi - \lambda \id_V) = \{v \in V : \varphi(v) = \lambda v\}.$$ This is a subspace of $V$ (it includes 0, though 0 is not an eigenvector).
+:::definition{7.4.3} Eigenspace
+For $\lambda \in k$, the ***eigenspace*** of $\varphi$ for $\lambda$ is $$E(\lambda, \varphi) = \ker(\varphi - \lambda \id_V) = \{v \in V : \varphi(v) = \lambda v\}.$$ It is a subspace of $V$, and it is nonzero exactly when $\lambda$ is an eigenvalue; its nonzero elements are the eigenvectors with eigenvalue $\lambda$ (the zero vector belongs to it but is not an eigenvector).
 :::
 
-:::theorem{7.4.1} Eigenvectors with distinct eigenvalues are linearly independent
+:::theorem{7.4.4} Eigenvectors with distinct eigenvalues are linearly independent
 Let $v_1, \ldots, v_m$ be eigenvectors of $\varphi$ with distinct eigenvalues $\lambda_1, \ldots, \lambda_m$. Then $v_1, \ldots, v_m$ are linearly independent.
 :::
 
@@ -48,7 +57,7 @@ Induction on $m$. Base case $m = 1$: a single eigenvector is nonzero, hence line
 Suppose the result holds for $m - 1$ eigenvectors. Assume $\sum_{i=1}^m c_i v_i = 0$. Apply $\varphi$: $$\sum_{i=1}^m c_i \lambda_i v_i = 0.$$ Multiply the original equation by $\lambda_m$ and subtract: $$\sum_{i=1}^{m-1} c_i (\lambda_i - \lambda_m) v_i = 0.$$ By the induction hypothesis (since $v_1, \ldots, v_{m-1}$ are eigenvectors with distinct eigenvalues $\lambda_1, \ldots, \lambda_{m-1}$), we have $c_i(\lambda_i - \lambda_m) = 0$ for $i < m$. Since $\lambda_i \neq \lambda_m$, we get $c_i = 0$. Substituting back: $c_m v_m = 0$, so $c_m = 0$ (since $v_m \neq 0$).
 :::
 
-:::corollary{7.4.1} Bound on number of eigenvalues
+:::corollary{7.4.5} Bound on the number of eigenvalues
 A linear operator on an $n$-dimensional space has at most $n$ distinct eigenvalues.
 :::
 
@@ -56,57 +65,112 @@ A linear operator on an $n$-dimensional space has at most $n$ distinct eigenvalu
 If $\lambda_1, \ldots, \lambda_m$ are distinct eigenvalues with eigenvectors $v_1, \ldots, v_m$, then $v_1, \ldots, v_m$ are linearly independent. In an $n$-dimensional space, any linearly independent set has at most $n$ elements.
 :::
 
-:::corollary{7.4.2} Sum of eigenspaces is direct
-If $\lambda_1, \ldots, \lambda_m$ are distinct eigenvalues of $\varphi$, then $$E(\lambda_1, \varphi) + \cdots + E(\lambda_m, \varphi) = E(\lambda_1, \varphi) \oplus \cdots \oplus E(\lambda_m, \varphi).$$ is a direct sum. Furthermore, $\sum_i \dim E(\lambda_i, \varphi) \leq \dim V$.
+:::corollary{7.4.6} The sum of eigenspaces is direct
+If $\lambda_1, \ldots, \lambda_m$ are distinct eigenvalues of $\varphi$, then the sum $E(\lambda_1, \varphi) + \cdots + E(\lambda_m, \varphi)$ is direct: $$E(\lambda_1, \varphi) + \cdots + E(\lambda_m, \varphi) = E(\lambda_1, \varphi) \oplus \cdots \oplus E(\lambda_m, \varphi).$$ If $V$ is finite-dimensional, then $\sum_i \dim E(\lambda_i, \varphi) \leq \dim V$.
 :::
 
-## <span class="num">7.4.2</span> Diagonalizable Operators
+:::proof
+Suppose $u_1 + \cdots + u_m = 0$ with $u_i \in E(\lambda_i, \varphi)$. If some $u_i$ were nonzero, the nonzero ones would be eigenvectors with distinct eigenvalues satisfying a linear relation with all coefficients equal to $1$, contradicting Theorem [7.4.4](/notes/math-55a/7-4-eigenvalues-and-eigenvectors#theorem-7-4-4). So every $u_i = 0$, which is what it means for the sum to be direct. The dimension of a direct sum is the sum of the dimensions of the summands (Proposition [4.7.14](/notes/math-55a/4-7-finite-dimensional-vector-spaces-and-dimension#proposition-4-7-14)), and it is at most $\dim V$.
+:::
+
+## <span class="num">7.4.2</span> The Characteristic Polynomial
+
+Eigenvalues are the roots of a polynomial built from the determinant (Section [5.4](/notes/math-55a/5-4-determinants)). The matrix $xI - A$ has entries in the polynomial ring $k[x]$, and determinants of matrices over a commutative ring are defined by the same Leibniz formula and have the same basic properties as over a field (Example [5.4.25](/notes/math-55a/5-4-determinants#example-5-4-25) and the discussion before it).
+
+:::definition{7.4.7} Characteristic polynomial
+Let $A \in \mcM_{n \times n}(k)$. The ***characteristic polynomial*** of $A$ is $$\chi_A(x) = \det(xI - A),$$ the determinant of the matrix $xI - A \in \mcM_{n \times n}(k[x])$. For $\varphi \in \End(V)$ with $V$ finite-dimensional, the characteristic polynomial of $\varphi$ is $\chi_\varphi = \chi_A$, where $A = \mcM(\varphi, \mcB)$ for a basis $\mcB$ of $V$. (For $V = \{0\}$ we set $\chi_\varphi = 1$.)
+:::
+
+:::proposition{7.4.8} Basic properties of the characteristic polynomial
+Let $\varphi \in \End(V)$ with $\dim V = n \geq 1$, and let $A = \mcM(\varphi, \mcB)$.
+
+<!-- list:paren-alpha -->
+
+1. $\chi_A(x)$ is a monic polynomial of degree $n$ in $k[x]$, and $$\chi_A(x) = x^n - (\Tr A)\,x^{n-1} + \cdots + (-1)^n \det(A).$$
+2. For $\lambda \in k$, the value of $\chi_A$ at $\lambda$ is $\chi_A(\lambda) = \det(\lambda I - A)$.
+3. $\chi_\varphi$ does not depend on the choice of basis $\mcB$.
+4. The roots of $\chi_\varphi$ in $k$ are exactly the eigenvalues of $\varphi$.
+:::
+
+:::proof
+(a) and (b): By the Leibniz formula, $\det(xI - A)$ is a sum, over permutations, of $\pm$ a product of $n$ entries of $xI - A$, one from each row and each column. Each entry is a polynomial in $x$, so the sum is a polynomial in $x$; and substituting $x = \lambda$ term by term gives the Leibniz formula for $\det(\lambda I - A)$, which proves (b) (see also Example [5.4.25](/notes/math-55a/5-4-determinants#example-5-4-25)). The identity permutation contributes $\prod_{i}(x - a_{ii}) = x^n - (a_{11} + \cdots + a_{nn})x^{n-1} + \cdots$. Every other permutation moves at least two indices, so its product contains at most $n - 2$ diagonal entries and has degree at most $n - 2$. Hence $\chi_A$ is monic of degree $n$ with $x^{n-1}$-coefficient $-\Tr A$. Its constant term is $\chi_A(0) = \det(-A) = (-1)^n \det(A)$ by (b).
+
+(c) If $\mcB'$ is another basis, then $B = \mcM(\varphi, \mcB') = P^{-1}AP$ for an invertible matrix $P$ (Corollary [5.3.4](/notes/math-55a/5-3-change-of-basis#corollary-5-3-4)). Then $xI - B = P^{-1}(xI - A)P$ in $\mcM_{n \times n}(k[x])$, so by multiplicativity of the determinant (Theorem [5.4.7](/notes/math-55a/5-4-determinants#theorem-5-4-7), which holds over the commutative ring $k[x]$), $$\det(xI - B) = \det(P)^{-1}\det(xI - A)\det(P) = \det(xI - A).$$
+
+(d) By (b), $\chi_\varphi(\lambda) = \det(\lambda\id_V - \varphi) = (-1)^n \det(\varphi - \lambda\id_V)$, which vanishes if and only if $\lambda$ is an eigenvalue (Proposition [7.4.2](/notes/math-55a/7-4-eigenvalues-and-eigenvectors#proposition-7-4-2)).
+:::
+
+:::example{7.4.9} Characteristic polynomial of a $2 \times 2$ matrix
+For $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$: $$\begin{aligned}
+\chi_A(x) = \det\begin{pmatrix} x - a & -b \\ -c & x - d \end{pmatrix} &= (x-a)(x-d) - bc \\
+&= x^2 - (a+d)x + (ad - bc) \\
+&= x^2 - (\Tr A)x + \det A.
+\end{aligned}$$
+:::
+
+:::definition{7.4.10} Algebraic and geometric multiplicity
+Let $\lambda$ be an eigenvalue of $\varphi \in \End(V)$, $V$ finite-dimensional. The ***algebraic multiplicity*** of $\lambda$ is the largest integer $e$ such that $(x - \lambda)^e$ divides $\chi_\varphi(x)$. The ***geometric multiplicity*** of $\lambda$ is $\dim E(\lambda, \varphi)$.
+:::
+
+When $\chi_\varphi$ is a product of linear factors, the algebraic multiplicity simply counts how often $x - \lambda$ occurs:
+
+:::lemma{7.4.11} Multiplicity of a root in a product of linear factors
+Let $c_1, \ldots, c_n, \lambda \in k$. The largest $e$ such that $(x - \lambda)^e$ divides $\prod_{j=1}^n (x - c_j)$ is the number of indices $j$ with $c_j = \lambda$.
+:::
+
+:::proof
+Let $e_0$ be the number of $j$ with $c_j = \lambda$, and write $\prod_j (x - c_j) = (x - \lambda)^{e_0} h(x)$ with $h = \prod_{c_j \neq \lambda} (x - c_j)$. Then $h(\lambda) = \prod_{c_j \neq \lambda} (\lambda - c_j) \neq 0$. Clearly $(x - \lambda)^{e_0}$ divides the product. If $(x - \lambda)^{e_0 + 1}$ divided it, say $(x - \lambda)^{e_0} h = (x - \lambda)^{e_0 + 1} g$, then cancelling $(x - \lambda)^{e_0}$ (possible because $k[x]$ has no zero divisors, Lemma [4.3.3](/notes/math-55a/4-3-polynomial-rings-and-field-extensions#lemma-4-3-3)) would give $h = (x - \lambda) g$, hence $h(\lambda) = 0$, a contradiction.
+:::
+
+## <span class="num">7.4.3</span> Diagonalizable Operators
 
 The best-case scenario: $V$ has a basis of eigenvectors.
 
-:::definition{7.4.3} Diagonalizable operator
-An operator $\varphi \in \End(V)$ is **diagonalizable** if there exists a basis of $V$ consisting entirely of eigenvectors of $\varphi$. Equivalently, $\varphi$ has a diagonal matrix with respect to some basis.
+:::definition{7.4.12} Diagonalizable operator
+An operator $\varphi \in \End(V)$ on a finite-dimensional space is ***diagonalizable*** if there exists a basis of $V$ consisting entirely of eigenvectors of $\varphi$.
 :::
 
 :::note
-If $\{v_1, \ldots, v_n\}$ is a basis of eigenvectors with $\varphi(v_i) = \lambda_i v_i$, then the matrix of $\varphi$ is $$\mcM(\varphi) = \begin{pmatrix} \lambda_1 & & 0 \\ & \ddots & \\ 0 & & \lambda_n \end{pmatrix}.$$ The eigenvalues appear on the diagonal (possibly with repetition).
+If $(v_1, \ldots, v_n)$ is a basis of eigenvectors with $\varphi(v_i) = \lambda_i v_i$, then the matrix of $\varphi$ is $$\mcM(\varphi) = \begin{pmatrix} \lambda_1 & & 0 \\ & \ddots & \\ 0 & & \lambda_n \end{pmatrix}.$$ The eigenvalues appear on the diagonal (possibly with repetition).
 :::
 
-:::theorem{7.4.2} Characterizations of diagonalizability
-For $\varphi \in \End(V)$ with $\dim(V) = n$ and distinct eigenvalues $\lambda_1, \ldots, \lambda_m$, the following are equivalent:
+:::theorem{7.4.13} Characterizations of diagonalizability
+Let $\varphi \in \End(V)$ with $\dim(V) = n$, and let $\lambda_1, \ldots, \lambda_m$ be the distinct eigenvalues of $\varphi$. The following are equivalent:
+
+<!-- list:paren-alpha -->
 
 1. $\varphi$ is diagonalizable.
-2. $V$ has a basis of eigenvectors of $\varphi$.
+2. The matrix of $\varphi$ with respect to some basis is diagonal.
 3. $V = E(\lambda_1, \varphi) \oplus \cdots \oplus E(\lambda_m, \varphi)$.
 4. $\dim E(\lambda_1, \varphi) + \cdots + \dim E(\lambda_m, \varphi) = n$.
 :::
 
 :::proof
-(1) $\Leftrightarrow$ (2): By definition.
+(a) $\Leftrightarrow$ (b): The matrix in the basis $(v_1, \ldots, v_n)$ is diagonal exactly when each $\varphi(v_j)$ is a multiple of $v_j$, i.e., when every $v_j$ is an eigenvector.
 
-(2) $\Rightarrow$ (3): If $V$ has a basis of eigenvectors, partition it by eigenvalue. Each part is a basis of the corresponding eigenspace, and together they span $V$.
+(a) $\Rightarrow$ (c): Every vector of a basis of eigenvectors lies in some $E(\lambda_i, \varphi)$, so these eigenspaces span $V$; their sum is direct by Corollary [7.4.6](/notes/math-55a/7-4-eigenvalues-and-eigenvectors#corollary-7-4-6).
 
-(3) $\Rightarrow$ (4): Take dimensions: $\dim V = \dim(E_1 \oplus \cdots \oplus E_m) = \sum \dim E_i$.
+(c) $\Rightarrow$ (d): Take dimensions: $\dim V = \dim(E(\lambda_1, \varphi) \oplus \cdots \oplus E(\lambda_m, \varphi)) = \sum \dim E(\lambda_i, \varphi)$.
 
-(4) $\Rightarrow$ (2): The sum $E_1 + \cdots + E_m$ is direct (earlier corollary), and has dimension $\sum \dim E_i = n = \dim V$. So $E_1 \oplus \cdots \oplus E_m = V$. Combining bases of each $E_i$ gives a basis of $V$ consisting of eigenvectors.
+(d) $\Rightarrow$ (a): The sum $E(\lambda_1, \varphi) + \cdots + E(\lambda_m, \varphi)$ is direct (Corollary [7.4.6](/notes/math-55a/7-4-eigenvalues-and-eigenvectors#corollary-7-4-6)) and has dimension $\sum \dim E(\lambda_i, \varphi) = n = \dim V$, so it equals $V$. Combining bases of the $E(\lambda_i, \varphi)$ gives a basis of $V$ consisting of eigenvectors.
 :::
 
-:::corollary{7.4.3} Enough distinct eigenvalues implies diagonalizability
+:::corollary{7.4.14} Enough distinct eigenvalues implies diagonalizability
 If $\varphi \in \End(V)$ has $\dim(V)$ distinct eigenvalues, then $\varphi$ is diagonalizable.
 :::
 
 :::proof
-Each eigenspace has dimension at least 1 (it contains an eigenvector). With $n = \dim V$ distinct eigenvalues, $\sum \dim E(\lambda_i) \geq n$. But this sum is also $\leq n$, so equality holds, and criterion (4) above is satisfied.
+Each eigenspace has dimension at least 1 (it contains an eigenvector). With $n = \dim V$ distinct eigenvalues, $\sum \dim E(\lambda_i, \varphi) \geq n$. But this sum is also $\leq n$ (Corollary [7.4.6](/notes/math-55a/7-4-eigenvalues-and-eigenvectors#corollary-7-4-6)), so equality holds, and criterion (d) above is satisfied.
 :::
 
-## <span class="num">7.4.3</span> Examples: Diagonalizable and Non-Diagonalizable
+## <span class="num">7.4.4</span> Examples: Diagonalizable and Non-Diagonalizable
 
-:::example{7.4.1} Diagonal matrices
-The identity matrix $I_n$ has eigenvalue $1$ with eigenspace all of $k^n$. More generally, a diagonal matrix $\diag(\lambda_1, \ldots, \lambda_n)$ has the standard basis vectors as eigenvectors with eigenvalues $\lambda_1, \ldots, \lambda_n$. Such a matrix is (trivially) diagonalizable—it’s already diagonal!
+:::example{7.4.15} Diagonal matrices
+The identity matrix $I_n$ has eigenvalue $1$ with eigenspace all of $k^n$. More generally, a diagonal matrix $\diag(\lambda_1, \ldots, \lambda_n)$ has the standard basis vectors as eigenvectors with eigenvalues $\lambda_1, \ldots, \lambda_n$. Such a matrix is (trivially) diagonalizable—it is already diagonal.
 :::
 
-:::example{7.4.2} A non-diagonalizable matrix
-Consider $\varphi : \RR^2 \to \RR^2$ with matrix $$A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}.$$ The eigenvalues satisfy $\det(A - \lambda I) = (1 - \lambda)^2 = 0$, so $\lambda = 1$ is the only eigenvalue.
+:::example{7.4.16} A non-diagonalizable matrix
+Consider $\varphi : \RR^2 \to \RR^2$ with matrix $$A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}.$$ The characteristic polynomial is $\chi_A(x) = (x - 1)^2$, so $\lambda = 1$ is the only eigenvalue.
 
 The eigenspace: $E(1, \varphi) = \ker(A - I) = \ker\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} = \operatorname{Span}\{e_1\}$.
 
@@ -115,56 +179,58 @@ This has dimension 1, but $\dim(\RR^2) = 2$. So $\varphi$ is **not diagonalizabl
 Geometrically, $\varphi$ is a “shear”: it fixes the $x$-axis pointwise and slides other points parallel to the $x$-axis. The only eigenvector direction is along the $x$-axis.
 :::
 
-:::example{7.4.3} No eigenvectors over $\RR$
-Consider rotation by $90^\circ$ in $\RR^2$: $$R = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}.$$ The characteristic polynomial is $\det(R - \lambda I) = \lambda^2 + 1$, which has no real roots. So $R$ has *no eigenvalues* over $\RR$, hence no eigenvectors. Over $\CC$, the eigenvalues are $\pm i$ with eigenvectors $(1, \mp i)^T$, and $R$ is diagonalizable as a complex matrix. The eigenfairy doesn’t visit $\mathbb{R}$ (sad).
+:::example{7.4.17} No eigenvectors over $\RR$
+Consider rotation by $90^\circ$ in $\RR^2$: $$R = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}.$$ The characteristic polynomial is $\chi_R(x) = x^2 + 1$, which has no real roots. So $R$ has *no eigenvalues* over $\RR$, hence no eigenvectors. Over $\CC$, the eigenvalues are $\pm i$ with eigenvectors $(1, \mp i)^t$, and $R$ is diagonalizable as a complex matrix.
 
-This illustrates that diagonalizability depends on the scalar field!
+This illustrates that diagonalizability depends on the scalar field.
 :::
 
 :::note
-The rotation example shows that not every operator is diagonalizable. Even over $\CC$, where every polynomial has roots, an operator may fail to be diagonalizable (like the shear above). Understanding non-diagonalizable operators requires the theory of Jordan normal form, which we’ll develop later.
+The rotation example shows that over $\RR$ an operator may have no eigenvalues at all; Section [7.10](/notes/math-55a/7-10-real-vector-spaces-and-complexification) explains what can be said instead. Even over $\CC$, where every polynomial has roots, an operator may fail to be diagonalizable (like the shear above). Understanding non-diagonalizable operators requires the Jordan normal form, which we develop in Section [7.8](/notes/math-55a/7-8-jordan-normal-form).
 :::
 
-:::question{1} Exercises on quotient spaces, operators, and eigenvalues
+:::question{7.4.18} Exercises on quotient spaces, operators, and eigenvalues
+<!-- list:paren-alpha -->
+
 1. Let $V = \RR^4$ and $U = \{(x, y, z, w) : x + y = 0, z = w\}$. Find $\dim(U)$, $\dim(V/U)$, and describe $V/U$ explicitly.
 2. Prove that if $\varphi, \psi \in \End(V)$ commute ($\varphi \circ \psi = \psi \circ \varphi$), then every eigenspace of $\varphi$ is $\psi$-invariant.
-3. Let $\varphi \in \End(V)$ be diagonalizable with eigenvalues $\lambda_1, \ldots, \lambda_m$. Prove that $p(\varphi) = 0$ where $p(x) = \prod_{i=1}^m (x - \lambda_i)$.
+3. Let $\varphi \in \End(V)$ be diagonalizable with distinct eigenvalues $\lambda_1, \ldots, \lambda_m$. Prove that $p(\varphi) = 0$ where $p(x) = \prod_{i=1}^m (x - \lambda_i)$.
 4. Show that the quotient map $q : V \to V/U$ induces a bijection between $\{\text{linear maps } V/U \to W\}$ and $\{\text{linear maps } V \to W \text{ vanishing on } U\}$.
 5. Let $A = \begin{pmatrix} 4 & 2 \\ 1 & 3 \end{pmatrix}$. Find the eigenvalues and eigenspaces of $A$. Is $A$ diagonalizable? If so, find a matrix $P$ such that $P^{-1}AP$ is diagonal.
 
 :::solution
-**(1)** The constraints $x + y = 0$ and $z = w$ give 2 independent linear equations on $\RR^4$, so $\dim(U) = 4 - 2 = 2$. A basis: $\{(-1, 1, 0, 0), (0, 0, 1, 1)\}$.
+**(a)** The map $\pi : \RR^4 \to \RR^2$ defined by $\pi(x, y, z, w) = (x + y, z - w)$ is linear and has $\ker(\pi) = U$. It is surjective, since $\pi(a, 0, b, 0) = (a, b)$. By Rank–Nullity, $\dim(U) = 4 - 2 = 2$; a basis is $\{(-1, 1, 0, 0), (0, 0, 1, 1)\}$.
 
 By the dimension formula: $\dim(V/U) = \dim(V) - \dim(U) = 4 - 2 = 2$.
 
-The map $\pi : \RR^4 \to \RR^2$ defined by $\pi(x, y, z, w) = (x + y, z - w)$ has $\ker(\pi) = U$. By the first isomorphism theorem, $V/U \cong \RR^2$. Explicitly, the coset $(x, y, z, w) + U$ is determined by $(x + y, z - w)$.
+By the First Isomorphism Theorem, $\bar{\pi} : V/U \to \RR^2$ is an isomorphism. Explicitly, the coset $(x, y, z, w) + U$ is determined by the pair $(x + y, z - w)$.
 
-**(2)** Let $v$ be an eigenvector of $\varphi$ with eigenvalue $\lambda$: $\varphi(v) = \lambda v$. We need $\psi(v) \in E(\lambda, \varphi)$, i.e., $\varphi(\psi(v)) = \lambda \psi(v)$.
+**(b)** Let $v \in E(\lambda, \varphi)$, i.e., $\varphi(v) = \lambda v$. We need $\psi(v) \in E(\lambda, \varphi)$, i.e., $\varphi(\psi(v)) = \lambda \psi(v)$.
 
-Compute: $\varphi(\psi(v)) = \psi(\varphi(v)) = \psi(\lambda v) = \lambda \psi(v)$. $\checkmark$
+Compute: $\varphi(\psi(v)) = \psi(\varphi(v)) = \psi(\lambda v) = \lambda \psi(v)$. ✓
 
-(We used commutativity in the first equality.)
+(We used commutativity in the first equality. This is also a special case of Proposition [7.3.3](/notes/math-55a/7-3-invariant-subspaces#proposition-7-3-3), since $\psi$ commutes with $\varphi - \lambda\id$.)
 
-**(3)** Let $p(x) = \prod_{i=1}^m (x - \lambda_i)$. Since $\varphi$ is diagonalizable, $V = \bigoplus_{i=1}^m E(\lambda_i, \varphi)$. For any eigenvector $v \in E(\lambda_j, \varphi)$: $$(\varphi - \lambda_j \id)(v) = 0.$$ So $p(\varphi)(v) = (\varphi - \lambda_1) \cdots (\varphi - \lambda_m)(v) = 0$ because one factor gives zero.
+**(c)** Since $\varphi$ is diagonalizable, $V = \bigoplus_{i=1}^m E(\lambda_i, \varphi)$. Let $v \in E(\lambda_j, \varphi)$. The factors of $p(\varphi) = (\varphi - \lambda_1) \cdots (\varphi - \lambda_m)$ commute (Proposition [7.2.2](/notes/math-55a/7-2-polynomials-in-an-operator#proposition-7-2-2)), so we may apply $\varphi - \lambda_j$ first: $$p(\varphi)(v) = \Bigl(\prod_{i \neq j} (\varphi - \lambda_i)\Bigr)\bigl((\varphi - \lambda_j)(v)\bigr) = 0.$$ Since this holds on each eigenspace and the eigenspaces span $V$, we have $p(\varphi) = 0$.
 
-Since this holds for all eigenvectors and they span $V$, we have $p(\varphi) = 0$.
-
-**(4)** Define $\Phi : \Hom(V/U, W) \to \{T \in \Hom(V, W) : U \subseteq \ker(T)\}$ by $\Phi(\bar{T}) = \bar{T} \circ q$.
+**(d)** Define $\Phi : \Hom(V/U, W) \to \{T \in \Hom(V, W) : U \subseteq \ker(T)\}$ by $\Phi(\bar{T}) = \bar{T} \circ q$. This lands in the right set, because $q(U) = 0$.
 
 *Injective:* If $\bar{T} \circ q = 0$, then $\bar{T}(v + U) = \bar{T}(q(v)) = 0$ for all $v$, so $\bar{T} = 0$.
 
-*Surjective:* Given $T : V \to W$ with $U \subseteq \ker(T)$, define $\bar{T} : V/U \to W$ by $\bar{T}(v + U) = T(v)$. Well-defined because $v - v' \in U \Rightarrow T(v) = T(v')$. Then $\Phi(\bar{T}) = \bar{T} \circ q = T$.
+*Surjective:* Given $T : V \to W$ with $U \subseteq \ker(T)$, Theorem [7.1.7](/notes/math-55a/7-1-quotient-spaces#theorem-7-1-7) gives $\bar{T} : V/U \to W$ with $\bar{T}(v + U) = T(v)$, so $\Phi(\bar{T}) = \bar{T} \circ q = T$.
 
-**(5)** Characteristic polynomial: $\det(A - \lambda I) = (4 - \lambda)(3 - \lambda) - 2 = \lambda^2 - 7\lambda + 10 = (\lambda - 5)(\lambda - 2)$.
+(Both sides are vector spaces and $\Phi$ is linear, so $\Phi$ is even an isomorphism of vector spaces.)
+
+**(e)** Characteristic polynomial: $\chi_A(x) = (x - 4)(x - 3) - 2 = x^2 - 7x + 10 = (x - 5)(x - 2)$.
 
 Eigenvalues: $\lambda_1 = 5$, $\lambda_2 = 2$.
 
 Eigenspaces:
 
-- $\lambda = 5$: $(A - 5I)v = 0$ gives $\begin{pmatrix} -1 & 2 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = 0$, so $x = 2y$. Eigenspace: $\operatorname{Span}\{(2, 1)^T\}$.
-- $\lambda = 2$: $(A - 2I)v = 0$ gives $\begin{pmatrix} 2 & 2 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = 0$, so $x = -y$. Eigenspace: $\operatorname{Span}\{(1, -1)^T\}$.
+- $\lambda = 5$: $(A - 5I)v = 0$ gives $\begin{pmatrix} -1 & 2 \\ 1 & -2 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = 0$, so $x = 2y$. Eigenspace: $\operatorname{Span}\{(2, 1)^t\}$.
+- $\lambda = 2$: $(A - 2I)v = 0$ gives $\begin{pmatrix} 2 & 2 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = 0$, so $x = -y$. Eigenspace: $\operatorname{Span}\{(1, -1)^t\}$.
 
-Since we have 2 linearly independent eigenvectors in $\RR^2$, $A$ is diagonalizable.
+Since $A$ has $2 = \dim \RR^2$ distinct eigenvalues, it is diagonalizable (Corollary [7.4.14](/notes/math-55a/7-4-eigenvalues-and-eigenvectors#corollary-7-4-14)).
 
 Let $P = \begin{pmatrix} 2 & 1 \\ 1 & -1 \end{pmatrix}$ (columns are eigenvectors). Then $P^{-1}AP = \begin{pmatrix} 5 & 0 \\ 0 & 2 \end{pmatrix}$.
 :::

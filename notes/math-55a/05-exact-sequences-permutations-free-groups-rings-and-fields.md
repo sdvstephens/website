@@ -149,7 +149,7 @@ $$\ZZ^n \cong \langle a_1, \dots, a_n \mid a_i a_j a_i^{-1} a_j^{-1}\ \ \forall 
 
 Now we move on to rings and fields on our way to vector spaces (Artin ch. 3 / Axler ch. 1–2). Groups will return later.
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 6](/notes/math-55a/06-rings-fields-and-vector-spaces)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L06}}
 :::definition Ring
 A (**commutative**) **ring** is a set $R$ with two operations $+, \times$ such that
 

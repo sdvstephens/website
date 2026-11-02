@@ -1,0 +1,18 @@
+\begin{tikzpicture}[scale=0.95, every node/.style={font=\small}]
+  \node (G) at (0,2) {\(\Gal(L/\QQ)\)};
+  \node (s) at (-1.5,1) {\(\langle \tau \rangle\)};
+  \node (t) at (0,1) {\(\langle \sigma \rangle\)};
+  \node (st) at (1.5,1) {\(\langle \sigma\tau \rangle\)};
+  \node (e) at (0,0) {\(\{\id\}\)};
+  \draw (G) -- (s); \draw (G) -- (t); \draw (G) -- (st);
+  \draw (e) -- (s); \draw (e) -- (t); \draw (e) -- (st);
+  \begin{scope}[xshift=5.5cm]
+  \node (Q) at (0,2) {\(\QQ\)};
+  \node (a) at (-1.5,1) {\({\QQ}(\sqrt{2})\)};
+  \node (b) at (0,1) {\({\QQ}(\sqrt{3})\)};
+  \node (c) at (1.5,1) {\({\QQ}(\sqrt{6})\)};
+  \node (L) at (0,0) {\(L\)};
+  \draw (Q) -- (a); \draw (Q) -- (b); \draw (Q) -- (c);
+  \draw (L) -- (a); \draw (L) -- (b); \draw (L) -- (c);
+  \end{scope}
+\end{tikzpicture}

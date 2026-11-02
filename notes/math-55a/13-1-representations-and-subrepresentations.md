@@ -7,55 +7,107 @@ title: Representations and Subrepresentations
 ---
 
 :::lede
-Representation theory studies groups via their actions on vector spaces, i.e., homomorphisms $G \to \GL(V)$. This converts abstract group theory into linear algebra, where we have powerful tools (eigenvalues, traces, diagonalization). We work over $k = \CC$ throughout (or more generally, any algebraically closed field of characteristic 0).
+Representation theory studies a group through its actions on vector spaces, that is, through homomorphisms $G \to \GL(V)$. This turns questions about an abstract group into linear algebra, where eigenvalues, traces and diagonalization are available. Historically the order was the reverse: groups first arose as groups of symmetries, and in the nineteenth century they were thought of as subgroups of $\GL_n$ from the start. The modern point of view separates the study of abstract groups, which occupied the earlier chapters, from the study of the ways in which an abstract group can be realized by matrices, which begins here.
+
+In this chapter and the next we work over $k = \CC$, and all representations are on finite-dimensional vector spaces. Several arguments use eigenvalues or complex conjugation, so the choice of $\CC$ matters. From Section [13.2](/notes/math-55a/13-2-maschkes-theorem-and-complete-reducibility) on, $G$ is a finite group.
 :::
 
 :::definition{13.1.1} Representation
-A representation of a group $G$ is a vector space $V$ (usually finite-dimensional over $\CC$) together with a group homomorphism $\rho : G \to \GL(V)$. Equivalently, a $G$-action on $V$ by linear operators: $G \times V \to V$, $(g, v) \mapsto g \cdot v$, with each $g : V \to V$ linear.
+A ***representation*** of a group $G$ is a vector space $V$ together with a group homomorphism $\rho : G \to \GL(V)$. Equivalently, it is an action of $G$ on $V$ in which every $g \in G$ acts by a linear map $V \to V$. We write $gv$ or $g \cdot v$ for $\rho(g)(v)$, and we often call $V$ itself the representation. The ***dimension*** of the representation is $\dim V$.
 :::
 
 :::definition{13.1.2} Subrepresentation and irreducibility
-- A subrepresentation is a subspace $W \subseteq V$ that is $G$-invariant: $gW = W$ for all $g \in G$.
-- A representation $V$ is irreducible if it has no nontrivial subrepresentations (i.e., the only $G$-invariant subspaces are $\{0\}$ and $V$ itself).
+Let $V$ be a representation of $G$.
+
+- A ***subrepresentation*** of $V$ is a subspace $W \subseteq V$ that is $G$-invariant: $gW = W$ for all $g \in G$. (It suffices that $gW \subseteq W$ for all $g$, since then also $g^{-1}W \subseteq W$, that is, $W \subseteq gW$.) A subrepresentation is a representation of $G$ in its own right.
+- $V$ is ***irreducible*** if $V \neq 0$ and the only subrepresentations of $V$ are $\{0\}$ and $V$.
 :::
 
-:::example{13.1.1} Representations of cyclic groups
-If $G = \ZZ/n$, a representation is a vector space $V$ with a linear operator $\varphi = \rho(1) : V \to V$ satisfying $\varphi^n = \id_V$. Since the minimal polynomial of $\varphi$ divides $x^n - 1 = \prod_{k=0}^{n-1}(x - \lambda_k)$ where $\lambda_k = e^{2\pi i k/n}$, and this polynomial has distinct roots, $\varphi$ is diagonalizable. The eigenspaces $V_{\lambda_k} = \{v : \varphi(v) = \lambda_k v\}$ are subrepresentations, and $V = \bigoplus_k V_{\lambda_k}$.
-
-Each 1-dimensional subspace $\CC v$ with $\varphi(v) = \lambda_k v$ is an irreducible representation, corresponding to the homomorphism $\ZZ/n \to \CC^* = \GL_1(\CC)$ sending $1 \mapsto \lambda_k = e^{2\pi i k/n}$. There are exactly $n$ such irreducible representations, and every representation of $\ZZ/n$ decomposes as a direct sum of copies of these.
-:::
-
-:::proposition{13.1.1} Representations of finite abelian groups
-If $G \cong \ZZ/m_1 \times \cdots \times \ZZ/m_r$ is a finite abelian group and $V$ is a representation of $G$ over $\CC$, then $V$ splits into a direct sum of 1-dimensional (irreducible) subrepresentations.
-:::
-
-:::proof
-The $G$-action is equivalent to commuting operators $\varphi_1, \ldots, \varphi_r : V \to V$ with $\varphi_i^{m_i} = \id$. Each $\varphi_i$ is diagonalizable (as above). Commuting diagonalizable operators are simultaneously diagonalizable: the eigenspaces of $\varphi_1$ are invariant under all $\varphi_j$ (since they commute), and the restriction of $\varphi_j$ to an eigenspace of $\varphi_1$ is again of finite order, hence diagonalizable. Proceed by induction on $r$. The simultaneous eigenspaces are 1-dimensional subrepresentations.
-:::
-
-:::definition{13.1.3} Dual group
-For a finite abelian group $G$, the dual group is $\hat{G} = \Hom(G, \CC^*)$, the group of all 1-dimensional representations (characters in the abelian sense) under pointwise multiplication. For $G = \ZZ/n$, $\hat{G} \cong \ZZ/n$ (but not canonically). More generally, $\hat{G} \cong G$ for any finite abelian group (non-canonically). This completes the classification of complex representations of finite abelian groups.
-:::
-
-## <span class="num">13.1.1</span> Homomorphisms and Constructions
-
-:::definition{13.1.4} Homomorphism of representations
-Given representations $V, W$ of $G$, a homomorphism (or $G$-equivariant map, or intertwining operator) is a linear map $\varphi : V \to W$ satisfying $\varphi(g \cdot v) = g \cdot \varphi(v)$ for all $g \in G$, $v \in V$. Equivalently, $g \circ \varphi = \varphi \circ g$ as operators. We write $\Hom_G(V, W)$ for the space of such maps.
+:::definition{13.1.3} Homomorphism of representations
+Let $V$ and $W$ be representations of $G$. A ***homomorphism of representations*** (or $G$-***equivariant map***) is a linear map $\varphi : V \to W$ with $\varphi(gv) = g\varphi(v)$ for all $g \in G$ and $v \in V$; equivalently, $g \circ \varphi = \varphi \circ g$ for every $g$, where $g$ stands for the operator by which $g$ acts on $V$ or on $W$. The space of such maps is denoted $\Hom_G(V, W)$. An ***isomorphism of representations*** is a bijective homomorphism of representations; its inverse is again equivariant. We write $V \cong W$ if there is one.
 :::
 
 :::note
-If $\varphi \in \Hom_G(V, W)$, then $\Ker(\varphi)$ and $\Img(\varphi)$ are subrepresentations of $V$ and $W$ respectively (since $v \in \Ker(\varphi) \implies \varphi(gv) = g\varphi(v) = 0$, so $gv \in \Ker(\varphi)$).
+If $\varphi \in \Hom_G(V, W)$, then $\ker\varphi$ and $\Img\varphi$ are subrepresentations of $V$ and $W$. For instance, if $v \in \ker\varphi$, then $\varphi(gv) = g\varphi(v) = 0$, so $gv \in \ker\varphi$; and $g\varphi(v) = \varphi(gv)$ lies in $\Img\varphi$.
 :::
 
-:::proposition{13.1.2} Constructions with representations
-Given representations $V, W$ of $G$:
+A $1$-dimensional representation of a group $G$ is a homomorphism $\theta : G \to \GL_1(\CC) = \CC^*$. Two of them, $\theta$ and $\theta'$, are isomorphic only if they are equal: an isomorphism $\CC \to \CC$ is multiplication by some $c \in \CC^*$, and $c\,\theta(g) = \theta'(g)\,c$ forces $\theta(g) = \theta'(g)$.
+
+:::example{13.1.4} First examples
+- The ***trivial representation*** of $G$ is $\CC$ with every $g$ acting as the identity.
+- If $G$ acts on a finite set $S$, the ***permutation representation*** ${\CC}[S]$ has basis $\{e_s\}_{s \in S}$, and $g$ acts by $g e_s = e_{gs}$. Each $g$ acts by a permutation matrix.
+- Let $G = S_n$. Besides the trivial representation, which we denote $U$, there is the ***alternating*** (or ***sign***) representation $U' = \CC$, on which $\sigma$ acts as multiplication by $\sgn(\sigma)$ (Definition [3.4.10](/notes/math-55a/3-4-the-symmetric-group#definition-3-4-10)); it is a representation because $\sgn$ is a homomorphism. The permutation representation of $S_n$ on $\{1, \ldots, n\}$ is $\CC^n$ with $\sigma e_i = e_{\sigma(i)}$. The line spanned by $e_1 + \cdots + e_n$ is a subrepresentation isomorphic to $U$. The subspace $$V = \{(z_1, \ldots, z_n) \in \CC^n : z_1 + \cdots + z_n = 0\}$$ is also a subrepresentation, because permuting coordinates does not change their sum. Since $\CC^n = \CC(e_1 + \cdots + e_n) \oplus V$, the subrepresentation $V$ is a complement of dimension $n - 1$. It is called the ***standard representation*** of $S_n$, and it is irreducible: we prove this for $n = 3$ in Section [13.3.1](/notes/math-55a/13-3-schurs-lemma), and in general in the exercises at the end of the chapter.
+:::
+
+## <span class="num">13.1.1</span> Representations of Finite Abelian Groups
+
+The basic linear-algebra fact behind this subsection is that an operator of finite order can be diagonalized.
+
+:::lemma{13.1.5} Operators of finite order
+Let $V$ be a finite-dimensional complex vector space and $\varphi \in \End(V)$ an operator with $\varphi^n = \id_V$ for some $n \geq 1$. Then $\varphi$ is diagonalizable, and its eigenvalues are $n$th roots of unity.
+:::
+
+:::proof
+If $\varphi(v) = \lambda v$ with $v \neq 0$, then $v = \varphi^n(v) = \lambda^n v$, so $\lambda^n = 1$. By Theorem [7.6.11](/notes/math-55a/7-6-generalized-eigenspaces#theorem-7-6-11), $V = \bigoplus_\lambda V_\lambda$, where $\lambda$ runs over the eigenvalues of $\varphi$ and $V_\lambda = \ker(\varphi - \lambda)^N$ with $N = \dim V$. Fix an eigenvalue $\lambda$. For $\mu \neq \lambda$, the restriction of $\varphi - \mu$ to $V_\lambda$ is injective: if $v \in V_\lambda$ and $\varphi(v) = \mu v$, then $0 = (\varphi - \lambda)^N v = (\mu - \lambda)^N v$, so $v = 0$.
+
+Let $\lambda_k = e^{2\pi i k/n}$ for $0 \leq k \leq n-1$, so that $x^n - 1 = \prod_{k=0}^{n-1}(x - \lambda_k)$ and therefore $0 = \varphi^n - \id_V = \prod_{k=0}^{n-1}(\varphi - \lambda_k)$. The eigenvalue $\lambda$ is one of the $\lambda_k$; write the product as $P \circ (\varphi - \lambda)$, where $P$ is the product of the other factors. All the factors commute with $\varphi$, so they preserve $V_\lambda$, and $P$ is injective on $V_\lambda$. Hence $(\varphi - \lambda)v = 0$ for every $v \in V_\lambda$: the space $V_\lambda$ is the $\lambda$-eigenspace, and $V$ is the direct sum of the eigenspaces of $\varphi$.
+:::
+
+:::example{13.1.6} Representations of cyclic groups
+Let $G = \ZZ/n$. A representation of $G$ amounts to a vector space $V$ with an operator $\varphi = \rho(1)$ such that $\varphi^n = \id_V$, since $\rho(m) = \varphi^m$. By Lemma [13.1.5](/notes/math-55a/13-1-representations-and-subrepresentations#lemma-13-1-5), $V$ has a basis $v_1, \ldots, v_d$ of eigenvectors of $\varphi$. Each line $\CC v_j$ is invariant under every $\rho(m) = \varphi^m$, so it is a $1$-dimensional, hence irreducible, subrepresentation, and $V = \CC v_1 \oplus \cdots \oplus \CC v_d$.
+
+A $1$-dimensional representation of $\ZZ/n$ is a homomorphism $\ZZ/n \to \GL_1(\CC) = \CC^*$. It is determined by the image of $1$, which must be an $n$th root of unity $e^{2\pi i k/n}$, and each choice of $k \in \{0, \ldots, n-1\}$ gives one. These $n$ representations are pairwise non-isomorphic, since $1$-dimensional representations are isomorphic only if they are equal. So $\ZZ/n$ has exactly $n$ irreducible representations up to isomorphism, and every representation of $\ZZ/n$ is a direct sum of copies of them.
+:::
+
+:::proposition{13.1.7} Representations of finite abelian groups
+Let $G$ be a finite abelian group and $V$ a representation of $G$. Then $V$ has a basis consisting of vectors that are eigenvectors of every $g \in G$. Consequently $V$ is a direct sum of $1$-dimensional subrepresentations, and every irreducible representation of $G$ is $1$-dimensional.
+:::
+
+:::proof
+We show by induction on $m$ that commuting operators $\psi_1, \ldots, \psi_m$ of finite order on a finite-dimensional complex vector space $V$ have a common basis of eigenvectors. For $m = 1$ this is Lemma [13.1.5](/notes/math-55a/13-1-representations-and-subrepresentations#lemma-13-1-5). For $m > 1$, write $V = \bigoplus_\lambda E_\lambda$ as the direct sum of the eigenspaces of $\psi_1$. Each $E_\lambda$ is invariant under every $\psi_j$: if $v \in E_\lambda$, then $\psi_1(\psi_j v) = \psi_j(\psi_1 v) = \lambda\psi_j v$. The restrictions of $\psi_2, \ldots, \psi_m$ to $E_\lambda$ commute and have finite order, so by induction $E_\lambda$ has a basis of common eigenvectors of $\psi_2, \ldots, \psi_m$. These are also eigenvectors of $\psi_1$, which acts on $E_\lambda$ as the scalar $\lambda$. Putting these bases together gives a basis of $V$ of common eigenvectors.
+
+Apply this to the operators $\rho(g)$, $g \in G$, which commute because $G$ is abelian and have finite order because $G$ is finite. The line spanned by each common eigenvector is invariant under every $g$, hence a $1$-dimensional subrepresentation, and $V$ is the direct sum of these lines. If $V$ is irreducible, it must be one of them.
+:::
+
+:::definition{13.1.8} Dual group
+For a finite abelian group $G$, the ***dual group*** is $\wh{G} = \Hom(G, \CC^*)$, the set of homomorphisms $G \to \CC^*$, with pointwise multiplication: $(\theta\theta')(g) = \theta(g)\theta'(g)$.
+:::
+
+Because $\CC^*$ is abelian, $\theta\theta'$ is again a homomorphism: $$(\theta\theta')(gh) = \theta(g)\theta(h)\theta'(g)\theta'(h) = (\theta\theta')(g)\,(\theta\theta')(h).$$ So $\wh{G}$ is an abelian group, with identity the constant function $1$ and inverses $\theta^{-1}(g) = \theta(g)^{-1}$. By Proposition [13.1.7](/notes/math-55a/13-1-representations-and-subrepresentations#proposition-13-1-7), the irreducible representations of a finite abelian group $G$ are, up to isomorphism, exactly the elements of $\wh{G}$, and every representation of $G$ is a direct sum of them. This completes the classification of the complex representations of finite abelian groups.
+
+:::proposition{13.1.9} The dual of a finite abelian group
+If $G$ is a finite abelian group, then $\wh{G} \cong G$.
+:::
+
+:::proof
+By Theorem [10.2.1](/notes/math-55a/10-2-classification-of-finitely-generated-abelian-groups#theorem-10-2-1), $G \cong \ZZ/m_1 \times \cdots \times \ZZ/m_r$; let $\varepsilon_1, \ldots, \varepsilon_r$ be the standard generators. A homomorphism $\theta : G \to \CC^*$ is determined by the values $\zeta_i = \theta(\varepsilon_i)$, which satisfy $\zeta_i^{m_i} = \theta(m_i\varepsilon_i) = 1$. Conversely, for any $m_i$th roots of unity $\zeta_1, \ldots, \zeta_r$, the formula $\theta(a_1, \ldots, a_r) = \zeta_1^{a_1}\cdots\zeta_r^{a_r}$ is well defined (each $\zeta_i^{a_i}$ depends only on $a_i$ modulo $m_i$) and is a homomorphism. Writing $\mu_m$ for the group of $m$th roots of unity, $\theta \mapsto (\theta(\varepsilon_1), \ldots, \theta(\varepsilon_r))$ is therefore an isomorphism $\wh{G} \cong \mu_{m_1} \times \cdots \times \mu_{m_r}$, and $\mu_m \cong \ZZ/m$ via $e^{2\pi i k/m} \leftrightarrow k$.
+:::
+
+:::note
+The isomorphism $\wh{G} \cong G$ depends on a choice of generators. There is no canonical isomorphism, even for $G = \ZZ/n$.
+:::
+
+## <span class="num">13.1.2</span> Constructions with Representations
+
+For a representation $X$ of $G$, the subspace of ***invariant vectors*** is $X^G = \{x \in X : gx = x \text{ for all } g \in G\}$.
+
+:::proposition{13.1.10} Constructions with representations
+Let $V$ and $W$ be representations of $G$. Each of the following is a representation of $G$.
 
 <!-- list:paren-roman -->
 
-1. $V \oplus W$ is a representation: $g \cdot (v, w) = (gv, gw)$.
-2. $V \otimes W$ is a representation: $g \cdot (v \otimes w) = gv \otimes gw$, extended by linearity.
-3. The dual $V^* = \Hom(V, \CC)$ is a representation: $(g \cdot \ell)(v) = \ell(g^{-1} v)$. This is the contragredient representation.
-4. $\Hom(V, W)$ is a representation: $(g \cdot \varphi)(v) = g \cdot \varphi(g^{-1} v)$, i.e., $g \cdot \varphi = g \circ \varphi \circ g^{-1}$. Note $\Hom(V, W)^G = \Hom_G(V, W)$ (the $G$-invariant maps are exactly the $G$-equivariant ones).
-5. Under the isomorphism $\Hom(V, W) \cong V^* \otimes W$, the $G$-action is $g \cdot (\ell \otimes w) = (g \cdot \ell) \otimes (g \cdot w)$, which is consistent with the above.
-6. If $W \subseteq V$ is a subrepresentation, then $V/W$ is a representation: $g \cdot (v + W) = gv + W$.
+1. The direct sum $V \oplus W$, with $g(v, w) = (gv, gw)$.
+2. The tensor product $V \otimes W$ (Definition [9.8.5](/notes/math-55a/9-8-tensor-products#definition-9-8-5)), with $g(v \otimes w) = gv \otimes gw$, extended linearly.
+3. The ***dual representation*** $V^* = \Hom(V, \CC)$, with $(g\ell)(v) = \ell(g^{-1}v)$. Thus $g$ acts on $V^*$ by the dual map $\rho(g^{-1})^t$ (Definition [6.2.9](/notes/math-55a/6-2-duality#definition-6-2-9)).
+4. $\Hom(V, W)$, with $g \cdot \varphi = g \circ \varphi \circ g^{-1}$ (the first $g$ acting on $W$, and $g^{-1}$ on $V$). Its invariant vectors are exactly the homomorphisms of representations: $\Hom(V, W)^G = \Hom_G(V, W)$.
+5. For $d \geq 1$, the symmetric and exterior powers $\Sym^d V$ and $\bigwedge^d V$ (Definitions [9.10.3](/notes/math-55a/9-10-symmetric-and-exterior-powers#definition-9-10-3) and [9.10.4](/notes/math-55a/9-10-symmetric-and-exterior-powers#definition-9-10-4)), with $g(v_1 \cdots v_d) = (gv_1) \cdots (gv_d)$ and $g(v_1 \wedge \cdots \wedge v_d) = gv_1 \wedge \cdots \wedge gv_d$.
+6. If $W \subseteq V$ is a subrepresentation, the quotient $V/W$, with $g(v + W) = gv + W$.
+
+Moreover, the canonical isomorphism $V^* \otimes W \to \Hom(V, W)$, $\ell \otimes w \mapsto (v \mapsto \ell(v)w)$, of Proposition [9.8.10](/notes/math-55a/9-8-tensor-products#proposition-9-8-10) is an isomorphism of representations.
+:::
+
+:::proof
+In each case $g$ acts by a linear map: in (ii) by $\rho_V(g) \otimes \rho_W(g)$ (Proposition [9.8.7](/notes/math-55a/9-8-tensor-products#proposition-9-8-7)); in (v) by $\Sym^d\rho(g)$ and $\bigwedge^d\rho(g)$ (Proposition [9.10.6](/notes/math-55a/9-10-symmetric-and-exterior-powers#proposition-9-10-6)); in (vi) because $gW \subseteq W$. The identity acts as the identity, and it remains to check that $gh$ acts as $g$ after $h$. In (i), (ii), (v) and (vi) this is clear on the vectors written, which span. In (iii), $(g(h\ell))(v) = (h\ell)(g^{-1}v) = \ell(h^{-1}g^{-1}v) = ((gh)\ell)(v)$. In (iv), $g \cdot (h \cdot \varphi) = gh\varphi h^{-1}g^{-1} = (gh) \cdot \varphi$. Also $g\varphi g^{-1} = \varphi$ for all $g$ if and only if $g\varphi = \varphi g$ for all $g$, which proves $\Hom(V,W)^G = \Hom_G(V,W)$.
+
+Finally, $g(\ell \otimes w) = (\ell \circ g^{-1}) \otimes gw$ is sent to the map $v \mapsto \ell(g^{-1}v)\,gw$, which is $g \circ (v \mapsto \ell(v)w) \circ g^{-1}$. So the isomorphism commutes with the action of every $g$.
 :::

@@ -3,155 +3,170 @@
 course: math-55a
 chapter: 3
 section: 3.5
-title: Exact sequences
+title: Exact Sequences
 ---
 
-The isomorphism theorems reveal a pattern: kernels and images of homomorphisms are intimately related. Exact sequences provide elegant jargon to express these relationships, and form the foundation of *homological algebra*—a subject that permeates modern mathematics from algebraic topology to representation theory to algebraic geometry. We introduce the basic concepts here.
+The isomorphism theorems reveal a pattern: kernels and images of homomorphisms are intimately related. Exact sequences are a compact language for these relationships, and they are the starting point of *homological algebra*, a subject that runs through modern mathematics from algebraic topology to representation theory to algebraic geometry. We introduce the basic notions here.
 
-## <span class="num">3.5.1</span> Exact sequences and their meaning
+## <span class="num">3.5.1</span> Exact Sequences and Their Meaning
 
 :::definition{3.5.1} Exact sequence
-A sequence of groups and homomorphisms $$\cdots \xrightarrow{} G_{i-1} \xrightarrow{\varphi_{i-1}} G_i \xrightarrow{\varphi_i} G_{i+1} \xrightarrow{} \cdots$$ is ***exact at $G_i$*** if $\Img(\varphi_{i-1}) = \ker(\varphi_i)$. The sequence is ***exact*** if it is exact at every group (except possibly the endpoints).
+A sequence of groups and homomorphisms $$\cdots \longrightarrow G_{i-1} \xrightarrow{\varphi_{i-1}} G_i \xrightarrow{\varphi_i} G_{i+1} \longrightarrow \cdots$$ is ***exact at $G_i$*** if $\Img(\varphi_{i-1}) = \ker(\varphi_i)$. The sequence is ***exact*** if it is exact at every group other than the two ends (if there are ends).
 :::
 
-The condition $\Img(\varphi_{i-1}) = \ker(\varphi_i)$ says: “everything that comes from the left dies when we go right.” This is stronger than $\Img(\varphi_{i-1}) \subseteq \ker(\varphi_i)$ (which just says $\varphi_i \circ \varphi_{i-1} = 0$, i.e., the composition is the zero map).
+The condition $\Img(\varphi_{i-1}) = \ker(\varphi_i)$ says: an element of $G_i$ is sent to the identity by $\varphi_i$ exactly when it comes from $G_{i-1}$. This is stronger than $\Img(\varphi_{i-1}) \subseteq \ker(\varphi_i)$, which says only that $\varphi_i \circ \varphi_{i-1}$ is the trivial homomorphism.
 
-:::example{3.5.1} Exactness encodes injectivity and surjectivity
-Consider short sequences with trivial groups $\{e\}$:
+:::example{3.5.2} Exactness encodes injectivity and surjectivity
+Write $\{e\}$ for the trivial group; the only homomorphisms into or out of it are the trivial ones.
 
-1. $\{e\} \xrightarrow{} A \xrightarrow{\varphi} B$ is exact at $A$ iff $\ker(\varphi) = \Img(\{e\} \to A) = \{e_A\}$, i.e., $\varphi$ is **injective**.
-2. $A \xrightarrow{\varphi} B \xrightarrow{} \{e\}$ is exact at $B$ iff $\Img(\varphi) = \ker(B \to \{e\}) = B$, i.e., $\varphi$ is **surjective**.
-3. $\{e\} \xrightarrow{} A \xrightarrow{\varphi} B \xrightarrow{} \{e\}$ is exact iff $\varphi$ is an **isomorphism**.
+<!-- list:paren-alpha -->
+
+1. $\{e\} \to A \xrightarrow{\varphi} B$ is exact at $A$ if and only if $\ker(\varphi) = \{e_A\}$, that is, $\varphi$ is **injective**.
+2. $A \xrightarrow{\varphi} B \to \{e\}$ is exact at $B$ if and only if $\Img(\varphi) = B$, that is, $\varphi$ is **surjective**.
+3. $\{e\} \to A \xrightarrow{\varphi} B \to \{e\}$ is exact if and only if $\varphi$ is an **isomorphism**.
 :::
 
-## <span class="num">3.5.2</span> Short exact sequences
+## <span class="num">3.5.2</span> Short Exact Sequences
 
-The most important type of exact sequence is the *short exact sequence*, which captures the structure of quotient groups.
+The most important exact sequences are the short ones, which capture quotient groups.
 
-:::definition{3.5.2} Short exact sequence
-A ***short exact sequence*** (SES) is an exact sequence of the form $$\{e\} \xrightarrow{} N \xrightarrow{\iota} G \xrightarrow{\pi} Q \xrightarrow{} \{e\}$$ where exactness means: $\iota$ is injective, $\pi$ is surjective, and $\Img(\iota) = \ker(\pi)$.
+:::definition{3.5.3} Short exact sequence
+A ***short exact sequence*** is an exact sequence of the form $$\{e\} \longrightarrow N \xrightarrow{\ \iota\ } G \xrightarrow{\ \pi\ } Q \longrightarrow \{e\}.$$ Exactness means: $\iota$ is injective, $\pi$ is surjective, and $\Img(\iota) = \ker(\pi)$.
 :::
 
-:::note
-We often write a short exact sequence as $1 \to N \to G \to Q \to 1$ (using 1 for the trivial group in multiplicative notation) or $0 \to N \to G \to Q \to 0$ (in additive notation for abelian groups).
+The trivial group is usually written $1$ for groups in multiplicative notation and $0$ for abelian groups in additive notation, so a short exact sequence appears as $1 \to N \to G \to Q \to 1$ or $0 \to A \to B \to C \to 0$.
+
+:::proposition{3.5.4} Short exact sequences and quotients
+If $1 \to N \xrightarrow{\iota} G \xrightarrow{\pi} Q \to 1$ is exact, then $K = \iota(N)$ is a normal subgroup of $G$ isomorphic to $N$, and $\pi$ induces an isomorphism $G/K \to Q$, $gK \mapsto \pi(g)$. Conversely, if $K \trianglelefteq G$, then $$1 \to K \xrightarrow{\text{incl}} G \xrightarrow{\text{proj}} G/K \to 1$$ is exact. So a short exact sequence $1 \to N \to G \to Q \to 1$ exists if and only if $G$ has a normal subgroup isomorphic to $N$ with quotient isomorphic to $Q$.
 :::
 
-:::proposition{3.5.1} Short exact sequences and quotients
-A sequence $1 \to N \xrightarrow{\iota} G \xrightarrow{\pi} Q \to 1$ is exact if and only if:
+:::proof
+Suppose the sequence is exact. Since $\iota$ is injective, it is an isomorphism from $N$ onto $K = \iota(N)$. Exactness at $G$ gives $K = \ker\pi$, which is normal, and since $\pi$ is surjective the First Isomorphism Theorem gives $G/K \cong Q$ via $gK \mapsto \pi(g)$.
 
-1. $\iota$ identifies $N$ with a normal subgroup of $G$ (namely $\iota(N) = \ker(\pi) \trianglelefteq G$);
-2. $\pi$ induces an isomorphism $G/\iota(N) \cong Q$.
-
-In other words, short exact sequences encode the statement “$G/N \cong Q$” or “$G$ is an extension of $Q$ by $N$.”
+Conversely, for $K \trianglelefteq G$ the inclusion is injective, the projection is surjective, and the image of the inclusion, $K$, is the kernel of the projection (Theorem [3.1.10](/notes/math-55a/3-1-cosets-and-quotient-groups#theorem-3-1-10)). For the last statement, given $K \trianglelefteq G$ and isomorphisms $\alpha : N \to K$ and $\beta : G/K \to Q$, the sequence $1 \to N \xrightarrow{\alpha} G \xrightarrow{\beta \circ \mathrm{proj}} Q \to 1$ is exact.
 :::
 
-:::proof Proof of SES characterization
-($\Rightarrow$) Suppose the sequence is exact. Then $\iota$ is injective, so $N \cong \iota(N) \subseteq G$. Exactness at $G$ gives $\iota(N) = \ker(\pi)$, which is normal in $G$. By the First Isomorphism Theorem, $G/\ker(\pi) \cong \Img(\pi) = Q$ (using surjectivity of $\pi$).
+When $1 \to N \to G \to Q \to 1$ is exact, we say that $G$ is an ***extension*** of $Q$ by $N$.
 
-($\Leftarrow$) If $\iota(N) \trianglelefteq G$ and $G/\iota(N) \cong Q$, take $\pi : G \to G/\iota(N) \cong Q$ to be the quotient map (composed with the isomorphism). Then $\ker(\pi) = \iota(N) = \Img(\iota)$, giving exactness.
+:::example{3.5.5} Fundamental examples of short exact sequences
+<!-- list:paren-alpha -->
+
+1. **Integers mod $n$:** $0 \to n\ZZ \xrightarrow{\iota} \ZZ \xrightarrow{\pi} \ZZ/n \to 0$, where $\iota$ is the inclusion and $\pi$ is reduction mod $n$.
+2. **Cyclic groups:** for positive integers $m, n$, the sequence $0 \to \ZZ/m \to \ZZ/mn \to \ZZ/n \to 0$, where the first map is $k \mapsto nk$ and the second is reduction mod $n$. The first map is well defined and injective because $nk \equiv nk' \pmod{mn}$ if and only if $k \equiv k' \pmod m$; its image is the set of multiples of $n$ in $\ZZ/mn$, which is the kernel of reduction mod $n$. For example, $0 \to \ZZ/2 \to \ZZ/6 \to \ZZ/3 \to 0$ and $0 \to \ZZ/3 \to \ZZ/6 \to \ZZ/2 \to 0$.
+3. **Sign:** $1 \to A_n \to S_n \xrightarrow{\sgn} \{\pm 1\} \to 1$ for $n \ge 2$. For $n = 3$, with $A_3 \cong \ZZ/3$ and $\{\pm1\} \cong \ZZ/2$, this reads $1 \to \ZZ/3 \to S_3 \to \ZZ/2 \to 1$. Together with $0 \to \ZZ/3 \to \ZZ/6 \to \ZZ/2 \to 0$, this shows that the two ends of a short exact sequence do not determine the middle group.
+4. **Determinant:** $1 \to \SL_n(\RR) \to \GL_n(\RR) \xrightarrow{\det} \RR^\times \to 1$ (Example [3.3.4](/notes/math-55a/3-3-the-isomorphism-theorems#example-3-3-4)).
+5. **Center:** for any group $G$, $1 \to Z(G) \to G \to \Inn(G) \to 1$, where the second map is $g \mapsto c_g$ (Example [3.3.4](/notes/math-55a/3-3-the-isomorphism-theorems#example-3-3-4)).
+6. **Products:** for any groups $N$ and $Q$, $1 \to N \xrightarrow{\iota} N \times Q \xrightarrow{\pi} Q \to 1$, where $\iota(n) = (n, e)$ and $\pi(n, q) = q$. This is the “trivial” extension.
 :::
 
-:::example{3.5.2} Fundamental examples of short exact sequences
-1. **Integers mod $n$:** $0 \to n\mathbb{Z} \xrightarrow{\iota} \mathbb{Z} \xrightarrow{\pi} \mathbb{Z}/n\mathbb{Z} \to 0$, where $\iota$ is inclusion and $\pi$ is reduction mod $n$.
-2. **Determinant:** $1 \to \SL_n(\mathbb{R}) \xrightarrow{\iota} \GL_n(\mathbb{R}) \xrightarrow{\det} \mathbb{R}^* \to 1$. The kernel of det is exactly $\SL_n$.
-3. **Sign:** $1 \to A_n \xrightarrow{\iota} S_n \xrightarrow{\sgn} \{\pm 1\} \to 1$. The alternating group is the kernel of the sign homomorphism.
-4. **Center:** For any group $G$, we have $1 \to Z(G) \xrightarrow{\iota} G \xrightarrow{\pi} G/Z(G) \to 1$. The quotient $G/Z(G)$ is called the *inner automorphism group* (it acts on $G$ by conjugation).
-5. **Product decomposition:** $1 \to N \xrightarrow{\iota} N \times Q \xrightarrow{\pi} Q \to 1$, where $\iota(n) = (n, e)$ and $\pi(n, q) = q$. This is a “trivial” extension.
+:::example{3.5.6} A sequence that does not exist
+There is no short exact sequence $1 \to \ZZ/2 \to S_3 \to \ZZ/3 \to 1$: it would make the image of $\ZZ/2$ a normal subgroup of $S_3$ of order 2, and $S_3$ has none (Example [3.1.12](/notes/math-55a/3-1-cosets-and-quotient-groups#example-3-1-12)).
 :::
 
-## <span class="num">3.5.3</span> Splitting and semidirect products
+## <span class="num">3.5.3</span> Splitting
 
-When does a short exact sequence “come from” a direct product? This leads to the important notion of splitting.
+When does a short exact sequence “come from” a simpler construction? This leads to the notion of splitting.
 
-:::definition{3.5.3} Split exact sequence
-A short exact sequence $1 \to N \xrightarrow{\iota} G \xrightarrow{\pi} Q \to 1$ is ***split*** (or ***splits***) if any of the following equivalent conditions holds:
-
-1. There exists a homomorphism $s : Q \to G$ with $\pi \circ s = \id_Q$ (a ***section*** or ***right inverse***);
-2. There exists a homomorphism $r : G \to N$ with $r \circ \iota = \id_N$ (a ***retraction*** or ***left inverse***);
-3. $G \cong N \rtimes Q$ for some semidirect product structure.
+:::definition{3.5.7} Split exact sequence
+A short exact sequence $1 \to N \xrightarrow{\iota} G \xrightarrow{\pi} Q \to 1$ ***splits*** if there is a homomorphism $\theta : Q \to G$ with $\pi \circ \theta = \id_Q$. Such a $\theta$ is called a ***section*** (or ***splitting***).
 :::
 
-:::note
-For abelian groups, split exact sequences correspond exactly to direct products: if $1 \to A \to B \to C \to 1$ splits with $A, B, C$ abelian, then $B \cong A \times C$. For non-abelian groups, the situation is more subtle—we get *semidirect* products, which we’ll study in detail later.
+:::proposition{3.5.8} Splitting lemma
+If $1 \to N \xrightarrow{\iota} G \xrightarrow{\pi} Q \to 1$ has a section $\theta$, then every element $g \in G$ can be written uniquely as $g = \iota(n)\,\theta(q)$ with $n \in N$ and $q \in Q$.
 :::
 
-:::example{3.5.3} Split vs non-split
-1. **Splits:** $1 \to A_3 \to S_3 \to \mathbb{Z}/2 \to 1$. A section $s : \mathbb{Z}/2 \to S_3$ sends the generator to any transposition, e.g., $s(1) = (12)$. Thus $S_3 \cong A_3 \rtimes \mathbb{Z}/2$.
-2. **Does not split:** $0 \to \mathbb{Z}/2 \xrightarrow{\times 2} \mathbb{Z}/4 \xrightarrow{\mod 2} \mathbb{Z}/2 \to 0$. If it split, we’d have $\mathbb{Z}/4 \cong \mathbb{Z}/2 \times \mathbb{Z}/2$, but $\mathbb{Z}/4$ has an element of order 4 while $\mathbb{Z}/2 \times \mathbb{Z}/2$ doesn’t. The sequence is exact but not split.
+:::proof
+**Existence:** Given $g \in G$, let $q = \pi(g)$. Then $\pi(g\,\theta(q)^{-1}) = \pi(g)\,\pi(\theta(q))^{-1} = qq^{-1} = e$, so $g\,\theta(q)^{-1} \in \ker\pi = \iota(N)$. Write $g\,\theta(q)^{-1} = \iota(n)$; then $g = \iota(n)\,\theta(q)$.
+
+**Uniqueness:** Suppose $\iota(n_1)\,\theta(q_1) = \iota(n_2)\,\theta(q_2)$. Applying $\pi$ gives $q_1 = q_2$, since $\pi \circ \iota$ is trivial and $\pi \circ \theta = \id_Q$. Cancelling $\theta(q_1)$ gives $\iota(n_1) = \iota(n_2)$, and $n_1 = n_2$ because $\iota$ is injective.
 :::
 
-:::proposition{3.5.2} Splitting lemma (partial)
-If $1 \to N \xrightarrow{\iota} G \xrightarrow{\pi} Q \to 1$ has a section $s : Q \to G$, then every element $g \in G$ can be written uniquely as $g = \iota(n) \cdot s(q)$ for some $n \in N$ and $q \in Q$.
+:::corollary{3.5.9} Split sequences of abelian groups
+If $0 \to A \xrightarrow{\iota} B \xrightarrow{\pi} C \to 0$ is a split short exact sequence of abelian groups with section $\theta$, then $A \times C \to B$, $(a, c) \mapsto \iota(a) + \theta(c)$, is an isomorphism. In particular $B \cong A \times C$.
 :::
 
-:::proof Proof of splitting decomposition
-**Existence:** Given $g \in G$, let $q = \pi(g) \in Q$. Then $\pi(g \cdot s(q)^{-1}) = \pi(g) \cdot \pi(s(q))^{-1} = q \cdot q^{-1} = e_Q$, so $g \cdot s(q)^{-1} \in \ker(\pi) = \iota(N)$. Thus $g \cdot s(q)^{-1} = \iota(n)$ for some $n \in N$, giving $g = \iota(n) \cdot s(q)$.
-
-**Uniqueness:** Suppose $\iota(n_1) \cdot s(q_1) = \iota(n_2) \cdot s(q_2)$. Apply $\pi$: $e \cdot q_1 = e \cdot q_2$, so $q_1 = q_2$. Then $\iota(n_1) = \iota(n_2)$, and since $\iota$ is injective, $n_1 = n_2$.
+:::proof
+The map is a homomorphism because $B$ is abelian: $\iota(a + a') + \theta(c + c') = (\iota(a) + \theta(c)) + (\iota(a') + \theta(c'))$. It is bijective by the splitting lemma.
 :::
 
-## <span class="num">3.5.4</span> The extension problem
+For non-abelian groups the conclusion fails, because the product $\iota(n)\theta(q)$ need not be multiplicative in the pair $(n, q)$. The correct generalization is the *semidirect product*, studied in Chapter 11: the extensions of $Q$ by $N$ that split are exactly the semidirect products of $N$ and $Q$. A direct product needs more than a section, namely a retraction onto $N$.
 
-The short exact sequence perspective leads to a fundamental question in group theory.
+:::proposition{3.5.10} Retractions and direct products
+For a short exact sequence $1 \to N \xrightarrow{\iota} G \xrightarrow{\pi} Q \to 1$, the following are equivalent:
 
-:::definition{3.5.4} Group extension
-Given groups $N$ and $Q$, an ***extension of $Q$ by $N$*** is a group $G$ fitting into a short exact sequence $1 \to N \to G \to Q \to 1$.
+<!-- list:paren-alpha -->
+
+1. there is a homomorphism $r : G \to N$ with $r \circ \iota = \id_N$ (a ***retraction***);
+2. there is an isomorphism $\psi : G \to N \times Q$ with $\psi(\iota(n)) = (n, e)$ for all $n \in N$ and $\pi = \mathrm{pr}_Q \circ \psi$, where $\mathrm{pr}_Q(n, q) = q$.
 :::
 
-The ***extension problem*** asks: given $N$ and $Q$, classify all groups $G$ that are extensions of $Q$ by $N$. This is a deep problem that leads to:
+:::proof
+(b) $\Rightarrow$ (a): Let $r = \mathrm{pr}_N \circ \psi$, where $\mathrm{pr}_N(n, q) = n$. Then $r(\iota(n)) = \mathrm{pr}_N(n, e) = n$.
 
-1. *Semidirect products* (when the sequence splits);
-2. *Group cohomology* $H^2(Q, N)$ (classifying non-split extensions);
-3. The structure theory of finite groups (building groups from simple groups).
-
-:::example{3.5.4} Extensions of $\mathbb{Z}/2$ by $\mathbb{Z}/2$
-What groups $G$ fit into $1 \to \mathbb{Z}/2 \to G \to \mathbb{Z}/2 \to 1$? Such $G$ has order 4. We know there are exactly two groups of order 4: $\mathbb{Z}/4$ and $\mathbb{Z}/2 \times \mathbb{Z}/2$. Both work:
-
-- $\mathbb{Z}/4$: the sequence $0 \to \mathbb{Z}/2 \xrightarrow{\times 2} \mathbb{Z}/4 \to \mathbb{Z}/2 \to 0$ (non-split).
-- $\mathbb{Z}/2 \times \mathbb{Z}/2$: the sequence $0 \to \mathbb{Z}/2 \to \mathbb{Z}/2 \times \mathbb{Z}/2 \to \mathbb{Z}/2 \to 0$ (split).
-
-So there are exactly two extensions, corresponding to the two groups of order 4.
+(a) $\Rightarrow$ (b): Let $\psi(g) = (r(g), \pi(g))$, a homomorphism $G \to N \times Q$ with the two stated properties. It is injective: if $r(g) = e$ and $\pi(g) = e$, then $g = \iota(n)$ for some $n$ by exactness, and $n = r(\iota(n)) = r(g) = e$, so $g = e$. It is surjective: given $(n, q)$, choose $g$ with $\pi(g) = q$, and set $g' = \iota\big(n\,r(g)^{-1}\big)\,g$. Then $\pi(g') = \pi(g) = q$ and $r(g') = n\,r(g)^{-1}r(g) = n$.
 :::
 
-:::question{5}
-1. Verify that $1 \to \mathbb{Z} \xrightarrow{\times n} \mathbb{Z} \xrightarrow{\mod n} \mathbb{Z}/n \to 1$ is exact.
-2. Show that the sequence $1 \to \langle r \rangle \to D_n \to \mathbb{Z}/2 \to 1$ is exact, where $\langle r \rangle \cong \mathbb{Z}/n$ is the rotation subgroup. Does it split?
+:::example{3.5.11} Split and non-split sequences
+<!-- list:paren-alpha -->
+
+1. **Splits, but is not a product:** $1 \to A_3 \to S_3 \xrightarrow{\sgn} \{\pm 1\} \to 1$. The homomorphism $\theta : \{\pm 1\} \to S_3$ with $\theta(-1) = (1\,2)$ is a section, since $(1\,2)^2 = e$ and $\sgn(1\,2) = -1$. There is no retraction: by Proposition [3.5.10](/notes/math-55a/3-5-exact-sequences#proposition-3-5-10) it would give $S_3 \cong A_3 \times \{\pm1\}$, which is abelian, while $S_3$ is not.
+2. **Does not split:** $0 \to \ZZ/2 \xrightarrow{\times 2} \ZZ/4 \to \ZZ/2 \to 0$, with the second map reduction mod 2. A section $\theta : \ZZ/2 \to \ZZ/4$ would satisfy $\theta(1) \equiv 1 \pmod 2$, so $\theta(1) \in \{1, 3\}$, and also $2\theta(1) = \theta(0) = 0$, so $\theta(1) \in \{0, 2\}$. This is impossible. (Alternatively: if it split, Corollary [3.5.9](/notes/math-55a/3-5-exact-sequences#corollary-3-5-9) would give $\ZZ/4 \cong \ZZ/2 \times \ZZ/2$, but $\ZZ/4$ has an element of order 4 and $\ZZ/2 \times \ZZ/2$ does not.)
+:::
+
+## <span class="num">3.5.4</span> The Extension Problem
+
+Short exact sequences lead to a fundamental question: given groups $N$ and $Q$, classify all extensions of $Q$ by $N$, that is, all groups $G$ fitting into a short exact sequence $1 \to N \to G \to Q \to 1$. This is a deep problem. The split extensions are the semidirect products of Chapter 11; when $N$ is abelian, all extensions, split or not, are classified by cohomology groups $H^2(Q, N)$, which we will not pursue; and since every finite group is built from simple groups by repeated extensions, the problem lies at the heart of the structure theory of finite groups.
+
+:::example{3.5.12} Extensions of $\ZZ/2$ by $\ZZ/2$
+Which groups $G$ fit into $1 \to \ZZ/2 \to G \to \ZZ/2 \to 1$? Such a $G$ has order 4. There are exactly two groups of order 4 up to isomorphism. Indeed, by Lagrange’s theorem the elements of $G$ have order 1, 2, or 4. If some element has order 4, then $G$ is cyclic, $G \cong \ZZ/4$. Otherwise $x^2 = e$ for all $x$, so $G$ is abelian ($ab = (ab)^{-1} = b^{-1}a^{-1} = ba$), and for distinct non-identity elements $a, b$ we get $G = \{e, a, b, ab\} \cong \ZZ/2 \times \ZZ/2$. Both groups occur:
+
+- $\ZZ/4$, via $0 \to \ZZ/2 \xrightarrow{\times 2} \ZZ/4 \to \ZZ/2 \to 0$, which does not split;
+- $\ZZ/2 \times \ZZ/2$, via the product sequence, which splits.
+
+So up to isomorphism of the middle group there are exactly two extensions of $\ZZ/2$ by $\ZZ/2$.
+:::
+
+:::question{3.5.13}
+<!-- list:paren-alpha -->
+
+1. Let $n \ge 1$. Verify that $0 \to \ZZ \xrightarrow{\times n} \ZZ \to \ZZ/n \to 0$ is exact, where the second map is reduction mod $n$.
+2. Let $n \ge 3$. Show that $1 \to \langle r \rangle \to D_n \to \ZZ/2 \to 1$ is exact for a suitable surjection $D_n \to \ZZ/2$, where $\langle r \rangle \cong \ZZ/n$ is the rotation subgroup. Does it split? Is $D_n$ the direct product $\ZZ/n \times \ZZ/2$?
 3. Let $G$ be a group with normal subgroup $N$. Prove that the sequence $1 \to N \to G \to G/N \to 1$ is exact (with the obvious maps).
 4. Suppose $1 \to A \xrightarrow{f} B \xrightarrow{g} C \to 1$ and $1 \to C \xrightarrow{h} D \xrightarrow{k} E \to 1$ are exact. Prove that $1 \to A \xrightarrow{f} B \xrightarrow{h \circ g} D \xrightarrow{k} E \to 1$ is exact.
 
 :::solution
-**(1)** Let $\iota : \mathbb{Z} \to \mathbb{Z}$ be $\iota(k) = nk$ and $\pi : \mathbb{Z} \to \mathbb{Z}/n$ be reduction mod $n$.
+**(a)** Let $\iota(k) = nk$ and let $\pi : \ZZ \to \ZZ/n$ be reduction mod $n$.
 
-*Exactness at first $\mathbb{Z}$:* $\ker(\iota) = \{k : nk = 0\} = \{0\}$, and $\Img(1 \to \mathbb{Z}) = \{0\}$. ✓
+*Exactness at the first $\ZZ$:* $\ker(\iota) = \{k \mid nk = 0\} = \{0\}$, since $n \neq 0$.
 
-*Exactness at second $\mathbb{Z}$:* $\Img(\iota) = n\mathbb{Z}$ and $\ker(\pi) = n\mathbb{Z}$. ✓
+*Exactness at the second $\ZZ$:* $\Img(\iota) = n\ZZ = \ker(\pi)$.
 
-*Exactness at $\mathbb{Z}/n$:* $\Img(\pi) = \mathbb{Z}/n$ and $\ker(\mathbb{Z}/n \to 1) = \mathbb{Z}/n$. ✓
+*Exactness at $\ZZ/n$:* $\pi$ is surjective.
 
-**(2)** The rotation subgroup $\langle r \rangle = \{e, r, r^2, \ldots, r^{n-1}\}$ is normal in $D_n$ (we showed this earlier). The quotient $D_n / \langle r \rangle$ has order $2n/n = 2$, so $D_n/\langle r \rangle \cong \mathbb{Z}/2$. The sequence $1 \to \langle r \rangle \xrightarrow{\iota} D_n \xrightarrow{\pi} \mathbb{Z}/2 \to 1$ is exact.
+**(b)** Recall (Proposition [2.2.15](/notes/math-55a/2-2-fundamental-examples#proposition-2-2-15)) that $D_n$ has order $2n$, with rotation subgroup $\langle r \rangle = \{e, r, \ldots, r^{n-1}\}$ of order $n$ and a reflection $s \notin \langle r \rangle$ with $s^2 = e$. The subgroup $\langle r \rangle$ has index 2, so it is normal (Proposition [3.1.11](/notes/math-55a/3-1-cosets-and-quotient-groups#proposition-3-1-11)), and $D_n/\langle r \rangle$ is a group of order 2, hence isomorphic to $\ZZ/2$. Composing the projection with this isomorphism gives a surjection $\pi : D_n \to \ZZ/2$ with kernel $\langle r \rangle$, so $1 \to \langle r \rangle \to D_n \xrightarrow{\pi} \ZZ/2 \to 1$ is exact (Proposition [3.5.4](/notes/math-55a/3-5-exact-sequences#proposition-3-5-4)).
 
-*Does it split?* Yes! Define $s : \mathbb{Z}/2 \to D_n$ by $s(0) = e$ and $s(1) = s$ (a reflection). Then $\pi(s(1)) = \pi(s) = 1$ (since $s \notin \langle r \rangle$), so $\pi \circ s = \id$. Thus $D_n \cong \mathbb{Z}/n \rtimes \mathbb{Z}/2$.
+*Does it split?* Yes. Define $\theta : \ZZ/2 \to D_n$ by $\theta(0) = e$ and $\theta(1) = s$; it is a homomorphism because $s^2 = e$. Since $s \notin \langle r \rangle$, $\pi(s) = 1$, so $\pi \circ \theta = \id$. Nevertheless $D_n \not\cong \ZZ/n \times \ZZ/2$, since $D_n$ is non-abelian ($srs^{-1} = r^{-1} \neq r$ for $n \ge 3$); by Proposition [3.5.10](/notes/math-55a/3-5-exact-sequences#proposition-3-5-10) there is no retraction. In the language of Chapter 11, $D_n$ is a semidirect product of $\ZZ/n$ and $\ZZ/2$.
 
-**(3)** Let $\iota : N \hookrightarrow G$ be inclusion and $\pi : G \to G/N$ be the quotient map.
+**(c)** Let $\iota : N \to G$ be the inclusion and $\pi : G \to G/N$ the quotient map.
 
-*Exactness at $N$:* $\iota$ is injective, so $\ker(\iota) = \{e\} = \Img(1 \to N)$. ✓
+*Exactness at $N$:* $\iota$ is injective.
 
-*Exactness at $G$:* $\Img(\iota) = N$ and $\ker(\pi) = N$. ✓
+*Exactness at $G$:* $\Img(\iota) = N = \ker(\pi)$ by Theorem [3.1.10](/notes/math-55a/3-1-cosets-and-quotient-groups#theorem-3-1-10).
 
-*Exactness at $G/N$:* $\pi$ is surjective, so $\Img(\pi) = G/N = \ker(G/N \to 1)$. ✓
+*Exactness at $G/N$:* $\pi$ is surjective.
 
-**(4)** We check exactness at each position.
+**(d)** We check exactness at each position.
 
-*At $A$:* Same as the original sequence—$f$ is injective.
+*At $A$:* $f$ is injective, by exactness of the first sequence.
 
-*At $B$:* We need $\Img(f) = \ker(h \circ g)$. We have $\Img(f) = \ker(g)$ (exactness of first sequence). If $b \in \ker(g)$, then $g(b) = e_C$, so $(h \circ g)(b) = h(e_C) = e_D$, giving $b \in \ker(h \circ g)$. Conversely, if $(h \circ g)(b) = e_D$, then $h(g(b)) = e_D$, so $g(b) \in \ker(h) = \{e_C\}$ (since $h$ is injective). Thus $g(b) = e_C$, so $b \in \ker(g) = \Img(f)$.
+*At $B$:* We need $\Img(f) = \ker(h \circ g)$. By exactness of the first sequence, $\Img(f) = \ker(g)$. If $b \in \ker(g)$, then $(h \circ g)(b) = h(e_C) = e_D$, so $b \in \ker(h \circ g)$. Conversely, if $h(g(b)) = e_D$, then $g(b) \in \ker(h) = \{e_C\}$, since $h$ is injective; so $b \in \ker(g) = \Img(f)$.
 
-*At $D$:* We need $\Img(h \circ g) = \ker(k)$. From exactness of second sequence, $\Img(h) = \ker(k)$. Since $g$ is surjective, $\Img(h \circ g) = h(g(B)) = h(C) = \Img(h) = \ker(k)$. ✓
+*At $D$:* We need $\Img(h \circ g) = \ker(k)$. Since $g$ is surjective, $\Img(h \circ g) = h(g(B)) = h(C) = \Img(h)$, which equals $\ker(k)$ by exactness of the second sequence.
 
-*At $E$:* Same as the original sequence—$k$ is surjective.
+*At $E$:* $k$ is surjective, by exactness of the second sequence.
 :::
 :::
 
 :::note
-Exact sequences are the beginning of *homological algebra*. The ideas extend to longer exact sequences, to *chain complexes* (sequences where consecutive compositions are zero, not necessarily exact), and to *derived functors* that measure the failure of exactness. In representation theory, exact sequences of representations encode how representations decompose. In topology, the *long exact sequence of a fibration* is a powerful tool. The language you’ve learned here will reappear throughout mathematics.
+Exact sequences are the beginning of homological algebra. The ideas extend to longer exact sequences, and to *chain complexes*: sequences in which consecutive composites are trivial but which need not be exact, where the failure of exactness is itself the object of study. In representation theory, exact sequences of representations encode how representations are assembled from smaller ones; in topology, long exact sequences are among the most powerful computational tools.
 :::

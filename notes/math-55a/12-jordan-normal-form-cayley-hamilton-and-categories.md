@@ -130,7 +130,7 @@ $$\begin{aligned} \varphi(v) &= av - bw \\ \varphi(w) &= bv + aw \end{aligned} \
 
 (One could further study block triangular decompositions of $\varphi$ etc. starting from $\varphi_\CC$.)
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 14](/notes/math-55a/14-functors-bilinear-forms-and-inner-products)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L14}}
 **Interlude: the language of categories**
 
 (Then we’ll return to (bi)linear algebra.)

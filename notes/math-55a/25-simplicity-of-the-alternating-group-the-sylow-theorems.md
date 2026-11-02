@@ -133,7 +133,7 @@ Let $\sigma\in H$, $\sigma\ne e$. Replacing $\sigma$ by some power of $\sigma$, 
 
 Our next topic, still very much related to understanding finite groups, is the **Sylow theorems**.
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 26](/notes/math-55a/26-semidirect-products-and-first-applications-of-sylow)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L26}}
 If $|G|=n$ and $k\mid n$, then in general there is no reason for $G$ to contain an element of order $k$, or even a subgroup of order $k$: the “converse to Lagrange’s theorem” fails.
 
 :::example

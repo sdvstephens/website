@@ -10,311 +10,299 @@ title: Orthogonal and Unitary Operators
 
 Orthogonal (real) and unitary (complex) operators are the isometries of inner product spaces: they preserve lengths and angles.
 
-:::definition{9.5.1} Orthogonal operator
-Let $(V, \langle \cdot, \cdot \rangle)$ be a real inner product space. An operator $T : V \to V$ is **orthogonal** if $$\langle T(u), T(v) \rangle = \langle u, v \rangle$$ for all $u, v \in V$.
-:::
-
-:::definition{9.5.2} Unitary operator
-Let $(V, H)$ be a complex inner product space (with Hermitian inner product $H$). An operator $T : V \to V$ is **unitary** if $$H(T(u), T(v)) = H(u, v)$$ for all $u, v \in V$.
+:::definition{9.5.1} Orthogonal and unitary operators
+Let $V$ be an inner product space. An operator $T : V \to V$ is ***orthogonal*** (if $V$ is real) or ***unitary*** (if $V$ is complex) if $$\langle T(u), T(v) \rangle = \langle u, v \rangle$$ for all $u, v \in V$.
 :::
 
 :::note
-We use “orthogonal” over $\RR$ and “unitary” over $\CC$, though the definitions are parallel. Some authors use “orthogonal” for both.
+The definitions are parallel; some authors use “orthogonal” in both cases. Note that an orthogonal operator is not the same thing as an orthogonal projection.
 :::
 
-:::theorem{9.5.1} Characterizations of orthogonal/unitary operators
+:::theorem{9.5.2} Characterizations of orthogonal and unitary operators
 For an operator $T : V \to V$ on a finite-dimensional inner product space, the following are equivalent:
 
 <!-- list:paren-roman -->
 
 1. $T$ is orthogonal (resp. unitary).
-2. $T^* T = I$ (equivalently, $T^* = T^{-1}$).
-3. $T T^* = I$.
+2. $T^* T = \id$, i.e., $T$ is invertible and $T^* = T^{-1}$.
+3. $T T^* = \id$.
 4. $\|T(v)\| = \|v\|$ for all $v \in V$.
 5. $T$ maps some orthonormal basis to an orthonormal basis.
 6. $T$ maps every orthonormal basis to an orthonormal basis.
 :::
 
 :::proof
-(i) $\Rightarrow$ (ii): $\langle T^*T(u), v \rangle = \langle T(u), T(v) \rangle = \langle u, v \rangle = \langle I(u), v \rangle$ for all $u, v$. By nondegeneracy, $T^*T = I$.
+(i) $\Rightarrow$ (ii): $\langle T^*T(u), v \rangle = \langle T(u), T(v) \rangle = \langle u, v \rangle$ for all $u, v$, so $T^*T(u) - u \in V^\perp = \{0\}$.
 
-(ii) $\Rightarrow$ (iii): $T^*T = I$ implies $T$ is invertible with $T^{-1} = T^*$. Then $TT^* = T(T^{-1}) = I$.
+(ii) $\Leftrightarrow$ (iii): On a finite-dimensional space, a one-sided inverse of an operator is two-sided: $T^*T = \id$ makes $T$ injective, hence invertible with $T^{-1} = T^*$, so $TT^* = \id$; and $TT^* = \id$ makes $T$ surjective, hence invertible with $T^{-1} = T^*$, so $T^*T = \id$.
 
 (ii) $\Rightarrow$ (iv): $\|T(v)\|^2 = \langle T(v), T(v) \rangle = \langle T^*T(v), v \rangle = \langle v, v \rangle = \|v\|^2$.
 
-(iv) $\Rightarrow$ (i): Use the polarization identity. Over $\RR$: $$\langle u, v \rangle = \frac{1}{4}(\|u + v\|^2 - \|u - v\|^2).$$ If $T$ preserves norms: $\langle T(u), T(v) \rangle = \frac{1}{4}(\|T(u) + T(v)\|^2 - \|T(u) - T(v)\|^2) = \frac{1}{4}(\|T(u+v)\|^2 - \|T(u-v)\|^2) = \frac{1}{4}(\|u+v\|^2 - \|u-v\|^2) = \langle u, v \rangle$.
+(iv) $\Rightarrow$ (i): The inner product can be recovered from norms by the ***polarization identities***. Over $\RR$, $\|u \pm v\|^2 = \|u\|^2 \pm 2\langle u, v \rangle + \|v\|^2$, so $$\langle u, v \rangle = \tfrac{1}{4}\left(\|u + v\|^2 - \|u - v\|^2\right).$$ Over $\CC$, for $m = 0, 1, 2, 3$ we have $\|u + i^m v\|^2 = \|u\|^2 + \|v\|^2 + i^m \langle u, v \rangle + (-i)^m \langle v, u \rangle$. Multiplying by $(-i)^m$ and summing over $m$, and using $\sum_{m=0}^3 (-i)^m = 0$ and $\sum_{m=0}^3 (-1)^m = 0$, gives $$\langle u, v \rangle = \frac{1}{4} \sum_{m=0}^{3} (-i)^m\, \|u + i^m v\|^2.$$ In both cases the right side is unchanged when $u, v$ are replaced by $T(u), T(v)$, since $\|T(u) + i^m T(v)\| = \|T(u + i^m v)\| = \|u + i^m v\|$. So $\langle T(u), T(v) \rangle = \langle u, v \rangle$.
 
-(i) $\Rightarrow$ (vi): If $\{e_1, \ldots, e_n\}$ is orthonormal, then $\langle T(e_i), T(e_j) \rangle = \langle e_i, e_j \rangle = \delta_{ij}$.
+(i) $\Rightarrow$ (vi): If $\{e_1, \ldots, e_n\}$ is an orthonormal basis, then $\langle T(e_i), T(e_j) \rangle = \langle e_i, e_j \rangle = \delta_{ij}$, so $(T(e_1), \ldots, T(e_n))$ is an orthonormal list of length $n$, hence an orthonormal basis.
 
-(vi) $\Rightarrow$ (v): Trivial.
+(vi) $\Rightarrow$ (v): Orthonormal bases exist (Theorem [9.2.2](/notes/math-55a/9-2-orthonormal-bases#theorem-9-2-2)).
 
-(v) $\Rightarrow$ (ii): Let $\{e_i\}$ be orthonormal with $\{T(e_i)\}$ orthonormal. For any $v = \sum a_i e_i$: $$T^*T(v) = T^*(\sum a_i T(e_i)).$$ Since $\{T(e_i)\}$ is orthonormal, $\langle T(e_i), T(e_j) \rangle = \delta_{ij}$, so $T^*(T(e_i)) = e_i$ (the dual basis property in an orthonormal basis). Thus $T^*T(v) = \sum a_i e_i = v$.
+(v) $\Rightarrow$ (ii): Let $\{e_i\}$ be an orthonormal basis with $\{T(e_i)\}$ orthonormal. Then $$\langle T^*T(e_i), e_j \rangle = \langle T(e_i), T(e_j) \rangle = \delta_{ij} = \langle e_i, e_j \rangle$$ for all $i, j$. Since the $e_j$ span $V$, $T^*T(e_i) - e_i \in V^\perp = \{0\}$ for each $i$, so $T^*T = \id$.
 :::
 
-:::corollary{9.5.1} Orthogonal/unitary operators are invertible
-If $T$ is orthogonal or unitary, then $T^{-1} = T^*$, which is also orthogonal/unitary.
-:::
-
-:::corollary{9.5.2} Orthogonal/unitary operators form a group
-The set of orthogonal (resp. unitary) operators on $V$ forms a subgroup of $\GL(V)$.
+:::corollary{9.5.3} Orthogonal and unitary operators form a group
+The orthogonal (resp. unitary) operators on a finite-dimensional inner product space $V$ form a subgroup of $\GL(V)$, denoted $\mathrm{O}(V)$ (resp. $\mathrm{U}(V)$). If $T$ is orthogonal or unitary, then so is $T^{-1} = T^*$.
 :::
 
 :::proof
-Identity: $I^* = I$, so $I^*I = I$. Closure: if $S^*S = I$ and $T^*T = I$, then $(ST)^*(ST) = T^*S^*ST = T^*T = I$. Inverses: $(T^{-1})^* = (T^*)^* = T$, so $(T^{-1})^*(T^{-1}) = T T^{-1} = I$.
+By the theorem, such operators are invertible. The identity preserves the inner product. If $S$ and $T$ do, then $\langle ST(u), ST(v) \rangle = \langle T(u), T(v) \rangle = \langle u, v \rangle$. And $\langle T^{-1}(u), T^{-1}(v) \rangle = \langle T(T^{-1}(u)), T(T^{-1}(v)) \rangle = \langle u, v \rangle$.
+:::
+
+:::proposition{9.5.4} Eigenvalues and invariant subspaces
+Let $T$ be an orthogonal or unitary operator on a finite-dimensional inner product space $V$.
+
+<!-- list:paren-roman -->
+
+1. Every eigenvalue $\lambda$ of $T$ satisfies $|\lambda| = 1$. In the real case, $\lambda = \pm 1$.
+2. If $S \subseteq V$ is $T$-invariant, then $T(S) = S$, and $S^\perp$ is also $T$-invariant.
+:::
+
+:::proof
+(i) If $T(v) = \lambda v$ with $v \neq 0$, then $\|v\| = \|T(v)\| = |\lambda| \|v\|$, so $|\lambda| = 1$.
+
+(ii) $T|_S : S \to S$ is injective and $S$ is finite-dimensional, so $T(S) = S$. Hence $T^{-1}(S) = S$, i.e., $S$ is invariant under $T^{-1} = T^*$. By Lemma [9.3.7](/notes/math-55a/9-3-the-adjoint#lemma-9-3-7)(i) applied to $T^*$ (whose adjoint is $T$), $S^\perp$ is $T$-invariant.
 :::
 
 ### Matrix Characterization
 
-:::proposition{9.5.1} Orthogonal and unitary matrices
+:::proposition{9.5.5} Orthogonal and unitary matrices
 Let $\{e_1, \ldots, e_n\}$ be an orthonormal basis of $V$, and let $M$ be the matrix of $T$ in this basis.
 
 <!-- list:paren-roman -->
 
-1. (Real case) $T$ is orthogonal iff $M^T M = I$, i.e., $M$ is an **orthogonal matrix**.
-2. (Complex case) $T$ is unitary iff $M^* M = I$, i.e., $M$ is a **unitary matrix**.
+1. (Real case) $T$ is orthogonal iff $M^t M = I$; such $M$ is called an ***orthogonal matrix***.
+2. (Complex case) $T$ is unitary iff $M^* M = I$; such $M$ is called a ***unitary matrix***.
 
-Equivalently: the columns of $M$ form an orthonormal set (with respect to the standard inner product on $k^n$).
+Equivalently: the columns of $M$ form an orthonormal basis of $k^n$ with its standard inner product.
 :::
 
 :::proof
-In an orthonormal basis, $M(T^*) = M(T)^*$. So $T^*T = I$ iff $M^* M = I$.
+In an orthonormal basis, $\mcM(T^*) = M^*$ (Theorem [9.3.4](/notes/math-55a/9-3-the-adjoint#theorem-9-3-4)), so $T^*T = \id$ iff $M^* M = I$.
 
-The columns of $M$ are $M e_1, \ldots, M e_n$ (standard basis vectors). The $(i,j)$-entry of $M^* M$ is $(M^* M)_{ij} = \sum_k \ol{M_{ki}} M_{kj} = \langle \text{col}_i(M), \text{col}_j(M) \rangle$. So $M^* M = I$ iff columns are orthonormal.
+Write $c_1, \ldots, c_n$ for the columns of $M$. The $(i,j)$-entry of $M^* M$ is $\sum_k \ol{M_{ki}}\, M_{kj} = \langle c_i, c_j \rangle$, the standard inner product. So $M^* M = I$ iff the columns are orthonormal.
 :::
 
-:::corollary{9.5.3} Rows of orthogonal/unitary matrices
-If $M$ is orthogonal (resp. unitary), then the rows of $M$ also form an orthonormal set.
-:::
-
-:::proof
-$M^* M = I$ implies $M$ is invertible with $M^{-1} = M^*$. Thus $M M^* = I$, which says the columns of $M^*$ (= rows of $M$) are orthonormal.
-:::
-
-:::proposition{9.5.2} Determinant of orthogonal/unitary operators
-If $T$ is orthogonal or unitary, then $|\det(T)| = 1$.
-
-For orthogonal $T$ (real case), $\det(T) = \pm 1$.
+:::corollary{9.5.6} Rows of orthogonal and unitary matrices
+If $M$ is orthogonal (resp. unitary), then the rows of $M$ also form an orthonormal basis of $k^n$.
 :::
 
 :::proof
-$\det(T^*T) = \det(I) = 1$. But $\det(T^*T) = \det(T^*)\det(T) = \ol{\det(T)} \det(T) = |\det(T)|^2$.
+$M^* M = I$ implies that $M$ is invertible with $M^{-1} = M^*$, so $M M^* = I$. Writing $r_1, \ldots, r_n$ for the rows of $M$ (as vectors in $k^n$), the $(i,j)$-entry of $MM^*$ is $\sum_k M_{ik}\, \ol{M_{jk}} = \langle r_j, r_i \rangle$. So the rows are orthonormal.
+:::
 
-Over $\RR$, $\det(T^T) = \det(T)$, so $\det(T)^2 = 1$, giving $\det(T) = \pm 1$.
+:::proposition{9.5.7} Determinant of orthogonal and unitary operators
+If $T$ is orthogonal or unitary, then $|\det(T)| = 1$. For orthogonal $T$, $\det(T) = \pm 1$.
+:::
+
+:::proof
+Let $M$ be the matrix of $T$ in an orthonormal basis. Then $T^*$ has matrix $M^*$ (Theorem [9.3.4](/notes/math-55a/9-3-the-adjoint#theorem-9-3-4)), and $\det(M^*) = \ol{\det M}$ (Example [5.4.25](/notes/math-55a/5-4-determinants#example-5-4-25); over $\RR$ this is $\det(M^t) = \det M$, Proposition [5.4.6](/notes/math-55a/5-4-determinants#proposition-5-4-6)). Hence, by multiplicativity (Theorem [5.4.7](/notes/math-55a/5-4-determinants#theorem-5-4-7)), $$1 = \det(\id) = \det(T^*T) = \det(T^*)\det(T) = \ol{\det(T)}\, \det(T) = |\det(T)|^2.$$ Over $\RR$, $\det(T)$ is a real number of absolute value $1$, so $\det(T) = \pm 1$.
+:::
+
+Skew-adjoint operators give a supply of orthogonal ones.
+
+:::proposition{9.5.8} Cayley transform
+Let $T$ be skew-adjoint on a finite-dimensional real inner product space. Then $\id + T$ and $\id - T$ are invertible, and $$S = (\id - T)(\id + T)^{-1}$$ is orthogonal.
+:::
+
+:::proof
+$\id + T$ is invertible by Proposition [9.4.7](/notes/math-55a/9-4-self-adjoint-and-normal-operators#proposition-9-4-7)(iii), and so is $\id - T = \id + (-T)$, since $-T$ is also skew-adjoint. Since $T^* = -T$, we have $(\id + T)^* = \id - T$ and $(\id - T)^* = \id + T$. The operators $\id - T$ and $\id + T$ commute (both are polynomials in $T$). Using Proposition [9.3.3](/notes/math-55a/9-3-the-adjoint#proposition-9-3-3), $$S^* = \big((\id + T)^{-1}\big)^* (\id - T)^* = \big((\id + T)^*\big)^{-1} (\id + T) = (\id - T)^{-1}(\id + T).$$ Hence $$\begin{aligned}
+S^*S &= (\id - T)^{-1}(\id + T)(\id - T)(\id + T)^{-1} \\
+&= (\id - T)^{-1}(\id - T)(\id + T)(\id + T)^{-1} = \id,
+\end{aligned}$$ and $S$ is orthogonal by Theorem [9.5.2](/notes/math-55a/9-5-orthogonal-and-unitary-operators#theorem-9-5-2).
 :::
 
 ## <span class="num">9.5.2</span> Reflections
 
-A particularly simple class of orthogonal operators are reflections across hyperplanes.
+A particularly simple class of orthogonal operators are the reflections across hyperplanes.
 
-:::definition{9.5.3} Reflection
-Let $V$ be a real inner product space. A **reflection** is an orthogonal operator $P : V \to V$ such that $P^2 = I$ and $\dim \Ker(P + I) = 1$.
+:::definition{9.5.9} Reflection
+Let $V$ be a finite-dimensional real inner product space. A ***reflection*** is an orthogonal operator $P : V \to V$ such that $P^2 = \id$ and $\dim \ker(P + \id) = 1$.
 :::
 
 :::note
-The condition $P^2 = I$ says $P$ is an involution. Since $P$ is orthogonal, it is also self-adjoint ($P^* = P^{-1} = P$). The eigenvalues of $P$ are $\pm 1$ (since $P^2 = I$), and $\dim \Ker(P + I) = 1$ means the $-1$-eigenspace is 1-dimensional.
+The condition $P^2 = \id$ says $P$ is an involution. Since $P$ is orthogonal, it is also self-adjoint ($P^* = P^{-1} = P$). The only possible eigenvalues of $P$ are $\pm 1$ (if $P(v) = \lambda v$ with $v \neq 0$, then $v = P^2(v) = \lambda^2 v$), and $\dim \ker(P + \id) = 1$ says the $-1$-eigenspace is a line.
 :::
 
-:::proposition{9.5.3} Formula for reflections
-Every reflection can be written as $$P(x) = x - 2\langle x, v \rangle v$$ where $v \in V$ with $\|v\| = 1$. Geometrically, $P$ reflects across the hyperplane $v^\perp$.
+:::proposition{9.5.10} Formula for reflections
+For a unit vector $v \in V$, the map $$P_v(x) = x - 2\langle x, v \rangle v$$ is a reflection, with $\ker(P_v + \id) = \operatorname{span}(v)$, and $P_v$ fixes every vector of the hyperplane $v^\perp$. Conversely, every reflection is $P_v$ for a unit vector $v$ spanning $\ker(P + \id)$. Geometrically, $P_v$ is the reflection across the hyperplane $v^\perp$.
 :::
 
 :::proof
-Define $P(x) = x - 2\langle x, v \rangle v$. We verify $P$ is a reflection.
-
 **Linear:** Clear from the formula.
 
 **Orthogonal:** $$\begin{aligned}
-\langle P(x), P(y) \rangle &= \langle x - 2\langle x, v \rangle v, y - 2\langle y, v \rangle v \rangle \\
+\langle P_v(x), P_v(y) \rangle &= \langle x - 2\langle x, v \rangle v,\ y - 2\langle y, v \rangle v \rangle \\
 &= \langle x, y \rangle - 2\langle x, v \rangle \langle v, y \rangle - 2\langle y, v \rangle \langle x, v \rangle + 4\langle x, v \rangle \langle y, v \rangle \|v\|^2 \\
 &= \langle x, y \rangle - 4\langle x, v \rangle \langle y, v \rangle + 4\langle x, v \rangle \langle y, v \rangle = \langle x, y \rangle.
 \end{aligned}$$
 
-**Involution:** $P(P(x)) = P(x) - 2\langle P(x), v \rangle v = x - 2\langle x, v \rangle v - 2(\langle x, v \rangle - 2\langle x, v \rangle)v = x$.
+**Involution:** $\langle P_v(x), v \rangle = \langle x, v \rangle - 2\langle x, v \rangle \|v\|^2 = -\langle x, v \rangle$, so $$P_v(P_v(x)) = P_v(x) + 2\langle x, v \rangle v = x.$$
 
-**Eigenspaces:** $P(v) = v - 2\|v\|^2 v = -v$, so $v$ spans the $-1$-eigenspace. If $w \perp v$, then $P(w) = w$, so $v^\perp$ is the $+1$-eigenspace.
+**Eigenspaces:** $P_v(x) = -x$ iff $x = \langle x, v \rangle v$, iff $x \in \operatorname{span}(v)$ (if $x = cv$, then $\langle x, v \rangle v = cv$). So $\ker(P_v + \id) = \operatorname{span}(v)$ is a line. If $w \perp v$, then $P_v(w) = w$.
 
-Conversely, any reflection $P$ has $\Ker(P + I)$ one-dimensional. Let $v$ span this kernel with $\|v\| = 1$. Then $P(v) = -v$, and on $v^\perp$, $P$ acts as $+I$ (since $P$ is diagonalizable with eigenvalues $\pm 1$, and the $-1$-eigenspace is spanned by $v$). For $x = \langle x, v \rangle v + (x - \langle x, v \rangle v)$ with the second term in $v^\perp$: $$P(x) = -\langle x, v \rangle v + (x - \langle x, v \rangle v) = x - 2\langle x, v \rangle v.$$
+**Converse:** Let $P$ be a reflection and $v$ a unit vector spanning $\ker(P + \id)$, so $P(v) = -v$. If $x \in v^\perp$, then $\langle P(x), v \rangle = -\langle P(x), P(v) \rangle = -\langle x, v \rangle = 0$, so $P(x) \in v^\perp$. The vector $w = x - P(x)$ then lies in $v^\perp$ and satisfies $P(w) = P(x) - x = -w$, so $w \in \operatorname{span}(v) \cap v^\perp = \{0\}$. Hence $P$ fixes $v^\perp$ pointwise. Writing any $x$ as $x = \langle x, v \rangle v + (x - \langle x, v \rangle v)$ with the second term in $v^\perp$, $$P(x) = -\langle x, v \rangle v + (x - \langle x, v \rangle v) = x - 2\langle x, v \rangle v = P_v(x).$$
 :::
 
-:::proposition{9.5.4} Reflections map equal-length vectors
-Given any two vectors $x, y \in V$ with $\|x\| = \|y\|$, there exists a reflection $P$ with $P(x) = y$.
-:::
+:::proposition{9.5.11} Reflections map equal-length vectors
+Let $x, y \in V$ with $\|x\| = \|y\|$.
 
-:::proof
-**Case 1: $x = y$.** If $x = 0$, any reflection fixes the origin, so any reflection works. If $x \neq 0$ (and $\dim V \geq 2$), choose any unit vector $v$ orthogonal to $x$ and set $P(z) = z - 2\langle z, v \rangle v$. Then $P(x) = x - 2\langle x, v \rangle v = x = y$.
+<!-- list:paren-roman -->
 
-**Case 2: $x \neq y$.** Let $v = \dfrac{x - y}{\|x - y\|}$ and define $P(z) = z - 2\langle z, v \rangle v$.
-
-Compute: $$P(x) = x - 2\langle x, v \rangle v
-         = x - \frac{2\langle x,\, x - y \rangle}{\|x - y\|^2}(x - y).$$
-
-Since $\|x\| = \|y\|$, we have $\|x\|^2 = \|y\|^2$, so $$\langle x,\, x - y \rangle
-      = \|x\|^2 - \langle x, y \rangle
-      = \tfrac{1}{2}\bigl(\|x\|^2 + \|y\|^2 - 2\langle x, y \rangle\bigr)
-      = \tfrac{1}{2}\|x - y\|^2.$$
-
-Substituting: $$P(x) = x - \frac{2 \cdot \tfrac{1}{2}\|x - y\|^2}{\|x - y\|^2}(x - y)
-         = x - (x - y)
-     = y.$$
-:::
-
-:::theorem{9.5.2} Orthogonal operators as products of reflections
-Every orthogonal operator on $\RR^n$ is a product of at most $n$ reflections.
+1. If $x \neq y$, the reflection $P_v$ with $v = (x - y)/\|x - y\|$ satisfies $P_v(x) = y$.
+2. If $x = y$ and $\dim V \geq 2$, there is a reflection $P$ with $P(x) = y$.
 :::
 
 :::proof
-Induction on $n$. For $n = 0$, the identity is the empty product.
+(i) Since $\|x\|^2 = \|y\|^2$, $$\langle x, x - y \rangle = \|x\|^2 - \langle x, y \rangle = \tfrac{1}{2}\bigl(\|x\|^2 + \|y\|^2 - 2\langle x, y \rangle\bigr) = \tfrac{1}{2}\|x - y\|^2.$$ Therefore $$P_v(x) = x - \frac{2\langle x, x - y \rangle}{\|x - y\|^2}(x - y) = x - (x - y) = y.$$
 
-For $n \geq 1$: Let $T$ be orthogonal. Pick a unit vector $e_1$. Then $\|T(e_1)\| = \|e_1\| = 1$.
+(ii) Since $\dim x^\perp \geq \dim V - 1 \geq 1$, we can choose a unit vector $v \perp x$; then $P_v(x) = x - 2\langle x, v \rangle v = x$.
+:::
 
-By the previous proposition, there exists a reflection $P_1$ with $P_1(T(e_1)) = e_1$. Let $T_1 = P_1 T$. Then $T_1$ is orthogonal and $T_1(e_1) = e_1$.
+:::note
+The hypothesis in (ii) is needed: if $\dim V = 1$, the only reflection is $-\id$, which fixes only $0$.
+:::
 
-Since $T_1(e_1) = e_1$, the subspace $e_1^\perp$ is $T_1$-invariant (if $w \perp e_1$, then $\langle T_1(w), e_1 \rangle = \langle w, T_1^*(e_1) \rangle = \langle w, T_1^{-1}(e_1) \rangle = \langle w, e_1 \rangle = 0$).
+:::theorem{9.5.12} Orthogonal operators as products of reflections
+Let $V$ be a real inner product space of dimension $n$. Every orthogonal operator on $V$ is a product of at most $n$ reflections. (The identity is the empty product.)
+:::
 
-The restriction $T_1|_{e_1^\perp}$ is orthogonal on the $(n-1)$-dimensional space $e_1^\perp$. By induction, $T_1|_{e_1^\perp} = Q_{n-1} \cdots Q_2$ for reflections $Q_i$ on $e_1^\perp$.
+:::proof
+Induction on $n$. For $n = 0$, the only operator is the identity, the empty product.
 
-Extend each $Q_i$ to $V$ by setting $\tilde{Q}_i(e_1) = e_1$ and $\tilde{Q}_i|_{e_1^\perp} = Q_i$. Then $\tilde{Q}_i$ is a reflection on $V$ (the $-1$-eigenspace of $Q_i$ in $e_1^\perp$ becomes the $-1$-eigenspace of $\tilde{Q}_i$ in $V$).
+For $n \geq 1$, let $T$ be orthogonal and pick a unit vector $e_1$. Then $\|T(e_1)\| = \|e_1\| = 1$. If $T(e_1) = e_1$, let $T_1 = T$. Otherwise, by Proposition [9.5.11](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-11)(i) there is a reflection $P_1$ with $P_1(T(e_1)) = e_1$; let $T_1 = P_1 T$. In both cases $T_1$ is orthogonal and $T_1(e_1) = e_1$.
 
-We have $T_1 = \tilde{Q}_{n-1} \cdots \tilde{Q}_2$, so $P_1 T = \tilde{Q}_{n-1} \cdots \tilde{Q}_2$, giving $$T = P_1^{-1} \tilde{Q}_{n-1} \cdots \tilde{Q}_2 = P_1 \tilde{Q}_{n-1} \cdots \tilde{Q}_2$$ (since $P_1^2 = I$). This is a product of at most $1 + (n-1) = n$ reflections.
+Since $\operatorname{span}(e_1)$ is $T_1$-invariant, so is $W = e_1^\perp$ (Proposition [9.5.4](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-4)(ii)), and $T_1|_W$ is an orthogonal operator on the $(n-1)$-dimensional space $W$. By induction, $T_1|_W = Q_1 \cdots Q_m$ for some reflections $Q_i$ of $W$ with $m \leq n - 1$.
+
+Extend each $Q_i$ to $V = \operatorname{span}(e_1) \oplus W$ by setting $\tilde{Q}_i(a e_1 + w) = a e_1 + Q_i(w)$. Then $\tilde{Q}_i$ is orthogonal (because $e_1 \perp W$ and $Q_i$ is orthogonal on $W$) and $\tilde Q_i^2 = \id$. Moreover, $\tilde{Q}_i(a e_1 + w) = -(a e_1 + w)$ iff $a = 0$ and $Q_i(w) = -w$, so $\ker(\tilde Q_i + \id) = \ker(Q_i + \id)$ is a line, and $\tilde Q_i$ is a reflection.
+
+Now $T_1 = \tilde{Q}_1 \cdots \tilde{Q}_m$, since both sides fix $e_1$ and agree on $W$. If $T_1 = T$, we are done. If $T_1 = P_1 T$, then since $P_1^2 = \id$, $$T = P_1 \tilde{Q}_1 \cdots \tilde{Q}_m,$$ a product of at most $1 + (n - 1) = n$ reflections.
 :::
 
 ## <span class="num">9.5.3</span> The Classical Matrix Groups
 
-The orthogonal and unitary operators form important matrix groups.
+The orthogonal and unitary operators, written as matrices in orthonormal bases, form important matrix groups.
 
-:::definition{9.5.4} Orthogonal and special orthogonal groups
-- $\mathrm{O}(n) = \{A \in \GL_n(\RR) : A^T A = I\}$, the **orthogonal group**.
-- $\mathrm{SO}(n) = \{A \in \mathrm{O}(n) : \det(A) = 1\}$, the **special orthogonal group**.
+:::definition{9.5.13} Orthogonal and special orthogonal groups
+- $\mathrm{O}(n) = \{A \in \GL_n(\RR) : A^t A = I\}$, the ***orthogonal group***.
+- $\mathrm{SO}(n) = \{A \in \mathrm{O}(n) : \det(A) = 1\}$, the ***special orthogonal group***.
 :::
 
-:::definition{9.5.5} Unitary and special unitary groups
-- $\mathrm{U}(n) = \{A \in \GL_n(\CC) : A^* A = I\}$, the **unitary group**.
-- $\mathrm{SU}(n) = \{A \in \mathrm{U}(n) : \det(A) = 1\}$, the **special unitary group**.
-:::
-
-:::proposition{9.5.5} Index of $\mathrm{SO}(n)$ in $\mathrm{O}(n)$
-$\mathrm{SO}(n)$ is a normal subgroup of $\mathrm{O}(n)$ of index 2. We have an exact sequence $$1 \to \mathrm{SO}(n) \to \mathrm{O}(n) \xrightarrow{\det} \{\pm 1\} \to 1.$$
-:::
-
-:::proof
-The determinant map $\det : \mathrm{O}(n) \to \{\pm 1\}$ is a surjective homomorphism (surjective since $\det(I) = 1$ and $\det(-I) = (-1)^n$, or use a reflection with $\det = -1$). Its kernel is $\mathrm{SO}(n)$.
+:::definition{9.5.14} Unitary and special unitary groups
+- $\mathrm{U}(n) = \{A \in \GL_n(\CC) : A^* A = I\}$, the ***unitary group***.
+- $\mathrm{SU}(n) = \{A \in \mathrm{U}(n) : \det(A) = 1\}$, the ***special unitary group***.
 :::
 
 :::note
-Elements of $\mathrm{SO}(n)$ are called **rotations** or **proper orthogonal transformations**. They preserve orientation. Elements of $\mathrm{O}(n) \setminus \mathrm{SO}(n)$ reverse orientation.
+By Proposition [9.5.5](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-5), choosing an orthonormal basis of an $n$-dimensional real inner product space $V$ identifies $\mathrm{O}(V)$ with $\mathrm{O}(n)$, and similarly $\mathrm{U}(V) \cong \mathrm{U}(n)$ in the complex case. We write $\mathrm{SO}(V)$ for the orthogonal operators of determinant $1$.
 :::
 
-:::example{9.5.1} Low-dimensional cases
-- $\mathrm{O}(1) = \{\pm 1\} \cong \ZZ/2\ZZ$, $\mathrm{SO}(1) = \{1\}$.
-- $\mathrm{SO}(2)$ consists of rotation matrices $\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$. Thus $\mathrm{SO}(2) \cong S^1$ (the circle group) via $\theta \mapsto e^{i\theta}$.
-- $\mathrm{U}(1) = \{z \in \CC : |z| = 1\} \cong S^1$.
-:::
-
-:::theorem{9.5.3} Structure of orthogonal operators
-Let $T \in \mathrm{O}(V)$ where $V$ is a finite-dimensional real inner product space. Then $V$ decomposes as an orthogonal direct sum $$V = V_1 \oplus V_{-1} \oplus W_1 \oplus \cdots \oplus W_k$$ where $V_1 = \Ker(T - I)$ is the $+1$-eigenspace, $V_{-1} = \Ker(T + I)$ is the $-1$-eigenspace, and each $W_j$ is a 2-dimensional $T$-invariant subspace on which $T$ acts as rotation by angle $\theta_j \neq 0, \pi$.
+:::proposition{9.5.15} Index of $\mathrm{SO}(n)$ in $\mathrm{O}(n)$
+For $n \geq 1$, $\mathrm{SO}(n)$ is a normal subgroup of $\mathrm{O}(n)$ of index 2. We have an exact sequence $$1 \to \mathrm{SO}(n) \to \mathrm{O}(n) \xrightarrow{\det} \{\pm 1\} \to 1.$$
 :::
 
 :::proof
-The characteristic polynomial of $T$ has real coefficients. Its roots (possibly complex) come in conjugate pairs. If $\lambda = e^{i\theta}$ is an eigenvalue with $|\lambda| = 1$ and $\lambda \notin \RR$, then $\ol{\lambda} = e^{-i\theta}$ is also an eigenvalue.
-
-Let $p(x) = (x - e^{i\theta})(x - e^{-i\theta}) = x^2 - 2\cos\theta \cdot x + 1$, an irreducible quadratic over $\RR$. By the real Jordan form theory (or direct argument), $\Ker(p(T))$ is an even-dimensional $T$-invariant subspace.
-
-Decompose $V$ into generalized eigenspaces for real eigenvalues ($\pm 1$) and for conjugate pairs of complex eigenvalues. Since $T$ is orthogonal and hence normal, it is diagonalizable over $\CC$, so generalized eigenspaces are actual eigenspaces.
-
-For the conjugate pair $e^{\pm i\theta}$, the real subspace $W = \Ker((T - e^{i\theta}I)(T - e^{-i\theta}I)) \cap V$ is $T$-invariant. Choose a unit eigenvector $v \in W_{\CC}$ for $e^{i\theta}$. Then $v + \ol{v}$ and $i(v - \ol{v})$ are real vectors spanning a 2-dimensional $T$-invariant subspace on which $T$ acts as rotation by $\theta$.
-
-Repeating this decomposition and using orthogonality of distinct eigenspaces gives the result.
+The determinant of an orthogonal matrix is $\pm 1$, and $\det$ is multiplicative, so $\det : \mathrm{O}(n) \to \{\pm 1\}$ is a homomorphism. It is surjective because $\det(I) = 1$ and the reflection matrix $\diag(-1, 1, \ldots, 1) \in \mathrm{O}(n)$ has determinant $-1$. Its kernel is $\mathrm{SO}(n)$, which is therefore normal, and $\mathrm{O}(n)/\mathrm{SO}(n) \cong \{\pm 1\}$ by the First Isomorphism Theorem (Theorem [3.3.3](/notes/math-55a/3-3-the-isomorphism-theorems#theorem-3-3-3)).
 :::
 
 :::note
-In matrix form, choosing an orthonormal basis adapted to this decomposition, $T$ is block-diagonal: $$T \sim \begin{pmatrix} I_{a} & & & & \\ & -I_{b} & & & \\ & & R_{\theta_1} & & \\ & & & \ddots & \\ & & & & R_{\theta_k} \end{pmatrix}$$ where $R_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$.
-
-This is the “real canonical form” for orthogonal matrices.
+Elements of $\mathrm{SO}(n)$ are called ***rotations*** or ***proper orthogonal transformations***; they are the orthogonal transformations that preserve orientation, in the sense that they have positive determinant. Elements of $\mathrm{O}(n) \setminus \mathrm{SO}(n)$, such as reflections, reverse orientation.
 :::
 
-### Hermitian Forms and Real Forms
+In dimension 2 everything can be made explicit. Write $$R_\theta = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}, \qquad S_\theta = \begin{pmatrix} \cos\theta & \sin\theta \\ \sin\theta & -\cos\theta \end{pmatrix}.$$
 
-When a complex vector space is viewed as a real vector space, a Hermitian form decomposes into real and imaginary parts with specific properties.
-
-:::proposition{9.5.6} Decomposition of Hermitian forms
-Let $V$ be a complex vector space with Hermitian form $H$, and let $W$ denote $V$ viewed as a real vector space (of twice the dimension). Define $G, B : W \times W \to \RR$ by $$G(u, v) = \operatorname{Re} H(u, v), \qquad B(u, v) = \operatorname{Im} H(u, v).$$ Let $J : W \to W$ be scalar multiplication by $i$. Then:
-
-<!-- list:paren-roman -->
-
-1. $G$ is a symmetric bilinear form on $W$.
-2. $B$ is a skew-symmetric bilinear form on $W$.
-3. $G(u, v) = B(Ju, v)$ for all $u, v \in W$.
-4. $H$ is nondegenerate iff $G$ is nondegenerate iff $B$ is nondegenerate.
+:::proposition{9.5.16} The group $\mathrm{O}(2)$
+Every element of $\mathrm{O}(2)$ is either a rotation $R_\theta$ (determinant $1$) or a matrix $S_\theta$ (determinant $-1$), for a unique $\theta \in [0, 2\pi)$. The matrix $S_\theta$ is the reflection across the line spanned by $(\cos\frac{\theta}{2}, \sin\frac{\theta}{2})$: it fixes this vector and negates the orthogonal vector $(-\sin\frac{\theta}{2}, \cos\frac{\theta}{2})$. If $\theta \notin \{0, \pi\}$, the rotation $R_\theta$ has no real eigenvalues.
 :::
 
 :::proof
-(i) $G$ is $\RR$-bilinear since $H$ is sesquilinear and $\operatorname{Re}$ is $\RR$-linear. For symmetry: $$G(v, u) = \operatorname{Re} H(v, u) = \operatorname{Re} \ol{H(u, v)} = \operatorname{Re} H(u, v) = G(u, v).$$
+Let $A \in \mathrm{O}(2)$. By Proposition [9.5.5](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-5), its columns $c_1, c_2$ are orthonormal in $\RR^2$. Since $c_1$ is a unit vector, $c_1 = (\cos\theta, \sin\theta)$ for a unique $\theta \in [0, 2\pi)$. The vector $c_2$ is a unit vector in the line $c_1^\perp = \operatorname{span}((-\sin\theta, \cos\theta))$, so $c_2 = \pm(-\sin\theta, \cos\theta)$. The sign $+$ gives $R_\theta$, with $\det R_\theta = \cos^2\theta + \sin^2\theta = 1$, and the sign $-$ gives $S_\theta$, with $\det S_\theta = -1$.
 
-(ii) Similarly, $B(v, u) = \operatorname{Im} H(v, u) = \operatorname{Im} \ol{H(u, v)} = -\operatorname{Im} H(u, v) = -B(u, v)$.
+Let $\varphi = \theta/2$. Using $\cos\theta\cos\varphi + \sin\theta\sin\varphi = \cos(\theta - \varphi)$ and $\sin\theta\cos\varphi - \cos\theta\sin\varphi = \sin(\theta - \varphi)$, $$S_\theta \begin{pmatrix} \cos\varphi \\ \sin\varphi \end{pmatrix} = \begin{pmatrix} \cos\varphi \\ \sin\varphi \end{pmatrix}, \qquad S_\theta \begin{pmatrix} -\sin\varphi \\ \cos\varphi \end{pmatrix} = \begin{pmatrix} \sin\varphi \\ -\cos\varphi \end{pmatrix} = -\begin{pmatrix} -\sin\varphi \\ \cos\varphi \end{pmatrix}.$$ These two vectors form an orthonormal basis, so $S_\theta$ is the reflection $P_v$ with $v = (-\sin\varphi, \cos\varphi)$ (Proposition [9.5.10](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-10)).
 
-(iii) $B(Ju, v) = \operatorname{Im} H(iu, v) = \operatorname{Im}(i \cdot H(u, v)) = \operatorname{Re} H(u, v) = G(u, v)$.
+Finally, the characteristic polynomial of $R_\theta$ is $x^2 - 2\cos\theta\, x + 1$, whose discriminant $4\cos^2\theta - 4$ is negative unless $\cos\theta = \pm 1$, i.e., unless $\theta \in \{0, \pi\}$.
+:::
 
-(iv) Suppose $H$ is nondegenerate and $G(u, v) = 0$ for all $v$. Then $B(Ju, v) = G(u, v) = 0$ for all $v$, so $B(w, v) = 0$ for all $w, v$ (since $J$ is surjective). Thus $H(u, v) = G(u, v) + iB(u, v) = 0$ for all $v$, giving $u = 0$. The other implications are similar.
+:::proposition{9.5.17} $\mathrm{SO}(2)$ is the circle group
+$\mathrm{SO}(2) = \{R_\theta : \theta \in \RR\}$, and $R_\theta \mapsto e^{i\theta}$ is a well-defined group isomorphism from $\mathrm{SO}(2)$ to the circle group $S^1 = \{z \in \CC : |z| = 1\}$.
+:::
+
+:::proof
+By Proposition [9.5.16](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-16), the elements of $\mathrm{SO}(2)$ are exactly the $R_\theta$. Since $R_\theta$ is determined by its first column $(\cos\theta, \sin\theta)$, we have $R_\theta = R_\varphi$ iff $e^{i\theta} = e^{i\varphi}$; so the map is well defined and injective. It is surjective because every complex number of absolute value $1$ is $e^{i\theta}$ for some $\theta$. By the addition formulas for sine and cosine, $$R_\theta R_\varphi = \begin{pmatrix} \cos\theta\cos\varphi - \sin\theta\sin\varphi & -(\sin\theta\cos\varphi + \cos\theta\sin\varphi) \\ \sin\theta\cos\varphi + \cos\theta\sin\varphi & \cos\theta\cos\varphi - \sin\theta\sin\varphi \end{pmatrix} = R_{\theta + \varphi},$$ which corresponds to $e^{i\theta} e^{i\varphi} = e^{i(\theta + \varphi)}$. So the map is a homomorphism.
+:::
+
+:::example{9.5.18} Low-dimensional cases
+- $\mathrm{O}(1) = \{\pm 1\} \cong \ZZ/2$, and $\mathrm{SO}(1) = \{1\}$.
+- $\mathrm{SO}(2) \cong S^1$ (Proposition [9.5.17](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-17)), while $\mathrm{O}(2)$ consists of the rotations $R_\theta$ and the reflections $S_\theta$.
+- $\mathrm{U}(1) = \{z \in \CC : |z| = 1\} = S^1$, acting on $\CC$ by multiplication.
+:::
+
+The structure of a single orthogonal operator is now a consequence of the existence of small invariant subspaces.
+
+:::theorem{9.5.19} Structure of orthogonal operators
+Let $T$ be an orthogonal operator on a finite-dimensional real inner product space $V$. Then $V$ is an orthogonal direct sum (the summands are pairwise orthogonal) $$V = V_+ \oplus V_- \oplus W_1 \oplus \cdots \oplus W_k,$$ where $V_+ = \ker(T - \id)$, $V_- = \ker(T + \id)$, and each $W_j$ is a $2$-dimensional $T$-invariant subspace with an orthonormal basis in which $T|_{W_j}$ has matrix $R_{\theta_j}$ for some $\theta_j \in (0, \pi)$.
+:::
+
+:::proof
+**Step 1: a decomposition into small blocks.** We show by induction on $\dim V$ that $V$ is an orthogonal direct sum of $T$-invariant subspaces, each of which is either a line on which $T = \pm\id$ or a plane with an orthonormal basis in which $T$ has matrix $R_\theta$ with $\theta \in (0, \pi)$. If $V = 0$ there is nothing to prove.
+
+If $V \neq 0$, then $T$ has an invariant subspace $U$ of dimension $1$ or $2$ (Theorem [7.10.7](/notes/math-55a/7-10-real-vector-spaces-and-complexification#theorem-7-10-7)). The restriction $T|_U$ is orthogonal for the restricted inner product, $V = U \oplus U^\perp$ (Theorem [9.1.31](/notes/math-55a/9-1-bilinear-forms-and-inner-products#theorem-9-1-31)), and $U^\perp$ is $T$-invariant by Proposition [9.5.4](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-4)(ii), with $T|_{U^\perp}$ orthogonal. By induction, $U^\perp$ decomposes as required, so it remains to decompose $U$.
+
+If $\dim U = 1$, then $T$ acts on $U$ by an eigenvalue, which is $\pm 1$ by Proposition [9.5.4](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-4)(i). If $\dim U = 2$, choose an orthonormal basis $(u_1, u_2)$ of $U$; the matrix of $T|_U$ lies in $\mathrm{O}(2)$, so by Proposition [9.5.16](/notes/math-55a/9-5-orthogonal-and-unitary-operators#proposition-9-5-16) it is $S_\theta$ or $R_\theta$. If it is $S_\theta$, then $U$ is the orthogonal direct sum of two lines on which $T$ acts by $+1$ and $-1$. If it is $R_\theta$ with $\theta \in \{0, \pi\}$, then $T|_U = \pm\id$ and $U$ is the orthogonal direct sum of two lines. If it is $R_\theta$ with $\theta \in (\pi, 2\pi)$, replacing $u_2$ by $-u_2$ changes the matrix to $R_{-\theta} = R_{2\pi - \theta}$ with $2\pi - \theta \in (0, \pi)$.
+
+**Step 2: identifying $V_\pm$.** Let $V_+'$ (resp. $V_-'$) be the sum of the lines in Step 1 on which $T = \id$ (resp. $T = -\id$), and $W_1, \ldots, W_k$ the planes. Then $V_+' \subseteq \ker(T - \id)$. Conversely, $T - \id$ is injective on each of the other blocks: it is $-2\,\id$ on $V_-'$, and on $W_j$ its matrix $R_{\theta_j} - I$ has determinant $(\cos\theta_j - 1)^2 + \sin^2\theta_j = 2 - 2\cos\theta_j \neq 0$. Since $T - \id$ preserves each block, a vector $v = v_+ + v_- + w_1 + \cdots + w_k$ with $(T - \id)(v) = 0$ has $(T - \id)$ of each component equal to $0$, so $v = v_+ \in V_+'$. Thus $V_+' = \ker(T - \id)$, and similarly $V_-' = \ker(T + \id)$, using $\det(R_{\theta_j} + I) = 2 + 2\cos\theta_j \neq 0$.
 :::
 
 :::note
-A linear operator $T : W \to W$ is $\CC$-linear (i.e., $T \circ J = J \circ T$) iff it comes from a $\CC$-linear operator on $V$. The proposition implies: for nondegenerate $H$, any two of the following imply the third:
-
-<!-- list:paren-roman -->
-
-1. $T$ preserves $G$.
-2. $T$ preserves $B$.
-3. $T$ is $\CC$-linear.
-
-This gives the relation $\mathrm{U}(n) = \mathrm{O}(2n) \cap \GL_n(\CC) = \mathrm{Sp}(2n, \RR) \cap \GL_n(\CC) = \mathrm{O}(2n) \cap \mathrm{Sp}(2n, \RR)$.
+In matrix form: in an orthonormal basis adapted to this decomposition, $T$ has the block-diagonal matrix $$\begin{pmatrix} I_{a} & & & & \\ & -I_{b} & & & \\ & & R_{\theta_1} & & \\ & & & \ddots & \\ & & & & R_{\theta_k} \end{pmatrix},$$ the ***real canonical form*** of an orthogonal matrix. This is a very good way to think about a single orthogonal transformation, built from rotations of individual planes and reflections; it says little about the composition of two orthogonal transformations, whose invariant subspaces are in general unrelated.
 :::
 
-:::exercise{9.5.1} Inner product spaces exercises
+:::exercise{9.5.20} Inner product spaces
 <!-- list:paren-decimal -->
 
-1. Let $V \subset \RR[x]$ be the space of polynomials of degree at most 2, with inner product $\langle f, g \rangle = \int_0^1 f(x) g(x) \, dx$. Apply Gram–Schmidt to the basis $\{1, x, x^2\}$ to find an orthonormal basis.
-2. Let $T : V \to V$ be self-adjoint on a real inner product space, and suppose $v \in V$ with $\|v\| = 1$ maximizes the Rayleigh quotient $R(w) = \langle T(w), w \rangle / \|w\|^2$ among unit vectors. Prove that $v$ is an eigenvector of $T$. (Do not use the spectral theorem.)
-3. Let $T : V \to V$ be an invertible linear operator on a finite-dimensional real inner product space. Show that $T$ maps the unit sphere $S = \{v : \|v\| = 1\}$ to an ellipsoid. (Hint: consider $T^*T$.)
-4. For an invertible operator $T$, define the **dilatation** $K(T) = \frac{\sup_{\|v\|=1} \|Tv\|}{\inf_{\|v\|=1} \|Tv\|}$. Show that $K(T)^2$ equals the ratio of the largest to smallest eigenvalues of $T^*T$.
-5. Let $A$ be the matrix of a (symmetric positive-definite) inner product on $\RR^n$ with respect to the standard basis, so the inner product is $\langle x, y \rangle = x^T A y$. For $n = 2$, prove that the largest entry of $A$ occurs on the diagonal.
+1. Let $V \subset \RR{}[x]$ be the space of polynomials of degree at most 2, with inner product $\langle f, g \rangle = \int_0^1 f(x) g(x) \, dx$. Apply Gram–Schmidt to the basis $\{1, x, x^2\}$ to find an orthonormal basis.
+2. Let $T : V \to V$ be self-adjoint on a finite-dimensional real inner product space, and suppose $v \in V$ with $\|v\| = 1$ maximizes the Rayleigh quotient $R(w) = \langle T(w), w \rangle / \|w\|^2$ among unit vectors. Prove that $v$ is an eigenvector of $T$. (Do not use the spectral theorem.)
+3. Let $T : V \to V$ be an invertible linear operator on a finite-dimensional real inner product space. Show that $T$ maps the unit sphere $S = \{v : \|v\| = 1\}$ to an ellipsoid. (Hint: consider $(T^{-1})^* T^{-1}$.)
+4. For an invertible operator $T$ on a finite-dimensional real inner product space, define the ***dilatation*** $K(T) = \sup_{\|v\|=1} \|T(v)\| \,/ \inf_{\|v\|=1} \|T(v)\|$. Show that $K(T)^2$ equals the ratio of the largest to the smallest eigenvalue of $T^*T$.
+5. Let $A$ be the matrix of an inner product on $\RR^n$ with respect to the standard basis, so that $\langle x, y \rangle = x^t A y$. For $n = 2$, prove that an entry of $A$ of largest absolute value occurs on the diagonal.
 
 :::solution
 **(1)** Start with $w_1 = 1$, $w_2 = x$, $w_3 = x^2$.
 
 $\langle w_1, w_1 \rangle = \int_0^1 1 \, dx = 1$, so $v_1 = 1$.
 
-$\langle w_2, v_1 \rangle = \int_0^1 x \, dx = \frac{1}{2}$. $u_2 = x - \frac{1}{2} \cdot 1 = x - \frac{1}{2}$. $\|u_2\|^2 = \int_0^1 (x - \frac{1}{2})^2 dx = \int_0^1 (x^2 - x + \frac{1}{4}) dx = \frac{1}{3} - \frac{1}{2} + \frac{1}{4} = \frac{1}{12}$. So $v_2 = \sqrt{12}(x - \frac{1}{2}) = 2\sqrt{3}(x - \frac{1}{2})$.
+$\langle v_1, w_2 \rangle = \int_0^1 x \, dx = \frac{1}{2}$, so $u_2 = x - \frac{1}{2} \cdot 1 = x - \frac{1}{2}$, and $\|u_2\|^2 = \int_0^1 (x - \frac{1}{2})^2 dx = \int_0^1 (x^2 - x + \frac{1}{4}) dx = \frac{1}{3} - \frac{1}{2} + \frac{1}{4} = \frac{1}{12}$. So $v_2 = \sqrt{12}(x - \frac{1}{2}) = 2\sqrt{3}(x - \frac{1}{2})$.
 
-$\langle w_3, v_1 \rangle = \int_0^1 x^2 dx = \frac{1}{3}$. $\langle w_3, v_2 \rangle = 2\sqrt{3} \int_0^1 x^2(x - \frac{1}{2}) dx = 2\sqrt{3}(\frac{1}{4} - \frac{1}{6}) = 2\sqrt{3} \cdot \frac{1}{12} = \frac{\sqrt{3}}{6}$. $u_3 = x^2 - \frac{1}{3} - \frac{\sqrt{3}}{6} \cdot 2\sqrt{3}(x - \frac{1}{2}) = x^2 - \frac{1}{3} - (x - \frac{1}{2}) = x^2 - x + \frac{1}{6}$. $\|u_3\|^2 = \int_0^1 (x^2 - x + \frac{1}{6})^2 dx = \frac{1}{180}$. So $v_3 = \sqrt{180}(x^2 - x + \frac{1}{6}) = 6\sqrt{5}(x^2 - x + \frac{1}{6})$.
+$\langle v_1, w_3 \rangle = \int_0^1 x^2 dx = \frac{1}{3}$ and $\langle v_2, w_3 \rangle = 2\sqrt{3} \int_0^1 x^2(x - \frac{1}{2}) dx = 2\sqrt{3}(\frac{1}{4} - \frac{1}{6}) = \frac{\sqrt{3}}{6}$, so $$u_3 = x^2 - \frac{1}{3} - \frac{\sqrt{3}}{6} \cdot 2\sqrt{3}\left(x - \frac{1}{2}\right) = x^2 - \frac{1}{3} - \left(x - \frac{1}{2}\right) = x^2 - x + \frac{1}{6},$$ and $\|u_3\|^2 = \int_0^1 (x^2 - x + \frac{1}{6})^2 dx = \frac{1}{180}$. So $v_3 = \sqrt{180}(x^2 - x + \frac{1}{6}) = 6\sqrt{5}(x^2 - x + \frac{1}{6})$.
 
 The orthonormal basis is $\{1, \, 2\sqrt{3}(x - \frac{1}{2}), \, 6\sqrt{5}(x^2 - x + \frac{1}{6})\}$.
 
-**(2)** Let $f(w) = \langle T(w), w \rangle / \|w\|^2$. For $u \perp v$ and $t \in \RR$ small, consider $w_t = v + tu$. Since $\|v\| = 1$ and $u \perp v$: $$\|w_t\|^2 = 1 + t^2 \|u\|^2.$$ $$\langle T(w_t), w_t \rangle = \langle T(v), v \rangle + t(\langle T(v), u \rangle + \langle T(u), v \rangle) + t^2 \langle T(u), u \rangle.$$ Since $T$ is self-adjoint, $\langle T(v), u \rangle = \langle v, T(u) \rangle = \ol{\langle T(u), v \rangle} = \langle T(u), v \rangle$ (real), so: $$\langle T(w_t), w_t \rangle = \langle T(v), v \rangle + 2t \langle T(v), u \rangle + t^2 \langle T(u), u \rangle.$$ Thus: $$f(w_t) = \frac{\langle T(v), v \rangle + 2t \langle T(v), u \rangle + O(t^2)}{1 + t^2 \|u\|^2}.$$ At $t = 0$, $f(v) = \langle T(v), v \rangle$ is a maximum, so $\frac{d}{dt}|_{t=0} f(w_t) = 0$.
+**(2)** Since $R(cw) = R(w)$ for $c \neq 0$, $v$ maximizes $R$ over all nonzero vectors. Let $u \perp v$ and $t \in \RR$, and put $w_t = v + tu$ (nonzero, since $\|w_t\|^2 = 1 + t^2 \|u\|^2$). Since $T$ is self-adjoint and the space is real, $\langle T(u), v \rangle = \langle u, T(v) \rangle = \langle T(v), u \rangle$, so $$\langle T(w_t), w_t \rangle = \langle T(v), v \rangle + 2t \langle T(v), u \rangle + t^2 \langle T(u), u \rangle.$$ Thus $$R(w_t) = \frac{\langle T(v), v \rangle + 2t \langle T(v), u \rangle + t^2 \langle T(u), u \rangle}{1 + t^2 \|u\|^2}.$$ This differentiable function of $t$ has a maximum at $t = 0$, so its derivative there vanishes. The derivative at $t = 0$ is $2\langle T(v), u \rangle$. So $\langle T(v), u \rangle = 0$ for all $u \perp v$.
 
-Differentiating: $\frac{d}{dt}|_{t=0} f(w_t) = 2\langle T(v), u \rangle$. So $\langle T(v), u \rangle = 0$ for all $u \perp v$.
+Thus $T(v) \in (v^\perp)^\perp = \operatorname{span}(v)$ (Corollary [9.1.32](/notes/math-55a/9-1-bilinear-forms-and-inner-products#corollary-9-1-32)), i.e., $T(v) = \lambda v$ for some $\lambda$.
 
-Thus $T(v) \perp v^\perp$, meaning $T(v) \in (v^\perp)^\perp = \operatorname{span}(v)$. So $T(v) = \lambda v$ for some $\lambda$.
+**(3)** We have $T(S) = \{w : \|T^{-1}(w)\| = 1\}$. Now $$\|T^{-1}(w)\|^2 = \langle T^{-1}(w),\, T^{-1}(w) \rangle = \langle (T^{-1})^* T^{-1}(w),\, w \rangle = \langle Q(w),\, w \rangle,$$ where $Q = (T^{-1})^* T^{-1}$ is self-adjoint (Proposition [9.3.3](/notes/math-55a/9-3-the-adjoint#proposition-9-3-3)) and satisfies $\langle Q(w), w \rangle = \|T^{-1}(w)\|^2 > 0$ for $w \neq 0$.
 
-**(3)** We have $T(S) = \{w : \|T^{-1}(w)\| = 1\}$. Now $$\|T^{-1}(w)\|^2 = \langle T^{-1}(w),\, T^{-1}(w) \rangle = \langle (T^{-1})^* T^{-1}(w),\, w \rangle = \langle Q(w),\, w \rangle,$$ where $Q = (T^{-1})^* T^{-1}$ is self-adjoint and positive-definite.
-
-By the spectral theorem, there exists an orthonormal eigenbasis $\{u_1, \ldots, u_n\}$ with $Q(u_i) = \mu_i u_i$, where $\mu_i > 0$.
+By the spectral theorem, there exists an orthonormal eigenbasis $\{u_1, \ldots, u_n\}$ with $Q(u_i) = \mu_i u_i$, where $\mu_i = \langle Q(u_i), u_i \rangle > 0$.
 
 For $w = \sum x_i u_i$: $\langle Q(w), w \rangle = \sum \mu_i x_i^2$.
 
 So $T(S) = \{w : \sum \mu_i x_i^2 = 1\}$. Setting $a_i = 1/\sqrt{\mu_i}$, this is $\sum x_i^2/a_i^2 = 1$, an ellipsoid with semi-axes $a_i$ along $u_i$.
 
-**(4)** We have $\|T(v)\|^2 = \langle T(v), T(v) \rangle = \langle T^*T(v), v \rangle$. The operator $T^*T$ is self-adjoint and positive-definite (since $T$ is invertible).
+**(4)** We have $\|T(v)\|^2 = \langle T(v), T(v) \rangle = \langle T^*T(v), v \rangle$. The operator $T^*T$ is self-adjoint, and $\langle T^*T(v), v \rangle = \|T(v)\|^2 > 0$ for $v \neq 0$ (since $T$ is invertible).
 
-By the spectral theorem, let $\{e_i\}$ be an orthonormal eigenbasis with $T^*T(e_i) = \lambda_i e_i$, $\lambda_i > 0$. For $v = \sum a_i e_i$ with $\|v\| = 1$ (i.e., $\sum a_i^2 = 1$): $$\|T(v)\|^2 = \langle T^*T(v), v \rangle = \sum \lambda_i a_i^2.$$
+By the spectral theorem, let $\{e_i\}$ be an orthonormal eigenbasis with $T^*T(e_i) = \lambda_i e_i$; then $\lambda_i = \|T(e_i)\|^2 > 0$. For $v = \sum a_i e_i$ with $\|v\| = 1$ (i.e., $\sum a_i^2 = 1$): $$\|T(v)\|^2 = \langle T^*T(v), v \rangle = \sum \lambda_i a_i^2.$$ This weighted average of the $\lambda_i$ is at most $\lambda_{\max}$ and at least $\lambda_{\min}$, with equality when $v$ is a corresponding eigenvector. So $\sup_{\|v\|=1} \|T(v)\|^2 = \lambda_{\max}$ and $\inf_{\|v\|=1} \|T(v)\|^2 = \lambda_{\min}$.
 
-This is maximized when all weight is on the largest eigenvalue: $\sup = \lambda_{\max}$. It is minimized when all weight is on the smallest: $\inf = \lambda_{\min}$.
+Thus $K(T)^2 = \lambda_{\max} / \lambda_{\min}$.
 
-Thus $K(T)^2 = \frac{\lambda_{\max}}{\lambda_{\min}}$.
+**(5)** For $n = 2$, let $A = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$. Positive-definiteness gives $a = \langle e_1, e_1 \rangle > 0$ and $c = \langle e_2, e_2 \rangle > 0$, and, evaluating at $x = (-b, a)$, $$\langle x, x \rangle = a b^2 - 2ab^2 + c a^2 = a(ac - b^2) > 0,$$ so $ac > b^2$.
 
-**(5)** For $n = 2$, let $A = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$ with $a, c > 0$ (positive-definiteness requires positive diagonal) and $ac > b^2$.
-
-We show $\max\{a, c\} \geq |b|$. Suppose not: $|b| > a$ and $|b| > c$. Then $b^2 > ac$, contradicting $ac > b^2$.
-
-So the largest entry in magnitude is on the diagonal. Since $a, c > 0$ and $ac > b^2 \geq 0$, the largest entry is $\max\{a, c\}$, on the diagonal.
+If we had $|b| > a$ and $|b| > c$, then $b^2 > ac$, a contradiction. So $\max\{a, c\} \geq |b|$: an entry of largest absolute value lies on the diagonal.
 :::
 :::

@@ -3,88 +3,100 @@
 course: math-55a
 chapter: 2
 section: 2.1
-title: The group axioms
+title: The Group Axioms
 ---
 
 :::lede
-Groups are the central object of abstract algebra, capturing the essence of symmetry and invertible operations. The definition is deceptively simple—three axioms—yet groups appear everywhere: in geometry (symmetries), number theory (modular arithmetic), topology (fundamental groups), physics (gauge theories), and even chemistry (molecular symmetries). This lecture develops the foundations rigorously.
+Groups are the central object of abstract algebra, capturing the essence of symmetry and invertible operations. The definition is deceptively simple—three axioms—yet groups appear everywhere: in geometry (symmetries), number theory (modular arithmetic), topology (fundamental groups), physics (gauge theories), and even chemistry (molecular symmetries). This chapter lays the foundations: the axioms and their first consequences, the fundamental examples, subgroups, homomorphisms, and the order of an element.
 :::
 
 :::definition{2.1.1} Groups
 A ***group*** is a set $G$ together with a map $$m : G \times G \to G$$ called a ***law of composition*** (also ***binary operation***). Writing $ab$ for $m(a,b)$, the law of composition must satisfy three axioms:
 
+<!-- list:paren-alpha -->
+
 1. **Associativity:** $\forall a,b,c \in G, \, (ab)c = a(bc)$.
 2. **Identity:** $\exists e \in G$ such that $ea = ae = a$ for all $a \in G$.
 3. **Inverses:** $\forall a \in G, \, \exists b \in G$ such that $ab = ba = e$.
 
-We write $(G, m)$ or simply $G$ for the group, and call $|G|$ the ***order*** of $G$.
+We write $(G, m)$ or simply $G$ for the group, and call its cardinality $|G|$ (Section [1.7](/notes/math-55a/1-7-cardinality)) the ***order*** of $G$. The group is ***finite*** or ***infinite*** according as the set $G$ is.
 :::
 
-The axioms have immediate but important consequences that we now prove carefully.
+The axioms have immediate but important consequences, which we now prove carefully.
 
-:::proposition{2.1.1} Uniqueness of identity
+:::proposition{2.1.2} Uniqueness of identity
 The identity element $e$ is unique.
 :::
 
-:::proof Proof (Uniqueness of identity)
+:::proof
 Suppose $e$ and $e'$ are both identities. Then $e = ee'$ (since $e'$ is an identity) and $ee' = e'$ (since $e$ is an identity). Thus $e = e'$.
 :::
 
-:::proposition{2.1.2} Uniqueness of inverses
+:::proposition{2.1.3} Uniqueness of inverses
 For each $a \in G$, the inverse is unique. We denote it $a^{-1}$ (or $-a$ in additive notation).
 :::
 
-:::proof Proof (Uniqueness of inverses)
-Suppose $b$ and $c$ are both inverses of $a$, so $ab = ba = e$ and $ac = ca = e$. Then: $$b = be = b(ac) = (ba)c = ec = c.$$
+:::proof
+Suppose $b$ and $c$ are both inverses of $a$, so $ab = ba = e$ and $ac = ca = e$. Then $$b = be = b(ac) = (ba)c = ec = c.$$
 :::
 
-:::proposition{2.1.3} Cancellation laws
+:::proposition{2.1.4} Cancellation laws
 In a group $G$:
+
+<!-- list:paren-alpha -->
 
 1. **Left cancellation:** $ab = ac \implies b = c$.
 2. **Right cancellation:** $ba = ca \implies b = c$.
 :::
 
-:::proof Proof of cancellation
-For left cancellation: if $ab = ac$, multiply both sides on the left by $a^{-1}$: $a^{-1}(ab) = a^{-1}(ac)$, so $(a^{-1}a)b = (a^{-1}a)c$, giving $eb = ec$, i.e., $b = c$. Right cancellation is similar.
+:::proof
+For left cancellation: if $ab = ac$, multiply both sides on the left by $a^{-1}$: $a^{-1}(ab) = a^{-1}(ac)$, so $(a^{-1}a)b = (a^{-1}a)c$, giving $eb = ec$, i.e., $b = c$. Right cancellation is similar, multiplying on the right by $a^{-1}$.
 :::
 
-:::proposition{2.1.4} Inverse of products
+:::proposition{2.1.5} Inverse of products
 For all $a, b \in G$: $(ab)^{-1} = b^{-1}a^{-1}$. Note the reversal of order!
 :::
 
-:::proof Proof of inverse formula
-We verify $(ab)(b^{-1}a^{-1}) = e$: $(ab)(b^{-1}a^{-1}) = a(bb^{-1})a^{-1} = aea^{-1} = aa^{-1} = e$. Similarly for the other side.
+:::proof
+We verify $(ab)(b^{-1}a^{-1}) = e$: $(ab)(b^{-1}a^{-1}) = a(bb^{-1})a^{-1} = aea^{-1} = aa^{-1} = e$. Similarly, $(b^{-1}a^{-1})(ab) = b^{-1}(a^{-1}a)b = b^{-1}b = e$. By uniqueness of inverses, $(ab)^{-1} = b^{-1}a^{-1}$.
 :::
 
-:::proposition{2.1.5} Inverse of inverse
+:::proposition{2.1.6} Inverse of inverse
 For all $a \in G$: $(a^{-1})^{-1} = a$.
 :::
 
-:::proof Proof of double inverse
-By definition, $a^{-1}$ satisfies $a \cdot a^{-1} = e$. This says $a$ is an inverse of $a^{-1}$, so by uniqueness, $(a^{-1})^{-1} = a$.
+:::proof
+By definition, $a^{-1}$ satisfies $a a^{-1} = a^{-1}a = e$. This says that $a$ is an inverse of $a^{-1}$, so by uniqueness, $(a^{-1})^{-1} = a$.
 :::
 
-:::note
-It is customary to use additive notation ($+$, $0$, $-a$) for abelian groups and multiplicative notation ($\cdot$, $1$ or $e$, $a^{-1}$) in general. This does *not* mean that multiplication implies non-commutativity!
+By associativity, a product $a_1a_2\cdots a_k$ of any number of elements has the same value however we insert parentheses (an induction on $k$ proves this), so we omit them. In particular, powers of an element make sense.
+
+:::definition{2.1.7} Powers
+For $a\in G$ and $n\in\ZZ$, set $a^0 = e$; for $n>0$, let $a^n = a^{n-1}a$, the product of $n$ copies of $a$; and for $n<0$, let $a^n = (a^{-1})^{-n}$.
 :::
 
-## <span class="num">2.1.1</span> Group variants and related structures
+The usual laws of exponents hold: $a^ma^n = a^{m+n}$ and $(a^m)^n = a^{mn}$ for all $m,n\in\ZZ$, and in particular $(a^n)^{-1} = a^{-n}$. For $m,n\ge 0$ these follow by induction on $n$, and the remaining cases reduce to these by writing negative powers of $a$ as positive powers of $a^{-1}$; we omit the routine verification. If $ab = ba$, then also $(ab)^n = a^nb^n$.
+
+## <span class="num">2.1.1</span> Group Variants and Related Structures
 
 Groups sit in a hierarchy of algebraic structures with fewer or more axioms.
 
-:::definition{2.1.2} Abelian groups
+:::definition{2.1.8} Abelian groups
 A group $G$ is ***abelian*** (or ***commutative***) if $ab = ba$ for all $a, b \in G$.
 :::
 
-:::definition{2.1.3} Monoid
-A ***monoid*** is a set with an associative binary operation and an identity element, but inverses are not required. Example: $(\mathbb{N}, +)$ with identity 0, or $(\mathbb{Z}, \times)$ with identity 1.
+:::note
+It is customary to use additive notation ($+$, $0$, $-a$, and $na$ for the $n$th power) for abelian groups, and multiplicative notation ($\cdot$, $1$ or $e$, $a^{-1}$) in general. Multiplicative notation does *not* imply that the group is non-abelian!
 :::
 
-:::definition{2.1.4} Semigroup
-A ***semigroup*** is a set with an associative binary operation—no identity or inverses required. Example: $(\mathbb{Z}_{>0}, +)$.
+:::definition{2.1.9} Monoids
+A ***monoid*** is a set with an associative binary operation and an identity element; inverses are not required. Examples: $(\NN, +)$ with identity $0$, and $(\ZZ, \times)$ with identity $1$.
+:::
+
+:::definition{2.1.10} Semigroups
+A ***semigroup*** is a set with an associative binary operation; neither an identity nor inverses are required. Example: $(\ZZ_{>0}, +)$.
 :::
 
 :::note
-There’s a pattern here: Group = Monoid + Inverses = Semigroup + Identity + Inverses. Category theory provides a unifying framework: a group is a category with one object where every morphism is invertible; a monoid is a category with one object (morphisms need not be invertible).
+There is a pattern here: group = monoid + inverses = semigroup + identity + inverses. Category theory (Definition [8.1.1](/notes/math-55a/8-1-the-language-of-categories#definition-8-1-1)) provides a unifying framework: a monoid is a category with one object, and a group is a category with one object in which every morphism is invertible.
 :::

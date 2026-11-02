@@ -3,158 +3,180 @@
 course: math-55a
 chapter: 3
 section: 3.3
-title: The isomorphism theorems
+title: The Isomorphism Theorems
 ---
 
-The isomorphism theorems we have already introduced somewhat. They describe how quotients, subgroups, and homomorphisms interact. These results will reappear essentially unchanged when we study rings, modules, and vector spaces—they are instances of a more general phenomenon that category theory makes precise.
+The isomorphism theorems describe how quotients, subgroups, and homomorphisms interact. They reappear essentially unchanged for rings, vector spaces, and modules; Chapter 8 develops a language in which this common pattern can be stated once.
 
-## <span class="num">3.3.1</span> Kernels, images, and the First Isomorphism Theorem
+## <span class="num">3.3.1</span> The First Isomorphism Theorem
 
-:::definition{3.3.1} Kernel
-The ***kernel*** of a group homomorphism $\varphi : G \to H$ is $$\ker(\varphi) = \{g \in G : \varphi(g) = e_H\} = \varphi^{-1}(\{e_H\}).$$
+Recall the kernel and image of a homomorphism $\varphi : G \to H$ (Definition [2.5.5](/notes/math-55a/2-5-homomorphisms#definition-2-5-5)): $\ker\varphi$ is a subgroup of $G$, $\Img\varphi$ is a subgroup of $H$, and $\varphi$ is injective if and only if $\ker\varphi = \{e\}$ (Proposition [2.5.6](/notes/math-55a/2-5-homomorphisms#proposition-2-5-6)). By Theorem [3.1.10](/notes/math-55a/3-1-cosets-and-quotient-groups#theorem-3-1-10), $\ker\varphi$ is moreover a normal subgroup, so $G/\ker\varphi$ is a group.
+
+:::lemma{3.3.1} Fibers of a homomorphism
+Let $\varphi : G \to H$ be a homomorphism and $a, b \in G$. Then $$\varphi(a) = \varphi(b) \iff a^{-1}b \in \ker\varphi \iff a\ker\varphi = b\ker\varphi.$$
 :::
 
-:::definition{3.3.2} Image
-The ***image*** of a group homomorphism $\varphi : G \to H$ is $$\Img(\varphi) = \varphi(G) = \{h \in H : \exists g \in G, \, \varphi(g) = h\}.$$
+:::proof
+$\varphi(a) = \varphi(b) \iff \varphi(a)^{-1}\varphi(b) = e \iff \varphi(a^{-1}b) = e \iff a^{-1}b \in \ker\varphi$. The last equivalence is Proposition [3.1.2](/notes/math-55a/3-1-cosets-and-quotient-groups#proposition-3-1-2).
 :::
 
-:::proposition{3.3.1} Basic properties of kernels and images
-Let $\varphi : G \to H$ be a homomorphism.
+When does a homomorphism out of $G$ induce a homomorphism out of a quotient $G/K$? Exactly when it kills $K$.
 
-1. $\ker(\varphi)$ is a normal subgroup of $G$.
-2. $\Img(\varphi)$ is a subgroup of $H$ (not necessarily normal).
-3. $\varphi$ is injective $\iff \ker(\varphi) = \{e_G\}$.
-4. $\varphi(g_1) = \varphi(g_2) \iff g_1^{-1}g_2 \in \ker(\varphi) \iff g_1 \ker(\varphi) = g_2 \ker(\varphi)$.
+:::theorem{3.3.2} Factoring through a quotient
+Let $\varphi : G \to H$ be a homomorphism, let $K \trianglelefteq G$, and let $\pi : G \to G/K$ be the canonical projection. There exists a map $\bar\varphi : G/K \to H$ with $\varphi = \bar\varphi \circ \pi$ if and only if $K \subseteq \ker\varphi$.
+
+![fig-3-3-1](/notes/math-55a/figures/fig-3-3-1.svg)
+
+In that case $\bar\varphi$ is unique, given by $\bar\varphi(aK) = \varphi(a)$; it is a homomorphism; $\Img\bar\varphi = \Img\varphi$; and $\ker\bar\varphi = \pi(\ker\varphi) = (\ker\varphi)/K$.
 :::
 
-:::proof Proofs of kernel/image properties
-**(1)** First, $\ker(\varphi)$ is a subgroup: $\varphi(e) = e$, so $e \in \ker(\varphi)$; if $\varphi(a) = \varphi(b) = e$, then $\varphi(ab) = ee = e$; if $\varphi(a) = e$, then $\varphi(a^{-1}) = \varphi(a)^{-1} = e^{-1} = e$. For normality: if $k \in \ker(\varphi)$, then $\varphi(gkg^{-1}) = \varphi(g)\varphi(k)\varphi(g)^{-1} = \varphi(g) \cdot e \cdot \varphi(g)^{-1} = e$.
+:::proof
+If $\bar\varphi$ exists, then for $k \in K$ we have $\varphi(k) = \bar\varphi(kK) = \bar\varphi(eK) = \varphi(e) = e$, so $K \subseteq \ker\varphi$.
 
-**(2)** Subgroup: $e = \varphi(e) \in \Img(\varphi)$; if $\varphi(a), \varphi(b) \in \Img(\varphi)$, then $\varphi(a)\varphi(b) = \varphi(ab) \in \Img(\varphi)$; $\varphi(a)^{-1} = \varphi(a^{-1}) \in \Img(\varphi)$.
-
-**(3)** If $\ker(\varphi) = \{e\}$ and $\varphi(g_1) = \varphi(g_2)$, then $\varphi(g_1^{-1}g_2) = e$, so $g_1^{-1}g_2 = e$, giving $g_1 = g_2$. Conversely, if $\varphi$ is injective and $k \in \ker(\varphi)$, then $\varphi(k) = e = \varphi(e)$, so $k = e$.
-
-**(4)** $\varphi(g_1) = \varphi(g_2) \iff \varphi(g_1)^{-1}\varphi(g_2) = e \iff \varphi(g_1^{-1}g_2) = e \iff g_1^{-1}g_2 \in \ker(\varphi)$. The last equivalence with cosets is the definition of coset equality.
+Conversely, suppose $K \subseteq \ker\varphi$. If $aK = bK$, then $a^{-1}b \in K \subseteq \ker\varphi$, so $\varphi(a) = \varphi(b)$ by Lemma [3.3.1](/notes/math-55a/3-3-the-isomorphism-theorems#lemma-3-3-1). Thus $\varphi$ is constant on each coset of $K$, and $\bar\varphi(aK) = \varphi(a)$ is well defined (Proposition [1.6.4](/notes/math-55a/1-6-quotient-sets-and-fibers#proposition-1-6-4)); by construction $\varphi = \bar\varphi \circ \pi$. Any $\bar\varphi$ with $\varphi = \bar\varphi \circ \pi$ must be given by this formula, because $\pi$ is surjective. It is a homomorphism: $$\bar\varphi(aK \cdot bK) = \bar\varphi(abK) = \varphi(ab) = \varphi(a)\varphi(b) = \bar\varphi(aK)\,\bar\varphi(bK).$$ Its image is $\{\varphi(a) \mid a \in G\} = \Img\varphi$. Finally, $\bar\varphi(aK) = e$ if and only if $a \in \ker\varphi$, so $\ker\bar\varphi = \{aK \mid a \in \ker\varphi\} = \pi(\ker\varphi)$.
 :::
 
-:::theorem{3.3.1} First Isomorphism Theorem
-Let $\varphi : G \to H$ be a homomorphism. Then:
+:::theorem{3.3.3} First Isomorphism Theorem
+Let $\varphi : G \to H$ be a homomorphism. Then $\ker\varphi \trianglelefteq G$, and the map $$\bar\varphi : G/\ker\varphi \to \Img\varphi, \qquad a\ker\varphi \mapsto \varphi(a),$$ is an isomorphism. In particular, if $\varphi$ is surjective, then $G/\ker\varphi \cong H$.
+:::
 
-1. $\ker(\varphi) \trianglelefteq G$;
-2. The map $\bar{\varphi} : G/\ker(\varphi) \to H$ defined by $\bar{\varphi}(g \cdot \ker(\varphi)) = \varphi(g)$ is a well-defined injective homomorphism;
-3. $\Img(\bar{\varphi}) = \Img(\varphi)$, so $G/\ker(\varphi) \cong \Img(\varphi)$.
+:::proof
+Normality of $\ker\varphi$ is Theorem [3.1.10](/notes/math-55a/3-1-cosets-and-quotient-groups#theorem-3-1-10). Apply Theorem [3.3.2](/notes/math-55a/3-3-the-isomorphism-theorems#theorem-3-3-2) with $K = \ker\varphi$: the map $\bar\varphi$ is a homomorphism with image $\Img\varphi$ and kernel $\pi(\ker\varphi) = \{\ker\varphi\}$, the identity element of $G/\ker\varphi$. So $\bar\varphi$ is injective (Proposition [2.5.6](/notes/math-55a/2-5-homomorphisms#proposition-2-5-6)) and surjective onto $\Img\varphi$.
+:::
 
 In slogan form: *the image of a homomorphism is isomorphic to the domain modulo the kernel.*
-:::
-
-:::proof Proof of First Isomorphism Theorem
-Part (1) was proved above. For (2): $\bar{\varphi}$ is well-defined because $g_1\ker(\varphi) = g_2\ker(\varphi)$ implies $\varphi(g_1) = \varphi(g_2)$ by property (4). It’s a homomorphism: $\bar{\varphi}(g_1K \cdot g_2K) = \bar{\varphi}(g_1g_2K) = \varphi(g_1g_2) = \varphi(g_1)\varphi(g_2) = \bar{\varphi}(g_1K)\bar{\varphi}(g_2K)$ (writing $K = \ker(\varphi)$). It’s injective: $\bar{\varphi}(gK) = e \implies \varphi(g) = e \implies g \in K \implies gK = K$.
-
-For (3): $\Img(\bar{\varphi}) = \{\bar{\varphi}(gK) : g \in G\} = \{\varphi(g) : g \in G\} = \Img(\varphi)$. Since $\bar{\varphi}$ is an injective homomorphism onto $\Img(\varphi)$, it’s an isomorphism $G/\ker(\varphi) \xrightarrow{\sim} \Img(\varphi)$.
-:::
 
 :::note
-The First Isomorphism Theorem is sometimes called the “fundamental theorem of homomorphisms.” It says that every homomorphism $\varphi : G \to H$ factors as $G \twoheadrightarrow G/\ker(\varphi) \xrightarrow{\sim} \Img(\varphi) \hookrightarrow H$: a surjection, followed by an isomorphism, followed by an inclusion. This factorization is unique and natural—in the categorical sense, which you’ll see later.
+The First Isomorphism Theorem is sometimes called the “fundamental theorem of homomorphisms.” It says that every homomorphism $\varphi : G \to H$ factors as $$G \surjto G/\ker\varphi \xrightarrow{\ \sim\ } \Img\varphi \injto H,$$ a surjection, followed by an isomorphism, followed by an inclusion.
+:::
+
+:::example{3.3.4} The First Isomorphism Theorem at work
+<!-- list:paren-alpha -->
+
+1. Reduction mod $n$ (Example [2.5.7](/notes/math-55a/2-5-homomorphisms#example-2-5-7)) is a surjective homomorphism from $\ZZ$ onto the group $\{0, 1, \ldots, n-1\}$ with addition mod $n$ of Example [2.2.3](/notes/math-55a/2-2-fundamental-examples#example-2-2-3), with kernel $n\ZZ$. So the quotient group $\ZZ/n\ZZ$ is isomorphic to that group, and the two descriptions of $\ZZ/n$ agree.
+2. The map $t \mapsto e^{2\pi i t}$ is a surjective homomorphism from $(\RR, +)$ onto the circle group $S^1 = \{z \in \CC \mid |z| = 1\}$ under multiplication, with kernel $\ZZ$. Hence $\RR/\ZZ \cong S^1$. Each coset $t + \ZZ$ contains exactly one number in $[0,1)$, namely the fractional part of $t$, so $\RR/\ZZ$ is the group $[0,1)$ with addition mod 1 of Example [2.2.4](/notes/math-55a/2-2-fundamental-examples#example-2-2-4).
+3. The determinant (Section [5.4](/notes/math-55a/5-4-determinants)) is a homomorphism $\det : \GL_n(\RR) \to \RR^\times$. It is surjective, since $\det\operatorname{diag}(t, 1, \ldots, 1) = t$, and its kernel is $\SL_n(\RR)$. Hence $\GL_n(\RR)/\SL_n(\RR) \cong \RR^\times$.
+4. The conjugation homomorphism $c : G \to \Aut(G)$ of Section [3.2.3](/notes/math-55a/3-2-group-actions) has image $\Inn(G)$ and kernel $Z(G)$ (Proposition [3.2.13](/notes/math-55a/3-2-group-actions#proposition-3-2-13)). Hence $G/Z(G) \cong \Inn(G)$.
 :::
 
 ## <span class="num">3.3.2</span> The Second and Third Isomorphism Theorems
 
-:::theorem{3.3.2} Second Isomorphism Theorem (Diamond Theorem)
-Let $G$ be a group, $H \subset G$ a subgroup, and $N \trianglelefteq G$ a normal subgroup. Then:
+For subsets $A, B \subseteq G$ we write $AB = \{ab \mid a \in A, b \in B\}$.
 
-1. $HN = \{hn : h \in H, n \in N\}$ is a subgroup of $G$;
+:::theorem{3.3.5} Second Isomorphism Theorem
+Let $G$ be a group, $H \le G$ a subgroup, and $N \trianglelefteq G$ a normal subgroup. Then:
+
+<!-- list:paren-alpha -->
+
+1. $HN$ is a subgroup of $G$, and $N \trianglelefteq HN$;
 2. $H \cap N \trianglelefteq H$;
-3. $H / (H \cap N) \cong HN / N$.
+3. $H / (H \cap N) \cong HN / N$, via $h(H \cap N) \mapsto hN$.
 :::
 
-:::proof Proof of Second Isomorphism Theorem
-**(1)** $HN$ is a subgroup: $e = e \cdot e \in HN$. For closure: $(h_1n_1)(h_2n_2) = h_1(n_1h_2)n_2$. Since $N$ is normal, $n_1h_2 = h_2n_3$ for some $n_3 \in N$, so $(h_1n_1)(h_2n_2) = h_1h_2n_3n_2 \in HN$. For inverses: $(hn)^{-1} = n^{-1}h^{-1} = h^{-1}(h n^{-1} h^{-1}) \in HN$ since $hn^{-1}h^{-1} \in N$ by normality.
+:::proof
+**(a)** We have $e = e \cdot e \in HN$. For closure, $(h_1n_1)(h_2n_2) = h_1h_2(h_2^{-1}n_1h_2)n_2 \in HN$, since $h_2^{-1}n_1h_2 \in N$ by normality. For inverses, $(hn)^{-1} = n^{-1}h^{-1} = h^{-1}(hn^{-1}h^{-1}) \in HN$, since $hn^{-1}h^{-1} \in N$. Since $N$ is closed under conjugation by all of $G$, it is in particular normal in $HN$.
 
-**(2)** $H \cap N$ is a subgroup of $H$ (intersection of subgroups). For normality in $H$: if $x \in H \cap N$ and $h \in H$, then $hxh^{-1} \in H$ (since $H$ is a subgroup) and $hxh^{-1} \in N$ (since $N \trianglelefteq G$), so $hxh^{-1} \in H \cap N$.
+**(b)** $H \cap N$ is a subgroup of $H$ (Proposition [2.4.4](/notes/math-55a/2-4-subgroups#proposition-2-4-4)). If $x \in H \cap N$ and $h \in H$, then $hxh^{-1} \in H$ because $H$ is a subgroup, and $hxh^{-1} \in N$ because $N \trianglelefteq G$; so $hxh^{-1} \in H \cap N$.
 
-**(3)** Define $\varphi : H \to HN/N$ by $\varphi(h) = hN$. This is a homomorphism: $\varphi(h_1h_2) = h_1h_2N = (h_1N)(h_2N) = \varphi(h_1)\varphi(h_2)$.
-
-*Surjectivity:* Any element of $HN/N$ has the form $hnN = hN$ (since $n \in N$), which equals $\varphi(h)$.
-
-*Kernel:* $\ker(\varphi) = \{h \in H : hN = N\} = \{h \in H : h \in N\} = H \cap N$.
-
-By the First Isomorphism Theorem, $H/(H \cap N) = H/\ker(\varphi) \cong \Img(\varphi) = HN/N$.
+**(c)** Define $\varphi : H \to HN/N$ by $\varphi(h) = hN$. This is a homomorphism, being the restriction to $H$ of the canonical projection $HN \to HN/N$. It is surjective: every element of $HN/N$ has the form $hnN = hN = \varphi(h)$. Its kernel is $\{h \in H \mid hN = N\} = \{h \in H \mid h \in N\} = H \cap N$. By the First Isomorphism Theorem, $H/(H \cap N) \cong HN/N$.
 :::
 
 :::note
-The name “Diamond Theorem” comes from the lattice diagram: draw $G$ at top, $HN$ below it, $H$ and $N$ below $HN$ on left and right, and $H \cap N$ at the bottom. The isomorphism $H/(H \cap N) \cong HN/N$ says the “left edge” quotient equals the “right edge” quotient. This is a manifestation of a general principle called the *modular law* in lattice theory.
+The name “Diamond Theorem” sometimes used for the Second Isomorphism Theorem comes from the picture of the four subgroups involved:
+
+![fig-3-3-2](/notes/math-55a/figures/fig-3-3-2.svg)
+
+The theorem identifies the quotient along the lower-left edge, $H/(H \cap N)$, with the quotient along the opposite, upper-right edge, $HN/N$. (The other two edges are not paired in general: $N/(H \cap N)$ need not even be a group, since $H \cap N$ need not be normal in $N$.) For finite groups, comparing orders gives $|HN| = |H|\,|N|/|H \cap N|$.
 :::
 
-:::theorem{3.3.3} Third Isomorphism Theorem
-Let $G$ be a group and $N \subset M$ be normal subgroups of $G$ (so $N \trianglelefteq G$ and $M \trianglelefteq G$ with $N \subset M$). Then:
+:::theorem{3.3.6} Third Isomorphism Theorem
+Let $G$ be a group and let $N \subseteq M$ be normal subgroups of $G$. Then:
 
-1. $M/N \trianglelefteq G/N$;
-2. $(G/N) / (M/N) \cong G/M$.
+<!-- list:paren-alpha -->
+
+1. $M/N$ is a normal subgroup of $G/N$;
+2. $(G/N) / (M/N) \cong G/M$, via $gN(M/N) \mapsto gM$.
 :::
 
-:::proof Proof of Third Isomorphism Theorem
-**(1)** Elements of $G/N$ are cosets $gN$; elements of $M/N$ are cosets $mN$ for $m \in M$. We verify $M/N \trianglelefteq G/N$: for $gN \in G/N$ and $mN \in M/N$, we have $(gN)(mN)(gN)^{-1} = gmg^{-1}N$. Since $M \trianglelefteq G$, $gmg^{-1} \in M$, so $gmg^{-1}N \in M/N$.
-
-**(2)** Define $\pi : G/N \to G/M$ by $\pi(gN) = gM$.
-
-*Well-defined:* If $g_1N = g_2N$, then $g_1^{-1}g_2 \in N \subset M$, so $g_1M = g_2M$.
-
-*Homomorphism:* $\pi(g_1N \cdot g_2N) = \pi(g_1g_2N) = g_1g_2M = (g_1M)(g_2M) = \pi(g_1N)\pi(g_2N)$.
-
-*Surjective:* For any $gM \in G/M$, we have $\pi(gN) = gM$.
-
-*Kernel:* $\ker(\pi) = \{gN : gM = M\} = \{gN : g \in M\} = M/N$.
-
-By the First Isomorphism Theorem, $(G/N)/\ker(\pi) = (G/N)/(M/N) \cong \Img(\pi) = G/M$.
+:::proof
+Define $\psi : G/N \to G/M$ by $\psi(gN) = gM$. This is well defined by Theorem [3.3.2](/notes/math-55a/3-3-the-isomorphism-theorems#theorem-3-3-2) applied to the projection $G \to G/M$, whose kernel $M$ contains $N$; and it is a surjective homomorphism, since $G \to G/M$ is. Its kernel is $\{gN \mid gM = M\} = \{gN \mid g \in M\} = M/N$. So $M/N$ is a kernel, hence normal in $G/N$, and by the First Isomorphism Theorem $(G/N)/(M/N) \cong \Img\psi = G/M$.
 :::
 
 :::note
-The Third Isomorphism Theorem says “quotients of quotients are quotients”: $(G/N)/(M/N) \cong G/M$. The $N$’s “cancel.” This is exactly what you’d hope for, and it’s a sign that quotient groups are a natural and well-behaved construction.
+The Third Isomorphism Theorem says “quotients of quotients are quotients”: $(G/N)/(M/N) \cong G/M$, as if the $N$’s cancelled. This is exactly what one would hope for, and it is a sign that quotient groups are a natural and well-behaved construction.
 :::
 
 ## <span class="num">3.3.3</span> The Correspondence Theorem
 
-The final structural theorem describes the relationship between subgroups of a quotient and subgroups of the original group.
+The last structural theorem describes the subgroups of a quotient in terms of the subgroups of the original group.
 
-:::theorem{3.3.4} Correspondence Theorem (Fourth Isomorphism Theorem)
-Let $N \trianglelefteq G$ and $\pi : G \to G/N$ be the canonical projection. There is a bijection $$\{\text{subgroups of } G \text{ containing } N\} \longleftrightarrow \{\text{subgroups of } G/N\}$$ given by $H \mapsto H/N = \pi(H)$ with inverse $\bar{H} \mapsto \pi^{-1}(\bar{H})$. Moreover:
+:::theorem{3.3.7} Correspondence Theorem
+Let $N \trianglelefteq G$ and let $\pi : G \to G/N$ be the canonical projection. There is a bijection $$\{\text{subgroups } H \text{ of } G \text{ with } N \subseteq H\} \longleftrightarrow \{\text{subgroups of } G/N\}$$ given by $H \mapsto H/N = \pi(H)$, with inverse $\bar H \mapsto \pi^{-1}(\bar H)$. Moreover, for subgroups $H, H_1, H_2$ containing $N$:
 
-1. $H_1 \subset H_2 \iff H_1/N \subset H_2/N$, and $[H_2 : H_1] = [H_2/N : H_1/N]$;
-2. $H \trianglelefteq G \iff H/N \trianglelefteq G/N$.
+<!-- list:paren-alpha -->
+
+1. $H_1 \subseteq H_2$ if and only if $H_1/N \subseteq H_2/N$, and in that case $[H_2 : H_1] = [H_2/N : H_1/N]$;
+2. $H \trianglelefteq G$ if and only if $H/N \trianglelefteq G/N$.
 :::
 
-:::proof Proof of Correspondence Theorem
-Given $H \supset N$, we have $H/N = \{hN : h \in H\}$, which is a subgroup of $G/N$. Given a subgroup $\bar{H} \subset G/N$, define $H = \pi^{-1}(\bar{H}) = \{g \in G : gN \in \bar{H}\}$. This contains $N$ (since $eN = N \in \bar{H}$) and is a subgroup.
+:::proof
+The image of a subgroup under a homomorphism is a subgroup, and so is the preimage (Proposition [2.5.2](/notes/math-55a/2-5-homomorphisms#proposition-2-5-2)). So $\pi(H)$ is a subgroup of $G/N$, and $\pi^{-1}(\bar H)$ is a subgroup of $G$ containing $\pi^{-1}(\{eN\}) = N$.
 
-These operations are inverses: starting with $H \supset N$, we get $\pi^{-1}(H/N) = \{g : gN \in H/N\} = \{g : gN = hN \text{ for some } h \in H\} = \{g : g \in hN \text{ for some } h \in H\} = HN = H$ (since $N \subset H$).
+These operations are inverse to each other. Given $H \supseteq N$, an element $g$ lies in $\pi^{-1}(\pi(H))$ if and only if $gN = hN$ for some $h \in H$, that is, $g \in hN$ for some $h \in H$; since $hN \subseteq H$, this gives $\pi^{-1}(\pi(H)) = H$. Given $\bar H \le G/N$, we have $\pi(\pi^{-1}(\bar H)) = \bar H$ because $\pi$ is surjective.
 
-Starting with $\bar{H} \subset G/N$: $\pi(\pi^{-1}(\bar{H})) = \{gN : gN \in \bar{H}\} = \bar{H}$.
+**(a)** If $H_1 \subseteq H_2$, then $\pi(H_1) \subseteq \pi(H_2)$; conversely, if $\pi(H_1) \subseteq \pi(H_2)$, then $H_1 = \pi^{-1}(\pi(H_1)) \subseteq \pi^{-1}(\pi(H_2)) = H_2$. For the index, consider the map from left cosets of $H_1$ in $H_2$ to left cosets of $H_1/N$ in $H_2/N$, $$hH_1 \mapsto \pi(h)\,(H_1/N) = \pi(hH_1).$$ It is well defined and clearly surjective. It is injective: if $\pi(h)(H_1/N) = \pi(h')(H_1/N)$, then $\pi(h^{-1}h') \in H_1/N$, so $h^{-1}h' \in \pi^{-1}(H_1/N) = H_1$ and $hH_1 = h'H_1$. Hence the two indices are equal.
 
-**(1)** $H_1 \subset H_2 \implies H_1/N \subset H_2/N$ is clear. Conversely, if $H_1/N \subset H_2/N$ and $h \in H_1$, then $hN \in H_1/N \subset H_2/N$, so $hN = h'N$ for some $h' \in H_2$, giving $h \in h'N \subset H_2$. The index statement follows since the correspondence preserves cosets.
-
-**(2)** If $H \trianglelefteq G$, then for $gN \in G/N$ and $hN \in H/N$: $(gN)(hN)(gN)^{-1} = ghg^{-1}N \in H/N$ since $ghg^{-1} \in H$. Conversely, if $H/N \trianglelefteq G/N$, then for $g \in G, h \in H$: $ghg^{-1}N = (gN)(hN)(gN)^{-1} \in H/N$, so $ghg^{-1} \in H$.
+**(b)** If $H \trianglelefteq G$, then for $gN \in G/N$ and $hN \in H/N$ we have $(gN)(hN)(gN)^{-1} = ghg^{-1}N \in H/N$, since $ghg^{-1} \in H$. Conversely, if $H/N \trianglelefteq G/N$, then for $g \in G$ and $h \in H$, $\pi(ghg^{-1}) = (gN)(hN)(gN)^{-1} \in H/N$, so $ghg^{-1} \in \pi^{-1}(H/N) = H$.
 :::
 
-:::question{3}
-Let $G = \mathbb{Z}$ and $N = 12\mathbb{Z}$.
+:::question{3.3.8}
+Let $G = \ZZ$ and $N = 12\ZZ$.
 
-1. List all subgroups of $G/N \cong \mathbb{Z}/12$.
-2. For each, find the corresponding subgroup of $\mathbb{Z}$ containing $12\mathbb{Z}$.
-3. Which of these are normal in $\mathbb{Z}$? (Trick question!)
-4. Verify the Third Isomorphism Theorem: check that $(\mathbb{Z}/12\mathbb{Z})/(4\mathbb{Z}/12\mathbb{Z}) \cong \mathbb{Z}/4\mathbb{Z}$.
+<!-- list:paren-alpha -->
+
+1. List all subgroups of $G/N = \ZZ/12$.
+2. For each, find the corresponding subgroup of $\ZZ$ containing $12\ZZ$.
+3. Which of these are normal in $\ZZ$? (Trick question!)
+4. Verify the Third Isomorphism Theorem by checking directly that $(\ZZ/12\ZZ)/(4\ZZ/12\ZZ) \cong \ZZ/4\ZZ$.
 
 :::solution
-**(1)** $\mathbb{Z}/12$ is cyclic of order 12, so its subgroups correspond to divisors of 12: they are $\langle \bar{0} \rangle, \langle \bar{6} \rangle, \langle \bar{4} \rangle, \langle \bar{3} \rangle, \langle \bar{2} \rangle, \langle \bar{1} \rangle$ of orders 1, 2, 3, 4, 6, 12 respectively.
+**(a)** $\ZZ/12$ is cyclic of order 12, so its subgroups are the $\langle \bar d \rangle$ for the divisors $d$ of 12 (Proposition [2.6.7](/notes/math-55a/2-6-orders-of-elements-and-cyclic-groups#proposition-2-6-7)): $\langle \bar{0} \rangle, \langle \bar{6} \rangle, \langle \bar{4} \rangle, \langle \bar{3} \rangle, \langle \bar{2} \rangle, \langle \bar{1} \rangle$, of orders 1, 2, 3, 4, 6, 12 respectively.
 
-**(2)** The corresponding subgroups of $\mathbb{Z}$ are those containing $12\mathbb{Z}$, i.e., of the form $d\mathbb{Z}$ where $d \mid 12$: $$\begin{aligned}
-\langle \bar{0} \rangle &\leftrightarrow 12\mathbb{Z}, \quad \langle \bar{6} \rangle \leftrightarrow 6\mathbb{Z}, \quad \langle \bar{4} \rangle \leftrightarrow 4\mathbb{Z}, \\
-\langle \bar{3} \rangle &\leftrightarrow 3\mathbb{Z}, \quad \langle \bar{2} \rangle \leftrightarrow 2\mathbb{Z}, \quad \langle \bar{1} \rangle \leftrightarrow \mathbb{Z}.
+**(b)** For $d \mid 12$, an integer $g$ satisfies $\bar g \in \langle \bar d \rangle$ if and only if $g \equiv kd \pmod{12}$ for some $k$, which (since $d \mid 12$) holds if and only if $d \mid g$. So $\pi^{-1}(\langle \bar d \rangle) = d\ZZ$, and the correspondence is $$\begin{aligned}
+\langle \bar{0} \rangle &\leftrightarrow 12\ZZ, & \langle \bar{6} \rangle &\leftrightarrow 6\ZZ, & \langle \bar{4} \rangle &\leftrightarrow 4\ZZ, \\
+\langle \bar{3} \rangle &\leftrightarrow 3\ZZ, & \langle \bar{2} \rangle &\leftrightarrow 2\ZZ, & \langle \bar{1} \rangle &\leftrightarrow \ZZ.
 \end{aligned}$$
 
-**(3)** All subgroups of $\mathbb{Z}$ are normal because $\mathbb{Z}$ is abelian!
+**(c)** All of them: every subgroup of the abelian group $\ZZ$ is normal.
 
-**(4)** We have $4\mathbb{Z}/12\mathbb{Z} = \{\bar{0}, \bar{4}, \bar{8}\} \cong \mathbb{Z}/3$. The quotient $(\mathbb{Z}/12)/(4\mathbb{Z}/12\mathbb{Z})$ has order $12/3 = 4$. Explicitly, the cosets are $\bar{0} + 4\mathbb{Z}/12\mathbb{Z} = \{\bar{0}, \bar{4}, \bar{8}\}$, $\bar{1} + \cdots = \{\bar{1}, \bar{5}, \bar{9}\}$, $\bar{2} + \cdots = \{\bar{2}, \bar{6}, \bar{10}\}$, $\bar{3} + \cdots = \{\bar{3}, \bar{7}, \bar{11}\}$. This is cyclic of order 4, generated by $\bar{1} + 4\mathbb{Z}/12\mathbb{Z}$, hence $\cong \mathbb{Z}/4$.
-
-The Third Isomorphism Theorem says $(\mathbb{Z}/12\mathbb{Z})/(4\mathbb{Z}/12\mathbb{Z}) \cong \mathbb{Z}/4\mathbb{Z}$, which checks out!
+**(d)** We have $4\ZZ/12\ZZ = \{\bar{0}, \bar{4}, \bar{8}\} \cong \ZZ/3$, so the quotient $(\ZZ/12\ZZ)/(4\ZZ/12\ZZ)$ has order $12/3 = 4$. Explicitly, its elements are the cosets $\{\bar{0}, \bar{4}, \bar{8}\}$, $\{\bar{1}, \bar{5}, \bar{9}\}$, $\{\bar{2}, \bar{6}, \bar{10}\}$, $\{\bar{3}, \bar{7}, \bar{11}\}$. This group is cyclic of order 4, generated by the coset of $\bar 1$, hence isomorphic to $\ZZ/4\ZZ$, as the Third Isomorphism Theorem predicts.
 :::
 :::
+
+## <span class="num">3.3.4</span> The Commutator Subgroup and Abelianization
+
+Two constructions measure how far a group is from being abelian. The center $Z(G)$ (Definition [3.1.13](/notes/math-55a/3-1-cosets-and-quotient-groups#definition-3-1-13)) collects the elements that commute with everything; it is all of $G$ exactly when $G$ is abelian. The second construction goes the other way: it is the smallest normal subgroup whose quotient is abelian.
+
+:::definition{3.3.9} Commutator subgroup and abelianization
+The ***commutator*** of $a, b \in G$ is $[a, b] = aba^{-1}b^{-1}$; it equals $e$ if and only if $ab = ba$. The ***commutator subgroup*** $[G,G]$ is the subgroup generated by all commutators. Since $[a,b]^{-1} = bab^{-1}a^{-1} = [b,a]$, it consists of all finite products $$[a_1, b_1][a_2, b_2] \cdots [a_k, b_k], \qquad k \ge 0,\ a_i, b_i \in G.$$ The quotient $G^{\mathrm{ab}} = G/[G,G]$ is the ***abelianization*** of $G$.
+:::
+
+:::proposition{3.3.10} Properties of the commutator subgroup
+Let $G$ be a group.
+
+<!-- list:paren-alpha -->
+
+1. $[G,G]$ is a normal subgroup of $G$.
+2. For $N \trianglelefteq G$, the quotient $G/N$ is abelian if and only if $[G,G] \subseteq N$. In particular $G^{\mathrm{ab}}$ is abelian, and $G$ is abelian if and only if $[G,G] = \{e\}$.
+3. Every homomorphism $\varphi : G \to A$ to an abelian group $A$ factors uniquely as $\varphi = \bar\varphi \circ \pi$, where $\pi : G \to G^{\mathrm{ab}}$ is the canonical projection and $\bar\varphi : G^{\mathrm{ab}} \to A$ is a homomorphism.
+:::
+
+:::proof
+**(a)** For $g \in G$, $$g[a,b]g^{-1} = (gag^{-1})(gbg^{-1})(gag^{-1})^{-1}(gbg^{-1})^{-1} = [gag^{-1}, gbg^{-1}],$$ as one sees by expanding the right side. Hence the conjugate $g\big(\prod_i [a_i,b_i]\big)g^{-1} = \prod_i g[a_i,b_i]g^{-1}$ of a product of commutators is again a product of commutators, so $g[G,G]g^{-1} \subseteq [G,G]$.
+
+**(b)** In $G/N$, $[aN, bN] = [a,b]N$. So $G/N$ is abelian if and only if $[a,b] \in N$ for all $a, b \in G$, which holds if and only if $N$ contains the subgroup generated by the commutators.
+
+**(c)** Since $A$ is abelian, $\varphi([a,b]) = [\varphi(a), \varphi(b)] = e$, so every commutator lies in $\ker\varphi$, and therefore $[G,G] \subseteq \ker\varphi$. Now apply Theorem [3.3.2](/notes/math-55a/3-3-the-isomorphism-theorems#theorem-3-3-2).
+:::
+
+So $G^{\mathrm{ab}}$ is the largest abelian quotient of $G$: if $G/N$ is abelian, then $[G,G] \subseteq N$, and by the Third Isomorphism Theorem $G/N \cong G^{\mathrm{ab}}/(N/[G,G])$ is a quotient of $G^{\mathrm{ab}}$. For an abelian group, $G^{\mathrm{ab}} = G$. We compute the commutator subgroup of $S_n$ in Example [3.4.18](/notes/math-55a/3-4-the-symmetric-group#example-3-4-18), and the abelianization of a free group in Proposition [3.6.17](/notes/math-55a/3-6-free-groups-and-presentations#proposition-3-6-17).

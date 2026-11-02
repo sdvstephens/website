@@ -156,7 +156,7 @@ Linear independence $\iff$ $\varphi$ injective, and spanning $V$ $\iff$ $\varphi
 
 Every finite-dimensional vector space over $k$ is $\cong k^n$ for $n = \dim V$, and a basis gives a specific *choice* of such an isomorphism. We represent $v = \sum x_i v_i$ by a **column vector** $\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}$.
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 8](/notes/math-55a/08-matrices-direct-sums-and-quotient-spaces)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L08}}
 **Matrices of linear maps**
 
 Given bases $(v_1, \dots, v_n)$ of $V$ and $(w_1, \dots, w_m)$ of $W$, we can represent a linear map $\varphi \in \Hom(V, W)$ by an $m \times n$ **matrix** $A \in \mathcal M_{m,n}$. This amounts to:

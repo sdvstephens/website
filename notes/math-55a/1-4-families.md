@@ -6,31 +6,48 @@ section: 1.4
 title: Families
 ---
 
-Forget literally everything you know about notational convention! Why? Idk, that’s just how mathematicians decided to approach this topic—the family (*awwwwww*). Consider a function $x$ (yes, this is strange) s.t. $x : I \to  X$. We call $I$ the ***index set***, and thereby each $i \in  I$ is an ***index***; the range of the function is then called the ***indexed set*** (why, this is so stupid?!); the function has a special name, being called a ***family***, and the value of $x$ at a given $i$ is called a ***term*** of the family (denoted $x_{i}$). Other even more bewildering notation may be used such as $\{x_{i}\}$ being a family in $X$ or, more horrifically, a family $\{A_i\}$ of subsets of $X$, being a function $A : I \to  \mcP(X)$ (now that I think of it, this notation, sickeningly, is becoming somewhat preferable).
+The notation for families takes some getting used to, since a function is written like an element and its values like subscripts. Consider a function $x : I\to X$. In this setting we call $I$ the ***index set*** and each $i\in I$ an ***index***; the range of the function is called the ***indexed set***; the function itself is called a ***family***; and the value of $x$ at $i$ is called a ***term*** of the family, denoted $x_i$. We write $\{x_i\}_{i\in I}$, or simply $\{x_i\}$, for the family, and call it a family in $X$. In particular, a family $\{A_i\}$ of subsets of $X$ is a function $A : I\to\mcP(X)$, $i\mapsto A_i$. (Strange as this notation is at first, it soon becomes the preferable one.)
 
-Given that $\ran (\{A_i\}= \bigcup_{i \in  I} A_i  )$, we notice that every arbitrary collection of sets is in fact the range of some arbitrary family: consider $I$ and $X$ equal to $\mfC$ s.t. $\{A_i\} : \mfC \to  \mfC$. I am realizing it is the terminology which is so obtuse, that what I do not like.
-
-We may think of $\bigcup_{i \in  I}  A_i$ as $\bigcup^n_{i = 1}  A_i$ (similar to what we have seen for summations and products), where $n$ is the order of $i$ and we assume $1$ is the first element in $i$.
-
-:::example{1.4.1}
-For some index set $i=\{1,2,3\}$, and an indexed set $A_i$ we have $\bigcup^3_{i = 1}  = A_{1} \cup A_{2} \cup A_{3}$. Another example may be given as follows: let $I = \mathbb{N}$, and $A_i = \{-i,0,i\}$, that is to say for every $i$ we have $A_{1}=\{-1,0,1\}, A_{2}=\{-2,0,2\},\ldots$, and so on. Notice that the infinite union of $A_i$ produces $\mathbb{Z}$ and the infinite intersection produces $\{0\}$.
+:::definition{1.4.1} Unions and intersections of families
+Let $\{A_i\}_{i\in I}$ be a family of sets. Its ***union*** and, when $I\neq\emptyset$, its ***intersection*** are $$\bigcup_{i\in I}A_i = \{x\mid x\in A_i \text{ for some } i\in I\}, \qquad \bigcap_{i\in I}A_i = \{x\mid x\in A_i \text{ for all } i\in I\}.$$
 :::
+
+When $I = \{1,\ldots,n\}$ we write $\bigcup_{i=1}^nA_i = A_1\cup\cdots\cup A_n$, and similarly for intersections, just as for sums and products.
+
+The range of a family $\{A_i\}$ is the collection $\{A_i\mid i\in I\}$, and its union is $\bigcup_{i\in I}A_i$. Every collection $\mfC$ of sets is the range of some family: take $I = \mfC$ and the family $\mfC\to\mfC$, $A\mapsto A$. So nothing is lost by working with families, and the index set is a convenient bookkeeping device.
 
 :::example{1.4.2}
-Let us now consider an uncountably infinite indexing set it a plane $I = [-1,1], A_i=\{i\}\times [0,1] \subset  \mathbb{R}^2$. Notice this is going to be a subset of ordered pairs, i.e., $\{(i,y) \mid  0 \le y \le 1\}$. Geometrically, the union over all $i\in I$ of $A_i$ gives us a rectangle in $\mathbb{R}^2$ defined by $[-1,1]\times [0,1]$; similarly the intersection of these sets, notice, are intersections of finite parallel lines, thus there exists no element in common with these sets, thus it is $\emptyset$.
+For the index set $I = \{1,2,3\}$ we have $\bigcup_{i\in I}A_i = A_1\cup A_2\cup A_3$. Another example may be given as follows: let $I = \NN$ and $A_i = \{-i,0,i\}$, so that $A_0 = \{0\}$, $A_1 = \{-1,0,1\}$, $A_2 = \{-2,0,2\}$, and so on. The union of the $A_i$ is $\ZZ$, and their intersection is $\{0\}$.
 :::
 
-:::theorem{1.4.1} Associative law of unions
-Let $\{I_j\} : J \to  K \mid  K = \bigcup_{j\in  I}$ and $\{A_k\}: K \to X$, then $$\bigcup_{k \in  K}A_k=\bigcup_{j \in  J}\left( \bigcup_{i \in I_j} A_i  \right)
-.$$
+:::example{1.4.3}
+Let us now consider an infinite index set in the plane: $I = [-1,1]$ and $A_i = \{i\}\times[0,1] = \{(i,y)\mid 0\le y\le 1\}\subseteq\RR^2$. Each $A_i$ is a vertical segment. Geometrically, the union of the $A_i$ is the rectangle $[-1,1]\times[0,1]$; their intersection is $\emptyset$, since the segments are parallel and pairwise disjoint.
 :::
 
-:::question{4}
-Prove the theorem above.
+:::theorem{1.4.4} Associative law of unions
+Let $\{I_j\}_{j\in J}$ be a family of sets with $K = \bigcup_{j\in J}I_j$, and let $\{A_k\}_{k\in K}$ be a family of sets. Then $$\bigcup_{k \in  K}A_k=\bigcup_{j \in  J}\left( \bigcup_{k \in I_j} A_k  \right).$$ If $J$ and every $I_j$ are nonempty, the same holds with intersections in place of unions.
 :::
 
-Sorry! I am leaving this one as an exercise for the reader (sorrryyyyyy:) )
+:::proof
+An element $x$ lies in the left side if and only if $x\in A_k$ for some $k\in K$, that is, for some $j\in J$ and some $k\in I_j$. This says exactly that $x\in\bigcup_{k\in I_j}A_k$ for some $j\in J$, which is membership in the right side. For intersections, $x$ lies in $A_k$ for every $k\in K$ if and only if, for every $j\in J$, it lies in $A_k$ for every $k\in I_j$.
+:::
 
-De Morgan’s laws apply as standard for index/ indexed sets and their unions. From such, it is easy to see that if $\{A_i\}, \{B_i\}$ are families of sets, then $\bigcup_{i} A_i \cap \bigcup_j B_j = \bigcup_{i,j} (A_i \cap  B_j)$, a similarly for $\bigcap_{i,j}  (A_i  \cup B_j)$.
+:::proposition{1.4.5} De Morgan’s laws and distributive laws
+Let $\{A_i\}_{i\in I}$ and $\{B_j\}_{j\in J}$ be families of subsets of a set $X$, with $I$ and $J$ nonempty. Then $$\begin{gathered}
+X-\bigcup_{i\in I}A_i = \bigcap_{i\in I}(X-A_i), \qquad X-\bigcap_{i\in I}A_i = \bigcup_{i\in I}(X-A_i),\\
+\Big(\bigcup_{i\in I}A_i\Big)\cap\Big(\bigcup_{j\in J}B_j\Big) = \bigcup_{(i,j)\in I\times J}(A_i\cap B_j),\\
+\Big(\bigcap_{i\in I}A_i\Big)\cup\Big(\bigcap_{j\in J}B_j\Big) = \bigcap_{(i,j)\in I\times J}(A_i\cup B_j).
+\end{gathered}$$
+:::
 
-Let us consider a special type of family: let $I=\{a,b\}, \, a\neq b$ and let $Z$ be the set of all families $z$ indexed by $I$ such that $z_a \in X, z_b \in Y$. Now consider $f : Z \leftrightarrow X \times Y$ such that $f(z)=(z_a,z_b)$. This is the ***generalized Cartesian product***! There is further detail one can go into about families of sets and sets of all given families of sets, and even sets of those sets (including their Cartesian products), but these are so disgusting as to induce spontaneous retching in even the most tough-stomached mathematicians. So we will avoid it, if possible.
+:::proof
+An element of $X$ lies in no $A_i$ if and only if it lies in every $X-A_i$, and it fails to lie in every $A_i$ if and only if it lies in some $X-A_i$; these are De Morgan’s laws. For the first distributive law, $x$ lies in the left side if and only if $x\in A_i$ for some $i$ and $x\in B_j$ for some $j$, that is, $x\in A_i\cap B_j$ for some pair $(i,j)$. For the second, if $x$ lies in every $A_i$ or in every $B_j$, then $x\in A_i\cup B_j$ for every pair $(i,j)$. Conversely, suppose $x\in A_i\cup B_j$ for every pair and $x$ is not in every $A_i$, say $x\notin A_{i_0}$. Then $x\in A_{i_0}\cup B_j$ forces $x\in B_j$ for every $j$.
+:::
+
+Families also let us form products of more than two sets.
+
+:::definition{1.4.6} Products of families
+Let $\{X_i\}_{i\in I}$ be a family of sets. Their ***(Cartesian) product*** $\prod_{i\in I}X_i$ is the set of all families $\{x_i\}_{i\in I}$ with $x_i\in X_i$ for every $i\in I$; that is, of all functions $x : I\to\bigcup_{i\in I}X_i$ with $x(i)\in X_i$ for each $i$. We also write its elements as $(x_i)_{i\in I}$. When every $X_i$ is the same set $X$, the product is $X^I$, the set of all functions $I\to X$.
+:::
+
+This generalizes the Cartesian product of two sets. Let $I = \{a,b\}$ with $a\neq b$, and let $X_a = X$ and $X_b = Y$. The map $\prod_{i\in I}X_i\to X\times Y$, $z\mapsto(z_a,z_b)$, is a bijection, since a family indexed by $I$ is determined by its two terms and any choice of the two terms defines one. In the same way, an $n$-tuple $(x_1,\ldots,x_n)$ is a family indexed by $\{1,\ldots,n\}$, and $X^n = X^{\{1,\ldots,n\}}$; an infinite sequence $(x_0,x_1,x_2,\ldots)$ in $X$ is a family indexed by $\NN$, an element of $X^{\NN}$. There is more one can say about families of sets, sets of families, and their products, but we will not need it.

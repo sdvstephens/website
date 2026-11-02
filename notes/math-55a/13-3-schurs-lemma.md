@@ -6,41 +6,69 @@ section: 13.3
 title: Schur’s Lemma
 ---
 
-:::theorem{13.3.1} Schur’s Lemma
-Let $V, W$ be irreducible representations of $G$, and $\varphi : V \to W$ a homomorphism of representations. Then:
+Our goal is to find the irreducible representations of a given group $G$ and to describe how every representation decomposes into them. The key tool is the following lemma.
+
+:::lemma{13.3.1} Schur’s Lemma
+Let $V$ and $W$ be irreducible representations of $G$, and let $\varphi : V \to W$ be a homomorphism of representations.
 
 <!-- list:paren-roman -->
 
 1. Either $\varphi = 0$ or $\varphi$ is an isomorphism.
-2. Over $k = \CC$: if $V$ is irreducible and $\varphi : V \to V$ is a homomorphism of representations (i.e., $\varphi \in \Hom_G(V, V)$), then $\varphi = \lambda \cdot \id$ for some $\lambda \in \CC$.
+2. If $W = V$, then $\varphi = \lambda\,\id_V$ for some $\lambda \in \CC$.
 :::
 
 :::proof
-(i) $\Ker(\varphi)$ is a subrepresentation of $V$. Since $V$ is irreducible, either $\Ker(\varphi) = V$ ($\varphi = 0$) or $\Ker(\varphi) = \{0\}$ ($\varphi$ injective). Similarly, $\Img(\varphi)$ is a subrepresentation of $W$, so either $\Img(\varphi) = \{0\}$ ($\varphi = 0$) or $\Img(\varphi) = W$ ($\varphi$ surjective).
+(i) The kernel $\ker\varphi$ is a subrepresentation of $V$, so either $\ker\varphi = V$, in which case $\varphi = 0$, or $\ker\varphi = 0$ and $\varphi$ is injective. Similarly $\Img\varphi$ is a subrepresentation of $W$, so either $\Img\varphi = 0$, in which case $\varphi = 0$, or $\Img\varphi = W$ and $\varphi$ is surjective. So if $\varphi \neq 0$, it is bijective.
 
-(ii) Over $\CC$, $\varphi$ has an eigenvalue $\lambda$. Then $\varphi - \lambda \cdot \id$ is also a $G$-homomorphism $V \to V$ with nontrivial kernel. By (i), $\varphi - \lambda \cdot \id = 0$.
+(ii) Since $V$ is a nonzero finite-dimensional complex vector space, $\varphi$ has an eigenvalue $\lambda$ (Theorem [7.5.1](/notes/math-55a/7-5-existence-of-eigenvectors-and-triangular-form#theorem-7-5-1)). Then $\varphi - \lambda\,\id_V$ is again a homomorphism of representations $V \to V$, and it has nonzero kernel, so it is not an isomorphism. By (i), $\varphi - \lambda\,\id_V = 0$.
 :::
 
-:::example{13.3.1} Center acts by scalars
-Let $V$ be an irreducible representation of $G$, and $h \in Z(G)$. Since $h$ commutes with all $g \in G$, the map $\rho(h) : V \to V$ commutes with all $\rho(g)$, i.e., $\rho(h) \in \Hom_G(V, V)$. By Schur, $\rho(h) = \lambda_h \cdot \id$ for some $\lambda_h \in \CC$. So every central element acts as a scalar on every irreducible representation. In particular, irreducible representations of abelian groups are 1-dimensional (giving another proof of the earlier result).
+:::corollary{13.3.2} Homomorphisms between irreducibles
+If $V$ and $W$ are irreducible representations of $G$, then $$\dim\Hom_G(V, W) = \begin{cases} 1 & \text{if } V \cong W, \\ 0 & \text{if } V \not\cong W. \end{cases}$$
 :::
 
-## <span class="num">13.3.1</span> Irreducible Representations of $S_3$
-
-:::example{13.3.2} The three irreducible representations of $S_3$
-- The trivial representation $U = \CC$: $\sigma \cdot z = z$ for all $\sigma \in S_3$.
-- The alternating (sign) representation $U' = \CC$: $\sigma \cdot z = \sgn(\sigma) z$.
-- The standard representation $V$: start with the permutation representation $\CC^3$ (basis $e_1, e_2, e_3$, with $\sigma \cdot e_i = e_{\sigma(i)}$). This has an invariant subspace $\operatorname{span}(e_1 + e_2 + e_3) \cong U$. The complement $V = \{(z_1, z_2, z_3) \in \CC^3 : z_1 + z_2 + z_3 = 0\}$ has $\dim V = 2$ and is irreducible.
+:::proof
+If $V \not\cong W$, every homomorphism $V \to W$ is zero by Schur’s Lemma. If $\psi : V \to W$ is an isomorphism of representations, then $\varphi \mapsto \psi^{-1} \circ \varphi$ is a linear isomorphism $\Hom_G(V, W) \to \Hom_G(V, V)$, and $\Hom_G(V, V) = \CC\,\id_V$ by Schur’s Lemma.
 :::
 
-:::proof Irreducibility of $V$
-Let $\tau = (123)$ and $\sigma = (12)$. Then $\tau$ acts on $V$ with eigenvalues $\lambda = e^{2\pi i/3}$ and $\lambda^2 = e^{4\pi i/3}$ (since $\tau^3 = \id$ and $\tau|_V \neq \id$). If $v$ is a $\lambda$-eigenvector, then $\sigma(v)$ is a $\lambda^2$-eigenvector (since $\tau(\sigma v) = \sigma(\tau^{-1} v) = \sigma(\lambda^2 v) = \lambda^2 \sigma v$, using $\sigma \tau \sigma^{-1} = \tau^{-1}$). Since $\lambda \neq \lambda^2$, $v$ and $\sigma(v)$ are linearly independent, so they span $V$. Any invariant subspace of $V$ must contain an eigenvector of $\tau$ (since $\tau$ is diagonalizable on $V$), hence contains $v$ or $\sigma(v)$, and then contains $\operatorname{span}(v, \sigma(v)) = V$. So $V$ is irreducible.
+:::example{13.3.3} The center acts by scalars
+Let $V$ be an irreducible representation of $G$ and $h \in Z(G)$, the center of $G$ (Definition [3.1.13](/notes/math-55a/3-1-cosets-and-quotient-groups#definition-3-1-13)). Since $h$ commutes with every $g \in G$, the operator $\rho(h)$ commutes with every $\rho(g)$, that is, $\rho(h) \in \Hom_G(V, V)$. By Schur’s Lemma, $\rho(h) = \lambda_h\,\id_V$ for some $\lambda_h \in \CC$: every central element acts on every irreducible representation by a scalar. In particular, if $G$ is abelian, every element acts on an irreducible $V$ by a scalar, so every line in $V$ is a subrepresentation and $\dim V = 1$. This is a second proof of the last statement of Proposition [13.1.7](/notes/math-55a/13-1-representations-and-subrepresentations#proposition-13-1-7).
 :::
 
-:::proposition{13.3.1} These are all irreducibles of $S_3$
-The representations $U, U', V$ are the only irreducible representations of $S_3$ over $\CC$, and any representation $W$ of $S_3$ decomposes as $W \cong U^{\oplus a} \oplus U'^{\oplus b} \oplus V^{\oplus c}$ for unique $a, b, c \geq 0$.
+## <span class="num">13.3.1</span> The Irreducible Representations of $S_3$
+
+We now find all the irreducible representations of $S_3$, the smallest nonabelian group. We know three of them from Example [13.1.4](/notes/math-55a/13-1-representations-and-subrepresentations#example-13-1-4): the trivial representation $U$, the alternating representation $U'$, and the $2$-dimensional standard representation $V \subset \CC^3$. What is special about $S_3$ is that there are no others. Throughout, $\tau = (123)$, $\sigma = (12)$ and $\lambda = e^{2\pi i/3}$, so that $\lambda^3 = 1$, $\lambda^{-1} = \lambda^2$ and $1 + \lambda + \lambda^2 = 0$.
+
+Two facts about $S_3$ do all the work. First, every element of $S_3$ is $\tau^j$ or $\sigma\tau^j$ for some $j \in \{0, 1, 2\}$ (these six elements are distinct). So a subspace of a representation that is invariant under $\sigma$ and $\tau$ is a subrepresentation, and a linear map between representations that commutes with $\sigma$ and $\tau$ is a homomorphism of representations. Second, conjugating a cycle by $\sigma$ applies $\sigma$ to its entries (Lemma [3.4.5](/notes/math-55a/3-4-the-symmetric-group#lemma-3-4-5)), so $\sigma\tau\sigma^{-1} = (213) = \tau^{-1}$; since $\sigma = \sigma^{-1}$, this gives $\tau\sigma = \sigma\tau^{-1}$. Consequently, in any representation of $S_3$, $$\tau v = \mu v \implies \tau(\sigma v) = \sigma(\tau^{-1}v) = \mu^{-1}\,\sigma v. \tag{\(\ast\)}$$ That is, $\sigma$ maps the $\mu$-eigenspace of $\tau$ into the $\mu^{-1}$-eigenspace. By Lemma [13.1.5](/notes/math-55a/13-1-representations-and-subrepresentations#lemma-13-1-5), $\tau$ is diagonalizable in every representation of $S_3$, with eigenvalues among $1, \lambda, \lambda^2$.
+
+:::lemma{13.3.4} The standard representation of $S_3$
+Let $u = e_1 + \lambda^2 e_2 + \lambda e_3$. Then $u$ and $\sigma u = \lambda^2 e_1 + e_2 + \lambda e_3$ form a basis of $V$, and $$\tau u = \lambda u, \qquad \tau(\sigma u) = \lambda^2\,\sigma u, \qquad \sigma(\sigma u) = u.$$ So $\tau$ acts on $V$ with eigenvalues $\lambda$ and $\lambda^2$, and $\sigma$ with eigenvalues $1$ and $-1$ (with eigenvectors $u + \sigma u$ and $u - \sigma u$). Moreover, $V$ is irreducible.
 :::
 
-:::note
-We will prove uniqueness (and a method to find $a, b, c$) using characters below. The key dimension check: $\dim U^2 + \dim U'^2 + \dim V^2 = 1 + 1 + 4 = 6 = |S_3|$, which we will show is a necessary condition.
+:::proof
+Both vectors lie in $V$ because $1 + \lambda + \lambda^2 = 0$. Since $\tau e_1 = e_2$, $\tau e_2 = e_3$ and $\tau e_3 = e_1$, we get $\tau u = \lambda e_1 + e_2 + \lambda^2 e_3 = \lambda u$, using $\lambda^3 = 1$. The transposition $\sigma$ swaps $e_1$ and $e_2$, which gives the formula for $\sigma u$, and $\sigma(\sigma u) = \sigma^2 u = u$. By $(\ast)$, $\sigma u$ is an eigenvector of $\tau$ for the eigenvalue $\lambda^{-1} = \lambda^2$. Eigenvectors for distinct eigenvalues are linearly independent, and $\dim V = 2$, so $u, \sigma u$ is a basis of $V$.
+
+Let $X \subseteq V$ be a nonzero subrepresentation. The restriction of $\tau$ to $X$ is diagonalizable (Lemma [13.1.5](/notes/math-55a/13-1-representations-and-subrepresentations#lemma-13-1-5)), so $X$ contains an eigenvector of $\tau$. The eigenspaces of $\tau$ on $V$ are the lines $\CC u$ and $\CC\sigma u$, so $X$ contains $u$ or $\sigma u$. Being $\sigma$-invariant, it contains both, and $X = V$.
+:::
+
+:::proposition{13.3.5} The irreducible representations of $S_3$
+Every irreducible representation of $S_3$ is isomorphic to exactly one of $U$, $U'$, $V$. Every representation $W$ of $S_3$ is isomorphic to $U^{\oplus a} \oplus U'^{\oplus b} \oplus V^{\oplus c}$ for unique integers $a, b, c \geq 0$, and these are determined by $$a + b = \dim\ker(\tau - 1), \qquad c = \dim\ker(\tau - \lambda), \qquad a + c = \dim\ker(\sigma - 1),$$ where $\tau$ and $\sigma$ denote the operators by which $(123)$ and $(12)$ act on $W$.
+:::
+
+:::proof
+Let $W$ be irreducible, and let $v \in W$ be an eigenvector of $\tau$, say $\tau v = \mu v$. By $(\ast)$, $\sigma v$ is also an eigenvector of $\tau$, so $\operatorname{span}(v, \sigma v)$ is invariant under $\tau$; it is invariant under $\sigma$ because $\sigma^2 = e$. It is therefore a nonzero subrepresentation, and $W = \operatorname{span}(v, \sigma v)$. In particular, every irreducible representation of $S_3$ has dimension at most $2$.
+
+*Case $\mu = 1$.* Then $\tau(\sigma v) = \sigma v$ as well. If $v$ and $\sigma v$ were linearly independent, then $w = v + \sigma v$ would be a nonzero vector with $\sigma w = w$ and $\tau w = w$, so $\CC w$ would be a subrepresentation of the $2$-dimensional space $W$, contradicting irreducibility. So $\sigma v = cv$ for some $c \in \CC$, and $c^2 = 1$ because $\sigma^2 = e$. Then $W = \CC v$, with $\tau$ acting as $1$ and $\sigma$ as $c = \pm 1$. Since $\sgn\tau = 1$ and $\sgn\sigma = -1$, the linear map $v \mapsto 1$ is an isomorphism $W \cong U$ if $c = 1$ and $W \cong U'$ if $c = -1$.
+
+*Case $\mu \neq 1$.* Then $\mu \in \{\lambda, \lambda^2\}$. If $\mu = \lambda^2$, replace $v$ by $\sigma v$, which is a $\lambda$-eigenvector by $(\ast)$ and satisfies $\sigma(\sigma v) = v$; so we may assume $\mu = \lambda$. Then $v$ and $\sigma v$ are eigenvectors of $\tau$ for the distinct eigenvalues $\lambda$ and $\lambda^2$, hence a basis of $W$. Define a linear isomorphism $\psi : W \to V$ by $\psi(v) = u$ and $\psi(\sigma v) = \sigma u$, with $u$ as in Lemma [13.3.4](/notes/math-55a/13-3-schurs-lemma#lemma-13-3-4). Both bases are eigenbases of $\tau$ with the same eigenvalues, and $\sigma$ swaps the two vectors in each basis, so $\psi$ commutes with $\tau$ and $\sigma$. Hence $\psi$ is an isomorphism of representations, and $W \cong V$.
+
+The representations $U$, $U'$, $V$ are irreducible (Lemma [13.3.4](/notes/math-55a/13-3-schurs-lemma#lemma-13-3-4) for $V$) and pairwise non-isomorphic: $V$ has dimension $2$, and $\sigma$ acts as $1$ on $U$ and as $-1$ on $U'$. This proves the first statement.
+
+Now let $W$ be any representation. By complete reducibility and the first statement, $W \cong U^{\oplus a} \oplus U'^{\oplus b} \oplus V^{\oplus c}$ for some $a, b, c \geq 0$. The operator $\tau$ acts as $1$ on $U$ and on $U'$, and on $V$ with eigenvalues $\lambda$ and $\lambda^2$, each with a $1$-dimensional eigenspace. The operator $\sigma$ acts as $1$ on $U$, as $-1$ on $U'$, and on $V$ with eigenvalues $1$ and $-1$, each with a $1$-dimensional eigenspace. Adding up the dimensions of the eigenspaces summand by summand gives the three formulas. Their left-hand sides depend only on the isomorphism class of $W$, and they determine $c$, then $a$, then $b$; so $a$, $b$, $c$ are unique.
+:::
+
+:::example{13.3.6} Decomposing $V \otimes V$, $\Sym^2 V$ and $\bigwedge^2 V$
+Let $u_1 = u$ and $u_2 = \sigma u$ be the basis of $V$ from Lemma [13.3.4](/notes/math-55a/13-3-schurs-lemma#lemma-13-3-4), so that $\tau u_1 = \lambda u_1$, $\tau u_2 = \lambda^2 u_2$, and $\sigma$ swaps $u_1$ and $u_2$. The basis $$u_1 \otimes u_1, \quad u_1 \otimes u_2, \quad u_2 \otimes u_1, \quad u_2 \otimes u_2$$ of $V \otimes V$ consists of eigenvectors of $\tau$, with eigenvalues $\lambda^2, 1, 1, \lambda$ (recall $\lambda^4 = \lambda$). So $a + b = 2$ and $c = 1$ in Proposition [13.3.5](/notes/math-55a/13-3-schurs-lemma#proposition-13-3-5). The operator $\sigma$ swaps $u_1 \otimes u_1$ with $u_2 \otimes u_2$, and $u_1 \otimes u_2$ with $u_2 \otimes u_1$, so it has eigenvalues $1, 1, -1, -1$, and $a + c = 2$. Hence $a = b = c = 1$: $$V \otimes V \cong U \oplus U' \oplus V.$$ Explicitly, $u_1 \otimes u_2 + u_2 \otimes u_1$ spans a copy of $U$, and $u_1 \otimes u_2 - u_2 \otimes u_1$ spans a copy of $U'$.
+
+Similarly, $\Sym^2 V$ has basis $u_1^2, u_1u_2, u_2^2$, on which $\tau$ has eigenvalues $\lambda^2, 1, \lambda$, while $\sigma$ fixes $u_1u_2$ and swaps $u_1^2$ and $u_2^2$. So $a + b = 1$, $c = 1$ and $a + c = 2$, and $\Sym^2 V \cong U \oplus V$. Finally, $\bigwedge^2 V$ is spanned by $u_1 \wedge u_2$, which $\tau$ multiplies by $\lambda \cdot \lambda^2 = 1$ and $\sigma$ sends to $u_2 \wedge u_1 = -u_1 \wedge u_2$; so $\bigwedge^2 V \cong U'$. This is to be expected: on the top exterior power $\bigwedge^2 V$, each $g$ acts by $\det(g|_V)$ (Theorem [9.11.3](/notes/math-55a/9-11-determinants-trace-and-volume-forms#theorem-9-11-3)), and $\det(\sigma|_V) = 1 \cdot (-1) = -1 = \sgn\sigma$, $\det(\tau|_V) = \lambda \cdot \lambda^2 = 1 = \sgn\tau$.
 :::

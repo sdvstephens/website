@@ -142,7 +142,7 @@ $R=k[x]$, $M=k$ with multiplication $(a_0+a_1x+\cdots)\cdot b=a_0b$. Then $\Hom_
 
 The study of modules is a vast subject, which we won’t study further, with one exception: we’re returning to group theory, but we start with a short account of the classification of **finitely generated abelian groups** ($=\ZZ$-modules).
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 21](/notes/math-55a/21-finitely-generated-abelian-groups-group-actions)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L21}}
 :::theorem
 Any finitely generated abelian group is isomorphic to a product of cyclic groups
 $$

@@ -6,19 +6,53 @@ section: 16.5
 title: Quaternionic Representations
 ---
 
-In the other case, the invariant bilinear form $B$ is skew-symmetric. The same argument produces a $G$-equivariant antilinear map $J : V \to V$ with $J^2 = -\id$.
-
 :::definition{16.5.1} Quaternionic structure
-A quaternionic structure on a complex vector space $V$ is a $\CC$-antilinear map $J : V \to V$ with $J^2 = -\id$. A representation with such a $G$-equivariant $J$ is called a quaternionic representation.
+A ***quaternionic structure*** on a complex vector space $V$ is an antilinear map $J : V \to V$ with $J^2 = -\id$. A complex representation $V$ of $G$ is ***quaternionic*** if it has a $G$-equivariant quaternionic structure.
 :::
 
-Such a $J$ makes $V$ into a module over the quaternions $\mathbb{H} = \{a + bi + cj + dk \mid a, b, c, d \in \RR\}$, the division algebra (noncommutative ring where every nonzero element has a multiplicative inverse) with $i^2 = j^2 = k^2 = ijk = -1$. Concretely, $\mathbb{H} = \CC \oplus \CC j$ with $ji = -ij$, $j^2 = -1$, so an $\mathbb{H}$-module is a $\CC$-vector space with an antilinear map $J$ (“right multiplication by $j$”) satisfying $J^2 = -\id$.
+The name comes from the quaternions $$\HH = \{a + bi + cj + dk : a, b, c, d \in \RR\}, \qquad i^2 = j^2 = k^2 = ijk = -1,$$ a ***division ring***: a ring in which $1 \neq 0$ and every nonzero element has a multiplicative inverse. Unlike a field, $\HH$ is not commutative. As a real vector space $\HH = \CC \oplus j\CC$, where $\CC = \RR \oplus \RR i$, and $j\lambda = \ol{\lambda}j$ for $\lambda \in \CC$. A quaternionic structure $J$ makes $V$ into a module over $\HH$ (Definition [10.1.1](/notes/math-55a/10-1-modules-over-a-ring#definition-10-1-1)), with $i$ acting by multiplication by $i$ and $j$ acting by $J$: the relations $j^2 = -1$ and $ji = -ij$ hold because $J^2 = -\id$ and $J(iv) = -iJ(v)$. Conversely, an $\HH$-module is a complex vector space together with such a $J$.
 
-:::note
-A quaternionic representation has $\chi_V$ real-valued (since $V \cong V^*$) but does *not* come from a real representation. The three cases for an irreducible $V$ with real character are:
-
-- $V$ admits a $G$-invariant nondegenerate symmetric bilinear form $\iff$ $V$ is real $\iff$ $V = V_0 \otimes_{\RR} {\CC}$.
-- $V$ admits a $G$-invariant nondegenerate skew-symmetric bilinear form $\iff$ $V$ is quaternionic $\iff$ $V$ carries a $G$-equivariant antilinear $J$ with $J^2 = -\id$.
-
-And if $\chi_V$ is not real-valued, then $V \not\cong V^*$ and $V$ is neither real nor quaternionic.
+:::proposition{16.5.2} Skew-symmetric forms give quaternionic structures
+If an irreducible representation $V$ of $G$ carries a nonzero $G$-invariant skew-symmetric bilinear form $B$, then $V$ is quaternionic.
 :::
+
+:::proof
+By Proposition [16.4.2](/notes/math-55a/16-4-invariant-bilinear-forms#proposition-16-4-2), $B$ is nondegenerate. Exactly as in the proof of Proposition [16.4.3](/notes/math-55a/16-4-invariant-bilinear-forms#proposition-16-4-3), there is a $G$-equivariant antilinear bijection $J : V \to V$ with $\langle J(v), w \rangle = B(v, w)$, and $J^2 = \lambda \cdot \id$ for some $\lambda \in \CC$. Now skew-symmetry gives, for $v \neq 0$, $$\ol{\lambda}\,\langle v, v \rangle = \langle J^2(v), v \rangle = B(J(v), v) = -B(v, J(v)) = -\langle J(v), J(v) \rangle < 0,$$ so $\lambda$ is real and negative. Replacing $J$ by $|\lambda|^{-1/2} J$ gives $J^2 = -\id$.
+:::
+
+:::proposition{16.5.3} Real and quaternionic representations
+<!-- list:paren-roman -->
+
+1. The character of a real or quaternionic representation is real-valued.
+2. An irreducible representation cannot be both real and quaternionic.
+:::
+
+:::proof
+(i) Let $K : V \to V$ be a $G$-equivariant antilinear bijection ($\tau$ or $J$). If $gv = \lambda v$, then $g(Kv) = K(gv) = K(\lambda v) = \ol{\lambda}\,Kv$. So $K$ maps the $\lambda$-eigenspace $E_\lambda$ of $g$ injectively into $E_{\ol{\lambda}}$, and likewise $E_{\ol{\lambda}}$ into $E_\lambda$; as $K$ is $\RR$-linear, $E_\lambda$ and $E_{\ol{\lambda}}$ have the same real dimension, hence the same complex dimension. Since $g$ has finite order it is diagonalizable (Lemma [13.1.5](/notes/math-55a/13-1-representations-and-subrepresentations#lemma-13-1-5)), so $\chi_V(g) = \sum_\lambda \lambda \dim E_\lambda$, which equals its own complex conjugate.
+
+(ii) Suppose $V$ is irreducible and has a $G$-equivariant antilinear $\tau$ with $\tau^2 = \id$ and a $G$-equivariant antilinear $J$ with $J^2 = -\id$. Then $\tau J$ is $\CC$-linear and $G$-equivariant, so $\tau J = c \cdot \id$ for some $c \in \CC$ by Schur’s lemma, and $J = \tau(\tau J) = \tau \circ (c \cdot \id) = \ol{c}\,\tau$. But then $J^2(v) = \ol{c}\,\tau(\ol{c}\,\tau(v)) = c\,\ol{c}\,\tau^2(v) = |c|^2 v$, contradicting $J^2 = -\id$.
+:::
+
+:::theorem{16.5.4} Real, quaternionic, or neither
+Let $V$ be an irreducible complex representation of $G$. Exactly one of the following holds.
+
+<!-- list:paren-roman -->
+
+1. $\chi_V$ is not real-valued. Then $V \not\cong V^*$, $V$ is neither real nor quaternionic, and $V$ has no nonzero $G$-invariant bilinear form.
+2. $V$ is real. Then the nonzero $G$-invariant bilinear forms on $V$ are symmetric and nondegenerate.
+3. $V$ is quaternionic. Then the nonzero $G$-invariant bilinear forms on $V$ are skew-symmetric and nondegenerate.
+:::
+
+:::proof
+If $\chi_V$ is not real-valued, Propositions [16.4.2](/notes/math-55a/16-4-invariant-bilinear-forms#proposition-16-4-2) and [16.5.3](/notes/math-55a/16-5-quaternionic-representations#proposition-16-5-3)(i) give (i). If $\chi_V$ is real-valued, then by Proposition [16.4.2](/notes/math-55a/16-4-invariant-bilinear-forms#proposition-16-4-2) the $G$-invariant bilinear forms on $V$ are the multiples of one nonzero form $B$, which is nondegenerate and either symmetric or skew-symmetric. If $B$ is symmetric, $V$ is real by Proposition [16.4.3](/notes/math-55a/16-4-invariant-bilinear-forms#proposition-16-4-3); if $B$ is skew-symmetric, $V$ is quaternionic by Proposition [16.5.2](/notes/math-55a/16-5-quaternionic-representations#proposition-16-5-2). By Proposition [16.5.3](/notes/math-55a/16-5-quaternionic-representations#proposition-16-5-3)(ii) these cases exclude each other, so $V$ is real exactly when $B$ is symmetric and quaternionic exactly when $B$ is skew-symmetric.
+:::
+
+:::proposition{16.5.5} Quaternionic representations have even dimension
+If $V$ is a quaternionic representation, then $\dim_{\CC} V$ is even. Consequently, an irreducible representation with real-valued character and odd dimension is real.
+:::
+
+:::proof
+Let $n = \dim_{\CC} V$ and choose a basis $e_1, \ldots, e_n$ of $V$. Let $M$ be the matrix whose $k$th column is the coordinate vector of $J(e_k)$. By antilinearity, $J(\sum_k z_k e_k) = \sum_k \ol{z_k}\,J(e_k)$, so in coordinates $J(z) = M\ol{z}$, and $J^2(z) = M\,\ol{M\ol{z}} = M\ol{M}z$. Hence $M\ol{M} = -I$, and taking determinants, $|\det M|^2 = \det M \cdot \ol{\det M} = (-1)^n$. The left side is positive, so $n$ is even. The second statement follows from Theorem [16.5.4](/notes/math-55a/16-5-quaternionic-representations#theorem-16-5-4).
+:::
+
+For an irreducible quaternionic representation there is also a second proof: by Theorem [16.5.4](/notes/math-55a/16-5-quaternionic-representations#theorem-16-5-4), $V$ carries a nondegenerate skew-symmetric bilinear form, and such forms exist only in even dimension (Section [9.7](/notes/math-55a/9-7-symplectic-forms)).

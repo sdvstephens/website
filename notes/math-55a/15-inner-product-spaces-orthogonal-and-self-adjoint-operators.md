@@ -112,7 +112,7 @@ Then $(v_1, \dots, v_n)$ is an orthonormal basis.
 
 So: every finite-dimensional inner product space over $\RR$ is isomorphic (as an inner product space, not just as a vector space) to the standard $\RR^n$, $n = \dim V$.
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 16](/notes/math-55a/16-adjoints-the-spectral-theorem-and-orthogonal-operators)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L16}}
 **Operators on inner product spaces**
 
 Let $(V, \langle \cdot, \cdot \rangle)$ be an inner product space. There are two special classes of linear operators on $V$ of interest to us.

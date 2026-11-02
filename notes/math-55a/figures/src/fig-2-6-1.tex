@@ -1,0 +1,11 @@
+\begin{tikzpicture}[scale=0.8]
+  \node (Z12) at (0,4.2) {\(\ZZ/12\ZZ\)};
+  \node (Z6) at (-1.6,2.8) {\(\langle 2 \rangle\)};
+  \node (Z4) at (1.6,2.8) {\(\langle 3 \rangle\)};
+  \node (Z3) at (-1.6,1.4) {\(\langle 4 \rangle\)};
+  \node (Z2) at (1.6,1.4) {\(\langle 6 \rangle\)};
+  \node (Z1) at (0,0) {\(\{0\}\)};
+  \draw (Z12) -- (Z6) -- (Z3) -- (Z1);
+  \draw (Z12) -- (Z4) -- (Z2) -- (Z1);
+  \draw (Z6) -- (Z2);
+\end{tikzpicture}

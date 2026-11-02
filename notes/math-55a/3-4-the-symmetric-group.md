@@ -3,165 +3,214 @@
 course: math-55a
 chapter: 3
 section: 3.4
-title: The symmetric group
+title: The Symmetric Group
 ---
 
-The symmetric group $S_n$ is arguably the most important finite group. By Cayley’s theorem, every finite group embeds in some $S_n$. But $S_n$ is also interesting in its own right: its structure illuminates concepts like conjugacy classes, normal subgroups, and simplicity. Moreover, symmetric groups connect to linear algebra through the sign homomorphism and determinants, and to Galois theory through their role in permuting roots of polynomials.
+The symmetric group $S_n$ is arguably the most important finite group. By Cayley’s theorem, every finite group is isomorphic to a subgroup of some $S_n$. But $S_n$ is also interesting in its own right: its structure illustrates conjugacy classes, normal subgroups, and simplicity. Symmetric groups connect to linear algebra through the sign homomorphism and determinants, and to Galois theory through their role in permuting the roots of polynomials.
 
-## <span class="num">3.4.1</span> Cycle structure and decomposition
+Recall from Chapter 2 that $S_n = \Sym(\{1, \ldots, n\})$ has order $n!$, and the cycle notation: $(a_1\,a_2\,\cdots\,a_k)$, for distinct $a_1, \ldots, a_k$, is the $k$-cycle sending $a_1 \mapsto a_2 \mapsto \cdots \mapsto a_k \mapsto a_1$ and fixing everything else; a 2-cycle is a transposition; and two cycles are disjoint if they move no common element. As always, permutations compose right to left: $\sigma\tau$ means $\tau$ first, then $\sigma$.
 
-:::definition{3.4.1} Symmetric group
-The ***symmetric group*** $S_n$ is the group of all bijections $\sigma : \{1, \ldots, n\} \to \{1, \ldots, n\}$ under composition. It has order $n!$.
-:::
+## <span class="num">3.4.1</span> Cycle Decomposition
 
-:::definition{3.4.2} Cycle notation
-A ***$k$-cycle*** (or cycle of length $k$) is a permutation $(a_1 \, a_2 \, \cdots \, a_k)$ that acts by $a_1 \mapsto a_2 \mapsto \cdots \mapsto a_k \mapsto a_1$ and fixes all other elements. A 2-cycle is called a ***transposition***. Two cycles are ***disjoint*** if they have no elements in common; disjoint cycles commute.
-:::
+Disjoint cycles $c$ and $d$ commute. Indeed, if $c$ moves $x$, then $c$ also moves $c(x)$ (otherwise $c(c(x)) = c(x)$ would force $c(x) = x$), so $d$ fixes both $x$ and $c(x)$, and $cd(x) = c(x) = dc(x)$. The same holds with the roles of $c$ and $d$ exchanged, and if neither moves $x$, then $cd(x) = x = dc(x)$.
 
 :::theorem{3.4.1} Cycle Decomposition Theorem
-Every permutation $\sigma \in S_n$ can be written as a product of disjoint cycles, uniquely up to the order of the factors. The decomposition is obtained by writing out the orbits of $\sigma$ acting on $\{1, \ldots, n\}$.
+Every permutation $\sigma \in S_n$ is a product of disjoint cycles of length at least 2, uniquely up to the order of the factors. These cycles are the restrictions of $\sigma$ to the orbits of $\langle \sigma \rangle$ on $\{1, \ldots, n\}$ that have more than one element.
 :::
 
-:::proof Proof (Existence and uniqueness of cycle decomposition)
-**Existence:** Consider the action of $\langle \sigma \rangle$ on $\{1, \ldots, n\}$. The orbits partition $\{1, \ldots, n\}$. For each orbit $\{a_1, a_2, \ldots, a_k\}$ where $\sigma(a_i) = a_{i+1}$ (indices mod $k$), define the cycle $c = (a_1 \, a_2 \, \cdots \, a_k)$. Fixed points give 1-cycles (usually omitted). Since orbits are disjoint, these cycles are disjoint.
+:::proof
+**Existence.** Consider the action of $\langle \sigma \rangle$ on $\{1, \ldots, n\}$. Fix $i$. The elements $i, \sigma(i), \sigma^2(i), \ldots$ of the finite set $\{1, \ldots, n\}$ cannot all be distinct, and the first repetition must be a return to $i$: if $\sigma^a(i) = \sigma^b(i)$ with $0 \le a < b$, then $\sigma^{b-a}(i) = i$ because $\sigma$ is injective. Let $k \ge 1$ be least with $\sigma^k(i) = i$. Then $i, \sigma(i), \ldots, \sigma^{k-1}(i)$ are distinct, and writing any $m \in \ZZ$ as $m = qk + r$ with $0 \le r < k$ shows $\sigma^m(i) = \sigma^r(i)$. So the orbit of $i$ is $\{i, \sigma(i), \ldots, \sigma^{k-1}(i)\}$, and on it $\sigma$ acts as the $k$-cycle $(i\ \sigma(i)\ \cdots\ \sigma^{k-1}(i))$.
 
-To verify $\sigma$ equals the product of these cycles: for any $i$, if $i$ is in the orbit giving cycle $c$, then $c(i) = \sigma(i)$ and all other cycles fix $i$, so the product sends $i \mapsto \sigma(i)$.
+The orbits partition $\{1, \ldots, n\}$ (Proposition [3.2.5](/notes/math-55a/3-2-group-actions#proposition-3-2-5)). Let $c_1, \ldots, c_r$ be the cycles obtained in this way from the orbits with at least two elements; they are disjoint. We check that $\sigma = c_1 \cdots c_r$. If $x$ lies in the orbit of $c_j$, then $c_j(x) = \sigma(x)$, and both $x$ and $\sigma(x)$ are fixed by the other cycles, so $c_1 \cdots c_r(x) = \sigma(x)$. If $\sigma(x) = x$, every $c_j$ fixes $x$.
 
-**Uniqueness:** Suppose $\sigma = c_1 c_2 \cdots c_r = d_1 d_2 \cdots d_s$ are two decompositions into disjoint cycles. For any $i$, exactly one $c_j$ moves $i$ (the others fix it), and that $c_j$ must generate the orbit of $i$ under $\sigma$. Similarly for the $d$’s. Thus $c_j$ and the $d_k$ containing $i$ describe the same orbit, hence are the same cycle (up to cyclic rotation of the notation).
+**Uniqueness.** Suppose $\sigma = d_1 \cdots d_s$ with the $d_j$ disjoint cycles of length at least 2. If $\sigma(x) = x$, no $d_j$ moves $x$: otherwise $\sigma(x) = d_j(x) \neq x$, since the other cycles fix both $x$ and $d_j(x)$. If $\sigma(x) \neq x$, then some $d_j$ moves $x$, and the other cycles fix every point that $d_j$ moves; hence $\sigma^m(x) = d_j^m(x)$ for all $m$. So the set of points moved by $d_j$ is the $\langle \sigma \rangle$-orbit of $x$, and $d_j$ agrees with $\sigma$ there; that is, $d_j$ is the cycle of that orbit constructed above. Hence $\{d_1, \ldots, d_s\} = \{c_1, \ldots, c_r\}$.
+:::
+
+In practice: write down the successive images of 1 under $\sigma$ until we return to 1; then do the same starting from the smallest number not yet used, and so on.
+
+:::example{3.4.2}
+For the permutation $$\sigma = \begin{pmatrix} 1 & 2 & 3 & 4 & 5 & 6 \\ 3 & 5 & 6 & 4 & 2 & 1 \end{pmatrix}$$ (with $\sigma(i)$ written below $i$), the successive images of 1 are $1 \mapsto 3 \mapsto 6 \mapsto 1$, and then $2 \mapsto 5 \mapsto 2$, while $4$ is fixed. So $\sigma = (1\,3\,6)(2\,5)$.
 :::
 
 :::definition{3.4.3} Cycle type
-The ***cycle type*** of $\sigma \in S_n$ is the partition of $n$ given by the lengths of the cycles in its disjoint cycle decomposition (including 1-cycles for fixed points). We write it as $(1^{m_1} 2^{m_2} \cdots n^{m_n})$ where $m_k$ is the number of $k$-cycles.
+The ***cycle type*** of $\sigma \in S_n$ is the list of lengths of the cycles in its disjoint cycle decomposition, including a 1-cycle for each fixed point; it is a partition of $n$. We write it as $(1^{m_1} 2^{m_2} \cdots n^{m_n})$, where $m_k$ is the number of $k$-cycles, omitting the terms with $m_k = 0$.
 :::
 
-:::example{3.4.1}
-In $S_6$, the permutation $\sigma = (1\,3\,5)(2\,4)$ has cycle type $(1^1 2^1 3^1)$ since there’s one fixed point (6), one 2-cycle, and one 3-cycle. The identity has cycle type $(1^6)$. A single 6-cycle has type $(6^1)$.
+:::example{3.4.4}
+In $S_6$, the permutation $\sigma = (1\,3\,5)(2\,4)$ has cycle type $(1^1 2^1 3^1)$: one fixed point (6), one 2-cycle, and one 3-cycle. The identity has cycle type $(1^6)$, and a 6-cycle has type $(6^1)$.
 :::
 
 ## <span class="num">3.4.2</span> Conjugacy in $S_n$
 
-Conjugacy classes are fundamental to representation theory. In $S_n$, they have an elegant characterization.
+The conjugacy classes of a group (Definition [3.2.12](/notes/math-55a/3-2-group-actions#definition-3-2-12)) are fundamental to its structure and to its representation theory. In $S_n$ they have an elegant description.
 
-:::theorem{3.4.2} Conjugacy in $S_n$
+:::lemma{3.4.5} Conjugating a cycle
+For $\tau \in S_n$ and a cycle $(a_1\,a_2\,\cdots\,a_k)$, $$\tau\,(a_1\,a_2\,\cdots\,a_k)\,\tau^{-1} = (\tau(a_1)\ \tau(a_2)\ \cdots\ \tau(a_k)).$$
+:::
+
+:::proof
+Write $c = (a_1\,\cdots\,a_k)$. For $i = \tau(a_j)$, we get $\tau c \tau^{-1}(i) = \tau(c(a_j)) = \tau(a_{j+1})$ (indices mod $k$), the next entry of the cycle on the right. If $i \notin \{\tau(a_1), \ldots, \tau(a_k)\}$, then $\tau^{-1}(i) \notin \{a_1, \ldots, a_k\}$, so $c$ fixes $\tau^{-1}(i)$ and $\tau c\tau^{-1}(i) = i$.
+:::
+
+:::theorem{3.4.6} Conjugacy classes of $S_n$
 Two permutations in $S_n$ are conjugate if and only if they have the same cycle type.
 :::
 
-:::proof Proof of conjugacy classification
-**Key computation:** Let $\tau \in S_n$ and $(a_1 \, a_2 \, \cdots \, a_k)$ be a cycle. Then $$\tau (a_1 \, a_2 \, \cdots \, a_k) \tau^{-1} = (\tau(a_1) \, \tau(a_2) \, \cdots \, \tau(a_k)).$$ Proof: For any $i$, if $i = \tau(a_j)$, then $\tau (a_1 \cdots a_k) \tau^{-1}(i) = \tau(a_{j+1}) = \tau(a_{j+1})$. If $i \notin \{\tau(a_1), \ldots, \tau(a_k)\}$, then $\tau^{-1}(i) \notin \{a_1, \ldots, a_k\}$, so the cycle fixes $\tau^{-1}(i)$, and conjugation gives $\tau(\tau^{-1}(i)) = i$.
+:::proof
+**Conjugate $\Rightarrow$ same type.** Let $\rho = \tau\sigma\tau^{-1}$ and write $\sigma = c_1 \cdots c_r$ as a product of disjoint cycles. Then $\rho = (\tau c_1 \tau^{-1}) \cdots (\tau c_r \tau^{-1})$, and by Lemma [3.4.5](/notes/math-55a/3-4-the-symmetric-group#lemma-3-4-5) each $\tau c_j\tau^{-1}$ is a cycle of the same length as $c_j$. These cycles are disjoint because $\tau$ is a bijection, so this is the cycle decomposition of $\rho$, and $\rho$ has the same cycle type as $\sigma$.
 
-**Same type $\Rightarrow$ conjugate:** Let $\sigma = (a_1 \cdots a_{k_1})(b_1 \cdots b_{k_2}) \cdots$ and $\rho = (c_1 \cdots c_{k_1})(d_1 \cdots d_{k_2}) \cdots$ have the same cycle type. Define $\tau$ by $\tau(a_i) = c_i, \tau(b_j) = d_j$, etc. Then by the key computation, $\tau \sigma \tau^{-1} = \rho$.
-
-**Conjugate $\Rightarrow$ same type:** If $\rho = \tau \sigma \tau^{-1}$, write $\sigma$ as a product of disjoint cycles. By the key computation, $\rho$ is the product of the conjugated cycles, which have the same lengths. Disjointness is preserved since $\tau$ is a bijection.
+**Same type $\Rightarrow$ conjugate.** Write $\sigma$ and $\rho$ as products of disjoint cycles, including 1-cycles for fixed points, listing the cycles in order of decreasing length: $$\sigma = (a_1 \cdots a_{k_1})(b_1 \cdots b_{k_2}) \cdots, \qquad \rho = (c_1 \cdots c_{k_1})(d_1 \cdots d_{k_2}) \cdots.$$ Each of $1, \ldots, n$ appears exactly once in each line, so $\tau(a_i) = c_i$, $\tau(b_j) = d_j$, and so on, defines a permutation $\tau$. By Lemma [3.4.5](/notes/math-55a/3-4-the-symmetric-group#lemma-3-4-5), $\tau\sigma\tau^{-1} = \rho$.
 :::
 
-:::proposition{3.4.1} Number of conjugacy classes in $S_n$
-The number of conjugacy classes in $S_n$ equals $p(n)$, the number of partitions of $n$. For example, $p(1) = 1, p(2) = 2, p(3) = 3, p(4) = 5, p(5) = 7, p(6) = 11$.
+:::corollary{3.4.7} Number of conjugacy classes of $S_n$
+The number of conjugacy classes of $S_n$ equals $p(n)$, the number of partitions of $n$ (ways of writing $n$ as a sum of positive integers, up to order). For example, $p(1) = 1$, $p(2) = 2$, $p(3) = 3$, $p(4) = 5$, $p(5) = 7$, $p(6) = 11$.
 :::
 
-:::note
-This fact that conjugacy classes correspond to partitions is one reason why the representation theory of $S_n$ is so whimsical. The irreducible representations of $S_n$ are also indexed by partitions of $n$, and the character table can be computed combinatorially. This is a whole subject in itself.
+:::proof
+By the theorem, conjugacy classes correspond to cycle types, and every partition $n = k_1 + \cdots + k_\ell$ is the cycle type of some permutation, for instance $(1\,\cdots\,k_1)(k_1{+}1\,\cdots\,k_1{+}k_2)\cdots$.
 :::
 
-## <span class="num">3.4.3</span> The sign homomorphism and alternating group
+:::example{3.4.8} Conjugacy classes of $S_3$ and $S_4$
+In $S_3$ the classes are $\{e\}$, the three transpositions, and the two 3-cycles, of sizes $1 + 3 + 2 = 6$. In $S_4$:
 
-Every permutation can be written as a product of transpositions. The number of transpositions is not unique, but its parity is!
+<div class="table-wrap"><table class="tex-table"><tbody><tr><td class="l">cycle type</td><td class="l">description</td><td class="l">size of class</td></tr><tr><td class="l">$(1^4)$</td><td class="l">identity</td><td class="l">1</td></tr><tr><td class="l">$(1^2 2^1)$</td><td class="l">transpositions $(i\,j)$</td><td class="l">6</td></tr><tr><td class="l">$(2^2)$</td><td class="l">$(i\,j)(k\,l)$, two disjoint transpositions</td><td class="l">3</td></tr><tr><td class="l">$(1^1 3^1)$</td><td class="l">3-cycles</td><td class="l">8</td></tr><tr><td class="l">$(4^1)$</td><td class="l">4-cycles</td><td class="l">6</td></tr><tr><td class="l"></td></tr></tbody></table></div>
 
-:::proposition{3.4.2} Transposition generation
-$S_n$ is generated by transpositions. More precisely, every $k$-cycle can be written as a product of $k-1$ transpositions: $$(a_1 \, a_2 \, \cdots \, a_k) = (a_1 \, a_k)(a_1 \, a_{k-1}) \cdots (a_1 \, a_2).$$
-:::
-
-:::proof Proof (Verification of transposition decomposition)
-Apply the right side to $a_1$: $(a_1 \, a_2)$ sends $a_1 \mapsto a_2$, then subsequent transpositions fix $a_2$. So $a_1 \mapsto a_2$. ✓
-
-Apply to $a_j$ for $2 \le j \le k-1$: transpositions $(a_1 \, a_2), \ldots, (a_1 \, a_{j-1})$ fix $a_j$. Then $(a_1 \, a_j)$ sends $a_j \mapsto a_1$. Then $(a_1 \, a_{j+1})$ sends $a_1 \mapsto a_{j+1}$. Subsequent transpositions fix $a_{j+1}$. So $a_j \mapsto a_{j+1}$. ✓
-
-Apply to $a_k$: all transpositions except $(a_1 \, a_k)$ fix $a_k$, which sends $a_k \mapsto a_1$. ✓
-:::
-
-:::theorem{3.4.3} Well-definedness of parity
-If $\sigma = \tau_1 \cdots \tau_r = \tau_1' \cdots \tau_s'$ are two expressions of $\sigma$ as products of transpositions, then $r \equiv s \pmod{2}$.
-:::
-
-:::proof Proof of parity well-definedness
-Consider the polynomial $P(x_1, \ldots, x_n) = \prod_{1 \le i < j \le n} (x_i - x_j)$. For $\sigma \in S_n$, define $\sigma \cdot P = \prod_{i < j} (x_{\sigma(i)} - x_{\sigma(j)})$. Each factor $(x_{\sigma(i)} - x_{\sigma(j)})$ equals $\pm(x_k - x_l)$ for some $k < l$, so $\sigma \cdot P = \pm P$.
-
-For a transposition $\tau = (a \, b)$ with $a < b$: the factor $(x_a - x_b)$ becomes $(x_b - x_a) = -(x_a - x_b)$. For $i < a < b < j$, the factor $(x_i - x_j)$ is unchanged. For $i < a$, the factors $(x_i - x_a)$ and $(x_i - x_b)$ are swapped, contributing no sign change. Similarly for other cases. Careful counting shows $\tau \cdot P = -P$ (the key is that one factor picks up a sign, and swaps come in pairs).
-
-Thus if $\sigma = \tau_1 \cdots \tau_r$, then $\sigma \cdot P = (-1)^r P$. If also $\sigma = \tau_1' \cdots \tau_s'$, then $(-1)^r = (-1)^s$, so $r \equiv s \pmod 2$.
-:::
-
-:::definition{3.4.4} Sign of a permutation
-The ***sign*** (or ***signature***) of $\sigma \in S_n$ is $\sgn(\sigma) = (-1)^r$ where $\sigma = \tau_1 \cdots \tau_r$ is any expression as a product of transpositions. Equivalently, $\sgn(\sigma) = (-1)^{n - c(\sigma)}$ where $c(\sigma)$ is the number of cycles (including 1-cycles). A permutation is ***even*** if $\sgn(\sigma) = 1$ and ***odd*** if $\sgn(\sigma) = -1$.
-:::
-
-:::theorem{3.4.4} Sign is a homomorphism
-The map $\sgn : S_n \to \{1, -1\}$ is a surjective group homomorphism.
-:::
-
-:::proof Proof that sign is a homomorphism
-If $\sigma = \tau_1 \cdots \tau_r$ and $\rho = \tau_1' \cdots \tau_s'$, then $\sigma\rho = \tau_1 \cdots \tau_r \tau_1' \cdots \tau_s'$, a product of $r + s$ transpositions. Thus $\sgn(\sigma\rho) = (-1)^{r+s} = (-1)^r (-1)^s = \sgn(\sigma)\sgn(\rho)$. Surjectivity: any transposition has sign $-1$.
-:::
-
-:::definition{3.4.5} Alternating group
-The ***alternating group*** $A_n = \ker(\sgn) = \{\sigma \in S_n : \sgn(\sigma) = 1\}$ is the group of even permutations.
-:::
-
-:::proposition{3.4.3} Properties of $A_n$
-We have:
-
-1. $A_n \trianglelefteq S_n$ with index $[S_n : A_n] = 2$, so $|A_n| = n!/2$.
-2. $S_n / A_n \cong \mathbb{Z}/2$.
-3. $A_n$ is generated by 3-cycles. In fact, $A_n = \langle (1\,2\,3), (1\,2\,4), \ldots, (1\,2\,n) \rangle$.
-4. For $n \ge 5$, $A_n$ is ***simple*** (has no proper nontrivial normal subgroups).
-:::
-
-:::proof Proof of $A_n$ properties (1)-(3)
-**(1)-(2)** follow from the First Isomorphism Theorem: $S_n / \ker(\sgn) \cong \Img(\sgn) = \{1, -1\} \cong \mathbb{Z}/2$.
-
-**(3)** Every even permutation is a product of an even number of transpositions. We can pair them: $(a\,b)(c\,d)$. If $\{a,b\} \cap \{c,d\} = \emptyset$, then $(a\,b)(c\,d) = (a\,c\,b)(a\,c\,d)$ (verify!). If $\{a,b\} \cap \{c,d\} = \{b\} = \{c\}$, then $(a\,b)(b\,d) = (a\,b\,d)$. Thus $A_n$ is generated by 3-cycles. For the specific generating set: $$(a\,b\,c) = (1\,2\,a)(1\,2\,b)(1\,2\,c)(1\,2\,a)^{-1}(1\,2\,b)^{-1}$$ (if $a,b,c$ all differ from 1,2; similar manipulations handle other cases).
+and $1 + 6 + 3 + 8 + 6 = 24$.
 :::
 
 :::note
-The simplicity of $A_n$ for $n \ge 5$ is a historically revolutionary result (it regards the non-existence of the quintic formula). It implies that $A_n$ has no quotients except $\{e\}$ and itself, which means $A_n$ is “irreducible” in a sense. Via Galois theory, this simplicity is precisely why the general quintic polynomial has no solution in radicals: the Galois group of the “generic” degree-$n$ polynomial is $S_n$, and solvability by radicals requires a composition series with abelian quotients. For $n \ge 5$, $A_n$ blocks this because it’s simple and non-abelian.
+That conjugacy classes of $S_n$ correspond to partitions of $n$ is one reason the representation theory of $S_n$ is so rich: the irreducible representations of $S_n$ are also indexed by partitions of $n$, and the character table can be computed combinatorially. This is a whole subject in itself; Chapter 14 works out the case $n = 5$.
+:::
+
+## <span class="num">3.4.3</span> Generators of $S_n$
+
+:::proposition{3.4.9} Generators of $S_n$
+<!-- list:paren-alpha -->
+
+1. Every $k$-cycle is a product of $k-1$ transpositions: $$(a_1\,a_2\,\cdots\,a_k) = (a_1\,a_k)(a_1\,a_{k-1}) \cdots (a_1\,a_2).$$
+2. $S_n$ is generated by the transpositions.
+3. For $n \ge 2$, $S_n$ is generated by the $n - 1$ adjacent transpositions $s_i = (i\ \ i{+}1)$, $1 \le i \le n-1$.
+:::
+
+:::proof
+**(a)** The rightmost factor acts first. Apply the right side to $a_1$: $(a_1\,a_2)$ sends $a_1 \mapsto a_2$, and the remaining transpositions fix $a_2$; so $a_1 \mapsto a_2$. Apply it to $a_j$ with $2 \le j \le k-1$: the transpositions $(a_1\,a_2), \ldots, (a_1\,a_{j-1})$ fix $a_j$; then $(a_1\,a_j)$ sends $a_j \mapsto a_1$; then $(a_1\,a_{j+1})$ sends $a_1 \mapsto a_{j+1}$; and the remaining transpositions fix $a_{j+1}$. So $a_j \mapsto a_{j+1}$. Apply it to $a_k$: every factor except the last, $(a_1\,a_k)$, fixes $a_k$, and that one sends $a_k \mapsto a_1$. Elements outside $\{a_1, \ldots, a_k\}$ are fixed by both sides.
+
+**(b)** By the Cycle Decomposition Theorem every permutation is a product of cycles, and by (a) every cycle is a product of transpositions. (The identity is the empty product.)
+
+**(c)** By (b) it suffices to write each transposition $(i\,j)$, $i < j$, as a product of adjacent transpositions. We induct on $j - i$. If $j = i + 1$, then $(i\,j) = s_i$. If $j > i + 1$, Lemma [3.4.5](/notes/math-55a/3-4-the-symmetric-group#lemma-3-4-5) gives $$(i\ \ i{+}1)\,(i{+}1\ \ j)\,(i\ \ i{+}1) = (i\,j),$$ since $(i\ \ i{+}1)$ sends $i{+}1 \mapsto i$ and fixes $j$, and $(i\ \ i{+}1)^{-1} = (i\ \ i{+}1)$. By induction $(i{+}1\ \ j)$ is a product of adjacent transpositions, hence so is $(i\,j)$.
 :::
 
 :::note
-The sign homomorphism is intimately related to the determinant: for a matrix $A \in \GL_n(\mathbb{R})$, we have $\det(A) = \sum_{\sigma \in S_n} \sgn(\sigma) \prod_{i=1}^n a_{i,\sigma(i)}$. The sign ensures the determinant is alternating in the rows (swapping rows negates the determinant). This is no coincidence: the determinant is the unique alternating multilinear function on $n$ vectors with $\det(I) = 1$, and “alternating” is encoded by the sign.
+Part (c) is the mathematics behind the *bubble sort* algorithm. Multiplying $\sigma$ on the right by $s_i$ swaps the entries in positions $i$ and $i+1$ of the list $\sigma(1), \ldots, \sigma(n)$, since $(\sigma s_i)(i) = \sigma(i+1)$. Bubble sort puts the list in order by such swaps, $\sigma s_{i_1} \cdots s_{i_m} = e$, which writes $\sigma = s_{i_m} \cdots s_{i_1}$. Chapter 12 shows that the least number of adjacent transpositions needed is the number of inversions of $\sigma$, defined next.
 :::
 
-:::question{4}
+## <span class="num">3.4.4</span> The Sign Homomorphism and the Alternating Group
+
+:::definition{3.4.10} Inversions and sign
+An ***inversion*** of $\sigma \in S_n$ is a pair $(i, j)$ with $1 \le i < j \le n$ and $\sigma(i) > \sigma(j)$. Let $\operatorname{inv}(\sigma)$ be the number of inversions. The ***sign*** of $\sigma$ is $$\sgn(\sigma) = (-1)^{\operatorname{inv}(\sigma)} \in \{1, -1\}.$$ A permutation is ***even*** if $\sgn(\sigma) = 1$ and ***odd*** if $\sgn(\sigma) = -1$.
+:::
+
+:::example{3.4.11}
+In $S_3$, the 3-cycle $(1\,2\,3)$ sends $1, 2, 3$ to $2, 3, 1$. Its inversions are $(1,3)$ and $(2,3)$, so it is even. For a transposition $(a\,b)$ with $a < b$, the inversions are $(a, b)$ itself and the pairs $(a, m)$ and $(m, b)$ with $a < m < b$; there are $2(b - a - 1) + 1$ of them, an odd number, so every transposition is odd.
+:::
+
+:::lemma{3.4.12} A product formula for the sign
+For $\sigma \in S_n$, $$\sgn(\sigma) = \prod_{1 \le i < j \le n} \frac{\sigma(j) - \sigma(i)}{j - i}.$$
+:::
+
+:::proof
+As $\{i, j\}$ runs over the two-element subsets of $\{1, \ldots, n\}$, so does $\{\sigma(i), \sigma(j)\}$, because $\sigma$ is a bijection. Hence $\prod_{i<j}|\sigma(j) - \sigma(i)| = \prod_{i<j}(j - i)$, and the product in the lemma has absolute value 1. A factor is negative exactly when $(i, j)$ is an inversion, so the sign of the product is $(-1)^{\operatorname{inv}(\sigma)}$.
+:::
+
+:::theorem{3.4.13} The sign is a homomorphism
+The map $\sgn : S_n \to \{1, -1\}$ is a homomorphism. For $n \ge 2$ it is surjective.
+:::
+
+:::proof
+Let $\sigma, \tau \in S_n$. By Lemma [3.4.12](/notes/math-55a/3-4-the-symmetric-group#lemma-3-4-12), $$\sgn(\sigma\tau) = \prod_{i<j}\frac{\sigma(\tau(j)) - \sigma(\tau(i))}{j - i} = \prod_{i<j}\frac{\sigma(\tau(j)) - \sigma(\tau(i))}{\tau(j) - \tau(i)} \cdot \prod_{i<j}\frac{\tau(j) - \tau(i)}{j - i}.$$ The second product is $\sgn(\tau)$. In the first, the factor $\frac{\sigma(l) - \sigma(k)}{l - k}$ is unchanged when $k$ and $l$ are exchanged, so it depends only on the set $\{k, l\}$. As $\{i, j\}$ runs over all two-element subsets, so does $\{\tau(i), \tau(j)\}$; hence the first product equals $\prod_{k<l}\frac{\sigma(l) - \sigma(k)}{l - k} = \sgn(\sigma)$. So $\sgn(\sigma\tau) = \sgn(\sigma)\sgn(\tau)$. For $n \ge 2$, the transposition $(1\,2)$ has sign $-1$, so $\sgn$ is surjective.
+:::
+
+:::corollary{3.4.14} Parity and transpositions
+<!-- list:paren-alpha -->
+
+1. If $\sigma = \tau_1 \cdots \tau_r$ is a product of transpositions, then $\sgn(\sigma) = (-1)^r$. Hence the number of transpositions in any such expression of $\sigma$ is even if $\sigma$ is even and odd if $\sigma$ is odd.
+2. A $k$-cycle has sign $(-1)^{k-1}$.
+3. If $c(\sigma)$ is the number of cycles of $\sigma$, counting 1-cycles, then $\sgn(\sigma) = (-1)^{n - c(\sigma)}$.
+:::
+
+:::proof
+(a) Each transposition has sign $-1$, and $\sgn$ is a homomorphism. (b) A $k$-cycle is a product of $k-1$ transpositions (Proposition [3.4.9](/notes/math-55a/3-4-the-symmetric-group#proposition-3-4-9)). (c) If the cycles of $\sigma$ have lengths $k_1, \ldots, k_{c}$, with $k_1 + \cdots + k_c = n$, then by (b) $\sgn(\sigma) = \prod_i(-1)^{k_i - 1} = (-1)^{n - c}$.
+:::
+
+So the parity of the number of transpositions needed to write $\sigma$ is well defined, even though the number itself is not: $(1\,2\,3) = (1\,3)(1\,2) = (1\,3)(1\,2)(1\,2)(1\,2)$. This is the nontrivial point; everything else about the sign is bookkeeping.
+
+:::definition{3.4.15} Alternating group
+The ***alternating group*** is $A_n = \ker(\sgn) = \{\sigma \in S_n \mid \sgn(\sigma) = 1\}$, the group of even permutations.
+:::
+
+:::proposition{3.4.16} Properties of $A_n$
+Let $n \ge 2$.
+
+<!-- list:paren-alpha -->
+
+1. $A_n \trianglelefteq S_n$, $[S_n : A_n] = 2$, $|A_n| = n!/2$, and $S_n/A_n \cong \{1, -1\} \cong \ZZ/2$.
+2. For $n \ge 3$, $A_n$ is generated by the 3-cycles. In fact $A_n = \langle (1\,2\,3), (1\,2\,4), \ldots, (1\,2\,n) \rangle$.
+:::
+
+:::proof
+**(a)** $A_n$ is the kernel of the surjective homomorphism $\sgn$, so it is normal, and the First Isomorphism Theorem gives $S_n/A_n \cong \{1, -1\}$. Hence $[S_n : A_n] = 2$ and $|A_n| = n!/2$ by Lagrange’s theorem.
+
+**(b)** A 3-cycle is even, since $(a\,b\,c) = (a\,c)(a\,b)$. Conversely, let $\sigma \in A_n$. By Corollary [3.4.14](/notes/math-55a/3-4-the-symmetric-group#corollary-3-4-14), any expression of $\sigma$ as a product of transpositions has an even number of factors, so $\sigma$ is a product of pairs $(a\,b)(c\,d)$. Each pair is a product of 3-cycles: it is $e$ if $\{a, b\} = \{c, d\}$; if the pair shares exactly one element, we may write it as $(a\,b)(b\,d) = (a\,b\,d)$; and if $\{a, b\} \cap \{c, d\} = \emptyset$, then $$(a\,b)(c\,d) = (a\,b)(b\,c)(b\,c)(c\,d) = (a\,b\,c)(b\,c\,d).$$ So $A_n$ is generated by the 3-cycles.
+
+Now let $H = \langle (1\,2\,k) \mid 3 \le k \le n \rangle$. It suffices to show that every 3-cycle lies in $H$. Let $a, b, c$ be distinct elements of $\{3, \ldots, n\}$. Each identity below can be checked directly, or with Lemma [3.4.5](/notes/math-55a/3-4-the-symmetric-group#lemma-3-4-5):
+
+- 3-cycles moving both 1 and 2 are $(1\,2\,a)$ and $(1\,a\,2) = (1\,2\,a)^{-1}$;
+- 3-cycles moving 1 but not 2 are of the form $(1\,a\,b) = (1\,2\,b)(1\,2\,a)^{-1}$;
+- 3-cycles moving 2 but not 1 are of the form $(2\,a\,b) = (1\,2\,b)^{-1}(1\,2\,a)$;
+- 3-cycles moving neither are of the form $(a\,b\,c) = (1\,2\,a)(2\,b\,c)(1\,2\,a)^{-1}$, and $(2\,b\,c) \in H$ by the previous case.
+
+The last identity is Lemma [3.4.5](/notes/math-55a/3-4-the-symmetric-group#lemma-3-4-5), since $(1\,2\,a)$ sends $2 \mapsto a$ and fixes $b$ and $c$.
+:::
+
+For $n \ge 5$, $A_n$ is *simple*; the proof is in Chapter 11 (Theorem [11.4.9](/notes/math-55a/11-4-conjugacy-in-s-n-and-a-n#theorem-11-4-9)). For $n = 4$ this fails: $A_4$ has a normal subgroup of order 4 (Question [3.4](/notes/math-55a/3-4-the-symmetric-group) below). The group $A_3 \cong \ZZ/3$ is simple, but abelian.
+
+:::note
+The simplicity of $A_n$ for $n \ge 5$ is a historically important result, tied to the non-existence of a formula for the roots of a general quintic. The quadratic formula contains a $\pm\sqrt{\phantom{x}}$, and the ambiguity of the sign is a $\ZZ/2 \cong S_2$ permuting the two roots; Cardano’s formula for cubics has nested square and cube roots, whose ambiguities combine to an $S_3$ permuting the three roots. A formula for the roots of a degree 5 equation would need a built-in $S_5$ symmetry, but the symmetries of any expression built from $k$-th roots are assembled from cyclic groups $\ZZ/k$, in the sense that they admit a chain of subgroups, each normal in the next, with abelian quotients. Since $A_5$ is simple and non-abelian, $S_5$ admits no such chain. Galois theory makes this precise.
+:::
+
+:::note
+The sign is intimately related to the determinant (Section [5.4](/notes/math-55a/5-4-determinants)): for an $n \times n$ matrix $A = (a_{ij})$, $\det(A) = \sum_{\sigma \in S_n} \sgn(\sigma) \prod_{i=1}^n a_{i,\sigma(i)}$, and $\sgn(\sigma)$ is the determinant of the permutation matrix of $\sigma$. The sign is what makes the determinant alternating: swapping two rows, or two columns, negates it.
+:::
+
+:::example{3.4.17} The converse of Lagrange’s theorem fails
+The group $A_4$ has order $4!/2 = 12$ but no subgroup of order 6. Suppose $H \le A_4$ had order 6, so $[A_4 : H] = 2$, and let $g$ be a 3-cycle. If $g \notin H$, the two cosets of $H$ are $H$ and $gH$, and $g^2H$ is one of them. It is not $gH$, since $g^2H = gH$ would give $g \in H$; so $g^2H = H$ and $g^2 \in H$. But then $g = g^4 = (g^2)^2 \in H$, because $g^3 = e$, a contradiction. Hence $H$ contains all eight 3-cycles of $A_4$ (choose the fixed point in 4 ways, then one of two cyclic orders of the other three), which is impossible since $|H| = 6$.
+:::
+
+:::example{3.4.18} The commutator subgroup of $S_n$
+For $n \ge 2$, $[S_n, S_n] = A_n$, and hence $S_n^{\mathrm{ab}} \cong \ZZ/2$. Since $\{1, -1\}$ is abelian, $\sgn([\sigma, \tau]) = 1$, so $[S_n, S_n] \subseteq A_n$. For $n = 2$, $A_2 = \{e\}$ and there is nothing more to show. For $n \ge 3$, every 3-cycle is a commutator, $$[(a\,b), (a\,c)] = (a\,b)(a\,c)(a\,b)^{-1}(a\,c)^{-1} = (a\,b\,c),$$ and the 3-cycles generate $A_n$ (Proposition [3.4.16](/notes/math-55a/3-4-the-symmetric-group#proposition-3-4-16)). So $A_n \subseteq [S_n, S_n]$.
+:::
+
+:::question{3.4.19}
+<!-- list:paren-alpha -->
+
 1. Compute the cycle type and sign of $\sigma = (1\,2\,3)(4\,5)(1\,4)(2\,5\,3)$ in $S_5$. (First simplify!)
 2. How many elements of $S_7$ have cycle type $(1^1 2^1 4^1)$?
-3. Prove that the only normal subgroups of $S_3$ are $\{e\}, A_3, S_3$.
-4. Let $H = \{e, (1\,2)(3\,4), (1\,3)(2\,4), (1\,4)(2\,3)\} \subset S_4$. Prove $H \cong \mathbb{Z}/2 \times \mathbb{Z}/2$ and $H \trianglelefteq S_4$. What is $S_4/H$?
+3. Let $V = \{e, (1\,2)(3\,4), (1\,3)(2\,4), (1\,4)(2\,3)\} \subseteq S_4$. Prove that $V$ is a subgroup isomorphic to $\ZZ/2 \times \ZZ/2$, that $V \trianglelefteq S_4$, and that $S_4/V \cong S_3$.
+4. Show that the normal subgroups of $S_4$ are $\{e\}$, $V$, $A_4$, and $S_4$.
 
 :::solution
-**(1)** First, multiply the cycles right-to-left. Trace each element: $$\begin{aligned}
-1 &\mapsto 4 \mapsto 5 \mapsto 5 \mapsto 4 \mapsto 1: \text{let's be systematic:}
-\end{aligned}$$ Write $\sigma = (1\,2\,3)(4\,5)(1\,4)(2\,5\,3)$. Reading right-to-left: start with $(2\,5\,3)$, then $(1\,4)$, then $(4\,5)$, then $(1\,2\,3)$.
+**(a)** Multiply the cycles right to left: first $(2\,5\,3)$, then $(1\,4)$, then $(4\,5)$, then $(1\,2\,3)$. Trace each element: $$\begin{aligned}
+1 &\xrightarrow{(2\,5\,3)} 1 \xrightarrow{(1\,4)} 4 \xrightarrow{(4\,5)} 5 \xrightarrow{(1\,2\,3)} 5, & 2 &\xrightarrow{(2\,5\,3)} 5 \xrightarrow{(1\,4)} 5 \xrightarrow{(4\,5)} 4 \xrightarrow{(1\,2\,3)} 4, \\
+3 &\xrightarrow{(2\,5\,3)} 2 \xrightarrow{(1\,4)} 2 \xrightarrow{(4\,5)} 2 \xrightarrow{(1\,2\,3)} 3, & 4 &\xrightarrow{(2\,5\,3)} 4 \xrightarrow{(1\,4)} 1 \xrightarrow{(4\,5)} 1 \xrightarrow{(1\,2\,3)} 2, \\
+5 &\xrightarrow{(2\,5\,3)} 3 \xrightarrow{(1\,4)} 3 \xrightarrow{(4\,5)} 3 \xrightarrow{(1\,2\,3)} 1.
+\end{aligned}$$ Thus $\sigma = (1\,5)(2\,4)$, of cycle type $(1^1 2^2)$, and $\sgn(\sigma) = (-1)^{5 - 3} = 1$: $\sigma$ is even. (Alternatively, the signs of the four factors are $1, -1, -1, 1$, whose product is $1$.)
 
-Trace 1: $1 \xrightarrow{(2\,5\,3)} 1 \xrightarrow{(1\,4)} 4 \xrightarrow{(4\,5)} 5 \xrightarrow{(1\,2\,3)} 5$. So $1 \mapsto 5$.
+**(b)** Choose the fixed point (7 ways), then the four elements of the 4-cycle from the remaining six ($\binom{6}{4} = 15$ ways), then arrange them in a 4-cycle ($(4-1)! = 6$ ways, since a $k$-cycle on a given set of $k$ elements can be written in exactly one way with a chosen element first, followed by an ordering of the other $k-1$). The remaining two elements form the 2-cycle. Total: $7 \cdot 15 \cdot 6 = 630$.
 
-Trace 2: $2 \xrightarrow{(2\,5\,3)} 5 \xrightarrow{(1\,4)} 5 \xrightarrow{(4\,5)} 4 \xrightarrow{(1\,2\,3)} 4$. So $2 \mapsto 4$.
+**(c)** By direct computation, the product of any two distinct non-identity elements of $V$ is the third, for example $(1\,2)(3\,4) \cdot (1\,3)(2\,4) = (1\,4)(2\,3)$, and each non-identity element has order 2. So $V$ is a subgroup in which every element satisfies $x^2 = e$, and $(1\,2)(3\,4) \mapsto (1,0)$, $(1\,3)(2\,4) \mapsto (0,1)$, $(1\,4)(2\,3) \mapsto (1,1)$, $e \mapsto (0,0)$ is an isomorphism $V \to \ZZ/2 \times \ZZ/2$, as the two multiplication tables agree. The non-identity elements of $V$ form the conjugacy class of cycle type $(2^2)$ (Theorem [3.4.6](/notes/math-55a/3-4-the-symmetric-group#theorem-3-4-6)), so $V$ is a union of conjugacy classes and hence normal (Proposition [3.2.13](/notes/math-55a/3-2-group-actions#proposition-3-2-13)).
 
-Trace 3: $3 \xrightarrow{(2\,5\,3)} 2 \xrightarrow{(1\,4)} 2 \xrightarrow{(4\,5)} 2 \xrightarrow{(1\,2\,3)} 3$. So $3 \mapsto 3$ (fixed).
+For the quotient, let $S_4$ act on the set $P = \{P_1, P_2, P_3\}$ of the three ways to split $\{1, 2, 3, 4\}$ into two pairs, $$P_1 = \{\{1,2\},\{3,4\}\}, \quad P_2 = \{\{1,3\},\{2,4\}\}, \quad P_3 = \{\{1,4\},\{2,3\}\},$$ by applying $\sigma$ to every entry. This gives a homomorphism $\rho : S_4 \to \Sym(P) \cong S_3$. The transposition $(1\,2)$ fixes $P_1$ and swaps $P_2$ and $P_3$, and $(1\,2\,3)$ sends $P_1 \mapsto P_3 \mapsto P_2 \mapsto P_1$. So $\Img\rho$ contains elements of orders 2 and 3, its order is divisible by 6, and $\rho$ is surjective. Each element of $V$ fixes all three $P_i$; for instance $(1\,2)(3\,4)$ sends $\{1,3\} \mapsto \{2,4\}$ and $\{2,4\} \mapsto \{1,3\}$, so it fixes $P_2$. Thus $V \subseteq \ker\rho$. By the First Isomorphism Theorem $|\ker\rho| = 24/6 = 4 = |V|$, so $\ker\rho = V$ and $S_4/V \cong S_3$.
 
-Trace 4: $4 \xrightarrow{(2\,5\,3)} 4 \xrightarrow{(1\,4)} 1 \xrightarrow{(4\,5)} 1 \xrightarrow{(1\,2\,3)} 2$. So $4 \mapsto 2$.
-
-Trace 5: $5 \xrightarrow{(2\,5\,3)} 3 \xrightarrow{(1\,4)} 3 \xrightarrow{(4\,5)} 3 \xrightarrow{(1\,2\,3)} 1$. So $5 \mapsto 1$.
-
-Thus $\sigma = (1\,5)(2\,4)$, cycle type $(1^1 2^2)$. Sign: two 2-cycles = two transpositions, so $\sgn(\sigma) = (-1)^2 = 1$ (even).
-
-**(2)** Cycle type $(1^1 2^1 4^1)$ means one fixed point, one 2-cycle, one 4-cycle. Choose the fixed point: 7 ways. Choose 4 elements for the 4-cycle from the remaining 6: $\binom{6}{4} = 15$ ways. Arrange them in a 4-cycle: $(4-1)! = 6$ ways. The remaining 2 elements form the 2-cycle: 1 way. Total: $7 \cdot 15 \cdot 6 \cdot 1 = 630$.
-
-**(3)** $S_3$ has order 6. By Lagrange, subgroups have order 1, 2, 3, or 6. Normal subgroups must be unions of conjugacy classes. Conjugacy classes in $S_3$: $\{e\}$ (size 1), $\{(12), (13), (23)\}$ (size 3), $\{(123), (132)\}$ (size 2).
-
-A normal subgroup of order 2 would need size-1 and size-1 classes, but $\{e\}$ has size 1 and we’d need another element with a size-1 class—none exist. A normal subgroup of order 3 must be $\{e\} \cup \{(123), (132)\} = A_3$. ✓
-
-**(4)** Check $H$ is a subgroup: $(1\,2)(3\,4) \cdot (1\,3)(2\,4) = (1\,4)(2\,3)$, etc.—closure holds (verify all products give elements of $H$). Each non-identity element has order 2. So $H \cong \mathbb{Z}/2 \times \mathbb{Z}/2$ (Klein four-group).
-
-Normality: $H$ consists of $e$ plus all products of two disjoint transpositions. These form a conjugacy class in $S_4$ (cycle type $(2^2)$), so $H$ is a union of conjugacy classes, hence normal.
-
-$S_4/H$ has order $24/4 = 6$. The quotient is non-abelian (since $S_4$ is non-abelian and $H$ is not all of $S_4$), so $S_4/H \cong S_3$. Explicitly: $S_4$ acts on the three partitions $\{\{1,2\},\{3,4\}\}, \{\{1,3\},\{2,4\}\}, \{\{1,4\},\{2,3\}\}$, and $H$ is the kernel.
+**(d)** A normal subgroup is a union of conjugacy classes containing $\{e\}$, and its order divides 24. The classes of $S_4$ have sizes $1, 6, 3, 8, 6$ (Example [3.4.8](/notes/math-55a/3-4-the-symmetric-group#example-3-4-8)). The sums of $1$ with some of $6, 3, 8, 6$ that divide 24 are $1$, $1 + 3 = 4$, $1 + 3 + 8 = 12$, and $24$, each obtained in only one way. The union of size 4 is $V$, which is a normal subgroup by (c). The union of size 12 consists of the identity, the products of two disjoint transpositions, and the 3-cycles; these are exactly the even permutations (Corollary [3.4.14](/notes/math-55a/3-4-the-symmetric-group#corollary-3-4-14)), so this union is $A_4$. Hence the normal subgroups of $S_4$ are $\{e\}$, $V$, $A_4$, and $S_4$. Since $V \subseteq A_4$, $V$ is also a normal subgroup of $A_4$.
 :::
 :::

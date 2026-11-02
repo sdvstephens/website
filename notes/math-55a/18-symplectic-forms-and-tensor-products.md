@@ -137,7 +137,7 @@ The isomorphism $\Hom(V,W)\simeq V^*\otimes W$ also implies:
 - $\Hom(V,W)\simeq V^*\otimes W\simeq(W^*)^*\otimes V^*\simeq\Hom(W^*,V^*)$.
   This is actually the **transpose** construction $\varphi\in\Hom(V,W)\mapsto\varphi^t:W^*\to V^*$. (Easiest to check on rank 1: $\varphi(v)=\ell(v)w\ \leadsto\ \varphi^t(\alpha)=\alpha\circ\varphi=\alpha(w)\,\ell=\mathrm{ev}_w(\alpha)\,\ell$, i.e. $\ell\otimes w\leadsto\mathrm{ev}_w\otimes\ell$.)
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 19](/notes/math-55a/19-trace-symmetric-and-exterior-algebras-determinant)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L19}}
 **The trace, properly defined**
 
 We can now properly define the **trace of a linear operator**!

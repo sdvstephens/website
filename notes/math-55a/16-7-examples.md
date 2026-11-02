@@ -6,38 +6,42 @@ section: 16.7
 title: Examples
 ---
 
-:::example{16.7.1} Standard representation of $S_3$
-The 2-dimensional irreducible $V$ of $S_3 \cong D_3$ is real: $S_3$ acts on $V_0 = \{(x_1, x_2, x_3) \in {\RR}^3 : \sum x_i = 0\} \cong {\RR}^2$ by rotations and reflections, and $V = V_0 \otimes_{\RR} {\CC}$.
+:::example{16.7.1} The standard representation of $S_3$
+The 2-dimensional irreducible representation $V$ of $S_3$ is real. This can be seen in three ways.
 
-Alternatively: $V^* \cong V$ (since $\chi_V$ is real-valued), and $\bigwedge^2 V^* \cong U'$ contains no trivial summand, so the $G$-invariant bilinear form must be in $\Sym^2 V^*$. Since $\Sym^2 V^* \cong U \oplus V$ contains a trivial summand, an invariant symmetric form exists, confirming $V$ is real.
+- Directly: $S_3 \cong D_3$ acts on $V_0 = \{(x_1, x_2, x_3) \in \RR^3 : x_1 + x_2 + x_3 = 0\} \cong \RR^2$ by permuting coordinates (as the rotations and reflections of an equilateral triangle), and $V = (V_0)_{\CC}$.
+- Through invariant forms: in the notation of the proof of Theorem [16.6.2](/notes/math-55a/16-6-the-frobenius-schur-indicator#theorem-16-6-2), $S = \Sym^2 V \cong U \oplus V$ contains the trivial representation once, while $A = \bigwedge^2 V \cong U'$ does not contain it (Example [13.3.6](/notes/math-55a/13-3-schurs-lemma#example-13-3-6)). So $V$ has an invariant symmetric form and no invariant skew-symmetric form.
+- Through the indicator: squaring sends $e$ and the three transpositions to $e$, and the two 3-cycles to 3-cycles, so $$\nu(V) = \tfrac{1}{6}\bigl(4 \cdot \chi_V(e) + 2 \cdot \chi_V((123))\bigr) = \tfrac{1}{6}(8 - 2) = 1.$$
 :::
 
-:::example{16.7.2} The quaternion group $Q_8$
-The quaternion group $Q_8 = \{\pm 1, \pm i, \pm j, \pm k\}$ with $i^2 = j^2 = k^2 = ijk = -1$ acts faithfully on ${\CC}^2$ by $$\pm 1 \mapsto \pm I, \quad \pm i \mapsto \pm\begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix}, \quad \pm j \mapsto \pm\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}, \quad \pm k \mapsto \pm\begin{pmatrix} 0 & i \\ i & 0 \end{pmatrix}.$$ The character takes values $\chi(\pm 1) = \pm 2$ and $\chi = 0$ on all other elements—all real. However, this representation is *not* real: it is quaternionic.
-
-To see this cannot come from a real representation: if $Q_8$ acted faithfully on ${\RR}^2$, the invariant inner product would give $Q_8 \hookrightarrow O(2)$. But $O(2)$ has only 2 elements squaring to $-I$ (rotations by $\pm 90^\circ$), while $Q_8$ needs 6 elements ($\pm i, \pm j, \pm k$) with square $-1$. Contradiction.
-
-The quaternionic structure is: view ${\CC}^2 = \mathbb{H}$ via $(z_1, z_2) \leftrightarrow z_1 + jz_2$, and the above matrices correspond to left multiplication by $\pm 1, \pm i, \pm j, \pm k$. The antilinear map $J : V \to V$ with $J^2 = -\id$ is right multiplication by $j$, which commutes with left multiplication.
+:::example{16.7.2} The quaternion group, again
+The 2-dimensional representation of $Q_8$ in Example [16.2.5](/notes/math-55a/16-2-complexification#example-16-2-5) is quaternionic. Identify $\CC^2$ with $\HH$ by $(z_1, z_2) \leftrightarrow z_1 + jz_2$, where $\CC = \RR \oplus \RR i \subset \HH$, and let $\CC$ act on $\HH$ by multiplication on the right: $(z_1 + jz_2)\lambda = z_1\lambda + j(z_2\lambda)$, which is the usual scalar multiplication on $\CC^2$. Left multiplication by an element of $Q_8$ commutes with right multiplication, so it is $\CC$-linear, and its matrix is the one in Example [16.2.5](/notes/math-55a/16-2-complexification#example-16-2-5). For instance, using $ij = -ji$, $ji = -k$, and $kj = -i$, $$\begin{aligned}
+i(z_1 + jz_2) &= iz_1 + j(-iz_2), \\
+j(z_1 + jz_2) &= -z_2 + jz_1, \\
+k(z_1 + jz_2) &= -iz_2 + j(-iz_1).
+\end{aligned}$$ Right multiplication by $j$, $$J(z_1 + jz_2) = (z_1 + jz_2)j = -\ol{z_2} + j\ol{z_1}, \quad\text{that is,}\quad J(z_1, z_2) = (-\ol{z_2}, \ol{z_1}),$$ is antilinear (because $\lambda j = j\ol{\lambda}$ for $\lambda \in \CC$), satisfies $J^2 = -\id$, and commutes with left multiplication by associativity. So $J$ is a $Q_8$-equivariant quaternionic structure. Consistently with Theorem [16.6.2](/notes/math-55a/16-6-the-frobenius-schur-indicator#theorem-16-6-2), $\nu = -1$ (Exercise [16.7](/notes/math-55a/16-7-examples)(4)).
 :::
 
-:::exercise{16.7.1} Exercises
+:::exercise{16.7.3} Exercises
 <!-- list:paren-decimal -->
 
-1. Classify each irreducible representation of $S_4$ as real, quaternionic, or complex-type. (Hint: all characters of $S_4$ are real-valued, so each is either real or quaternionic. Use the dimension criterion: a quaternionic representation must have even dimension.)
-2. Show that if $V$ is a quaternionic representation of $G$ (carrying an antilinear $J$ with $J^2 = -\id$), then $\dim_{\CC} V$ is even.
-3. Prove the Frobenius–Schur indicator formula: for an irreducible representation $V$, $$\frac{1}{|G|} \sum_{g \in G} \chi_V(g^2) = \begin{cases} 1 & \text{if } V \text{ is real}, \\ 0 & \text{if } \chi_V \notin {\RR}, \\ -1 & \text{if } V \text{ is quaternionic}. \end{cases}$$ (Hint: $\frac{1}{|G|}\sum_g \chi_V(g^2) = \dim(\Sym^2 V)^G - \dim(\bigwedge^2 V)^G$, and exactly one of these dimensions is 1 when $V \cong V^*$.)
-4. Using the Frobenius–Schur indicator, verify that the 2-dimensional irreducible of $Q_8$ is quaternionic.
-5. Show that the representations $Y$ and $Z$ of $A_5$ (the 3-dimensional irreducibles with golden-ratio character values) are real representations. (Their characters are real, and they have odd dimension.)
+1. Determine which irreducible representations of $S_4$ are real, which are quaternionic, and which are neither.
+2. For $h \in G$, let $r(h)$ be the number of $g \in G$ with $g^2 = h$. Show that $r$ is a class function and that $r = \sum_V \nu(V)\chi_V$, the sum running over the irreducible representations of $G$. Deduce that $\sum_V \nu(V) \dim V$ is the number of elements $g \in G$ with $g^2 = e$. Check this for $S_3$ and for $Q_8$.
+3. Let $|G|$ be odd. Show that the trivial representation is the only irreducible representation of $G$ whose character is real-valued. (Hint: $g \mapsto g^2$ is a bijection of $G$.)
+4. Compute the Frobenius–Schur indicator of the 2-dimensional irreducible representation of $Q_8$.
+5. Show that the 3-dimensional irreducible representations $Y$ and $Z$ of $A_5$ are real.
 
 :::solution
-**(1)** All characters of $S_4$ are real-valued (check the character table). A quaternionic representation has $J : V \to V$ with $J^2 = -\id$, and $J$ pairs basis vectors into orbits of size 2, so $\dim V$ must be even. The irreducibles of $S_4$ have dimensions 1, 1, 2, 3, 3. The odd-dimensional ones ($U, U', V_4, V_4'$) are automatically real. For $W$ ($\dim = 2$): compute the Frobenius–Schur indicator $\frac{1}{24}\sum \chi_W(g^2)$. We have $\chi_W = (2, 0, 2, -1, 0)$ with class sizes $(1, 6, 3, 8, 6)$. Squaring: $e \to e, (12) \to e, (12)(34) \to e, (123) \to (132), (1234) \to (13)(24)$. So $\chi_W(g^2) = (2, 2, 2, -1, 2)$. The indicator is $\frac{1}{24}(2 + 12 + 6 - 8 + 12) = 1$. So $W$ is also real.
+**(1)** All characters of $S_4$ are real-valued (see its character table in Section [14.1](/notes/math-55a/14-1-the-character-table-of-s-4)), so each irreducible representation is real or quaternionic. The irreducible representations $U, U', V, V'$ have odd dimension $1, 1, 3, 3$, so they are real by Proposition [16.5.5](/notes/math-55a/16-5-quaternionic-representations#proposition-16-5-5). For $W$ we compute the indicator. On the classes of $e, (12), (12)(34), (123), (1234)$, of sizes $1, 6, 3, 8, 6$, we have $\chi_W = (2, 0, 2, -1, 0)$. Squaring sends $e, (12), (12)(34)$ to $e$, a 3-cycle to a 3-cycle, and a 4-cycle to a double transposition, so $\chi_W(g^2) = (2, 2, 2, -1, 2)$ and $$\nu(W) = \tfrac{1}{24}(2 + 12 + 6 - 8 + 12) = 1.$$ So $W$ is real as well. (Alternatively, $W$ is the standard representation of $S_3$ pulled back along $S_4 \to S_4/K \cong S_3$, and that representation is real.) Every irreducible representation of $S_4$ is real.
 
-**(2)** The antilinear map $J$ gives an ${\RR}$-linear map $V \to V$ whose square is $-\id$. Viewing $V$ as ${\RR}^{2n}$ (where $\dim_{\CC} V = n$), this gives a real matrix $M$ with $M^2 = -I$. The characteristic polynomial $\det(M - tI)$ has degree $2n$ and all roots are $\pm i$, which come in conjugate pairs. More directly: $J$ makes $V$ into an $\mathbb{H}$-module, and $\dim_\mathbb{H} V = \frac{1}{2}\dim_{\CC} V$ must be a positive integer.
+**(2)** If $g^2 = h$, then $(xgx^{-1})^2 = xhx^{-1}$, so $g \mapsto xgx^{-1}$ is a bijection from the square roots of $h$ to those of $xhx^{-1}$, and $r$ is a class function. Since $\sum_h \ol{\chi_V(h)}\,r(h) = \sum_{g \in G} \ol{\chi_V(g^2)}$, $$\langle \chi_V, r \rangle = \frac{1}{|G|} \sum_{g \in G} \ol{\chi_V(g^2)} = \ol{\nu(V)} = \nu(V),$$ as $\nu(V)$ is an integer. The irreducible characters form an orthonormal basis of the class functions (Theorem [13.6.2](/notes/math-55a/13-6-characters-form-an-orthonormal-basis#theorem-13-6-2)), so $r = \sum_V \langle \chi_V, r \rangle \chi_V = \sum_V \nu(V) \chi_V$. Evaluating at $e$ gives $\#\{g : g^2 = e\} = \sum_V \nu(V) \dim V$.
 
-**(3)** We have $\frac{1}{|G|}\sum_g \chi_V(g^2) = \frac{1}{|G|}\sum_g \Tr(\rho(g^2))$. Using the decomposition $V \otimes V = \Sym^2 V \oplus \bigwedge^2 V$ and the identities $\chi_{\Sym^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 + \chi_V(g^2))$, $\chi_{\bigwedge^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 - \chi_V(g^2))$, we get the indicator $= \dim(\Sym^2 V)^G - \dim(\bigwedge^2 V)^G$. When $V \cong V^*$, the unique invariant bilinear form is either symmetric (contributing 1 to $\Sym^2$) or skew (contributing 1 to $\bigwedge^2$). When $V \not\cong V^*$, neither $\Sym^2 V$ nor $\bigwedge^2 V$ contains a trivial summand, giving 0.
+For $S_3$: $U, U', V$ are real, so the sum is $1 + 1 + 2 = 4$, and indeed $e$ and the three transpositions are the elements with $g^2 = e$. For $Q_8$: there are four 1-dimensional representations, pulled back from $Q_8/\{\pm 1\} \cong \ZZ/2 \times \ZZ/2$; they take the values $\pm 1$ and are real. With the quaternionic 2-dimensional representation, the sum is $4 - 2 = 2$, and indeed only $\pm 1$ square to $1$.
 
-**(4)** $Q_8$ has 5 conjugacy classes: $\{1\}, \{-1\}, \{\pm i\}, \{\pm j\}, \{\pm k\}$ of sizes 1, 1, 2, 2, 2. For the 2-dimensional rep: $\chi = (2, -2, 0, 0, 0)$. Squaring: $1^2 = 1$, $(-1)^2 = 1$, $(\pm i)^2 = -1$, $(\pm j)^2 = -1$, $(\pm k)^2 = -1$. So $\chi(g^2) = (2, 2, -2, -2, -2)$. Indicator: $\frac{1}{8}(2 + 2 - 4 - 4 - 4) = -1$. Quaternionic.
+**(3)** Let $|G| = m$ be odd. Since $g^m = e$, we have $(g^{(m+1)/2})^2 = g^{m+1} = g$, so squaring is surjective, hence bijective, on the finite set $G$. Therefore, for an irreducible $V$, $$\nu(V) = \frac{1}{|G|} \sum_{g \in G} \chi_V(g^2) = \frac{1}{|G|} \sum_{g \in G} \chi_V(g) = \dim V^G.$$ If $V$ is not trivial, then $V^G$ is a proper subrepresentation of the irreducible $V$, so $V^G = 0$ and $\nu(V) = 0$. By Theorem [16.6.2](/notes/math-55a/16-6-the-frobenius-schur-indicator#theorem-16-6-2), $\chi_V$ is not real-valued.
 
-**(5)** Both $Y$ and $Z$ have real characters and odd dimension 3. Since a quaternionic representation must have even complex dimension (exercise 2), odd-dimensional representations with real characters are automatically real.
+**(4)** $Q_8$ has five conjugacy classes, $\{1\}, \{-1\}, \{\pm i\}, \{\pm j\}, \{\pm k\}$, of sizes $1, 1, 2, 2, 2$, and $\chi = (2, -2, 0, 0, 0)$. Squaring sends $\pm 1$ to $1$ and the other six elements to $-1$, so $\chi(g^2) = (2, 2, -2, -2, -2)$ and $$\nu = \tfrac{1}{8}\bigl(2 + 2 + 2 \cdot (-2) \cdot 3\bigr) = \tfrac{1}{8}(4 - 12) = -1.$$ So the representation is quaternionic, as found in the text.
+
+**(5)** The characters of $Y$ and $Z$ are real-valued (see the character table of $A_5$ in Section [14.4](/notes/math-55a/14-4-the-character-table-of-a-5)) and their dimension, 3, is odd, so they are real by Proposition [16.5.5](/notes/math-55a/16-5-quaternionic-representations#proposition-16-5-5). One of them is also directly the complexification of the real representation $A_5 \hookrightarrow SO(3)$ given by the rotational symmetries of the icosahedron.
 :::
 :::

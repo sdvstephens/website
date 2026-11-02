@@ -172,7 +172,7 @@ a \sim a',\ b \sim b' \Rightarrow a + b \sim a' + b'
 $$
 ($n$ divides $a' - a$ and $b' - b$ $\Rightarrow$ $n$ divides $(a' + b') - (a + b)$). So we can define $[a] + [b] = [a + b]$.
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 4](/notes/math-55a/04-lagranges-theorem-normal-subgroups-and-quotients)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L04}}
 **Back to groups: cosets**
 
 Assume we have a surjective group homomorphism $\varphi : G \to H$. Recall the **kernel** $K = \ker(\varphi) = \{ a \in G \mid \varphi(a) = e_H \}$ is a subgroup of $G$.

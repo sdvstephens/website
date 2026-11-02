@@ -6,18 +6,38 @@ section: 16.2
 title: Complexification
 ---
 
-The main tool for relating real and complex representations is complexification.
+The main tool for relating real and complex representations is complexification (Section [7.10](/notes/math-55a/7-10-real-vector-spaces-and-complexification)).
 
-:::definition{16.2.1} Complexification
-Given a real representation $V_0$ of $G$, its complexification is the complex vector space $V = V_0 \otimes_{\RR} {\CC} = V_0 \oplus i V_0$, with $G$ acting by $g(v + iw) = gv + i \, gw$ for $v, w \in V_0$. This defines a functor $\{\text{real reps of } G\} \to \{\text{complex reps of } G\}$.
+:::definition{16.2.1} Complexification of a representation
+Let $V_0$ be a representation of $G$ over $\RR$. Its ***complexification*** is the complex vector space $V = (V_0)_{\CC} = V_0 \oplus iV_0$ (Definition [7.10.1](/notes/math-55a/7-10-real-vector-spaces-and-complexification#definition-7-10-1)), on which $g \in G$ acts by the complexified operator $$g(v + iw) = gv + i\,gw \qquad (v, w \in V_0).$$
 :::
 
-:::definition{16.2.2} Real complex representation
-A complex representation $V$ of $G$ is called real if there exists a real representation $V_0$ such that $V \cong V_0 \otimes_{\RR} {\CC}$.
+A real basis of $V_0$ is a complex basis of $V$, and in such a basis each $g$ has the same real matrix on $V$ as on $V_0$. Equivariant maps complexify as well, so complexification is a functor from representations of $G$ over $\RR$ to complex representations of $G$. The complexification is also written $V_0 \otimes_{\RR} \CC$.
+
+:::definition{16.2.2} Real representation
+A complex representation $V$ of $G$ is ***real*** if $V \cong (V_0)_{\CC}$ for some representation $V_0$ of $G$ over $\RR$.
 :::
 
-:::proposition{16.2.1} Necessary condition
-If $V = V_0 \otimes_{\RR} {\CC}$ is real, then $\chi_V$ takes values in ${\RR}$. (The trace of a matrix with real entries is real.)
+:::proposition{16.2.3} Real representations have real characters
+If $V$ is real, then $\chi_V(g) \in \RR$ for every $g \in G$.
 :::
 
-The converse is also true for irreducible representations, as we will show.
+:::proof
+In a basis of $V$ coming from a real basis of $V_0$, every $g$ acts by a real matrix, whose trace is real.
+:::
+
+Complexification need not preserve irreducibility.
+
+:::example{16.2.4} A real irreducible representation whose complexification is reducible
+The rotation representation of $\ZZ/n$ on $\RR^2$ from Example [16.1.2](/notes/math-55a/16-1-representations-over-r#example-16-1-2) is irreducible over $\RR$, but its complexification $\CC^2$ is not. The vectors $(1, -i)$ and $(1, i)$ are eigenvectors of $r$ with eigenvalues $e^{2\pi i/n}$ and $e^{-2\pi i/n}$, so $$(\RR^2)_{\CC} \cong \chi \oplus \ol{\chi},$$ where $\chi$ is the 1-dimensional representation with $\chi(1) = e^{2\pi i/n}$. For $n \geq 3$ neither summand is real, since $\chi$ and $\ol{\chi}$ take nonreal values.
+:::
+
+The converse of Proposition [16.2.3](/notes/math-55a/16-2-complexification#proposition-16-2-3) is false, even for irreducible representations.
+
+:::example{16.2.5} The quaternion group
+The quaternion group $Q_8 = \{\pm 1, \pm i, \pm j, \pm k\}$, with $i^2 = j^2 = k^2 = ijk = -1$, acts on $\CC^2$ by $$\pm 1 \mapsto \pm I, \quad \pm i \mapsto \pm\begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix}, \quad \pm j \mapsto \pm\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad \pm k \mapsto \pm\begin{pmatrix} 0 & -i \\ -i & 0 \end{pmatrix}.$$ (These matrices multiply according to the rules of $Q_8$: each of the last three squares to $-I$, and the product of the matrices of $i$ and $j$ is the matrix of $k$.) The representation is faithful. Its character is $\chi(\pm 1) = \pm 2$ and $\chi = 0$ on the other six elements, so $\chi$ is real-valued, and it is irreducible, since $\langle \chi, \chi \rangle = \frac{1}{8}(4 + 4) = 1$.
+
+This representation is not real. Suppose $V = \CC^2$ were isomorphic to $(V_0)_{\CC}$. Then in a suitable basis the elements of $Q_8$ would act by real matrices, so $V_0$ would be a faithful 2-dimensional representation over $\RR$. Averaging gives a $Q_8$-invariant inner product on $V_0$, and in an orthonormal basis we get an injective homomorphism $Q_8 \to O(2)$. The image of $-1 = i^2$ is the square of an element of $O(2)$, so it has determinant 1, and it has order 2; so it is the rotation by $\pi$, which is $-I$. Then the images of $\pm i, \pm j, \pm k$ are six distinct elements of $O(2)$ whose square is $-I$. But a reflection squares to $I$, and a rotation by $\theta$ squares to $-I$ only for $\theta = \pm\pi/2$; so $O(2)$ contains only two such elements, a contradiction.
+:::
+
+We will see in Section [16.5](/notes/math-55a/16-5-quaternionic-representations) that this representation is quaternionic, and that an irreducible representation with real character is always either real or quaternionic.

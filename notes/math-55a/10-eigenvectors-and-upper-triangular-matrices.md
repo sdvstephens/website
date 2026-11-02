@@ -95,7 +95,7 @@ $$a_0+a_1\varphi+\cdots+a_n\varphi^n = c(\varphi-\lambda_1)\cdots(\varphi-\lambd
 Now $(\varphi-\lambda_1)\cdots(\varphi-\lambda_d): V\to V$ has a nontrivial kernel ($\ni v$), which implies that at least one of the $\varphi-\lambda_i$ is not an isomorphism; hence there exist $i\in\{1,\dots,d\}$ and $w\in V-\{0\}$ such that $w\in\ker(\varphi-\lambda_i)$, i.e. $\varphi(w) = \lambda_iw$.
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 11](/notes/math-55a/11-generalized-eigenspaces-and-jordan-normal-form)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L11}}
 **Upper-triangular form**
 
 :::corollary

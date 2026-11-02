@@ -56,6 +56,10 @@ const MACROS = {
   llbracket: '\\mathopen{[\\![}', rrbracket: '\\mathclose{]\\!]}',
   xlongrightarrow: ['\\xrightarrow{#1}', 1], dg: '^\\circ', lub: '\\text{lub}',
   Lie: '\\unicode{xA3}', rchi: '\\chi',
+  // Defined with \\providecommand inside the 55a book's chapters.
+  Ann: op('Ann'), Frac: op('Frac'), Ind: op('Ind'), Res: op('Res'), Rep: op('Rep'),
+  Span: op('Span'), adj: op('adj'), ad: op('ad'), divis: op('div'), gker: op('gker'),
+  vol: '\\mathrm{vol}', PSL: op('PSL'),
 };
 for (const L of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') {
   MACROS['mc' + L] = `\\mathcal{${L}}`;

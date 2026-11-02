@@ -3,67 +3,55 @@
 course: math-55a
 chapter: 2
 section: 2.3
-title: Constructions: Products and sums
+title: Constructions: Products and Sums
 ---
 
 How do we build new groups from existing ones?
 
-## <span class="num">2.3.1</span> Direct products
+## <span class="num">2.3.1</span> Direct Products
 
 :::definition{2.3.1} Direct product
-Given groups $G$ and $H$, the ***direct product*** $G \times H$ is the Cartesian product with componentwise operation: $$(a, b) \cdot (a', b') = (aa', bb').$$ Identity is $(e_G, e_H)$, inverse of $(a, b)$ is $(a^{-1}, b^{-1})$.
+Given groups $G$ and $H$, the ***direct product*** $G \times H$ is the Cartesian product with the componentwise operation $$(a, b) \cdot (a', b') = (aa', bb').$$ Its identity is $(e_G, e_H)$, and the inverse of $(a, b)$ is $(a^{-1}, b^{-1})$.
 :::
 
-:::proposition{2.3.1} Direct product is a group
-The direct product $G \times H$ satisfies all group axioms. Moreover, $|G \times H| = |G| \cdot |H|$ (for finite groups).
+:::proposition{2.3.2} Direct product is a group
+The direct product $G \times H$ satisfies the group axioms. Moreover, if $G$ and $H$ are finite, then $|G \times H| = |G| \cdot |H|$.
 :::
 
-:::proof Proof (Verification of group axioms for $G \times H$)
-**Associativity:** $((a,b)(a',b'))(a'',b'') = (aa',bb')(a'',b'') = (aa'a'', bb'b'')$. Similarly, $(a,b)((a',b')(a'',b'')) = (a,b)(a'a'',b'b'') = (aa'a'', bb'b'')$. Equal by associativity in $G$ and $H$.
+:::proof
+**Associativity:** We have $$\begin{aligned}
+((a,b)(a',b'))(a'',b'') &= (aa',bb')(a'',b'') = ((aa')a'', (bb')b''),\\
+(a,b)((a',b')(a'',b'')) &= (a,b)(a'a'',b'b'') = (a(a'a''), b(b'b'')),
+\end{aligned}$$ and these are equal by associativity in $G$ and $H$.
 
 **Identity:** $(e_G, e_H)(a,b) = (e_Ga, e_Hb) = (a,b)$, and similarly on the right.
 
-**Inverses:** $(a,b)(a^{-1},b^{-1}) = (aa^{-1}, bb^{-1}) = (e_G, e_H)$.
+**Inverses:** $(a,b)(a^{-1},b^{-1}) = (aa^{-1}, bb^{-1}) = (e_G, e_H)$, and similarly on the other side.
+
+Finally, $G\times H$ consists of the pairs $(a,b)$, with $|G|$ choices for $a$ and $|H|$ for $b$.
 :::
 
-:::example{2.3.1}
-We have $\mathbb{Z}/2 \times \mathbb{Z}/3 \cong \mathbb{Z}/6$ (since $\gcd(2,3) = 1$), but $\mathbb{Z}/2 \times \mathbb{Z}/2 \not\cong \mathbb{Z}/4$ (the former has no element of order 4).
+The same construction works for any finite number of factors: $G_1\times\cdots\times G_n$ is the set of $n$-tuples with componentwise operation. For example, $\ZZ^n = \ZZ\times\cdots\times\ZZ$ is the group of $n$-tuples of integers under componentwise addition, $(a_1,\ldots,a_n)+(b_1,\ldots,b_n) = (a_1+b_1,\ldots,a_n+b_n)$; similarly for $\QQ^n$, $\RR^n$, and $\CC^n$.
+
+## <span class="num">2.3.2</span> Infinite Products and Direct Sums
+
+Products generalize to arbitrary (even infinite) families of groups.
+
+:::definition{2.3.3} Arbitrary direct products
+For a family of groups $\{G_i\}_{i \in I}$, the ***direct product*** is the product of the underlying sets (Definition [1.4.6](/notes/math-55a/1-4-families#definition-1-4-6)), $$\prod_{i \in I} G_i = \{(a_i)_{i \in I} : a_i \in G_i \text{ for all } i\},$$ with the componentwise operation $(a_i)_{i\in I}(b_i)_{i\in I} = (a_ib_i)_{i\in I}$. As for two factors, it is a group, with identity $(e_{G_i})_{i\in I}$ and inverse $(a_i^{-1})_{i\in I}$.
 :::
 
-This generalizes to arbitrary (even infinite) collections of groups.
-
-:::definition{2.3.2} Arbitrary direct products
-For a family of groups $\{G_i\}_{i \in I}$, the ***direct product*** is: $$\prod_{i \in I} G_i = \{(a_i)_{i \in I} : a_i \in G_i\}$$ with componentwise operations.
-:::
-
-:::definition{2.3.3} Direct sum
-The ***direct sum*** (for abelian groups) is the subgroup: $$\bigoplus_{i \in I} G_i = \{(a_i)_{i \in I} \in \prod_{i \in I} G_i : a_i = e_{G_i} \text{ for all but finitely many } i\}.$$
+:::definition{2.3.4} Direct sum
+For a family $\{G_i\}_{i\in I}$ of abelian groups, the ***direct sum*** is the subset $$\bigoplus_{i \in I} G_i = \Big\{(a_i)_{i \in I} \in \prod_{i \in I} G_i : a_i = e_{G_i} \text{ for all but finitely many } i\Big\}.$$ It contains the identity and is closed under the operation and under inverses, since these act componentwise and preserve the condition of having only finitely many nonidentity terms. So it is a group in its own right, a subgroup of the product in the language of Section [2.4](/notes/math-55a/2-4-subgroups).
 :::
 
 :::note
-For finite index sets, $\prod = \bigoplus$. For infinite sets, they differ crucially. ”O-plus” notation will become important when we move onto linear algebra.
+For finite index sets, $\prod = \bigoplus$. For infinite index sets, they differ crucially. The $\bigoplus$ notation will become important when we move on to linear algebra.
 :::
 
-:::example{2.3.2} Power series vs polynomials
-Taking $G_i = (\mathbb{R}, +)$ for all $i \in \mathbb{N}$: $$\prod_{i=0}^{\infty} \mathbb{R} \cong \mathbb{R}[[x]] \quad \text{(formal power series under addition)}$$ $$\bigoplus_{i=0}^{\infty} \mathbb{R} \cong \mathbb{R}[x] \quad \text{(polynomials under addition)}$$ A power series $\sum_{i=0}^\infty a_i x^i$ can have infinitely many nonzero terms; a polynomial cannot.
-:::
-
-:::question{1}
-1. Prove that $\mathbb{Z}/m \times \mathbb{Z}/n \cong \mathbb{Z}/mn$ if and only if $\gcd(m, n) = 1$.
-2. Find all groups of order 4 up to isomorphism.
-3. Prove that $G \times H \cong H \times G$ for any groups $G, H$.
-
-:::solution
-**(1)** ($\Leftarrow$) Assume $\gcd(m,n) = 1$. The element $(1, 1) \in \mathbb{Z}/m \times \mathbb{Z}/n$ has order $\lcm(m, n) = mn$ (since the order of $(a, b)$ is $\lcm(\ord(a), \ord(b))$). Thus $\mathbb{Z}/m \times \mathbb{Z}/n$ contains an element of order $mn = |G|$, so it’s cyclic, hence $\cong \mathbb{Z}/mn$.
-
-($\Rightarrow$) If $d = \gcd(m, n) > 1$, then for any $(a, b) \in \mathbb{Z}/m \times \mathbb{Z}/n$, we have $\frac{mn}{d} \cdot (a, b) = (\frac{mn}{d} a, \frac{mn}{d} b) = (0, 0)$ since $m \mid \frac{mn}{d}$ and $n \mid \frac{mn}{d}$. So every element has order dividing $\frac{mn}{d} < mn$, meaning no element has order $mn$. But $\mathbb{Z}/mn$ has an element of order $mn$, so they’re not isomorphic.
-
-**(2)** Let $G$ have order 4. Every element has order dividing 4, so orders are 1, 2, or 4.
-
-*Case 1:* $G$ has an element $a$ of order 4. Then $G = \{e, a, a^2, a^3\} = \langle a \rangle \cong \mathbb{Z}/4$.
-
-*Case 2:* Every non-identity element has order 2. Then $G = \{e, a, b, c\}$ with $a^2 = b^2 = c^2 = e$. What is $ab$? It’s not $e$ (else $a = b^{-1} = b$), not $a$ (else $b = e$), not $b$ (else $a = e$). So $ab = c$. Similarly $ba = c$ (check: $(ab)(ba) = a(bb)a = a^2 = e$, so $ba = (ab)^{-1} = ab$ since $ab$ has order 2). So $G$ is abelian, and $G \cong \mathbb{Z}/2 \times \mathbb{Z}/2$ (Klein four-group).
-
-**(3)** Define $\varphi : G \times H \to H \times G$ by $\varphi(g, h) = (h, g)$. This is clearly a bijection. It’s a homomorphism: $\varphi((g_1, h_1)(g_2, h_2)) = \varphi(g_1g_2, h_1h_2) = (h_1h_2, g_1g_2) = (h_1, g_1)(h_2, g_2) = \varphi(g_1, h_1)\varphi(g_2, h_2)$.
-:::
+:::example{2.3.5} Power series and polynomials
+Take $G_i = (\RR, +)$ for all $i \in \NN$, and write the family $(a_0,a_1,a_2,\ldots)$ as $\sum_{i\ge 0}a_ix^i$. Then $$\begin{aligned}
+\prod_{i\in\NN} \RR &= \RR{}[\![x]\!] \quad \text{(formal power series under addition)},\\
+\bigoplus_{i\in\NN} \RR &= \RR{}[x] \quad \text{(polynomials under addition)}.
+\end{aligned}$$ A power series $\sum_{i=0}^\infty a_i x^i$ can have infinitely many nonzero terms; a polynomial cannot. (Polynomials and power series can also be multiplied; that structure comes later, with rings.)
 :::

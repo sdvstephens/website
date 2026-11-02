@@ -7,113 +7,155 @@ title: Modules over a Ring
 ---
 
 :::lede
-We now take a detour from the purely linear-algebraic material to study modules—a generalization of vector spaces where the scalars come from a ring rather than a field. The payoff is immediate: the classification of finitely generated abelian groups reduces to “linear algebra over $\ZZ$.”
-
-Recall from [**Lecture 2**](/notes/math-55a/2-1-the-group-axioms) that every abelian group $(G, +)$ is a $\ZZ$-module: the action $\ZZ \times G \to G$ sends $(n, g) \mapsto ng$ (where $ng = g + g + \cdots + g$ for $n > 0$, $0 \cdot g = 0$, and $ng = -(|n|g)$ for $n < 0$). This observation is the bridge between group theory and module theory.
+A vector space is an abelian group on which the elements of a field act by scalar multiplication. If we let the scalars come from a ring instead, we obtain a *module*. Some of linear algebra survives this change and much of it does not; the first section of this chapter explores both. The second section specializes to the ring $\ZZ$. Every abelian group $(G, +)$ carries a multiplication by integers: for $n > 0$ let $ng = g + g + \cdots + g$ ($n$ terms), let $0g = 0$, and let $ng = -(|n|g)$ for $n < 0$. This makes $G$ a module over $\ZZ$, and the classification of finitely generated abelian groups becomes a problem of linear algebra over $\ZZ$.
 :::
 
 ## <span class="num">10.1.1</span> Definitions and Examples
 
 :::definition{10.1.1} Module
-Let $R$ be a ring (with unity $1$). A (left) **$R$-module** is an abelian group $(M, +)$ equipped with a scalar multiplication $R \times M \to M$, $(r, m) \mapsto r \cdot m$, satisfying:
+Let $R$ be a ring (Definition [4.1.1](/notes/math-55a/4-1-rings-and-fields#definition-4-1-1)). An ***$R$-module*** is an abelian group $(M, +)$ together with a scalar multiplication $R \times M \to M$, $(r, m) \mapsto rm$, such that for all $r, r_1, r_2 \in R$ and $m, m_1, m_2 \in M$:
 
 <!-- list:paren-roman -->
 
-1. $r(m_1 + m_2) = rm_1 + rm_2$ for all $r \in R$, $m_1, m_2 \in M$.
-2. $(r_1 + r_2)m = r_1 m + r_2 m$ for all $r_1, r_2 \in R$, $m \in M$.
-3. $(r_1 r_2)m = r_1(r_2 m)$ for all $r_1, r_2 \in R$, $m \in M$.
-4. $1 \cdot m = m$ for all $m \in M$.
+1. $r(m_1 + m_2) = rm_1 + rm_2$;
+2. $(r_1 + r_2)m = r_1 m + r_2 m$;
+3. $(r_1 r_2)m = r_1(r_2 m)$;
+4. $1 m = m$.
 :::
 
-:::example{10.1.1} Vector spaces
-If $R = k$ is a field, then a $k$-module is the same thing as a vector space over $k$. So modules generalize vector spaces by allowing the scalars to come from a ring.
+As for vector spaces, $0m = 0$ and $(-1)m = -m$ follow from the axioms: $0m = (0 + 0)m = 0m + 0m$ gives $0m = 0$, and then $m + (-1)m = (1 + (-1))m = 0$. When $R$ is not commutative, a module in this sense is also called a *left* $R$-module, since the scalars act on the left. From now on, $R$ denotes a commutative ring.
+
+:::example{10.1.2} Vector spaces
+If $R = k$ is a field, a $k$-module is exactly a vector space over $k$ (Definition [4.5.1](/notes/math-55a/4-5-vector-spaces#definition-4-5-1)). Modules generalize vector spaces by allowing the scalars to come from a ring.
 :::
 
-:::example{10.1.2} Abelian groups as $\ZZ$-modules
-Every abelian group $(G, +)$ is a $\ZZ$-module via $n \cdot g = ng$. Conversely, every $\ZZ$-module is an abelian group (just forget the $\ZZ$-action, which is determined by the group structure anyway). The categories of abelian groups and $\ZZ$-modules are the same.
+:::example{10.1.3} The modules $R^n$
+The set $R^n = \{(x_1, \ldots, x_n) : x_i \in R\}$, with componentwise addition and $r(x_1, \ldots, x_n) = (rx_1, \ldots, rx_n)$, is an $R$-module. For $n = 1$ this says that $R$ is a module over itself, the scalar multiplication being the multiplication of $R$.
 :::
 
-:::example{10.1.3} The ring as a module over itself
-$R$ is an $R$-module via left multiplication: $r \cdot s = rs$. This is a free module of rank 1.
+:::example{10.1.4} Abelian groups as $\ZZ$-modules
+Every abelian group $(G, +)$ is a $\ZZ$-module, with $ng$ defined as in the introduction. The axioms are the rules $n(g + h) = ng + nh$, $(m + n)g = mg + ng$, and $(mn)g = m(ng)$, which follow from the definition by induction on $|m|$ and $|n|$ (the first uses that $G$ is abelian). Conversely, a $\ZZ$-module structure on an abelian group is forced: by axioms (ii) and (iv), $ng = (1 + \cdots + 1)g = g + \cdots + g$ for $n > 0$, and $(-n)g = -(ng)$. So a $\ZZ$-module is the same thing as an abelian group.
 :::
 
-:::example{10.1.4} $R$-modules from ring homomorphisms
-If $\varphi : R \to S$ is a ring homomorphism, then any $S$-module $M$ becomes an $R$-module via $r \cdot m = \varphi(r) m$. This is called restriction of scalars.
+:::example{10.1.5} Restriction of scalars
+If $\varphi : R \to S$ is a ring homomorphism, then any $S$-module $M$ becomes an $R$-module via $r m = \varphi(r) m$. This is called ***restriction of scalars***. For instance, every $k[x]$-module is a vector space over $k$, by restriction along the inclusion $k \hookrightarrow k[x]$.
 :::
 
-:::example{10.1.5} Polynomial modules
-Let $R = k[x]$ and $V$ a vector space over $k$. Any linear operator $T : V \to V$ makes $V$ into a $k[x]$-module via $p(x) \cdot v = p(T)(v)$. Different operators give different module structures on the same underlying vector space.
+:::example{10.1.6} Modules over $k[x]$
+Let $V$ be a vector space over $k$ and $T : V \to V$ a linear operator. Then $V$ becomes a $k[x]$-module via $p(x) \cdot v = p(T)(v)$; the axioms hold because $(p + q)(T) = p(T) + q(T)$ and $(pq)(T) = p(T) \circ q(T)$. Conversely, a $k[x]$-module $V$ is a vector space over $k$ (by restriction of scalars) together with the operator $T(v) = x \cdot v$. So a $k[x]$-module is the same thing as a vector space with an operator, and different operators give different module structures on the same vector space.
 :::
 
-## <span class="num">10.1.2</span> Submodules and Ideals
+## <span class="num">10.1.2</span> Submodules, Ideals, and Quotients
 
-:::definition{10.1.2} Submodule
-A **submodule** of an $R$-module $M$ is a subset $N \subseteq M$ that is itself an $R$-module under the inherited operations. Equivalently, $N$ is a subgroup of $(M, +)$ that is closed under scalar multiplication: $rn \in N$ for all $r \in R$, $n \in N$.
+:::definition{10.1.7} Submodule
+A ***submodule*** of an $R$-module $M$ is a subset $N \subseteq M$ that is an $R$-module under the operations of $M$. Equivalently, $N$ is a subgroup of $(M, +)$ with $rn \in N$ for all $r \in R$ and $n \in N$.
 :::
 
-:::definition{10.1.3} Ideal
-A submodule of $R$ (viewed as a module over itself) is called a **left ideal**. When $R$ is commutative (as will be the case for us), left ideals are automatically **two-sided ideals**: subsets $I \subseteq R$ satisfying:
-
-<!-- list:paren-roman -->
-
-1. $I$ is an abelian subgroup of $(R, +)$.
-2. $rI \subseteq I$ and $Ir \subseteq I$ for all $r \in R$.
+:::definition{10.1.8} Ideal
+An ***ideal*** of $R$ is a submodule of $R$, viewed as a module over itself: a subgroup $I$ of $(R, +)$ such that $ra \in I$ for all $r \in R$ and $a \in I$. For $a \in R$, the set $aR = \{ra : r \in R\}$ is an ideal, the ***principal ideal*** generated by $a$.
 :::
 
-:::example{10.1.6} Ideals in $\ZZ$ and $k[x]$
-The ideals of $\ZZ$ are exactly the subgroups $n\ZZ = \{nk : k \in \ZZ\}$ for $n \geq 0$. Similarly, the ideals of $k[x]$ are $p(x) \cdot k[x] = \{p(x)q(x) : q(x) \in k[x]\}$. In both cases, every ideal is generated by a single element. Rings with this property are called **principal ideal domains** (PIDs). This is closely related to the Euclidean division algorithm: $\operatorname{span}(p, q) = \operatorname{span}(\gcd(p, q))$.
+:::example{10.1.9} Ideals of $\ZZ$ and $k[x]$
+The ideals of $\ZZ$ are the subgroups $n\ZZ$ with $n \geq 0$: every subgroup of $\ZZ$ has this form (Theorem [2.4.5](/notes/math-55a/2-4-subgroups#theorem-2-4-5)), and each $n\ZZ$ is closed under multiplication by integers. The ideals of $k[x]$ are $\{0\}$ and the sets $p(x)k[x]$ with $p \neq 0$. Indeed, if $I \neq \{0\}$ is an ideal, let $p \in I$ be a nonzero polynomial of least degree; for $f \in I$, Euclidean division gives $f = qp + r$ with $r = 0$ or $\deg r < \deg p$, and since $r = f - qp \in I$, minimality forces $r = 0$. So $I = p(x)k[x]$.
+
+In both rings every ideal is principal. An integral domain (a commutative ring with $1 \neq 0$ and no zero divisors) in which every ideal is principal is called a ***principal ideal domain***, or ***PID***; so $\ZZ$ and $k[x]$ are PIDs. In both cases the reason is the Euclidean algorithm, which shows that the ideal $pR + qR$ generated by two elements is the principal ideal generated by $\gcd(p, q)$.
 :::
 
-:::note
-The quotient of an $R$-module $M$ by a submodule $N$ is again an $R$-module, with $r \cdot (m + N) = rm + N$. For example, $\ZZ / n\ZZ = \ZZ/n$ as a $\ZZ$-module, and $k[x] / (p(x)) \cdot k[x]$ is a $k[x]$-module. The quotient of $R$ by an ideal is not just an $R$-module but a ring in its own right.
-:::
+If $N$ is a submodule of $M$, the quotient group $M/N$ (every subgroup of an abelian group is normal) is an $R$-module with $r(m + N) = rm + N$. This is well defined: if $m + N = m' + N$, then $rm - rm' = r(m - m') \in N$. The axioms for $M/N$ follow from those for $M$.
 
-## <span class="num">10.1.3</span> General Facts about Modules: Nothing Is True
-
-Over a field, every vector space has a basis, every linearly independent set extends to one, and every spanning set contains one. Over a general ring, all of these fail.
-
-:::example{10.1.7} Bases need not exist
-The $\ZZ$-module $M = \ZZ/n$ (for $n \geq 2$) has no basis. Any map $\varphi : \ZZ \to M$ sending $1 \mapsto m$ cannot be injective (since $nm = 0$ in $M$ but $n \neq 0$ in $\ZZ$). So no single-element set is linearly independent, and no basis can exist.
-:::
-
-:::example{10.1.8} Linearly independent sets may not be part of a basis
-Consider $M = \ZZ$ as a $\ZZ$-module. The element $2 \in \ZZ$ is linearly independent (if $a \cdot 2 = 0$ then $a = 0$). But $\{2\}$ cannot be extended to a basis of $\ZZ$: the only bases of $\ZZ$ are $\{1\}$ and $\{-1\}$, and no set containing $2$ is a basis.
-:::
-
-:::example{10.1.9} Spanning sets need not contain a basis
-The $\ZZ$-module $M = \ZZ$ is spanned by $\{4, 5\}$ (since $\gcd(4, 5) = 1$, so $1 = 5 \cdot 5 - 6 \cdot 4 \in \operatorname{span}(4, 5)$). But $\{4, 5\}$ is not linearly independent ($5 \cdot 4 - 4 \cdot 5 = 0$), and neither subset $\{4\}$ or $\{5\}$ spans $\ZZ$. So the spanning set contains no basis.
-:::
-
-:::example{10.1.10} Submodules of finitely generated modules need not be finitely generated
-Let $R = k[x_1, x_2, \ldots]$ (polynomials in infinitely many variables) and $M = R$ as an $R$-module. Then $M$ is generated by $\{1\}$. But the ideal $M' = \{f \in R : f(0) = 0\}$ (polynomials with zero constant term) is a submodule not finitely generated: any finite subset only involves finitely many variables $x_i$, so cannot span $x_j$ for large $j$.
-
-By contrast, this pathology does not occur over Noetherian rings (including $\ZZ$ and $k[x_1, \ldots, x_n]$).
-:::
-
-## <span class="num">10.1.4</span> Module Homomorphisms
-
-:::definition{10.1.4} Module homomorphism
-Let $M, N$ be $R$-modules. A map $\varphi \in \Hom_R(M, N)$ is a module homomorphism if $$\varphi(u + w) = \varphi(u) + \varphi(w) \quad \text{and} \quad \varphi(av) = a\varphi(v)$$ for all $u, w \in M$, $a \in R$.
+:::example{10.1.10} Quotient modules
+The $\ZZ$-module $\ZZ/n\ZZ$ is the cyclic group $\ZZ/n$. The $k[x]$-module $k[x]/xk[x]$ is a copy of $k$: the class of $a_0 + a_1 x + \cdots + a_d x^d$ is the class of the constant $a_0$, and $x$ acts as $0$, since $x \cdot a_0 = a_0 x \in xk[x]$. We denote this module simply by $k$.
 :::
 
 :::note
-When $R$ is commutative, $\Hom_R(M, N)$ is itself an $R$-module: $(\varphi + \psi)(v) = \varphi(v) + \psi(v)$ and $(a\varphi)(v) = a\varphi(v)$. (For noncommutative $R$, this scalar multiplication need not yield an $R$-module homomorphism, so $\Hom_R(M, N)$ is only an abelian group.) For free modules, things work as expected: $\Hom_R(R^m, R^n) \cong R^{m \times n}$ (determined by images of basis vectors, just like linear maps between vector spaces). But for non-free modules, $\Hom_R(M, N)$ can vanish even when both $M$ and $N$ are nonzero. For instance, $\Hom_R(k, k[x]) = 0$ when $R = k[x]$ and $M = k = k[x]/(x)$: any $\varphi$ must satisfy $x \cdot \varphi(1) = \varphi(x \cdot 1) = \varphi(0) = 0$, so $\varphi(1)$ is killed by $x$ in $k[x]$, forcing $\varphi(1) = 0$.
+If $I$ is an ideal, the quotient $R/I$ is also a ring, with $(a + I)(b + I) = ab + I$. This is well defined: if $a - a' \in I$ and $b - b' \in I$, then $ab - a'b' = a(b - b') + (a - a')b' \in I$.
 :::
 
-## <span class="num">10.1.5</span> Free Modules and Direct Sums
+## <span class="num">10.1.3</span> Module Homomorphisms
 
-:::definition{10.1.5} Free module
-An $R$-module $M$ is free if it has a basis: a set $\{e_i\}_{i \in I}$ such that every element of $M$ can be written uniquely as a finite $R$-linear combination $\sum r_i e_i$. Equivalently, $M \cong R^{(I)} = \bigoplus_{i \in I} R$. The rank of a free module is $|I|$ (well-defined when $R$ is commutative).
+:::definition{10.1.11} Module homomorphism
+Let $M$ and $N$ be $R$-modules. A map $\varphi : M \to N$ is a ***homomorphism of $R$-modules*** (or is ***$R$-linear***) if $$\varphi(u + w) = \varphi(u) + \varphi(w) \quad \text{and} \quad \varphi(au) = a\varphi(u)$$ for all $u, w \in M$ and $a \in R$. The set of these maps is denoted $\Hom_R(M, N)$. An ***isomorphism*** is a bijective homomorphism.
 :::
+
+The kernel $\ker \varphi$ and the image $\Img \varphi$ of a homomorphism are submodules; for instance, if $\varphi(u) = 0$ then $\varphi(au) = a\varphi(u) = 0$. The First Isomorphism Theorem holds for modules: the map $M/\ker\varphi \to \Img\varphi$, $m + \ker\varphi \mapsto \varphi(m)$, is an isomorphism of groups by Theorem [3.3.3](/notes/math-55a/3-3-the-isomorphism-theorems#theorem-3-3-3), and it is $R$-linear, so it is an isomorphism of $R$-modules.
+
+When $R = \ZZ$, every homomorphism of abelian groups $\varphi : G \to H$ is $\ZZ$-linear: $\varphi(ng) = n\varphi(g)$ for $n > 0$ by additivity, and $\varphi(-g) = -\varphi(g)$. So abelian groups and $\ZZ$-modules are the same objects with the same maps; in the language of Chapter 8, the two categories coincide.
 
 :::note
-Over a field, every module (= vector space) is free. Over ${\ZZ}$, free modules are the groups ${\ZZ}^n$. The module ${\ZZ}/n$ is *not* free for $n \geq 2$.
+Since $R$ is commutative, $\Hom_R(M, N)$ is itself an $R$-module, with $(\varphi + \psi)(v) = \varphi(v) + \psi(v)$ and $(a\varphi)(v) = a\varphi(v)$. (The map $a\varphi$ is $R$-linear because $(a\varphi)(bv) = abv' = b(av')$, where $v' = \varphi(v)$; this is where commutativity is used.) For the modules $R^m$ and $R^n$, things work as for vector spaces: a homomorphism $\varphi : R^m \to R^n$ is determined by the images $\varphi(e_1), \ldots, \varphi(e_m)$ of the standard vectors $e_j = (0, \ldots, 1, \ldots, 0)$, and these can be arbitrary, so $\Hom_R(R^m, R^n)$ is isomorphic to the module of $n \times m$ matrices with entries in $R$ (the $j$-th column lists the entries of $\varphi(e_j)$). For other modules, $\Hom_R(M, N)$ can be zero even when $M$ and $N$ are both nonzero.
 :::
 
-:::definition{10.1.6} Direct sum of modules
-The direct sum $M_1 \oplus M_2$ is the set of pairs $(m_1, m_2)$ with componentwise operations. More generally, $\bigoplus_{i \in I} M_i$ consists of tuples $(m_i)_{i \in I}$ with only finitely many nonzero entries. This has the universal property: maps out of $\bigoplus M_i$ correspond to families of maps out of each $M_i$.
+:::example{10.1.12} A vanishing $\Hom$
+Let $R = k[x]$ and let $k = k[x]/xk[x]$ be the module on which $x$ acts as $0$. Then $\Hom_{k[x]}(k, k[x]) = 0$. Indeed, if $\varphi : k \to k[x]$ is $k[x]$-linear, then $x \varphi(1) = \varphi(x \cdot 1) = \varphi(0) = 0$, and a polynomial $p$ with $xp = 0$ is zero; so $\varphi(1) = 0$, and then $\varphi(c) = \varphi(c \cdot 1) = c\varphi(1) = 0$ for every $c \in k$.
 :::
 
-:::definition{10.1.7} Exact sequences of modules
-A sequence of $R$-module homomorphisms $$\cdots \to M_{i-1} \xrightarrow{f_{i-1}} M_i \xrightarrow{f_i} M_{i+1} \to \cdots$$ is exact at $M_i$ if $\Img(f_{i-1}) = \Ker(f_i)$. A short exact sequence $0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0$ means $f$ is injective, $g$ is surjective, and $\Img(f) = \Ker(g)$, i.e., $C \cong B/f(A)$. A short exact sequence *splits* if $B \cong A \oplus C$. Over a PID, every short exact sequence of finitely generated modules with $C$ free splits (analogous to Maschke’s theorem).
+## <span class="num">10.1.4</span> Spanning Sets, Independence, and Bases
+
+For a set $I$, let $R^{(I)}$ be the module of families $(a_i)_{i \in I}$ of elements of $R$ with $a_i = 0$ for all but finitely many $i$, with componentwise operations; for $I = \{1, \ldots, n\}$ this is $R^n$. A family $(v_i)_{i \in I}$ of elements of an $R$-module $M$ determines the homomorphism $$\varphi : R^{(I)} \to M, \qquad (a_i)_{i \in I} \mapsto \sum_{i \in I} a_i v_i,$$ where the sum is finite. The basic notions of linear algebra can all be phrased in terms of $\varphi$.
+
+:::definition{10.1.13} Spanning sets, independence, and bases
+Let $(v_i)_{i \in I}$ be a family of elements of an $R$-module $M$, and $\varphi : R^{(I)} \to M$ as above.
+
+- The family ***spans*** $M$ (or ***generates*** $M$) if $\varphi$ is surjective: every element of $M$ is a finite linear combination $\sum a_i v_i$ with $a_i \in R$. The module $M$ is ***finitely generated*** if it is spanned by a finite family.
+- The family is ***linearly independent*** if $\varphi$ is injective: $\sum a_i v_i = 0$ implies $a_i = 0$ for all $i$.
+- The family is a ***basis*** of $M$ if $\varphi$ is bijective. A module that has a basis is ***free***.
+
+The span of a family (the image of $\varphi$) is a submodule, written $\operatorname{span}(v_i)$ or $\sum R v_i$.
+:::
+
+If $(v_i)_{i \in I}$ is a basis, then $\varphi : R^{(I)} \to M$ is an isomorphism, so the free modules are the modules isomorphic to some $R^{(I)}$. The standard vectors $e_1, \ldots, e_n$ form a basis of $R^n$; in particular $R$ is free with basis $\{1\}$.
+
+When $R = \ZZ$, the number of elements of a finite basis is determined by the module. Indeed, an isomorphism $\psi : \ZZ^m \to \ZZ^n$ maps $2\ZZ^m$ onto $2\ZZ^n$ (because $\psi(2x) = 2\psi(x)$), so it induces an isomorphism $\ZZ^m / 2\ZZ^m \cong \ZZ^n / 2\ZZ^n$. Reduction mod $2$ identifies these quotients with $(\ZZ/2)^m$ and $(\ZZ/2)^n$, which have $2^m$ and $2^n$ elements, so $m = n$. This number is the ***rank*** of the free $\ZZ$-module. (Over a field the rank is the dimension. The rank of a free module with a finite basis is well defined over every nonzero commutative ring, but we will only need $\ZZ$.)
+
+:::note
+Over a field, every finitely generated module is free, since a finite spanning set contains a basis (Chapter 4). Over $\ZZ$, the finitely generated free modules are the groups $\ZZ^n$. The module $\ZZ/n$ is *not* free for $n \geq 2$, as we show in the next subsection.
+:::
+
+:::definition{10.1.14} Direct sum of modules
+The ***direct sum*** $M_1 \oplus M_2$ of $R$-modules is the set of pairs $(m_1, m_2)$ with componentwise operations. More generally, for a family of modules $(M_i)_{i \in I}$, the direct sum $\bigoplus_{i \in I} M_i$ consists of the families $(m_i)_{i \in I}$ with $m_i \in M_i$ and only finitely many $m_i$ nonzero. For example, $R^{(I)} = \bigoplus_{i \in I} R$.
+:::
+
+The direct sum has the following universal property: homomorphisms $\bigoplus_{i} M_i \to N$ correspond to families of homomorphisms $\varphi_i : M_i \to N$. A homomorphism out of the direct sum restricts to each summand, and conversely a family $(\varphi_i)$ gives the homomorphism $(m_i) \mapsto \sum_i \varphi_i(m_i)$, a finite sum. For finitely many summands, $M_1 \oplus \cdots \oplus M_k$ is the same module as the product $M_1 \times \cdots \times M_k$, and for abelian groups we use both notations.
+
+## <span class="num">10.1.5</span> General Facts about Modules: Nothing Is True
+
+Over a field, every vector space has a basis, every linearly independent set extends to a basis, every spanning set contains a basis, and every subspace of a finite-dimensional space is finite-dimensional. Over a general ring, all four statements fail.
+
+:::example{10.1.15} Bases need not exist
+The $\ZZ$-module $M = \ZZ/n$, with $n \geq 2$, has no basis. If $(v_i)_{i \in I}$ is a nonempty family in $M$, then $\varphi : \ZZ^{(I)} \to M$ is not injective: it sends $n e_i \neq 0$ to $n v_i = 0$. So no nonempty family is linearly independent, and the empty family spans only $\{0\} \neq M$.
+:::
+
+:::example{10.1.16} Linearly independent sets need not extend to a basis
+In $M = \ZZ$, the element $2$ is linearly independent: $a \cdot 2 = 0$ implies $a = 0$. But no basis of $\ZZ$ contains $2$. A basis cannot contain two elements $a$ and $b$, because $b \cdot a - a \cdot b = 0$ would be a nontrivial relation (basis elements are nonzero, since $1 \cdot 0 = 0$). So a basis is a single element $a$ with $a\ZZ = \ZZ$, and the only bases of $\ZZ$ are $\{1\}$ and $\{-1\}$.
+:::
+
+:::example{10.1.17} Spanning sets need not contain a basis
+In $M = \ZZ$, the set $\{4, 5\}$ spans: $1 = 5 \cdot 5 - 6 \cdot 4$, so $n = 5n \cdot 5 - 6n \cdot 4$ for every $n$. But $\{4, 5\}$ is not linearly independent ($5 \cdot 4 - 4 \cdot 5 = 0$), and neither $\{4\}$ nor $\{5\}$ spans $\ZZ$. So this spanning set contains no basis.
+:::
+
+:::example{10.1.18} Submodules of finitely generated modules need not be finitely generated
+Let $R = k[x_1, x_2, \ldots]$ be the ring of polynomials in infinitely many variables, and $M = R$. Then $M$ is generated by $1$, but the ideal $M' = \{f \in R : f(0) = 0\}$ of polynomials with zero constant term is not finitely generated. Indeed, finitely many $f_1, \ldots, f_m \in M'$ involve only finitely many variables, say $x_1, \ldots, x_N$. Setting $x_1 = \cdots = x_N = 0$ is a ring homomorphism $R \to R$ that kills each $f_j$, hence kills every combination $\sum r_j f_j$; but it does not kill $x_{N+1} \in M'$. So $f_1, \ldots, f_m$ do not span $M'$.
+
+Over $\ZZ$ this cannot happen: we will see that every submodule of $\ZZ^n$ is finitely generated (Lemma [10.2.2](/notes/math-55a/10-2-classification-of-finitely-generated-abelian-groups#lemma-10-2-2)). More generally, it cannot happen over *Noetherian* rings, those in which every ideal is finitely generated, such as $k[x_1, \ldots, x_n]$; we will not prove this.
+:::
+
+## <span class="num">10.1.6</span> Exact Sequences
+
+:::definition{10.1.19} Exact sequences of modules
+A sequence of homomorphisms of $R$-modules $$\cdots \to M_{i-1} \xrightarrow{f_{i-1}} M_i \xrightarrow{f_i} M_{i+1} \to \cdots$$ is ***exact*** at $M_i$ if $\Img f_{i-1} = \ker f_i$, and exact if it is exact at every term that has a map in and a map out, as for groups (Definition [3.5.1](/notes/math-55a/3-5-exact-sequences#definition-3-5-1)). A ***short exact sequence*** $0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0$ is exact at $A$, $B$, and $C$: $f$ is injective, $g$ is surjective, and $\Img f = \ker g$, so that $C \cong B / f(A)$ by the First Isomorphism Theorem. It ***splits*** if there is a homomorphism $s : C \to B$ with $g \circ s = \id_C$.
+:::
+
+:::proposition{10.1.20} Split exact sequences
+Let $0 \to A \xrightarrow{f} B \xrightarrow{g} C \to 0$ be a short exact sequence of $R$-modules.
+
+<!-- list:paren-alpha -->
+
+1. If $s : C \to B$ satisfies $g \circ s = \id_C$, then $A \oplus C \to B$, $(a, c) \mapsto f(a) + s(c)$, is an isomorphism.
+2. If $C$ is free, the sequence splits; hence $B \cong A \oplus C$.
+:::
+
+:::proof
+(a) By Corollary [3.5.9](/notes/math-55a/3-5-exact-sequences#corollary-3-5-9), applied to the underlying abelian groups, the map is an isomorphism of groups; it is $R$-linear because $f$ and $s$ are.
+
+(b) Let $(c_i)_{i \in I}$ be a basis of $C$. Since $g$ is surjective, choose $b_i \in B$ with $g(b_i) = c_i$. Since $\varphi : R^{(I)} \to C$, $(a_i) \mapsto \sum a_i c_i$, is an isomorphism, there is a homomorphism $s : C \to B$ with $s(c_i) = b_i$, namely $s = \psi \circ \varphi^{-1}$ with $\psi((a_i)) = \sum a_i b_i$. Then $g \circ s$ and $\id_C$ agree on the basis, hence everywhere. Part (a) gives $B \cong A \oplus C$.
 :::

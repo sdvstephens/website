@@ -8,34 +8,35 @@ title: The Adjoint
 
 ## <span class="num">9.3.1</span> Definition and Existence
 
-Given a linear operator on an inner product space, we can define its “adjoint” by transposing the role of the two arguments in the inner product.
-
-:::definition{9.3.1} Adjoint operator
-Let $(V, \langle \cdot, \cdot \rangle)$ be a finite-dimensional inner product space and $T : V \to V$ a linear operator. The **adjoint** of $T$ is the unique linear operator $T^* : V \to V$ satisfying $$\langle v, T(w) \rangle = \langle T^*(v), w \rangle$$ for all $v, w \in V$.
-:::
+Given a linear operator on an inner product space, its *adjoint* is the operator obtained by moving it from one argument of the inner product to the other. Throughout this section $V$ is a finite-dimensional inner product space.
 
 :::theorem{9.3.1} Existence and uniqueness of the adjoint
-For any linear operator $T$ on a finite-dimensional inner product space, the adjoint $T^*$ exists and is unique.
+Let $T : V \to V$ be a linear operator on a finite-dimensional inner product space. There is a unique map $T^* : V \to V$ such that $$\langle v, T(w) \rangle = \langle T^*(v), w \rangle \quad \text{for all } v, w \in V,$$ and $T^*$ is linear.
 :::
 
-:::proof Proof (Existence)
-Fix $v \in V$. The map $w \mapsto \langle v, T(w) \rangle$ is a linear functional on $V$.
+:::proof
+**Existence.** Fix $v \in V$. The map $w \mapsto \langle v, T(w) \rangle$ is a linear functional on $V$, being the composite of $T$ with the linear functional $\langle v, \cdot \rangle$. By the Riesz representation theorem, there exists a unique $u \in V$ with $\langle u, w \rangle = \langle v, T(w) \rangle$ for all $w$. Define $T^*(v) = u$.
 
-Since the inner product is nondegenerate, the map $\varphi : V \to V^*$ defined by $\varphi(u) = \langle u, \cdot \rangle$ is an isomorphism. Thus there exists a unique $u \in V$ with $\langle u, w \rangle = \langle v, T(w) \rangle$ for all $w$. Define $T^*(v) = u$.
+**Linearity.** For $v_1, v_2 \in V$, $\lambda \in k$, and all $w \in V$: $$\begin{aligned}
+\langle T^*(v_1 + \lambda v_2), w \rangle &= \langle v_1 + \lambda v_2, T(w) \rangle = \langle v_1, T(w) \rangle + \ol\lambda \langle v_2, T(w) \rangle \\
+&= \langle T^*(v_1), w \rangle + \ol\lambda \langle T^*(v_2), w \rangle = \langle T^*(v_1) + \lambda T^*(v_2), w \rangle.
+\end{aligned}$$ By the uniqueness in the Riesz representation theorem, $T^*(v_1 + \lambda v_2) = T^*(v_1) + \lambda T^*(v_2)$.
 
-We must check $T^*$ is linear. For $v_1, v_2 \in V$ and $\lambda \in k$: $$\langle T^*(v_1 + \lambda v_2), w \rangle = \langle v_1 + \lambda v_2, T(w) \rangle = \langle v_1, T(w) \rangle + \lambda \langle v_2, T(w) \rangle$$ $$= \langle T^*(v_1), w \rangle + \lambda \langle T^*(v_2), w \rangle = \langle T^*(v_1) + \lambda T^*(v_2), w \rangle.$$ Since this holds for all $w$, we get $T^*(v_1 + \lambda v_2) = T^*(v_1) + \lambda T^*(v_2)$.
+**Uniqueness.** If $S$ also satisfies $\langle v, T(w) \rangle = \langle S(v), w \rangle$ for all $v, w$, then $\langle T^*(v) - S(v), w \rangle = 0$ for all $w$, so $T^*(v) - S(v) \in V^\perp = \{0\}$.
+:::
 
-**Uniqueness:** If $S$ also satisfies $\langle v, T(w) \rangle = \langle S(v), w \rangle$, then $\langle T^*(v) - S(v), w \rangle = 0$ for all $w$, so $T^*(v) = S(v)$ by nondegeneracy.
+:::definition{9.3.2} Adjoint operator
+Let $T : V \to V$ be a linear operator on a finite-dimensional inner product space. The ***adjoint*** of $T$ is the operator $T^* : V \to V$ of the theorem, characterized by $$\langle v, T(w) \rangle = \langle T^*(v), w \rangle \quad \text{for all } v, w \in V.$$ Taking complex conjugates of both sides (and renaming the variables), this is equivalent to $\langle T(v), w \rangle = \langle v, T^*(w) \rangle$ for all $v, w$.
 :::
 
 :::note
-Alternatively, the adjoint can be described as follows. The inner product gives an isomorphism $\varphi : V \xrightarrow{\sim} V^*$, $\varphi(v) = \langle v, \cdot \rangle$. The transpose $T^t : V^* \to V^*$ is defined by $T^t(\ell) = \ell \circ T$. Then $$T^* = \varphi^{-1} \circ T^t \circ \varphi.$$ This shows the adjoint is the “conjugate” of the transpose by the inner-product isomorphism.
+The adjoint is the dual map transported by the inner product. Let $\Phi : V \to V^*$, $\Phi(v) = \langle v, \cdot \rangle$, be the bijection of the Riesz representation theorem, and let $T^t : V^* \to V^*$, $T^t(\ell) = \ell \circ T$, be the dual map (Definition [6.2.9](/notes/math-55a/6-2-duality#definition-6-2-9)). The defining property says $$\Phi(T^*(v)) = \langle T^*(v), \cdot \rangle = \langle v, T(\cdot) \rangle = \Phi(v) \circ T = T^t(\Phi(v)),$$ so $$T^* = \Phi^{-1} \circ T^t \circ \Phi.$$ Over $\RR$, $\Phi$ is linear and $T^*$ is simply the transpose $T^t$ read through the isomorphism $V \cong V^*$. Over $\CC$, $\Phi$ is conjugate-linear, and $T^*$ is the *complex conjugate* of the transpose: in an orthonormal basis $\{e_i\}$ with dual basis $\{e_i^*\}$ we have $\Phi(\sum x_i e_i) = \sum \ol{x_i}\, e_i^*$, so if $T$ has matrix $M$, then $T^t$ has matrix $M^t$ and $T^*$ has matrix $\ol{M^t}$ (see Theorem [9.3](/notes/math-55a/9-3-the-adjoint) below).
 :::
 
 ## <span class="num">9.3.2</span> Properties of the Adjoint
 
-:::proposition{9.3.1} Algebraic properties of the adjoint
-Let $S, T : V \to V$ be linear operators on an inner product space, and $\lambda \in k$. Then:
+:::proposition{9.3.3} Algebraic properties of the adjoint
+Let $S, T : V \to V$ be linear operators on a finite-dimensional inner product space, and $\lambda \in k$. Then:
 
 <!-- list:paren-roman -->
 
@@ -43,58 +44,80 @@ Let $S, T : V \to V$ be linear operators on an inner product space, and $\lambda
 2. $(S + T)^* = S^* + T^*$.
 3. $(\lambda T)^* = \ol{\lambda} T^*$.
 4. $(ST)^* = T^* S^*$.
-5. $(\id)^* = \id$.
+5. $\id^* = \id$.
+6. If $T$ is invertible, then $T^*$ is invertible and $(T^{-1})^* = (T^*)^{-1}$.
 :::
 
 :::proof
-Each follows from manipulating the defining equation $\langle v, T(w) \rangle = \langle T^*(v), w \rangle$.
+Each follows from the defining equation $\langle v, T(w) \rangle = \langle T^*(v), w \rangle$ and the uniqueness of the adjoint.
 
-(i) $\langle v, T^*(w) \rangle = \ol{\langle T^*(w), v \rangle} = \ol{\langle w, T(v) \rangle} = \langle T(v), w \rangle$. So $(T^*)^* = T$.
+(i) $\langle v, T^*(w) \rangle = \ol{\langle T^*(w), v \rangle} = \ol{\langle w, T(v) \rangle} = \langle T(v), w \rangle$. So $T$ satisfies the defining property of $(T^*)^*$.
 
-(iv) $\langle v, (ST)(w) \rangle = \langle v, S(T(w)) \rangle = \langle S^*(v), T(w) \rangle = \langle T^*(S^*(v)), w \rangle = \langle (T^* S^*)(v), w \rangle$.
+(ii) $\langle v, (S + T)(w) \rangle = \langle v, S(w) \rangle + \langle v, T(w) \rangle = \langle S^*(v) + T^*(v), w \rangle$.
+
+(iii) $\langle v, \lambda T(w) \rangle = \lambda \langle v, T(w) \rangle = \lambda \langle T^*(v), w \rangle = \langle \ol\lambda T^*(v), w \rangle$.
+
+(iv) $\langle v, S(T(w)) \rangle = \langle S^*(v), T(w) \rangle = \langle T^*(S^*(v)), w \rangle$.
+
+(v) $\langle v, \id(w) \rangle = \langle \id(v), w \rangle$.
+
+(vi) Applying (iv) and (v) to $T T^{-1} = \id = T^{-1} T$ gives $(T^{-1})^* T^* = \id = T^* (T^{-1})^*$.
 :::
 
 :::note
-Property (iv) shows that taking adjoints reverses order, just like taking transposes or inverses. The map $T \mapsto T^*$ is a conjugate-linear anti-automorphism of $\End(V)$.
+Property (iv) shows that taking adjoints reverses the order of products, just like taking transposes or inverses. So $T \mapsto T^*$ is a conjugate-linear map $\End(V) \to \End(V)$ that reverses products and is its own inverse.
 :::
 
 ### Matrix of the Adjoint
 
-:::theorem{9.3.2} Matrix of the adjoint
-Let $\{e_1, \ldots, e_n\}$ be an orthonormal basis of $V$, and let $M = M(T)$ be the matrix of $T$ in this basis. Then the matrix of $T^*$ is: $$M(T^*) = \begin{cases} M^T & \text{(real inner product)} \\ M^* = \ol{M}^T & \text{(Hermitian inner product)} \end{cases}$$ where $M^*$ denotes the conjugate transpose.
+:::theorem{9.3.4} Matrix of the adjoint
+Let $\{e_1, \ldots, e_n\}$ be an orthonormal basis of $V$, and let $M = \mcM(T)$ be the matrix of $T$ in this basis. Then the matrix of $T^*$ is $$\mcM(T^*) = \begin{cases} M^t & \text{(real inner product)}, \\ M^* = \ol{M}^t & \text{(Hermitian inner product)}, \end{cases}$$ where $M^*$ denotes the conjugate transpose.
 :::
 
 :::proof
-The $(i, j)$-entry of $M(T)$ is the coefficient of $e_i$ in $T(e_j)$, which equals $\langle T(e_j), e_i \rangle = \ol{\langle e_i, T(e_j) \rangle}$.
-
-The $(i, j)$-entry of $M(T^*)$ is $\langle T^*(e_j), e_i \rangle$.
-
-Using the defining property: $$\langle T^*(e_j), e_i \rangle = \langle e_j, T(e_i) \rangle = \ol{\langle T(e_i), e_j \rangle}.$$ The $(j, i)$-entry of $M(T)$ is $\langle T(e_i), e_j \rangle$, so $$M(T^*)_{ij} = \ol{M(T)_{ji}} = (M^*)_{ij}.$$
+The $(i, j)$-entry of $\mcM(T)$ is the coefficient of $e_i$ in $T(e_j)$, which is $\langle e_i, T(e_j) \rangle$ (coordinates in an orthonormal basis). Likewise the $(i, j)$-entry of $\mcM(T^*)$ is $$\langle e_i, T^*(e_j) \rangle = \ol{\langle T^*(e_j), e_i \rangle} = \ol{\langle e_j, T(e_i) \rangle} = \ol{\mcM(T)_{ji}}.$$ So $\mcM(T^*)_{ij} = \ol{M_{ji}} = (M^*)_{ij}$; over $\RR$ the bar has no effect.
 :::
 
 :::note
-In an orthonormal basis, self-adjoint operators ($T^* = T$) correspond to symmetric matrices (real case) or Hermitian matrices (complex case, $M = M^*$).
+The orthonormality of the basis matters: in a general basis, the matrix of $T^*$ is not $M^*$.
 :::
 
-:::proposition{9.3.2} Kernel and image of the adjoint
+:::proposition{9.3.5} Kernel and image of the adjoint
 For $T : V \to V$:
 
 <!-- list:paren-roman -->
 
-1. $\Ker(T^*) = \Img(T)^\perp$.
-2. $\Img(T^*) = \Ker(T)^\perp$.
+1. $\ker(T^*) = \Img(T)^\perp$.
+2. $\Img(T^*) = \ker(T)^\perp$.
 :::
 
 :::proof
-(i) $v \in \Ker(T^*) \iff T^*(v) = 0 \iff \langle T^*(v), w \rangle = 0 \; \forall w \iff \langle v, T(w) \rangle = 0 \; \forall w \iff v \perp \Img(T)$.
+(i) Since $V^\perp = \{0\}$, $$v \in \ker(T^*) \iff \langle T^*(v), w \rangle = 0 \ \forall w \iff \langle v, T(w) \rangle = 0 \ \forall w \iff v \in \Img(T)^\perp.$$
 
-(ii) Apply (i) to $T^*$: $\Ker((T^*)^*) = \Img(T^*)^\perp$, i.e., $\Ker(T) = \Img(T^*)^\perp$. Taking orthogonal complements: $\Ker(T)^\perp = (\Img(T^*)^\perp)^\perp = \Img(T^*)$ (using $(S^\perp)^\perp = S$ in finite dimensions).
+(ii) Apply (i) to $T^*$: $\ker((T^*)^*) = \Img(T^*)^\perp$, i.e., $\ker(T) = \Img(T^*)^\perp$. Taking orthogonal complements and using Corollary [9.1.32](/notes/math-55a/9-1-bilinear-forms-and-inner-products#corollary-9-1-32): $\ker(T)^\perp = (\Img(T^*)^\perp)^\perp = \Img(T^*)$.
 :::
 
-:::corollary{9.3.1} Rank equality
+:::corollary{9.3.6} Rank equality
 $\rank(T) = \rank(T^*)$.
 :::
 
 :::proof
-$\rank(T^*) = \dim \Img(T^*) = \dim \Ker(T)^\perp = \dim V - \dim \Ker(T) = \rank(T)$.
+$\rank(T^*) = \dim \Img(T^*) = \dim \ker(T)^\perp = \dim V - \dim \ker(T) = \rank(T)$, by Lemma [9.1.30](/notes/math-55a/9-1-bilinear-forms-and-inner-products#lemma-9-1-30) and rank–nullity.
+:::
+
+The following lemma is the key to all the structure theorems below: it lets us split off an invariant subspace and continue on its orthogonal complement.
+
+:::lemma{9.3.7} Invariant subspaces and the adjoint
+Let $T : V \to V$ and let $S \subseteq V$ be a subspace.
+
+<!-- list:paren-roman -->
+
+1. If $S$ is $T$-invariant, then $S^\perp$ is $T^*$-invariant.
+2. If $S$ is invariant under both $T$ and $T^*$, then, for the restricted inner product on $S$, $(T|_S)^* = T^*|_S$.
+:::
+
+:::proof
+(i) Let $v \in S^\perp$ and $w \in S$. Then $T(w) \in S$, so $\langle T^*(v), w \rangle = \langle v, T(w) \rangle = 0$. Thus $T^*(v) \in S^\perp$.
+
+(ii) The restriction of $\langle \cdot, \cdot \rangle$ to $S$ is an inner product, and $T^*|_S$ maps $S$ to $S$. For $v, w \in S$, $\langle v, T|_S(w) \rangle = \langle T^*|_S(v), w \rangle$, so $T^*|_S$ satisfies the defining property of the adjoint of $T|_S$; by uniqueness, $(T|_S)^* = T^*|_S$.
 :::

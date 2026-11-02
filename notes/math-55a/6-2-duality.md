@@ -8,212 +8,252 @@ title: Duality
 
 The *dual space* of a vector space $V$ consists of all linear maps from $V$ to the base field $k$—these are called *linear functionals*. While this might seem like a minor variation on Hom-spaces, duality reveals useful structure: every basis has a “dual basis,” every linear map has a “dual map,” and the matrix of the dual map is the transpose of the original. In more advanced contexts (differential geometry, functional analysis, representation theory), duality becomes indispensable.
 
-:::note
-The dual space construction is the first example of a ***contravariant functor*** you’ll encounter. When we pass from $V$ to $V'$, linear maps $T : V \to W$ don’t induce maps $V' \to W'$—instead, they induce maps $W' \to V'$, going the “wrong way.” This reversal of arrows is the hallmark of contravariance. In category theory, the dual space functor $(-)' : \mathbf{Vect}_k^{\mathrm{op}} \to \mathbf{Vect}_k$ is representable: $V' = \Hom(V, k)$ is “the functor represented by $k$.”
-:::
-
 ## <span class="num">6.2.1</span> Linear Functionals and the Dual Space
 
 :::definition{6.2.1} Linear functional
 A ***linear functional*** on a vector space $V$ over a field $k$ is a linear map $\ell : V \to k$. In other words, a linear functional is an element of $\Hom(V, k)$.
 :::
 
-:::example{6.2.1} Examples of linear functionals
+:::example{6.2.2} Examples of linear functionals
+<!-- list:paren-alpha -->
+
 1. **Coordinate projections:** On $k^n$, define $\pi_j(x_1, \ldots, x_n) = x_j$. Each $\pi_j$ is a linear functional.
-2. **Weighted sums:** Fix $(c_1, \ldots, c_n) \in k^n$. Define $\ell(x_1, \ldots, x_n) = c_1 x_1 + \cdots + c_n x_n$. This is a linear functional on $k^n$, and *every* linear functional on $k^n$ has this form.
-3. **Evaluation:** On $\mcP(\RR)$, define $\ev_a(p) = p(a)$ for fixed $a \in \RR$. This is a linear functional.
-4. **Integration:** On $\mcP(\RR)$, define $\ell(p) = \int_0^1 p(x) \, dx$. Linearity of the integral makes this a linear functional.
-5. **Trace:** On $\mcM_{n \times n}(k)$, the trace $Tr(A) = \sum_{i=1}^n a_{ii}$ is a linear functional.
+2. **Weighted sums:** Fix $(c_1, \ldots, c_n) \in k^n$. Define $\ell(x_1, \ldots, x_n) = c_1 x_1 + \cdots + c_n x_n$. This is a linear functional on $k^n$, and *every* linear functional $\ell$ on $k^n$ has this form, with $c_j = \ell(e_j)$: indeed $\ell(x) = \ell(\sum x_j e_j) = \sum x_j \ell(e_j)$.
+3. **Evaluation:** On $\RR{}[x]$, define $\ev_a(p) = p(a)$ for fixed $a \in \RR$. This is a linear functional.
+4. **Integration:** On $\RR{}[x]$, define $\ell(p) = \int_0^1 p(x) \, dx$. Linearity of the integral makes this a linear functional.
+5. **Trace:** On $\mcM_{n \times n}(k)$, the trace $\Tr(A) = \sum_{i=1}^n a_{ii}$ is a linear functional.
 :::
 
-:::definition{6.2.2} Dual space
-The ***dual space*** of $V$, denoted $V^*$ or $V'$, is the vector space of all linear functionals on $V$: $$V^* = \Hom(V, k).$$ This is a vector space under pointwise addition and scalar multiplication: $(\ell_1 + \ell_2)(v) = \ell_1(v) + \ell_2(v)$ and $(\lambda \ell)(v) = \lambda \cdot \ell(v)$.
+:::definition{6.2.3} Dual space
+The ***dual space*** of $V$, denoted $V^*$, is the vector space of all linear functionals on $V$: $$V^* = \Hom(V, k).$$ This is a vector space under pointwise addition and scalar multiplication: $(\ell_1 + \ell_2)(v) = \ell_1(v) + \ell_2(v)$ and $(\lambda \ell)(v) = \lambda \cdot \ell(v)$.
 :::
 
 :::note
-We use $V^*$ notation (common in differential geometry and physics) interchangeably with $V'$ (common in algebra). Both mean the same thing. Some texts reserve $V^*$ for the continuous dual in functional analysis, but for finite-dimensional spaces this distinction is irrelevant.
+Axler writes $V'$ for the dual space and $U^0$ for the annihilator defined below. In this book the star is reserved for dual spaces; for the dual of a *map* we write $\varphi^t$, because $\varphi^*$ will denote the adjoint of an operator on an inner product space (Chapter 9).
 :::
 
-:::proposition{6.2.1} Dimension of the dual space
+:::proposition{6.2.4} Dimension of the dual space
 If $V$ is finite-dimensional with $\dim(V) = n$, then $\dim(V^*) = n$. Thus $V^* \cong V$ as vector spaces (non-canonically).
 :::
 
 :::proof
-By our earlier result on Hom-spaces: $$\dim(V^*) = \dim(\Hom(V, k)) = \dim(V) \cdot \dim(k) = n \cdot 1 = n.$$
+By the formula $\dim \Hom(V, W) = \dim(V) \cdot \dim(W)$ (Corollary [5.2.8](/notes/math-55a/5-2-matrices-of-linear-maps#corollary-5-2-8)): $$\dim(V^*) = \dim(\Hom(V, k)) = \dim(V) \cdot \dim(k) = n \cdot 1 = n.$$
 :::
 
 :::note
-The isomorphism $V \cong V^*$ is *non-canonical*—it depends on a choice of basis. There’s no “natural” way to identify vectors with linear functionals without extra structure. However, the *double dual* $V^{**} = (V^*)^*$ *does* have a canonical isomorphism with $V$, given by evaluation: $v \mapsto (\ell \mapsto \ell(v))$.
+The isomorphism $V \cong V^*$ is *non-canonical*—it depends on a choice of basis. There is no “natural” way to identify vectors with linear functionals without extra structure. However, the *double dual* $V^{**} = (V^*)^*$ *does* have a canonical isomorphism with $V$, given by evaluation: $v \mapsto (\ell \mapsto \ell(v))$ (Theorem [6.2](/notes/math-55a/6-2-duality)).
 :::
 
 ## <span class="num">6.2.2</span> The Dual Basis
 
-Given a basis of $V$, there’s a natural associated basis of $V^*$.
+Given a basis of $V$, there is an associated basis of $V^*$.
 
-:::definition{6.2.3} Dual basis
-Let $\mathcal{B} = \{v_1, \ldots, v_n\}$ be a basis of $V$. The ***dual basis*** is the list $\mathcal{B}^* = \{\varphi_1, \ldots, \varphi_n\}$ of linear functionals in $V^*$ defined by $$\varphi_j(v_i) = \delta_{ij} = \begin{cases} 1 & \text{if } i = j, \\ 0 & \text{if } i \neq j. \end{cases}$$ In other words, $\varphi_j$ “picks out” the $j$-th coordinate: if $v = c_1 v_1 + \cdots + c_n v_n$, then $\varphi_j(v) = c_j$.
+:::definition{6.2.5} Dual basis
+Let $\mcB = (v_1, \ldots, v_n)$ be a basis of $V$. The ***dual basis*** is the list $\mcB^* = (v_1^*, \ldots, v_n^*)$ of linear functionals in $V^*$ defined by $$v_j^*(v_i) = \delta_{ij} = \begin{cases} 1 & \text{if } i = j, \\ 0 & \text{if } i \neq j. \end{cases}$$ (A linear map is determined by its values on a basis, and any values may be prescribed; Proposition [5.1.2](/notes/math-55a/5-1-linear-maps#proposition-5-1-2).) In other words, $v_j^*$ “picks out” the $j$-th coordinate: if $v = c_1 v_1 + \cdots + c_n v_n$, then $v_j^*(v) = c_j$.
 :::
 
-:::proposition{6.2.2} Dual basis is a basis
-The dual basis $\{\varphi_1, \ldots, \varphi_n\}$ is indeed a basis of $V^*$.
+:::proposition{6.2.6} The dual basis is a basis
+The dual basis $(v_1^*, \ldots, v_n^*)$ is a basis of $V^*$.
 :::
 
 :::proof
-**Linear independence:** Suppose $a_1 \varphi_1 + \cdots + a_n \varphi_n = 0$ (the zero functional). Evaluating at $v_k$: $$0 = (a_1 \varphi_1 + \cdots + a_n \varphi_n)(v_k) = a_1 \varphi_1(v_k) + \cdots + a_n \varphi_n(v_k) = a_k.$$ So all $a_k = 0$.
+**Linear independence:** Suppose $a_1 v_1^* + \cdots + a_n v_n^* = 0$ (the zero functional). Evaluating at $v_i$: $$0 = (a_1 v_1^* + \cdots + a_n v_n^*)(v_i) = a_1 v_1^*(v_i) + \cdots + a_n v_n^*(v_i) = a_i.$$ So all $a_i = 0$.
 
 **Spanning:** Since we have $n$ linearly independent vectors in $V^*$ and $\dim(V^*) = n$, they form a basis.
 :::
 
-:::proposition{6.2.3} Dual basis extracts coordinates
-Let $\{v_1, \ldots, v_n\}$ be a basis of $V$ with dual basis $\{\varphi_1, \ldots, \varphi_n\}$. For any $v \in V$: $$v = \varphi_1(v) v_1 + \varphi_2(v) v_2 + \cdots + \varphi_n(v) v_n.$$ That is, $\varphi_j(v)$ is the $j$-th coordinate of $v$ with respect to the basis $\{v_i\}$.
+:::proposition{6.2.7} Expansions in a basis and its dual basis
+Let $(v_1, \ldots, v_n)$ be a basis of $V$ with dual basis $(v_1^*, \ldots, v_n^*)$. For any $v \in V$ and any $\ell \in V^*$: $$v = v_1^*(v)\, v_1 + \cdots + v_n^*(v)\, v_n \qquad\text{and}\qquad \ell = \ell(v_1)\, v_1^* + \cdots + \ell(v_n)\, v_n^*.$$ That is, $v_j^*(v)$ is the $j$-th coordinate of $v$ in the basis $(v_i)$, and $\ell(v_j)$ is the $j$-th coordinate of $\ell$ in the dual basis.
 :::
 
 :::proof
-Write $v = c_1 v_1 + \cdots + c_n v_n$. Applying $\varphi_j$: $$\varphi_j(v) = c_1 \varphi_j(v_1) + \cdots + c_n \varphi_j(v_n) = c_j.$$ Substituting back: $v = \varphi_1(v) v_1 + \cdots + \varphi_n(v) v_n$.
+Write $v = c_1 v_1 + \cdots + c_n v_n$. Applying $v_j^*$: $$v_j^*(v) = c_1 v_j^*(v_1) + \cdots + c_n v_j^*(v_n) = c_j.$$ Substituting back gives the first formula. For the second, both sides are linear functionals, and at $v_i$ the right side takes the value $\sum_j \ell(v_j)\, v_j^*(v_i) = \ell(v_i)$. Two linear maps that agree on a basis are equal.
 :::
 
-:::example{6.2.2} Dual basis of the standard basis
-Let $\{e_1, \ldots, e_n\}$ be the standard basis of $k^n$. The dual basis consists of the coordinate projections: $$\varphi_j(x_1, \ldots, x_n) = x_j.$$ These are the “row vectors” $\varphi_j = (0, \ldots, 0, 1, 0, \ldots, 0)$ (with 1 in position $j$).
+:::example{6.2.8} Dual basis of the standard basis
+Let $(e_1, \ldots, e_n)$ be the standard basis of $k^n$. The dual basis consists of the coordinate projections: $$e_j^*(x_1, \ldots, x_n) = x_j.$$ If we write elements of $k^n$ as column vectors and represent the functional $x \mapsto c_1 x_1 + \cdots + c_n x_n$ by the row vector $(c_1, \ldots, c_n)$, so that applying a functional to a vector is the matrix product (row)$\cdot$(column), then $e_j^*$ is the row vector $(0, \ldots, 0, 1, 0, \ldots, 0)$ with $1$ in position $j$.
+:::
+
+:::note
+Each $v_j^*$ depends on the whole basis: changing the other basis vectors can change $v_j^*$ even when $v_j$ stays the same. There is no such thing as “the dual of a vector.” In $k^2$, the basis $(e_1, e_2)$ gives $e_1^*(x_1, x_2) = x_1$, while the basis $(e_1, e_1 + e_2)$, which has the same first vector, gives the first dual functional $(x_1, x_2) \mapsto x_1 - x_2$. This is another way of seeing that the isomorphism $V \cong V^*$ depends on choices.
 :::
 
 ## <span class="num">6.2.3</span> The Dual Map
 
-Just as a linear map $T : V \to W$ induces a map on Hom-spaces, it induces a map on dual spaces—but in the *opposite* direction.
+Just as a linear map $\varphi : V \to W$ acts on Hom-spaces by composition, it induces a map on dual spaces—but in the *opposite* direction.
 
-:::definition{6.2.4} Dual map (transpose)
-Let $T : V \to W$ be a linear map. The ***dual map*** (or ***transpose***) is the linear map $T^* : W^* \to V^*$ defined by $$T^*(\psi) = \psi \circ T$$ for each $\psi \in W^*$. In other words, $T^*(\psi)$ is the linear functional on $V$ given by $v \mapsto \psi(T(v))$.
+:::definition{6.2.9} Dual map (transpose)
+Let $\varphi : V \to W$ be a linear map. The ***dual map*** (or ***transpose***) of $\varphi$ is the map $\varphi^t : W^* \to V^*$ defined by $$\varphi^t(\ell) = \ell \circ \varphi$$ for each $\ell \in W^*$. In other words, $\varphi^t(\ell)$ is the linear functional on $V$ given by $v \mapsto \ell(\varphi(v))$.
 :::
 
 :::note
-The dual map goes “backwards”: $T : V \to W$ yields $T^* : W^* \to V^*$. This is because we’re precomposing with $T$. If you think of linear functionals as “measurements,” then $T^*(\psi)$ is the measurement you get by first applying $T$, then measuring with $\psi$. The reversal of direction is the essence of contravariance.
+The dual map goes “backwards”: $\varphi : V \to W$ yields $\varphi^t : W^* \to V^*$, because we are precomposing with $\varphi$. If you think of linear functionals as “measurements,” then $\varphi^t(\ell)$ is the measurement you get by first applying $\varphi$, then measuring with $\ell$.
 :::
 
-:::proposition{6.2.4} The dual map is linear
-For $T : V \to W$, the dual map $T^* : W^* \to V^*$ is indeed a linear map.
+:::proposition{6.2.10} The dual map is linear
+For $\varphi : V \to W$, the dual map $\varphi^t : W^* \to V^*$ is linear.
 :::
 
 :::proof
-For $\psi_1, \psi_2 \in W^*$ and $\lambda \in k$: $$\begin{aligned}
-T^*(\psi_1 + \psi_2) &= (\psi_1 + \psi_2) \circ T = \psi_1 \circ T + \psi_2 \circ T = T^*(\psi_1) + T^*(\psi_2), \\
-T^*(\lambda \psi) &= (\lambda \psi) \circ T = \lambda(\psi \circ T) = \lambda T^*(\psi).
+For $\ell_1, \ell_2 \in W^*$ and $\lambda \in k$: $$\begin{aligned}
+\varphi^t(\ell_1 + \ell_2) &= (\ell_1 + \ell_2) \circ \varphi = \ell_1 \circ \varphi + \ell_2 \circ \varphi = \varphi^t(\ell_1) + \varphi^t(\ell_2), \\
+\varphi^t(\lambda \ell_1) &= (\lambda \ell_1) \circ \varphi = \lambda(\ell_1 \circ \varphi) = \lambda \varphi^t(\ell_1). 
 \end{aligned}$$
 :::
 
-:::proposition{6.2.5} Algebraic properties of the dual map
-Let $V, W, U$ be vector spaces over $k$.
+:::proposition{6.2.11} Algebraic properties of the dual map
+Let $U, V, W$ be vector spaces over $k$.
 
-1. For $S, T : V \to W$, $(S + T)^* = S^* + T^*$.
-2. For $T : V \to W$ and $\lambda \in k$, $(\lambda T)^* = \lambda T^*$.
-3. For $S : V \to W$ and $T : W \to U$, $(T \circ S)^* = S^* \circ T^*$ (order reverses!).
-4. $(\id_V)^* = \id_{V^*}$.
+<!-- list:paren-alpha -->
+
+1. For $\varphi, \psi : V \to W$, $(\varphi + \psi)^t = \varphi^t + \psi^t$.
+2. For $\varphi : V \to W$ and $\lambda \in k$, $(\lambda \varphi)^t = \lambda \varphi^t$.
+3. For $\varphi : V \to W$ and $\psi : W \to U$, $(\psi \circ \varphi)^t = \varphi^t \circ \psi^t$ (the order reverses).
+4. $(\id_V)^t = \id_{V^*}$.
 :::
 
 :::proof
-(3) is the key property. For $\psi \in U^*$: $$(T \circ S)^*(\psi) = \psi \circ (T \circ S) = (\psi \circ T) \circ S = S^*(\psi \circ T) = S^*(T^*(\psi)) = (S^* \circ T^*)(\psi).$$ The other properties are similar.
+(c) is the key property. For $\ell \in U^*$: $$(\psi \circ \varphi)^t(\ell) = \ell \circ (\psi \circ \varphi) = (\ell \circ \psi) \circ \varphi = \varphi^t(\ell \circ \psi) = \varphi^t(\psi^t(\ell)) = (\varphi^t \circ \psi^t)(\ell).$$ For (a), $(\varphi + \psi)^t(\ell) = \ell \circ (\varphi + \psi) = \ell \circ \varphi + \ell \circ \psi$, because $\ell$ is additive; (b) is the same computation with $\ell \circ (\lambda \varphi) = \lambda (\ell \circ \varphi)$; and (d) holds because $\ell \circ \id_V = \ell$.
 :::
 
 :::note
-Property (3) says the dual is a *contravariant functor*: it reverses the order of composition. Compare with the transpose of matrices: $(AB)^T = B^T A^T$. This is not a coincidence—the matrix of the dual map *is* the transpose!
+Properties (c) and (d) say that $V \mapsto V^*$, $\varphi \mapsto \varphi^t$ reverses the order of composition and preserves identities; in the language of Chapter 8, it is a *contravariant functor* (Definition [8.2.5](/notes/math-55a/8-2-functors-and-natural-transformations#definition-8-2-5) and Example [8.2.6](/notes/math-55a/8-2-functors-and-natural-transformations#example-8-2-6)). Compare with the transpose of matrices: $(AB)^t = B^t A^t$. This is not a coincidence—the matrix of the dual map *is* the transpose.
 :::
 
 ## <span class="num">6.2.4</span> Matrix of the Dual Map
 
-The connection between dual maps and matrix transposes clarifies why the transpose operation is natural.
+The connection between dual maps and matrix transposes explains why the transpose operation is natural.
 
-:::theorem{6.2.1} Matrix of the dual map is the transpose
-Let $T : V \to W$ be a linear map between finite-dimensional spaces. Fix bases $\mathcal{B} = \{v_1, \ldots, v_n\}$ of $V$ and $\mathcal{C} = \{w_1, \ldots, w_m\}$ of $W$, with dual bases $\mathcal{B}^* = \{\varphi_1, \ldots, \varphi_n\}$ and $\mathcal{C}^* = \{\psi_1, \ldots, \psi_m\}$. If $$A = \mcM(T; \mathcal{B}, \mathcal{C}) \in \mcM_{m \times n}(k)$$ is the matrix of $T$, then the matrix of $T^*$ with respect to the dual bases is the transpose: $$\mcM(T^*; \mathcal{C}^*, \mathcal{B}^*) = A^T \in \mcM_{n \times m}(k).$$
+:::theorem{6.2.12} Matrix of the dual map is the transpose
+Let $\varphi : V \to W$ be a linear map between finite-dimensional spaces. Fix bases $\mcB = (v_1, \ldots, v_n)$ of $V$ and $\mcC = (w_1, \ldots, w_m)$ of $W$, with dual bases $\mcB^* = (v_1^*, \ldots, v_n^*)$ and $\mcC^* = (w_1^*, \ldots, w_m^*)$. If $$A = \mcM(\varphi, \mcB, \mcC) \in \mcM_{m \times n}(k)$$ is the matrix of $\varphi$, then the matrix of $\varphi^t$ with respect to the dual bases is the transpose: $$\mcM(\varphi^t, \mcC^*, \mcB^*) = A^t \in \mcM_{n \times m}(k).$$
 :::
 
 :::proof
-We need to show that $T^*(\psi_j) = \sum_{i=1}^n A_{ji} \varphi_i$ for each $j$.
+We need to show that $\varphi^t(w_i^*) = \sum_{j=1}^n A_{ij} v_j^*$ for each $i$.
 
-By definition of the matrix $A$, we have $T(v_k) = \sum_{i=1}^m A_{ik} w_i$. Now compute: $$T^*(\psi_j)(v_k) = \psi_j(T(v_k)) = \psi_j\left(\sum_{i=1}^m A_{ik} w_i\right) = \sum_{i=1}^m A_{ik} \psi_j(w_i) = A_{jk}.$$
-
-On the other hand, if $T^*(\psi_j) = \sum_{i=1}^n c_i \varphi_i$, then $$T^*(\psi_j)(v_k) = \sum_{i=1}^n c_i \varphi_i(v_k) = c_k.$$
-
-Comparing: $c_k = A_{jk}$. Thus $T^*(\psi_j) = \sum_{k=1}^n A_{jk} \varphi_k$, which means the $j$-th column of $\mcM(T^*)$ is the $j$-th row of $A$. Hence $\mcM(T^*) = A^T$.
+By definition of the matrix $A$, we have $\varphi(v_j) = \sum_{p=1}^m A_{pj} w_p$. Now compute: $$\varphi^t(w_i^*)(v_j) = w_i^*(\varphi(v_j)) = w_i^*\left(\sum_{p=1}^m A_{pj} w_p\right) = \sum_{p=1}^m A_{pj}\, w_i^*(w_p) = A_{ij}.$$ By Proposition [6.2.7](/notes/math-55a/6-2-duality#proposition-6-2-7), $\varphi^t(w_i^*) = \sum_{j=1}^n \varphi^t(w_i^*)(v_j)\, v_j^* = \sum_{j=1}^n A_{ij} v_j^*$. So the $i$-th column of $\mcM(\varphi^t, \mcC^*, \mcB^*)$ is the $i$-th row of $A$. Hence $\mcM(\varphi^t, \mcC^*, \mcB^*) = A^t$.
 :::
 
 :::note
-This theorem explains why the transpose is natural: it’s not just a matrix operation, it’s the coordinate representation of the dual map. The reversal of dimensions ($m \times n$ becomes $n \times m$) reflects the contravariance of the dual construction.
+This theorem explains why the transpose is natural: it is the coordinate representation of the dual map. The reversal of dimensions ($m \times n$ becomes $n \times m$) reflects the reversal of arrows. In terms of row vectors: if $\ell \in W^*$ is represented by the row vector $Y$ and $v \in V$ by the column vector $X$, then $\ell(\varphi(v)) = Y A X$, so $\varphi^t$ acts on row vectors by $Y \mapsto YA$; writing row vectors as columns turns this into $Y^t \mapsto A^t Y^t$.
 :::
 
-:::corollary{6.2.1} Rank of transpose equals rank
-For any matrix $A$, $\rank(A^T) = \rank(A)$.
+## <span class="num">6.2.5</span> Annihilators
+
+:::definition{6.2.13} Annihilator
+Let $U$ be a subspace of $V$. The ***annihilator*** of $U$ is $$\Ann(U) = \{\ell \in V^* : \ell(u) = 0 \text{ for all } u \in U\} \subseteq V^*,$$ the set of linear functionals on $V$ that vanish on $U$.
+:::
+
+The annihilator is a subspace of $V^*$: the zero functional vanishes on $U$, and if $\ell_1$ and $\ell_2$ vanish on $U$, so does $\ell_1 + \lambda \ell_2$. Directly from the definition, $\Ann(\{0\}) = V^*$, $\Ann(V) = \{0\}$, and $U \subseteq U'$ implies $\Ann(U') \subseteq \Ann(U)$: bigger subspaces have smaller annihilators.
+
+:::theorem{6.2.14} Dimension of the annihilator
+Let $V$ be finite-dimensional and $U \subseteq V$ a subspace. The restriction map $$\rho : V^* \to U^*, \qquad \rho(\ell) = \ell|_U,$$ is linear and surjective, and its kernel is $\Ann(U)$. Thus $$0 \longrightarrow \Ann(U) \longrightarrow V^* \xrightarrow{\ \rho\ } U^* \longrightarrow 0$$ is a short exact sequence (Definition [3.5.1](/notes/math-55a/3-5-exact-sequences#definition-3-5-1)): the inclusion of $\Ann(U)$ is injective, $\rho$ is surjective, and the image of each map is the kernel of the next. Consequently $$\dim(\Ann(U)) = \dim(V) - \dim(U).$$
 :::
 
 :::proof
-The rank of $A$ is $\dim(\Img(T))$ where $T$ is the associated linear map. By a result we’ll see shortly, $\dim(\Img(T^*)) = \dim(\Img(T))$. Since the matrix of $T^*$ is $A^T$, we get $\rank(A^T) = \rank(A)$.
+Linearity of $\rho$ is clear, and $\rho(\ell) = 0$ means exactly that $\ell$ vanishes on $U$, so $\ker(\rho) = \Ann(U)$. For surjectivity, let $\psi \in U^*$. Choose a basis $u_1, \ldots, u_r$ of $U$ and extend it to a basis $u_1, \ldots, u_r, u_{r+1}, \ldots, u_n$ of $V$. Let $\ell \in V^*$ be the functional with $\ell(u_i) = \psi(u_i)$ for $i \leq r$ and $\ell(u_i) = 0$ for $i > r$. Then $\ell|_U$ and $\psi$ agree on a basis of $U$, so $\rho(\ell) = \psi$.
+
+By Rank–Nullity applied to $\rho$, $$\dim(V^*) = \dim(\Ann(U)) + \dim(U^*).$$ Since $\dim(V^*) = \dim(V)$ and $\dim(U^*) = \dim(U)$, we get $\dim(\Ann(U)) = \dim(V) - \dim(U)$.
 :::
 
-## <span class="num">6.2.5</span> Kernel and Image of the Dual Map
+:::note
+The annihilator gives an inclusion-reversing correspondence between subspaces of $V$ and subspaces of $V^*$: a subspace of dimension $r$ in an $n$-dimensional $V$ has an annihilator of dimension $n - r$. In Section [7.1](/notes/math-55a/7-1-quotient-spaces), once quotient spaces are available, we will see that $\Ann(U) \cong (V/U)^*$ and $V^*/\Ann(U) \cong U^*$ (Theorem [7.1.10](/notes/math-55a/7-1-quotient-spaces#theorem-7-1-10)).
+:::
+
+## <span class="num">6.2.6</span> Kernel and Image of the Dual Map
 
 The dual map interchanges the roles of kernel and image in a precise way.
 
-:::proposition{6.2.6} Relationships between $T$ and $T^*$
-Let $T : V \to W$ be a linear map between finite-dimensional spaces.
+:::theorem{6.2.15} Kernel and image of the dual map
+Let $\varphi : V \to W$ be a linear map.
 
-1. $\ker(T^*) = (\Img(T))^\circ$, the *annihilator* of the image.
-2. $\Img(T^*) = (\ker(T))^\circ$, the annihilator of the kernel.
-3. $\dim(\ker(T^*)) = \dim(W) - \rank(T)$.
-4. $\dim(\Img(T^*)) = \rank(T)$.
+<!-- list:paren-alpha -->
 
-Here, for a subspace $U \subseteq V$, the ***annihilator*** is $U^\circ = \{\ell \in V^* : \ell(u) = 0 \text{ for all } u \in U\}$.
-:::
-
-:::note
-The annihilator $U^\circ$ consists of all linear functionals that vanish on $U$. If $\dim(V) = n$ and $\dim(U) = k$, then $\dim(U^\circ) = n - k$. The annihilator provides a duality between subspaces of $V$ and subspaces of $V^*$: bigger subspaces have smaller annihilators.
-:::
-
-## <span class="num">6.2.6</span> The Double Dual and Natural Isomorphisms
-
-We’ve seen that $V \cong V^*$ for finite-dimensional $V$, but this isomorphism required a choice of basis. The double dual $V^{**} = (V^*)^*$ enjoys a more canonical relationship with $V$.
-
-:::definition{6.2.5} Evaluation map
-The **evaluation map** is $\ev : V \to V^{**}$ defined by $$\ev(v)(\ell) = \ell(v)$$ for $v \in V$ and $\ell \in V^*$. That is, $\ev(v)$ is the linear functional on $V^*$ that “evaluates at $v$.”
-:::
-
-:::proposition{6.2.7} Properties of the evaluation map
-The evaluation map $\ev : V \to V^{**}$ satisfies:
-
-1. $\ev$ is linear.
-2. $\ev$ is injective.
-3. If $V$ is finite-dimensional, $\ev$ is an isomorphism.
+1. $\ker(\varphi^t) = \Ann(\Img(\varphi))$.
+2. If $V$ and $W$ are finite-dimensional, then $\Img(\varphi^t) = \Ann(\ker(\varphi))$, and $\rank(\varphi^t) = \rank(\varphi)$.
 :::
 
 :::proof
-**(1)** For $v, w \in V$, $\lambda \in k$, and $\ell \in V^*$: $$\ev(v + \lambda w)(\ell) = \ell(v + \lambda w) = \ell(v) + \lambda \ell(w) = \ev(v)(\ell) + \lambda \ev(w)(\ell).$$
+(a) For $\ell \in W^*$: $$\ell \in \ker(\varphi^t) \iff \ell \circ \varphi = 0 \iff \ell(\varphi(v)) = 0 \text{ for all } v \in V \iff \ell \in \Ann(\Img(\varphi)).$$
 
-**(2)** Suppose $\ev(v) = 0$, meaning $\ell(v) = 0$ for all $\ell \in V^*$. If $v \neq 0$, extend $\{v\}$ to a basis and let $\ell$ be the dual basis element with $\ell(v) = 1$. Contradiction. So $v = 0$.
+(b) First, $\Img(\varphi^t) \subseteq \Ann(\ker(\varphi))$: if $\ell' = \varphi^t(\ell) = \ell \circ \varphi$, then $\ell'(v) = \ell(\varphi(v)) = \ell(0) = 0$ for every $v \in \ker(\varphi)$. Next we compare dimensions. Let $n = \dim(V)$, $m = \dim(W)$, and $r = \rank(\varphi)$. By Rank–Nullity for $\varphi^t$, by (a), and by Theorem [6.2.14](/notes/math-55a/6-2-duality#theorem-6-2-14), $$\rank(\varphi^t) = \dim(W^*) - \dim(\ker(\varphi^t)) = m - \dim(\Ann(\Img(\varphi))) = m - (m - r) = r.$$ On the other hand, $\dim(\Ann(\ker(\varphi))) = n - \dim(\ker(\varphi)) = r$, by Theorem [6.2.14](/notes/math-55a/6-2-duality#theorem-6-2-14) and Rank–Nullity for $\varphi$. A subspace of dimension $r$ contained in a space of dimension $r$ is the whole space, so $\Img(\varphi^t) = \Ann(\ker(\varphi))$.
+:::
 
-**(3)** For finite-dimensional $V$: $\dim(V^{**}) = \dim(V^*) = \dim(V)$. Since $\ev$ is injective, it’s an isomorphism.
+:::corollary{6.2.16} Injectivity and surjectivity of the dual map
+Let $\varphi : V \to W$ be a linear map between finite-dimensional spaces. Then
+
+<!-- list:paren-alpha -->
+
+1. $\varphi$ is surjective if and only if $\varphi^t$ is injective;
+2. $\varphi$ is injective if and only if $\varphi^t$ is surjective.
+:::
+
+:::proof
+(a) By Theorem [6.2.15](/notes/math-55a/6-2-duality#theorem-6-2-15)(a) and Theorem [6.2.14](/notes/math-55a/6-2-duality#theorem-6-2-14), $\dim(\ker(\varphi^t)) = \dim(W) - \rank(\varphi)$, which is $0$ exactly when $\rank(\varphi) = \dim(W)$, i.e., when $\varphi$ is surjective.
+
+(b) By Theorem [6.2.15](/notes/math-55a/6-2-duality#theorem-6-2-15)(b), $\rank(\varphi^t) = \rank(\varphi) = \dim(V) - \dim(\ker(\varphi))$. This equals $\dim(V^*) = \dim(V)$, i.e., $\varphi^t$ is surjective, exactly when $\ker(\varphi) = \{0\}$.
 :::
 
 :::note
-The crucial point: $\ev$ is *natural*—it doesn’t depend on any choices. Given bases $\{e_1, \ldots, e_n\}$ of $V$, dual basis $\{e_1^*, \ldots, e_n^*\}$ of $V^*$, and double dual basis $\{e_1^{**}, \ldots, e_n^{**}\}$ of $V^{**}$, one can verify that $\ev(e_i) = e_i^{**}$. The evaluation map sends each basis element to its “double dual counterpart.”
+The implication “$\varphi$ surjective $\Rightarrow$ $\varphi^t$ injective” holds without any finiteness assumption: if $\varphi$ is surjective and $\ell \circ \varphi = 0$, then $\ell$ vanishes on $\Img(\varphi) = W$, so $\ell = 0$. The other implications use dimension counts.
+:::
+
+:::corollary{6.2.17} Row rank equals column rank
+For any matrix $A \in \mcM_{m \times n}(k)$, $\rank(A^t) = \rank(A)$. In words: the largest number of linearly independent rows of $A$ equals the largest number of linearly independent columns.
+:::
+
+:::proof
+The matrix of $L_A : k^n \to k^m$ in the standard bases is $A$, so by Theorem [6.2.12](/notes/math-55a/6-2-duality#theorem-6-2-12) the matrix of $(L_A)^t : (k^m)^* \to (k^n)^*$ in the dual bases is $A^t$. The coordinate isomorphisms $(k^m)^* \cong k^m$ and $(k^n)^* \cong k^n$ given by the dual bases carry $(L_A)^t$ to $L_{A^t}$, and isomorphisms preserve the dimension of images. Hence $\rank(A^t) = \rank((L_A)^t) = \rank(L_A) = \rank(A)$, using Theorem [6.2.15](/notes/math-55a/6-2-duality#theorem-6-2-15)(b). The rows of $A$ are the columns of $A^t$, which gives the second sentence.
+:::
+
+## <span class="num">6.2.7</span> The Double Dual
+
+We have seen that $V \cong V^*$ for finite-dimensional $V$, but this isomorphism required a choice of basis. The double dual $V^{**} = (V^*)^*$ enjoys a more canonical relationship with $V$.
+
+:::definition{6.2.18} Evaluation map
+The ***evaluation map*** is $\ev : V \to V^{**}$ defined by $$\ev(v)(\ell) = \ell(v)$$ for $v \in V$ and $\ell \in V^*$. That is, $\ev(v)$ is the linear functional on $V^*$ that “evaluates at $v$.” (It is linear in $\ell$ because the operations on $V^*$ are pointwise: $\ev(v)(\ell_1 + \lambda\ell_2) = \ell_1(v) + \lambda \ell_2(v)$.)
+:::
+
+:::theorem{6.2.19} The double dual
+The evaluation map $\ev : V \to V^{**}$ is linear. If $V$ is finite-dimensional, then $\ev$ is an isomorphism.
+:::
+
+:::proof
+**Linearity:** For $v, w \in V$, $\lambda \in k$, and $\ell \in V^*$: $$\ev(v + \lambda w)(\ell) = \ell(v + \lambda w) = \ell(v) + \lambda \ell(w) = \ev(v)(\ell) + \lambda \ev(w)(\ell).$$
+
+**Injectivity (for finite-dimensional $V$):** Suppose $\ev(v) = 0$, meaning $\ell(v) = 0$ for all $\ell \in V^*$. If $v \neq 0$, extend $\{v\}$ to a basis $(v, v_2, \ldots, v_n)$ of $V$; the first dual basis functional $\ell$ satisfies $\ell(v) = 1 \neq 0$, a contradiction. So $v = 0$.
+
+**Isomorphism:** For finite-dimensional $V$, $\dim(V^{**}) = \dim(V^*) = \dim(V)$. Since $\ev$ is injective, it is an isomorphism (Corollary [6.1.16](/notes/math-55a/6-1-kernel-and-image#corollary-6-1-16)).
 :::
 
 :::note
-For infinite-dimensional $V$, the situation is strikingly different. If $V$ has a basis $\{e_i\}_{i \in I}$ indexed by an infinite set $I$, then every element of $V$ is a *finite* linear combination $\sum_{i \in I} x_i e_i$ (with only finitely many $x_i \neq 0$). However, elements of $V^*$ can be arbitrary: given any function $a : I \to k$, the map $\ell_a(\sum x_i e_i) = \sum x_i a_i$ is a well-defined linear functional. Thus $V^* \cong k^I = \prod_{i \in I} k$, the full product, which is much larger than the direct sum $V \cong \bigoplus_{i \in I} k$. The evaluation map $\ev : V \to V^{**}$ is still injective, but far from surjective.
+The point is that $\ev$ involves no choices. Given a basis $(e_1, \ldots, e_n)$ of $V$, its dual basis $(e_1^*, \ldots, e_n^*)$ of $V^*$, and the dual basis $(e_1^{**}, \ldots, e_n^{**})$ of $V^{**}$, we have $\ev(e_i)(e_j^*) = e_j^*(e_i) = \delta_{ij} = e_i^{**}(e_j^*)$, so $\ev(e_i) = e_i^{**}$. The basis-dependent isomorphisms $V \cong V^*$ and $V^* \cong V^{**}$ compose to an isomorphism that does not depend on the basis.
+
+Moreover, $\ev$ is compatible with every linear map $\varphi : V \to W$: writing $\ev_V$ and $\ev_W$ for the evaluation maps of $V$ and $W$, $$(\varphi^t)^t \circ \ev_V = \ev_W \circ \varphi,$$ since for $\ell \in W^*$ both sides send $v$ to the functional $\ell \mapsto \ell(\varphi(v))$. Chapter 8 expresses this by saying that $\ev$ is a *natural transformation* (Definition [8.2.9](/notes/math-55a/8-2-functors-and-natural-transformations#definition-8-2-9)).
 :::
 
-:::question{2}
-1. Let $V = \RR^3$ with standard basis $\{e_1, e_2, e_3\}$. Write down the dual basis explicitly as functions $\RR^3 \to \RR$.
-2. Let $T : \RR^3 \to \RR^2$ be defined by $T(x, y, z) = (x + y, y + z)$. Find the matrix of $T$ with respect to the standard bases, then find the matrix of $T^*$ with respect to the dual bases.
-3. Prove that if $T : V \to W$ is surjective, then $T^* : W^* \to V^*$ is injective.
-4. Prove that if $V$ is finite-dimensional, the map $\Phi : V \to V^{**}$ defined by $\Phi(v)(\ell) = \ell(v)$ is an isomorphism.
+:::note
+For infinite-dimensional $V$, the situation is strikingly different. Suppose $V$ has a basis $\{e_i\}_{i \in I}$ indexed by an infinite set $I$ (every vector space has a basis, a consequence of Zorn’s lemma). Every element of $V$ is a *finite* linear combination $\sum_{i \in I} x_i e_i$ (with only finitely many $x_i \neq 0$). However, elements of $V^*$ can be arbitrary on the basis: given any function $a : I \to k$, the map $\ell_a(\sum x_i e_i) = \sum x_i a_i$ is a well-defined linear functional. Thus $V^* \cong k^I = \prod_{i \in I} k$, the full product, which is much larger than the direct sum $V \cong \bigoplus_{i \in I} k$; in particular the coordinate functionals $e_i^*$ do not span $V^*$. The evaluation map $\ev : V \to V^{**}$ is still injective (for $v \neq 0$, some coordinate functional $e_i^*$ has $e_i^*(v) \neq 0$), but it is not surjective.
+:::
+
+:::question{6.2.20}
+<!-- list:paren-alpha -->
+
+1. Let $V = \RR^3$ with standard basis $(e_1, e_2, e_3)$. Write down the dual basis explicitly as functions $\RR^3 \to \RR$.
+2. Let $\varphi : \RR^3 \to \RR^2$ be defined by $\varphi(x, y, z) = (x + y, y + z)$. Find the matrix of $\varphi$ with respect to the standard bases, then find the matrix of $\varphi^t$ with respect to the dual bases.
+3. Let $U = \operatorname{Span}\{(1, 1, 0), (0, 1, 1)\} \subseteq \RR^3$. Find a basis of $\Ann(U)$ and check the dimension formula of Theorem [6.2.14](/notes/math-55a/6-2-duality#theorem-6-2-14).
+4. Let $V$ be finite-dimensional and $U \subseteq V$ a subspace. Prove that $\ev(U) = \Ann(\Ann(U))$, where $\ev : V \to V^{**}$ is the evaluation map. (So under the identification of $V$ with $V^{**}$, taking the annihilator twice returns $U$.)
 
 :::solution
-**(1)** The dual basis consists of the coordinate projections: $$\varphi_1(x, y, z) = x, \quad \varphi_2(x, y, z) = y, \quad \varphi_3(x, y, z) = z.$$ These are “row vectors” $(1, 0, 0)$, $(0, 1, 0)$, $(0, 0, 1)$.
+**(a)** The dual basis consists of the coordinate projections: $$e_1^*(x, y, z) = x, \quad e_2^*(x, y, z) = y, \quad e_3^*(x, y, z) = z.$$ As row vectors these are $(1, 0, 0)$, $(0, 1, 0)$, $(0, 0, 1)$.
 
-**(2)** The matrix of $T$ is: $$A = \mcM(T) = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}.$$ The matrix of $T^*$ is the transpose: $$A^T = \mcM(T^*) = \begin{pmatrix} 1 & 0 \\ 1 & 1 \\ 0 & 1 \end{pmatrix}.$$ Explicitly, if $\psi_1, \psi_2$ are the dual basis of $\RR^2$ and $\varphi_1, \varphi_2, \varphi_3$ are the dual basis of $\RR^3$: $$T^*(\psi_1) = \varphi_1 + \varphi_2, \quad T^*(\psi_2) = \varphi_2 + \varphi_3.$$
+**(b)** The matrix of $\varphi$ is: $$A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}.$$ The matrix of $\varphi^t$ is the transpose: $$A^t = \begin{pmatrix} 1 & 0 \\ 1 & 1 \\ 0 & 1 \end{pmatrix}.$$ Explicitly, if $f_1^*, f_2^*$ is the dual basis of the standard basis $f_1, f_2$ of $\RR^2$ and $e_1^*, e_2^*, e_3^*$ is that of $\RR^3$, then $\varphi^t(f_1^*) = f_1^* \circ \varphi$ is $(x, y, z) \mapsto x + y$, and similarly for $f_2^*$: $$\varphi^t(f_1^*) = e_1^* + e_2^*, \quad \varphi^t(f_2^*) = e_2^* + e_3^*.$$ The coefficients form the columns of $A^t$, as the theorem predicts.
 
-**(3)** Suppose $T$ is surjective and $T^*(\psi) = 0$, i.e., $\psi \circ T = 0$. For any $w \in W$, since $T$ is surjective, $w = T(v)$ for some $v \in V$. Then: $$\psi(w) = \psi(T(v)) = (\psi \circ T)(v) = 0.$$ Since this holds for all $w \in W$, we have $\psi = 0$. Thus $\ker(T^*) = \{0\}$, so $T^*$ is injective.
+**(c)** A functional $\ell(x, y, z) = ax + by + cz$ lies in $\Ann(U)$ if and only if it vanishes on the two spanning vectors: $a + b = 0$ and $b + c = 0$. So $b = -a$ and $c = a$, and $\Ann(U)$ is spanned by the single functional $$\ell(x, y, z) = x - y + z, \qquad\text{i.e., } \ell = e_1^* - e_2^* + e_3^*.$$ The two spanning vectors of $U$ are linearly independent, so $\dim(U) = 2$, and indeed $\dim(\Ann(U)) = 1 = 3 - 2$.
 
-**(4)** **Well-defined and linear:** For $v \in V$, $\Phi(v) : V^* \to k$ is defined by $\Phi(v)(\ell) = \ell(v)$. This is linear in $\ell$ (check!), so $\Phi(v) \in V^{**}$. Moreover, $\Phi$ is linear: $\Phi(v_1 + v_2)(\ell) = \ell(v_1 + v_2) = \ell(v_1) + \ell(v_2) = \Phi(v_1)(\ell) + \Phi(v_2)(\ell)$.
-
-**Injective:** Suppose $\Phi(v) = 0$, meaning $\ell(v) = 0$ for all $\ell \in V^*$. If $v \neq 0$, extend $\{v\}$ to a basis $\{v, v_2, \ldots, v_n\}$. The dual basis element $\varphi_1$ satisfies $\varphi_1(v) = 1 \neq 0$, contradiction. So $v = 0$.
-
-**Surjective:** Since $\dim(V) = \dim(V^*) = \dim(V^{**})$, injectivity implies surjectivity.
+**(d)** Here $\Ann(U) \subseteq V^*$ and $\Ann(\Ann(U)) = \{\xi \in V^{**} : \xi(\ell) = 0 \text{ for all } \ell \in \Ann(U)\}$. If $u \in U$ and $\ell \in \Ann(U)$, then $\ev(u)(\ell) = \ell(u) = 0$; hence $\ev(U) \subseteq \Ann(\Ann(U))$. Let $n = \dim(V)$. Applying Theorem [6.2.14](/notes/math-55a/6-2-duality#theorem-6-2-14) twice (to $U \subseteq V$ and to $\Ann(U) \subseteq V^*$), $$\begin{aligned}
+\dim(\Ann(\Ann(U))) &= \dim(V^*) - \dim(\Ann(U)) \\
+&= n - (n - \dim(U)) = \dim(U).
+\end{aligned}$$ Since $\ev$ is injective, $\dim(\ev(U)) = \dim(U)$ as well. A subspace contained in another of the same finite dimension equals it, so $\ev(U) = \Ann(\Ann(U))$.
 :::
 :::

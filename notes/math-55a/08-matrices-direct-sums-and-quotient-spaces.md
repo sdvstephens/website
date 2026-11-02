@@ -147,7 +147,7 @@ Then $\Img(\varphi) = W_1+W_2$ and $\ker(\varphi) = \{(u,-u)\mid u\in W_1\cap W_
 $$\dim\ker\varphi + \dim\Img\varphi = \dim(W_1\cap W_2)+\dim(W_1+W_2) = \dim(V) = \dim(W_1)+\dim(W_2).$$
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 9](/notes/math-55a/09-dual-spaces-and-linear-operators)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L09}}
 **Quotient spaces**
 
 Let $V$ be a vector space over a field $k$, $U\subset V$ a subspace.

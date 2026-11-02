@@ -185,7 +185,7 @@ A **subspace** of a vector space is a nonempty subset $W \subset V$ that is pres
 - {maps $\RR \to \RR$} $\supset$ {continuous maps} $\supset$ {differentiable maps $\RR \to \RR$}.
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 7](/notes/math-55a/07-bases-dimension-and-matrices-of-linear-maps)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L07}}
 **Span, linear independence, basis**
 
 Let $V$ be a vector space over $k$.

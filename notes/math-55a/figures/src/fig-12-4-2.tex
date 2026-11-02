@@ -1,0 +1,11 @@
+\begin{tikzpicture}[scale=1.2, v/.style={draw, rounded corners=2pt, fill=white, inner sep=2.5pt, minimum height=15pt, font=\footnotesize}, ae/.style={->, >=stealth, thick, bk-navy}, be/.style={very thick, bk-red}]
+\node[v] (e) at (90:2.1) {\(e\)};
+\node[v] (a) at (210:2.1) {\(a\)};
+\node[v] (a2) at (330:2.1) {\(a^2\)};
+\node[v] (b) at (90:0.95) {\(b\)};
+\node[v] (ba2) at (210:0.95) {\(ba^2\)};
+\node[v] (ba) at (330:0.95) {\(ba\)};
+\draw[ae] (e) -- (a); \draw[ae] (a) -- (a2); \draw[ae] (a2) -- (e);
+\draw[ae] (b) -- (ba); \draw[ae] (ba) -- (ba2); \draw[ae] (ba2) -- (b);
+\draw[be] (e) -- (b); \draw[be] (a) -- (ba2); \draw[be] (a2) -- (ba);
+\end{tikzpicture}

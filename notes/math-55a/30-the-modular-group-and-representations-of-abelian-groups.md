@@ -93,7 +93,7 @@ Historically, groups first arose as geometric symmetries, so in the 19th century
 
 We’ll focus on representations of finite groups, but the problem is also interesting for discrete infinite groups (e.g. $SL_2(\ZZ)$, braid groups, …), or continuous ones (Lie groups: $S^1$, $SO(3)$, …).
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 31](/notes/math-55a/31-complete-reducibility-and-schurs-lemma)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L31}}
 :::definition
 A **representation** of a group $G$ is a vector space $V$ (usually finite-dimensional; we mostly consider $k=\CC$) + an action of $G$ on $V$ by linear operators, i.e. $G\times V\to V$ such that for all $g\in G$, $g:V\to V$ is a linear map.
 

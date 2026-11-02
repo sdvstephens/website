@@ -6,20 +6,22 @@ section: 7.1
 title: Quotient Spaces
 ---
 
-Quotient spaces provide a systematic way to “collapse” a subspace to zero, creating a smaller vector space that captures the structure “perpendicular” to the subspace. This construction is fundamental in linear algebra and pervades abstract algebra.
+Quotient spaces provide a systematic way to “collapse” a subspace to zero, creating a smaller vector space that sees $V$ only up to vectors of the subspace. This construction is fundamental in linear algebra and pervades abstract algebra.
 
 ## <span class="num">7.1.1</span> Construction of the Quotient Space
 
 :::definition{7.1.1} Cosets and quotient space
-Let $V$ be a vector space over $k$ and $U \subseteq V$ a subspace. For $v \in V$, the **coset** of $v$ modulo $U$ is $$v + U = \{v + u : u \in U\}.$$ The **quotient space** is the set of all cosets: $$V/U = \{v + U : v \in V\}.$$
+Let $V$ be a vector space over $k$ and $U \subseteq V$ a subspace. For $v \in V$, the ***coset*** of $v$ modulo $U$ is $$v + U = \{v + u : u \in U\}.$$ The ***quotient space*** is the set of all cosets: $$V/U = \{v + U : v \in V\}.$$
 :::
 
 :::note
-Two cosets $v + U$ and $w + U$ are equal if and only if $v - w \in U$. Equivalently, the cosets partition $V$ into equivalence classes under the relation $v \sim w \Leftrightarrow v - w \in U$.
+Two cosets $v + U$ and $w + U$ are equal if and only if $v - w \in U$. Equivalently, the cosets are the equivalence classes of the relation $v \sim w \Leftrightarrow v - w \in U$, and $V/U$ is the quotient set $V/{\sim}$ of Definition [1.2.7](/notes/math-55a/1-2-relations#definition-1-2-7). As a group, $V/U$ is the quotient of the abelian group $(V, +)$ by its subgroup $U$ (Chapter 3); what is new is the scalar multiplication.
 :::
 
-:::proposition{7.1.1} Vector space structure on the quotient
+:::proposition{7.1.2} Vector space structure on the quotient
 The quotient $V/U$ becomes a vector space over $k$ under the operations:
+
+<!-- list:paren-alpha -->
 
 1. **Addition:** $(v + U) + (w + U) = (v + w) + U$.
 2. **Scalar multiplication:** $\lambda(v + U) = (\lambda v) + U$.
@@ -32,17 +34,19 @@ The key is *well-definedness*: if $v + U = v' + U$ and $w + U = w' + U$, then $v
 
 Similarly for scalar multiplication: if $v + U = v' + U$, then $v - v' \in U$, so $\lambda(v - v') = \lambda v - \lambda v' \in U$, giving $\lambda v + U = \lambda v' + U$.
 
-The vector space axioms follow from those in $V$.
+Each vector space axiom for $V/U$ follows from the same axiom in $V$, because the operations are computed on representatives.
 :::
 
 ## <span class="num">7.1.2</span> The Quotient Map and Exact Sequences
 
-:::definition{7.1.2} Quotient map
-The **quotient map** (or **canonical projection**) is $q : V \to V/U$ defined by $q(v) = v + U$.
+:::definition{7.1.3} Quotient map
+The ***quotient map*** (or ***canonical projection***) is $q : V \to V/U$ defined by $q(v) = v + U$.
 :::
 
-:::proposition{7.1.2} Properties of the quotient map
+:::proposition{7.1.4} Properties of the quotient map
 The quotient map $q : V \to V/U$ satisfies:
+
+<!-- list:paren-alpha -->
 
 1. $q$ is linear.
 2. $q$ is surjective.
@@ -50,41 +54,41 @@ The quotient map $q : V \to V/U$ satisfies:
 :::
 
 :::proof
-(1) $q(v + \lambda w) = (v + \lambda w) + U = (v + U) + \lambda(w + U) = q(v) + \lambda q(w)$.
+(a) $q(v + \lambda w) = (v + \lambda w) + U = (v + U) + \lambda(w + U) = q(v) + \lambda q(w)$.
 
-(2) Every coset $v + U$ is $q(v)$.
+(b) Every coset $v + U$ is $q(v)$.
 
-(3) $v \in \ker(q) \Leftrightarrow v + U = 0 + U \Leftrightarrow v \in U$.
+(c) $v \in \ker(q) \Leftrightarrow v + U = 0 + U \Leftrightarrow v \in U$.
 :::
 
 :::note
-This gives a **short exact sequence**: $$0 \longrightarrow U \xlongrightarrow{\iota} V \xlongrightarrow{q} V/U \longrightarrow 0$$ where $\iota : U \hookrightarrow V$ is the inclusion. “Exact” means: $\Img(\iota) = \ker(q)$, $\iota$ is injective, and $q$ is surjective. Short exact sequences are a central organizing principle in algebra.
+This gives a ***short exact sequence*** (Definition [3.5.1](/notes/math-55a/3-5-exact-sequences#definition-3-5-1)): $$0 \longrightarrow U \xlongrightarrow{\iota} V \xlongrightarrow{q} V/U \longrightarrow 0$$ where $\iota : U \hookrightarrow V$ is the inclusion. “Exact” means: $\iota$ is injective, $\Img(\iota) = \ker(q)$, and $q$ is surjective. Short exact sequences are a central organizing principle in algebra.
 :::
 
-:::theorem{7.1.1} Dimension of the quotient space
+:::theorem{7.1.5} Dimension of the quotient space
 If $V$ is finite-dimensional and $U \subseteq V$ is a subspace, then $$\dim(V/U) = \dim(V) - \dim(U).$$
 :::
 
 :::proof
-Apply rank-nullity to $q : V \to V/U$: $$\dim(V) = \dim(\ker(q)) + \dim(\Img(q)) = \dim(U) + \dim(V/U).$$
+Apply the Rank–Nullity Theorem (Theorem [6.1.12](/notes/math-55a/6-1-kernel-and-image#theorem-6-1-12)) to $q : V \to V/U$: $$\dim(V) = \dim(\ker(q)) + \dim(\Img(q)) = \dim(U) + \dim(V/U).$$
 :::
 
-:::example{7.1.1} Concrete example
+:::example{7.1.6} A concrete quotient
 Let $V = \RR^3$ and $U = \operatorname{Span}\{(1, 0, 0)\}$, the $x$-axis. Then $V/U \cong \RR^2$:
 
-The coset $(a, b, c) + U$ consists of all points $\{(a + t, b, c) : t \in \RR\}$—a horizontal line through $(a, b, c)$. Two points have the same coset iff they have the same $y$ and $z$ coordinates. The map $(a, b, c) + U \mapsto (b, c)$ is an isomorphism $V/U \xrightarrow{\sim} \RR^2$.
+The coset $(a, b, c) + U$ consists of all points $\{(a + t, b, c) : t \in \RR\}$—the line through $(a, b, c)$ parallel to the $x$-axis. Two points have the same coset if and only if they have the same $y$ and $z$ coordinates. The map $(a, b, c) + U \mapsto (b, c)$ is an isomorphism $V/U \xrightarrow{\sim} \RR^2$.
 :::
 
 ## <span class="num">7.1.3</span> Universal Property of the Quotient
 
 The quotient space is characterized by a universal property that explains its importance.
 
-:::theorem{7.1.2} Universal property of the quotient
+:::theorem{7.1.7} Universal property of the quotient
 Let $\varphi : V \to W$ be a linear map with $U \subseteq \ker(\varphi)$. Then there exists a unique linear map $\bar{\varphi} : V/U \to W$ such that $\varphi = \bar{\varphi} \circ q$:
 
 ![fig-7-1-1](/notes/math-55a/figures/fig-7-1-1.svg)
 
-Moreover, $\bar{\varphi}$ is defined by $\bar{\varphi}(v + U) = \varphi(v)$.
+Moreover, $\bar{\varphi}$ is given by $\bar{\varphi}(v + U) = \varphi(v)$.
 :::
 
 :::proof
@@ -95,12 +99,12 @@ Moreover, $\bar{\varphi}$ is defined by $\bar{\varphi}(v + U) = \varphi(v)$.
 **Uniqueness:** Any $\psi : V/U \to W$ with $\varphi = \psi \circ q$ must satisfy $\psi(v + U) = \psi(q(v)) = \varphi(v) = \bar{\varphi}(v + U)$.
 :::
 
-:::corollary{7.1.1} First Isomorphism Theorem
+:::corollary{7.1.8} First Isomorphism Theorem
 For any linear map $\varphi : V \to W$: $$V/\ker(\varphi) \cong \Img(\varphi).$$ The isomorphism is $\bar{\varphi} : v + \ker(\varphi) \mapsto \varphi(v)$.
 :::
 
 :::proof
-By the universal property, $\bar{\varphi} : V/\ker(\varphi) \to W$ is well-defined. Its image is exactly $\Img(\varphi)$. Injectivity: if $\bar{\varphi}(v + \ker(\varphi)) = 0$, then $\varphi(v) = 0$, so $v \in \ker(\varphi)$, meaning $v + \ker(\varphi) = 0 + \ker(\varphi)$.
+By the universal property with $U = \ker(\varphi)$, the map $\bar{\varphi} : V/\ker(\varphi) \to W$ is well-defined and linear. Its image is exactly $\Img(\varphi)$. Injectivity: if $\bar{\varphi}(v + \ker(\varphi)) = 0$, then $\varphi(v) = 0$, so $v \in \ker(\varphi)$, meaning $v + \ker(\varphi) = 0 + \ker(\varphi)$.
 :::
 
 :::note
@@ -111,23 +115,48 @@ This theorem is remarkably useful. It says that every surjective linear map $\va
 
 The quotient construction establishes a bijection between certain subspaces.
 
-:::theorem{7.1.3} Lattice correspondence
-Let $U \subseteq V$ be a subspace. There is a bijection $$\{\text{subspaces } W \subseteq V \text{ with } U \subseteq W\} \longleftrightarrow \{\text{subspaces of } V/U\}$$ given by:
+:::theorem{7.1.9} Correspondence theorem for subspaces
+Let $U \subseteq V$ be a subspace and $q : V \to V/U$ the quotient map. There is a bijection $$\{\text{subspaces } W \subseteq V \text{ with } U \subseteq W\} \longleftrightarrow \{\text{subspaces of } V/U\}$$ given by:
 
-- Forward: $W \mapsto W/U = \{w + U : w \in W\}$.
+- Forward: $W \mapsto W/U = \{w + U : w \in W\} = q(W)$.
 - Backward: $\bar{W} \mapsto q^{-1}(\bar{W}) = \{v \in V : v + U \in \bar{W}\}$.
 
 Moreover, this bijection preserves inclusions: $W_1 \subseteq W_2 \Leftrightarrow W_1/U \subseteq W_2/U$.
 :::
 
 :::proof
-We verify the maps are inverses.
+Both maps produce subspaces, because the image and the preimage of a subspace under a linear map are subspaces. We verify that the maps are inverse to each other.
 
-**Forward then backward:** Starting with $W \supseteq U$, we get $W/U$, then $q^{-1}(W/U) = \{v \in V : v + U \in W/U\}$. But $v + U \in W/U$ iff $v + U = w + U$ for some $w \in W$, iff $v - w \in U \subseteq W$, iff $v \in W$. So $q^{-1}(W/U) = W$.
+**Forward then backward:** Starting with $W \supseteq U$, we get $W/U$, then $q^{-1}(W/U) = \{v \in V : v + U \in W/U\}$. But $v + U \in W/U$ iff $v + U = w + U$ for some $w \in W$, iff $v - w \in U \subseteq W$ for some $w \in W$, iff $v \in W$. So $q^{-1}(W/U) = W$.
 
 **Backward then forward:** Starting with $\bar{W} \subseteq V/U$, let $W = q^{-1}(\bar{W})$. Note $U = q^{-1}(0) \subseteq q^{-1}(\bar{W}) = W$. Then $W/U = q(W) = q(q^{-1}(\bar{W})) = \bar{W}$ (surjectivity of $q$ ensures $q(q^{-1}(S)) = S$ for any $S \subseteq V/U$).
+
+Finally, both maps preserve inclusions, since images and preimages do; and if $W_1/U \subseteq W_2/U$, applying the backward map gives $W_1 = q^{-1}(W_1/U) \subseteq q^{-1}(W_2/U) = W_2$.
 :::
 
 :::note
-Maximal proper subspaces of $V$ containing $U$ correspond to maximal proper subspaces of $V/U$—i.e., hyperplanes (codimension-1 subspaces). This perspective becomes useful in algebraic geometry and representation theory.
+For instance, the maximal proper subspaces of $V$ containing $U$ correspond to the maximal proper subspaces of $V/U$. This is the vector-space version of the Correspondence Theorem for groups (Theorem [3.3.7](/notes/math-55a/3-3-the-isomorphism-theorems#theorem-3-3-7)).
+:::
+
+## <span class="num">7.1.5</span> Quotients and Duality
+
+Quotient spaces give a second description of the annihilator $\Ann(U)$ of Definition [6.2.13](/notes/math-55a/6-2-duality#definition-6-2-13).
+
+:::theorem{7.1.10} Annihilators and quotients
+Let $U \subseteq V$ be a subspace and $q : V \to V/U$ the quotient map.
+
+<!-- list:paren-alpha -->
+
+1. The dual map $q^t : (V/U)^* \to V^*$, $\psi \mapsto \psi \circ q$, is injective with image $\Ann(U)$. Hence $\Ann(U) \cong (V/U)^*$.
+2. If $V$ is finite-dimensional, the restriction map $\rho : V^* \to U^*$, $\ell \mapsto \ell|_U$, induces an isomorphism $V^*/\Ann(U) \cong U^*$.
+:::
+
+:::proof
+(a) If $\psi \circ q = 0$, then $\psi$ vanishes on $\Img(q) = V/U$, so $\psi = 0$. Every $\psi \circ q$ vanishes on $U = \ker(q)$, so $\Img(q^t) \subseteq \Ann(U)$. Conversely, if $\ell \in \Ann(U)$, then $U \subseteq \ker(\ell)$, so by the universal property (Theorem [7.1.7](/notes/math-55a/7-1-quotient-spaces#theorem-7-1-7)) $\ell = \bar{\ell} \circ q = q^t(\bar{\ell})$ for some $\bar{\ell} \in (V/U)^*$.
+
+(b) By Theorem [6.2.14](/notes/math-55a/6-2-duality#theorem-6-2-14), $\rho$ is surjective with kernel $\Ann(U)$. Apply the First Isomorphism Theorem (Corollary [7.1.8](/notes/math-55a/7-1-quotient-spaces#corollary-7-1-8)).
+:::
+
+:::note
+For finite-dimensional $V$, part (a) recovers $\dim(\Ann(U)) = \dim(V/U) = \dim(V) - \dim(U)$, in agreement with Theorem [6.2.14](/notes/math-55a/6-2-duality#theorem-6-2-14). Note that part (a) needs no finiteness assumption.
 :::

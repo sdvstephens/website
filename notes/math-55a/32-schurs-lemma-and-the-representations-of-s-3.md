@@ -111,7 +111,7 @@ $$\operatorname{Sym}^2(V) \simeq U \oplus V$$
 
 This generalizes to more complicated groups (we’ll see that eigenvalues go a long way towards classifying representations), but we need some way of organizing the information.
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 33](/notes/math-55a/33-characters-of-representations)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L33}}
 **Digression: symmetric polynomials**
 
 (This is all *motivation* for the study of characters.)

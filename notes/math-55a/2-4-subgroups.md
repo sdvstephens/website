@@ -7,7 +7,9 @@ title: Subgroups
 ---
 
 :::definition{2.4.1} Subgroup
-A ***subgroup*** of a group $G$ is a nonempty subset $H \subseteq G$ such that:
+A ***subgroup*** of a group $G$ is a *nonempty* subset $H \subseteq G$ such that:
+
+<!-- list:paren-alpha -->
 
 1. **Closure:** $a, b \in H \implies ab \in H$;
 2. **Inverses:** $a \in H \implies a^{-1} \in H$.
@@ -15,115 +17,124 @@ A ***subgroup*** of a group $G$ is a nonempty subset $H \subseteq G$ such that:
 We write $H \le G$ (or $H < G$ if $H \ne G$, a ***proper subgroup***).
 :::
 
-:::proposition{2.4.1} Subgroup criterion
+If $H\le G$ and $a\in H$, then $e = aa^{-1}\in H$. So $H$, with the operation of $G$ restricted to it, is a group in its own right; associativity holds in $H$ because it holds in $G$. Every group $G$ has the ***trivial subgroup*** $\{e\}$ and the subgroup $G$ itself.
+
+:::example{2.4.2} First examples of subgroups
+<!-- list:paren-alpha -->
+
+1. $(\ZZ,+)\le(\QQ,+)\le(\RR,+)\le(\CC,+)$, and $(\QQ^*,\times)\le(\RR^*,\times)\le(\CC^*,\times)\ge(S^1,\times)\ge(\mu_n,\times)$.
+2. For each $n\ge 0$, the multiples of $n$, $n\ZZ = \{\ldots, -2n, -n, 0, n, 2n, \ldots\}$, form a subgroup of $\ZZ$.
+3. The rotations $\{e, r, \ldots, r^{n-1}\}$ form a subgroup of $D_n$.
+4. If $H_i\le G_i$ for $i = 1,\ldots,n$, then $H_1\times\cdots\times H_n\le G_1\times\cdots\times G_n$. For a family of abelian groups, $\bigoplus_{i} G_i\le\prod_{i} G_i$.
+5. $\SL_n(k)\le\GL_n(k)$, granting the multiplicativity of the determinant (Theorem [5.4.7](/notes/math-55a/5-4-determinants#theorem-5-4-7)).
+:::
+
+:::proposition{2.4.3} Subgroup criterion
 A nonempty subset $H \subseteq G$ is a subgroup iff $a, b \in H \implies ab^{-1} \in H$.
 :::
 
-:::proof Proof (One-step subgroup test)
+:::proof
 ($\Rightarrow$) If $H \le G$ and $a, b \in H$, then $b^{-1} \in H$ (inverses) and $ab^{-1} \in H$ (closure).
 
 ($\Leftarrow$) Assume the condition. Since $H \ne \emptyset$, pick $a \in H$. Then $e = aa^{-1} \in H$. For any $b \in H$, $b^{-1} = eb^{-1} \in H$. For $a, b \in H$, we have $b^{-1} \in H$, so $ab = a(b^{-1})^{-1} \in H$.
 :::
 
-:::example{2.4.1} Subgroups of $\mathbb{Z}$
-Every subgroup of $(\mathbb{Z}, +)$ has the form $n\mathbb{Z} = \{\ldots, -2n, -n, 0, n, 2n, \ldots\}$ for some $n \ge 0$. These form a chain: $\mathbb{Z} = 1\mathbb{Z} \supset 2\mathbb{Z} \supset 4\mathbb{Z} \supset 8\mathbb{Z} \supset \cdots$ (not all subgroups are comparable, though: $2\mathbb{Z}$ and $3\mathbb{Z}$ are incomparable).
+:::proposition{2.4.4} Intersections of subgroups
+Let $\{H_i\}_{i\in I}$ be a nonempty family of subgroups of $G$. Then $\bigcap_{i\in I}H_i$ is a subgroup of $G$. In particular, if $H$ and $H'$ are subgroups of $G$, so is $H\cap H'$.
 :::
 
-:::theorem{2.4.1} Subgroups of $\mathbb{Z}$
-Let $H$ be a subgroup of $(\mathbb{Z}, +)$. Then either $H = \{0\}$ or $H = n\mathbb{Z}$ where $n$ is the smallest positive element of $H$.
+:::proof
+Each $H_i$ contains $e$, so the intersection is nonempty. If $a$ and $b$ lie in every $H_i$, then so do $ab$ and $a^{-1}$, since each $H_i$ is a subgroup; so $ab$ and $a^{-1}$ lie in the intersection.
 :::
 
-:::proof Proof (Classification of subgroups of $\mathbb{Z}$)
+Unions, on the other hand, are almost never subgroups: $H\cup H'$ is a subgroup only when one of $H$, $H'$ contains the other. Indeed, suppose neither contains the other, and pick $h\in H\setminus H'$ and $h'\in H'\setminus H$. If $hh'\in H$, then $h' = h^{-1}(hh')\in H$, a contradiction; and if $hh'\in H'$, then $h = (hh')h'^{-1}\in H'$, also a contradiction. So $hh'\notin H\cup H'$. For example, $2\ZZ\cup 3\ZZ$ contains $2$ and $3$ but not $5$, so it is not a subgroup of $\ZZ$, while $2\ZZ\cap 3\ZZ = 6\ZZ$ is a subgroup.
+
+:::theorem{2.4.5} Subgroups of $\ZZ$
+Let $H$ be a subgroup of $(\ZZ, +)$. Then either $H = \{0\}$ or $H = n\ZZ$, where $n$ is the smallest positive element of $H$.
+:::
+
+:::proof
 If $H = \{0\}$, we’re done. Otherwise, $H$ contains some nonzero element $a$; then $-a \in H$ too, so $H$ contains a positive element. Let $n$ be the smallest positive element of $H$.
 
-We show $H = n\mathbb{Z}$. Clearly $n\mathbb{Z} \subseteq H$ since $H$ is closed under addition: $n \in H \implies 2n = n + n \in H \implies 3n \in H \implies \ldots$, and $-n \in H \implies -2n \in H \implies \ldots$
+We show $H = n\ZZ$. First, $n\ZZ \subseteq H$, since $H$ is closed under addition and negation: $n \in H \implies 2n = n + n \in H \implies 3n \in H \implies \cdots$, and $-n \in H \implies -2n \in H \implies \cdots$.
 
-For $H \subseteq n\mathbb{Z}$: take any $m \in H$. By division algorithm, $m = qn + r$ with $0 \le r < n$. Then $r = m - qn \in H$ (since $m, qn \in H$). By minimality of $n$, we must have $r = 0$, so $m = qn \in n\mathbb{Z}$.
+For $H \subseteq n\ZZ$: take any $m \in H$. By the division algorithm, $m = qn + r$ with $0 \le r < n$. Then $r = m - qn \in H$ (since $m, qn \in H$). By minimality of $n$, we must have $r = 0$, so $m = qn \in n\ZZ$.
 :::
 
-:::proposition{2.4.2} Greatest common divisor
-Let $a, b \in \mathbb{Z}$, not both zero, and let $d = \gcd(a, b)$. Then:
+So the subgroups of $\ZZ$ are exactly the $n\ZZ$ with $n\ge 0$ (where $0\ZZ = \{0\}$). Some of them form chains, $\ZZ = 1\ZZ \supset 2\ZZ \supset 4\ZZ \supset 8\ZZ \supset \cdots$, but not all subgroups are comparable: neither of $2\ZZ$ and $3\ZZ$ contains the other. The theorem gives a quick route to the basic facts about greatest common divisors.
 
-1. $\mathbb{Z}a + \mathbb{Z}b = \{ra + sb : r, s \in \mathbb{Z}\} = d\mathbb{Z}$;
-2. $d$ divides both $a$ and $b$;
-3. If $n$ divides both $a$ and $b$, then $n$ divides $d$;
-4. $\exists r, s \in \mathbb{Z}$ such that $d = ra + sb$ (Bézout’s identity).
+:::proposition{2.4.6} Greatest common divisor
+Let $a, b \in \ZZ$, not both zero, and let $d = \gcd(a, b)$ be their greatest common divisor. Then:
+
+<!-- list:paren-alpha -->
+
+1. $\ZZ a + \ZZ b = \{ra + sb : r, s \in \ZZ\} = d\ZZ$;
+2. if $n$ divides both $a$ and $b$, then $n$ divides $d$;
+3. there exist $r, s \in \ZZ$ such that $d = ra + sb$ (***Bézout’s identity***).
 :::
 
-:::proof Proof of GCD properties
-The set $S = \mathbb{Z}a + \mathbb{Z}b$ is a subgroup of $\mathbb{Z}$ (verify: closed under addition and negation). By the theorem, $S = d\mathbb{Z}$ for some $d \ge 0$. Since $a = 1 \cdot a + 0 \cdot b \in S$ and $b \in S$, and $S = d\mathbb{Z}$, we have $d \mid a$ and $d \mid b$. Since $d \in S$, we have $d = ra + sb$ for some $r, s$. If $n \mid a$ and $n \mid b$, then $n \mid (ra + sb) = d$. These properties characterize $d = \gcd(a, b)$.
+:::proof
+The set $S = \ZZ a + \ZZ b$ is a subgroup of $\ZZ$: it contains $0$, and $(ra+sb)-(r'a+s'b) = (r-r')a+(s-s')b$. It contains $a$ and $b$, not both zero, so $S\neq\{0\}$, and by Theorem [2.4.5](/notes/math-55a/2-4-subgroups#theorem-2-4-5), $S = d'\ZZ$, where $d'$ is the smallest positive element of $S$. Since $a = 1 \cdot a + 0 \cdot b$ and $b$ lie in $S = d'\ZZ$, $d'$ divides both $a$ and $b$. Since $d' \in S$, we have $d' = ra + sb$ for some $r, s$; so if $n$ divides $a$ and $b$, then $n$ divides $ra+sb = d'$, and in particular $|n|\le d'$. Thus $d'$ is a common divisor of $a$ and $b$ that is at least as large as every other one, that is, $d' = \gcd(a,b) = d$. This proves (a) and (c), and (b) was shown along the way.
 :::
 
-:::corollary{2.4.1} Coprimality criterion
-$a$ and $b$ are coprime (i.e., $\gcd(a,b) = 1$) iff $\exists r, s \in \mathbb{Z}$ with $ra + sb = 1$.
+:::corollary{2.4.7} Coprimality criterion
+Integers $a$ and $b$ are coprime (i.e., $\gcd(a,b) = 1$) iff $\exists r, s \in \ZZ$ with $ra + sb = 1$.
 :::
 
-:::corollary{2.4.2} Euclid’s lemma
-If $p$ is prime and $p \mid ab$, then $p \mid a$ or $p \mid b$.
+:::proof
+If $\gcd(a,b) = 1$, this is Bézout’s identity. Conversely, if $ra+sb = 1$, every common divisor of $a$ and $b$ divides $1$, so $\gcd(a,b) = 1$.
 :::
 
-:::proof Proof of Euclid’s lemma
-Suppose $p \nmid a$. Since $p$ is prime, $\gcd(p, a) = 1$. By Bézout, $\exists r, s$ with $rp + sa = 1$. Multiply by $b$: $rpb + sab = b$. Since $p \mid rpb$ and $p \mid ab$, we have $p \mid b$.
+:::corollary{2.4.8} Euclid’s lemma
+Let $n, k, m$ be integers with $n\mid km$ and $\gcd(n,k) = 1$. Then $n\mid m$. In particular, if $p$ is prime and $p \mid ab$, then $p \mid a$ or $p \mid b$.
 :::
 
-## <span class="num">2.4.1</span> Generated subgroups and cyclic groups
-
-:::definition{2.4.2} Subgroup generated by a set
-For $S \subseteq G$, the ***subgroup generated by $S$***, denoted $\langle S \rangle$, is the smallest subgroup of $G$ containing $S$. Explicitly: $$\langle S \rangle = \{s_1^{\epsilon_1} s_2^{\epsilon_2} \cdots s_k^{\epsilon_k} : k \ge 0, \, s_i \in S, \, \epsilon_i \in \{1, -1\}\}.$$
+:::proof
+By Bézout’s identity, $rn + sk = 1$ for some $r,s\in\ZZ$. Multiplying by $m$ gives $m = rnm + skm$, and $n$ divides both terms on the right, so $n\mid m$. For the second statement, suppose $p \nmid a$. Since the only positive divisors of $p$ are $1$ and $p$, we have $\gcd(p, a) = 1$, and the first statement gives $p\mid b$.
 :::
 
-:::definition{2.4.3} Cyclic groups
-A group $G$ is ***cyclic*** if $G = \langle a \rangle$ for some $a \in G$. The element $a$ is called a ***generator***.
+As an application we obtain a multiplicative group of integers mod $n$. For $n\ge 2$ and $a,b\in\ZZ/n\ZZ$, let $a\cdot_nb$ be the remainder of $ab$ on division by $n$ (***multiplication mod $n$***). As for addition, $(a\cdot_nb)\cdot_nc$ and $a\cdot_n(b\cdot_nc)$ are both the remainder of $abc$, so multiplication mod $n$ is associative, and $1$ is an identity for it.
+
+:::proposition{2.4.9} Units mod $n$
+Let $n\ge 2$. The set $(\ZZ/n\ZZ)^\times = \{a \in \ZZ/n\ZZ : \gcd(a, n) = 1\}$ forms a group under multiplication mod $n$. Its order is $\varphi(n)$, the number of integers $1\le a\le n$ coprime to $n$ (***Euler’s totient function***).
 :::
 
-:::definition{2.4.4} Order of an element
-The ***order*** of $a \in G$, denoted $\ord(a)$ or $|a|$, is the smallest positive integer $n$ such that $a^n = e$, or $\infty$ if no such $n$ exists.
+:::proof
+**Closure:** Let $\gcd(a, n) = \gcd(b, n) = 1$, and let $c = a\cdot_n b$, so that $ab = qn+c$ for some $q$. If a prime $p$ divided both $c$ and $n$, it would divide $ab$, hence $a$ or $b$ by Euclid’s lemma, contradicting coprimality. Since every integer greater than $1$ has a prime divisor, $\gcd(c,n) = 1$.
+
+**Identity:** $1$ is coprime to $n$.
+
+**Inverses:** If $\gcd(a, n) = 1$, then by Bézout’s identity there are $r, s$ with $ra + sn = 1$. Write $r = tn + r'$ with $0\le r'\le n-1$. Then $r'a + (s+ta)n = 1$, so $r'$ is coprime to $n$ by Corollary [2.4.7](/notes/math-55a/2-4-subgroups#corollary-2-4-7), and $r'a$ is one more than a multiple of $n$, that is, $r'\cdot_n a = 1$. So $r'\in(\ZZ/n\ZZ)^\times$ is an inverse of $a$.
+
+The elements of $(\ZZ/n\ZZ)^\times$ are the integers $1\le a\le n-1$ coprime to $n$ (neither $0$ nor $n$ is coprime to $n\ge 2$), so there are $\varphi(n)$ of them.
 :::
 
-:::proposition{2.4.3} Structure of cyclic groups
-Let $G = \langle a \rangle$.
+## <span class="num">2.4.1</span> Generated Subgroups and Cyclic Groups
 
-1. If $\ord(a) = \infty$, then $G \cong \mathbb{Z}$ via $n \mapsto a^n$.
-2. If $\ord(a) = n < \infty$, then $G = \{e, a, a^2, \ldots, a^{n-1}\}$ and $G \cong \mathbb{Z}/n\mathbb{Z}$.
+Given a subset $S \subseteq G$, what is the smallest subgroup of $G$ containing $S$? There is at least one subgroup containing $S$, namely $G$ itself, and by Proposition [2.4.4](/notes/math-55a/2-4-subgroups#proposition-2-4-4) the intersection of all of them is again a subgroup.
+
+:::definition{2.4.10} Subgroup generated by a set
+For $S \subseteq G$, the ***subgroup generated by $S$*** is $$\langle S\rangle = \bigcap_{\substack{H\le G\\ S\subseteq H}}H.$$ It is a subgroup of $G$ that contains $S$ and is contained in every subgroup containing $S$; so it is the smallest subgroup of $G$ containing $S$. If $\langle S\rangle = G$, we say that $S$ ***generates*** $G$. For $S = \{a_1,\ldots,a_k\}$ we write $\langle a_1,\ldots,a_k\rangle$.
 :::
 
-:::proof Proof of cyclic group structure
-Define $\varphi : \mathbb{Z} \to G$ by $\varphi(k) = a^k$. This is a homomorphism: $\varphi(k + l) = a^{k+l} = a^k a^l = \varphi(k)\varphi(l)$. It’s surjective since $G = \langle a \rangle$.
-
-**Case 1:** $\ord(a) = \infty$. If $\varphi(k) = \varphi(l)$ with $k > l$, then $a^{k-l} = e$, contradicting infinite order. So $\varphi$ is injective, hence an isomorphism $\mathbb{Z} \xrightarrow{\sim} G$.
-
-**Case 2:** $\ord(a) = n$. Then $\ker(\varphi) = \{k \in \mathbb{Z} : a^k = e\}$. Since $a^n = e$, we have $n\mathbb{Z} \subseteq \ker(\varphi)$. Conversely, if $a^k = e$, write $k = qn + r$ with $0 \le r < n$. Then $a^r = a^{k-qn} = a^k (a^n)^{-q} = e$. By minimality of $n$, $r = 0$, so $k \in n\mathbb{Z}$. Thus $\ker(\varphi) = n\mathbb{Z}$, and $G \cong \mathbb{Z}/n\mathbb{Z}$ by the First Isomorphism Theorem (this will be introduced later but to oversimplify: modding out by the kernal turns a surjective homomorphism into an isomorphism onto its image).
+:::proposition{2.4.11} Elements of a generated subgroup
+For $S\subseteq G$, $$\langle S \rangle = \{s_1^{\epsilon_1} s_2^{\epsilon_2} \cdots s_k^{\epsilon_k} : k \ge 0, \, s_i \in S, \, \epsilon_i \in \{1, -1\}\},$$ where the empty product ($k = 0$) is $e$. In particular, for $a\in G$, $\langle a\rangle = \{a^n\mid n\in\ZZ\}$.
 :::
 
-:::proposition{2.4.4} Subgroups of cyclic groups
-Every subgroup of a cyclic group is cyclic. If $G = \langle a \rangle$ has order $n$, the subgroups of $G$ are exactly $\langle a^d \rangle$ for divisors $d \mid n$, and $|\langle a^d \rangle| = n/d$.
+:::proof
+Let $W$ be the set on the right. It contains $e$; the product of two such words is again a word; and the inverse of a word is a word, since $(s_1^{\epsilon_1}\cdots s_k^{\epsilon_k})^{-1} = s_k^{-\epsilon_k}\cdots s_1^{-\epsilon_1}$ by Proposition [2.1.5](/notes/math-55a/2-1-the-group-axioms#proposition-2-1-5) and induction on $k$. So $W$ is a subgroup containing $S$, and hence $\langle S\rangle\subseteq W$. Conversely, a subgroup containing $S$ contains every $s^{\pm 1}$ with $s\in S$ and all products of these, so it contains $W$; hence $W\subseteq\langle S\rangle$. When $S = \{a\}$, a word in $a$ and $a^{-1}$ equals $a^n$, where $n$ is the number of factors $a$ minus the number of factors $a^{-1}$.
 :::
 
-:::proof Proof (Subgroups of cyclic groups)
-Let $H \le \langle a \rangle$. If $H = \{e\}$, it’s cyclic. Otherwise, let $d$ be the smallest positive integer with $a^d \in H$. We claim $H = \langle a^d \rangle$.
-
-Clearly $\langle a^d \rangle \subseteq H$. For the reverse: take $a^k \in H$. Write $k = qd + r$ with $0 \le r < d$. Then $a^r = a^k (a^d)^{-q} \in H$. By minimality of $d$, $r = 0$, so $a^k = (a^d)^q \in \langle a^d \rangle$.
-
-If $|G| = n$, then $a^d$ has order $n/\gcd(d, n)$. The subgroups correspond to divisors via $d \leftrightarrow \langle a^{n/d} \rangle$ of order $d$.
+:::definition{2.4.12} Cyclic groups
+A group $G$ is ***cyclic*** if $G = \langle a \rangle$ for some $a \in G$. The element $a$ is called a ***generator***. For any $a\in G$, the subgroup $\langle a\rangle = \{a^n\mid n\in\ZZ\}$ is the ***cyclic subgroup*** generated by $a$.
 :::
 
-:::question{2}
-1. Find all subgroups of $\mathbb{Z}/12\mathbb{Z}$ and draw the subgroup lattice.
-2. Prove that $\mathbb{Z}/p\mathbb{Z}$ has no proper nontrivial subgroups for $p$ prime.
-3. How many generators does $\mathbb{Z}/n\mathbb{Z}$ have?
-4. Prove: if $G$ is a group where every element satisfies $x^2 = e$, then $G$ is abelian.
-
-:::solution
-**(1)** Divisors of 12: 1, 2, 3, 4, 6, 12. Subgroups: $\langle 0 \rangle = \{0\}$, $\langle 6 \rangle = \{0, 6\}$, $\langle 4 \rangle = \{0, 4, 8\}$, $\langle 3 \rangle = \{0, 3, 6, 9\}$, $\langle 2 \rangle = \{0, 2, 4, 6, 8, 10\}$, $\langle 1 \rangle = \mathbb{Z}/12$.
-
-Lattice (larger subgroups higher):
-
-![fig-2-4-1](/notes/math-55a/figures/fig-2-4-1.svg)
-
-**(2)** By Lagrange’s theorem (cited here ahead of its proof in the next lecture), the order of any subgroup divides $p$. So subgroups have order 1 or $p$, meaning $\{0\}$ or $\mathbb{Z}/p$.
-
-**(3)** $a$ generates $\mathbb{Z}/n$ iff $\ord(a) = n$ iff $\gcd(a, n) = 1$. The count is $\varphi(n)$, Euler’s totient.
-
-**(4)** For any $a, b \in G$: $ab = (ab)^{-1} = b^{-1}a^{-1} = ba$ (using $x^{-1} = x$ since $x^2 = e$). So $G$ is abelian.
+:::example{2.4.13} Cyclic groups and generators
+$\ZZ = \langle 1\rangle = \langle -1\rangle$ and $\ZZ/n\ZZ = \langle 1\rangle$ are cyclic, as is $\mu_n = \langle e^{2\pi i/n}\rangle$. By Theorem [2.4.5](/notes/math-55a/2-4-subgroups#theorem-2-4-5), every subgroup of $\ZZ$ is cyclic: $n\ZZ = \langle n\rangle$. The rotation subgroup of $D_n$ is $\langle r\rangle$, and $D_n = \langle r, s\rangle$ by Proposition [2.2.15](/notes/math-55a/2-2-fundamental-examples#proposition-2-2-15). By contrast, $\SL_2(\ZZ)$, the group of integer matrices $\begin{psmallmatrix}a&b\\c&d\end{psmallmatrix}$ with $ad-bc = 1$ under multiplication, is not cyclic (it is not even abelian: the matrices $A$ and $B$ of Example [2.2.18](/notes/math-55a/2-2-fundamental-examples#example-2-2-18) lie in it and do not commute), but it can be generated by two elements (a fairly hard exercise without a hint; we return to this group in Section [12.4](/notes/math-55a/12-4-sl-2-z-and-psl-2-z)).
 :::
+
+:::definition{2.4.14} Order of an element
+The ***order*** of $a \in G$, denoted $\ord(a)$ or $|a|$, is the smallest positive integer $n$ such that $a^n = e$, or $\infty$ if no such $n$ exists; in the latter case we say that $a$ has ***infinite order***.
 :::
+
+Do not confuse the order of an element with the order $|G|$ of a group. The two are related: $\ord(a) = |\langle a\rangle|$, as we prove in Proposition [2.6.1](/notes/math-55a/2-6-orders-of-elements-and-cyclic-groups#proposition-2-6-1).

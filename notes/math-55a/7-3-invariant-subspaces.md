@@ -9,38 +9,57 @@ title: Invariant Subspaces
 Understanding an operator often begins with finding subspaces on which its behavior is simpler.
 
 :::definition{7.3.1} Invariant subspace
-A subspace $W \subseteq V$ is **invariant** under $\varphi \in \End(V)$ (or **$\varphi$-invariant**) if $$\varphi(W) \subseteq W,$$ i.e., $\varphi(w) \in W$ for all $w \in W$.
+A subspace $W \subseteq V$ is ***invariant*** under $\varphi \in \End(V)$ (or ***$\varphi$-invariant***) if $$\varphi(W) \subseteq W,$$ i.e., $\varphi(w) \in W$ for all $w \in W$. In that case the ***restriction*** $\varphi|_W : W \to W$, $w \mapsto \varphi(w)$, is a linear operator on $W$.
 :::
 
-:::example{7.3.1} Basic examples of invariant subspaces
+:::example{7.3.2} Basic examples of invariant subspaces
 For any $\varphi \in \End(V)$:
 
 - $\{0\}$ and $V$ are always $\varphi$-invariant.
 - $\ker(\varphi)$ is $\varphi$-invariant: if $\varphi(v) = 0$, then $\varphi(\varphi(v)) = \varphi(0) = 0$.
 - $\Img(\varphi)$ is $\varphi$-invariant: $\varphi(\Img(\varphi)) = \Img(\varphi^2) \subseteq \Img(\varphi)$.
-- More generally, $\ker(\varphi^n)$ and $\Img(\varphi^n)$ are $\varphi$-invariant for all $n \geq 0$.
+- More generally, $\ker(\varphi^n)$ and $\Img(\varphi^n)$ are $\varphi$-invariant for all $n \geq 0$ (a special case of the next proposition).
 :::
 
-:::proposition{7.3.1} Restriction to an invariant subspace
-If $W \subseteq V$ is $\varphi$-invariant, the **restriction** $\varphi|_W : W \to W$ is a well-defined linear operator on $W$.
-:::
-
-## <span class="num">7.3.1</span> Block Diagonal Structure
-
-Invariant subspaces lead to simpler matrix representations.
-
-:::theorem{7.3.1} Direct sum of invariant subspaces
-Suppose $V = V_1 \oplus V_2$ where both $V_1$ and $V_2$ are $\varphi$-invariant. Choose bases $\mathcal{B}_1 = \{e_1, \ldots, e_m\}$ of $V_1$ and $\mathcal{B}_2 = \{e_{m+1}, \ldots, e_n\}$ of $V_2$, forming a basis $\mathcal{B} = \mathcal{B}_1 \cup \mathcal{B}_2$ of $V$. Then the matrix of $\varphi$ with respect to $\mathcal{B}$ is **block diagonal**: $$\mcM(\varphi; \mathcal{B}) = \begin{pmatrix} A_1 & 0 \\ 0 & A_2 \end{pmatrix}$$ where $A_1 = \mcM(\varphi|_{V_1}; \mathcal{B}_1)$ and $A_2 = \mcM(\varphi|_{V_2}; \mathcal{B}_2)$.
+:::proposition{7.3.3} Kernels and images of commuting operators
+Let $\varphi, \psi \in \End(V)$ with $\varphi \circ \psi = \psi \circ \varphi$. Then $\ker(\psi)$ and $\Img(\psi)$ are $\varphi$-invariant. In particular, $\ker(p(\varphi))$ and $\Img(p(\varphi))$ are $\varphi$-invariant for every $p \in k[x]$.
 :::
 
 :::proof
-For $i \leq m$: $\varphi(e_i) \in V_1$ (by $\varphi$-invariance), so $\varphi(e_i)$ is a linear combination of $e_1, \ldots, e_m$ only. For $i > m$: $\varphi(e_i) \in V_2$, so $\varphi(e_i)$ is a linear combination of $e_{m+1}, \ldots, e_n$ only. This gives the block structure.
+If $\psi(v) = 0$, then $\psi(\varphi(v)) = \varphi(\psi(v)) = 0$, so $\varphi(v) \in \ker(\psi)$. If $w = \psi(u)$, then $\varphi(w) = \varphi(\psi(u)) = \psi(\varphi(u)) \in \Img(\psi)$. The last sentence follows because $p(\varphi)$ commutes with $\varphi = x(\varphi)$ (Proposition [7.2.2](/notes/math-55a/7-2-polynomials-in-an-operator#proposition-7-2-2)).
+:::
+
+## <span class="num">7.3.1</span> Block Diagonal and Block Triangular Matrices
+
+Invariant subspaces lead to simpler matrix representations.
+
+:::theorem{7.3.4} Direct sum of invariant subspaces
+Suppose $V = V_1 \oplus V_2$ where both $V_1$ and $V_2$ are $\varphi$-invariant. Choose bases $\mcB_1 = (e_1, \ldots, e_m)$ of $V_1$ and $\mcB_2 = (e_{m+1}, \ldots, e_n)$ of $V_2$, which together form a basis $\mcB = (e_1, \ldots, e_n)$ of $V$. Then the matrix of $\varphi$ with respect to $\mcB$ is ***block diagonal***: $$\mcM(\varphi, \mcB) = \begin{pmatrix} A_1 & 0 \\ 0 & A_2 \end{pmatrix}$$ where $A_1 = \mcM(\varphi|_{V_1}, \mcB_1)$ and $A_2 = \mcM(\varphi|_{V_2}, \mcB_2)$. The same holds for a decomposition $V = V_1 \oplus \cdots \oplus V_r$ into any number of invariant subspaces.
+:::
+
+:::proof
+For $i \leq m$: $\varphi(e_i) \in V_1$ (by $\varphi$-invariance), so $\varphi(e_i)$ is a linear combination of $e_1, \ldots, e_m$ only, with the coefficients of $\varphi|_{V_1}(e_i)$. For $i > m$: $\varphi(e_i) \in V_2$, so $\varphi(e_i)$ is a linear combination of $e_{m+1}, \ldots, e_n$ only. This gives the block structure. The case of $r$ summands is the same.
 :::
 
 :::note
-Conversely, if a matrix is block diagonal with blocks $A_1$ and $A_2$, then the spans of the corresponding basis vectors are invariant subspaces. The goal of much of spectral theory is to decompose $V$ into a direct sum of invariant subspaces on which $\varphi$ acts simply.
+Conversely, if the matrix of $\varphi$ in a basis is block diagonal, then the spans of the corresponding groups of basis vectors are invariant subspaces whose direct sum is $V$. The goal of much of spectral theory is to decompose $V$ into a direct sum of invariant subspaces on which $\varphi$ acts simply.
 :::
 
-:::corollary{7.3.1} Block triangular from one invariant subspace
-If $V_1$ is $\varphi$-invariant (but we don’t assume $V_1$ has an invariant complement), then extending a basis of $V_1$ to a basis of $V$ gives a **block upper-triangular** matrix: $$\mcM(\varphi) = \begin{pmatrix} A_1 & * \\ 0 & A_2 \end{pmatrix}.$$ The upper-right block $*$ may be nonzero; it measures the “interaction” between $V_1$ and $V/V_1$.
+When only one of the two subspaces is invariant, we still get a simplification, and the quotient space of Section [7.1](/notes/math-55a/7-1-quotient-spaces) describes the second diagonal block.
+
+:::proposition{7.3.5} Induced operator on a quotient
+Let $W \subseteq V$ be $\varphi$-invariant, and let $q : V \to V/W$ be the quotient map.
+
+<!-- list:paren-alpha -->
+
+1. There is a unique linear map $\bar{\varphi} : V/W \to V/W$ with $\bar{\varphi} \circ q = q \circ \varphi$, namely $\bar{\varphi}(v + W) = \varphi(v) + W$:
+
+   ![fig-7-3-1](/notes/math-55a/figures/fig-7-3-1.svg)
+2. Let $V$ be finite-dimensional, let $w_1, \ldots, w_m$ be a basis of $W$, and extend it to a basis $\mcB = (w_1, \ldots, w_m, v_{m+1}, \ldots, v_n)$ of $V$. Then $\bar{\mcB} = (v_{m+1} + W, \ldots, v_n + W)$ is a basis of $V/W$, and $$\mcM(\varphi, \mcB) = \begin{pmatrix} A_1 & * \\ 0 & A_2 \end{pmatrix},$$ where $A_1 = \mcM(\varphi|_W, (w_1, \ldots, w_m))$ and $A_2 = \mcM(\bar{\varphi}, \bar{\mcB})$. Such a matrix is called ***block upper triangular***.
+:::
+
+:::proof
+(a) The linear map $q \circ \varphi : V \to V/W$ vanishes on $W$, because $\varphi(W) \subseteq W = \ker(q)$. By the universal property (Theorem [7.1.7](/notes/math-55a/7-1-quotient-spaces#theorem-7-1-7)) it factors uniquely as $\bar{\varphi} \circ q$.
+
+(b) The cosets $v_{m+1} + W, \ldots, v_n + W$ span $V/W$, since $q$ is surjective and $q(w_i) = 0$; there are $n - m = \dim(V/W)$ of them (Theorem [7.1.5](/notes/math-55a/7-1-quotient-spaces#theorem-7-1-5)), so they form a basis. For $j \leq m$, $\varphi(w_j) \in W$ is a combination of $w_1, \ldots, w_m$, which gives the first $m$ columns. For $j > m$, write $\varphi(v_j) = \sum_{i \leq m} a_{ij} w_i + \sum_{i > m} a_{ij} v_i$; applying $q$ gives $\bar{\varphi}(v_j + W) = \sum_{i > m} a_{ij} (v_i + W)$, so the lower right block is $\mcM(\bar{\varphi}, \bar{\mcB})$. The upper right block $*$ may be nonzero.
 :::

@@ -6,39 +6,101 @@ section: 1.5
 title: Inverses and Composites
 ---
 
-Consider a function $f : X \to  Y$, a natural mapping that might arise (when thinking on power sets) is some function $F : \mcP (X) \to  \mcP(Y)$; just as each element of $X$ is mapped to an element $Y$ under $f$, each subset of $X$ maps to some subset of $Y$ under $F$, so if $A \subset  X$ then $\exists (A \mapsto \Img (f_A)) \forall  A \in  \mcP(X)$. Cool? I guess? What is to be done about this? In all honesty, I am not sure this factoid has much use other than being a pedagogical tool (though I am almost certainly wrong and I am sure someone will rush to correct me, wherein I might toil and languish over my incorrectness and stupidity, suffering immensely—but probably not, because I simply do not care), but for our cases we use it to introduce its behavior in the inverse.
+A function $f : X\to Y$ induces a map on subsets, $\mcP(X)\to\mcP(Y)$, $A\mapsto f(A)$: just as each element of $X$ is sent to an element of $Y$, each subset of $X$ is sent to its image. On its own this map is mostly a bookkeeping device, but it sets up its counterpart in the opposite direction, which we use constantly.
+
+:::definition{1.5.1} Inverse images
+Let $f : X\to Y$. For $B\subseteq Y$, the ***inverse image*** of $B$ under $f$ is $$f^{-1}(B) = \{x\in X\mid f(x)\in B\}.$$ This defines a map $f^{-1} : \mcP(Y)\to\mcP(X)$. For $y\in Y$, the set $f^{-1}(\{y\}) = \{x\in X\mid f(x) = y\}$, also written $f^{-1}(y)$, is the ***fiber*** of $f$ over $y$.
+:::
+
+Surjectivity and injectivity can be read off from inverse images: $f$ is surjective if and only if the inverse image of every nonempty subset of $Y$ is nonempty (equivalently, every fiber is nonempty), and $f$ is injective if and only if the inverse image of each singleton in the range of $f$ is a singleton in $X$ (equivalently, every fiber has at most one element).
+
+There are some connections between images and inverse images which we collect here.
+
+:::proposition{1.5.2} Images and inverse images
+Let $f : X\to Y$.
+
+<!-- list:paren-alpha -->
+
+1. If $B\subseteq Y$, then $f(f^{-1}(B))\subseteq B$.
+2. If $f$ is surjective and $B\subseteq Y$, then $f(f^{-1}(B)) = B$.
+3. If $A\subseteq X$, then $A\subseteq f^{-1}(f(A))$.
+4. If $f$ is injective and $A\subseteq X$, then $f^{-1}(f(A)) = A$.
+5. If $\{B_i\}_{i\in I}$ is a family of subsets of $Y$, then $f^{-1}(\bigcup_{i\in I}B_i) = \bigcup_{i\in I}f^{-1}(B_i)$ and, for $I\neq\emptyset$, $f^{-1}(\bigcap_{i\in I}B_i) = \bigcap_{i\in I}f^{-1}(B_i)$.
+6. $f^{-1}(Y-B) = X-f^{-1}(B)$ for each $B\subseteq Y$.
+:::
+
+:::proof
+(a) An element of $f(f^{-1}(B))$ has the form $f(x)$ with $f(x)\in B$.
+
+(b) If $y\in B$, choose $x$ with $f(x) = y$; then $x\in f^{-1}(B)$, so $y\in f(f^{-1}(B))$. Together with (a), this gives equality.
+
+(c) If $x\in A$, then $f(x)\in f(A)$, so $x\in f^{-1}(f(A))$.
+
+(d) If $x\in f^{-1}(f(A))$, then $f(x) = f(a)$ for some $a\in A$, so $x = a\in A$. Together with (c), this gives equality.
+
+(e) $f(x)$ lies in some $B_i$ if and only if $x$ lies in some $f^{-1}(B_i)$, and $f(x)$ lies in every $B_i$ if and only if $x$ lies in every $f^{-1}(B_i)$.
+
+(f) $f(x)\notin B$ if and only if $x\notin f^{-1}(B)$.
+:::
+
+We now move on to ***composites***.
+
+:::definition{1.5.3} Composition
+Let $f : X\to Y$ and $g : Y\to Z$. Since the codomain of $f$ is the domain of $g$, we can apply $g$ to the values of $f$. The ***composite*** of $f$ and $g$ is the function $$g\circ f : X\to Z, \qquad (g\circ f)(x) = g(f(x)),$$ often written simply $gf$. We read it right to left: $g\circ f$ applies $f$ first, then $g$.
+:::
+
+:::proposition{1.5.4} Associativity of composition
+Let $f : X\to Y$, $g : Y\to Z$, and $h : Z\to W$. Then $h\circ(g\circ f) = (h\circ g)\circ f$. Moreover, $f\circ\id_X = f = \id_Y\circ f$.
+:::
+
+:::proof
+Both $h\circ(g\circ f)$ and $(h\circ g)\circ f$ are functions from $X$ to $W$ that send each $x$ to $h(g(f(x)))$, so they are the same set of pairs. Similarly, $f\circ\id_X$ and $\id_Y\circ f$ both send $x$ to $f(x)$.
+:::
+
+Composition need not be commutative, even when both composites are defined and have the same domain and codomain: for $f,g : \NN\to\NN$ with $f(n) = n+1$ and $g(n) = 2n$, we have $(g\circ f)(n) = 2n+2$ but $(f\circ g)(n) = 2n+1$.
+
+:::proposition{1.5.5} Inverse functions
+Let $f : X\to Y$.
+
+<!-- list:paren-alpha -->
+
+1. If $f$ is bijective, then for each $y\in Y$ there is exactly one $x\in X$ with $f(x) = y$. Setting $f^{-1}(y) = x$ defines a function $f^{-1} : Y\to X$, the ***inverse*** of $f$, which satisfies $f^{-1}\circ f = \id_X$ and $f\circ f^{-1} = \id_Y$.
+2. Conversely, if there is a function $g : Y\to X$ with $g\circ f = \id_X$ and $f\circ g = \id_Y$, then $f$ is bijective and $g = f^{-1}$.
+
+In particular, the inverse of a bijection is a bijection, with $(f^{-1})^{-1} = f$.
+:::
+
+:::proof
+(a) Such an $x$ exists because $f$ is surjective, and it is unique because $f$ is injective; so $f^{-1}$ is a function. By construction $f(f^{-1}(y)) = y$, and $f^{-1}(f(x))$ is the unique element sent to $f(x)$, namely $x$.
+
+(b) If $f(a) = f(b)$, then $a = g(f(a)) = g(f(b)) = b$, so $f$ is injective; and every $y\in Y$ equals $f(g(y))$, so $f$ is surjective. Finally, $g(y)$ is an element that $f$ sends to $y$, so $g(y) = f^{-1}(y)$.
+
+The last statement follows by applying (b) to $f^{-1}$, with $g = f$.
+:::
 
 :::note
-Regarding notation—as we all too often are—$\Img (f_A)$ is the same thing as $f(A)$ when regarding images of subsets. I prefer the former notation as it feels a bit more natural to me.
+The notation $f^{-1}$ now has two meanings: the inverse image map $\mcP(Y)\to\mcP(X)$, defined for every $f$, and the inverse function $Y\to X$, defined only when $f$ is bijective. For bijective $f$ the two agree in the sense that $f^{-1}(\{y\}) = \{f^{-1}(y)\}$. If $f$ is only injective, the construction in (a) still gives an inverse function $f^{-1} : \ran f\to X$, defined on the range of $f$.
 :::
 
-:::definition{1.5.1} Inverses and inverse images
-Given a function $f : X \to  Y$ we say $f^{-1}$ is the ***inverse*** of $f$ given by $f^{-1} : \mcP(Y) \to  \mcP(X)$ such that if $B \subset  Y$, then $$\Img(f^{-1}_B) = \{x \in  X \mid f(x) \in  B\},$$ is the ***inverse image*** of $B$ under $f$
+:::proposition{1.5.6} Composites of injections, surjections, and bijections
+Let $f : X\to Y$ and $g : Y\to Z$.
+
+<!-- list:paren-alpha -->
+
+1. If $f$ and $g$ are injective, so is $g\circ f$; if they are surjective, so is $g\circ f$. If they are bijective, so is $g\circ f$, and $(g\circ f)^{-1} = f^{-1}\circ g^{-1}$.
+2. For inverse images, $(g\circ f)^{-1}(C) = f^{-1}(g^{-1}(C))$ for every $C\subseteq Z$, for arbitrary $f$ and $g$.
 :::
 
-This definition results in some immediate necessary and sufficient conditions: first, for $f : X \to Y$ to exist, the inverse image under $f$ of each non-empty subset of $Y$ must be a non-empty subset of $X$; second, for $f$ to be injective is that the inverse image under $f$ of each singleton in the range of $f$ be a singleton in $X$.
+:::proof
+(a) If $g(f(a)) = g(f(b))$, injectivity of $g$ and then of $f$ gives $a = b$. If $z\in Z$, choose $y\in Y$ with $g(y) = z$ and $x\in X$ with $f(x) = y$; then $g(f(x)) = z$. If both maps are bijective, associativity gives $$(f^{-1}\circ g^{-1})\circ(g\circ f) = f^{-1}\circ(g^{-1}\circ g)\circ f = f^{-1}\circ f = \id_X,$$ and similarly $(g\circ f)\circ(f^{-1}\circ g^{-1}) = \id_Z$; now apply Proposition [1.5.5](/notes/math-55a/1-5-inverses-and-composites#proposition-1-5-5)(b).
 
-:::note
-We often use $f^{-1}$ for another purpose: for some $f:X \to Y$, $f^{-1} : \ran (f)\to X \implies f^{-1}(y)=x \iff f(x)=y$. This will be the most common use case for $f^{-1}$ as the inverse function $g : Y \to X$
+(b) An element $x$ lies in either side exactly when $g(f(x))\in C$.
 :::
 
-There are some connections between images and inverse images which I will quickly enumerate, but I will not provide proof for (for the proofs see Halmos,~pp. 59): Let $f$ be a function such that $f : X \to A$ for each of the following,
+In both statements the order reverses: to undo “first $f$, then $g$” we must undo $g$ first, and the composite $g^{-1}\circ f^{-1}$ is in general not even defined. We will meet the same reversal for inverses in a group (Proposition [2.1.5](/notes/math-55a/2-1-the-group-axioms#proposition-2-1-5)).
 
-1. $B \subset  Y \implies f(f^{-1}(B))\subset B$;
-2. $f : X \surjto   Y, \, B \subset Y \implies f(f^{-1}(B))=B$;
-3. $A \subset X \implies A \subset  f^{-1}(f(A))$;
-4. $f : X \injto  Y , \, A \subset X  \implies f^{-1}(f(A))=A$;
-5. If $\{B_i\}$ is a family of subsets of $Y$, then $f^{-1}(\bigcup_{i \in  I} B_i ) =\bigcup_{i \in  I} f^{-1}(B_i)$ and $f^{-1}(\bigcap_{i \in  I} B_i ) =\bigcap_{i \in  I} f^{-1}(B_i)$;
-6. $f^{-1}(Y-B)=X-f^{-1}(B)$ for each $B \subset Y$.
+## <span class="num">1.5.1</span> Converse and Composite Relations
 
-We now move onto ***composites***.
+Functions are relations, after all, and both constructions of this section make sense for relations in general. The ***converse*** (or inverse) of a relation $R\subseteq X\times Y$ is the relation $$R^{-1} = \{(y,x)\in Y\times X\mid xRy\}.$$ A function $f : X\to Y$ is bijective exactly when its converse $f^{-1}\subseteq Y\times X$ is a function from $Y$ to $X$: the domain of the converse is $\ran f$, which is $Y$ exactly when $f$ is surjective, and the uniqueness condition for the converse is injectivity of $f$. In that case the converse is the inverse function of Proposition [1.5.5](/notes/math-55a/1-5-inverses-and-composites#proposition-1-5-5).
 
-:::definition{1.5.2} Composition
-Let $f : X \to Y$ and $g : Y \to Z$ it is clear that we can make a map from $X \to Z$ since the range of $f$ can be the domain of $g$. We can represent this new function—i.e., the ***composite function***—as either $h :X \to Z$ or $g \circ f$, and often simply just $gf$. We read this right to left.
-:::
-
-Notice that function composition is not always commutative, nor need it be. Also notice that this remains true under the special case that $f :X \to Y$ and $g : Y \to X$; functional composition, however, is always associative. There will be a strong proof for this later on (in Groups). Notice that if $g : X\to Y$ for standard $f$, if it is bijective we have an inverse function and identity map given by $h$. Functional composition under inverses appears something like this: if $f :X \to  Y$ and $g: Y\to Z$, and $f^{-1} : \mcP(Y) \to X$ and $g^{-1} : \mcP(Z) \to \mcP(Y)$. Then $g \circ f$ has an inverse given by $f^{-1}\circ g^{-1}$. Notice this is not true for $g^{-1}\circ f^{-1}$.
-
-## <span class="num">1.5.1</span> Inverse/ converse and composite relations
-
-The main idea of this comes out of our exploration of inverse functions. Functions *are* relations after all. Consider the ***converse relation*** of $R$ on $X \times Y$ s.t. $xRy$ and $yR^{-1}x$. Similar things can be done for composites by generalizing composition to relations, observe: let $S$ be a relation on $Y \times Z$ and $R$ be a relation on $X \times Y$ such that $xRy$ and $ySz$. Now let $T$ over $X\times Z$ be given by $S\circ R$ such that $xTz$ exists $\iff  \exists  y \in Y$ such that $xRy$ and $ySz$. Congrats! You made a <strong>{</strong>*composite relation*}. If it is the case that $R$ and $S$ are functions s.t. $R(x)=y, \, S(y)=z$ and $S(R(x))=z \iff xTz$ which implies that functional composition is a special case of a greater abstraction called the <strong>{</strong>*relative product*}(??).
+Composition generalizes in the same way. If $R\subseteq X\times Y$ and $S\subseteq Y\times Z$ are relations, their ***composite***, also called their ***relative product***, is the relation $$S\circ R = \{(x,z)\in X\times Z\mid xRy \text{ and } ySz \text{ for some } y\in Y\}.$$ When $R$ and $S$ are functions, $x\,(S\circ R)\,z$ holds exactly when $z = S(R(x))$; so composition of functions is a special case of the relative product.

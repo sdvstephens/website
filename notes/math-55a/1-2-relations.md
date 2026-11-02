@@ -6,30 +6,96 @@ section: 1.2
 title: Relations
 ---
 
-The review or ordered pairs leads us to our next discussion on relations. A relation in more colloquial terms is a dynamic or characteristic of a given element shared with another given element such that they are arranged in the form of ordered pairs. Think of equality, then think of equality as equating $(2+3,1+4)$, or perhaps something more interesting, the set of all $(x,y)$ such that $x$ is a man, $y$ is an enby (slay), and $x$ is married to $y$ (many such cases). We can then think of relations as a set of ordered pairs $R \subset A\times B$. Consider the following examples:
+Our review of ordered pairs leads us to relations. Informally, a relation is a property that a pair of elements may or may not have. Think of equality, which holds for the pair $(2+3,1+4)$; or, for something more interesting, of the set of all $(x,y)$ such that $x$ is a man, $y$ is an enby (slay), and $x$ is married to $y$ (many such cases). Formally, we identify a relation with the set of pairs for which it holds.
 
-1. $R \coloneqq \{(x,y)\in \mathbb{N}^2 \mid y-x>0\} \iff xRy  \equiv y>x$, the relation of greater than;
-2. $R\coloneqq \{ (a,B) \in A \times \mathcal{P}(A) \mid a \in B\} \iff aRB \equiv a \in B$, the relation of *belonging* (being an element of);
-3. $R\coloneqq \{(c,d)\in \{\text{all cats}\} \times  \{\text{all dogs}\}  \mid c,d \text{ live in the same house}\}$.
-
-Naturally, there are an infinite number of possible relations, however there is a particular class of these which we are interested in for the time being—that which relates two equivalent elements (the definition of what equivalence means is, for now, notably ambiguous).
-
-If a relation $R$ exists s.t. $xRx$ for any $x \in  X$, then we say $R$ is reflexive. If $xRy \iff yRx$, it is symmetric, and if $xRy, \,  yRz \implies xRz$, it is transitive. If a given relation $R$ satisfies all three of these properties (reflexivity, symmetry, transitivity), then we say it is an ***equivalence relation***.
-
-:::definition{1.2.1} Equivalence relations
-An equivalence relation, usually denoted $\sim$, is a relation that is reflexive, symmetric, and transitive $\forall (a,b) \in  A \times  B$.
+:::definition{1.2.1} Relations
+A ***relation*** between sets $A$ and $B$ is a subset $R \subseteq A\times B$; we write $xRy$ for $(x,y)\in R$. A relation ***on*** a set $X$ is a relation between $X$ and $X$, that is, a subset $R\subseteq X\times X$. The ***domain*** and ***range*** of $R$ are $$\dom R = \{x \mid xRy \text{ for some } y\}, \qquad \ran R = \{y \mid xRy \text{ for some } x\}.$$
 :::
 
-:::question{1}
-Consider each of the three qualifiers (axioms) for the existence of an equivalence relation. Find an explicit relation that has one property but not the other for each of the three axioms.
+Consider the following examples:
+
+<!-- list:paren-alpha -->
+
+1. $R \coloneqq \{(x,y)\in \NN^2 \mid y-x>0\}$, so that $xRy$ means $x<y$: the relation *less than*;
+2. $R\coloneqq \{ (a,B) \in A \times \mcP(A) \mid a \in B\}$, so that $aRB$ means $a\in B$: the relation of *belonging* (being an element of);
+3. $R\coloneqq \{(c,d)\in \{\text{all cats}\} \times  \{\text{all dogs}\}  \mid c \text{ and } d \text{ live in the same house}\}$.
+
+Naturally, there are infinitely many possible relations, but one class of them concerns us for now: the relations that declare elements equivalent to one another, in a sense that the next definition makes precise.
+
+:::definition{1.2.2} Equivalence relations
+Let $R$ be a relation on a set $X$. We say that $R$ is
+
+<!-- list:paren-alpha -->
+
+1. ***reflexive*** if $xRx$ for every $x\in X$;
+2. ***symmetric*** if $xRy$ implies $yRx$;
+3. ***transitive*** if $xRy$ and $yRz$ imply $xRz$.
+
+An ***equivalence relation*** on $X$ is a relation on $X$ that is reflexive, symmetric, and transitive. Equivalence relations are usually denoted $\sim$.
+:::
+
+:::question{1.2.3}
+The three properties in the definition are independent of one another. For each of them, find an explicit relation that has that property and lacks the other two.
 
 :::solution
-I apologize for the terse abstraction involved in this first example, but let $$R\coloneqq \{(1,1),(2,2),(3,3)(1,2),(2,3)\in \{1,2,3\}^2  \}  ,$$ notice that $(1,1),(2,2),(3,3)$ is true for $R$, thus reflexivity holds; however, it is quick to see that $(1,2)$ exists in $R$ but $(2,1)\not\in R$, thus symmetry cannot hold. For transitivity, notice that we have $(1,2) \text{ and }  (2,3)$, so we can set up the first step, but $(1,3)\not\in  R$! Thus transitivity fails. This example is a reminder that we need not think of concrete properties that can be applied in front of our eyes (shapes, dogs, even equality!) in order to have or manipulate some sort of mathematical relation. Next, consider a the relation $R\coloneqq \{(a,b)\mid a \neq  b\}$. First, $aRa$ is categorically untrue thus reflexivity means nothing to us. Symmetry, however, tells us that if $aRb$ then $bRa$, which is true! Transitivity may seems sneakily true at first, but notice that $aRb, \, bRa \implies aRa$ is not true (we simply replaced $c$ with another instance of $a$). Finally, transitivity as a singular property is pretty straightforward. Consider $x>y$, notice that $x>x \implies x<x$ is categorically untrue since $x$ can never be greater or less than itself, additionally, $x>y$ never implies $y>x$. For transitivity however, notice that $x>y, \, y>z \implies x>z$ is true!
+For reflexivity, let $$R\coloneqq \{(1,1),(2,2),(3,3),(1,2),(2,3)\} \subseteq \{1,2,3\}^2.$$ Since $(1,1),(2,2),(3,3)\in R$, the relation $R$ is reflexive on $\{1,2,3\}$. However, $(1,2)\in R$ but $(2,1)\notin R$, so $R$ is not symmetric. For transitivity, we have $(1,2)$ and $(2,3)$ in $R$, so we can set up the first step, but $(1,3)\notin R$; thus transitivity fails. This example is a reminder that we need not think of concrete properties that can be seen in front of our eyes (shapes, dogs, even equality!) in order to have a mathematical relation: any set of pairs will do.
+
+For symmetry, let $X$ be a set with at least two elements and consider $R\coloneqq \{(a,b)\in X^2\mid a \neq  b\}$. No element satisfies $aRa$, so $R$ is not reflexive. It is symmetric, since $a\neq b$ implies $b\neq a$. Transitivity may seem plausible at first, but for $a\neq b$ we have $aRb$ and $bRa$, and transitivity would then demand $aRa$, which is false.
+
+For transitivity, consider $x>y$ on $\NN$. It is not reflexive, since $x$ is never greater than itself, and it is not symmetric, since $x>y$ never implies $y>x$. It is transitive: $x>y$ and $y>z$ imply $x>z$.
 :::
 :::
 
-Returning to our discussion of relations and partitions we can have this thing called an *induced relation*. Let $R\coloneqq X / \mfC$, we say that if $x,y \in  \mfC$ and $xX / \mfC y$, then $X / \mfC$ is the relation *induced* by the partition $\mfC$.
+## <span class="num">1.2.1</span> Equivalence Classes and Partitions
 
-:::proposition{1.2.1} Relationship between equivalence relations, classes, and set partitions
-Explicitly the relationship between the two is given as follows: if $R$ is an equivalence relation on $X$, then the set of equivalence classes form a partition of $X$ that induces the relation $R$, and if $\mfC$ is a partition of $X$, then the induced relation is an equivalence relation whose set of equivalence classes is exactly $\mfC$.
+An equivalence relation on $X$ declares certain elements of $X$ equivalent to one another. Gathering mutually equivalent elements together produces a smaller set, whose elements are the resulting classes.
+
+:::definition{1.2.4} Equivalence classes
+Let $\sim$ be an equivalence relation on a set $X$. The ***equivalence class*** of $a\in X$ is $$[a] = \{x\in X\mid a\sim x\}.$$ Any element of $[a]$ is called a ***representative*** of the class.
+:::
+
+By reflexivity, $a\in[a]$.
+
+:::lemma{1.2.5} Equal classes
+Let $\sim$ be an equivalence relation on $X$, and let $a,b\in X$.
+
+<!-- list:paren-alpha -->
+
+1. $[a] = [b]$ if and only if $a\sim b$.
+2. If $[a]\cap[b]\neq\emptyset$, then $[a] = [b]$.
+:::
+
+:::proof
+(a) Suppose $a\sim b$. If $x\in[b]$, then $b\sim x$, and transitivity gives $a\sim x$; so $[b]\subseteq[a]$. By symmetry $b\sim a$, and the same argument gives $[a]\subseteq[b]$. Conversely, if $[a] = [b]$, then $b\in[b] = [a]$, that is, $a\sim b$.
+
+(b) If $c\in[a]\cap[b]$, then $a\sim c$ and $b\sim c$; by symmetry $c\sim b$, and by transitivity $a\sim b$. Now apply (a).
+:::
+
+:::definition{1.2.6} Partitions
+A ***partition*** of a set $X$ is a collection $\mfC$ of nonempty subsets of $X$ such that every element of $X$ belongs to exactly one member of $\mfC$; equivalently, the members of $\mfC$ are nonempty and pairwise disjoint, and their union is $X$. The relation ***induced*** by $\mfC$ is the relation $\sim_{\mfC}$ on $X$ given by $$x\sim_{\mfC} y \iff \text{some } A\in\mfC \text{ contains both } x \text{ and } y.$$
+:::
+
+:::definition{1.2.7} Quotient sets
+Let $\sim$ be an equivalence relation on $X$. The ***quotient set*** of $X$ by $\sim$ is the set of its equivalence classes, $$X/{\sim} = \{[a]\mid a\in X\}\subseteq\mcP(X).$$
+:::
+
+Equivalence relations and partitions turn out to be two descriptions of the same thing.
+
+:::proposition{1.2.8} Equivalence relations and partitions
+Let $X$ be a set.
+
+<!-- list:paren-alpha -->
+
+1. If $\sim$ is an equivalence relation on $X$, then $X/{\sim}$ is a partition of $X$, and the relation it induces is $\sim$.
+2. If $\mfC$ is a partition of $X$, then $\sim_{\mfC}$ is an equivalence relation on $X$, and its set of equivalence classes is exactly $\mfC$: $X/{\sim_{\mfC}} = \mfC$.
+:::
+
+:::proof
+(a) Each class $[a]$ is nonempty, since it contains $a$, and each $x\in X$ lies in the class $[x]$. If $x$ lies in two classes $[a]$ and $[b]$, they intersect, so $[a] = [b]$ by Lemma [1.2.5](/notes/math-55a/1-2-relations#lemma-1-2-5). Hence $X/{\sim}$ is a partition, and the only class containing $x$ is $[x]$. Consequently some class contains both $x$ and $y$ if and only if $[x] = [y]$, which by Lemma [1.2.5](/notes/math-55a/1-2-relations#lemma-1-2-5) happens if and only if $x\sim y$.
+
+(b) For $x\in X$, let $A_x$ be the unique member of $\mfC$ containing $x$. If $x,y\in A$ for some $A\in\mfC$, then $A = A_x$ by uniqueness; so $x\sim_{\mfC} y$ if and only if $y\in A_x$. Now $\sim_{\mfC}$ is reflexive, since $x\in A_x$; it is symmetric, since its definition is symmetric in $x$ and $y$; and it is transitive, since $x\sim_{\mfC} y$ and $y\sim_{\mfC} z$ give $y\in A_x$, hence $A_y = A_x$, and $z\in A_y = A_x$. The class of $x$ is $\{y\mid y\in A_x\} = A_x$, so $X/{\sim_{\mfC}} = \{A_x\mid x\in X\}$. Every member $A$ of $\mfC$ is nonempty, and $A = A_x$ for any $x\in A$; hence $X/{\sim_{\mfC}} = \mfC$.
+:::
+
+:::example{1.2.9} Congruence mod $n$
+Fix an integer $n\ge 1$, and for $a,b\in\ZZ$ set $a\sim b$ if $n$ divides $b-a$. This is an equivalence relation, called ***congruence mod $n$*** and also written $a\equiv b\pmod n$: $n$ divides $a-a = 0$; if $n$ divides $b-a$, it divides $a-b$; and if $n$ divides $b-a$ and $c-b$, it divides their sum $c-a$. The class of $a$ is $[a] = \{a+mn\mid m\in\ZZ\}$. By division with remainder, every integer can be written as $a = qn+r$ with $q\in\ZZ$ and $0\le r\le n-1$, so $a$ is congruent to its remainder $r$. No two of $0,1,\ldots,n-1$ are congruent, since their differences have absolute value less than $n$. So every integer is congruent to exactly one of $0,1,\ldots,n-1$, and the quotient set has exactly $n$ elements: $$\ZZ/{\sim} = \{[0],[1],\ldots,[n-1]\}.$$
 :::

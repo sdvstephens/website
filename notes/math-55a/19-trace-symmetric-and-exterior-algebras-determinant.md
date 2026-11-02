@@ -217,7 +217,7 @@ $$
 $$
 into a (skew-commutative) ring, i.e. if $\eta\in\Lambda^kV$, $\xi\in\Lambda^\ell V$, then $\eta\wedge\xi=(-1)^{k\ell}\,\xi\wedge\eta$. (Check: $\dim\Lambda^\bullet V=2^{\dim V}$.)
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 20](/notes/math-55a/20-determinants-and-modules-over-a-ring)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L20}}
 **Volume and determinant**
 
 If $\dim V=n$, then $\dim\Lambda^nV=1$ (if $e_1,\dots,e_n$ is a basis of $V$, it is spanned by $e_1\wedge\cdots\wedge e_n\in\Lambda^nV$).

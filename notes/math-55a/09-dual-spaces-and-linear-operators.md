@@ -126,7 +126,7 @@ This follows from:
 2. If $\ell' = \varphi^*(\ell)\in\Img(\varphi^*)$, then $\ell' = \ell\circ\varphi$, so $\ell'|_{\ker\varphi} = 0$. So $\Img(\varphi^*)\subset\operatorname{Ann}(\ker\varphi)$. The dimension formula and (1) imply $\rank(\varphi^*) = \rank(\varphi)$, hence the inclusion is an equality.
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 10](/notes/math-55a/10-eigenvectors-and-upper-triangular-matrices)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L10}}
 **Linear operators**
 
 A **linear operator** on $V$ (aka **endomorphism** of $V$) is a linear map $\varphi: V\to V$.

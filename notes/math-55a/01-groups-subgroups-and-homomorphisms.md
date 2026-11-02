@@ -128,7 +128,7 @@ $$
 the “**special linear group**”. Also $GL_n(\CC)$, $SL_n(\CC)$ for matrices with complex coefficients… or with $\QQ$ or $\ZZ/n$ coefficients!
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 2](/notes/math-55a/02-cardinality-subgroups-and-cyclic-groups)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L02}}
 **Products of groups**
 
 :::definition

@@ -6,63 +6,108 @@ section: 11.6
 title: Semidirect Products
 ---
 
-When $N \trianglelefteq G$ and we have a complement $H$ (a subgroup with $N \cap H = \{e\}$ and $NH = G$), the group $G$ is determined by $N$, $H$, and the conjugation action of $H$ on $N$.
+## <span class="num">11.6.1</span> Semidirect and Direct Products
+
+If $N$ is a normal subgroup of $G$, we have an exact sequence $1 \to N \to G \to G/N \to 1$ (Definition [3.5.1](/notes/math-55a/3-5-exact-sequences#definition-3-5-1)). This does not make $G$ isomorphic to $N \times G/N$, and $G$ need not even contain a subgroup isomorphic to $G/N$: in $0 \to p\ZZ \to \ZZ \to \ZZ/p \to 0$, the group $\ZZ$ has no nonzero element of finite order, so no subgroup isomorphic to $\ZZ/p$.
+
+Suppose now that $H \leq G$ is a subgroup that contains exactly one element of each coset of $N$. Then every $g \in G$ can be written uniquely as $g = nh$ with $n \in N$ and $h \in H$, so $(n, h) \mapsto nh$ is a bijection $N \times H \to G$. It need not be a homomorphism, but since $N$ is normal, $$(n_1 h_1)(n_2 h_2) = \bigl(n_1 \cdot h_1 n_2 h_1^{-1}\bigr)(h_1 h_2), \qquad h_1 n_2 h_1^{-1} \in N.$$ So the multiplication of $G$ is determined by $N$, $H$, and the action of $H$ on $N$ by conjugation. This leads to the following construction.
 
 :::definition{11.6.1} Semidirect product
-Given groups $N$ and $H$ and a homomorphism $\varphi : H \to \Aut(N)$, the semidirect product $N \rtimes_\varphi H$ is defined as:
+Let $N$ and $H$ be groups and $\varphi : H \to \Aut(N)$ a homomorphism, that is, an action of $H$ on $N$ by automorphisms. The ***semidirect product*** $N \rtimes_\varphi H$ is the set $N \times H$ with the multiplication $$(n_1, h_1) \cdot (n_2, h_2) = \bigl(n_1 \, \varphi(h_1)(n_2), \ h_1 h_2\bigr).$$
+:::
 
-- As a set: $N \times H$.
-- Group law: $(n_1, h_1) \cdot (n_2, h_2) = (n_1 \, \varphi(h_1)(n_2), \, h_1 h_2)$.
+This is a group. The element $(e, e)$ is an identity, and $(\varphi(h^{-1})(n^{-1}), h^{-1})$ is an inverse of $(n, h)$ on both sides. For associativity, using that $\varphi(h_1)$ is a homomorphism and $\varphi(h_1)\varphi(h_2) = \varphi(h_1 h_2)$, $$\begin{aligned}
+\bigl((n_1, h_1)(n_2, h_2)\bigr)(n_3, h_3) &= \bigl(n_1 \, \varphi(h_1)(n_2) \, \varphi(h_1h_2)(n_3), \ h_1h_2h_3\bigr) \\
+&= (n_1, h_1)\bigl((n_2, h_2)(n_3, h_3)\bigr).
+\end{aligned}$$ The map $(n, h) \mapsto h$ is a homomorphism onto $H$ with kernel $N \times \{e\} \cong N$, so $N \times \{e\}$ is normal; $\{e\} \times H$ is a subgroup isomorphic to $H$; and $(e, h)(n, e)(e, h)^{-1} = (\varphi(h)(n), e)$, so inside $N \rtimes_\varphi H$ the action $\varphi$ becomes conjugation. When $\varphi$ is trivial ($\varphi(h) = \id_N$ for all $h$), the semidirect product is the direct product $N \times H$.
+
+:::proposition{11.6.2} Recognizing semidirect products
+Let $N, H \leq G$ with $N$ normal, and suppose every element of $G$ can be written uniquely as $g = nh$ with $n \in N$ and $h \in H$. Then $G \cong N \rtimes_\varphi H$, where $\varphi(h)(n) = hnh^{-1}$.
+:::
+
+:::proof
+Conjugation by $h$ maps the normal subgroup $N$ to itself, so $\varphi : H \to \Aut(N)$ is a homomorphism. The map $N \rtimes_\varphi H \to G$, $(n, h) \mapsto nh$, is a bijection by hypothesis, and it is a homomorphism, since $$(n_1 h_1)(n_2 h_2) = n_1 (h_1 n_2 h_1^{-1}) h_1 h_2 = \bigl(n_1 \, \varphi(h_1)(n_2)\bigr)(h_1 h_2).$$
+:::
+
+:::lemma{11.6.3} Unique factorization
+Let $N, H \leq G$ with $N \cap H = \{e\}$. Then the products $nh$ with $n \in N$, $h \in H$ are pairwise distinct. So if $G$ is finite and $|G| = |N| \cdot |H|$, every element of $G$ can be written uniquely as $nh$. The condition $N \cap H = \{e\}$ holds whenever $|N|$ and $|H|$ are coprime, because the order of $N \cap H$ divides both.
+:::
+
+:::proof
+If $n_1 h_1 = n_2 h_2$, then $n_2^{-1} n_1 = h_2 h_1^{-1} \in N \cap H = \{e\}$, so $n_1 = n_2$ and $h_1 = h_2$. If $|G| = |N||H|$, the $|N||H|$ distinct products fill $G$.
+:::
+
+:::corollary{11.6.4} Direct product criterion
+Let $G$ be a finite group with normal subgroups $N$ and $H$ such that $N \cap H = \{e\}$ and $|G| = |N| \cdot |H|$. Then $G \cong N \times H$.
+:::
+
+:::proof
+By Lemma [11.6.3](/notes/math-55a/11-6-semidirect-products#lemma-11-6-3) and Proposition [11.6.2](/notes/math-55a/11-6-semidirect-products#proposition-11-6-2), $G \cong N \rtimes_\varphi H$ with $\varphi(h)(n) = hnh^{-1}$. For $n \in N$ and $h \in H$, the element $nhn^{-1}h^{-1}$ lies in $N$ (as $hn^{-1}h^{-1} \in N$) and in $H$ (as $nhn^{-1} \in H$), so it is $e$, and $hnh^{-1} = n$. So $\varphi$ is trivial and $G \cong N \times H$.
+:::
+
+:::example{11.6.5} Dihedral groups as semidirect products
+In $S_3$, take $N = A_3 = \langle \sigma \rangle$ with $\sigma = (1\,2\,3)$, and $H = \{e, \tau\}$ with $\tau = (1\,2)$. Then $N$ is normal, $N \cap H = \{e\}$ and $|S_3| = 3 \cdot 2$, so $S_3 \cong \ZZ/3 \rtimes_\varphi \ZZ/2$, where the generator of $\ZZ/2$ acts by $\tau\sigma\tau^{-1} = \sigma^{-1}$, that is, by inversion. In the same way $D_n \cong \ZZ/n \rtimes_\varphi \ZZ/2$, with $N$ the subgroup of rotations and $H = \{e, s\}$ for a reflection $s$, since $srs^{-1} = r^{-1}$. For $n \geq 3$ these groups are not abelian, so they are not direct products of the abelian groups $\ZZ/n$ and $\ZZ/2$.
+:::
+
+## <span class="num">11.6.2</span> Groups of Order 15 and 21
+
+:::example{11.6.6} Groups of order 15
+Let $|G| = 15 = 3 \cdot 5$. By Sylow’s third theorem, $s_3 \mid 5$ and $s_3 \equiv 1 \pmod 3$, so $s_3 = 1$; and $s_5 \mid 3$ and $s_5 \equiv 1 \pmod 5$, so $s_5 = 1$. So the Sylow 3-subgroup $H$ and the Sylow 5-subgroup $K$ are normal. Their orders are coprime and $|H||K| = 15$, so $G \cong H \times K \cong \ZZ/3 \times \ZZ/5$ by Corollary [11.6.4](/notes/math-55a/11-6-semidirect-products#corollary-11-6-4), and $\ZZ/3 \times \ZZ/5 \cong \ZZ/15$ because $(1, 1)$ has order 15. Every group of order 15 is cyclic.
+:::
+
+:::example{11.6.7} Groups of order 21
+Let $|G| = 21 = 3 \cdot 7$. Sylow gives $s_7 \mid 3$ and $s_7 \equiv 1 \pmod 7$, so $s_7 = 1$, and the Sylow 7-subgroup $K = \langle y \rangle \cong \ZZ/7$ is normal. Also $s_3 \mid 7$ and $s_3 \equiv 1 \pmod 3$, so $s_3 \in \{1, 7\}$. Let $H = \langle x \rangle$ be a Sylow 3-subgroup.
+
+If $s_3 = 1$, then $H$ is normal too, and $G \cong \ZZ/3 \times \ZZ/7 \cong \ZZ/21$ as for order 15.
+
+If $s_3 = 7$, then $G \cong K \rtimes_\varphi H$ by Lemma [11.6.3](/notes/math-55a/11-6-semidirect-products#lemma-11-6-3) and Proposition [11.6.2](/notes/math-55a/11-6-semidirect-products#proposition-11-6-2), where $\varphi(x)$ is conjugation by $x$ on $K$. An automorphism of $K$ sends $y$ to another generator, so $xyx^{-1} = y^a$ for some $a \in \{1, \ldots, 6\}$. Since $x^3 = e$, $y = x^3 y x^{-3} = y^{a^3}$, so $a^3 \equiv 1 \pmod 7$, and $a \in \{1, 2, 4\}$. If $a = 1$, then $x$ and $y$ commute, $G$ is abelian, and every subgroup is normal, contradicting $s_3 = 7$. If $a = 4$, replace the generator $x$ of $H$ by $x^2$: then $x^2 y x^{-2} = y^{16} = y^2$. So we may take $a = 2$, and $$G = \langle x, y \rangle, \qquad x^3 = y^7 = e, \qquad xyx^{-1} = y^2,$$ where every element is uniquely $y^i x^j$ ($0 \leq i < 7$, $0 \leq j < 3$) and these relations determine all products. Conversely, the semidirect product $\ZZ/7 \rtimes_\varphi \ZZ/3$, in which $1 \in \ZZ/3$ acts on $\ZZ/7$ by multiplication by 2 (an automorphism of order 3, since $2^3 = 8 \equiv 1 \pmod 7$), is a non-abelian group of order 21. So there are exactly two groups of order 21 up to isomorphism: $\ZZ/21$ and $\ZZ/7 \rtimes \ZZ/3$.
+:::
+
+## <span class="num">11.6.3</span> Groups of Order 12
+
+:::proposition{11.6.8} Groups of order 12
+Up to isomorphism there are exactly five groups of order 12: $$\ZZ/12, \qquad \ZZ/2 \times \ZZ/6, \qquad A_4, \qquad D_6, \qquad \ZZ/3 \rtimes \ZZ/4,$$ where in the last group the generator of $\ZZ/4$ acts on $\ZZ/3$ by inversion.
+:::
+
+:::proof
+Let $|G| = 12 = 2^2 \cdot 3$. By Sylow’s theorems, the number $s_2$ of Sylow 2-subgroups (of order 4) divides 3 and is odd, so $s_2 \in \{1, 3\}$; and the number $s_3$ of Sylow 3-subgroups (of order 3) divides 4 and is $\equiv 1 \pmod 3$, so $s_3 \in \{1, 4\}$. Let $H$ be a Sylow 2-subgroup and $K$ a Sylow 3-subgroup. By Corollary [11.2.5](/notes/math-55a/11-2-conjugation-and-the-class-equation#corollary-11-2-5), $H \cong \ZZ/4$ or $H \cong \ZZ/2 \times \ZZ/2$. Since $|H|$ and $|K|$ are coprime and $|H||K| = 12$, every element of $G$ is uniquely a product $kh$ with $k \in K$, $h \in H$ (Lemma [11.6.3](/notes/math-55a/11-6-semidirect-products#lemma-11-6-3)).
+
+**At least one of $H$, $K$ is normal.** Suppose $s_3 = 4$, with Sylow 3-subgroups $K_1, \ldots, K_4$. For $i \neq j$, $K_i \cap K_j$ is a proper subgroup of a group of prime order, so $K_i \cap K_j = \{e\}$, and the $K_i$ contain $4 \cdot 2 = 8$ elements of order 3. A Sylow 2-subgroup contains no element of order 3, so it lies in the set of the remaining $12 - 8 = 4$ elements, and therefore equals it. Hence $s_2 = 1$.
+
+**Both normal.** Then $G \cong K \times H$ by Corollary [11.6.4](/notes/math-55a/11-6-semidirect-products#corollary-11-6-4). With $H \cong \ZZ/4$ this is $\ZZ/3 \times \ZZ/4 \cong \ZZ/12$, and with $H \cong \ZZ/2 \times \ZZ/2$ it is $\ZZ/2 \times \ZZ/2 \times \ZZ/3 \cong \ZZ/2 \times \ZZ/6$.
+
+**$K$ not normal ($s_3 = 4$).** Let $G$ act by conjugation on the set $\{K_1, K_2, K_3, K_4\}$ of Sylow 3-subgroups, giving a homomorphism $\psi : G \to S_4$. By Proposition [11.5.7](/notes/math-55a/11-5-the-sylow-theorems#proposition-11-5-7), $|N(K_i)| = 12/4 = 3$, so $N(K_i) = K_i$. Let $y_i$ generate $K_i$. Then $y_i$ fixes $K_i$, and fixes no $K_j$ with $j \neq i$, since $y_i \in N(K_j) = K_j$ would put $y_i$ in $K_i \cap K_j = \{e\}$. As $y_i^3 = e$, $\psi(y_i)$ is a 3-cycle fixing $K_i$, and $\psi(y_i^2)$ is the other 3-cycle fixing $K_i$. So the image of $\psi$ contains all eight 3-cycles, hence contains $A_4$ by Lemma [11.4.8](/notes/math-55a/11-4-conjugacy-in-s-n-and-a-n#lemma-11-4-8). Since $|\psi(G)| \leq |G| = 12 = |A_4|$, $\psi$ is injective with image $A_4$, and $G \cong A_4$.
+
+**$K$ normal, $H$ not normal ($s_3 = 1$, $s_2 = 3$).** Write $K = \{e, y, y^2\}$. By Proposition [11.6.2](/notes/math-55a/11-6-semidirect-products#proposition-11-6-2), $G \cong K \rtimes_\varphi H$, where $\varphi : H \to \Aut(K)$ is conjugation. The group $\Aut(K) = \{\id, \iota\}$, where $\iota(y) = y^2 = y^{-1}$, has order 2, and $\varphi$ is nontrivial: otherwise $H$ would commute with $K$, and $G \cong K \times H$ would be abelian, so $H$ would be normal.
+
+- If $H = \langle x \rangle \cong \ZZ/4$, then $\varphi(x) = \iota$, so $xyx^{-1} = y^{-1}$, and $G \cong \ZZ/3 \rtimes \ZZ/4$ with the generator of $\ZZ/4$ acting by inversion.
+- If $H \cong \ZZ/2 \times \ZZ/2$, then $\ker \varphi$ has order 2; let $z$ generate it and let $x \in H \setminus \ker\varphi$. Then $H = \{e, x, z, xz\}$ and $$x^2 = z^2 = y^3 = e, \qquad xz = zx, \qquad zy = yz, \qquad xyx^{-1} = y^{-1}.$$ Every element of $G$ is uniquely $y^i z^j x^k$ ($0 \leq i < 3$; $j, k \in \{0, 1\}$), and these relations determine all products. In $D_6$, the symmetry group of the regular hexagon with rotation $r$ by $\pi/3$ and a reflection $s$, the elements $y = r^2$, $z = r^3$ and $x = s$ satisfy the same relations ($z$ commutes with $y$ as both are rotations, and $sr^3 = r^{-3}s = r^3s$), and they generate $D_6$, since $r = r^3 r^{-2}$. So $G \cong D_6$.
+
+These five groups are pairwise non-isomorphic. The first two are abelian, and only $\ZZ/12$ has an element of order 12. Among the non-abelian ones, $\ZZ/3 \rtimes \ZZ/4$ has an element of order 4 while $A_4$ and $D_6$ do not, and $D_6$ has an element of order 6 while $A_4$ does not. Finally all five exist: the semidirect product $\ZZ/3 \rtimes \ZZ/4$ is defined for any homomorphism $\ZZ/4 \to \Aut(\ZZ/3)$, and it is non-abelian when the generator acts by inversion.
 :::
 
 :::note
-When $\varphi$ is trivial ($\varphi(h) = \id_N$ for all $h$), the semidirect product reduces to the direct product $N \times H$. The semidirect product is the direct product “twisted” by the action $\varphi$.
+The group $D_6$ is also isomorphic to $S_3 \times \ZZ/2$. In $D_6$, the subgroup $\langle r^2, s \rangle$ of order 6 is isomorphic to $D_3 \cong S_3$ and normal (it has index 2), the subgroup $\langle r^3 \rangle \cong \ZZ/2$ is normal because $r^3$ commutes with every element, the two meet only in $e$, and $6 \cdot 2 = 12$; so Corollary [11.6.4](/notes/math-55a/11-6-semidirect-products#corollary-11-6-4) applies. Likewise $A_4 \cong V_4 \rtimes \ZZ/3$, with $\ZZ/3 = \langle (1\,2\,3) \rangle$ permuting the three non-identity elements of $V_4$ cyclically by conjugation.
 :::
 
-:::proposition{11.6.1} Recognition criterion
-If $N, H \leq G$ with $N$ normal, $N \cap H = \{e\}$, and every element of $G$ is uniquely $g = nh$ ($n \in N$, $h \in H$), then $G \cong N \rtimes_\varphi H$ where $\varphi(h)(n) = hnh^{-1}$.
+:::exercise{11.6.9} Group actions, conjugacy, and the Sylow theorems
+<!-- list:paren-decimal -->
+
+1. Let $G$ be a group of order $pq$, where $p < q$ are primes and $p \nmid q - 1$. Prove that $G$ is cyclic.
+2. Compute the class equation of $S_5$. Use it to determine all normal subgroups of $S_5$.
+3. Use Burnside’s lemma to count the necklaces made from 6 beads in 2 colors, where two necklaces are the same if one can be rotated to obtain the other.
+4. Let $G$ be a finite group acting on a finite set $S$, and let $N$ be the number of orbits. Prove that $\sum_{s \in S} |\Stab(s)| = N \cdot |G|$.
+5. Compute the class equation of $A_6$, and use it to prove that $A_6$ is simple.
+
+:::solution
+**(1)** The number $s_q$ of Sylow $q$-subgroups divides $p$ and is $\equiv 1 \pmod q$; since $p < q$, $s_q = 1$. The number $s_p$ divides $q$ and is $\equiv 1 \pmod p$, so $s_p \in \{1, q\}$; and $s_p = q$ is impossible, since $q \not\equiv 1 \pmod p$. So $s_p = s_q = 1$, and the Sylow subgroups $H \cong \ZZ/p$ and $K \cong \ZZ/q$ are both normal. Their orders are coprime with product $pq$, so $G \cong \ZZ/p \times \ZZ/q$ by Corollary [11.6.4](/notes/math-55a/11-6-semidirect-products#corollary-11-6-4), and this group is cyclic, generated by $(1, 1)$, which has order $pq$.
+
+**(2)** The conjugacy classes of $S_5$ correspond to the partitions of 5. Counting each cycle type: the identity (1); transpositions, $\binom{5}{2} = 10$; products of two disjoint transpositions, $5 \cdot 3 = 15$ (choose the fixed point, then pair up the other four); 3-cycles, $\binom{5}{3} \cdot 2 = 20$; products of a 3-cycle and a disjoint transposition, $\binom{5}{3} \cdot 2 = 20$; 4-cycles, $5 \cdot 3! = 30$; 5-cycles, $4! = 24$. The class equation is $$120 = 1 + 10 + 15 + 20 + 20 + 30 + 24.$$ A normal subgroup is a union of classes containing $\{e\}$ whose size divides 120. The proper divisors of 120 are at most 60, and the only sums $1 + s$ with $s$ a sum of distinct terms of $10, 15, 20, 20, 30, 24$ that are divisors of 120 other than 1 and 120 are $$1 + 15 + 24 = 40 \qquad\text{and}\qquad 1 + 15 + 20 + 24 = 60,$$ where in the second the 20 can be either the 3-cycles or the products of a 3-cycle and a transposition. Each of these three unions contains the 5-cycle $(1\,2\,3\,4\,5)$ and the element $(1\,2)(3\,4)$, and composing from right to left, $$(1\,2\,3\,4\,5)(1\,2)(3\,4) = (1\,3\,5),$$ a 3-cycle. So the union of size 40 and the union of size 60 that uses the products of a 3-cycle and a transposition are not closed under multiplication. The remaining union, of the identity, the products of two transpositions, the 3-cycles and the 5-cycles, is the set of even permutations, $A_5$. So the normal subgroups of $S_5$ are $\{e\}$, $A_5$ and $S_5$, as Corollary [11.4.10](/notes/math-55a/11-4-conjugacy-in-s-n-and-a-n#corollary-11-4-10) also shows.
+
+**(3)** The rotation group is $G = \ZZ/6$, acting on the set $S$ of 2-colorings of the 6 positions, $|S| = 2^6 = 64$. The rotation by $k$ positions permutes the positions in $\gcd(k, 6)$ cycles, and a coloring is fixed if and only if it is constant on each cycle, so it has $2^{\gcd(k, 6)}$ fixed points. For $k = 0, 1, 2, 3, 4, 5$ this gives $64, 2, 4, 8, 4, 2$. By Burnside’s lemma the number of necklaces is $\frac{1}{6}(64 + 2 + 4 + 8 + 4 + 2) = \frac{84}{6} = 14$.
+
+**(4)** This is the double count in the proof of Burnside’s lemma: $\sum_{s \in S} |\Stab(s)|$ and $\sum_{g \in G} |S^g|$ both count the pairs $(g, s)$ with $g \cdot s = s$, and the second sum is $N \cdot |G|$ by Burnside’s lemma.
+
+**(5)** The even cycle types in $S_6$, counting fixed points as 1-cycles, and the sizes of their classes in $S_6$ are: the identity (1); two disjoint transpositions, $\binom{6}{4} \cdot 3 = 45$; 3-cycles, $\binom{6}{3} \cdot 2 = 40$; two disjoint 3-cycles, $\frac{1}{2}\binom{6}{3} \cdot 2 \cdot 2 = 40$; a 4-cycle and a disjoint transposition, $\binom{6}{4} \cdot 3! = 90$; 5-cycles, $6 \cdot 4! = 144$. These add up to $360 = |A_6|$. By Proposition [11.4.4](/notes/math-55a/11-4-conjugacy-in-s-n-and-a-n#proposition-11-4-4), only the class of 5-cycles (cycle lengths $5, 1$) splits in $A_6$, into two classes of 72. The class equation of $A_6$ is $$360 = 1 + 45 + 40 + 40 + 90 + 72 + 72.$$ A normal subgroup $H \neq \{e\}$ of $A_6$ has $|H| = 1 + s$, with $s$ a nonzero sum of distinct terms of $45, 40, 40, 90, 72, 72$, and $|H|$ divides 360. Since $s \geq 40$, $|H| \geq 41$, and the divisors of 360 between 41 and 359 are $45, 60, 72, 90, 120, 180$; so if $|H| \neq 360$, then $s \in \{44, 59, 71, 89, 119, 179\}$. The number 44 is not such a sum, since no term equals 44 and any two terms add up to at least 80. The others are odd, so they would have to use the only odd term 45, leaving $14, 26, 44, 74, 134$ as sums of distinct terms of $40, 40, 90, 72, 72$; but the sums of one or two of these terms are $40, 72, 90, 80, 112, 130, 144, 162$, and sums of three or more are at least 152. So no such $s$ exists, $|H| = 360$, and $A_6$ is simple.
 :::
-
-:::proof
-Conjugation by $h$ preserves $N$ (since $N$ is normal), defining $\varphi : H \to \Aut(N)$. The map $(n, h) \mapsto nh$ is a bijection by hypothesis. It is a homomorphism: $(n_1 h_1)(n_2 h_2) = n_1 (h_1 n_2 h_1^{-1}) h_1 h_2 = (n_1 \varphi(h_1)(n_2))(h_1 h_2)$.
-:::
-
-:::corollary{11.6.1} Direct product criterion
-If both $N$ and $H$ are normal in $G$, $N \cap H = \{e\}$, and $|G| = |N| \cdot |H|$, then $G \cong N \times H$.
-:::
-
-:::proof
-Every coset of $N$ contains a unique element of $H$, so every $g \in G$ is uniquely $g = nh$. Since both are normal, the commutator $nhn^{-1}h^{-1} \in N \cap H = \{e\}$ for all $n \in N$, $h \in H$ (it lies in $N$ since $N$ is normal, and in $H$ since $H$ is normal). So $nh = hn$ and the action $\varphi$ is trivial.
-:::
-
-:::example{11.6.1} Dihedral groups as semidirect products
-$S_3 \cong \ZZ/3 \rtimes \ZZ/2$ where $\ZZ/2$ acts on $\ZZ/3$ by inversion: $\varphi(1)(\sigma) = \sigma^{-1}$. More generally, $D_n \cong \ZZ/n \rtimes \ZZ/2$ with the same inversion action. The normal subgroup is the rotation subgroup, and the complement is generated by any reflection.
-:::
-
-## <span class="num">11.6.1</span> Classification of Groups of Order 12
-
-:::example{11.6.2} The 5 groups of order 12
-Let $|G| = 12 = 2^2 \cdot 3$. Sylow gives $s_3 \in \{1, 4\}$ and $s_2 \in \{1, 3\}$. Let $H$ denote a Sylow 2-subgroup ($|H| = 4$) and $K$ a Sylow 3-subgroup ($|K| = 3$).
-
-At least one of $H$ or $K$ is normal (Exercise 5 from before). We systematically enumerate:
-
-**Both normal ($s_3 = s_2 = 1$):** $G \cong H \times K$. With $H \cong \ZZ/4$: $G \cong \ZZ/12$. With $H \cong \ZZ/2 \times \ZZ/2$: $G \cong \ZZ/2 \times \ZZ/6$.
-
-**$K$ normal, $H$ not ($s_3 = 1$, $s_2 = 3$):** $G \cong K \rtimes H$. The action $\varphi : H \to \Aut(\ZZ/3) \cong \ZZ/2$ must be nontrivial.
-
-If $H \cong \ZZ/4$: the generator $x$ acts by inversion on $K$, with $x^2$ acting trivially. This gives a non-abelian group $\ZZ/3 \rtimes \ZZ/4$, generated by $x, y$ with $x^4 = y^3 = e$, $xy = y^2 x$.
-
-If $H \cong \ZZ/2 \times \ZZ/2$: the kernel of $\varphi$ is $\ZZ/2$, giving $G \cong D_6 \cong S_3 \times \ZZ/2$.
-
-**$H$ normal, $K$ not ($s_3 = 4$):** Only possible with $H \cong \ZZ/2 \times \ZZ/2$ (since $\Aut(\ZZ/4) \cong \ZZ/2$ has no element of order 3). The action $\varphi : \ZZ/3 \to \Aut((\ZZ/2)^2) \cong S_3$ embeds $\ZZ/3$ as 3-cycles permuting the three nonzero elements. This gives $G \cong A_4$.
-
-In total: $\ZZ/12$, $\ZZ/2 \times \ZZ/6$, $A_4$, $D_6$, and $\ZZ/3 \rtimes \ZZ/4$.
-:::
-
-:::example{11.6.3} Groups of order 21
-Let $|G| = 21 = 3 \cdot 7$. Sylow: $s_7 \mid 3$ and $s_7 \equiv 1 \pmod{7}$, so $s_7 = 1$. The Sylow 7-subgroup $K \cong \ZZ/7$ is normal. For the Sylow 3-subgroup: $s_3 \mid 7$ and $s_3 \equiv 1 \pmod{3}$, so $s_3 \in \{1, 7\}$.
-
-If $s_3 = 1$: $G \cong \ZZ/3 \times \ZZ/7 \cong \ZZ/21$.
-
-If $s_3 = 7$: $G \cong \ZZ/7 \rtimes \ZZ/3$. We need a nontrivial $\varphi : \ZZ/3 \to \Aut(\ZZ/7) \cong \ZZ/6$. The unique subgroup of order 3 in $\ZZ/6$ corresponds to the automorphism $y \mapsto y^2$ of $\ZZ/7$. So $G$ is generated by $x, y$ with $x^3 = y^7 = e$ and $xyx^{-1} = y^2$. This is the unique non-abelian group of order 21.
 :::

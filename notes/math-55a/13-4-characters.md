@@ -6,40 +6,77 @@ section: 13.4
 title: Characters
 ---
 
-:::definition{13.4.1} Character
-The character of a representation $V$ is the function $\chi_V : G \to \CC$ defined by $\chi_V(g) = \Tr(\rho(g))$, the trace of the linear operator $g : V \to V$.
-:::
+For $S_3$ we decomposed representations by looking at the eigenvalues of two group elements. For a general group this is a lot of information to organize, and it turns out that much less suffices: the traces of the group elements.
 
-:::note
-Since trace is conjugation-invariant ($\Tr(ABA^{-1}) = \Tr(B)$), the character only depends on the conjugacy class of $g$. That is, $\chi_V$ is a class function.
+:::definition{13.4.1} Character
+The ***character*** of a representation $V$ of $G$ is the function $\chi_V : G \to \CC$ given by $\chi_V(g) = \Tr(\rho(g))$, the trace (Definition [5.3.11](/notes/math-55a/5-3-change-of-basis#definition-5-3-11)) of the operator by which $g$ acts on $V$.
 :::
 
 :::definition{13.4.2} Class function
-A class function is a function $f : G \to \CC$ satisfying $f(ghg^{-1}) = f(h)$ for all $g, h \in G$.
+A ***class function*** on $G$ is a function $f : G \to \CC$ with $f(hgh^{-1}) = f(g)$ for all $g, h \in G$, that is, a function that is constant on each conjugacy class of $G$ (Definition [3.2.12](/notes/math-55a/3-2-group-actions#definition-3-2-12)).
 :::
 
-:::proposition{13.4.1} Properties of characters
-Given representations $V, W$ of $G$:
+Since $\Tr(ABA^{-1}) = \Tr(B)$, we have $\chi_V(hgh^{-1}) = \Tr(\rho(h)\rho(g)\rho(h)^{-1}) = \chi_V(g)$: every character is a class function. Isomorphic representations have the same character, because an isomorphism $\psi : V \to W$ of representations satisfies $\rho_W(g) = \psi\,\rho_V(g)\,\psi^{-1}$.
+
+:::proposition{13.4.3} Properties of characters
+Let $V$ and $W$ be representations of the finite group $G$, and let $g \in G$.
 
 <!-- list:paren-roman -->
 
-1. $\chi_{V \oplus W}(g) = \chi_V(g) + \chi_W(g)$.
-2. $\chi_{V \otimes W}(g) = \chi_V(g) \cdot \chi_W(g)$.
-3. $\chi_{V^*}(g) = \overline{\chi_V(g)}$ (since $g$ acts by ${}^t(g^{-1})$, and eigenvalues of $g$ are roots of unity, so eigenvalues of $g^{-1}$ are their conjugates).
-4. $\chi_{\Hom(V,W)}(g) = \overline{\chi_V(g)} \cdot \chi_W(g)$.
-5. $\chi_V(e) = \dim V$.
-6. For a permutation representation on a set $S$: $\chi_V(g) = |\{s \in S : g \cdot s = s\}| = |S^g|$.
-7. $\chi_{\bigwedge^2 V}(g) = \frac{1}{2}(\chi_V(g)^2 - \chi_V(g^2))$.
+1. $\chi_V(e) = \dim V$.
+2. $\chi_{V \oplus W}(g) = \chi_V(g) + \chi_W(g)$ and $\chi_{V \otimes W}(g) = \chi_V(g)\,\chi_W(g)$.
+3. $\chi_V(g^{-1}) = \ol{\chi_V(g)}$ and $\chi_{V^*}(g) = \ol{\chi_V(g)}$.
+4. $\chi_{\Hom(V, W)}(g) = \ol{\chi_V(g)}\,\chi_W(g)$.
+5. If $V = {\CC}[S]$ is the permutation representation of an action of $G$ on a finite set $S$, then $\chi_V(g) = |S^g|$, the number of points of $S$ fixed by $g$.
+6. $\chi_{\Sym^2 V}(g) = \frac12\bigl(\chi_V(g)^2 + \chi_V(g^2)\bigr)$ and $\chi_{\bigwedge^2 V}(g) = \frac12\bigl(\chi_V(g)^2 - \chi_V(g^2)\bigr)$.
 :::
 
-## <span class="num">13.4.1</span> Symmetric Polynomials (Digression)
+:::proof
+Since $g$ has finite order, Lemma [13.1.5](/notes/math-55a/13-1-representations-and-subrepresentations#lemma-13-1-5) gives a basis $v_1, \ldots, v_n$ of $V$ with $gv_i = \lambda_i v_i$, where the $\lambda_i$ are roots of unity; then $\chi_V(g) = \sum_i \lambda_i$. Similarly, let $w_1, \ldots, w_m$ be a basis of $W$ with $gw_j = \mu_j w_j$.
 
-The connection between eigenvalues and characters motivates a brief digression. To store information about $n$ complex numbers (the eigenvalues of $g : V \to V$), up to reordering, it suffices to specify the coefficients of the polynomial $\prod(x - \lambda_i)$. These coefficients are the elementary symmetric polynomials $\sigma_k(z_1, \ldots, z_n) = \sum_{i_1 < \cdots < i_k} z_{i_1} \cdots z_{i_k}$.
+(i) The identity element acts as $\id_V$, whose trace is $\dim V$.
 
-:::theorem{13.4.1} Fundamental theorem of symmetric polynomials
-The subring of symmetric polynomials ${\CC}[z_1, \ldots, z_n]^{S_n}$ is isomorphic to the polynomial algebra ${\CC}[\sigma_1, \ldots, \sigma_n]$. That is, every symmetric polynomial is uniquely a polynomial expression in the elementary symmetric polynomials.
+(ii) In the basis $v_1, \ldots, v_n, w_1, \ldots, w_m$ of $V \oplus W$, the matrix of $g$ is block diagonal, so the traces add. The vectors $v_i \otimes w_j$ form a basis of $V \otimes W$, and $g(v_i \otimes w_j) = \lambda_i\mu_j\,(v_i \otimes w_j)$, so $\chi_{V \otimes W}(g) = \sum_{i,j}\lambda_i\mu_j = \bigl(\sum_i\lambda_i\bigr)\bigl(\sum_j\mu_j\bigr)$.
+
+(iii) We have $g^{-1}v_i = \lambda_i^{-1}v_i$, and $\lambda_i^{-1} = \ol{\lambda_i}$ because $|\lambda_i| = 1$; so $\chi_V(g^{-1}) = \sum_i\ol{\lambda_i} = \ol{\chi_V(g)}$. On $V^*$, $g$ acts by the dual map $\rho(g^{-1})^t$, whose matrix in the dual basis is the transpose of the matrix of $\rho(g^{-1})$. A matrix and its transpose have the same trace, so $\chi_{V^*}(g) = \chi_V(g^{-1}) = \ol{\chi_V(g)}$.
+
+(iv) By Proposition [13.1.10](/notes/math-55a/13-1-representations-and-subrepresentations#proposition-13-1-10), $\Hom(V, W) \cong V^* \otimes W$ as representations, so this follows from (ii) and (iii).
+
+(v) The matrix of $g$ in the basis $\{e_s\}$ is a permutation matrix, and its diagonal entry in position $s$ is $1$ if $gs = s$ and $0$ otherwise.
+
+(vi) By Proposition [9.10.19](/notes/math-55a/9-10-symmetric-and-exterior-powers#proposition-9-10-19), $\Sym^2 V$ has a basis $\{v_iv_j\}_{i \leq j}$ and $\bigwedge^2 V$ a basis $\{v_i \wedge v_j\}_{i < j}$, and $g$ multiplies both $v_iv_j$ and $v_i \wedge v_j$ by $\lambda_i\lambda_j$. Since $g^2$ has eigenvalues $\lambda_i^2$, $$\chi_V(g)^2 = \sum_i\lambda_i^2 + 2\sum_{i<j}\lambda_i\lambda_j = \chi_V(g^2) + 2\sum_{i<j}\lambda_i\lambda_j.$$ Hence $\chi_{\bigwedge^2 V}(g) = \sum_{i<j}\lambda_i\lambda_j = \frac12\bigl(\chi_V(g)^2 - \chi_V(g^2)\bigr)$, and $\chi_{\Sym^2 V}(g) = \sum_i\lambda_i^2 + \sum_{i<j}\lambda_i\lambda_j = \frac12\bigl(\chi_V(g)^2 + \chi_V(g^2)\bigr)$.
 :::
 
 :::note
-Alternatively, one can use the power sums $\tau_k = \sum z_i^k$. Then ${\CC}[z_1, \ldots, z_n]^{S_n} \cong {\CC}[\tau_1, \ldots, \tau_n]$ as well. In particular, specifying the unordered tuple $\{z_1, \ldots, z_n\}$ is equivalent to specifying $\sum z_i, \sum z_i^2, \ldots, \sum z_i^n$. For representations, this means specifying all eigenvalues of $g$ is equivalent to specifying $\Tr(g), \Tr(g^2), \ldots, \Tr(g^n)$. But since $G$ is a group, $\Tr(g^k)$ is just $\chi_V(g^k)$—which is already determined by $\chi_V$. So the character determines the eigenvalues.
+For a $1$-dimensional representation $\theta : G \to \CC^*$, the character is $\theta$ itself, so it is multiplicative: $\chi(gh) = \chi(g)\chi(h)$. For higher-dimensional representations this fails; already $\chi_V(e) = \dim V$ differs from $\chi_V(e)^2$ when $\dim V > 1$. Characters turn the operations $\oplus$ and $\otimes$ on representations into sums and products of functions, but they do not respect the group law.
 :::
+
+:::definition{13.4.4} Character table
+The ***character table*** of a finite group $G$ lists the value of the character of each irreducible representation of $G$ on each conjugacy class. Its rows are indexed by the irreducible representations, up to isomorphism, and its columns by the conjugacy classes, each labelled by a representative and the number of elements of the class.
+:::
+
+:::example{13.4.5} The character table of $S_3$
+By Proposition [13.3.5](/notes/math-55a/13-3-schurs-lemma#proposition-13-3-5), the irreducible representations of $S_3$ are $U$, $U'$ and $V$. By Theorem [3.4.6](/notes/math-55a/3-4-the-symmetric-group#theorem-3-4-6), the conjugacy classes of $S_3$ are $\{e\}$, the three transpositions and the two $3$-cycles.
+
+<div class="table-wrap"><table class="tex-table has-stub"><thead><tr><th scope="col" class="c"></th><th scope="col" class="c">$e$</th><th scope="col" class="c">$(12)$</th><th scope="col" class="c">$(123)$</th></tr><tr><th scope="col" class="c">size</th><th scope="col" class="c">1</th><th scope="col" class="c">3</th><th scope="col" class="c">2</th></tr></thead><tbody><tr><th scope="row" class="c">$U$</th><td class="c">1</td><td class="c">1</td><td class="c">1</td></tr><tr><th scope="row" class="c">$U'$</th><td class="c">1</td><td class="c">$-1$</td><td class="c">1</td></tr><tr><th scope="row" class="c">$V$</th><td class="c">2</td><td class="c">0</td><td class="c">$-1$</td></tr></tbody></table></div>
+
+The first column consists of the dimensions, and the rows of $U$ and $U'$ are the constant function $1$ and $\sgn$. For $V$, we can use the eigenvalues from Lemma [13.3.4](/notes/math-55a/13-3-schurs-lemma#lemma-13-3-4) ($1$ and $-1$ for $(12)$; $\lambda$ and $\lambda^2$, with $\lambda + \lambda^2 = -1$, for $(123)$). Alternatively, $U \oplus V$ is the permutation representation $\CC^3$, whose character counts fixed points and takes the values $(3, 1, 0)$ on the three classes; subtracting $\chi_U$ gives $\chi_V = (2, 0, -1)$.
+
+Characters give a fast way to decompose representations. The character of $V \otimes V$ is $\chi_V^2$, with values $(4, 0, 1)$. If $V \otimes V \cong U^{\oplus a} \oplus U'^{\oplus b} \oplus V^{\oplus c}$, then $\chi_V^2 = a\chi_U + b\chi_{U'} + c\chi_V$, and evaluating on the three classes gives $a + b + 2c = 4$, $a - b = 0$ and $a + b - c = 1$. The only solution is $a = b = c = 1$, as in Example [13.3.6](/notes/math-55a/13-3-schurs-lemma#example-13-3-6).
+:::
+
+## <span class="num">13.4.1</span> Why Traces Suffice: Symmetric Polynomials
+
+Here is a heuristic reason why the character should capture the eigenvalues. An unordered list of $n$ complex numbers $\lambda_1, \ldots, \lambda_n$, possibly with repetitions, can be recorded by the coefficients of the polynomial $\prod_{i=1}^n(x - \lambda_i)$, whose roots they are; by the fundamental theorem of algebra, every monic polynomial of degree $n$ arises from exactly one such list. The coefficient of $x^{n-k}$ in $\prod_i(x - \lambda_i)$ is $(-1)^k\sigma_k(\lambda_1, \ldots, \lambda_n)$, where $$\sigma_k(z_1, \ldots, z_n) = \sum_{i_1 < \cdots < i_k} z_{i_1}\cdots z_{i_k}, \qquad 1 \leq k \leq n,$$ are the ***elementary symmetric polynomials***. The group $S_n$ acts on ${\CC}[z_1, \ldots, z_n]$ by permuting the variables, and a ***symmetric polynomial*** is a polynomial fixed by every element of $S_n$.
+
+:::theorem{13.4.6} Fundamental theorem on symmetric polynomials
+The subring ${\CC}[z_1, \ldots, z_n]^{S_n}$ of symmetric polynomials is the polynomial ring ${\CC}[\sigma_1, \ldots, \sigma_n]$: every symmetric polynomial is a polynomial in $\sigma_1, \ldots, \sigma_n$, in exactly one way.
+:::
+
+We will not use this theorem, and we only indicate why it holds. For $n = 2$, where $\sigma_1 = z_1 + z_2$ and $\sigma_2 = z_1z_2$, the first few symmetric polynomials are $$z_1^2 + z_2^2 = \sigma_1^2 - 2\sigma_2, \qquad z_1^2z_2 + z_1z_2^2 = \sigma_1\sigma_2, \qquad z_1^3 + z_2^3 = \sigma_1^3 - 3\sigma_1\sigma_2.$$ In general, the nonconstant monomials of a symmetric polynomial $p(z_1, z_2)$ that are not divisible by $z_1z_2$ are powers of $z_1$ and of $z_2$, and they occur in pairs, so $p = a_0 + \sum_{k \geq 1} a_k(z_1^k + z_2^k) + z_1z_2\,q$. Since $(z_1 + z_2)^k - z_1^k - z_2^k$ is divisible by $z_1z_2$ for $k \geq 1$, this can be rewritten as $p = a_0 + \sum_{k \geq 1} a_k\sigma_1^k + \sigma_2\,q'$, where $q'$ is symmetric of lower degree than $p$; induction on the degree finishes the argument.
+
+The theorem can also be viewed through representation theory. The homogeneous polynomials of degree $1$ form the space $\operatorname{span}(z_1, \ldots, z_n)$, on which $S_n$ acts by its permutation representation $U \oplus V$, with invariant part the trivial summand spanned by $\sigma_1$. The homogeneous polynomials of degree $d$ form $\Sym^d$ of this space (Theorem [9.10.15](/notes/math-55a/9-10-symmetric-and-exterior-powers#theorem-9-10-15)), and the symmetric ones among them are its invariant vectors, which make up the trivial summands in a decomposition of $\Sym^d(U \oplus V)$ into irreducibles. Carrying out a proof along these lines would require more about the representations of $S_n$ than we develop.
+
+Another family of symmetric polynomials is given by the power sums $p_k = z_1^k + \cdots + z_n^k$; for instance, $p_1 = \sigma_1$ and $p_2 = \sigma_1^2 - 2\sigma_2$. One can show in the same spirit that $p_1, \ldots, p_n$ also generate: ${\CC}[z_1, \ldots, z_n]^{S_n} = {\CC}[p_1, \ldots, p_n]$. So an unordered list $\lambda_1, \ldots, \lambda_n$ is determined by its power sums $\sum_i\lambda_i^k$, $1 \leq k \leq n$.
+
+Now let $\lambda_1, \ldots, \lambda_n$ be the eigenvalues of $g$ acting on $V$. Their power sums are $\sum_i\lambda_i^k = \Tr(\rho(g)^k) = \chi_V(g^k)$, and since $G$ is a group, each $g^k$ is again an element of $G$. So the single function $\chi_V$ determines the eigenvalues of every element of $G$ on $V$. (There is also a direct argument: if $g$ has order $m$, the multiplicity of a root of unity $\zeta$ as an eigenvalue of $g$ is $\frac1m\sum_{j=0}^{m-1}\zeta^{-j}\chi_V(g^j)$, because $\sum_{j=0}^{m-1}(\lambda_i/\zeta)^j$ is $m$ if $\lambda_i = \zeta$ and $0$ otherwise.) We will see in the next section that the character determines much more: the representation itself, up to isomorphism.

@@ -6,68 +6,92 @@ section: 1.3
 title: Functions
 ---
 
-First I want to remind us of some notation and terminology things (mathematicians are ***very*** specific):
+First I want to remind us of some notation and terminology (mathematicians are ***very*** specific).
 
 :::note
-To say a function is *on* $X$ *into* $Y$, means that the function is from $X$ to $Y$
+To say a function is *on* $X$ *into* $Y$ means that the function is from $X$ to $Y$.
 :::
 
 :::definition{1.3.1} Functions
-{We all know what functions are at some level, but here were are going to be extraordinarily explicit (though you likely have already heard it in this form, regardless). A function on $X$ into $y$ is a relation ($R$) given by a letter like $f,g,h,\varphi,\ldots$, such that:
+We all know what functions are at some level, but here we are going to be extraordinarily explicit. A ***function*** from $X$ into $Y$ is a relation $f\subseteq X\times Y$ such that
 
-1. $\dom f = X$;
-2. if $(x,y)\in f$ and $(x,z) \in f$, then $y=z$ (uniqueness of $y$ for each $x$); additionally, $f(x)=y$ is conventional notation (instead of $(x,y) \in f$ or $xfy$);
-3. $y$ is called the ***value*** that $f$ ***assumes*** at the ***argument*** $x$; i.e., $f$ **<em>maps</em> sends/ transforms/** $x$ to/ into $y$. We often use the terms map, mapping, transformation, correspondence, operator, and function interchangeably.
+<!-- list:paren-alpha -->
 
-We denote this correspondence via $$f : X \to  Y    .$$
+1. $\dom f = X$, and
+2. if $(x,y)\in f$ and $(x,z) \in f$, then $y=z$.
+
+Thus for each $x\in X$ there is exactly one $y\in Y$ with $(x,y)\in f$, and we write $f(x)=y$ (instead of $(x,y) \in f$ or $xfy$). We call $y$ the ***value*** that $f$ ***assumes*** at the ***argument*** $x$, and say that $f$ ***maps*** (sends, transforms) $x$ to $y$, written $x\mapsto y$. We denote the function by $$f : X \to  Y,$$ and call $X$ its ***domain*** and $Y$ its ***codomain***. We use the terms map, mapping, transformation, correspondence, operator, and function interchangeably.
 :::
 
-Finally, we note that the set of all functions from $X$ to $Y$ is a subset of the power set $\mcP (X \times Y)$ and is denoted $Y^X$.
+The set of all functions from $X$ to $Y$ is a subset of the power set $\mcP (X \times Y)$ and is denoted $Y^X$.
 
-Something to note is that a function is not an active entity despite action-invoking words such as *transforms*; it merely *is*. The use of the word function to describe the undefined object that is somehow active in relation to a graph is nevertheless a static set, similar to that of a directory of names that correspond to addresses. Reminder that while the $\dom f = X$, it need not be the case that $\ran f =Y$, instead the range is reserved for the subset of all $y \in Y$ that have a corresponding $x$ such that $f(x)=y$, i.e., is mapped to by some $x$. We call this property being ***onto*** and we say $f$ maps $X$ ***onto*** Y; more commonly however we say that $f$ is ***surjective***—we explicitly write this as $\forall y \in  Y, \exists  x \in  X : f(x)=y$—and we denote this surjectivity via $$f : X \surjto Y,$$ and if $A\subset X$, we may consider all $y\in  Y$ such that there is an $x\in A$ such that $f(x_A)=y$ (here I use $x_A$ as crude shorthand for $f(x)$ s.t. $x \in A$, where Halmos uses the more primitive $f(A)$), the set of those $y \in Y$ is known as the ***image*** of $f$ under $A$. If it is the case that $X \subset  Y$, the function $f$ defined by $f(x)=x , \, \forall x \in X$, we call this the **<em>inclusion map</em> embedding/ injection/** or we say $f$ is ***one-to-one***; we explicitly write this as $\forall a\neq b, \, f(a)\neq f(b)$. We denote injectivity via $$f : A \injto Y.$$ A special case of injectivity comes when we inject $X \injto X$, relation-wise this is equality in $X$, language-wise, we call this the ***identity map*** on $X$.
+Note that a function is not an active entity, despite action words such as *transforms*; it merely *is*. A function is a static set of pairs, much like a directory that pairs names with addresses.
 
-:::proposition{1.3.1} Restriction and extensions
-Consider a function $f:Y\to Z$ and a set $X  \subset  Y$. We say that there is a ***natural way*** of constructing a new function $g : X \to  Z$; let $g(x)=f(x), \forall x \in  X$, we then say $g$ is a ***restriction*** of $f$ to $X$ and $f$ is the ***extension*** of $g$ to $Y$. We denote this as $g=f|X$ where we can express the definition as $(f|X)(x)=f(x) \forall x \in X$ and $\ran(f|X)=f(x_X)$.
+While $\dom f = X$, the range of $f$ need not be all of $Y$: $\ran f$ consists of those $y\in Y$ such that $f(x) = y$ for some $x\in X$. More generally, for $A\subseteq X$, the ***image*** of $A$ under $f$ is $$f(A) = \{f(x)\mid x\in A\} = \{y\in Y\mid f(x) = y \text{ for some } x\in A\},$$ so that $\ran f = f(X)$. We also write $\Img f = f(X)$ and call it the ***image*** of $f$.
+
+:::definition{1.3.2} Injective, surjective, and bijective maps
+Let $f : X\to Y$.
+
+<!-- list:paren-alpha -->
+
+1. $f$ is ***surjective***, or maps $X$ ***onto*** $Y$, if $\ran f = Y$; that is, for every $y\in Y$ there is an $x\in X$ with $f(x) = y$. We denote surjectivity by $f : X\surjto Y$.
+2. $f$ is ***injective***, or ***one-to-one***, if for all $a,b\in X$, $a\neq b$ implies $f(a)\neq f(b)$; equivalently, $f(a) = f(b)$ implies $a = b$. We denote injectivity by $f : X\injto Y$.
+3. $f$ is ***bijective***, or a ***one-to-one correspondence***, if it is both injective and surjective. There is no universally agreed notation for bijections; we write $f : X\leftrightarrow Y$ or $f : X\xrightarrow{\sim} Y$.
 :::
 
-There are a few other terminologies that follow from all that has been mentioned so far, and I will go through them rather quickly:
-
-:::definition{1.3.2} Projection
-$f$ (also $\pr$ is a ***projection*** from $X \times Y$ onto $X$ if if $f(x,y)=x$; similarly, if $R=X \times  Y$, then instead of being a projection of $R$ onto $X$, it is now the range of the projection $f$ ($\ran (\pr )$).
+:::definition{1.3.3} Inclusion and identity maps
+If $X\subseteq Y$, the ***inclusion map*** of $X$ into $Y$ is the function $\iota : X\to Y$ defined by $\iota(x) = x$ for all $x\in X$. The inclusion of $X$ into itself is the ***identity map*** $\id_X : X\to X$, $\id_X(x) = x$; relation-wise, it is equality on $X$, the set $\{(x,x)\mid x\in X\}$.
 :::
 
-:::definition{1.3.3} Bijection
-Expounding on our notion of inclusion mappings and surjections from earlier, ***bijectivity***—one-to-one correspondence-ness—is a function that is both injective and surjective.
+Inclusion maps are injective, since $\iota(a) = \iota(b)$ says $a = b$, and identity maps are bijective. An injective map from a set to itself need not be the identity: $n\mapsto n+1$ is an injection $\NN\injto\NN$, and it is not even surjective.
+
+:::definition{1.3.4} Restrictions and extensions
+Let $f:Y\to Z$ and $X\subseteq Y$. The ***restriction*** of $f$ to $X$ is the function $f|_X : X\to Z$ given by $(f|_X)(x) = f(x)$ for all $x\in X$; conversely, $f$ is called an ***extension*** of $f|_X$ to $Y$. Note that $\ran(f|_X) = f(X)$.
 :::
 
-Bijections are derived from an equivalence relation $R$ in $X$ with $aRb \iff f(a)=f(b)$ for $a,b \in X$; so given a function/ set $g(y)=\{x \in X \mid f(x)=y, \, \forall  y \in  Y\}$, the equivalence relation $R$ tells us that $g(y)$ is an equivalence class of the relation $R$; that is to say, we define the function as $g: Y \surjto X / R$, notice that for $g$, if $c\neq d, \, c,d \in Y$, due to the nature of equivalence classes (remember, all the classes are disjoint), $g(c)\neq g(d)$; notice this is the exact explicit definition of injectivity, thus this is a surjective-injective, i.e., bijective mapping. Although there is no universially agreed on notation for bijection, we shall denote this mapping as $g : Y \leftrightarrow X / R$.
-
-:::definition{1.3.4} Characteristic functions
-If $A \subset X$ the characteristic function of $A$ is the function$\mcX : X \to 2$ given by $$\mcX(x)=\begin{cases}
-      1 & \text{if } x \in  A \\
-      0 & \text{if } x\in X-A
-  \end{cases}$$, however, we may write $\mcX_A$ to indicate that it depends on $A$. The function that assigns to each $A \subset X$, i.e., $\mcP(X)$, the characteristic function of $A  \in  2^X$ is a bijection, i.e., $f : \mcP(X) \leftrightarrow 2^X$.
+:::definition{1.3.5} Projections
+The ***projections*** of $X\times Y$ onto its factors are the maps $$\pr_X : X\times Y\to X,\ (x,y)\mapsto x, \qquad \pr_Y : X\times Y\to Y,\ (x,y)\mapsto y.$$
 :::
 
-:::question{2}
-Concerning bijectivity (point iii.), the examples have all the inclusion maps as one-to-one, however, except in a few trivial special cases, the projections are not. What are these special cases?
+For a relation $R\subseteq X\times Y$, the domain and range are the images of $R$ under the projections: $\dom R = \pr_X(R)$ and $\ran R = \pr_Y(R)$.
+
+:::definition{1.3.6} Characteristic functions
+Let $2 = \{0,1\}$. If $A \subseteq X$, the ***characteristic function*** of $A$ is the function $\chi_A : X \to 2$ given by $$\chi_A(x)=\begin{cases}
+      1 & \text{if } x \in  A, \\
+      0 & \text{if } x\in X-A.
+  \end{cases}$$
+:::
+
+:::proposition{1.3.7} Subsets and characteristic functions
+The map $\mcP(X)\to 2^X$, $A\mapsto\chi_A$, is a bijection. Every function $\varphi : X\to 2$ is $\chi_A$ for exactly one $A\subseteq X$, namely $A = \{x\in X\mid\varphi(x) = 1\}$.
+:::
+
+:::proof
+A subset $A$ is recovered from its characteristic function as $A = \{x\in X\mid\chi_A(x) = 1\}$; so $\chi_A = \chi_B$ implies $A = B$, and the map is injective. Given $\varphi : X\to 2$, let $A = \{x\in X\mid\varphi(x) = 1\}$. For $x\in A$ we have $\varphi(x) = 1 = \chi_A(x)$, and for $x\notin A$ we have $\varphi(x) = 0 = \chi_A(x)$, because $\varphi$ takes only the values $0$ and $1$. So $\varphi = \chi_A$, and the map is surjective.
+:::
+
+:::question{1.3.8}
+Inclusion maps are always injective; projections, except in a few trivial special cases, are not. What are these special cases? That is, when is the projection $\pr_X : X\times Y\to X$ injective?
 
 :::solution
-Consider a function’s projection as the cannonical map $\gamma  : X \to X / R$, the following cases are trivial examples of non-injective projection maps:
+The projection $\pr_X$ is injective if and only if $X = \emptyset$ or $Y$ has at most one element.
 
-1. $X = \emptyset$, vacuously fulfilled (it matters not what $R$ is);
-2. $R \coloneqq \left\{ (x,x) \mid x \in  X \right\}$, so every equivalence class is a singleton.
+If $X = \emptyset$ or $Y = \emptyset$, then $X\times Y = \emptyset$, and a function with empty domain is injective vacuously. If $Y = \{y_0\}$, then $\pr_X(x,y_0) = \pr_X(x',y_0)$ means $x = x'$, so $(x,y_0) = (x',y_0)$. Conversely, suppose $X\neq\emptyset$ and $Y$ contains two elements $y\neq y'$. For any $x\in X$, the pairs $(x,y)$ and $(x,y')$ are distinct by Proposition [1.1.1](/notes/math-55a/1-1-ordered-pairs#proposition-1-1-1), yet both map to $x$; so $\pr_X$ is not injective.
 :::
 :::
 
-:::question{3}
+:::question{1.3.9}
 Prove:
 
-1. $Y^{\emptyset}$ has exactly one element, namely $\emptyset$, regardless of if $Y$ is empty or not.
-2. If $X$ is non-empty, then $\emptyset^X$ is empty.
+<!-- list:paren-alpha -->
+
+1. $Y^{\emptyset}$ has exactly one element, namely $\emptyset$, whether or not $Y$ is empty.
+2. If $X$ is nonempty, then $\emptyset^X$ is empty.
 
 :::solution
-1. Given that $Y^{\emptyset} \subset \mcP (\emptyset \times Y)$, and the definition of Cartesian sets has **and** as a qualifier, i.e., $A \times  B = \{(a,b) \mid a \in A \text{\textbf{ AND }} b \in  B \}$, we can see that $\emptyset \times  Y$ contains in fact no elements which satisfy this, and thus, it is the empty set. So $Y^{\emptyset}  \subset  \mcP(\emptyset) = \{\emptyset\}$, thus the only element that can be in $Y^{\emptyset}$ is the singleton $\{\emptyset\}$. This is a vacuous satisfaction and is non-intuitive; some intuition, perhaps, may be gained but thinking “*the only thing nothing can map to is nothing*,” or by taking the cardinality of these two sets with each other given by $|\emptyset|\cdot |Y|=0|Y|=0$ (though this is mainly for intuition).
-2. $\emptyset^X$ means that something must map to the emptyset, meaning there must be an element within the emptyset, but this cannot be true! Thus, by definition, the set must be empty.}
+<!-- list:paren-alpha -->
+
+1. A pair $(a,b)\in\emptyset\times Y$ would need $a\in\emptyset$, and there is no such $a$; so $\emptyset\times Y = \emptyset$. Hence $Y^{\emptyset}\subseteq\mcP(\emptyset\times Y) = \mcP(\emptyset) = \{\emptyset\}$, so $Y^\emptyset$ has at most one element, and the only candidate is $\emptyset$. It remains to check that $\emptyset$ is a function from $\emptyset$ to $Y$. It is a subset of $\emptyset\times Y$; its domain is $\emptyset$, because it contains no pairs; and the uniqueness condition holds vacuously, again because it contains no pairs. So $Y^\emptyset = \{\emptyset\}$, and its element is called the ***empty function***. Some intuition comes from counting: if $X$ has $m$ elements and $Y$ has $n$, a function $X\to Y$ makes an independent choice among $n$ values for each of the $m$ arguments, so there are $n^m$ of them, and $n^0 = 1$.
+2. Since $X\neq\emptyset$, choose $x\in X$. A function $f : X\to\emptyset$ would contain a pair $(x,f(x))\in X\times\emptyset$. But $X\times\emptyset = \emptyset$, so no such function exists, and $\emptyset^X = \emptyset$.
 :::
 :::

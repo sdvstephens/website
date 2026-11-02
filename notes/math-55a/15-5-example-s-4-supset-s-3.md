@@ -7,46 +7,58 @@ title: Example: $S_4 \supset S_3$
 ---
 
 :::example{15.5.1} Restriction and induction between $S_4$ and $S_3$
-Let $G = S_4$ with irreducibles $U_4, U_4', V_4, V_4', W$ (dimensions 1, 1, 3, 3, 2), and $H = S_3$ with irreducibles $U_3, U_3', V_3$ (dimensions 1, 1, 2). We compute restrictions using character tables (restricting the character of a representation of $S_4$ to elements of $S_3 \hookrightarrow S_4$):
+Let $G = S_4$, with irreducible representations $U_4, U_4', V_4, V_4', W$ of dimensions $1, 1, 3, 3, 2$ (called $U, U', V, V', W$ in the character table of $S_4$, Section [14.1](/notes/math-55a/14-1-the-character-table-of-s-4)), and let $H = S_3 \subset S_4$ be the stabilizer of $4$, with irreducible representations $U_3, U_3', V_3$ of dimensions $1, 1, 2$. The conjugacy classes of $S_3$ are those of $e$, $(12)$, $(123)$. Evaluating the characters of $S_4$ at these elements gives the characters of the restrictions:
 
-- $\operatorname{Res}(U_4) = U_3$ and $\operatorname{Res}(U_4') = U_3'$ (trivial and sign restrict to trivial and sign).
-- $\operatorname{Res}(V_4) = V_3 \oplus U_3$. Indeed, the permutation representation ${\CC}^4$ restricts as ${\CC}^3 \oplus {\CC}$ (the 4th coordinate is fixed by $S_3$), so $\operatorname{Res}(V_4 \oplus U_4) = V_3 \oplus U_3 \oplus U_3$.
-- $\operatorname{Res}(V_4') = V_3 \oplus U_3'$ (since $V_4' = V_4 \otimes U_4'$ and $V_3 \otimes U_3' \cong V_3$).
-- $\operatorname{Res}(W) = V_3$. The representation $W$ factors through $S_4/\{e, (12)(34), (13)(24), (14)(23)\} \cong S_3$, and $W$ as a representation of this quotient is the standard representation $V_3$.
+<div class="center">
 
-By Frobenius reciprocity, we can read off the induced representations:
+<div class="table-wrap"><table class="tex-table has-stub"><thead><tr><th scope="col" class="c"></th><th scope="col" class="c">$e$</th><th scope="col" class="c">$(12)$</th><th scope="col" class="c">$(123)$</th></tr></thead><tbody><tr><th scope="row" class="c">$\Res U_4$</th><td class="c">1</td><td class="c">1</td><td class="c">1</td></tr><tr><th scope="row" class="c">$\Res U_4'$</th><td class="c">1</td><td class="c">$-1$</td><td class="c">1</td></tr><tr><th scope="row" class="c">$\Res V_4$</th><td class="c">3</td><td class="c">1</td><td class="c">0</td></tr><tr><th scope="row" class="c">$\Res V_4'$</th><td class="c">3</td><td class="c">$-1$</td><td class="c">0</td></tr><tr><th scope="row" class="c">$\Res W$</th><td class="c">2</td><td class="c">0</td><td class="c">$-1$</td></tr></tbody></table></div>
 
-- $\operatorname{Ind}^{S_4}_{S_3}(V_3)$ contains $V_4, V_4', W$ each with multiplicity 1, giving $\operatorname{Ind}(V_3) = V_4 \oplus V_4' \oplus W$ (dim $= 3 + 3 + 2 = 8 = [S_4:S_3] \cdot 2$).
-- $\operatorname{Ind}^{S_4}_{S_3}(U_3) = U_4 \oplus V_4$ (dim $= 1 + 3 = 4 = [S_4:S_3] \cdot 1$).
-- $\operatorname{Ind}^{S_4}_{S_3}(U_3') = U_4' \oplus V_4'$ (dim $= 1 + 3 = 4$).
+<div class="table-wrap"><table class="tex-table has-stub"><thead><tr><th scope="col" class="c"></th><th scope="col" class="c">$e$</th><th scope="col" class="c">$(12)$</th><th scope="col" class="c">$(123)$</th></tr></thead><tbody><tr><th scope="row" class="c">$U_3$</th><td class="c">1</td><td class="c">1</td><td class="c">1</td></tr><tr><th scope="row" class="c">$U_3'$</th><td class="c">1</td><td class="c">$-1$</td><td class="c">1</td></tr><tr><th scope="row" class="c">$V_3$</th><td class="c">2</td><td class="c">0</td><td class="c">$-1$</td></tr></tbody></table></div>
+
+</div>
+
+Comparing with the character table of $S_3$ (on the right), $$\begin{gathered}
+\Res U_4 = U_3, \qquad \Res U_4' = U_3', \qquad \Res W = V_3, \\
+\Res V_4 = U_3 \oplus V_3, \qquad \Res V_4' = U_3' \oplus V_3.
+\end{gathered}$$ These can also be seen directly. The permutation representation $\CC^4 = U_4 \oplus V_4$ restricts to $\CC^3 \oplus \CC$, since $S_3$ permutes the first three coordinates and fixes the fourth; so $\Res(U_4 \oplus V_4) = U_3 \oplus V_3 \oplus U_3$. Next, $V_4' = V_4 \otimes U_4'$ and $V_3 \otimes U_3' \cong V_3$. Finally, $W$ factors through the quotient of $S_4$ by $K = \{e, (12)(34), (13)(24), (14)(23)\}$, and $S_3$ maps isomorphically onto $S_4/K$ (as $S_3 \cap K = \{e\}$ and both groups have order 6), so $\Res W$ is a 2-dimensional irreducible representation of $S_3$, which must be $V_3$.
+
+By Frobenius reciprocity, the multiplicity of an irreducible $X$ of $S_4$ in $\Ind Y$, for $Y$ an irreducible of $S_3$, is the multiplicity of $Y$ in $\Res X$. Reading the restrictions above in reverse:
+
+- $\Ind^{S_4}_{S_3} V_3 = V_4 \oplus V_4' \oplus W$, of dimension $3 + 3 + 2 = 8 = [S_4 : S_3] \cdot 2$;
+- $\Ind^{S_4}_{S_3} U_3 = U_4 \oplus V_4$, of dimension $1 + 3 = 4 = [S_4 : S_3] \cdot 1$; this is the permutation representation $\CC^4 = {\CC}[S_4/S_3]$, as Example [15.2.3](/notes/math-55a/15-2-induced-representations#example-15-2-3) predicts;
+- $\Ind^{S_4}_{S_3} U_3' = U_4' \oplus V_4'$, of dimension $1 + 3 = 4$.
 :::
 
-:::exercise{15.5.1} Exercises
+:::exercise{15.5.2} Exercises
 <!-- list:paren-decimal -->
 
-1. Let $H = \{e\} \leq G$. Show that $\operatorname{Ind}^G_{\{e\}} W \cong W \otimes R$ where $R$ is the regular representation of $G$ and $W$ is viewed as a vector space with trivial $G$-action on the second factor.
-2. Let $H = A_n \leq S_n$ for $n \geq 2$. Show that $\operatorname{Ind}^{S_n}_{A_n}(U)$, where $U$ is the trivial representation of $A_n$, is isomorphic to $U_{S_n} \oplus U'_{S_n}$ (the trivial plus the sign representation of $S_n$).
-3. Using Frobenius reciprocity and the character table of $S_5$, compute $\operatorname{Ind}^{S_5}_{S_4}(V_4)$ (where $V_4$ is the standard representation of $S_4$, embedded as the subgroup fixing 5).
-4. Prove that the character formula for induction can alternatively be written as $\chi_{\operatorname{Ind} W}(g) = \sum_{i : \sigma_i^{-1} g \sigma_i \in H} \chi_W(\sigma_i^{-1} g \sigma_i)$ where $\sigma_1, \ldots, \sigma_k$ are coset representatives.
-5. (Transitivity of induction) If $K \leq H \leq G$, show $\operatorname{Ind}^G_H \operatorname{Ind}^H_K W \cong \operatorname{Ind}^G_K W$.
+1. Let $H = \{e\}$, so that a representation of $H$ is just a vector space $W$. Show that $\Ind^G_{\{e\}} W \cong W_0 \otimes R_G$, where $W_0$ is $W$ with the trivial action of $G$ and $R_G$ is the regular representation. In other words, $\Ind^G_{\{e\}} W$ is a sum of $\dim W$ copies of $R_G$.
+2. Let $n \geq 2$. Show that $\Ind^{S_n}_{A_n} U_{A_n} \cong U \oplus U'$, the sum of the trivial and sign representations of $S_n$.
+3. Using Frobenius reciprocity and the character table of $S_5$, decompose $\Ind^{S_5}_{S_4} V_4$ into irreducibles, where $V_4$ is the standard representation of $S_4$ and $S_4 \subset S_5$ is the stabilizer of $5$.
+4. Prove Corollary [15.3.2](/notes/math-55a/15-3-frobenius-reciprocity#corollary-15-3-2) directly from the formula for $\chi_{\Ind W}$ in Proposition [15.2.6](/notes/math-55a/15-2-induced-representations#proposition-15-2-6), without using Theorem [15.3.1](/notes/math-55a/15-3-frobenius-reciprocity#theorem-15-3-1).
+5. (Transitivity of induction.) If $K \leq H \leq G$ and $W$ is a representation of $K$, show that $\Ind^G_H \Ind^H_K W \cong \Ind^G_K W$.
 
 :::solution
-**(1)** $\operatorname{Ind}^G_{\{e\}} W = \bigoplus_{g \in G} gW$, a direct sum of $|G|$ copies of $W$, with $G$ permuting the summands. This is exactly $W \otimes R$ where the $G$-action is on the $R$ factor.
+**(1)** Apply Proposition [15.2.5](/notes/math-55a/15-2-induced-representations#proposition-15-2-5)(ii) with $V = W_0$ and the trivial representation $\CC$ of $\{e\}$: $\Ind(\Res W_0 \otimes \CC) \cong W_0 \otimes \Ind \CC$, and $\Ind^G_{\{e\}} \CC \cong R_G$ by Example [15.2.4](/notes/math-55a/15-2-induced-representations#example-15-2-4), while $\Res W_0 \otimes \CC = W$. Concretely, $\Ind W = \bigoplus_{g \in G} gW$, with $g'$ mapping $gw$ to $(g'g)w$. If $w_1, \ldots, w_m$ is a basis of $W$, then for each $l$ the vectors $g w_l$ ($g \in G$) span a copy of $R_G$, and $\Ind W$ is the direct sum of these $m$ copies.
 
-**(2)** $\operatorname{Ind}^{S_n}_{A_n}(U) = \bigoplus_{\sigma \in S_n/A_n} \sigma U$. Since $[S_n:A_n] = 2$, this is 2-dimensional with basis $e_1, e_2$ indexed by the two cosets. Even permutations fix both; odd permutations swap them. The invariant subspace $\operatorname{span}(e_1 + e_2) \cong U_{S_n}$, and the anti-invariant $\operatorname{span}(e_1 - e_2) \cong U'_{S_n}$.
+**(2)** By Example [15.2.3](/notes/math-55a/15-2-induced-representations#example-15-2-3), $\Ind^{S_n}_{A_n} U_{A_n}$ is the permutation representation on $S_n/A_n$, which has two elements since $[S_n : A_n] = 2$. Its basis $e_1, e_2$ is indexed by the two cosets; even permutations fix both basis vectors, and odd permutations swap them. So $\operatorname{span}(e_1 + e_2)$ is a trivial subrepresentation, $\operatorname{span}(e_1 - e_2)$ is a copy of the sign representation, and the representation is $U \oplus U'$.
 
-**(3)** By Frobenius reciprocity, the multiplicity of an $S_5$-irreducible $X$ in $\operatorname{Ind}^{S_5}_{S_4}(V_4)$ equals $\langle \chi_{V_4}, \chi_{\operatorname{Res}(X)} \rangle_{S_4}$. We restrict each $S_5$-irreducible to $S_4$ (the subgroup fixing 5) by evaluating its character on elements of cycle types $1^5, 2 \cdot 1^3, 2^2 \cdot 1, 3 \cdot 1^2, 4 \cdot 1$. The $S_4$ inner product with $\chi_{V_4} = (3, 1, -1, 0, -1)$ (class sizes 1, 6, 3, 8, 6) gives: $$\begin{aligned}
-\langle \operatorname{Res}(U), \chi_{V_4} \rangle &= \tfrac{1}{24}(3 + 6 - 3 + 0 - 6) = 0, \\
-\langle \operatorname{Res}(U'), \chi_{V_4} \rangle &= \tfrac{1}{24}(3 - 6 - 3 + 0 + 6) = 0, \\
-\langle \operatorname{Res}(V), \chi_{V_4} \rangle &= \tfrac{1}{24}(12 + 12 + 0 + 0 + 0) = 1, \\
-\langle \operatorname{Res}(V'), \chi_{V_4} \rangle &= \tfrac{1}{24}(12 - 12 + 0 + 0 + 0) = 0, \\
-\langle \operatorname{Res}(\textstyle\bigwedge^2 V), \chi_{V_4} \rangle &= \tfrac{1}{24}(18 + 0 + 6 + 0 + 0) = 1, \\
-\langle \operatorname{Res}(W), \chi_{V_4} \rangle &= \tfrac{1}{24}(15 + 6 - 3 + 0 + 6) = 1, \\
-\langle \operatorname{Res}(W'), \chi_{V_4} \rangle &= \tfrac{1}{24}(15 - 6 - 3 + 0 - 6) = 0.
-\end{aligned}$$ So $\operatorname{Ind}^{S_5}_{S_4}(V_4) = V \oplus \bigwedge^2 V \oplus W$ (dimensions $4 + 6 + 5 = 15 = [S_5:S_4] \cdot 3$).
+**(3)** By Frobenius reciprocity, the multiplicity of an irreducible $X$ of $S_5$ in $\Ind V_4$ is $\langle \chi_{V_4}, \chi_{\Res X} \rangle_{S_4}$. The conjugacy classes of $S_4 \subset S_5$ are those of $e, (12), (12)(34), (123), (1234)$, of sizes $1, 6, 3, 8, 6$, and $\chi_{V_4} = (3, 1, -1, 0, -1)$ on these classes. Reading the character table of $S_5$ (Section [14.3](/notes/math-55a/14-3-the-character-table-of-s-5)) at these elements:
 
-**(4)** The sum $\sum_{i : \sigma_i^{-1}g\sigma_i \in H} \chi_W(\sigma_i^{-1}g\sigma_i)$ counts each valid conjugate exactly once per coset. In the formula $\frac{1}{|H|}\sum_{s \in G, s^{-1}gs \in H}$, replacing $s$ by $\sigma_i h$ for $h \in H$: the condition $s^{-1}gs \in H$ becomes $h^{-1}(\sigma_i^{-1}g\sigma_i)h \in H$, which holds iff $\sigma_i^{-1}g\sigma_i \in H$. The $|H|$ values of $h$ give $\chi_W(h^{-1}(\sigma_i^{-1}g\sigma_i)h) = \chi_W(\sigma_i^{-1}g\sigma_i)$ (class function), contributing $|H|$ times the same value. Dividing by $|H|$ recovers the coset-representative sum.
+<div class="table-wrap"><table class="tex-table has-stub"><thead><tr><th scope="col" class="c"></th><th scope="col" class="c">$e$</th><th scope="col" class="c">$(12)$</th><th scope="col" class="c">$(12)(34)$</th><th scope="col" class="c">$(123)$</th><th scope="col" class="c">$(1234)$</th></tr></thead><tbody><tr><th scope="row" class="c">$U$</th><td class="c">1</td><td class="c">1</td><td class="c">1</td><td class="c">1</td><td class="c">1</td></tr><tr><th scope="row" class="c">$U'$</th><td class="c">1</td><td class="c">$-1$</td><td class="c">1</td><td class="c">1</td><td class="c">$-1$</td></tr><tr><th scope="row" class="c">$V$</th><td class="c">4</td><td class="c">2</td><td class="c">0</td><td class="c">1</td><td class="c">0</td></tr><tr><th scope="row" class="c">$V'$</th><td class="c">4</td><td class="c">$-2$</td><td class="c">0</td><td class="c">1</td><td class="c">0</td></tr><tr><th scope="row" class="c">$\bigwedge^2 V$</th><td class="c">6</td><td class="c">0</td><td class="c">$-2$</td><td class="c">0</td><td class="c">0</td></tr><tr><th scope="row" class="c">$W$</th><td class="c">5</td><td class="c">1</td><td class="c">1</td><td class="c">$-1$</td><td class="c">$-1$</td></tr><tr><th scope="row" class="c">$W'$</th><td class="c">5</td><td class="c">$-1$</td><td class="c">1</td><td class="c">$-1$</td><td class="c">1</td></tr></tbody></table></div>
 
-**(5)** Write coset representatives for $G/K$ by combining those for $G/H$ and $H/K$: if $\{\sigma_i\}$ represents $G/H$ and $\{\tau_j\}$ represents $H/K$, then $\{\sigma_i \tau_j\}$ represents $G/K$. The direct sum decompositions are compatible: $\operatorname{Ind}^G_K W = \bigoplus_{i,j} \sigma_i \tau_j W = \bigoplus_i \sigma_i (\bigoplus_j \tau_j W) = \bigoplus_i \sigma_i (\operatorname{Ind}^H_K W) = \operatorname{Ind}^G_H(\operatorname{Ind}^H_K W)$.
+Weighting by the class sizes, $$\begin{aligned}
+\langle \chi_{V_4}, \chi_{\Res U} \rangle_{S_4} &= \tfrac{1}{24}(3 + 6 - 3 + 0 - 6) = 0, \\
+\langle \chi_{V_4}, \chi_{\Res U'} \rangle_{S_4} &= \tfrac{1}{24}(3 - 6 - 3 + 0 + 6) = 0, \\
+\langle \chi_{V_4}, \chi_{\Res V} \rangle_{S_4} &= \tfrac{1}{24}(12 + 12 + 0 + 0 + 0) = 1, \\
+\langle \chi_{V_4}, \chi_{\Res V'} \rangle_{S_4} &= \tfrac{1}{24}(12 - 12 + 0 + 0 + 0) = 0, \\
+\langle \chi_{V_4}, \chi_{\Res \bigwedge^2 V} \rangle_{S_4} &= \tfrac{1}{24}(18 + 0 + 6 + 0 + 0) = 1, \\
+\langle \chi_{V_4}, \chi_{\Res W} \rangle_{S_4} &= \tfrac{1}{24}(15 + 6 - 3 + 0 + 6) = 1, \\
+\langle \chi_{V_4}, \chi_{\Res W'} \rangle_{S_4} &= \tfrac{1}{24}(15 - 6 - 3 + 0 - 6) = 0.
+\end{aligned}$$ So $\Ind^{S_5}_{S_4} V_4 \cong V \oplus \bigwedge^2 V \oplus W$, of dimension $4 + 6 + 5 = 15 = [S_5 : S_4] \cdot 3$.
+
+**(4)** By Proposition [15.2.6](/notes/math-55a/15-2-induced-representations#proposition-15-2-6), $$\langle \chi_{\Ind W}, \chi_V \rangle_G = \frac{1}{|G|\,|H|} \sum_{s \in G} \; \sum_{\substack{g \in G \\ s^{-1}gs \in H}} \ol{\chi_W(s^{-1}gs)} \, \chi_V(g).$$ For fixed $s$, the map $g \mapsto h = s^{-1}gs$ is a bijection from $\{g \in G : s^{-1}gs \in H\}$ to $H$, and $\chi_V(g) = \chi_V(shs^{-1}) = \chi_V(h)$ because $\chi_V$ is a class function on $G$. So the inner sum equals $\sum_{h \in H} \ol{\chi_W(h)} \chi_V(h)$ for every $s$, and $$\langle \chi_{\Ind W}, \chi_V \rangle_G = \frac{1}{|G|\,|H|} \cdot |G| \sum_{h \in H} \ol{\chi_W(h)} \, \chi_{\Res V}(h) = \langle \chi_W, \chi_{\Res V} \rangle_H.$$
+
+**(5)** Let $\{\sigma_i\}$ be representatives of the cosets of $H$ in $G$ and $\{\tau_j\}$ representatives of the cosets of $K$ in $H$. Every $g \in G$ can be written uniquely as $g = \sigma_i h$ with $h \in H$, and then $h = \tau_j k$ uniquely with $k \in K$; so $\{\sigma_i \tau_j\}$ is a set of representatives of the cosets of $K$ in $G$. Let $X = \Ind^G_H(\Ind^H_K W)$. It contains $\Ind^H_K W = \bigoplus_j \tau_j W$, which contains the $K$-invariant subspace $W$, and $$X = \bigoplus_i \sigma_i \Bigl(\bigoplus_j \tau_j W\Bigr) = \bigoplus_{i,j} (\sigma_i \tau_j) W.$$ So $X$ is induced by $W$ as a representation of $G$, and $X \cong \Ind^G_K W$ by Theorem [15.2.2](/notes/math-55a/15-2-induced-representations#theorem-15-2-2).
 :::
 :::

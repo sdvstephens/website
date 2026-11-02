@@ -6,20 +6,32 @@ section: 1.1
 title: Ordered Pairs
 ---
 
-We begin with a discussion of ordered pairs. Consider a set of numbers $\{1,2,3,4\}$. For any set there is no particular order that triumphs over another, i.e., $\{1,2,3,4\} = \{1,3,2,4\} = \{3,4,2,1\} =\ldots$, an obvious truth. Say we want $\{1,2,3,4\}$ to be in the order of $\{3,2,1,4\}$ for some arbitrary reason; we may then consider the collection, $$\mfC = \{\{3\} , \{3,2\} ,\{3,2,1\} , \{3,2,1,4\}     \}
-.$$ It becomes obvious what is happening here: the method by which we get order is dependent on the number of iterations in which a particular element appears in any number of sets in a given collection (in comparison to the other elements in the other sets of the respective collection).
+:::lede
+This chapter collects the set theory that the rest of the book takes for granted: ordered pairs, relations, functions, families of sets, inverse images and composites, equivalence relations and the quotient sets they produce, and cardinality. Much of it follows Halmos’s *Naive Set Theory*. Throughout, $\mcP(X)$ denotes the ***power set*** of a set $X$, the set of all subsets of $X$; $X - A$ denotes the set of elements of $X$ that do not lie in $A$; and $\NN = \{0,1,2,\ldots\}$.
+:::
 
-Then consider this process but for a nested collection (a collection within a collection) which contains two sets, namely the arbitrary elements $a,b$ in opposing orders, and notice that it gives us the definition of a 2-tuple (ordered pair), $$\mfC_{1} = \{\{a\} ,\{a,b\}   \} \coloneqq (a,b) \, \text{ and }\, \mfC_{2}  = \{\{b\} ,\{b,a\}   \} \coloneqq  (b,a)
-.$$
+We begin with a discussion of ordered pairs. A set carries no order: $\{1,2,3,4\} = \{1,3,2,4\} = \{3,4,2,1\}$, and so on. Say we want to list the elements of $\{1,2,3,4\}$ in the order $3,2,1,4$, for some arbitrary reason; we may then consider the collection $$\mfC = \{\{3\} , \{3,2\} ,\{3,2,1\} , \{3,2,1,4\}\}.$$ The order is recorded by the number of sets of the collection in which each element appears: $3$ lies in all four, $2$ in three of them, $1$ in two, and $4$ in one.
+
+Applying the same idea to a collection of two sets built from elements $a$ and $b$ gives the definition of a 2-tuple, or ***ordered pair***: $$(a,b) \coloneqq \{\{a\} ,\{a,b\}\} \quad\text{and}\quad (b,a) \coloneqq \{\{b\} ,\{b,a\}\}.$$
 
 :::note
-This form of generating or representing ordered pairs is called the *Kuratowski* of ordered pairs.
+This way of encoding ordered pairs as sets is called the *Kuratowski* definition of the ordered pair.
 :::
 
-This, of course, naturally extends to greater $n$-tuples. There are some obvious consequences of this that will not be gone over here.
+The one property of ordered pairs that the rest of the book uses is that a pair determines its coordinates.
 
-The **Cartesian product** is a set of ordered pairs which can be given by taking power sets.
-
-:::definition{1.1.1} Cartesian Product
-The Cartesian product is the cross product of two sets given by $$A \times  B = \{(a,b)\mid a\in A, b\in B\}  \}   ,$$ where, by the Kuratowski encoding, $$(a,b)\coloneqq \{\{a\},\{a,b\}\} \in  \mcP(\mcP(A \cup B))  .$$
+:::proposition{1.1.1} Equality of ordered pairs
+For all $a,b,c,d$, we have $(a,b) = (c,d)$ if and only if $a = c$ and $b = d$.
 :::
+
+:::proof
+If $a = c$ and $b = d$, the two sets are equal. Conversely, suppose $\{\{a\},\{a,b\}\} = \{\{c\},\{c,d\}\}$. If $a = b$, the left side is $\{\{a\}\}$, which has one element, so the right side has one element too; hence $\{c\} = \{c,d\}$, which forces $c = d$, and then $\{a\} = \{c\}$ gives $a = c$. Thus $a = b = c = d$. If $a \neq b$, the left side has two elements, the one-element set $\{a\}$ and the two-element set $\{a,b\}$. So the right side also has two elements, which forces $c \neq d$, and matching the one-element members gives $\{a\} = \{c\}$, so $a = c$. Matching the two-element members gives $\{a,b\} = \{a,d\}$; since $b\in\{a,d\}$ and $b \neq a$, we get $b = d$.
+:::
+
+Ordered triples and, more generally, $n$-tuples can be built the same way; Section [1.4](/notes/math-55a/1-4-families) gives a uniform description of them as families.
+
+:::definition{1.1.2} Cartesian product
+The ***Cartesian product*** of sets $A$ and $B$ is the set of ordered pairs $$A \times  B = \{(a,b)\mid a\in A,\ b\in B\}.$$ We write $A^2$ for $A\times A$.
+:::
+
+Since $\{a\}$ and $\{a,b\}$ are subsets of $A\cup B$, every pair $(a,b)$ with $a\in A$ and $b\in B$ is a set of subsets of $A\cup B$, that is, $(a,b)\in\mcP(\mcP(A \cup B))$. So $A\times B$ is a subset of $\mcP(\mcP(A\cup B))$; in particular, it is a set.

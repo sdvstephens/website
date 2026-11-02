@@ -138,7 +138,7 @@ Since $\pi|_W=\id$, $\pi$ is surjective and $V=U\oplus W$ (dimension/rank formul
 $G=\ZZ$ or $\RR$ acting on $\CC^2$ by $t\mapsto\begin{pmatrix}1&t\\0&1\end{pmatrix}$. Then the first factor $\CC\times0$ is invariant under $G$, but there is no complementary invariant subspace.
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 32](/notes/math-55a/32-schurs-lemma-and-the-representations-of-s-3)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L32}}
 **Schur’s lemma**
 
 **Goal:** given $G$, find its irreducible representations, and describe how others decompose into irreducibles.

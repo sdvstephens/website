@@ -3,171 +3,241 @@
 course: math-55a
 chapter: 3
 section: 3.6
-title: Free groups and presentations
+title: Free Groups and Presentations
 ---
 
-Every group we’ve seen so far has been defined concretely: permutations, matrices, integers mod $n$. But there’s a fundamentally different approach: describe a group by *generators* and *relations*. This leads to *group presentations*, which are both computationally useful and theoretically profound. The key player is the *free group*—the “most general” group on a given set of generators.
+Every group we have seen so far has been defined concretely: permutations, matrices, integers mod $n$. There is a fundamentally different approach: describe a group by *generators* and *relations*. This leads to *group presentations*, which are both computationally useful and theoretically important. The key player is the *free group*, the “most general” group on a given set of generators.
 
-## <span class="num">3.6.1</span> Words and reduced words
+## <span class="num">3.6.1</span> Words and Reduced Words
 
 :::definition{3.6.1} Alphabet and words
-Let $S$ be a set (the ***alphabet*** or ***generating set***). Define $S^{-1} = \{s^{-1} : s \in S\}$, a formal set of “inverse symbols” disjoint from $S$. A ***word*** in $S$ is a finite sequence $$w = a_1^{\epsilon_1} a_2^{\epsilon_2} \cdots a_n^{\epsilon_n}$$ where each $a_i \in S$ and $\epsilon_i \in \{1, -1\}$. The ***empty word***, denoted $e$ or $\varepsilon$, is the word with no letters.
-:::
-
-:::example{3.6.1}
-If $S = \{a, b\}$, then $ab^{-1}a^{-1}ba$, $aaab$, $b^{-1}b^{-1}a$, and $e$ are all words. We write $a^3$ for $aaa$ and $a^{-2}$ for $a^{-1}a^{-1}$.
-:::
-
-:::definition{3.6.2} Concatenation
-The ***concatenation*** of words $w_1 = a_1 \cdots a_m$ and $w_2 = b_1 \cdots b_n$ is $w_1 w_2 = a_1 \cdots a_m b_1 \cdots b_n$. This operation is associative with identity $e$.
-:::
-
-Now, we want words to form a group. The issue: $aa^{-1}$ should equal $e$, but as sequences they’re different. We need to identify words that “should be equal.”
-
-:::definition{3.6.3} Elementary reduction
-An ***elementary reduction*** of a word $w$ is the operation of removing a subword of the form $ss^{-1}$ or $s^{-1}s$ (for $s \in S$). A word is ***reduced*** if it contains no such subwords—i.e., no letter is immediately followed by its inverse.
+Let $S$ be a set (the ***alphabet***). Let $S^{-1} = \{s^{-1} \mid s \in S\}$ be a set of formal symbols in bijection with $S$ and disjoint from it. The elements of $S \cup S^{-1}$ are ***letters***; for a letter $x$ we write $x^{-1}$ for its partner, so that $(s^{-1})^{-1} = s$. A ***word*** in $S$ is a finite sequence of letters, $$w = x_1 x_2 \cdots x_m, \qquad x_i \in S \cup S^{-1}.$$ The ***empty word***, with $m = 0$, is denoted $e$. The ***concatenation*** of words $w = x_1 \cdots x_m$ and $w' = y_1 \cdots y_k$ is $ww' = x_1 \cdots x_m y_1 \cdots y_k$; it is associative, with identity $e$.
 :::
 
 :::example{3.6.2}
-The word $ab^{-1}ba^{-1}a$ reduces as follows: $$ab^{-1}ba^{-1}a \to ab^{-1}b \cdot e \cdot a^{-1}a \to ab^{-1}b \to a \cdot e = a.$$
+If $S = \{a, b\}$, then $ab^{-1}a^{-1}ba$, $aaab$, $b^{-1}b^{-1}a$, and $e$ are words. We abbreviate $aaa$ as $a^3$ and $a^{-1}a^{-1}$ as $a^{-2}$.
 :::
 
-:::theorem{3.6.1} Unique reduced form
-Every word can be reduced to a unique reduced word by a sequence of elementary reductions. The order of reductions doesn’t matter.
+We want words to form a group, but $aa^{-1}$ and $e$ are different words that “should” be equal. So we cancel adjacent inverse letters.
+
+:::definition{3.6.3} Reduction
+An ***elementary reduction*** of a word deletes two adjacent letters of the form $xx^{-1}$, for a letter $x$. A word is ***reduced*** if no elementary reduction applies, that is, no letter is immediately followed by its inverse.
 :::
 
-:::proof Proof (Sketch of unique reduction)
-**Termination:** Each reduction decreases the length by 2, so the process terminates.
-
-**Uniqueness (sketch):** This is the key point. Suppose $w$ reduces to both $u$ and $v$. We use the *diamond lemma*: if we can perform two different reductions $w \to w_1$ and $w \to w_2$, then there exists $w'$ reachable from both $w_1$ and $w_2$.
-
-The only interesting case is when the two reductions overlap, e.g., $w = \cdots s s^{-1} s \cdots$. Reducing $ss^{-1}$ gives $\cdots s \cdots$; reducing $s^{-1}s$ also gives $\cdots s \cdots$. They agree! So all reduction paths lead to the same result.
+:::example{3.6.4}
+The word $ab^{-1}ba^{-1}a$ can be reduced in two ways: $$ab^{-1}ba^{-1}a \to aa^{-1}a \to a \qquad\text{and}\qquad ab^{-1}ba^{-1}a \to ab^{-1}b \to a.$$ The first path deletes $b^{-1}b$ and then $aa^{-1}$; the second deletes $a^{-1}a$ and then $b^{-1}b$. Both end at the reduced word $a$.
 :::
 
-## <span class="num">3.6.2</span> The free group
-
-:::definition{3.6.4} Free group
-The ***free group on $S$***, denoted $F(S)$ or $F_n$ (where $n = |S|$), is the set of reduced words in $S$ with the group operation: $$w_1 \cdot w_2 = \text{reduce}(w_1 w_2).$$ The identity is the empty word $e$, and the inverse of $a_1^{\epsilon_1} \cdots a_n^{\epsilon_n}$ is $a_n^{-\epsilon_n} \cdots a_1^{-\epsilon_1}$.
+:::theorem{3.6.5} Unique reduced form
+Every word $u$ can be turned into a reduced word by a finite sequence of elementary reductions, and the reduced word obtained does not depend on the sequence chosen.
 :::
 
-:::proposition{3.6.1} Free group is a group
-The free group $F(S)$ satisfies the group axioms.
+:::proof
+**Existence.** Each elementary reduction shortens the word by two letters, so repeated reductions stop after finitely many steps, at a reduced word.
+
+**Uniqueness.** Let $W$ be the set of reduced words. For each letter $x$ define $\lambda_x : W \to W$ by $$\lambda_x(w) = \begin{cases} xw & \text{if } w \text{ does not begin with } x^{-1}, \\ w' & \text{if } w = x^{-1}w'. \end{cases}$$ In both cases the result is reduced. We claim $\lambda_x \circ \lambda_{x^{-1}} = \id_W$. If $w$ does not begin with $x$, then $\lambda_{x^{-1}}(w) = x^{-1}w$, which begins with $x^{-1}$, so $\lambda_x(x^{-1}w) = w$. If $w = xw'$, then $\lambda_{x^{-1}}(w) = w'$, and $w'$ does not begin with $x^{-1}$ because $w$ is reduced, so $\lambda_x(w') = xw' = w$.
+
+For an arbitrary word $u = x_1 \cdots x_m$, put $\lambda_u = \lambda_{x_1} \circ \cdots \circ \lambda_{x_m}$ (and $\lambda_e = \id_W$). If $u'$ is obtained from $u$ by deleting an adjacent pair $xx^{-1}$, then $\lambda_{u'} = \lambda_u$, because $\lambda_x \circ \lambda_{x^{-1}} = \id_W$. If $w = x_1 \cdots x_m$ is reduced, then $\lambda_w(e) = w$: by induction on $m$, $\lambda_{x_2 \cdots x_m}(e) = x_2 \cdots x_m$, which does not begin with $x_1^{-1}$ because $w$ is reduced, so applying $\lambda_{x_1}$ gives $w$.
+
+Now suppose some sequence of elementary reductions takes $u$ to a reduced word $w$. Then $\lambda_u = \lambda_w$, so $w = \lambda_w(e) = \lambda_u(e)$, which depends only on $u$.
 :::
 
-:::proof Proof (Verification of group axioms for $F(S)$)
-**Closure:** The product of two reduced words, after reduction, is a reduced word.
+Write $\operatorname{red}(u)$ for the reduced word obtained from $u$. If $u$ can be reduced to $u'$ (by any sequence of elementary reductions), then $\operatorname{red}(u) = \operatorname{red}(u')$, since a reduction sequence from $u'$ to a reduced word extends one from $u$ to $u'$. In particular, for any words $u, v$, $$\operatorname{red}(uv) = \operatorname{red}(\operatorname{red}(u)\,v) = \operatorname{red}(u\,\operatorname{red}(v)).$$
 
-**Associativity:** This is subtle! We need $(w_1 \cdot w_2) \cdot w_3 = w_1 \cdot (w_2 \cdot w_3)$. Both equal the reduction of $w_1 w_2 w_3$—but the reductions might happen in different orders. By uniqueness of reduced form, they give the same result.
+In a reduced word, a maximal block of consecutive letters from $\{s, s^{-1}\}$ consists of copies of $s$ only or of $s^{-1}$ only. Grouping such blocks, every reduced word can be written uniquely as $$s_1^{m_1} s_2^{m_2} \cdots s_k^{m_k}, \qquad k \ge 0,\ s_j \in S,\ s_j \neq s_{j+1},\ m_j \in \ZZ \setminus \{0\},$$ and conversely every such expression, written out letter by letter, is a reduced word. For $S = \{a_1, \ldots, a_n\}$ this is the form $a_{i_1}^{m_1} \cdots a_{i_k}^{m_k}$ with $i_j \neq i_{j+1}$.
 
-**Identity:** $e \cdot w = \text{reduce}(ew) = \text{reduce}(w) = w$ (since $w$ is already reduced). Similarly $w \cdot e = w$.
+## <span class="num">3.6.2</span> The Free Group
 
-**Inverses:** Let $w = a_1^{\epsilon_1} \cdots a_n^{\epsilon_n}$ and $w^{-1} = a_n^{-\epsilon_n} \cdots a_1^{-\epsilon_1}$. Then $ww^{-1} = a_1^{\epsilon_1} \cdots a_n^{\epsilon_n} a_n^{-\epsilon_n} \cdots a_1^{-\epsilon_1}$. Reducing: $a_n^{\epsilon_n} a_n^{-\epsilon_n}$ cancels, then $a_{n-1}^{\epsilon_{n-1}} a_{n-1}^{-\epsilon_{n-1}}$ cancels, etc., until we get $e$.
+:::definition{3.6.6} Free group
+The ***free group on $S$***, denoted $F(S)$, is the set of reduced words in $S$ with the operation $$w \cdot w' = \operatorname{red}(ww').$$ For $S = \{a_1, \ldots, a_n\}$ we write $F_n$, the free group on $n$ generators.
 :::
 
-:::example{3.6.3} Free group on one generator
-$F(\{a\}) = F_1$ consists of reduced words in $a, a^{-1}$: these are $\ldots, a^{-2}, a^{-1}, e, a, a^2, \ldots$. This is just $\{a^n : n \in \mathbb{Z}\}$ with $a^m \cdot a^n = a^{m+n}$. So $F_1 \cong \mathbb{Z}$.
+:::proposition{3.6.7} The free group is a group
+The set $F(S)$ is a group under this operation. Its identity is the empty word, and the inverse of $x_1 \cdots x_m$ is $x_m^{-1} \cdots x_1^{-1}$.
 :::
 
-:::example{3.6.4} Free group on two generators
-$F_2 = F(\{a, b\})$ is much more interesting. Elements include $e, a, b, a^{-1}, b^{-1}, ab, ba, a^2, ab^{-1}, aba, bab^{-1}a^{-1}, \ldots$—infinitely many distinct reduced words. Notably, $ab \ne ba$ (both are reduced but different), so $F_2$ is non-abelian. In fact, $F_2$ contains copies of every countable free group!
+:::proof
+The product of two reduced words is reduced by definition.
+
+**Associativity:** By the remark after Theorem [3.6.5](/notes/math-55a/3-6-free-groups-and-presentations#theorem-3-6-5), $$\begin{aligned}
+(w_1 \cdot w_2) \cdot w_3 &= \operatorname{red}(\operatorname{red}(w_1w_2)\,w_3) = \operatorname{red}(w_1w_2w_3) \\
+&= \operatorname{red}(w_1\,\operatorname{red}(w_2w_3)) = w_1 \cdot (w_2 \cdot w_3).
+\end{aligned}$$
+
+**Identity:** $e \cdot w = \operatorname{red}(w) = w$ since $w$ is already reduced; similarly $w \cdot e = w$.
+
+**Inverses:** Let $w = x_1 \cdots x_m$ be reduced and $w^{-1} = x_m^{-1} \cdots x_1^{-1}$. This word is reduced: an adjacent pair $x_{i+1}^{-1}x_i^{-1}$ cancels only if $x_i^{-1} = x_{i+1}$, and then $x_ix_{i+1}$ would cancel in $w$. In $ww^{-1}$ the middle pair $x_mx_m^{-1}$ cancels, then $x_{m-1}x_{m-1}^{-1}$, and so on, until we reach $e$. So $w \cdot w^{-1} = e$, and likewise $w^{-1} \cdot w = e$.
 :::
 
-## <span class="num">3.6.3</span> The universal property
+If $x_1 \cdots x_m$ is reduced, then it is the product $x_1 \cdot x_2 \cdots x_m$ in $F(S)$ of its one-letter words, and the one-letter word $s^{-1}$ is the inverse of $s$. So $F(S)$ is generated by $S$ (identifying $s$ with the one-letter word), and the grouped form above expresses each element as a product of powers of generators. Renaming the letters shows that $F(S) \cong F(T)$ whenever there is a bijection $S \to T$.
 
-The free group is “free” because it has no relations other than the group axioms. This is captured by a *universal property*.
+:::example{3.6.8} Free group on one generator
+$F_1 = F(\{a\})$ consists of the reduced words $\ldots, a^{-2}, a^{-1}, e, a, a^2, \ldots$, that is, $\{a^m \mid m \in \ZZ\}$, with $a^m \cdot a^k = a^{m+k}$. So $F_1 \cong \ZZ$.
+:::
 
-:::theorem{3.6.2} Universal property of free groups
-Let $F(S)$ be the free group on $S$, and let $\iota : S \to F(S)$ be the inclusion $s \mapsto s$ (the one-letter word). For any group $G$ and any function $f : S \to G$, there exists a unique homomorphism $\tilde{f} : F(S) \to G$ such that $\tilde{f} \circ \iota = f$.
+:::example{3.6.9} Free group on two generators
+$F_2 = F(\{a, b\})$ is much more interesting. Its elements include $e, a, b, a^{-1}, b^{-1}, ab, ba, a^2, ab^{-1}, aba, bab^{-1}a^{-1}, \ldots$, infinitely many distinct reduced words. Since $ab$ and $ba$ are different reduced words, $ab \ne ba$, and $F_2$ is non-abelian. In fact $F_2$ contains subgroups isomorphic to $F_n$ for every $n$; Question [3.6](/notes/math-55a/3-6-free-groups-and-presentations) below proves this.
+:::
+
+## <span class="num">3.6.3</span> The Universal Property
+
+The free group is “free” because no relations hold among its generators beyond those forced by the group axioms. This is captured by a *universal property*.
+
+:::theorem{3.6.10} Universal property of free groups
+Let $\iota : S \to F(S)$ send $s$ to the one-letter word $s$. For any group $G$ and any function $f : S \to G$, there is a unique homomorphism $\tilde{f} : F(S) \to G$ with $\tilde{f} \circ \iota = f$.
 
 ![fig-3-6-1](/notes/math-55a/figures/fig-3-6-1.svg)
 :::
 
-:::proof Proof of universal property
-**Existence:** Define $\tilde{f}(a_1^{\epsilon_1} \cdots a_n^{\epsilon_n}) = f(a_1)^{\epsilon_1} \cdots f(a_n)^{\epsilon_n}$. This is well-defined on reduced words and is a homomorphism: $\tilde{f}(w_1 w_2) = \tilde{f}(w_1)\tilde{f}(w_2)$ because the reductions in $F(S)$ correspond to the group relations $f(s)f(s)^{-1} = e_G$ in $G$.
+:::proof
+**Existence.** Extend $f$ to letters by $f(s^{-1}) = f(s)^{-1}$, and define $\Phi$ on arbitrary words by $\Phi(x_1 \cdots x_m) = f(x_1) \cdots f(x_m)$, with $\Phi(e) = e$. Then $\Phi(uv) = \Phi(u)\Phi(v)$ for all words $u, v$. An elementary reduction does not change $\Phi$, because $f(x)f(x^{-1}) = e$ for every letter $x$; hence $\Phi(u) = \Phi(\operatorname{red}(u))$. Let $\tilde f$ be the restriction of $\Phi$ to reduced words. Then $$\tilde{f}(w \cdot w') = \Phi(\operatorname{red}(ww')) = \Phi(ww') = \Phi(w)\Phi(w') = \tilde{f}(w)\tilde{f}(w'),$$ so $\tilde f$ is a homomorphism, and $\tilde{f}(s) = f(s)$.
 
-**Uniqueness:** Any homomorphism $\varphi : F(S) \to G$ with $\varphi(s) = f(s)$ for all $s \in S$ must satisfy $\varphi(a_1^{\epsilon_1} \cdots a_n^{\epsilon_n}) = \varphi(a_1)^{\epsilon_1} \cdots \varphi(a_n)^{\epsilon_n} = f(a_1)^{\epsilon_1} \cdots f(a_n)^{\epsilon_n} = \tilde{f}(w)$.
+**Uniqueness.** A homomorphism $\varphi : F(S) \to G$ with $\varphi(s) = f(s)$ for all $s \in S$ satisfies $\varphi(s^{-1}) = f(s)^{-1}$, and since $x_1 \cdots x_m = x_1 \cdot x_2 \cdots x_m$ in $F(S)$, $$\varphi(x_1 \cdots x_m) = \varphi(x_1) \cdots \varphi(x_m) = f(x_1) \cdots f(x_m) = \tilde{f}(x_1 \cdots x_m).$$
 :::
 
 :::note
-The universal property says: to define a homomorphism *out* of $F(S)$, you just need to say where the generators go—there are no constraints! Any choice of images for $S$ in any group $G$ extends uniquely to a homomorphism. This is why $F(S)$ is “free”—you have complete freedom in defining maps from it. Categorically, the free group functor is *left adjoint* to the forgetful functor from groups to sets.
+The universal property says that to define a homomorphism *out of* $F(S)$, it suffices to say where the generators go, and there are no constraints: any choice of images in any group $G$ extends uniquely. This is why $F(S)$ is called “free.” Chapter 8 studies universal properties of this kind in general.
 :::
 
-## <span class="num">3.6.4</span> Group presentations
-
-The universal property immediately gives us a way to describe groups by generators and relations.
-
-:::definition{3.6.5} Group presentation
-A ***presentation*** of a group $G$ is an expression $$G = \langle S \mid R \rangle$$ where $S$ is a set of ***generators*** and $R \subseteq F(S)$ is a set of ***relators***. This means $G \cong F(S) / N$, where $N = \langle\!\langle R \rangle\!\rangle$ is the ***normal closure*** of $R$—the smallest normal subgroup of $F(S)$ containing $R$.
-
-Equivalently, if $R = \{r_1, r_2, \ldots\}$, we write $G = \langle S \mid r_1 = e, r_2 = e, \ldots \rangle$ or $G = \langle S \mid r_1, r_2, \ldots \rangle$.
+:::corollary{3.6.11} Every group is a quotient of a free group
+If elements $g_s \in G$ ($s \in S$) generate $G$, then the homomorphism $F(S) \to G$ with $s \mapsto g_s$ is surjective, and $G \cong F(S)/K$ for its kernel $K$.
 :::
 
-:::note
-The normal closure $\langle\!\langle R \rangle\!\rangle$ consists of all products of conjugates of elements of $R$ and their inverses: $\langle\!\langle R \rangle\!\rangle = \{g_1 r_1^{\pm 1} g_1^{-1} \cdots g_k r_k^{\pm 1} g_k^{-1} : g_i \in F(S), r_i \in R\}$. We need normal closure (not just the subgroup generated by $R$) because we’re quotienting, and quotients require normal subgroups.
+:::proof
+The image is a subgroup containing every $g_s$, so it is all of $G$. Apply the First Isomorphism Theorem.
 :::
 
-:::example{3.6.5} Presentations of familiar groups
-1. **Cyclic group:** $\mathbb{Z}/n = \langle a \mid a^n \rangle$. One generator, one relation.
-2. **Infinite cyclic:** $\mathbb{Z} = \langle a \mid \rangle$ (no relations). The free group on one generator.
-3. **Klein four-group:** $\mathbb{Z}/2 \times \mathbb{Z}/2 = \langle a, b \mid a^2, b^2, aba^{-1}b^{-1} \rangle$. The last relation says $ab = ba$ (commutativity).
-4. **Dihedral group:** $D_n = \langle r, s \mid r^n, s^2, srs^{-1}r \rangle$. The last relation says $srs^{-1} = r^{-1}$, i.e., $sr = r^{-1}s$.
-5. **Symmetric group:** $S_n = \langle s_1, \ldots, s_{n-1} \mid s_i^2, (s_i s_{i+1})^3, (s_i s_j)^2 \text{ for } |i-j| \ge 2 \rangle$, where $s_i = (i \,\, i+1)$. These are the *Coxeter relations*.
-6. **Free abelian group:** $\mathbb{Z}^n = \langle a_1, \ldots, a_n \mid [a_i, a_j] \text{ for all } i, j \rangle$, where $[a, b] = aba^{-1}b^{-1}$ is the commutator.
+So $F_n$ is the “largest” group with $n$ generators: every group generated by $n$ elements is a quotient of $F_n$.
+
+## <span class="num">3.6.4</span> Group Presentations
+
+To describe $G$ as a quotient $F(S)/K$, we would like to specify $K$ by a few of its elements. Since $K$ is normal, it then also contains all conjugates of those elements.
+
+:::proposition{3.6.12} Normal closure
+Let $R$ be a subset of a group $F$. The set $\langle\!\langle R \rangle\!\rangle$ of all finite products $$g_1 r_1^{\epsilon_1} g_1^{-1} \, g_2 r_2^{\epsilon_2} g_2^{-1} \cdots g_k r_k^{\epsilon_k} g_k^{-1}, \qquad k \ge 0,\ g_i \in F,\ r_i \in R,\ \epsilon_i = \pm 1,$$ is the smallest normal subgroup of $F$ containing $R$: it is a normal subgroup containing $R$, and every normal subgroup containing $R$ contains it. It is called the ***normal closure*** of $R$.
 :::
 
-:::proposition{3.6.2} Every group has a presentation
-For any group $G$, there exist $S$ and $R$ such that $G \cong \langle S \mid R \rangle$.
+:::proof
+The set contains $e$ (take $k = 0$) and $R$; it is closed under products by construction, and under inverses because $(g r^{\epsilon} g^{-1})^{-1} = g r^{-\epsilon} g^{-1}$ and the inverse of a product is the product of the inverses in reverse order. It is normal because $h(grg^{-1})h^{-1} = (hg)r(hg)^{-1}$, so a conjugate of such a product is again such a product. Finally, a normal subgroup containing $R$ contains every $gr^{\pm1}g^{-1}$, hence every such product.
 :::
 
-:::proof Proof (Existence of presentation)
-Take $S = G$ (yes, all of $G$!) and define $f : S \to G$ by $f(g) = g$. By the universal property, this extends to a surjective homomorphism $\tilde{f} : F(G) \to G$. Let $R = \ker(\tilde{f})$. Then $G \cong F(G)/R = \langle G \mid R \rangle$.
-
-This is a “stupid” presentation (huge!), but it exists. Finding nice presentations is an art.
+:::definition{3.6.13} Group presentation
+Let $S$ be a set and $R \subseteq F(S)$ a set of words. The group ***presented*** by generators $S$ and relations $R$ is $$\langle S \mid R \rangle = F(S) / \langle\!\langle R \rangle\!\rangle.$$ A ***presentation*** of a group $G$ is an isomorphism $G \cong \langle S \mid R \rangle$. The group is ***finitely presented*** if it has a presentation with $S$ and $R$ finite; we then write $\langle s_1, \ldots, s_n \mid r_1, \ldots, r_k \rangle$. A relation is often written as an equation: $u = v$ stands for the relation $uv^{-1}$.
 :::
 
-## <span class="num">3.6.5</span> The word problem
+In $\langle S \mid R \rangle$, write $\bar s$ for the image of $s \in S$. The $\bar s$ generate the group, and every relation $r \in R$ becomes the identity: $\bar r = e$. The presented group is the largest group with these properties, in the following sense.
+
+:::proposition{3.6.14} Mapping out of a presentation
+Let $G$ be a group and $f : S \to G$ a function such that $\tilde{f}(r) = e$ for every $r \in R$ (we say the relations *hold* in $G$). Then there is a unique homomorphism $\bar{f} : \langle S \mid R \rangle \to G$ with $\bar{f}(\bar{s}) = f(s)$ for all $s \in S$. It is surjective if and only if the elements $f(s)$ generate $G$, and it is an isomorphism if and only if, in addition, $\ker\tilde{f} = \langle\!\langle R \rangle\!\rangle$.
+:::
+
+:::proof
+The kernel of $\tilde{f} : F(S) \to G$ is a normal subgroup containing $R$, so it contains $\langle\!\langle R \rangle\!\rangle$ (Proposition [3.6.12](/notes/math-55a/3-6-free-groups-and-presentations#proposition-3-6-12)). By Theorem [3.3.2](/notes/math-55a/3-3-the-isomorphism-theorems#theorem-3-3-2), $\tilde f$ factors through a homomorphism $\bar f : F(S)/\langle\!\langle R \rangle\!\rangle \to G$ with the same image as $\tilde f$, namely the subgroup generated by the $f(s)$, and with kernel $\ker\tilde{f}/\langle\!\langle R \rangle\!\rangle$. This kernel is trivial exactly when $\ker\tilde{f} = \langle\!\langle R \rangle\!\rangle$. Uniqueness holds because the $\bar s$ generate $\langle S \mid R \rangle$.
+:::
+
+This gives the standard method for proving that a group $G$ has a given presentation. First, choose generators of $G$ and check that the relations hold in $G$; this gives a surjection $\langle S \mid R \rangle \surjto G$. Second, show that the relations are *complete*. When $G$ is finite, it suffices to show that $\langle S \mid R \rangle$ has at most $|G|$ elements, usually by using the relations to rewrite every element in a normal form; a surjection between finite sets of the same size is a bijection.
+
+:::example{3.6.15} Presentations of familiar groups
+<!-- list:paren-alpha -->
+
+1. **Cyclic groups:** $\ZZ/n \cong \langle a \mid a^n \rangle$. The relation holds for the generator $1 \in \ZZ/n$, giving a surjection. In $\langle a \mid a^n \rangle$ every element is a power $\bar a^k$, and $\bar a^n = e$, so there are at most $n$ elements $\bar a^0, \ldots, \bar a^{n-1}$.
+2. **Infinite cyclic group:** $\ZZ \cong F_1 = \langle a \mid \ \rangle$, with no relations.
+3. **Klein four-group:** $\ZZ/2 \times \ZZ/2 \cong \langle a, b \mid a^2, b^2, aba^{-1}b^{-1} \rangle$. The relations hold for $(1, 0)$ and $(0, 1)$, which generate. In the presented group $\bar a\bar b = \bar b\bar a$ and $\bar a^2 = \bar b^2 = e$, so every element is $\bar a^i\bar b^j$ with $i, j \in \{0, 1\}$: at most 4 elements.
+4. **The symmetric group $S_3$:** $S_3 \cong \langle s_1, s_2 \mid s_1^2, s_2^2, (s_1s_2)^3 \rangle$, with $s_1 = (1\,2)$ and $s_2 = (2\,3)$. This is the case $n = 3$ of Theorem [3.6](/notes/math-55a/3-6-free-groups-and-presentations) below.
+:::
+
+:::proposition{3.6.16} Presentation of the dihedral group
+For $n \ge 3$, $D_n \cong \langle r, s \mid r^n, s^2, srs^{-1}r \rangle$. (The last relation says $srs^{-1} = r^{-1}$.)
+:::
+
+:::proof
+By Proposition [2.2.15](/notes/math-55a/2-2-fundamental-examples#proposition-2-2-15), $D_n$ has order $2n$ and is generated by a rotation $r$ and a reflection $s$ with $r^n = s^2 = e$ and $srs^{-1} = r^{-1}$. So the relations hold in $D_n$, and Proposition [3.6.14](/notes/math-55a/3-6-free-groups-and-presentations#proposition-3-6-14) gives a surjection from the presented group $P$ onto $D_n$. In $P$, the relations give $\bar s\bar r = \bar r^{-1}\bar s$, hence $\bar s\bar r^k = \bar r^{-k}\bar s$ for all $k$, and also $\bar s^{-1} = \bar s$ and $\bar r^{-1} = \bar r^{n-1}$. So any product of the generators and their inverses can be rewritten by moving each $\bar s$ to the right, in the form $\bar r^k\bar s^{\varepsilon}$ with $0 \le k < n$ and $\varepsilon \in \{0, 1\}$. Thus $|P| \le 2n = |D_n|$, and the surjection is an isomorphism.
+:::
+
+:::proposition{3.6.17} Free abelian groups
+$\ZZ^n \cong \langle a_1, \ldots, a_n \mid [a_i, a_j] \text{ for } 1 \le i, j \le n \rangle$, where $[a, b] = aba^{-1}b^{-1}$. Moreover $\langle\!\langle [a_i, a_j] \rangle\!\rangle = [F_n, F_n]$, so $\ZZ^n$ is the abelianization of $F_n$.
+:::
+
+:::proof
+Let $P$ be the presented group and $\epsilon_i \in \ZZ^n$ the element with $1$ in position $i$ and $0$ elsewhere. Since $\ZZ^n$ is abelian, the relations hold for $a_i \mapsto \epsilon_i$, and the $\epsilon_i$ generate $\ZZ^n$, so we get a surjection $\varphi : P \to \ZZ^n$. In $P$ the generators $\bar a_i$ commute pairwise, hence so do their inverses, and therefore any two products of generators and their inverses commute: $P$ is abelian. Collecting powers, every element of $P$ is $\bar a_1^{m_1} \cdots \bar a_n^{m_n}$ for some $m_i \in \ZZ$, and $\varphi$ sends it to $(m_1, \ldots, m_n)$. So $\varphi$ is injective, hence an isomorphism.
+
+For the second statement, $N = \langle\!\langle [a_i, a_j] \rangle\!\rangle$ is contained in $[F_n, F_n]$, which is a normal subgroup containing the $[a_i, a_j]$ (Proposition [3.3.10](/notes/math-55a/3-3-the-isomorphism-theorems#proposition-3-3-10)). Conversely $F_n/N = P$ is abelian, so $[F_n, F_n] \subseteq N$ by Proposition [3.3.10](/notes/math-55a/3-3-the-isomorphism-theorems#proposition-3-3-10)(b). Hence $F_n^{\mathrm{ab}} = F_n/[F_n, F_n] = P \cong \ZZ^n$.
+:::
+
+The symmetric group has a presentation in terms of the adjacent transpositions $s_i = (i\ \ i{+}1)$, which generate it by Proposition [3.4.9](/notes/math-55a/3-4-the-symmetric-group#proposition-3-4-9).
+
+:::theorem{3.6.18} Presentation of the symmetric group
+For $n \ge 1$, let $G_n$ be the group with generators $t_1, \ldots, t_{n-1}$ and relations $$t_i^2 = e, \qquad t_it_{i+1}t_i = t_{i+1}t_it_{i+1}, \qquad t_it_j = t_jt_i \text{ for } |i - j| \ge 2.$$ Then $t_i \mapsto s_i = (i\ \ i{+}1)$ defines an isomorphism $G_n \to S_n$. Equivalently, $$S_n \cong \langle t_1, \ldots, t_{n-1} \mid t_i^2,\ (t_it_{i+1})^3,\ (t_it_j)^2 \text{ for } |i-j| \ge 2 \rangle;$$ these relations are the ***Coxeter relations***.
+:::
+
+:::proof
+Given $t_i^2 = e$, the relation $(t_it_{i+1})^3 = e$ is equivalent to $t_it_{i+1}t_i = t_{i+1}t_it_{i+1}$, and $(t_it_j)^2 = e$ to $t_it_j = t_jt_i$; so the two lists of relations define the same group. The relations hold in $S_n$: $s_i^2 = e$; $s_is_{i+1} = (i\ \ i{+}1\ \ i{+}2)$ has order 3; and $s_i, s_j$ are disjoint for $|i - j| \ge 2$, so they commute. Since the $s_i$ generate $S_n$, Proposition [3.6.14](/notes/math-55a/3-6-free-groups-and-presentations#proposition-3-6-14) gives a surjection $G_n \surjto S_n$. It remains to show $|G_n| \le n!$, by induction on $n$. For $n = 1$, $G_1$ has no generators and is trivial.
+
+Let $n \ge 2$ and let $H$ be the subgroup of $G_n$ generated by $t_1, \ldots, t_{n-2}$. These elements satisfy the relations defining $G_{n-1}$, so Proposition [3.6.14](/notes/math-55a/3-6-free-groups-and-presentations#proposition-3-6-14) gives a surjection $G_{n-1} \surjto H$, and $|H| \le (n-1)!$ by induction. Put $w_n = e$ and $w_k = t_{n-1}t_{n-2} \cdots t_k$ for $1 \le k \le n-1$, and let $U = Hw_1 \cup \cdots \cup Hw_n$, a union of $n$ right cosets of $H$. We claim that $Ut_i \subseteq U$ for every $i$. Fix $k$ and $i$.
+
+- If $i = k - 1$, then $w_kt_{k-1} = w_{k-1}$.
+- If $i = k$ (so $k \le n-1$), then $w_kt_k = t_{n-1} \cdots t_{k+1}t_kt_k = w_{k+1}$.
+- If $i \le k - 2$, then $t_i$ commutes with each of $t_{n-1}, \ldots, t_k$, so $w_kt_i = t_iw_k$, and $t_i \in H$; hence $Hw_kt_i = Hw_k$.
+- If $i \ge k + 1$, then $w_k = t_{n-1} \cdots t_{i+1}\,t_it_{i-1}\,t_{i-2} \cdots t_k$. Since $t_i$ commutes with $t_{i-2}, \ldots, t_k$, and $t_{i-1}$ commutes with $t_{n-1}, \ldots, t_{i+1}$, $$\begin{aligned}
+      w_kt_i &= t_{n-1} \cdots t_{i+1}\,(t_it_{i-1}t_i)\,t_{i-2} \cdots t_k \\
+      &= t_{n-1} \cdots t_{i+1}\,(t_{i-1}t_it_{i-1})\,t_{i-2} \cdots t_k = t_{i-1}w_k,
+      \end{aligned}$$ and $t_{i-1} \in H$ since $i - 1 \le n - 2$; hence $Hw_kt_i = Hw_k$.
+
+So $Hw_kt_i$ is again one of the cosets $Hw_j$, proving the claim. Since $t_i^{-1} = t_i$, every element of $G_n$ is a product $t_{i_1} \cdots t_{i_m}$, and starting from $e \in Hw_n \subseteq U$ and multiplying on the right by one generator at a time, we stay in $U$. Hence $G_n = U$, and $|G_n| \le n\,|H| \le n!$. So the surjection $G_n \surjto S_n$ is an isomorphism.
+:::
+
+Chapter 12 continues the study of presentations, with Cayley graphs, normal forms, the braid group, and $SL_2(\ZZ)$.
+
+:::proposition{3.6.19} Every group has a presentation
+For every group $G$ there are $S$ and $R$ with $G \cong \langle S \mid R \rangle$.
+:::
+
+:::proof
+Take $S = G$, regarded as a set, and $f = \id : S \to G$. By Corollary [3.6.11](/notes/math-55a/3-6-free-groups-and-presentations#corollary-3-6-11), $\tilde{f} : F(S) \to G$ is surjective. Let $R = \ker\tilde{f}$. Since $R$ is already normal, $\langle\!\langle R \rangle\!\rangle = R$, and $G \cong F(S)/R = \langle S \mid R \rangle$ by the First Isomorphism Theorem.
+:::
+
+This presentation is enormous, but it exists. Finding small presentations is an art.
+
+## <span class="num">3.6.5</span> The Word Problem
 
 Presentations raise a fundamental computational question.
 
-:::definition{3.6.6} Word problem
-Given a presentation $G = \langle S \mid R \rangle$ and two words $w_1, w_2$ in $S$, the ***word problem*** asks: do $w_1$ and $w_2$ represent the same element of $G$? Equivalently: is $w_1 w_2^{-1}$ in the normal closure of $R$?
+:::definition{3.6.20} Word problem
+Given a presentation $G = \langle S \mid R \rangle$ and two words $w_1, w_2$ in $S$, the ***word problem*** asks whether $w_1$ and $w_2$ represent the same element of $G$; equivalently, whether $w_1w_2^{-1} \in \langle\!\langle R \rangle\!\rangle$.
 :::
 
-:::theorem{3.6.3} Undecidability of the word problem (Novikov-Boone)
-There exists a finitely presented group $G = \langle S \mid R \rangle$ (with $S, R$ finite) for which the word problem is **undecidable**—no algorithm can determine, for all pairs of words, whether they’re equal in $G$.
+The following theorem, due to Novikov (1955) and Boone (1959), is beyond the scope of this book; a proof can be found in J. J. Rotman, *An Introduction to the Theory of Groups*, 4th ed., Chapter 12.
+
+:::theorem{3.6.21} Novikov–Boone
+There exists a finitely presented group $G = \langle S \mid R \rangle$ for which the word problem is **undecidable**: no algorithm can determine, for every pair of words, whether they represent the same element of $G$.
 :::
 
 :::note
-This is a somewhat saddening (or perhaps, better said sobering) result. Group presentations look like a nice computational tool, but they’re actually extremely powerful—so powerful, in facct, that they can encode arbitrary computation. The word problem for $G$ can simulate a Turing machine (I needn’t expound on the insanity and awesomeness of this)! This doesn’t mean presentations are useless; for specific groups (like $S_n$, $D_n$, free groups), the word problem is decidable. But there’s no universal algorithm.
+This is a sobering result. Group presentations look like a convenient computational tool, but they are so expressive that they can encode arbitrary computation: the word problem for a suitable presentation can simulate a Turing machine. This does not make presentations useless. For many specific groups, such as $S_n$, $D_n$, and free groups, the word problem is decidable; but there is no algorithm that works for all finitely presented groups.
 :::
 
-:::question{6}
-1. Prove that $F_2$ contains a subgroup isomorphic to $F_3$.
-2. Show that $\langle a, b \mid aba^{-1}b^{-1} \rangle \cong \mathbb{Z}^2$.
-3. Find a presentation for the quaternion group $Q_8 = \{\pm 1, \pm i, \pm j, \pm k\}$.
-4. Prove that $\langle a, b \mid a^2, b^3, (ab)^2 \rangle \cong S_3$.
+:::question{3.6.22}
+<!-- list:paren-alpha -->
+
+1. Prove that $F_2$ contains a subgroup isomorphic to $F_3$. More generally, show that $F_2$ contains a subgroup isomorphic to $F_n$ for every $n \ge 1$.
+2. Find a presentation for the quaternion group $Q_8 = \{\pm 1, \pm i, \pm j, \pm k\}$, with $i^2 = j^2 = k^2 = -1$, $ij = k$, $jk = i$, $ki = j$.
+3. Prove that $\langle a, b \mid a^2, b^3, (ab)^2 \rangle \cong S_3$.
 
 :::solution
-**(1)** In $F_2 = F(\{a, b\})$, consider the subgroup $H = \langle a^2, ab, b^2 \rangle$. We claim $H \cong F_3$.
+**(a)** Let $F_2 = F(\{a, b\})$, fix $n \ge 1$, and let $F_n = F(\{x_0, \ldots, x_{n-1}\})$. By the universal property there is a homomorphism $\varphi : F_n \to F_2$ with $\varphi(x_k) = b^kab^{-k}$. We show that $\varphi$ is injective; then $F_n \cong \Img\varphi$. For $n = 3$ this is the subgroup $\langle a,\ bab^{-1},\ b^2ab^{-2} \rangle$.
 
-To see this, define $f : \{x, y, z\} \to F_2$ by $f(x) = a^2, f(y) = ab, f(z) = b^2$. By the universal property, this extends to a homomorphism $\tilde{f} : F_3 \to F_2$ with image $H$. To show $\tilde{f}$ is injective, we must show no nontrivial reduced word in $x, y, z$ maps to $e$.
+Let $u \neq e$ be a reduced word in the $x_k$, written in grouped form $u = x_{k_1}^{m_1} x_{k_2}^{m_2} \cdots x_{k_r}^{m_r}$ with $r \ge 1$, $k_j \neq k_{j+1}$, and $m_j \neq 0$. Since $\varphi(x_k^m) = (b^kab^{-k})^m = b^ka^mb^{-k}$, $$\varphi(u) = b^{k_1}a^{m_1}b^{k_2 - k_1}a^{m_2}b^{k_3 - k_2} \cdots b^{k_r - k_{r-1}}a^{m_r}b^{-k_r}.$$ Every exponent of $a$ is nonzero, and every interior exponent $k_{j+1} - k_j$ of $b$ is nonzero. Deleting the outer factors $b^{k_1}$ and $b^{-k_r}$ if their exponents are zero, we obtain a grouped form in which adjacent letters differ and all exponents are nonzero. This is a reduced word, and it contains $a^{m_1}$, so it is not empty. Hence $\varphi(u) \neq e$, $\ker\varphi = \{e\}$, and $\varphi$ is injective.
 
-Suppose $w(x, y, z) \mapsto e$ in $F_2$. Substituting: $w(a^2, ab, b^2) = e$ as a reduced word in $a, b$. The key observation: $a^2, ab, b^2$ have the property that no product of them (with exponents $\pm 1$) reduces to $e$ unless the product was empty. (This can be shown by analyzing how cancellation works—the words have distinct “shapes.”) This is the *Schreier basis* approach. Thus $\tilde{f}$ is injective, and $H \cong F_3$.
+**(b)** We show $Q_8 \cong \langle i, j \mid i^4,\ i^2j^{-2},\ iji^{-1}j \rangle$; the relations say $i^4 = e$, $i^2 = j^2$, and $iji^{-1} = j^{-1}$.
 
-**(2)** The presentation $G = \langle a, b \mid aba^{-1}b^{-1} \rangle$ has one relation: $aba^{-1}b^{-1} = e$, i.e., $ab = ba$. So $G$ is the free group on $a, b$ modulo the relation that $a$ and $b$ commute. This is exactly the *free abelian group* on two generators, which is $\mathbb{Z}^2$.
+*The relations hold in $Q_8$:* $i^4 = (-1)^2 = 1$; $i^2 = -1 = j^2$; and $iji^{-1} = ij(-i) = -ki = -j = j^{-1}$. Also $i$ and $j$ generate $Q_8$, since $k = ij$, $-1 = i^2$, and $-x = x \cdot i^2$. So we get a surjection from the presented group $P$ onto $Q_8$.
 
-Explicitly: define $\varphi : G \to \mathbb{Z}^2$ by $\varphi(a) = (1, 0)$ and $\varphi(b) = (0, 1)$. This is well-defined (the relation $ab = ba$ holds in $\mathbb{Z}^2$). It’s surjective since $(1,0), (0,1)$ generate $\mathbb{Z}^2$. For injectivity: any element of $G$ can be written as $a^m b^n$ (using commutativity to collect), and $\varphi(a^m b^n) = (m, n)$; if this equals $(0,0)$, then $m = n = 0$.
+*$P$ has at most 8 elements:* In $P$ (writing $i, j$ for their images), $j^4 = (j^2)^2 = (i^2)^2 = e$, so $i^{-1} = i^3$ and $j^{-1} = j^3$, and every element is a product of nonnegative powers of $i$ and $j$. The relation $ij = j^{-1}i$ gives $ij^b = j^{-b}i$, so we can move every $i$ to the right: every element is $j^bi^a$ with $a, b \ge 0$. Using $i^2 = j^2$ and $j^4 = e$, we may take $a \in \{0, 1\}$ and $b \in \{0, 1, 2, 3\}$. So $|P| \le 8 = |Q_8|$, and $P \cong Q_8$.
 
-**(3)** The quaternion group $Q_8$ has elements $\{1, -1, i, -i, j, -j, k, -k\}$ with relations $i^2 = j^2 = k^2 = ijk = -1$.
+**(c)** Let $P = \langle a, b \mid a^2, b^3, (ab)^2 \rangle$, and write $a, b$ for the images of the generators in $P$.
 
-A presentation: $Q_8 = \langle i, j \mid i^4, i^2 j^{-2}, iji^{-1}j \rangle$.
+*A surjection onto $S_3$:* Send $a \mapsto (1\,2)$ and $b \mapsto (1\,2\,3)$. The relations hold: $(1\,2)^2 = e$, $(1\,2\,3)^3 = e$, and $(1\,2)(1\,2\,3) = (2\,3)$, whose square is $e$. The subgroup generated by $(1\,2)$ and $(1\,2\,3)$ contains elements of orders 2 and 3, so its order is divisible by 6, and it is all of $S_3$. By Proposition [3.6.14](/notes/math-55a/3-6-free-groups-and-presentations#proposition-3-6-14) we get a surjection $P \surjto S_3$.
 
-Let’s verify: $i^4 = 1$ says $i$ has order dividing 4 (actually 4). $i^2 = j^2$ says both square to the same element (which will be $-1$). $iji^{-1}j = e$ rearranges to $ij = j^{-1}i$; combined with $i^2 = j^2$ (hence $j^4 = 1$ and $j^{-1} = j^3 = j \cdot i^2$), this gives $ij = ji^3 = ji^{-1}$, which is the characteristic non-commutativity of the quaternions (setting $k := ij$, one can derive all the standard relations $i^2 = j^2 = k^2 = ijk = -1$).
-
-Alternative (cleaner): $Q_8 = \langle x, y \mid x^4, x^2 y^{-2}, yxy^{-1}x \rangle$.
-
-**(4)** Let $G = \langle a, b \mid a^2, b^3, (ab)^2 \rangle$. We have $|a| \mid 2$, $|b| \mid 3$, and $(ab)^2 = e$ means $abab = e$, so $ab = b^{-1}a^{-1} = b^{-1}a = b^2 a$ (using $a^2 = e$).
-
-So $ab = b^2 a$, i.e., $aba^{-1} = b^2 = b^{-1}$. This is exactly the dihedral relation! Compare with $D_3 = \langle r, s \mid r^3, s^2, srs^{-1} = r^{-1} \rangle$. Setting $r = b, s = a$, we get the same relations. Thus $G \cong D_3 \cong S_3$.
+*$P$ has at most 6 elements:* From $abab = e$ and $a^{-1} = a$ we get $aba^{-1} = aba = b^{-1}$, so $ab = b^{-1}a$ and hence $ab^k = b^{-k}a$ for all $k$. Moving every $a$ to the right, every element of $P$ is $b^ka^{\varepsilon}$ with $0 \le k \le 2$ and $\varepsilon \in \{0, 1\}$. So $|P| \le 6$, and $P \cong S_3$.
 :::
 :::

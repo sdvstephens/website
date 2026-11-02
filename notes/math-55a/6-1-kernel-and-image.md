@@ -6,10 +6,12 @@ section: 6.1
 title: Kernel and Image
 ---
 
-Every linear map carries two intrinsic subspaces that reveal its fundamental structure: the *kernel* (what gets annihilated) and the *image* (what gets hit). These are the linear-algebraic analogues of concepts we’ve seen before: the kernel of a group homomorphism and the image of any function. The intermingling betwixt (what a fun word) kernel and image is governed by the ***Rank-Nullity Theorem***.
+Every linear map carries two intrinsic subspaces that reveal its structure: the *kernel* (what gets annihilated) and the *image* (what gets hit). These are the linear-algebraic analogues of concepts we have seen before: the kernel of a group homomorphism and the image of a function. The relationship between kernel and image is governed by the ***Rank–Nullity Theorem***.
 
 :::note
-From the categorical viewpoint, kernel and image are two ways to “measure” a morphism. The kernel measures the *failure of injectivity*—how much information the map destroys. The image measures the *failure of surjectivity*—how much of the codomain the map misses. The Rank-Nullity Theorem says these two failures are complementary: the more a linear map kills, the less it can produce, and vice versa. A linear map $\varphi : V \to W$ is completely determined by: (1) which subspace it kills (the kernel), and (2) which subspace it hits (the image). Once you know these, there’s essentially only one way to fill in the rest—the map restricted to any complement of the kernel is an isomorphism onto the image. This is different from nonlinear maps, where knowing the zero set tells you almost nothing about the map’s behavior elsewhere.
+Kernel and image measure two different things. The kernel measures the *failure of injectivity*—how much information the map destroys. The image measures the *failure of surjectivity*—how much of the codomain the map reaches. The Rank–Nullity Theorem says these two failures are complementary: the more a linear map kills, the less it can produce, and vice versa.
+
+Kernel and image do not determine the map. Every automorphism of $V$ has kernel $\{0\}$ and image $V$; for instance $\id_V$ and $2\cdot\id_V$ (when $2 \neq 0$ in $k$) have the same kernel and the same image. What is true is this: if $U$ is a complement of $\ker(\varphi)$ in $V$ (one exists when $V$ is finite-dimensional, by Proposition [4.7.11](/notes/math-55a/4-7-finite-dimensional-vector-spaces-and-dimension#proposition-4-7-11)), so that $V = \ker(\varphi) \oplus U$, then $\varphi(x + u) = \varphi(u)$ for $x \in \ker(\varphi)$ and $u \in U$, and $\varphi$ restricts to an isomorphism $U \to \Img(\varphi)$ (its kernel is $U \cap \ker(\varphi) = \{0\}$). So $\varphi$ is determined by its kernel together with this isomorphism, and knowing the kernel and the image leaves the isomorphism $U \to \Img(\varphi)$ undetermined.
 :::
 
 ## <span class="num">6.1.1</span> The Kernel
@@ -19,23 +21,27 @@ Let $\varphi : V \to W$ be a linear map. The ***kernel*** of $\varphi$ is $$\ker
 :::
 
 :::note
-The terminology “kernel” comes from algebra (group homomorphisms), while “null space” is more common in applied linear algebra and matrix theory to refer to the generalized kernal (we will get to this later). In categorical language, the kernel is the *equalizer* of $\varphi$ and the zero map.
+The term “kernel” comes from algebra (group homomorphisms), while “null space” is the synonym more common in applied linear algebra and matrix theory; Axler writes $\operatorname{null}\varphi$ for $\ker(\varphi)$. In Chapter 7 we will meet the *generalized kernel* of an operator $\varphi : V \to V$, the set of vectors killed by some power of $\varphi$. It contains $\ker(\varphi)$ and can be strictly larger.
 :::
 
-:::example{6.1.1} Examples of kernels
+:::example{6.1.2} Examples of kernels
+<!-- list:paren-alpha -->
+
 1. The zero map $0 : V \to W$ has $\ker(0) = V$.
 2. The identity map $\id_V : V \to V$ has $\ker(\id_V) = \{0\}$.
 3. Let $\varphi : \RR^3 \to \RR$ be defined by $\varphi(x, y, z) = x + 2y + 3z$. Then $\ker(\varphi) = \{(x, y, z) \in \RR^3 : x + 2y + 3z = 0\}$, a plane through the origin.
-4. Let $D : \mcP(\RR) \to \mcP(\RR)$ be differentiation, $Dp = p'$. Then $\ker(D)$ is the set of constant polynomials.
-5. Let $T : \mcM_{n \times n}(k) \to k$ be the trace map, $T(A) = Tr(A)$. Then $\ker(T)$ is the space of traceless matrices.
+4. Let $D : \RR{}[x] \to \RR{}[x]$ be differentiation, $Dp = p'$. Then $\ker(D)$ is the set of constant polynomials.
+5. The trace $\Tr : \mcM_{n \times n}(k) \to k$ of Chapter 5 is linear, and $\ker(\Tr)$ is the space of matrices of trace zero.
 :::
 
-:::proposition{6.1.1} The kernel is a subspace
+:::proposition{6.1.3} The kernel is a subspace
 Let $\varphi : V \to W$ be a linear map. Then $\ker(\varphi)$ is a subspace of $V$.
 :::
 
 :::proof
 We verify the subspace criteria:
+
+<!-- list:paren-alpha -->
 
 1. **Contains zero:** Since $\varphi(0_V) = 0_W$ (every linear map preserves zero), we have $0_V \in \ker(\varphi)$.
 2. **Closed under addition:** If $u, v \in \ker(\varphi)$, then $\varphi(u + v) = \varphi(u) + \varphi(v) = 0 + 0 = 0$, so $u + v \in \ker(\varphi)$.
@@ -43,12 +49,12 @@ We verify the subspace criteria:
 :::
 
 :::note
-Compare this with group theory: the kernel of a group homomorphism $f : G \to H$ is a *normal* subgroup of $G$. For linear maps, every subspace is “normal” in the appropriate sense—vector spaces are abelian, so there’s no distinction between left and right cosets.
+Compare this with group theory: the kernel of a group homomorphism $f : G \to H$ is a *normal* subgroup of $G$. For linear maps, every subspace is “normal” in the appropriate sense—vector spaces are abelian groups under addition, so there is no distinction between left and right cosets.
 :::
 
 The kernel provides a clean characterization of injectivity:
 
-:::theorem{6.1.1} Injectivity via the kernel
+:::theorem{6.1.4} Injectivity via the kernel
 Let $\varphi : V \to W$ be a linear map. Then $$\varphi \text{ is injective} \iff \ker(\varphi) = \{0\}.$$
 :::
 
@@ -58,99 +64,137 @@ $(\Rightarrow)$ Suppose $\varphi$ is injective. Let $v \in \ker(\varphi)$. Then 
 $(\Leftarrow)$ Suppose $\ker(\varphi) = \{0\}$. Let $u, v \in V$ with $\varphi(u) = \varphi(v)$. Then $$\varphi(u - v) = \varphi(u) - \varphi(v) = 0,$$ so $u - v \in \ker(\varphi) = \{0\}$. Thus $u - v = 0$, i.e., $u = v$. Hence $\varphi$ is injective.
 :::
 
-:::corollary{6.1.1}
-An injective linear map from $V$ to $W$ embeds $V$ as a subspace of $W$. More precisely, if $\varphi : V \to W$ is injective, then $V \cong \Img(\varphi) \subseteq W$.
-:::
-
 :::note
-Here the kernal has a role more that merely verifying injectivity—it *measures the failure of injectivity* in a precise sense. Two vectors $u, v \in V$ have the same image under $\varphi$ if and only if $u - v \in \ker(\varphi)$. Thus the fibers of $\varphi$ (preimages of points) are exactly the cosets $v + \ker(\varphi)$. The map $\varphi$ is injective precisely when these cosets are singletons, i.e., when $\ker(\varphi) = \{0\}$. This is why we can “mod out by the kernel” to obtain an injective map—the quotient $V/\ker(\varphi)$ collapses each fiber to a point.
+The kernel does more than detect injectivity—it *measures the failure of injectivity* in a precise sense. Two vectors $u, v \in V$ have the same image under $\varphi$ if and only if $u - v \in \ker(\varphi)$. Thus the fibers of $\varphi$ (preimages of points of $\Img(\varphi)$) are exactly the cosets $v + \ker(\varphi)$. The map $\varphi$ is injective precisely when these cosets are singletons, i.e., when $\ker(\varphi) = \{0\}$. This is why we can “mod out by the kernel” to obtain an injective map: the quotient space $V/\ker(\varphi)$, constructed in Section [7.1](/notes/math-55a/7-1-quotient-spaces), collapses each fiber to a point.
 :::
 
-## <span class="num">6.1.2</span> The Image (Range)
+## <span class="num">6.1.2</span> The Image
 
-:::definition{6.1.2} Image of a linear map
+:::definition{6.1.5} Image of a linear map
 Let $\varphi : V \to W$ be a linear map. The ***image*** (or ***range***) of $\varphi$ is $$\Img(\varphi) = \{\varphi(v) : v \in V\} = \{w \in W : w = \varphi(v) \text{ for some } v \in V\}.$$ This is the set of all vectors that $\varphi$ “hits.”
 :::
 
-:::example{6.1.2} Examples of images
+:::example{6.1.6} Examples of images
+<!-- list:paren-alpha -->
+
 1. The zero map $0 : V \to W$ has $\Img(0) = \{0_W\}$.
 2. The identity map $\id_V : V \to V$ has $\Img(\id_V) = V$.
-3. Let $\pi : \RR^3 \to \RR^2$ be projection $\pi(x, y, z) = (x, y)$. Then $\Img(\pi) = \RR^2$.
-4. Let $D : \mcP_n(\RR) \to \mcP_{n-1}(\RR)$ be differentiation. Then $\Img(D) = \mcP_{n-1}(\RR)$ (every polynomial of degree $\leq n-1$ is the derivative of some polynomial of degree $\leq n$).
-5. Let $A \in \mcM_{m \times n}(k)$ define $L_A : k^n \to k^m$. Then $\Img(L_A) = \operatorname{ColSpace}(A)$, the column space of $A$.
+3. Let $\pi : \RR^3 \to \RR^2$ be the projection $\pi(x, y, z) = (x, y)$. Then $\Img(\pi) = \RR^2$.
+4. For $n \geq 1$, let $D : \RR{}[x]_{\leq n} \to \RR{}[x]_{\leq n-1}$ be differentiation. Then $\Img(D) = \RR{}[x]_{\leq n-1}$: every polynomial of degree $\leq n-1$ is the derivative of a polynomial of degree $\leq n$.
+5. Let $A \in \mcM_{m \times n}(k)$ define $L_A : k^n \to k^m$, $L_A(x) = Ax$. Since $Ax = x_1 A_1 + \cdots + x_n A_n$, where $A_1, \ldots, A_n$ are the columns of $A$, the image $\Img(L_A)$ is the ***column space*** of $A$, the span of its columns.
 :::
 
-:::proposition{6.1.2} The image is a subspace
+:::proposition{6.1.7} The image is a subspace
 Let $\varphi : V \to W$ be a linear map. Then $\Img(\varphi)$ is a subspace of $W$.
 :::
 
 :::proof
 We verify the subspace criteria:
 
+<!-- list:paren-alpha -->
+
 1. **Contains zero:** $\varphi(0_V) = 0_W$, so $0_W \in \Img(\varphi)$.
 2. **Closed under addition:** If $w_1, w_2 \in \Img(\varphi)$, then $w_1 = \varphi(v_1)$ and $w_2 = \varphi(v_2)$ for some $v_1, v_2 \in V$. Thus $w_1 + w_2 = \varphi(v_1) + \varphi(v_2) = \varphi(v_1 + v_2) \in \Img(\varphi)$.
 3. **Closed under scalar multiplication:** If $w \in \Img(\varphi)$ and $\lambda \in k$, then $w = \varphi(v)$ for some $v \in V$, so $\lambda w = \lambda \varphi(v) = \varphi(\lambda v) \in \Img(\varphi)$.
 :::
 
-:::definition{6.1.3} Surjectivity
-A linear map $\varphi : V \to W$ is ***surjective*** (or ***onto***) if $\Img(\varphi) = W$, i.e., every element of $W$ is hit by some element of $V$.
-:::
-
-:::proposition{6.1.3} Characterization of surjectivity
-Let $\varphi : V \to W$ be a linear map. The following are equivalent:
-
-1. $\varphi$ is surjective.
-2. $\Img(\varphi) = W$.
-3. If $\mathcal{B}$ spans $V$, then $\varphi(\mathcal{B}) = \{\varphi(v) : v \in \mathcal{B}\}$ spans $W$.
-:::
-
-## <span class="num">6.1.3</span> The Rank-Nullity Theorem
-
-We now come to the central result connecting kernel and image. This theorem quantifies the fundamental trade-off in linear algebra: the more a map “kills,” the less it can “produce.”
-
-:::definition{6.1.4} Rank and nullity
-Let $\varphi : V \to W$ be a linear map between finite-dimensional vector spaces. The ***rank*** of $\varphi$ is $$\rank(\varphi) = \dim(\Img(\varphi)),$$ and the ***nullity*** of $\varphi$ is $$\nullity(\varphi) = \dim(\ker(\varphi)).$$ For a matrix $A$, we define $\rank(A)$ and $\nullity(A)$ to be the rank and nullity of the corresponding linear map.
-:::
-
-:::theorem{6.1.2} The Rank-Nullity Theorem (Fundamental Theorem of Linear Maps)
-Let $\varphi : V \to W$ be a linear map with $V$ finite-dimensional. Then $\Img(\varphi)$ is finite-dimensional and $$\dim(V) = \dim(\ker(\varphi)) + \dim(\Img(\varphi)).$$ Equivalently: $\dim(V) = \nullity(\varphi) + \rank(\varphi)$.
+:::corollary{6.1.8}
+An injective linear map $\varphi : V \to W$ embeds $V$ as a subspace of $W$: it is an isomorphism from $V$ onto the subspace $\Img(\varphi)$ of $W$.
 :::
 
 :::proof
-Let $\{u_1, \ldots, u_m\}$ be a basis for $\ker(\varphi)$. By the basis extension theorem, we can extend this to a basis $$\{u_1, \ldots, u_m, v_1, \ldots, v_r\}$$ of $V$, where $\dim(V) = m + r$.
+Regarded as a map $V \to \Img(\varphi)$, $\varphi$ is linear and surjective, and it is injective by hypothesis.
+:::
+
+:::definition{6.1.9} Surjectivity
+A linear map $\varphi : V \to W$ is ***surjective*** (or ***onto***) if $\Img(\varphi) = W$, i.e., every element of $W$ is hit by some element of $V$.
+:::
+
+:::proposition{6.1.10} The image of a spanning set
+Let $\varphi : V \to W$ be a linear map and let $S$ be a subset of $V$ that spans $V$. Then $$\Img(\varphi) = \operatorname{Span}(\varphi(S)), \qquad \varphi(S) = \{\varphi(s) : s \in S\}.$$ In particular, $\varphi$ is surjective if and only if $\varphi(S)$ spans $W$, and if $V$ is finite-dimensional, then so is $\Img(\varphi)$.
+:::
+
+:::proof
+Since $\Img(\varphi)$ is a subspace containing $\varphi(S)$, it contains $\operatorname{Span}(\varphi(S))$. Conversely, every $v \in V$ is a linear combination $v = a_1 s_1 + \cdots + a_r s_r$ of elements of $S$, so $\varphi(v) = a_1 \varphi(s_1) + \cdots + a_r \varphi(s_r) \in \operatorname{Span}(\varphi(S))$. If $V$ is finite-dimensional, take $S$ to be a finite basis; then $\Img(\varphi)$ is spanned by finitely many vectors.
+:::
+
+## <span class="num">6.1.3</span> The Rank–Nullity Theorem
+
+We now come to the central result connecting kernel and image. This theorem quantifies the fundamental trade-off in linear algebra: the more a map “kills,” the less it can “produce.”
+
+:::definition{6.1.11} Rank and nullity
+Let $\varphi : V \to W$ be a linear map with $V$ finite-dimensional. Then $\ker(\varphi)$ is finite-dimensional (it is a subspace of $V$; Proposition [4.7.10](/notes/math-55a/4-7-finite-dimensional-vector-spaces-and-dimension#proposition-4-7-10)), and so is $\Img(\varphi)$ (Proposition [6.1.10](/notes/math-55a/6-1-kernel-and-image#proposition-6-1-10)). The ***rank*** of $\varphi$ is $$\rank(\varphi) = \dim(\Img(\varphi)),$$ and the ***nullity*** of $\varphi$ is $$\nullity(\varphi) = \dim(\ker(\varphi)).$$ For a matrix $A \in \mcM_{m \times n}(k)$, we define $\rank(A)$ and $\nullity(A)$ to be the rank and nullity of $L_A : k^n \to k^m$.
+:::
+
+:::theorem{6.1.12} The Rank–Nullity Theorem
+Let $\varphi : V \to W$ be a linear map with $V$ finite-dimensional. Then $$\dim(V) = \dim(\ker(\varphi)) + \dim(\Img(\varphi)).$$ Equivalently: $\dim(V) = \nullity(\varphi) + \rank(\varphi)$. More precisely, if $u_1, \ldots, u_m$ is a basis of $\ker(\varphi)$ and $u_1, \ldots, u_m, v_1, \ldots, v_r$ is a basis of $V$, then $\varphi(v_1), \ldots, \varphi(v_r)$ is a basis of $\Img(\varphi)$.
+:::
+
+:::proof
+The kernel is a subspace of the finite-dimensional space $V$, so it has a finite basis $\{u_1, \ldots, u_m\}$ (Proposition [4.7.10](/notes/math-55a/4-7-finite-dimensional-vector-spaces-and-dimension#proposition-4-7-10)), and every linearly independent list extends to a basis of $V$ (Lemma [4.7.4](/notes/math-55a/4-7-finite-dimensional-vector-spaces-and-dimension#lemma-4-7-4)). So bases as in the statement exist, and $\dim(V) = m + r$. It suffices to prove the last sentence.
 
 **Claim:** $\{\varphi(v_1), \ldots, \varphi(v_r)\}$ is a basis for $\Img(\varphi)$.
 
 *Spanning:* Let $w \in \Img(\varphi)$, say $w = \varphi(x)$ for some $x \in V$. Write $$x = a_1 u_1 + \cdots + a_m u_m + b_1 v_1 + \cdots + b_r v_r.$$ Applying $\varphi$: $$w = \varphi(x) = a_1 \varphi(u_1) + \cdots + a_m \varphi(u_m) + b_1 \varphi(v_1) + \cdots + b_r \varphi(v_r).$$ Since each $u_i \in \ker(\varphi)$, we have $\varphi(u_i) = 0$, so $$w = b_1 \varphi(v_1) + \cdots + b_r \varphi(v_r).$$ Thus $\{\varphi(v_1), \ldots, \varphi(v_r)\}$ spans $\Img(\varphi)$.
 
-*Linear independence:* Suppose $$c_1 \varphi(v_1) + \cdots + c_r \varphi(v_r) = 0.$$ Then $\varphi(c_1 v_1 + \cdots + c_r v_r) = 0$, so $c_1 v_1 + \cdots + c_r v_r \in \ker(\varphi)$. Since $\{u_1, \ldots, u_m\}$ is a basis for $\ker(\varphi)$, we can write $$c_1 v_1 + \cdots + c_r v_r = d_1 u_1 + \cdots + d_m u_m$$ for some scalars $d_j$. Rearranging: $$d_1 u_1 + \cdots + d_m u_m - c_1 v_1 - \cdots - c_r v_r = 0.$$ Since $\{u_1, \ldots, u_m, v_1, \ldots, v_r\}$ is linearly independent (it’s a basis of $V$), all coefficients are zero. In particular, $c_1 = \cdots = c_r = 0$.
+*Linear independence:* Suppose $$c_1 \varphi(v_1) + \cdots + c_r \varphi(v_r) = 0.$$ Then $\varphi(c_1 v_1 + \cdots + c_r v_r) = 0$, so $c_1 v_1 + \cdots + c_r v_r \in \ker(\varphi)$. Since $\{u_1, \ldots, u_m\}$ is a basis for $\ker(\varphi)$, we can write $$c_1 v_1 + \cdots + c_r v_r = d_1 u_1 + \cdots + d_m u_m$$ for some scalars $d_j$. Rearranging: $$d_1 u_1 + \cdots + d_m u_m - c_1 v_1 - \cdots - c_r v_r = 0.$$ Since $\{u_1, \ldots, u_m, v_1, \ldots, v_r\}$ is linearly independent (it is a basis of $V$), all coefficients are zero. In particular, $c_1 = \cdots = c_r = 0$.
 
 Thus $\{\varphi(v_1), \ldots, \varphi(v_r)\}$ is a basis for $\Img(\varphi)$, so $\dim(\Img(\varphi)) = r$. We conclude: $$\dim(V) = m + r = \dim(\ker(\varphi)) + \dim(\Img(\varphi)).$$
 :::
 
 :::note
-The Rank-Nullity Theorem is the linear algebra version of the ***First Isomorphism Theorem*** from group theory. Recall that for a group homomorphism $f : G \to H$, we have $G/\ker(f) \cong \Img(f)$. The linear version states $V/\ker(\varphi) \cong \Img(\varphi)$, and “counting dimensions” gives $\dim(V) - \dim(\ker(\varphi)) = \dim(\Img(\varphi))$.
+The Rank–Nullity Theorem is the linear-algebra counterpart of the First Isomorphism Theorem for groups (Theorem [3.3.3](/notes/math-55a/3-3-the-isomorphism-theorems#theorem-3-3-3)), which says $G/\ker(f) \cong \Img(f)$ for a homomorphism $f : G \to H$. In Section [7.1](/notes/math-55a/7-1-quotient-spaces) we construct the quotient space $V/\ker(\varphi)$ and show $V/\ker(\varphi) \cong \Img(\varphi)$; Rank–Nullity is the statement that this isomorphism is compatible with counting dimensions, $\dim(V) - \dim(\ker(\varphi)) = \dim(\Img(\varphi))$. This is a way to remember the theorem and is not a second proof of it: the formula $\dim(V/U) = \dim(V) - \dim(U)$ of Chapter 7 is itself deduced from Rank–Nullity.
 :::
 
-## <span class="num">6.1.4</span> Consequences of the Rank-Nullity Theorem
+## <span class="num">6.1.4</span> A Normal Form for Linear Maps
 
-The Rank-Nullity Theorem has powerful implications for understanding linear maps.
+The proof of the Rank–Nullity Theorem produces bases in which a linear map looks as simple as possible.
 
-:::corollary{6.1.2} Dimension constraints on injectivity
-Let $\varphi : V \to W$ be a linear map with $\dim(V) = n$ and $\dim(W) = m$.
+:::theorem{6.1.13} Normal form of a linear map
+Let $\varphi : V \to W$ be a linear map between finite-dimensional vector spaces, with $\dim(V) = n$, $\dim(W) = m$, and $r = \rank(\varphi)$. Then there exist a basis $\mcB$ of $V$ and a basis $\mcC$ of $W$ such that $$\mcM(\varphi, \mcB, \mcC) = \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix} \in \mcM_{m \times n}(k),$$ where $I_r$ is the $r \times r$ identity matrix and the zeros are zero blocks of the appropriate sizes.
+:::
+
+:::proof
+Choose a basis $u_1, \ldots, u_{n-r}$ of $\ker(\varphi)$, and extend it by vectors $v_1, \ldots, v_r$ to a basis of $V$. By Theorem [6.1.12](/notes/math-55a/6-1-kernel-and-image#theorem-6-1-12), the vectors $w_1 = \varphi(v_1), \ldots, w_r = \varphi(v_r)$ form a basis of $\Img(\varphi)$; extend them to a basis $w_1, \ldots, w_m$ of $W$. Take $\mcB = (v_1, \ldots, v_r, u_1, \ldots, u_{n-r})$ and $\mcC = (w_1, \ldots, w_m)$. For $j \leq r$, $\varphi(v_j) = w_j$, so the $j$-th column of the matrix is the $j$-th standard basis vector of $k^m$; the remaining columns are zero because $\varphi(u_i) = 0$.
+:::
+
+:::note
+In this normal form the first $r$ vectors of $\mcC$ span $\Img(\varphi)$ and the last $n - r$ vectors of $\mcB$ span $\ker(\varphi)$. The only information about $\varphi$ left in the matrix is the number $r$: once we may choose bases of $V$ and $W$ independently, the rank is the only invariant of a linear map.
+:::
+
+:::corollary{6.1.14} Matrices up to change of bases
+Let $A \in \mcM_{m \times n}(k)$ have rank $r$. Then there are invertible matrices $P \in \mcM_{n \times n}(k)$ and $Q \in \mcM_{m \times m}(k)$ with $$Q^{-1} A P = \begin{pmatrix} I_r & 0 \\ 0 & 0 \end{pmatrix}.$$ Consequently, two matrices $A, A' \in \mcM_{m \times n}(k)$ satisfy $A' = Q^{-1} A P$ for some invertible $P$ and $Q$ if and only if $\rank(A) = \rank(A')$.
+:::
+
+:::proof
+Apply Theorem [6.1.13](/notes/math-55a/6-1-kernel-and-image#theorem-6-1-13) to $L_A : k^n \to k^m$, and let $P$ and $Q$ be the matrices whose columns are the vectors of $\mcB$ and of $\mcC$. By the change-of-basis formula (Theorem [5.3.3](/notes/math-55a/5-3-change-of-basis#theorem-5-3-3)), the matrix of $L_A$ in the bases $\mcB$ and $\mcC$ is $Q^{-1} A P$.
+
+If $A' = Q^{-1} A P$, then $\Img(L_{AP}) = \Img(L_A)$ because $L_P$ is surjective, and $L_{Q^{-1}}$ maps $\Img(L_{AP})$ isomorphically onto $\Img(L_{A'})$; hence $\rank(A') = \rank(A)$. Conversely, if both matrices have rank $r$, then $Q_1^{-1} A P_1 = Q_2^{-1} A' P_2$ for suitable invertible $P_1, P_2, Q_1, Q_2$, and $A' = (Q_1 Q_2^{-1})^{-1} A (P_1 P_2^{-1})$.
+:::
+
+## <span class="num">6.1.5</span> Consequences of the Rank–Nullity Theorem
+
+The Rank–Nullity Theorem has powerful implications for understanding linear maps.
+
+:::corollary{6.1.15} Dimension constraints on injectivity
+Let $\varphi : V \to W$ be a linear map between finite-dimensional spaces with $\dim(V) = n$ and $\dim(W) = m$.
+
+<!-- list:paren-alpha -->
 
 1. If $n > m$, then $\varphi$ cannot be injective.
 2. If $n < m$, then $\varphi$ cannot be surjective.
 :::
 
 :::proof
-(1) If $\varphi$ were injective, then $\dim(\ker(\varphi)) = 0$, so by Rank-Nullity: $$\dim(\Img(\varphi)) = \dim(V) = n > m = \dim(W).$$ But $\Img(\varphi) \subseteq W$, so $\dim(\Img(\varphi)) \leq \dim(W) = m$. Contradiction.
+(a) If $\varphi$ were injective, then $\dim(\ker(\varphi)) = 0$, so by Rank–Nullity: $$\dim(\Img(\varphi)) = \dim(V) = n > m = \dim(W).$$ But $\Img(\varphi) \subseteq W$, so $\dim(\Img(\varphi)) \leq \dim(W) = m$. Contradiction.
 
-(2) If $\varphi$ were surjective, then $\dim(\Img(\varphi)) = \dim(W) = m$, so by Rank-Nullity: $$\dim(\ker(\varphi)) = \dim(V) - \dim(\Img(\varphi)) = n - m < 0.$$ But dimensions are non-negative. Contradiction.
+(b) If $\varphi$ were surjective, then $\dim(\Img(\varphi)) = \dim(W) = m$, so by Rank–Nullity: $$\dim(\ker(\varphi)) = \dim(V) - \dim(\Img(\varphi)) = n - m < 0.$$ But dimensions are non-negative. Contradiction.
 :::
 
-:::corollary{6.1.3} Equal dimensions: bijectivity criteria
-Let $\varphi : V \to W$ be a linear map with $\dim(V) = \dim(W) = n$. The following are equivalent:
+:::corollary{6.1.16} Equal dimensions: bijectivity criteria
+Let $\varphi : V \to W$ be a linear map with $\dim(V) = \dim(W) = n$ finite. The following are equivalent:
+
+<!-- list:paren-alpha -->
 
 1. $\varphi$ is injective.
 2. $\varphi$ is surjective.
@@ -161,31 +205,41 @@ Let $\varphi : V \to W$ be a linear map with $\dim(V) = \dim(W) = n$. The follow
 :::
 
 :::proof
-By Rank-Nullity, $\nullity(\varphi) + \rank(\varphi) = n$. Since $\rank(\varphi) \leq \dim(W) = n$:
+By Rank–Nullity, $\nullity(\varphi) + \rank(\varphi) = n$. A subspace of $W$ of dimension $n = \dim(W)$ is all of $W$, so $\Img(\varphi) = W$ if and only if $\rank(\varphi) = n$. Using Theorem [6.1.4](/notes/math-55a/6-1-kernel-and-image#theorem-6-1-4):
 
-- $\varphi$ injective $\iff \nullity(\varphi) = 0 \iff \rank(\varphi) = n$.
-- $\varphi$ surjective $\iff \rank(\varphi) = n \iff \nullity(\varphi) = 0$.
+- $\varphi$ injective $\iff \ker(\varphi) = \{0\} \iff \nullity(\varphi) = 0 \iff \rank(\varphi) = n$.
+- $\varphi$ surjective $\iff \Img(\varphi) = W \iff \rank(\varphi) = n$.
 
 Thus injectivity, surjectivity, and bijectivity are equivalent when dimensions match.
 :::
 
 :::note
-For linear maps between equal-dimensional spaces, “one-to-one” and “onto” are the same condition. This fails for general functions and even for linear maps between infinite-dimensional spaces. Consider the ***right shift*** $R : k^\infty \to k^\infty$ defined by $R(x_1, x_2, x_3, \ldots) = (0, x_1, x_2, \ldots)$. This is injective (kernel is trivial) but not surjective (the sequence $(1, 0, 0, \ldots)$ is not in the image). Conversely, the ***left shift*** $L(x_1, x_2, x_3, \ldots) = (x_2, x_3, \ldots)$ is surjective but not injective. In infinite dimensions, there’s “room” for one without the other. The finite-dimensional equivalence is a manifestation of the pigeonhole principle applied to basis vectors.
+For linear maps between equal-dimensional spaces, “one-to-one” and “onto” are the same condition. This fails for general functions and even for linear maps between infinite-dimensional spaces. Consider the ***right shift*** $R : k^\infty \to k^\infty$ defined by $R(x_1, x_2, x_3, \ldots) = (0, x_1, x_2, \ldots)$. This is injective (its kernel is trivial) but not surjective (the sequence $(1, 0, 0, \ldots)$ is not in the image). Conversely, the ***left shift*** $L(x_1, x_2, x_3, \ldots) = (x_2, x_3, \ldots)$ is surjective but not injective. In infinite dimensions there is “room” for one without the other. The finite-dimensional equivalence is the linear analogue of the pigeonhole principle.
 :::
 
-:::corollary{6.1.4} Existence of right/left inverses
+:::corollary{6.1.17} Existence of left and right inverses
 Let $\varphi : V \to W$ be a linear map between finite-dimensional spaces.
 
-1. $\varphi$ has a left inverse if and only if $\varphi$ is injective.
-2. $\varphi$ has a right inverse if and only if $\varphi$ is surjective.
+<!-- list:paren-alpha -->
+
+1. $\varphi$ has a left inverse (a linear $\psi : W \to V$ with $\psi \circ \varphi = \id_V$) if and only if $\varphi$ is injective.
+2. $\varphi$ has a right inverse (a linear $\psi : W \to V$ with $\varphi \circ \psi = \id_W$) if and only if $\varphi$ is surjective.
 :::
 
-## <span class="num">6.1.5</span> Matrix Interpretation
+:::proof
+(a) If $\psi \circ \varphi = \id_V$ and $\varphi(v) = 0$, then $v = \psi(\varphi(v)) = 0$, so $\varphi$ is injective. Conversely, let $\varphi$ be injective and let $v_1, \ldots, v_n$ be a basis of $V$. The vectors $\varphi(v_1), \ldots, \varphi(v_n)$ are linearly independent: if $\sum c_i \varphi(v_i) = 0$, then $\varphi(\sum c_i v_i) = 0$, so $\sum c_i v_i = 0$ and all $c_i = 0$. Extend them to a basis $\varphi(v_1), \ldots, \varphi(v_n), w_1, \ldots, w_s$ of $W$, and define $\psi$ on this basis by $\psi(\varphi(v_i)) = v_i$ and $\psi(w_j) = 0$ (a linear map may be prescribed arbitrarily on a basis, Proposition [5.1.2](/notes/math-55a/5-1-linear-maps#proposition-5-1-2)). Then $\psi \circ \varphi$ agrees with $\id_V$ on a basis, so $\psi \circ \varphi = \id_V$.
 
-For a matrix $A \in \mcM_{m \times n}(k)$, the associated linear map is $L_A : k^n \to k^m$ given by $L_A(x) = Ax$. The Rank-Nullity Theorem becomes:
+(b) If $\varphi \circ \psi = \id_W$, then every $w \in W$ equals $\varphi(\psi(w))$, so $\varphi$ is surjective. Conversely, let $\varphi$ be surjective and let $w_1, \ldots, w_m$ be a basis of $W$. Choose $v_j \in V$ with $\varphi(v_j) = w_j$, and let $\psi : W \to V$ be the linear map with $\psi(w_j) = v_j$. Then $\varphi \circ \psi$ agrees with $\id_W$ on a basis, so $\varphi \circ \psi = \id_W$.
+:::
 
-:::proposition{6.1.4} Rank-Nullity for matrices
+## <span class="num">6.1.6</span> Matrix Interpretation
+
+For a matrix $A \in \mcM_{m \times n}(k)$, the associated linear map is $L_A : k^n \to k^m$ given by $L_A(x) = Ax$. The Rank–Nullity Theorem becomes:
+
+:::proposition{6.1.18} Rank–Nullity for matrices
 For $A \in \mcM_{m \times n}(k)$:
+
+<!-- list:paren-alpha -->
 
 1. $\ker(L_A) = \{x \in k^n : Ax = 0\}$ is the *null space* of $A$.
 2. $\Img(L_A) = \{Ax : x \in k^n\}$ is the *column space* of $A$ (the span of the columns).
@@ -193,43 +247,45 @@ For $A \in \mcM_{m \times n}(k)$:
 :::
 
 :::note
-The rank of a matrix equals the number of linearly independent columns, which equals the number of linearly independent rows. The column space has dimension equal to the rank, and the null space has dimension equal to $n - \rank(A)$.
+Since the columns of $A$ span the column space and every spanning list contains a basis (Lemma [4.7.2](/notes/math-55a/4-7-finite-dimensional-vector-spaces-and-dimension#lemma-4-7-2)), the rank of $A$ is the largest number of linearly independent columns of $A$. It is also the largest number of linearly independent rows; this is Corollary [6.2.17](/notes/math-55a/6-2-duality#corollary-6-2-17) below, “row rank equals column rank.” The null space has dimension $n - \rank(A)$.
 
-Looking ahead (citing concepts we’ll introduce in later lectures): when we study eigenvalues, the kernel will reappear in a crucial role. For a linear operator $T : V \to V$ and scalar $\lambda$, the ***eigenspace*** $E_\lambda = \ker(T - \lambda I)$ is precisely the kernel of the shifted operator. The dimension of this eigenspace (the *geometric multiplicity* of $\lambda$) measures “how degenerate” the eigenvalue is. The interplay between algebraic and geometric multiplicities—and the failure of these to match—is what makes Jordan normal form necessary.
+Looking ahead to Chapter 7: for a linear operator $\varphi : V \to V$ and a scalar $\lambda$, the *eigenspace* $\ker(\varphi - \lambda \id_V)$ is the kernel of a shifted operator. Its dimension (the *geometric multiplicity* of $\lambda$) measures “how degenerate” $\varphi - \lambda\id_V$ is, and the gap between geometric and algebraic multiplicities is what makes the Jordan normal form necessary.
 :::
 
-:::example{6.1.3} Computing kernel and image
+:::example{6.1.19} Computing kernel and image
 Let $A = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 1 & 3 & 5 \end{pmatrix}$ over $\RR$.
 
-**Finding $\ker(A)$:** Solve $Ax = 0$. Row reduce: $$\begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 1 & 3 & 5 \end{pmatrix} \xrightarrow{R_3 - R_1} \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 0 & 1 & 2 \end{pmatrix} \xrightarrow{R_3 - R_2} \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{pmatrix}.$$ Back-substituting: $x_2 = -2x_3$, $x_1 = -2x_2 - 3x_3 = 4x_3 - 3x_3 = x_3$. So $$\ker(A) = \operatorname{Span}\{(1, -2, 1)^T\}, \quad \nullity(A) = 1.$$
+**Finding $\ker(A)$:** Solve $Ax = 0$. Row operations do not change the solutions of $Ax = 0$, so we row reduce: $$\begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 1 & 3 & 5 \end{pmatrix} \xrightarrow{R_3 - R_1} \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 0 & 1 & 2 \end{pmatrix} \xrightarrow{R_3 - R_2} \begin{pmatrix} 1 & 2 & 3 \\ 0 & 1 & 2 \\ 0 & 0 & 0 \end{pmatrix}.$$ Back-substituting: $x_2 = -2x_3$, $x_1 = -2x_2 - 3x_3 = 4x_3 - 3x_3 = x_3$. So $$\ker(A) = \operatorname{Span}\{(1, -2, 1)^t\}, \quad \nullity(A) = 1.$$
 
-**Finding $\Img(A)$:** The non-zero rows in RREF correspond to pivot columns. Columns 1 and 2 are pivot columns, so $$\Img(A) = \operatorname{Span}\left\{\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix}\right\}, \quad \rank(A) = 2.$$
+**Finding $\Img(A)$:** The echelon form has its pivots in columns 1 and 2. Since row operations preserve the linear relations among the columns (a vector $x$ satisfies $Ax = 0$ if and only if it satisfies $A'x = 0$ for the reduced matrix $A'$), columns 1 and 2 of $A$ are linearly independent, and column 3 is a combination of them: $(3, 2, 5)^t = -(1, 0, 1)^t + 2\,(2, 1, 3)^t$. Hence $$\Img(A) = \operatorname{Span}\left\{\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix}\right\}, \quad \rank(A) = 2.$$
 
 **Verification:** $\nullity(A) + \rank(A) = 1 + 2 = 3 = n$. ✓
 :::
 
-:::question{1}
-1. Let $D : \mcP_3(\RR) \to \mcP_3(\RR)$ be the differentiation operator. Find $\ker(D)$, $\Img(D)$, $\nullity(D)$, and $\rank(D)$. Verify the Rank-Nullity Theorem.
+:::question{6.1.20}
+<!-- list:paren-alpha -->
+
+1. Let $D : \RR{}[x]_{\leq 3} \to \RR{}[x]_{\leq 3}$ be the differentiation operator. Find $\ker(D)$, $\Img(D)$, $\nullity(D)$, and $\rank(D)$. Verify the Rank–Nullity Theorem.
 2. Let $T : \RR^4 \to \RR^3$ be defined by $T(x_1, x_2, x_3, x_4) = (x_1 - x_2, x_2 - x_3, x_3 - x_4)$. Determine whether $T$ is injective, surjective, or neither.
-3. Prove that if $\varphi : V \to V$ is a linear operator on a finite-dimensional space with $\varphi^2 = \varphi$, then $V = \ker(\varphi) \oplus \Img(\varphi)$.
-4. Let $V$ and $W$ be finite-dimensional vector spaces with $\dim(V) = \dim(W)$. Prove that a linear map $\varphi : V \to W$ is injective if and only if for every linearly independent list in $V$, its image under $\varphi$ is linearly independent in $W$.
+3. Prove that if $\varphi : V \to V$ is a linear operator with $\varphi^2 = \varphi$, then $V = \ker(\varphi) \oplus \Img(\varphi)$.
+4. Prove that a linear map $\varphi : V \to W$ is injective if and only if for every linearly independent list in $V$, its image under $\varphi$ is linearly independent in $W$.
 
 :::solution
-**(1)** The space $\mcP_3(\RR)$ has basis $\{1, x, x^2, x^3\}$, so $\dim(\mcP_3(\RR)) = 4$.
+**(a)** The space $\RR{}[x]_{\leq 3}$ has basis $\{1, x, x^2, x^3\}$, so $\dim(\RR{}[x]_{\leq 3}) = 4$.
 
-**Kernel:** $Dp = 0$ if and only if $p$ is a constant polynomial. So $\ker(D) = \operatorname{Span}\{1\}$, which are the constant functions. Thus $\nullity(D) = 1$.
+**Kernel:** $Dp = 0$ if and only if $p$ is a constant polynomial. So $\ker(D) = \operatorname{Span}\{1\}$, the constant polynomials. Thus $\nullity(D) = 1$.
 
-**Image:** Differentiating: $D(1) = 0$, $D(x) = 1$, $D(x^2) = 2x$, $D(x^3) = 3x^2$. The non-zero outputs span $\operatorname{Span}\{1, x, x^2\} = \mcP_2(\RR)$. Thus $\Img(D) = \mcP_2(\RR)$ and $\rank(D) = 3$.
+**Image:** Differentiating: $D(1) = 0$, $D(x) = 1$, $D(x^2) = 2x$, $D(x^3) = 3x^2$. By Proposition [6.1.10](/notes/math-55a/6-1-kernel-and-image#proposition-6-1-10), these span the image, so $\Img(D) = \operatorname{Span}\{1, x, x^2\} = \RR{}[x]_{\leq 2}$ and $\rank(D) = 3$.
 
-**Verification:** $\nullity(D) + \rank(D) = 1 + 3 = 4 = \dim(\mcP_3(\RR))$. ✓
+**Verification:** $\nullity(D) + \rank(D) = 1 + 3 = 4 = \dim(\RR{}[x]_{\leq 3})$. ✓
 
-**(2)** **Injectivity:** Find $\ker(T)$. Solve $T(x_1, x_2, x_3, x_4) = (0, 0, 0)$: $$x_1 - x_2 = 0, \quad x_2 - x_3 = 0, \quad x_3 - x_4 = 0.$$ This gives $x_1 = x_2 = x_3 = x_4$. So $\ker(T) = \{(t, t, t, t) : t \in \RR\} = \operatorname{Span}\{(1, 1, 1, 1)\}$.
+**(b)** **Injectivity:** Find $\ker(T)$. Solve $T(x_1, x_2, x_3, x_4) = (0, 0, 0)$: $$x_1 - x_2 = 0, \quad x_2 - x_3 = 0, \quad x_3 - x_4 = 0.$$ This gives $x_1 = x_2 = x_3 = x_4$. So $\ker(T) = \{(t, t, t, t) : t \in \RR\} = \operatorname{Span}\{(1, 1, 1, 1)\}$.
 
 Since $\ker(T) \neq \{0\}$, $T$ is **not injective**.
 
 **Surjectivity:** We have $\nullity(T) = 1$, so $\rank(T) = 4 - 1 = 3 = \dim(\RR^3)$. Thus $\Img(T) = \RR^3$, and $T$ is **surjective**.
 
-**(3)** We show $V = \ker(\varphi) + \Img(\varphi)$ and $\ker(\varphi) \cap \Img(\varphi) = \{0\}$.
+**(c)** We show $V = \ker(\varphi) + \Img(\varphi)$ and $\ker(\varphi) \cap \Img(\varphi) = \{0\}$.
 
 *Sum equals $V$:* Let $v \in V$. Write $v = (v - \varphi(v)) + \varphi(v)$. Note that $\varphi(v) \in \Img(\varphi)$. Also: $$\varphi(v - \varphi(v)) = \varphi(v) - \varphi^2(v) = \varphi(v) - \varphi(v) = 0,$$ so $v - \varphi(v) \in \ker(\varphi)$. Thus $v \in \ker(\varphi) + \Img(\varphi)$.
 
@@ -237,8 +293,8 @@ Since $\ker(T) \neq \{0\}$, $T$ is **not injective**.
 
 Thus $V = \ker(\varphi) \oplus \Img(\varphi)$.
 
-**(4)** ($\Rightarrow$) Suppose $\varphi$ is injective and $\{v_1, \ldots, v_m\}$ is linearly independent. Suppose $\sum c_i \varphi(v_i) = 0$. Then $\varphi(\sum c_i v_i) = 0$, so $\sum c_i v_i \in \ker(\varphi) = \{0\}$. Thus $\sum c_i v_i = 0$, and by linear independence of the $v_i$, all $c_i = 0$. Hence $\{\varphi(v_1), \ldots, \varphi(v_m)\}$ is linearly independent.
+**(d)** ($\Rightarrow$) Suppose $\varphi$ is injective and $v_1, \ldots, v_m$ is linearly independent. Suppose $\sum c_i \varphi(v_i) = 0$. Then $\varphi(\sum c_i v_i) = 0$, so $\sum c_i v_i \in \ker(\varphi) = \{0\}$. Thus $\sum c_i v_i = 0$, and by linear independence of the $v_i$, all $c_i = 0$. Hence $\varphi(v_1), \ldots, \varphi(v_m)$ is linearly independent.
 
-($\Leftarrow$) Suppose $\varphi$ maps every linearly independent set to a linearly independent set. If $v \neq 0$, then $\{v\}$ is linearly independent, so $\{\varphi(v)\}$ is linearly independent, meaning $\varphi(v) \neq 0$. Thus $\ker(\varphi) = \{0\}$, so $\varphi$ is injective.
+($\Leftarrow$) Suppose $\varphi$ maps every linearly independent list to a linearly independent list. If $v \neq 0$, then the list $(v)$ is linearly independent, so $(\varphi(v))$ is linearly independent, meaning $\varphi(v) \neq 0$. Thus $\ker(\varphi) = \{0\}$, so $\varphi$ is injective.
 :::
 :::

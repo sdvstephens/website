@@ -6,24 +6,50 @@ section: 15.3
 title: Frobenius Reciprocity
 ---
 
+The key property of induction is that it is adjoint to restriction.
+
 :::theorem{15.3.1} Frobenius reciprocity
-Let $U$ be a representation of $G$ and $W$ a representation of $H \leq G$. Then every $H$-equivariant map $\varphi : W \to \operatorname{Res}^G_H(U)$ extends uniquely to a $G$-equivariant map $\tilde{\varphi} : \operatorname{Ind}^G_H(W) \to U$. That is, $$\Hom_H(W, \operatorname{Res}^G_H U) \cong \Hom_G(\operatorname{Ind}^G_H W, U).$$
+Let $V$ be a representation of $G$ and $W$ a representation of $H \leq G$. Every $H$-equivariant linear map $\varphi : W \to \Res^G_H V$ extends uniquely to a $G$-equivariant linear map $\tilde{\varphi} : \Ind^G_H W \to V$. That is, restriction to $W \subset \Ind^G_H W$ is an isomorphism of vector spaces $$\Hom_G(\Ind^G_H W, V) \xrightarrow{\;\sim\;} \Hom_H(W, \Res^G_H V).$$
 :::
 
 :::proof
-Choose coset representatives $\sigma_1, \ldots, \sigma_k \in G$ and write $V = \operatorname{Ind}^G_H W = \bigoplus_{i=1}^k \sigma_i W$.
+Choose coset representatives $\sigma_1 = e, \sigma_2, \ldots, \sigma_k$, so that $\Ind W = \bigoplus_{i=1}^k \sigma_i W$ and $W = \sigma_1 W$.
 
-*Uniqueness.* Given $\varphi : W \to \operatorname{Res}(U)$, if $\tilde{\varphi} : V \to U$ is $G$-equivariant with $\tilde{\varphi}|_W = \varphi$, then for any $\sigma_i w \in \sigma_i W$: $$\tilde{\varphi}(\sigma_i w) = \sigma_i \cdot \tilde{\varphi}(w) = \sigma_i \cdot \varphi(w),$$ where the last $\sigma_i$ acts via the $G$-action on $U$. This determines $\tilde{\varphi}$ on each summand, hence on all of $V$.
+*Restriction is well defined.* If $\tilde{\varphi} : \Ind W \to V$ is $G$-equivariant, it is in particular $H$-equivariant, so its restriction to the $H$-invariant subspace $W$ lies in $\Hom_H(W, \Res V)$. Restriction is clearly linear.
 
-*Existence and $G$-equivariance.* Define $\tilde{\varphi}(\sigma_i w) = \sigma_i \cdot \varphi(w)$. To verify $G$-equivariance: let $g \in G$ act on $V$ by sending $\sigma_i W$ to $\sigma_j W$ where $g\sigma_i = \sigma_j h$ for $h \in H$. For $\sigma_i w \in \sigma_i W$: $$\tilde{\varphi}(g(\sigma_i w)) = \tilde{\varphi}(\sigma_j(hw)) = \sigma_j \cdot \varphi(hw) = \sigma_j \cdot h \cdot \varphi(w) = g \cdot \sigma_i \cdot \varphi(w) = g \cdot \tilde{\varphi}(\sigma_i w),$$ using $H$-equivariance of $\varphi$ in the third equality and $\sigma_j h = g\sigma_i$ in the fourth. So $\tilde{\varphi}$ is $G$-equivariant.
+*Uniqueness of the extension.* Let $\varphi \in \Hom_H(W, \Res V)$. If $\tilde{\varphi}$ is $G$-equivariant and $\tilde{\varphi}|_W = \varphi$, then for $w \in W$, $$\tilde{\varphi}(\sigma_i w) = \sigma_i \, \tilde{\varphi}(w) = \sigma_i \, \varphi(w),$$ where on the right $\sigma_i$ acts on $\varphi(w) \in V$. This determines $\tilde{\varphi}$ on each summand $\sigma_i W$, hence on $\Ind W$.
 
-Conversely, given $\tilde{\varphi} \in \Hom_G(V, U)$, its restriction to $W \subset V$ is $H$-equivariant. These two maps are inverse to each other.
+*Existence of the extension.* Define $\tilde{\varphi}$ on each summand by $\tilde{\varphi}(\sigma_i w) = \sigma_i \, \varphi(w)$; it is linear, and $\tilde{\varphi}|_W = \varphi$ since $\sigma_1 = e$. Let $g \in G$ and $g\sigma_i = \sigma_j h$ with $h \in H$. By ([15.1](/notes/math-55a/15-2-induced-representations)), $$\tilde{\varphi}\bigl(g(\sigma_i w)\bigr) = \tilde{\varphi}\bigl(\sigma_j(hw)\bigr) = \sigma_j \, \varphi(hw) = \sigma_j h \, \varphi(w) = g\sigma_i \, \varphi(w) = g \, \tilde{\varphi}(\sigma_i w),$$ using the $H$-equivariance of $\varphi$ in the third equality and $\sigma_j h = g\sigma_i$ in the fourth. So $\tilde{\varphi}$ is $G$-equivariant on each summand, hence on $\Ind W$.
+
+Thus $\varphi \mapsto \tilde{\varphi}$ is inverse to restriction, and restriction is an isomorphism.
 :::
 
-:::corollary{15.3.1} Frobenius reciprocity (character form)
-For any representation $U$ of $G$ and $W$ of $H$, $$\langle \chi_{\operatorname{Ind}^G_H W}, \chi_U \rangle_G = \langle \chi_W, \chi_{\operatorname{Res}^G_H U} \rangle_H.$$
+Taking dimensions on both sides, and using $\dim \Hom_G(X, Y) = \langle \chi_X, \chi_Y \rangle_G$, we obtain the character form.
+
+:::corollary{15.3.2} Frobenius reciprocity for characters
+For a representation $V$ of $G$ and a representation $W$ of $H$, $$\langle \chi_{\Ind^G_H W}, \chi_V \rangle_G = \langle \chi_W, \chi_{\Res^G_H V} \rangle_H.$$
 :::
+
+Both sides are dimensions, hence real, so we may also exchange the two arguments on each side. The character form can also be proved by a direct calculation from the formula for $\chi_{\Ind W}$; see Exercise [15.5.2](/notes/math-55a/15-5-example-s-4-supset-s-3#exercise-15-5-2)(4).
 
 :::note
-Thus, if $U$ is an irreducible representation of $G$ and $W$ an irreducible representation of $H$, the number of times $W$ appears in $\operatorname{Res}^G_H(U)$ equals the number of times $U$ appears in $\operatorname{Ind}^G_H(W)$.
+If $V$ is an irreducible representation of $G$ and $W$ an irreducible representation of $H$, Corollary [15.3.2](/notes/math-55a/15-3-frobenius-reciprocity#corollary-15-3-2) says: the number of times $W$ appears in $\Res^G_H V$ equals the number of times $V$ appears in $\Ind^G_H W$.
+:::
+
+:::example{15.3.3} $\Ind^{S_3}_{A_3} \chi_\omega$ by reciprocity
+By Example [15.1.2](/notes/math-55a/15-1-restriction#example-15-1-2), $\Res V = \chi_\omega \oplus \chi_{\omega^2}$, while the trivial and sign representations $U$ and $U'$ of $S_3$ both restrict to $\chi_1$, since $A_3$ consists of even permutations. So $V$ appears once in $\Ind \chi_\omega$, and $U$ and $U'$ do not appear. As $\dim \Ind \chi_\omega = 2 = \dim V$, we recover $\Ind^{S_3}_{A_3} \chi_\omega \cong V$.
+:::
+
+## <span class="num">15.3.1</span> The Theorems of Artin and Brauer
+
+Much of the interest of induced representations comes from two deep theorems, which say that all characters can be built from characters induced from very simple subgroups. We state them without proof; see Serre, *Linear Representations of Finite Groups*, Chapters 9 and 10.
+
+:::theorem{15.3.4} Artin
+Every character of a representation of $G$ is a linear combination, with rational coefficients, of characters of representations induced from cyclic subgroups of $G$.
+:::
+
+A finite group is ***elementary*** if it is isomorphic to a product $C \times P$, where $P$ is a $p$-group for some prime $p$ and $C$ is cyclic of order prime to $p$.
+
+:::theorem{15.3.5} Brauer
+Every character of a representation of $G$ is a linear combination, with integer coefficients, of characters of representations induced from 1-dimensional representations of elementary subgroups of $G$.
 :::

@@ -7,13 +7,21 @@ title: Restriction
 ---
 
 :::lede
-Throughout, $G$ is a finite group and $H \leq G$ a subgroup.
+Throughout this chapter $G$ is a finite group, $H \leq G$ is a subgroup, and representations are finite-dimensional complex representations. A representation of $G$ gives a representation of $H$ by forgetting part of the action. Induction goes the other way: it builds a representation of $G$ out of a representation of $H$. Frobenius reciprocity relates the two constructions, and it lets us transport information about the representations of one group to the other.
+
+Since the letter $H$ now denotes a subgroup, we write the Hermitian inner product on class functions of Definition [13.5.3](/notes/math-55a/13-5-orthogonality-of-characters#definition-13-5-3) as $$\langle \alpha, \beta \rangle_G = \frac{1}{|G|} \sum_{g \in G} \ol{\alpha(g)} \, \beta(g),$$ conjugate-linear in the first variable as before, and $\langle \cdot, \cdot \rangle_H$ for the same inner product on class functions of $H$. Recall that $\dim \Hom_G(V, W) = \langle \chi_V, \chi_W \rangle_G$ for representations $V, W$ of $G$ (Theorem [13.5.4](/notes/math-55a/13-5-orthogonality-of-characters#theorem-13-5-4)); in particular, the multiplicity of an irreducible representation $V$ in $W$ is $\langle \chi_V, \chi_W \rangle_G$ (Corollary [13.5.6](/notes/math-55a/13-5-orthogonality-of-characters#corollary-13-5-6)), and $W$ is irreducible if and only if $\langle \chi_W, \chi_W \rangle_G = 1$ (Corollary [13.5.7](/notes/math-55a/13-5-orthogonality-of-characters#corollary-13-5-7)).
 :::
 
 :::definition{15.1.1} Restriction
-Given a representation $V$ of $G$, the restriction of $V$ to $H$, denoted $\operatorname{Res}^G_H V$, is $V$ viewed as a representation of $H$ (forget the action of elements outside $H$).
+Let $V$ be a representation of $G$, given by $\rho : G \to \GL(V)$. The ***restriction*** of $V$ to $H$, written $\Res^G_H V$ (or $\Res V$ when $G$ and $H$ are clear), is the representation $\rho|_H : H \to \GL(V)$ of $H$ on the same space: we forget the action of the elements outside $H$.
 :::
 
-This defines a functor $\operatorname{Res}^G_H : \operatorname{Rep}(G) \to \operatorname{Rep}(H)$, where the categories have objects = finite-dimensional complex representations and morphisms = $G$-equivariant (resp. $H$-equivariant) linear maps.
+A $G$-equivariant linear map is in particular $H$-equivariant. So restriction is a functor (Definition [8.2.1](/notes/math-55a/8-2-functors-and-natural-transformations#definition-8-2-1)) $$\Res^G_H : \Rep(G) \to \Rep(H),$$ where $\Rep(G)$ is the category whose objects are the representations of $G$ and whose morphisms are the $G$-equivariant linear maps, and similarly for $\Rep(H)$. The character of $\Res^G_H V$ is the restriction $\chi_V|_H$ of the character of $V$.
 
-An irreducible representation of $G$ need not remain irreducible upon restriction to $H$. The problem we address next is: can we go in the opposite direction?
+An irreducible representation of $G$ need not remain irreducible when restricted to $H$.
+
+:::example{15.1.2} Restricting from $S_3$ to $A_3$
+Let $V$ be the standard representation of $S_3$, and let $A_3 = \langle (123) \rangle \cong \ZZ/3$. Since $A_3$ is abelian, its irreducible representations are 1-dimensional (Proposition [13.1.7](/notes/math-55a/13-1-representations-and-subrepresentations#proposition-13-1-7)): they are $\chi_1, \chi_\omega, \chi_{\omega^2}$, where $\omega = e^{2\pi i/3}$ and $\chi_{\omega^a}$ sends $(123)$ to $\omega^a$. The character of $\Res V$ takes the values $2, -1, -1$ at $e, (123), (132)$. Using $1 + \omega + \omega^2 = 0$, $$\langle \chi_{\omega^a}, \chi_{\Res V} \rangle_{A_3} = \tfrac{1}{3}\bigl(2 - \omega^{-a} - \omega^{-2a}\bigr) = \begin{cases} 0 & \text{if } a = 0, \\ 1 & \text{if } a = 1, 2. \end{cases}$$ So $\Res^{S_3}_{A_3} V \cong \chi_\omega \oplus \chi_{\omega^2}$.
+:::
+
+The rest of the chapter asks whether we can go in the opposite direction, from representations of $H$ to representations of $G$.

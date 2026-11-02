@@ -136,7 +136,7 @@ $$B(f) : B(W) \to B(V),\ b(\cdot,\cdot) \mapsto b(f(\cdot), f(\cdot)) \quad\text
 and the isomorphisms $B(V) \xrightarrow{\sim} \Hom(V, V^*)$ define a natural transformation between them.
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 15](/notes/math-55a/15-inner-product-spaces-orthogonal-and-self-adjoint-operators)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L15}}
 :::definition
 If $S \subset V$ is a subspace of a vector space equipped with a bilinear form $b : V \times V \to k$, we define its **orthogonal complement**
 $$S^\perp = \{v \in V \mid b(v,w) = 0 \ \forall w \in S\}.$$

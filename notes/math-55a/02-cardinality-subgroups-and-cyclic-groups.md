@@ -169,7 +169,7 @@ $$
 - The determinant $GL_n(\RR) \to (\RR^*, \times)$ ($\det(AB) = \det(A)\det(B)$).
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 3](/notes/math-55a/03-equivalence-relations-and-cosets)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L03}}
 :::definition Kernel
 The **kernel** of a group homomorphism $\varphi : G \to H$ is
 $$

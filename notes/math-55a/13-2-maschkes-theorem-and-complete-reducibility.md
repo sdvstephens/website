@@ -6,30 +6,38 @@ section: 13.2
 title: Maschke’s Theorem and Complete Reducibility
 ---
 
-:::lemma{13.2.1} Existence of $G$-invariant inner product
-If $V$ is a $\CC$-representation of a finite group $G$, there exists a positive-definite Hermitian inner product $H$ on $V$ that is $G$-invariant: $H(gv, gw) = H(v, w)$ for all $g \in G$, $v, w \in V$. In other words, all operators $g : V \to V$ are unitary with respect to $H$.
+From now on $G$ is a finite group. The basic tool is averaging over $G$, which makes sense because $G$ is finite.
+
+:::lemma{13.2.1} Invariant inner products
+Let $V$ be a representation of $G$. There is a positive-definite Hermitian inner product $H$ on $V$ (Definition [9.1.16](/notes/math-55a/9-1-bilinear-forms-and-inner-products#definition-9-1-16)) that is $G$-invariant: $H(gv, gw) = H(v, w)$ for all $g \in G$ and $v, w \in V$. In other words, every $g$ acts on $V$ by a unitary operator with respect to $H$.
 :::
 
 :::proof
-Start with any Hermitian inner product $H_0$ on $V$, and average over $G$: $$H(v, w) = \frac{1}{|G|} \sum_{g \in G} H_0(gv, gw).$$ Then $H$ is still Hermitian and positive-definite (a positive combination of positive-definite forms), and $G$-invariant: $H(hv, hw) = \frac{1}{|G|} \sum_g H_0(ghv, ghw) = \frac{1}{|G|} \sum_{g'} H_0(g'v, g'w) = H(v, w)$ (reindexing $g' = gh$).
+Let $H_0$ be any positive-definite Hermitian inner product on $V$; for instance, choose a basis $e_1, \ldots, e_n$ and set $H_0(\sum a_ie_i, \sum b_ie_i) = \sum_i \ol{a_i}b_i$. Average it over $G$: $$H(v, w) = \frac{1}{|G|}\sum_{g \in G} H_0(gv, gw).$$ Each term is conjugate-linear in $v$, linear in $w$, and satisfies $H_0(gw, gv) = \ol{H_0(gv, gw)}$, so $H$ is a Hermitian form. It is positive definite: for $v \neq 0$, every term $H_0(gv, gv)$ is positive, since $gv \neq 0$. It is $G$-invariant: for $h \in G$, $$H(hv, hw) = \frac{1}{|G|}\sum_{g \in G} H_0(ghv, ghw) = \frac{1}{|G|}\sum_{g' \in G} H_0(g'v, g'w) = H(v, w),$$ because $g' = gh$ runs over $G$ exactly once as $g$ does.
 :::
 
-:::theorem{13.2.1} Maschke’s Theorem
-Let $V$ be a representation of a finite group $G$ over $\CC$ (or any field $k$ with $\operatorname{char}(k) \nmid |G|$), and let $W \subseteq V$ be a subrepresentation. Then there exists a complementary subrepresentation $U \subseteq V$ with $V = W \oplus U$.
+:::theorem{13.2.2} Maschke’s Theorem
+Let $V$ be a representation of a finite group $G$, and let $W \subseteq V$ be a subrepresentation. Then there is a subrepresentation $U \subseteq V$ with $V = W \oplus U$.
 :::
 
-:::proof Proof 1 (via invariant inner product)
-Equip $V$ with a $G$-invariant Hermitian inner product $H$ (by the lemma). Since each $g$ is unitary, $g(W^\perp) = W^\perp$ (if $w \in W$ and $v \in W^\perp$, then $H(gv, w) = H(v, g^{-1}w) = 0$ since $g^{-1}w \in W$). So $U = W^\perp$ is a $G$-invariant complement.
+:::proof
+Equip $V$ with a $G$-invariant Hermitian inner product $H$ (Lemma [13.2.1](/notes/math-55a/13-2-maschkes-theorem-and-complete-reducibility#lemma-13-2-1)), and let $U = W^\perp = \{v \in V : H(w, v) = 0 \text{ for all } w \in W\}$. By Theorem [9.1.31](/notes/math-55a/9-1-bilinear-forms-and-inner-products#theorem-9-1-31), $V = W \oplus W^\perp$. If $v \in W^\perp$, $g \in G$ and $w \in W$, then $g^{-1}w \in W$, so $$H(w, gv) = H(gg^{-1}w, gv) = H(g^{-1}w, v) = 0.$$ Hence $gv \in W^\perp$, and $U = W^\perp$ is a subrepresentation.
 :::
 
-:::proof Proof 2 (via averaging projection)
-Choose any complementary subspace $U_0$ with $V = W \oplus U_0$ (not necessarily $G$-invariant). Let $\pi_0 : V \to W$ be the projection onto $W$ with kernel $U_0$ ($\pi_0|_W = \id$, $\pi_0|_{U_0} = 0$). Average: $$\pi(v) = \frac{1}{|G|} \sum_{g \in G} g \, \pi_0(g^{-1} v).$$ Then $\pi : V \to W$ is $G$-equivariant ($g\pi g^{-1} = \pi$), and $\pi|_W = \id$ (since $g\pi_0(g^{-1}w) = g(g^{-1}w) = w$ for $w \in W$, as $g^{-1}w \in W$). So $\pi$ is a $G$-equivariant projection onto $W$, and $U = \Ker(\pi)$ is a $G$-invariant complement.
+There is a second proof, which uses no inner product. It works over any field $k$ in which $|G| \neq 0$, that is, with $\operatorname{char} k \nmid |G|$.
+
+:::proof Second proof
+Choose any complementary subspace $U_0$, so that $V = W \oplus U_0$, and let $\pi_0 : V \to W$ be the projection onto $W$ along $U_0$ (so $\pi_0|_W = \id_W$ and $\pi_0|_{U_0} = 0$). Average it: $$\pi(v) = \frac{1}{|G|}\sum_{g \in G} g\,\pi_0(g^{-1}v).$$ Since $\pi_0$ takes values in $W$ and $gW = W$, so does $\pi$. For $w \in W$, each $g^{-1}w$ lies in $W$, so $g\pi_0(g^{-1}w) = gg^{-1}w = w$, and $\pi(w) = w$. The map $\pi$ is $G$-equivariant: for $h \in G$, substituting $g = hg'$, $$\pi(hv) = \frac{1}{|G|}\sum_{g \in G} g\,\pi_0(g^{-1}hv) = \frac{1}{|G|}\sum_{g' \in G} hg'\,\pi_0(g'^{-1}v) = h\,\pi(v).$$ Let $U = \ker\pi$, a subrepresentation because $\pi$ is equivariant. Every $v \in V$ is $\pi(v) + (v - \pi(v))$ with $\pi(v) \in W$ and $\pi(v - \pi(v)) = \pi(v) - \pi(v) = 0$, because $\pi$ is the identity on $W$. Also $W \cap U = 0$, again because $\pi$ is the identity on $W$. So $V = W \oplus U$.
 :::
 
 :::note
-Maschke’s theorem fails when $\operatorname{char}(k)$ divides $|G|$ (modular representation theory), and also fails for infinite groups in general: the representation of $G = \ZZ$ (or $\RR$) on $\CC^2$ via $t \mapsto \begin{pmatrix} 1 & t \\ 0 & 1 \end{pmatrix}$ has the invariant subspace $\CC \times \{0\}$ but no complementary invariant subspace.
+Both hypotheses matter. If $G = \ZZ$ acts on $\CC^2$ by $t \mapsto \begin{psmallmatrix} 1 & t \\ 0 & 1 \end{psmallmatrix}$, the line $\CC \times \{0\}$ is invariant, but it is the only invariant line (it is the only line of eigenvectors of $\begin{psmallmatrix} 1 & 1 \\ 0 & 1 \end{psmallmatrix}$), so it has no invariant complement; the same happens for $\RR$ acting by the same matrices. Here averaging is impossible because the group is infinite. Similarly, if $k$ has characteristic $p$, the same matrices define a representation of $\ZZ/p$ on $k^2$ with no invariant complement to $k \times \{0\}$. This is one reason why *modular representation theory*, over fields whose characteristic divides $|G|$, is harder. On the other hand, averaging still works for compact groups such as the circle $S^1$ or $SO(n)$, with the sum over $G$ replaced by an integral, but we will not pursue this.
 :::
 
-:::corollary{13.2.1} Complete reducibility
-Any finite-dimensional representation of a finite group $G$ (over $\CC$) decomposes as a direct sum of irreducible representations.
+:::corollary{13.2.3} Complete reducibility
+Every representation of a finite group $G$ is a direct sum of irreducible subrepresentations.
+:::
+
+:::proof
+Induct on $\dim V$. If $V = 0$, it is the empty direct sum, and if $V$ is irreducible there is nothing to prove. Otherwise $V$ has a subrepresentation $W$ with $0 \neq W \neq V$, and by Maschke’s Theorem $V = W \oplus U$ for a subrepresentation $U$. Both $W$ and $U$ have smaller dimension than $V$, so each is a direct sum of irreducible subrepresentations, and hence so is $V$.
 :::

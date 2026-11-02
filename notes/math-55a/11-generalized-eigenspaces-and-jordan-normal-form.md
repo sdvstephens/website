@@ -236,7 +236,7 @@ Now by the claim, $v_{m-1,1} = \varphi(v_{m,1}),\dots,v_{m-1,k_m} = \varphi(v_{m
 And so on: given $U_j = \operatorname{span}(v_{j,1},\dots,v_{j,k_j})$ with $\ker\varphi^j = \ker\varphi^{j-1}\oplus U_j$, take $v_{j-1,i} = \varphi(v_{j,i})$ for $1\le i\le k_j$, and extend by adding vectors as needed to build $U_{j-1}$. This eventually gives a basis of $V = U_1\oplus\cdots\oplus U_m$, and rearranging it as $(v_{1,1},\dots,v_{m,1},v_{1,2},\dots)$ we get the result.
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 12](/notes/math-55a/12-jordan-normal-form-cayley-hamilton-and-categories)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L12}}
 **Jordan normal form**
 
 We now combine our results to arrive at the Jordan normal form:

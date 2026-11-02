@@ -203,7 +203,7 @@ This $V$ is the restriction to $A_4$ of the standard representation of $S_4$!
 (Note: $W|_{A_4} \simeq U' \oplus U''$.)
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 35](/notes/math-55a/35-irreducible-characters-form-a-basis-characters-of-s5-and-a5)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L35}}
 **Characters form a basis of the class functions**
 
 Next, we want to prove: the characters of irreducible representations are actually an *orthonormal basis* (for $H$) of the space of class functions $G \to \CC$.

@@ -52,7 +52,7 @@ Every character of a representation of $G$ is a linear combination with *rationa
 :::
 
 :::theorem Brauer
-Every character of a representation of $G$ is a linear combination with *integer* coefficients of characters of representations induced from 1-dimensional representations of *”elementary”* subgroups of $G$,
+Every character of a representation of $G$ is a linear combination with *integer* coefficients of characters of representations induced from 1-dimensional representations of *“elementary”* subgroups of $G$,
 
 where **elementary** means isomorphic to a product $C\times H$, with $H$ a $p$-group ($|H| = p^k$) and $C$ cyclic, $C\simeq\ZZ/n$, $p\nmid n$.
 :::
@@ -112,7 +112,7 @@ Recall: a linear map $\varphi : V\to V^*$ determines a bilinear form $B : V\time
 
 Now recall $B\in(V\otimes V)^* = \operatorname{Sym}^2V^*\oplus\Lambda^2V^*$, i.e. the symmetric and skew parts of $B$ ($=\frac12(B(v,w)\pm B(w,v))$) are also $G$-invariant bilinear forms on $V$. By uniqueness, one of these is zero and the other is nondegenerate; i.e. $B$ is either symmetric or skew.
 
-The symmetric case corresponds to **real** representations; the skew-symmetric case gives **”quaternionic”** representations.
+The symmetric case corresponds to **real** representations; the skew-symmetric case gives **“quaternionic”** representations.
 
 :::proposition
 An irreducible complex representation $V$ of a finite group $G$ is real iff $V$ carries a $G$-invariant nondegenerate symmetric bilinear form $B : V\times V\to\CC$.

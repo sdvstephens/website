@@ -178,7 +178,7 @@ clearing denominators, we get $n_1^2+n_2^2=3m^2$ with $n_1,n_2,m\in\ZZ$ with no 
 Whereas $B'=\begin{pmatrix}2&0\\0&1\end{pmatrix}$ does have $v$ such that $B'(v,v)=3$ ($v=(1,1)$).
 :::
 
-:::outline Notes not reached in this lecture, covered at the start of [Lecture 18](/notes/math-55a/18-symplectic-forms-and-tensor-products)
+:::outline Notes not reached in this lecture, covered at the start of {{LINK:L18}}
 **The skew-symmetric case**
 
 What about the **skew-symmetric** case? (Suppose $\operatorname{char}(k)\neq2$.)
