@@ -25,13 +25,15 @@ music/       music.json
 poems/       one poem per file; see poems/README.md
 pages/       home, about, research and help (HTML); about-infobox.json
 films/       films.json (no page at present)
+cv/          cv.tex, the CV's LaTeX source (the PDF and web CV are built from it)
 static/      copied into the site as-is: .htaccess, fonts, portrait, favicons, CV
 src/         markdown.mjs (Markdown and TeX), templates.mjs, site.css, site.js, math.css
 build.mjs    everything above → dist/
 serve.mjs    local server with the same URL rules as the live .htaccess
 scripts/     rebuild-posts.py (posts.json from frontmatter), generate_sitemap.py (runs the build),
              book-to-notes.py and book-figures.py (a LaTeX book → notes; see below),
-             build-cv-html.py (static/sdvscvhtml.html), latex_to_md.py, split_sections.py, extract_chemfig.py
+             build-cv.py (cv/cv.tex → static/sdvscv.pdf and static/sdvscvhtml.html),
+             latex_to_md.py, split_sections.py, extract_chemfig.py
 ```
 
 ## Writing
@@ -55,6 +57,7 @@ scripts/     rebuild-posts.py (posts.json from frontmatter), generate_sitemap.py
 - **Protected readings:** `notes/critical-theory/readings/` holds the course PDFs, the handout quotations (`quotes.json`) and the password file (`.htpasswd`, made with `htpasswd -cB notes/critical-theory/readings/.htpasswd reader`); the whole folder stays out of git. `notes/critical-theory/access.json` says, document by document, whether a PDF is `"hidden"` (password) or `"shown"` (public), and whether the quotations are woven into the pages. The build writes the folder's `.htaccess` from it and marks hidden links as locked; change a value and publish.
 - **Poems:** see `poems/README.md`.
 - **About:** `pages/about.html`, and the infobox in `pages/about-infobox.json`.
+- **CV:** edit `cv/cv.tex`, then `npm run cv`. That compiles the PDF with xelatex into `static/sdvscv.pdf` and writes the same content as the web CV, `static/sdvscvhtml.html`, so the two always match (`python3 scripts/build-cv.py --no-pdf` redoes only the web page). The fonts come from TeX Live by file name, so nothing needs installing. The site build adds a hash of the PDF to every link to `/sdvscv.pdf`, so readers get the new CV as soon as it is published.
 
 The build prints a warning for every TeX error, missing file, post missing from `posts.json`, and internal link that points nowhere.
 

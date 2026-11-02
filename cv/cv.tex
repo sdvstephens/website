@@ -1,0 +1,375 @@
+% Samuel D. V. Stephens's Curriculum Vitae --- Cormorant Garamond edition
+% Adapted from Geoff Boeing's template (https://github.com/gboeing/cv).
+%
+% IMPORTANT: this variant must be compiled with xelatex or lualatex
+% (NOT pdflatex), because it loads Cormorant Garamond via fontspec.
+% Cormorant Garamond is the same font used by the older prometheus_cv
+% template in ~/Downloads/hnst/main.tex; it is a free font from
+% https://github.com/CatharsisFonts/Cormorant
+%
+% Build:  python3 scripts/build-cv.py   (PDF and HTML; see the README)
+%
+\RequirePackage[l2tabu,orthodox]{nag} % warn if using any obsolete commands
+\documentclass[11pt,letterpaper]{report} % document style
+\usepackage{inputenc}
+\usepackage{siunitx}							% package to properly set units
+\usepackage{fontawesome5}						% package for icons (see list of available icons here: http://mirrors.ibiblio.org/CTAN/fonts/fontawesome5/doc/fontawesome5.pdf)
+\usepackage[super]{nth}		
+% fontspec replaces fontenc / inputenc under xelatex / lualatex
+\usepackage{fontspec}
+% Fonts are loaded by file name, so xelatex finds them in the TeX Live tree
+% (fonts/truetype/catharsis/cormorantgaramond) on any machine, without
+% installing them system-wide.
+\setmainfont{CormorantGaramond-Regular.ttf}[
+    BoldFont=CormorantGaramond-Bold.ttf,
+    ItalicFont=CormorantGaramond-Italic.ttf,
+    BoldItalicFont=CormorantGaramond-BoldItalic.ttf]
+% give \sffamily (used by the Boeing section/subsection headers) a Garamond
+% face so headers stay in the Cormorant family rather than falling back to
+% a default sans face
+\setsansfont{CormorantGaramond-Regular.ttf}[
+    BoldFont=CormorantGaramond-Bold.ttf,
+    ItalicFont=CormorantGaramond-Italic.ttf,
+    BoldItalicFont=CormorantGaramond-BoldItalic.ttf]
+\setmonofont{lmmono10-regular.otf}[BoldFont=lmmonolt10-bold.otf, ItalicFont=lmmono10-italic.otf]
+\newfontfamily\GaramondLight{CormorantGaramond-Light.ttf}
+\newcommand{\textlf}[1]{{\GaramondLight #1}}
+
+% load babel, csquotes, and microtype in order
+\usepackage[USenglish]{babel} % auto-regionalize hyphens, quote marks, etc
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+% microtype works with xelatex but only protrusion is supported; expansion
+% and font-tracking via \SetTracking are not. We still load it for protrusion.
+\usepackage[protrusion=true,expansion=false]{microtype}
+
+% load everything else
+\usepackage{datetime} % enable formatting of date output
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{geometry} % manually set page margins
+\usepackage{setspace} % custom line spacing
+\usepackage{tabto}    % make nice tabbing
+\usepackage{titlesec} % allow custom section fonts
+
+% load hyperref last for compatibility
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+
+% what is your name?
+\newcommand{\myname}{Samuel D. V. Stephens}
+
+% how far to tab for list items with left-aligned date; Cormorant Garamond
+% renders these dates a touch wider than EB Garamond, so give it room
+\newcommand{\listtabwidth}{1.9cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% Letter-spaced headers under xelatex: microtype's \lsstyle / \SetTracking
+% are unsupported, so we define a Garamond face with an actual OpenType
+% letter-spacing feature and use it in the heading definitions below.
+\newfontfamily\headingfont{CormorantGaramond-Bold.ttf}[
+    LetterSpace=8.0,
+    WordSpace=1.4]
+
+% set section heading fonts and before/after spacing
+\titleformat{\section}{\headingfont\small\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\headingfont\footnotesize}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.9}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% placeholder command for sections without content yet
+\newcommand{\forthcoming}{\textit{Forthcoming.}}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {Samuel Desiderius Vichaama Stephens},
+    pdfkeywords = {neurobioengineering, mathematical physics, philosophy, cognitive science, biostatistics, education policy, polyadic algebra},
+    pdftitle    = {\myname: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+
+    % display name as the document title
+    \namefont{\myname}
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+    \begin{minipage}[t]{0.700\textwidth}
+        % current primary affiliation, left-aligned
+        Department of Neurology \\
+        School of Medicine \\
+        Stanford University
+    \end{minipage}
+    \begin{minipage}[t]{0.295\textwidth}
+        % contact info details, right-aligned
+        \raggedleft{}
+        \href{mailto:samuelstephens2004@gmail.com}{samuelstephens2004@gmail.com} \\
+        +1 214 843 5006 \\
+        \href{https://www.samuel-stephens.com}{samuel-stephens.com}
+    \end{minipage}
+
+    \section*{Education}
+    \begin{tablist}
+        \item[2026--] \tab{}\textbf{B. S. in Mathematics and Music}, Salem State University, Salem, Massachusetts. Current GPA:~3.94. Coursework: Graduate Measure Theory (directed study, Folland's \textit{Real Analysis}); Philosophy of Politics and Society; Neuropsychology; American Romanticism; Piano Performance.
+        \item[2019--22] \tab{}\textbf{High School Diploma, Pre-Law Track}, Judge Barefoot Sanders Law Magnet, Dallas, Texas. Graduated with Honors, Distinction, and a Distinguished Level of Achievement per the Texas Education Agency. Coursework included dual credit and 13 AP exams.
+    \end{tablist}
+
+    \section*{Appointments and Research Experience}
+    %\subsection*{Academic Appointments}
+    %\forthcoming{}
+
+    \subsection*{Research Positions}
+    \begin{tablist}
+        \item[2026--]
+        \tab{}\small{\textbf{\textsc{Mass General Brigham}}} \\[0.15em]
+                             \small{\textit{Assistant Research Intern, Department of Neurology}} \\
+                             Large-scale real-data phase of the CICADAS project (CICADAS-III), using MGB computing resources for large ICU EEG and clinical datasets. The framework was first run on real patient records in October 2026.
+        \item[2026--]   \tab{}\small{\textbf{\textsc{Stanford University}}} \\[0.15em]
+                              \small{\textit{Assistant Researcher, Department of Neurology, School of Medicine}} \\
+                              Continuing the CICADAS-II line of work begun at BIDMC/HMS toward real-world clinical use; introduced personalized adaptive thresholds based on SOFA scores and age, and advancing implementation against EEG and the MORGOTH large-scale ICU epileptic dataset. The joint methods paper that grounds this work is under major revision at the \textit{Journal of Neural Engineering}.
+        \item[2025--26] \tab{}\small{\textbf{\textsc{Beth Israel Deaconess Medical Center \& Harvard Medical School}}} \\[0.15em]
+                              \small{\textit{Assistant Researcher, Department of Neurology}}, under Dr.~M.~Brandon Westover \\
+                              Developed CICADAS-II, the successor to CICADAS (Causal Inference for Critical-Care Anti-Seizure Treatment with Disease Dynamics, Automated PKPD/Trial Simulation, and Survival Optimization): methodological frameworks that recover unbiased causal treatment effects from observational ICU data, with PKPD-aware modeling for diseased patients.
+    \end{tablist}
+
+    \subsection*{Paused or Discontinued Research}
+    \begin{tablist}
+        \item[2022--24] \tab{}\small{\textbf{\textsc{The University of Texas at Dallas}}}\\[0.15em]
+                              \textit{Unpaid Research and Literature Review Collaborator}, under Dr.~Abdi \\
+                              Meta-analysis on the Bouba-Kiki effect in children with Misophonia and/or Autism Spectrum Disorder.
+    \end{tablist}
+
+    \subsection*{Pre-College Research and Internships}
+    \begin{tablist}
+        \item[2021--22] \tab{}\small{\textbf{\textsc{School for Health Professions, Dallas}}} \\[0.15em]
+                              \textit{Student Researcher}, Microbiology Department, under Dr.~Harrington (high-school research) \\
+                              Identified novel functions of bacteria in the gut microbiome of \textit{Z.\ atratus} relevant to low-density polyethylene and polystyrene biodegradation. Written up as the AP Research academic paper submitted to the College Board.
+        \item[2021--22] \tab{}\small{\textbf{\textsc{City of Dallas}}} \\[0.15em]
+                              \textit{Dallas City Council Research Intern}, District 11 (high-school internship program through Judge Barefoot Sanders Law Magnet) \\
+                              Researched smart-city development initiatives under the supervision of the city manager and the District 11 council member
+    \end{tablist}
+
+    \section*{Additional Education}
+    \begin{tablist}
+        \item[2026]     \tab{}\small{\textbf{\textsc{Massachusetts Institute of Technology}}} \\
+                              Coursework in Bioengineering (Audit) \\
+                              \textit{20.205[J]/9.26: Principles and Applications of Genetic Engineering for Biotechnology and Neuroscience}
+        \item[2025--26] \tab{}\small{\textbf{\textsc{Harvard University}}}\\
+                              Coursework in Mathematics and History (Audit) \\
+                              \textit{Studies in Algebra and Group Theory (Math 55a); Studies in Real and Complex Analysis (Math 55b); Critical Theory (History 89)}
+        \item[2025]     \tab{}\small{\textbf{\textsc{Wabash College}}} \\
+                              Coursework in Mathematics, Neurobiology, and Music \\
+                              \textit{Complex Analysis; Non-Fiction Creative Writing; Linguistics; Sociolinguistics; Principles of Neuroscience; Organ Performance}
+        \item[2024]     \tab{}\small{\textbf{\textsc{Institute for Social Ecology}}} \\
+                              Coursework in Sociology and Social Ecology \\
+                              \textit{Legacies of Environmental Radicalism}
+        \item[2024]     \tab{}\small{\textbf{\textsc{The University of Texas at Dallas}}} \\
+                              Coursework in Mathematics (Audit) \\
+                              \textit{Combinatorics; Advanced Calculus}
+        \item[2023--24] \tab{}\small{\textbf{\textsc{Kenyon College}}} \\
+                              Coursework in Mathematics, Philosophy, Political Science, and Music \\
+                              \textit{Abstract Algebra I; Contemporary Mathematics Seminar; Symbolic Logic; Philosophy of Natural Science; Piano Practicum; Violin Practicum; Quest for Justice; STEM Research Methods}
+    \end{tablist}
+
+    \section*{Shared Course Notes}
+    Personal notes on courses taken, audited, or followed out of interest, shared openly at \href{https://www.samuel-stephens.com/notes}{samuel-stephens.com/notes}. Mostly transcriptions and summaries of other people's lectures and texts; course numbering inspired by MIT.
+    \begin{tablist}
+        \item[2025--26] \tab{}\textit{Math 55a: Studies in Algebra and Group Theory}: the textbook listed under Books, with transcriptions of Professor Denis Auroux's lecture notes and review sheets (full-text PDF also in the \href{https://github.com/sdvstephens/uni}{\texttt{uni}} repository)
+        \item[2026]     \tab{}\textit{Math 55b: Studies in Real and Complex Analysis}: transcribed lecture notes
+        \item[2026]     \tab{}\textit{Critical Theory}: 25 lecture write-ups on the Frankfurt School (Luk\'acs, Horkheimer, Benjamin, Adorno, Marcuse, Habermas, and beyond)
+        \item[2026]     \tab{}\textit{Basic Neuroscience and Geometry of Neuroscience}: neurons and signalling, behavior, the senses, methods and disorders; and Matilde Marcolli's Caltech course on dynamical, topological, geometric and categorical models of the brain, vision and language
+        \item[2026]     \tab{}\textit{Genetic Engineering}: notes from MIT 20.205[J]/9.26 (genome editing, CRISPR, and their neuroscience applications)
+        \item[ongoing]  \tab{}\textit{Measure Theory}: measure and integration following Folland's \textit{Real Analysis}
+        \item[ongoing]  \tab{}\textit{Integrated Mathematics}: an open curriculum from arithmetic through Integrated Maths~I and~II (sets and proof, equations and functions, quadratics, polynomials, sequences and induction, trigonometry, polar coordinates and complex numbers, the real numbers, integral domains)
+        \item[ongoing]  \tab{}\textit{Category Theory} and \textit{Biology} (molecular biology, cell biology, genetics, biochemistry)
+    \end{tablist}
+
+    \section*{Research Areas and Interests}
+    \begin{itemize}
+        \item Biostatistical and simulation methods for critical-care medicine: causal inference, pharmacokinetic/pharmacodynamic modeling, and survival optimization
+        \item Mathematical modeling of cognition and the mind; mathematical and theoretical neuroscience
+        \item Mathematical physics and algebraic foundations: polyadic algebraic structures, polyadic semigroups, and possible extensions to Lie polyadic algebras for differential equations
+        \item Philosophy of natural science: Hempel's models of scientific explanation with classical Aristotelian logic replaced by non-classical logics
+        \item Education philosophy, politics of education, and political philosophy; post-post modernism
+        \item Neurobioengineering and cognitive science
+    \end{itemize}
+
+    \section*{Manuscripts, Publications, and Other Writings}
+    \subsection*{Books and Textbooks}
+    \begin{tablist}
+        \item[2025--26] \tab{}Samuel~D.~V.\ Stephens. \textit{Studies in Algebra and Group Theory}. A 519-page textbook written alongside Harvard's Math 55a (fall 2025); revised edition, November 2026. The course instructor agreed to offer it to future Math 55a students as supplementary material. Online at \href{https://www.samuel-stephens.com/notes/math-55a/}{samuel-stephens.com/notes/math-55a}.
+    \end{tablist}
+
+    \subsection*{Manuscripts Under Review}
+    \begin{tablist}
+        \item[2026] \tab{}Samuel~D.~V.\ Stephens\textsuperscript{*}, Tara Westover\textsuperscript{*}, Sahar F.\ Zafar, M.~Brandon Westover. \enquote{CICADAS-II: Simulation-Based Causal Inference and Adaptive Dosing from Sparse Seizure Counts and Bolus Anti-Seizure Medication in the ICU.} Under major revision at the \textit{Journal of Neural Engineering}. \textsuperscript{*}Co-first authors.
+    \end{tablist}
+
+    \subsection*{Manuscripts in Preparation}
+    \begin{tablist}
+        \item[2026--]   \tab{}Samuel~D.~V.\ Stephens. \textit{Studies in Real and Complex Analysis}. Companion textbook for Harvard's Math 55b (spring 2026).
+        \item[2026--]   \tab{}Samuel~D.~V.\ Stephens. \enquote{Monotone Arithmetic Progressions in the Gray Code and in Negabinary Enumerations of the Integers.} On Erdős Problems \#195 and \#196.
+        \item[2026--]   \tab{}Samuel~D.~V.\ Stephens. \enquote{On Justice: A Manifesto.} On analytic philosophy's failure to provide substance for societal and structural just formation.
+        \item[2024--]   \tab{}Samuel~D.~V.\ Stephens, John Cervantes. \enquote{Collaborative Manuscript in Political Philosophy.} A long-term two-person collaboration on the intersections of political theory, educational theory, and ethics, with an extensive chapter outline and drafted sections.
+    \end{tablist}
+
+    \subsection*{Musical Arrangements}
+    Selected arrangements with publicly available sheet music and accompanying recordings; some works published under the pseudonyms \textit{Czyzew}, \textit{Dr. Grimmmmm}, and \textit{Viktor Alexandre Saint-Yves d'Alveydre}. Catalog of works at \href{https://www.samuel-stephens.com/music}{samuel-stephens.com/music}.
+    \begin{itemize}
+        \item \textit{Ground} after John Eccles---solo piano arrangement (A-flat minor, 3/4) on a recurring baroque bass figure
+        \item \textit{Couplets de folies} after Marin Marais---harp arrangement
+        \item \textit{\'Etude d'Ex\'ecution Transcendante No.~1: Grande \'Etude en Fa Mineur} after Henselt---solo piano (under \textit{Czyzew})
+        \item \textit{\'Etude d'Ex\'ecution Transcendante No.~2} after Henselt---solo piano (under \textit{Czyzew})
+        \item \textit{Armide, LWV 71} after Jean-Baptiste Lully---arrangements of select sections
+        \item \textit{Chamber Concerto in D minor, RV 96} after Vivaldi---\href{https://www.youtube.com/watch?v=MfAI0IuN4n8}{recording} and \href{https://musescore.com/user/35512053/scores/6702147}{sheet music} available openly online
+    \end{itemize}
+
+    \subsection*{Essays}
+    Essays and commentary on philosophy, politics, and mathematics at \href{https://www.samuel-stephens.com/blog}{samuel-stephens.com/blog}.
+
+    \section*{Technical Projects}
+    \subsection*{Research and Academic Software}
+    \begin{tablist}
+        \item[2025--]   \tab{}\textbf{cicadas2} --- Reference implementation supporting the CICADAS-II manuscript and the Stanford research program. Primary developer. \textit{Repository currently private; will be published with the manuscript.}
+    \end{tablist}
+    \begin{itemize}
+        \item Two complete implementations: MATLAB reference (the original) and a verified Python port (NumPy/SciPy), each with a full pytest/MATLAB cross-fixture test suite that locks numerical equivalence
+        \item Implements an Extended Kalman Filter on the log-rate state, one-compartment PK with infusion and bolus dosing, Hill/linear PD suppression, five treatment strategies (including adaptive variants), and parametric \textit{g-formula} recovery of causal treatment effects from confounded observational data
+        \item Includes the \LaTeX{} manuscript draft, a reproducibility harness that regenerates every reported number, and a figure-generation pipeline in both MATLAB and Python
+    \end{itemize}
+
+    \begin{tablist}
+        \item[2023--]   \tab{}\textbf{uni} --- Command-line tool for managing coursework, lecture notes, and problem sets in \LaTeX{} and Org-mode. Sole developer; built for personal use and released openly for others. \href{https://github.com/sdvstephens/uni}{github.com/sdvstephens/uni}
+    \end{tablist}
+    \begin{itemize}
+        \item Built an integrated, terminal-based academic workflow as a single Python CLI (\texttt{acad}, exposed through a \texttt{uni} fish-shell wrapper) consolidating course management, lecture and problem-set scaffolding, grade and GPA tracking, and a live status dashboard, in daily personal use across coursework, audits, and tutoring
+        \item Generates lecture and problem-set documents in both Org-mode and \LaTeX{} from the command line, with master-file assembly, plain \texttt{pdflatex} via \texttt{latexmk} against a shared preamble, and an Ipe figure-insertion pipeline driven from first-class \texttt{neovim}/vimtex integration
+        \item Integrated with Taskwarrior and Timewarrior for deadline-aware, time-tracked course management surfaced through the dashboard
+        \item Stores course metadata, grades, and notes as human-readable JSON under Git version control
+        \item Published as a FOSS project under MIT---\texttt{pipx install acad-cli}; \href{https://github.com/sdvstephens/acad-cli}{\texttt{sdvstephens/acad-cli}}---inspired by the late Gilles Castel
+    \end{itemize}
+
+    \subsection*{Personal Projects}
+    \begin{tablist}
+        \item[2026--]   \tab{}\textbf{graphite} --- Graphing and 3D calculator for the reMarkable Paper Pro. Sole developer. \textit{Repository currently private; in active development.}
+    \end{tablist}
+    \begin{itemize}
+        \item Renders 2D, parametric, polar, and implicit curves and shaded 3D surfaces, and is designed to insert graphs into the active notebook or document as native, resizable objects
+        \item QML (Qt Quick Canvas) frontend for the interface and rendering; Python backend (\texttt{sympy}/\texttt{numpy}/\texttt{scipy}) over a Unix socket for parsing, symbolic computation, sampling, and 3D meshes; delivered to the device through XOVI/AppLoad
+    \end{itemize}
+
+    \begin{tablist}
+        \item[2024--]   \tab{}\textbf{Better Campus} (formerly BetterCanvas) --- Safari Web Extension for Canvas LMS. Sole developer. \textit{Repository currently private; will be published once stable.}
+    \end{tablist}
+    \begin{itemize}
+        \item Native Safari Web Extension (Xcode/Swift host app plus a Safari extension target) that improves the day-to-day Canvas LMS reading and submission workflow on macOS and iOS/iPadOS
+    \end{itemize}
+
+    \begin{tablist}
+        \item[2025--26] \tab{}\textbf{rmpp-stabilizer} and \textbf{rmpp-wikipedia} --- Tools for the reMarkable Paper Pro. Sole developer. \textit{Discontinued.}
+    \end{tablist}
+    \begin{itemize}
+        \item \texttt{rmpp-stabilizer}: an \texttt{LD\_PRELOAD} shared library (C++, MIT licensed) that intercepts evdev pen input before \texttt{xochitl} and smooths handwriting in real time, with moving-average, Gaussian-weighted, Krita-style \textit{string pull}, and One Euro (Casiez et al., 2012) filters; Docker-based aarch64 toolchain
+        \item \texttt{rmpp-wikipedia}: an offline Wikipedia reader, a Qt/QML interface talking over loopback HTTP to a native \texttt{zimserver} backend built on Kiwix \texttt{kiwix-tools} and \texttt{libzim}
+    \end{itemize}
+
+    \section*{Awards and Honors}
+    \begin{tablist}
+        \item[2025] \tab{}Honors and Dean's Scholar, Wabash College
+        \item[2023] \tab{}KEEP-STEM Scholar, Kenyon College (program supported by the National Science Foundation)
+        \item[2022] \tab{}AP Capstone Scholar, The College Board
+        \item[2021] \tab{}AP Scholar with Distinction and Honors, The College Board
+    \end{tablist}
+
+    \section*{Teaching}
+    \subsection*{Tutoring}
+    \begin{tablist}
+        \item[2025--] \tab{}\textit{Private Mathematics Tutor} \\
+                            Tutors a Boston exam-school student in precalculus, AP Calculus BC, and physics; writes student guides, worked solutions, and inquiry-based homework.
+        \item[2023]   \tab{}\textit{Online Lecturer}, children's mathematics lecture series \\
+                            Created a YouTube lecture series (\href{https://www.youtube.com/@Vichaama}{@Vichaama}) with custom curricula and materials.
+    \end{tablist}
+
+    \subsection*{Independent Curriculum}
+    Open mathematics curriculum for self-paced learners, starting from arithmetic. It takes a structural approach to mathematics, shaped by the shortcomings of the 1960s \textit{New Math}, and a Humboldtian, dialectical view of education. Worksheets, problem sets, and lecture notes are published at \href{https://www.samuel-stephens.com/notes/integrated-maths/}{samuel-stephens.com/notes/integrated-maths}; lectures are scripted in \LaTeX{} and will be recorded for YouTube (\href{https://www.youtube.com/@Vichaama}{@Vichaama}).
+    \begin{itemize}
+        \item \textit{Basic Mathematics} (in progress)---pre-algebra, arithmetic as structure, algebraic foundations, number theory, geometric reasoning, counting and probability, and functions, laid out lecture by lecture
+        \item \textit{Integrated Mathematics I} (notes online)---sets and proof; equations, functions, and graphs; quadratics; polynomials; sequences, series, and induction; with graph theory, combinatorics, and probability planned
+        \item \textit{Integrated Mathematics II} (notes online)---trigonometry; parametric equations, polar coordinates, and complex numbers; the real numbers; groups, rings, and fields; with vector spaces and topology planned
+        \item \textit{Integrated Mathematics III and IV} (planned)---advanced linear algebra, advanced group theory, real analysis, and topology; then complex analysis, differential equations, Lie groups, geometry, and differential geometry
+    \end{itemize}
+
+    %\section*{Service}
+   % \subsection*{Board of Directors}
+   % \forthcoming{}
+    %\section*{Memberships}
+    %\forthcoming{}
+    % \begin{itemize}
+    %     \item North American Computational Linguistics Olympiad (NACLO) --- past competitor
+    % \end{itemize}
+
+    \section*{Professional Employment}
+    \begin{tablist}
+        \item[2025--]   \tab{}Self-employed, Massachusetts \\
+                              Private Mathematics Tutor
+        \item[2025]     \tab{}1832 Brew at Wabash College, Crawfordsville, Indiana \\
+                              Part-Time Barista
+        \item[2024]     \tab{}Walgreens, Dallas, Texas \\
+                              Sales Representative
+        \item[2024]     \tab{}Fossil Group, Inc., Dallas, Texas \\
+                              Stylist and Sales Expert
+        \item[2023]     \tab{}Nordstrom, E-Bar Coffeehouse, Dallas, Texas \\
+                              Summer Barista
+    \end{tablist}
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        Updated \monthyeardate\today
+    \end{center}
+\end{document}
