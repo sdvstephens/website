@@ -1,0 +1,22 @@
+\begin{tikzpicture}[>={Stealth[length=2.2mm]}, font=\small]
+  % head, seen from the front-left, facing along the x axis
+  \draw[gray, thick] (0,0) circle (0.75);
+  \node[gray, align=center] at (0.3,-1.25) {head, facing\\along $x$};
+  % axes
+  \draw[->, very thick, blue] (0,0) -- (0,2.6) node[above] {$z$};
+  \draw[->, very thick, red] (0,0) -- (-2.3,-1.38) node[below left] {$x$};
+  \draw[->, very thick, green!60!black] (0,0) -- (2.4,-0.96) node[below right] {$y$};
+  % yaw: rotation around z
+  \draw[->, thick, blue] (0.62,1.95) arc[start angle=0, end angle=300, x radius=0.62, y radius=0.2];
+  \node[blue, align=left, anchor=west] at (0.8,2.15) {\textbf{Yaw}: rotation around the $z$ axis\\(top-to-bottom axis)};
+  % roll: rotation around x
+  \begin{scope}[shift={(-1.7,-1.02)}, rotate=31]
+    \draw[->, thick, red] (0,-0.55) arc[start angle=-90, end angle=210, x radius=0.18, y radius=0.55];
+  \end{scope}
+  \node[red, align=right, anchor=east] at (-2.0,-0.35) {\textbf{Roll}: rotation around\\the $x$ axis\\(front-to-back axis)};
+  % pitch: rotation around y
+  \begin{scope}[shift={(1.75,-0.7)}, rotate=-22]
+    \draw[->, thick, green!60!black] (0,-0.55) arc[start angle=-90, end angle=210, x radius=0.18, y radius=0.55];
+  \end{scope}
+  \node[green!60!black, align=left, anchor=west] at (2.15,-0.05) {\textbf{Pitch}: rotation around\\the $y$ axis\\(ear-to-ear axis)};
+\end{tikzpicture}

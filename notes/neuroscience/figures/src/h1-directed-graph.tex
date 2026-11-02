@@ -1,0 +1,21 @@
+\begin{tikzpicture}[
+    v/.style={circle, draw=black, thick, minimum size=6mm, inner sep=0pt},
+    e/.style={-{Latex[length=2.2mm]}, thick},
+  ]
+  \node[v, fill=gray, fill opacity=0.5, text opacity=1] (y) at (0,2.2) {};
+  \node[v, fill=orange, fill opacity=0.5, text opacity=1] (o) at (1.6,3.3) {};
+  \node[v, fill=green, fill opacity=0.5, text opacity=1] (g) at (1.6,1.6) {};
+  \node[v, fill=purple, fill opacity=0.5, text opacity=1] (p) at (3.4,2.1) {};
+  \node[v, fill=gray, fill opacity=0.2, text opacity=1] (t) at (5.2,2.1) {};
+  \node[v, fill=red, fill opacity=0.5, text opacity=1] (r) at (3.4,0.5) {};
+  \node[v, fill=blue, fill opacity=0.5, text opacity=1] (b) at (5.2,0.5) {};
+  \draw[e] (y) -- (g);
+  \draw[e] (g) -- (o);
+  \draw[e] (o) -- (p);
+  \draw[e] (g) -- (p);
+  \draw[e] (p) -- (t);
+  \draw[e] (g) to[bend left=12] (r);
+  \draw[e] (r) to[bend left=12] (g);
+  \draw[e] (b) -- (r);
+  \draw[e] (b) to[out=-30, in=-100, looseness=6] (b);
+\end{tikzpicture}

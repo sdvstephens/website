@@ -1,0 +1,52 @@
+\begin{tikzpicture}[
+  >=Stealth,
+  num/.style={circle, draw=blue, thick, text=blue, font=\small\bfseries, inner sep=1.5pt, minimum size=15pt},
+  lab/.style={font=\small, text=black},
+  ion/.style={font=\small, text=green!50!black}
+]
+\begin{scope}[xscale=1.8, yscale=0.05]
+  % axes
+  \draw[->] (-0.7,-100) -- (-0.7,55) node[above, font=\small] {Voltage (mV)};
+  \draw[->] (-0.7,-100) -- (5.7,-100) node[right, font=\small] {Time (ms)};
+  \foreach \t in {0,1,2,3,4,5} {
+    \draw (\t,-100) -- (\t,-102.5) node[below, font=\footnotesize] {\t};
+  }
+  \foreach \v/\l in {40/{+40}, 0/0, -55/{$-55$}, -70/{$-70$}} {
+    \draw (-0.7,\v) -- (-0.78,\v) node[left, font=\footnotesize] {\l};
+  }
+  % reference lines
+  \draw[gray, dashed] (-0.7,-70) -- (5.6,-70);
+  \draw[gray, dashed] (-0.7,-55) -- (1.45,-55);
+  \node[font=\footnotesize, text=gray, above] at (0.25,-55) {Threshold};
+  \node[font=\footnotesize, text=gray, above] at (4.6,-70) {Resting state};
+  % failed initiations
+  \draw[orange, thick] plot[smooth, tension=0.7] coordinates {(1.2,-70) (1.55,-62) (1.9,-69) (2.05,-70)};
+  \draw[orange, thick] plot[smooth, tension=0.7] coordinates {(1.2,-70) (1.55,-66) (1.9,-70)};
+  \draw[gray] (1.6,-63) -- (1.95,-48) node[above right, font=\footnotesize, text=black, align=left, inner sep=1pt] {Failed\\[-2pt]initiations};
+  % action potential
+  \draw[orange, very thick] (-0.6,-70) -- (1.2,-70)
+    .. controls (1.3,-69) and (1.38,-60) .. (1.45,-55)
+    -- (2.12,30)
+    .. controls (2.2,42) and (2.32,42) .. (2.4,30)
+    -- (2.8,-55)
+    .. controls (2.95,-80) and (3.2,-87) .. (3.6,-87)
+    .. controls (4.1,-87) and (4.5,-72) .. (5.0,-70.3)
+    -- (5.6,-70);
+  % stimulus arrow
+  \draw[->, thick] (1.2,-80) -- (1.2,-71.5);
+  \node[lab, below] at (1.2,-80) {Stimulus};
+  % labels for phases
+  \node[font=\small, text=gray] at (2.25,50) {Action potential};
+  \node[num] at (0.6,-85) {1};
+  \node[num] at (1.3,5) {2};
+  \node[lab, rotate=74] at (1.6,-5) {Depolarization};
+  \node[ion] at (0.95,30) {Na$^+$ ions in};
+  \node[num] at (3.2,20) {3};
+  \node[lab, rotate=-76] at (2.9,0) {Repolarization};
+  \node[ion] at (3.6,0) {K$^+$ ions out};
+  \node[num] at (4.55,-88) {4};
+  \node[lab] at (3.6,-96) {Hyperpolarization};
+  \node[num] at (-0.3,-80) {5};
+  \node[num] at (5.45,-58) {5};
+\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,25 @@
+\begin{tikzpicture}[>={Stealth[length=2.2mm]}, font=\small,
+    box/.style={align=center, inner sep=3pt}]
+  % taste/touch pathway (left)
+  \node[box] (t1) at (0,0) {Tongue};
+  \node[box] (t2) at (0,-1.6) {\textbf{Medulla}\\(solitary nucleus)};
+  \node[box] (t3) at (0,-3.3) {thalamus, cortex,\\hypothalamus, amygdala};
+  \node[box, blue] (t4) at (0,-4.9) {\textbf{Taste/Touch}};
+  \draw[->, thick, blue] (t1) -- (t2);
+  \draw[->, thick, blue] (t2) -- (t3);
+  \draw[->, thick, blue] (t3) -- (t4);
+  % balance pathway (right)
+  \node[box] (b1) at (5,0) {Inner ear\\(semicircular canals)};
+  \node[box] (b2) at (5,-1.6) {\textbf{Medulla}\\(vestibular nucleus)};
+  \node[box] (b3) at (5,-3.3) {cerebellum/\\eye and head muscles};
+  \node[box, draw=red, thick] (b4) at (5,-4.9) {\textbf{Balance}};
+  \draw[->, thick] (b1) -- (b2) coordinate[midway] (cut);
+  \draw[->, thick] (b2) -- (b3);
+  \draw[->, thick] (b3) -- (b4);
+  % damage to the inner ear
+  \draw[red, very thick] ($(cut)+(-0.22,-0.22)$) -- ($(cut)+(0.22,0.22)$);
+  \draw[red, very thick] ($(cut)+(-0.22,0.22)$) -- ($(cut)+(0.22,-0.22)$);
+  \node[red, anchor=west, font=\scriptsize] at ($(cut)+(0.35,0)$) {damaged};
+  % substitution: rewired synapses in the medulla
+  \draw[->, very thick, red] (t2) -- (b2) node[midway, above, align=center, font=\scriptsize] {new connections\\(synaptic plasticity)};
+\end{tikzpicture}

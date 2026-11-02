@@ -41,8 +41,9 @@ PREAMBLE = r"""\documentclass[border=1.5pt]{standalone}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,mathtools}
 \usepackage{xcolor}
-\usepackage{tikz,tikz-cd}
-\usetikzlibrary{braids,calc,arrows.meta,positioning,intersections,angles,quotes,patterns,backgrounds}
+\usepackage{tikz,tikz-cd,pgfplots}
+\pgfplotsset{compat=1.17}
+\usetikzlibrary{braids,calc,arrows.meta,positioning,intersections,angles,quotes,patterns,backgrounds,decorations.pathreplacing,decorations.markings,shapes.geometric}
 \newcommand{\RR}{\mathbb{R}}\newcommand{\ZZ}{\mathbb{Z}}\newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\CC}{\mathbb{C}}\newcommand{\NN}{\mathbb{N}}
 \newcommand{\id}{\mathrm{id}}\newcommand{\ol}{\overline}

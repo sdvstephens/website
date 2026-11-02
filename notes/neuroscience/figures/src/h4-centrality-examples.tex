@@ -1,0 +1,51 @@
+\begin{tikzpicture}[
+  v/.style={circle, draw, fill=white, minimum size=7pt, inner sep=0pt},
+  arr/.style={-{Stealth[length=2mm]}, shorten >=0.5pt},
+  lab/.style={font=\bfseries\small}]
+% indegree: five edges point into X
+\begin{scope}
+  \node[v] (X) at (0,0) {};
+  \node[v] (a) at (-0.6,0.9) {};
+  \node[v] (b) at (0.6,0.9) {};
+  \node[v] (c) at (-1.0,-0.2) {};
+  \node[v] (d) at (-0.1,-1.0) {};
+  \node[v] (Y) at (0.85,-0.5) {};
+  \foreach \z in {a,b,c,d,Y} \draw[arr] (\z) -- (X);
+  \node[lab, right] at (0.15,0.15) {X};
+  \node[lab, below right] at (Y.south east) {Y};
+  \node at (0,-1.8) {indegree};
+\end{scope}
+% outdegree: five edges point out of X
+\begin{scope}[xshift=3.2cm]
+  \node[v] (X) at (0,0) {};
+  \node[v] (a) at (-0.6,0.9) {};
+  \node[v] (b) at (0.6,0.9) {};
+  \node[v] (c) at (-1.0,-0.2) {};
+  \node[v] (d) at (-0.1,-1.0) {};
+  \node[v] (Y) at (0.85,-0.5) {};
+  \foreach \z in {a,b,c,d,Y} \draw[arr] (X) -- (\z);
+  \node[lab, right] at (0.15,0.15) {X};
+  \node[lab, below right] at (Y.south east) {Y};
+  \node at (0,-1.8) {outdegree};
+\end{scope}
+% betweenness: two triangles sharing the vertex X
+\begin{scope}[xshift=6.4cm]
+  \node[v] (X) at (0,-0.2) {};
+  \node[v] (l) at (-0.9,0.5) {};
+  \node[v] (Y) at (-0.2,0.8) {};
+  \node[v] (r1) at (1.0,0.2) {};
+  \node[v] (r2) at (0.95,-0.6) {};
+  \draw (X) -- (l) -- (Y) -- (X) -- (r1) -- (r2) -- (X);
+  \node[lab, below] at (X.south) {X};
+  \node[lab, right] at (Y.east) {Y};
+  \node at (0,-1.8) {betweenness};
+\end{scope}
+% closeness: path on five vertices
+\begin{scope}[xshift=9.0cm]
+  \foreach \i in {1,...,5} \node[v] (p\i) at (0.5*\i,0) {};
+  \draw (p1) -- (p2) -- (p3) -- (p4) -- (p5);
+  \node[lab, below] at (p3.south) {X};
+  \node[lab, below] at (p4.south) {Y};
+  \node at (1.5,-1.8) {closeness};
+\end{scope}
+\end{tikzpicture}

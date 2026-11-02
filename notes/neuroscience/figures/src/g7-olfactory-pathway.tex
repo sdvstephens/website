@@ -1,0 +1,14 @@
+\begin{tikzpicture}[>={Stealth[length=2.2mm]}, font=\small,
+    area/.style={draw, rounded corners=2pt, align=left, inner sep=4pt, text width=5.8cm}]
+  \node[draw, rounded corners=2pt, align=center] (ep) at (0,0) {olfactory\\epithelium};
+  \node[draw, rounded corners=2pt, align=center] (bulb) at (2.6,0) {olfactory\\bulb};
+  \node[draw, rounded corners=2pt, align=center] (tract) at (5.0,0) {olfactory\\tract};
+  \draw[->, thick] (ep) -- (bulb);
+  \draw[->, thick] (bulb) -- (tract);
+  \node[area] (ctx) at (10.2,2.4) {\textbf{olfactory cortex} of the temporal lobe: conscious perception of smell};
+  \node[area] (hip) at (10.2,1.2) {\textbf{hippocampus}: olfactory memory};
+  \node[area] (amy) at (10.2,0) {\textbf{amygdala}: emotional responses};
+  \node[area] (hyp) at (10.2,-1.2) {\textbf{hypothalamus}};
+  \node[area] (ret) at (10.2,-2.4) {\textbf{reticular formation}: visceral responses to smell};
+  \foreach \t in {ctx, hip, amy, hyp, ret} { \draw[->, thick] (tract.east) -- (\t.west); }
+\end{tikzpicture}

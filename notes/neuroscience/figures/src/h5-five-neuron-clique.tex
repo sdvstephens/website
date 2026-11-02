@@ -1,0 +1,13 @@
+\begin{tikzpicture}[v/.style={circle,fill=blue,inner sep=0pt,minimum size=6pt},
+  e/.style={postaction={decorate},decoration={markings,mark=at position 0.56 with {\arrow{Stealth[length=2mm,width=1.5mm]}}}}]
+% vertices in order source = 0, ..., sink = 4
+\node[v] (a) at (162:1.6) {};
+\node[v] (b) at (234:1.6) {};
+\node[v] (c) at (90:1.6) {};
+\node[v] (d) at (306:1.6) {};
+\node[v] (e) at (18:1.6) {};
+\node[left] at (a.west) {source};
+\node[right] at (e.east) {sink};
+\foreach \s/\t in {a/b,a/c,a/d,a/e,b/c,b/d,b/e,c/d,c/e,d/e}
+  \draw[e] (\s) -- (\t);
+\end{tikzpicture}

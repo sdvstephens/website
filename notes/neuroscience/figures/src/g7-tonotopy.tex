@@ -1,0 +1,28 @@
+\begin{tikzpicture}[>={Stealth[length=2.2mm]}, font=\small]
+  % "uncoiled" cochlea, base on the left, apex on the right
+  \filldraw[fill=orange!12, draw=black, thick]
+    (0,0) -- (10,0) arc[start angle=-90, end angle=90, radius=0.45] -- (0,0.9) -- cycle;
+  \draw[blue, very thick] (0.3,0.45) -- (10.1,0.45);
+  \foreach \n in {1,...,7} {
+    \node[circle, fill=blue, text=white, inner sep=1pt, font=\scriptsize\bfseries] at ({0.6+1.45*(\n-1)},0.45) {\n};
+  }
+  \node[anchor=east, align=right] at (-0.15,0.45) {stapes on\\oval window};
+  \node[below] at (0.6,-0.05) {cochlear base};
+  \node[below] at (9.3,-0.05) {apex};
+  \node[above] at (5,0.95) {``uncoiled'' cochlea};
+  % frequency responses
+  \draw[->, thick] (2.05,2.2) node[above, align=center] {\textbf{High frequency}\\\textbf{response}} -- (2.05,1.0);
+  \draw[->, thick] (9.3,2.2) node[above, align=center] {\textbf{Low frequency}\\\textbf{response}} -- (9.3,1.0);
+  % auditory cortex map
+  \begin{scope}[shift={(0,-3.2)}]
+    \foreach \f [count=\i] in {16{,}000, 8000, 4000, 2000, 1000, 500} {
+      \pgfmathsetmacro{\shade}{6+7*\i}
+      \filldraw[fill=blue!\shade, draw=black] ({1.5*(\i-1)+1.0},0) rectangle ({1.5*\i+1.0},0.9);
+      \node[font=\scriptsize] at ({1.5*\i+0.25},0.45) {\f\,Hz};
+    }
+    \node[below, align=center] at (5.5,-0.05) {primary auditory cortex};
+  \end{scope}
+  % correspondence
+  \draw[dashed, thick, gray] (0.6,-0.6) -- node[left, font=\scriptsize, black] {corresponds to base} (1.75,-2.3);
+  \draw[dashed, thick, gray] (9.3,-0.6) -- node[right, font=\scriptsize, black] {corresponds to apex} (9.25,-2.3);
+\end{tikzpicture}

@@ -109,14 +109,12 @@
         {
           "number": "8",
           "slug": "08-hearing-and-balance",
-          "title": "Hearing and Balance",
-          "planned": true
+          "title": "Hearing and Balance"
         },
         {
           "number": "9",
           "slug": "09-touch-taste-and-smell",
-          "title": "Touch, Taste and Smell",
-          "planned": true
+          "title": "Touch, Taste, and Smell"
         }
       ]
     },
@@ -128,20 +126,17 @@
         {
           "number": "10",
           "slug": "10-research-methods",
-          "title": "Research Methods",
-          "planned": true
+          "title": "Research Methods"
         },
         {
           "number": "11",
           "slug": "11-machine-learning",
-          "title": "Machine Learning",
-          "planned": true
+          "title": "Machine Learning"
         },
         {
           "number": "12",
           "slug": "12-therapies-and-prosthetics",
-          "title": "Therapies and Prosthetics",
-          "planned": true
+          "title": "Therapies and Prosthetics"
         }
       ]
     },
@@ -153,14 +148,12 @@
         {
           "number": "13",
           "slug": "13-anxiety-disorders",
-          "title": "Anxiety Disorders",
-          "planned": true
+          "title": "Anxiety Disorders"
         },
         {
           "number": "14",
           "slug": "14-depression",
-          "title": "Depression",
-          "planned": true
+          "title": "Depression"
         }
       ]
     },
@@ -172,14 +165,12 @@
         {
           "number": "G1",
           "slug": "g01-a-mathematical-promenade-and-gromovs-ergobrain-program",
-          "title": "A Mathematical Promenade and Gromov’s Ergobrain Program",
-          "planned": true
+          "title": "A Mathematical Promenade and Gromov’s Ergobrain Program"
         },
         {
           "number": "G2",
           "slug": "g02-geometry-of-neuroscience-the-2017-opening-lecture",
-          "title": "Geometry of Neuroscience: the 2017 Opening Lecture",
-          "planned": true
+          "title": "Geometry of Neuroscience: the 2017 Opening Lecture"
         }
       ]
     },
@@ -210,14 +201,12 @@
         {
           "number": "G5",
           "slug": "g05-brain-networks-and-topology",
-          "title": "Brain Networks and Topology",
-          "planned": true
+          "title": "Brain Networks and Topology"
         },
         {
           "number": "G6",
-          "slug": "g06-neocortical-microcircuitry-and-directed-algebraic-topology",
-          "title": "Neocortical Microcircuitry and Directed Algebraic Topology",
-          "planned": true
+          "slug": "g06-neurocortical-microcircuitry-and-directed-algebraic-topology",
+          "title": "Neurocortical Microcircuitry and Directed Algebraic Topology"
         }
       ]
     },
@@ -235,8 +224,7 @@
         {
           "number": "G8",
           "slug": "g08-homotopy-theoretic-and-categorical-models-of-neural-information-networks",
-          "title": "Homotopy-Theoretic and Categorical Models of Neural Information Networks",
-          "planned": true
+          "title": "Homotopy-Theoretic and Categorical Models of Neural Information Networks"
         }
       ]
     },
@@ -248,14 +236,12 @@
         {
           "number": "G9",
           "slug": "g09-the-visual-system-receptor-profiles-and-gabor-frames",
-          "title": "The Visual System: Receptor Profiles and Gabor Frames",
-          "planned": true
+          "title": "The Visual System: Receptor Profiles and Gabor Frames"
         },
         {
           "number": "G10",
           "slug": "g10-conformal-geometry-of-the-visual-cortex",
-          "title": "Conformal Geometry of the Visual Cortex",
-          "planned": true
+          "title": "Conformal Geometry of the Visual Cortex"
         },
         {
           "number": "G11",
@@ -285,14 +271,12 @@
         {
           "number": "G14",
           "slug": "g14-algebraic-geometry-of-segmentation-and-tracking",
-          "title": "Algebraic Geometry of Segmentation and Tracking",
-          "planned": true
+          "title": "Algebraic Geometry of Segmentation and Tracking"
         },
         {
           "number": "G15",
           "slug": "g15-pattern-theory",
-          "title": "Pattern Theory",
-          "planned": true
+          "title": "Pattern Theory"
         }
       ]
     },

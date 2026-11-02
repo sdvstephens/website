@@ -139,5 +139,275 @@
   },
   "g6-transcription-sketch": {
     "alt": "Sketch of transcription: a strip of DNA with a promoter block near one end and a terminator block near the other, and below it an RNA polymerase with a strand of RNA trailing behind it; a red double arrow shows the promoter and polymerase binding, a binding regulated by transcription factors."
+  },
+  "g7-head-axes": {
+    "alt": "Three axes through the head, each with a curved arrow for rotation around it: rotation around the front-to-back x axis is roll, around the ear-to-ear y axis is pitch, and around the vertical z axis is yaw."
+  },
+  "g7-hair-cell": {
+    "alt": "A familiar neuron beside a hair cell, with arrows matching their parts: the hair cell's staircase of hair-like projections stands in the place of the dendrites, its body (with a cuticular plate on top and a nucleus inside) is the cell body, and its base, which passes the signal on, stands in the place of the axon."
+  },
+  "g7-hair-bundle": {
+    "alt": "Two hair bundles with projections in a staircase of heights, each linked at its tip to an ion channel: tilted toward the tallest projection, the links pull the channels open and positive ions flow in, causing depolarization; tilted the other way, the links go slack and the channels close, causing hyperpolarization."
+  },
+  "g7-tongue-array": {
+    "alt": "A grid of electrodes on the tongue with five numbered positions: center (2) for the head upright, left and right edges (1 and 3) for the head tilted to either side, toward the back of the tongue (4) for the head tilted back, and toward the tip (5) for the head tilted forward."
+  },
+  "g7-substitution": {
+    "alt": "Two pathways side by side: tongue to medulla (solitary nucleus) to thalamus, cortex, hypothalamus and amygdala to taste and touch; inner ear to medulla (vestibular nucleus) to cerebellum and eye and head muscles to balance. The inner-ear link is crossed out as damaged, and a new connection from the solitary nucleus to the vestibular nucleus, made through synaptic plasticity, carries the tongue's input to balance."
+  },
+  "g7-tongue-vision": {
+    "alt": "Flowchart of seeing with the tongue: a camera on the forehead captures a test symbol, a processor turns the image into electrical pulses, an electrode array on the tongue stimulates touch receptors, nerves carry impulses to the somatosensory cortex, they are relayed to the visual and visual association cortex, and the prefrontal cortex recognizes the object, so the symbol is perceived."
+  },
+  "g7-tonotopy": {
+    "alt": "The cochlea uncoiled into a tube from its base (next to the stapes on the oval window) to its apex, with seven positions: high frequencies respond near the base and low frequencies near the apex. Below it, the primary auditory cortex has bands from 16,000 Hz down to 500 Hz, with the base of the cochlea mapping to the 16,000 Hz end and the apex to the 500 Hz end."
+  },
+  "g7-homunculus-strip": {
+    "alt": "The body map along the cortical strip, unrolled from the top of the brain to its side: genitalia, toes, feet, ankle, knee, leg, hip, trunk, shoulder, elbow and wrist in small areas, then a large hand region (hand, digits V to II, thumb), then neck, brow, eyelids and eyeballs, then a large face-and-lips region, then jaw, tongue, throat, mastication and salivation."
+  },
+  "g7-pain-gate": {
+    "alt": "Cross-section of the spinal cord: neuron 1 carries a pain signal from the skin, past its cell body outside the cord, into the back of the cord, where it synapses onto neuron 2, which crosses the cord and ascends to the somatosensory cortex; a neuron descending from the periaqueductal gray, which releases opioids, makes an inhibitory connection at that synapse."
+  },
+  "g7-olfactory-pathway": {
+    "alt": "Olfactory pathway: the olfactory epithelium feeds the olfactory bulb and the olfactory tract, which projects to the olfactory cortex of the temporal lobe (conscious perception of smell), the hippocampus (olfactory memory), the amygdala (emotional responses), the hypothalamus, and the reticular formation (visceral responses to smell)."
+  },
+  "g8-eeg-seizure": {
+    "alt": "EEG recording of eight channels, four from the left brain and four from the right. Partway through, under a bracket labeled seizure, the left-brain traces change from small irregular waves to large rhythmic spiking waves; the right-brain traces stay small and irregular throughout."
+  },
+  "g8-dreadds": {
+    "alt": "The DREADD method in steps: a DNA construct carrying a fluorescent tag (GFP) and the DREADD gene (hM3/hM4) is packed into a viral vector, a harmless virus carrying the gene; this is injected into the brain, where target neurons make the receptor; CNO, given orally or by injection, then acts on the receptor to switch the neurons on (hM3) or off (hM4)."
+  },
+  "g8-supervised-pipeline": {
+    "alt": "Supervised learning: raw data as input goes to an algorithm, which a supervisor guides with a training dataset and the desired output; the algorithm's result goes through processing, and the output is the data sorted into four groups of colored squares."
+  },
+  "g8-cat-network": {
+    "alt": "A small neural network asked 'Is it a cat?': a photo of a cat feeds three input units, then three, then two, then one output unit, with connections of different thickness. The network answers 0.7; red arrows carry the error, 0.3, back through the layers. A caption notes that after each pass the answer improves from 0.7 to 0.73, 0.77 and 0.93 as the error falls from 0.3 to 0.27, 0.23 and 0.07."
+  },
+  "g8-supervised-unsupervised": {
+    "alt": "Two diagrams using owls (circles), foxes (triangles) and squirrels (squares). Supervised learning: labeled training data and a set of labels go into training; the trained model takes unlabeled test data and outputs each animal with its name. Unsupervised learning: unlabeled training data goes into training, and the output is the animals sorted into three boxes, one per kind."
+  },
+  "g8-weights": {
+    "alt": "The same network of two input nodes, four hidden nodes and one output node, shown after iteration 0 and after iteration 100 of training. Line thickness shows the size of each weight; blue lines are positive and orange negative. At iteration 0 every line is thin; by iteration 100 several are thick, both positive and negative, and a few remain thin."
+  },
+  "g8-loss-curves": {
+    "alt": "Two graphs of loss against training epoch, training loss in blue and validation loss in orange. Left, over 100 epochs: training loss falls from about 2.6 to 0.5; validation loss spikes to about 3.25 early, drops to about 0.85 near epoch 20, then levels off near 1.0. Right, over about 190 epochs: training loss falls from 1.0 to nearly 0 by about epoch 110, while validation loss stays near 0.8."
+  },
+  "g8-loss-minimum": {
+    "alt": "Left: a U-shaped curve of the loss function against a weight value, with an arrow to its lowest point labeled minimum loss and good weight value. Right: the error surface of a linear neuron with two input weights, drawn as a mesh bowl over the w1-w2 plane from -5 to 5, with error E rising from 0 at the center to 50 at the corners and circular contours on the floor."
+  },
+  "g8-step-size": {
+    "alt": "A cost curve C(w) with several dips, the deepest at the far left. At one point the tangent has positive slope, labeled step left; at another the tangent has negative slope, labeled step right. Arrows below the axis show the two step directions, and the steps lead to a marked local minimum in the middle dip."
+  },
+  "g8-visual-hierarchy": {
+    "alt": "Hierarchy of visual areas drawn as boxes. From the retina, a gray parvo channel and a black magno channel run up through the LGN, V1, V2 and V3. Gray arrows lead from V2 and V3 to V4, then to IT and other ventral areas (pictured as a teapot); a black arrow leads from V1 to MT, then to MST and other dorsal areas (pictured as moving objects). V3 also sends a gray arrow to MT, and V4 and MT are joined by a two-way arrow."
+  },
+  "g9-tonotopic-map": {
+    "alt": "A strip of primary auditory cortex in the temporal lobe divided into columns tuned to 500, 1000, 2000, 4000, 8000 and 16,000 Hz, with frequency increasing along the strip and binaural columns (not shown) running across it."
+  },
+  "g9-targeted-reinnervation": {
+    "alt": "Flow chart of targeted reinnervation: residual nerves of the amputated arm (musculocutaneous, median, radial) are rerouted to a target muscle in the chest; EMG electrodes record the muscle's signals and pass them to a microprocessor controller, which drives a motorized prosthetic arm; touching the prosthetic skin is felt as touch on the missing limb."
+  },
+  "g9-hpa-axis": {
+    "alt": "The HPA axis: the hypothalamus releases CRH, the pituitary gland releases ACTH, and the adrenal gland releases cortisol, which acts on the body and feeds back negatively on the hypothalamus and pituitary."
+  },
+  "g9-anxiety-circuit": {
+    "alt": "Two panels. Typical: the prefrontal cortex and the hippocampus each send inhibitory GABA signals to the amygdala, keeping it in check. Anxiety: the GABA signals are impaired, and the amygdala fires inappropriately, giving a strong fear or anxiety response."
+  },
+  "g9-ssri-synapse": {
+    "alt": "A serotonin synapse: vesicles in the pre-synaptic nerve ending release serotonin (5-HT) into the synapse, where it reaches receptor sites on the post-synaptic nerve ending; an SSRI blocks the reuptake transporter, so serotonin stays in the synapse."
+  },
+  "g9-action-potential": {
+    "alt": "Graph of voltage (mV) against time (ms) for an action potential: resting state at -70 mV, a stimulus with failed initiations below the -55 mV threshold, depolarization as Na+ ions flow in up to about +40 mV, repolarization as K+ ions flow out, hyperpolarization below rest, and return to the resting state."
+  },
+  "g10-depression-circuit": {
+    "alt": "Two panels comparing the typical and the depressed brain: in the typical brain the prefrontal cortex and the hippocampus each send strong inhibitory GABA signals to the amygdala; in depression both pathways are weak, so too little GABA reaches the amygdala."
+  },
+  "g10-monoamine-venn": {
+    "alt": "Venn diagram of three overlapping circles for dopamine (alertness: working memory, motivation, clarity), norepinephrine (concentration: execution, perseverance, recall memory) and serotonin (satisfaction: learning memory, pleasure/pain, relaxation), with the symptom of a deficit in parentheses beside each, attention, appetite and intuition in the pairwise overlaps, and balanced mood in the center."
+  },
+  "g10-stress-cascade": {
+    "alt": "Flow chart of the current depression hypothesis: stress drives the HPA axis (hypothalamus releases CRH, the pituitary gland releases ACTH, the adrenal gland releases cortisol), negative feedback is blocked because glucocorticoid receptors are desensitized, and the high stress hormones are toxic to neurons, inhibit BDNF and Reelin, break down neurons and synapses (especially GABA projections from the prefrontal cortex and hippocampus to the amygdala), and cause and perpetuate depression symptoms."
+  },
+  "g10-disinhibition": {
+    "alt": "Two neuron chains. Inhibition: a GABA neuron inhibits a glutamate neuron. Disinhibition: a GABA neuron inhibits a second GABA neuron in the prefrontal cortex, which frees a glutamate neuron to fire more, and that glutamate neuron excites a GABA neuron in the amygdala."
+  },
+  "g10-ketamine-circuit": {
+    "alt": "Ketamine inhibits a somatostatin GABA neuron in the prefrontal cortex, which disinhibits a prefrontal glutamate neuron, which in turn excites a GABA neuron in the amygdala."
+  },
+  "h1-hardy-weinberg-punnett": {
+    "alt": "Punnett square for two alleles: male gametes A and a (frequencies p and q) along the bottom, female gametes A and a along the side; the four cells give genotype AA with frequency p squared, aa with frequency q squared, and Aa twice with frequency pq each."
+  },
+  "h1-hardy-weinberg-genotypes": {
+    "alt": "Plot of the Hardy-Weinberg genotype frequencies against p, with q = 1 - p: the curve q squared for aa falls from 1 to 0, the curve p squared for AA rises from 0 to 1, and the curve 2pq for Aa is an arch peaking at 0.5 when p = 1/2."
+  },
+  "h1-directed-graph": {
+    "alt": "A directed graph on seven vertices, with one vertex sending edges to three others, a pair of opposite edges between two vertices, and a loop at one vertex."
+  },
+  "h1-exchange-law": {
+    "alt": "Pasting diagrams for the exchange law in a 2-category: two horizontal composites of 2-cells alpha, beta and gamma, delta stacked and composed vertically equal the single four-cell diagram, which equals the horizontal composite of the vertical composites of alpha with gamma and of beta with delta."
+  },
+  "h4-graph-examples": {
+    "alt": "Three example graphs: the (3,3)-king's tour graph (a 3 by 3 grid with horizontal, vertical and diagonal edges), the prism graph (3,3) (three nested triangles joined along spokes) and the 9-wheel graph (an octagon with a central hub joined to all eight vertices)."
+  },
+  "h4-watts-strogatz": {
+    "alt": "Three rings of 20 vertices: a regular ring lattice in which each vertex is joined to its two nearest neighbors on each side (p = 0), a small-world graph in which a few edges have been rewired into long chords, and a random graph in which every edge has been rewired (p = 1)."
+  },
+  "h4-poisson-degree": {
+    "alt": "Plot of the Poisson distribution P(k) = lambda^k e^(-lambda)/k! for k from 0 to 20 and lambda = 1, 4 and 10; each curve has a single peak near k = lambda that moves right and flattens as lambda grows."
+  },
+  "h4-poisson-vs-powerlaw": {
+    "alt": "Two sketches of the number of nodes with k links against k: a bell-shaped Poisson distribution in which most nodes have about the same number of links, and a power-law distribution in which many nodes have few links and a small number of hubs have many links."
+  },
+  "h4-random-vs-scalefree": {
+    "alt": "Two small networks: a random network in which every node has one to three links, and a scale-free network in which three shaded hub nodes each have about six links and the other nodes have one or two."
+  },
+  "h4-centrality-examples": {
+    "alt": "Four small graphs, each with two marked nodes X and Y where X is more central than Y: a star with all edges pointing into X (indegree), a star with all edges pointing out of X (outdegree), two triangles sharing the vertex X (betweenness), and a path of five vertices with X in the middle and Y next to it (closeness)."
+  },
+  "h4-centrality-tree": {
+    "alt": "A tree on 14 numbered vertices: hub 6 joined to leaves 1 to 5, hub 10 joined to leaves 11 to 14, and vertex 7 between them joined to 6, 10 and the leaves 8 and 9."
+  },
+  "h4-branching": {
+    "alt": "Two trees grown from vertex 1 over steps k = 0, 1, 2: in the Erdos-Renyi graph process the number of new neighbors is B(N-1, lambda/N) and then B(N-4, lambda/N), and two vertices at step 1 can share a neighbor at step 2; in the branching process approximation every vertex has B(N, lambda/N) children and the result is always a tree."
+  },
+  "h4-walks-paths": {
+    "alt": "The same seven-vertex graph drawn twice. On the left two paths from U to V are highlighted, one in blue and one in red. On the right a trail from U to V is highlighted in red; it passes through one vertex twice but uses each edge at most once."
+  },
+  "h4-bipartite-expander": {
+    "alt": "A bipartite graph with eight square check nodes on top and nine round variable nodes below. A set S of three variable nodes, each with three edges, is boxed. Its neighborhood N(S) consists of seven of the eight check nodes."
+  },
+  "h4-oriented-k4e": {
+    "alt": "A square with one diagonal (the tetrahedron graph with one edge removed), its five edges given orientations e1 to e5: e1 up the right side, e2 leftward along the top, e3 down the left side, e4 rightward along the bottom and e5 along the diagonal from bottom left to top right."
+  },
+  "h4-bad-graph": {
+    "alt": "A cycle of six vertices with three extra vertices of valence one attached to three adjacent cycle vertices, an example of a graph unsuitable for zeta functions."
+  },
+  "h4-ihara-poles-regular": {
+    "alt": "The real segment from -1 to 1 with marks at -1, -1/sqrt(q), -1/q, 0, 1/q, 1/sqrt(q) and 1, and the circle of radius 1/sqrt(q) centered at 0: the possible locations of poles of the Ihara zeta function of a (q+1)-regular graph."
+  },
+  "h5-lesion-venn": {
+    "alt": "Venn diagram of the 3510 transistors of the MOS 6502 by which of the games Donkey Kong, Pitfall and Space Invaders their removal disrupts: 1565 none, 1560 all three, 98 only Donkey Kong, 39 only Pitfall, 49 only Space Invaders, 89 Donkey Kong and Pitfall, 28 Donkey Kong and Space Invaders, 82 Pitfall and Space Invaders."
+  },
+  "h5-five-neuron-clique": {
+    "alt": "A directed clique on five neurons drawn on a pentagon: every pair of vertices is joined by one edge, and all edges point from the source towards the sink, consistent with a single ordering of the vertices."
+  },
+  "h5-four-cliques": {
+    "alt": "Three cliques on four vertices: an undirected one, a cyclical one containing the directed cycle around the square, and a directed one whose edges all go from a source on the left towards a sink on the right."
+  },
+  "h5-consensus-complexes": {
+    "alt": "Two-process binary consensus: the input complex is a square with vertices P0, Q0, P1, Q1; the output complex is two disjoint edges P0-Q0 and Q1-P1; arrows send the edge P0-Q0 to P0-Q0, the edge P1-Q1 to Q1-P1, and each mixed-input edge to either output edge."
+  },
+  "h5-test-and-set": {
+    "alt": "Flat drawing of the protocol complex of a single-round test-and-set protocol: an outer square with corners P0, R0, Q0, S0 and an inner square with corners Q1, S1, P1, R1, joined into four shaded trapezoids, each the projection of a tetrahedron, around a square hole."
+  },
+  "h5-directionality": {
+    "alt": "Six orientations of the complete graph on five vertices, each vertex labelled by the square of its in-degree minus out-degree, with directionality 0, 8, 16, 24, 32 and 40; the last is the fully directed 4-simplex."
+  },
+  "h5-grandis-square": {
+    "alt": "Four panels: a square with a smaller square removed; two directed paths from a point x to a point x' going up-and-right around the hole on either side; the points 0, p, q, 1 at the corners of the square and of the hole, with directed paths from p to q on both sides of the hole; and the category E given by 0 to p, two arrows from p to q, and q to 1."
+  },
+  "h5-globe": {
+    "alt": "A ball drawn with its two poles labelled d_0^+x at the top and d_0^-x at the bottom, two half-meridians d_1^-x (dashed, behind) and d_1^+x joining them, and the two hemispheres d_2^-x and d_2^+x on either side."
+  },
+  "h5-database-grid": {
+    "alt": "A four by four grid of states with transitions pointing right and up and a hatched middle square; edges are labelled u, a along the left side, e, f, g along the bottom, h, i, d along the right side, v, w, x, b, c, y, z inside; the path gamma_2 (up the left side and along the row above the hatched square) is highlighted in blue and gamma_4 (along the bottom and up the right side) in red."
+  },
+  "h7-place-field-code": {
+    "alt": "Five overlapping circular place fields numbered 1 to 5; a point in the shaded region inside fields 3 and 5 but outside field 4 is linked to the activity pattern with neurons 3 and 5 active and the codeword 0 0 1 0 1."
+  },
+  "h7-string-composition": {
+    "alt": "String diagram: a vertical wire carrying process g below process f is equal to a wire carrying the single composite process fg."
+  },
+  "h7-coproduct": {
+    "alt": "Universal property of the categorical sum: morphisms phi from A and psi from B to C factor through the inclusions iota_A and iota_B into A plus B via a unique dashed morphism xi to C."
+  },
+  "h7-monoidal-rules": {
+    "alt": "Table of string-diagram rules for a symmetric monoidal category: the tensor product of objects S and T is two parallel wires, the unit object is the empty diagram, a morphism f is a box with input wires A_1 to A_n and output wires B_1 to B_m, and the tensor product of morphisms s and t is two boxes stacked in parallel."
+  },
+  "h7-limit-cone": {
+    "alt": "A limit as universal cone: N maps to F(X) and F(Y) by psi_X and psi_Y, the limit L maps to them by phi_X and phi_Y, F(f) joins F(X) to F(Y), and a dashed unique morphism u goes from N to L."
+  },
+  "h7-nerve-2-simplex": {
+    "alt": "A filled triangle with vertices X, Y, Z and edges f from X to Y, g from Y to Z and the composite g after f from X to Z, a 2-simplex in the nerve of a category."
+  },
+  "h7-equalizer": {
+    "alt": "Equalizer diagram: iota from Sigma_C(G) to Sigma_C(E_G), a parallel pair s and t from Sigma_C(E_G) to Sigma_C(V_G), and a morphism q from A to Sigma_C(E_G) that factors through Sigma_C(G) by a dashed morphism u."
+  },
+  "h7-hopfield-energy": {
+    "alt": "Energy landscape of a Hopfield network: energy plotted over states, with a state labelled update sliding down into a valley whose bottom is the attractor; the valley is shaded as the basin of attraction, and a second valley on the right reaches the minimum energy level."
+  },
+  "h7-backprop-node": {
+    "alt": "Backpropagation through one node f: inputs x and y feed f, which outputs z; dashed backward arrows carry dL/dz into the node and out to the inputs as dL/dx = dL/dz times dz/dx and dL/dy = dL/dz times dz/dy."
+  },
+  "h7-entropy-venn": {
+    "alt": "Venn diagram of two overlapping discs H(X) and H(Y): the overlap is the mutual information I(X;Y), the remaining parts are H(X|Y) and H(Y|X), and the whole union is H(X,Y)."
+  },
+  "h7-lattice-path": {
+    "alt": "Hasse diagram of the lattice of combinations of four submechanisms, from the bottom element through singletons 1 to 4, pairs 12 to 34 and triples 123 to 234 up to the top; the path bottom, 1, 14, 124, top is highlighted."
+  },
+  "h7-lattice-union": {
+    "alt": "The same lattice of four submechanisms with every arrow from r to r union m^1 highlighted, for each r not containing m^1."
+  },
+  "h7-lattice-sets": {
+    "alt": "The same lattice of four submechanisms with two shaded regions: the down-set of m^1 and m^2 (bottom, 1, 2, 12) and the up-set of the complement 34 (34, 134, 234, top)."
+  },
+  "h8-center-surround": {
+    "alt": "A center–surround receptive field: a small central disk marked plus (the ON center) inside a larger ring marked minus (the OFF surround)."
+  },
+  "h8-simple-cell": {
+    "alt": "Hubel–Wiesel scheme: four LGN cells whose center–surround receptive fields have their plus centers along a diagonal line all project to one cortical simple cell, whose receptive field is the rectangle enclosing the four fields."
+  },
+  "h8-power-spectra": {
+    "alt": "Normalized power spectra of the Gaussian derivatives of orders 1 to 12 with sigma equal to 1: twelve bell-shaped curves of height 1, each peaking at omega equal to the square root of n, shifting right as n grows."
+  },
+  "h8-hermite-zeros": {
+    "alt": "Zeros of the Gaussian derivatives of orders 1 to 20 with sigma equal to 1, plotted against the order: order n has n zeros symmetric about 0, spreading out to about plus and minus 7.6 at order 20."
+  },
+  "h8-order-20-22": {
+    "alt": "The Gaussian derivatives of order 20 and 22 with sigma equal to 2 on the interval from minus 5 to 5: order 20 has a central peak of about 125 and order 22 a central trough of about minus 650, with the other lobes also of opposite sign."
+  },
+  "h8-dxdy2-gaussian": {
+    "alt": "Surface plot of the Gaussian derivative filter D_x D_y^2 G_sigma with sigma_x = sigma_y = 2: six lobes in a 2 by 3 pattern, two of opposite sign along x, each split along y into three lobes of alternating sign."
+  },
+  "h9-conformal-grids": {
+    "alt": "Three panels showing the images of the square coordinate grid under the conformal maps z^2/2 (two families of parabolas), e^z (concentric circles and rays) and sin z (confocal ellipses and hyperbolas with foci at plus and minus 1); in each panel the image curves cross at right angles."
+  },
+  "h9-monopole-model": {
+    "alt": "Left: a polar grid on the right visual hemifield, circles of eccentricity 1 to 10 and rays every 15 degrees of polar angle. Right: its image under w = log(z + a) with a = 1, a D-shaped region where the rays fan out from the point log a and become horizontal lines, and the circles become nearly vertical lines that crowd together at large eccentricity."
+  },
+  "h9-cotangent-weights": {
+    "alt": "Two triangles F_alpha and F_beta sharing the oriented edge e from s(e) to t(e), with opposite vertices v_alpha and v_beta and the angles theta_alpha and theta_beta at those vertices marked."
+  },
+  "h9-legendre": {
+    "alt": "Graphs of the Legendre polynomials P_0 to P_4 on the interval from -1 to 1; all equal 1 at x = 1, and P_ell has ell zeros in the open interval."
+  },
+  "h9-beltrami-ellipse": {
+    "alt": "Left: in the z-plane, the ellipse |z + mu z-bar| = 1 for mu = 0.4 e^{i pi/3}, with semi-minor axis 1/(1+|mu|) in the direction arg(mu)/2 and semi-major axis 1/(1-|mu|) perpendicular to it. Right: the unit circle in the h-plane, its image under h(z) = z + mu z-bar, with the two axis directions preserved."
+  },
+  "h12-klein-correspondence": {
+    "alt": "Two panels. On the left, inside a box labeled P^5, the Klein quadric K drawn as a hyperboloid-like surface carrying a red alpha-plane, a green point and a blue beta-plane. On the right, inside a box labeled P^3, a red point, a green line and a blue plane. Dashed double arrows match the alpha-plane with the point, the point of K with the line, and the beta-plane with the plane."
+  },
+  "h12-hyperboloid-rulings": {
+    "alt": "A hyperboloid of one sheet drawn with a light mesh of its two families of ruling lines. Three blue lines l1, l2, l3 belong to one ruling; a red line m_p of the other ruling passes through a marked point p and crosses each of the three blue lines at a red dot."
+  },
+  "h12-bond-couples": {
+    "alt": "Seven generators g1 to g7 drawn as circles and joined by bonds: g1-g2, g2-g3, g1-g4, g1-g5, g2-g5, g3-g5, g4-g6 and g6-g7. A small circle with a bar sits in the middle of each bond; an arrow labels the one between g4 and g6 as a bond couple."
+  },
+  "h12-pdag-peeling": {
+    "alt": "A directed acyclic graph sigma with edges 1 to 2, 1 to 3, 2 to 3, 2 to 5, 3 to 6 and 4 to 7, whose leaves 5, 6, 7 are boxed as L0. Removing them gives sigma_1 (edges 1 to 2, 1 to 3, 2 to 3, and vertex 4) with leaves 3 and 4 boxed as L1; then sigma_2 (edge 1 to 2) with leaf 2 boxed as L2; then sigma_3, the single vertex 1, boxed as L3."
+  },
+  "h12-branching-tree": {
+    "alt": "A branching tree. The root x1 has children x1, x1, x2. The first x1 has children x1, x1, x2, which end in the leaves 3, 4 and +; the second x1 ends in the leaf 2 and x2 ends in the leaf star. Labels on the right give the counts of x1 and x2 nodes in each generation: Z0 = [1,0], Z1 = [2,1], Z2 = [2,1], Z3 = [0,0]."
+  },
+  "h12-hmm": {
+    "alt": "A hidden Markov model with three hidden states X1, X2, X3 in a row joined by arrows, each with an arrow down to a shaded observed state Y1, Y2, Y3."
+  },
+  "h12-parse-tree": {
+    "alt": "A parse tree: the root A has children B and C; B has the leaves w1, w2, w3 and C has the leaves w4, w5."
+  },
+  "h12-inside-outside": {
+    "alt": "A large triangle with apex N^1 over the string w1 ... wn. Inside it a vertical segment leads down to a node N^j, the apex of a smaller triangle over wk ... wl; the parts of the base outside it are w1 ... w(k-1) and w(l+1) ... wn."
+  },
+  "h12-inside-split": {
+    "alt": "A node N^j with two children: N^p, the apex of a triangle over wk ... wm, and N^q, the apex of a triangle over w(m+1) ... wl."
   }
 }

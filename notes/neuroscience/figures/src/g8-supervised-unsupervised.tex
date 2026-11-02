@@ -1,0 +1,63 @@
+\begin{tikzpicture}[font=\small,
+    owl/.pic={\fill[orange] (0,0) circle (0.13);},
+    fox/.pic={\fill[red] (-0.14,-0.11) -- (0.14,-0.11) -- (0,0.14) -- cycle;},
+    sq/.pic={\fill[purple] (-0.11,-0.11) rectangle (0.11,0.11);},
+    box/.style={draw, thick, rounded corners=3pt},
+    stage/.style={draw, thick, rounded corners=3pt, minimum width=1.6cm, minimum height=1.0cm, align=center},
+    arr/.style={-{Stealth[length=2.2mm]}, thick},
+    ttl/.style={font=\bfseries}]
+  % ---------- supervised ----------
+  \node[ttl] at (5.2,4.1) {Supervised learning};
+  \draw[box] (0,1.7) rectangle (2.4,3.5);
+  \node[font=\footnotesize, anchor=south west] at (0,3.5) {Labeled training data};
+  \foreach \p/\x/\y in {owl/0.4/3.1, fox/1.0/3.1, sq/1.6/3.1, sq/2.1/2.9, fox/0.5/2.5, owl/1.2/2.6,
+                         fox/1.9/2.4, sq/0.4/2.0, owl/1.0/2.0, fox/1.6/1.95} {
+    \pic at (\x,\y) {\p};
+  }
+  \draw[box] (0,0) rectangle (2.4,0.9);
+  \node[font=\footnotesize, anchor=south west] at (0,0.9) {Labels};
+  \pic at (0.35,0.6) {owl}; \node[font=\scriptsize] at (0.35,0.25) {owl};
+  \pic at (1.15,0.6) {sq};  \node[font=\scriptsize] at (1.15,0.25) {squirrel};
+  \pic at (1.95,0.6) {fox}; \node[font=\scriptsize] at (1.95,0.25) {fox};
+  \node[stage] (tr1) at (4.0,2.6) {Training};
+  \node[stage] (pr1) at (6.6,2.6) {Prediction};
+  \draw[arr] (2.4,2.6) -- (tr1);
+  \draw[arr] (2.4,0.45) -| (tr1.south);
+  \draw[arr] (tr1) -- (pr1);
+  \draw[box] (5.6,0) rectangle (7.6,0.9);
+  \node[font=\footnotesize, anchor=north] at (6.6,0) {Unlabeled test data};
+  \pic at (6.0,0.45) {owl}; \pic at (6.6,0.45) {fox}; \pic at (7.2,0.45) {sq};
+  \draw[arr] (6.6,0.9) -- (pr1.south);
+  \draw[box] (8.6,1.35) rectangle (10.4,3.85);
+  \pic at (9.0,3.4) {owl}; \node[font=\scriptsize, anchor=west] at (9.3,3.4) {owl};
+  \pic at (9.0,2.6) {fox}; \node[font=\scriptsize, anchor=west] at (9.3,2.6) {fox};
+  \pic at (9.0,1.8) {sq};  \node[font=\scriptsize, anchor=west] at (9.3,1.8) {squirrel};
+  \draw[arr] (pr1) -- (8.6,2.6);
+  % ---------- unsupervised ----------
+  \begin{scope}[yshift=-5.3cm]
+    \node[ttl] at (5.2,3.6) {Unsupervised learning};
+    \draw[box] (0,0.4) rectangle (2.4,2.9);
+    \node[font=\footnotesize, anchor=south west] at (0,2.9) {Unlabeled training data};
+    \foreach \p/\x/\y in {sq/0.4/2.5, owl/1.0/2.5, fox/1.6/2.5, owl/2.1/2.3, fox/0.5/1.9, sq/1.2/1.9,
+                           owl/1.9/1.7, fox/0.4/1.2, owl/1.0/1.2, sq/1.6/1.1, fox/2.1/0.8, sq/0.6/0.7} {
+      \pic at (\x,\y) {\p};
+    }
+    \node[stage] (tr2) at (4.0,1.65) {Training};
+    \node[stage] (ou2) at (6.6,1.65) {Output};
+    \draw[arr] (2.4,1.65) -- (tr2);
+    \draw[arr] (tr2) -- (ou2);
+    \foreach \y/\p in {2.9/sq, 1.65/fox, 0.4/owl} {
+      \draw[box] (8.6,\y-0.45) rectangle (10.4,\y+0.45);
+      \pic at (8.95,\y) {\p}; \pic at (9.5,\y) {\p}; \pic at (10.05,\y) {\p};
+      \draw[arr] (7.9,\y) -- (8.6,\y);
+    }
+    \draw[thick] (ou2.east) -- (7.9,1.65);
+    \draw[thick] (7.9,0.4) -- (7.9,2.9);
+  \end{scope}
+  % legend
+  \begin{scope}[yshift=-6.4cm]
+    \pic at (2.6,0) {owl}; \node[anchor=west, font=\footnotesize] at (2.8,0) {owl};
+    \pic at (4.4,0) {fox}; \node[anchor=west, font=\footnotesize] at (4.6,0) {fox};
+    \pic at (6.2,0) {sq};  \node[anchor=west, font=\footnotesize] at (6.4,0) {squirrel};
+  \end{scope}
+\end{tikzpicture}

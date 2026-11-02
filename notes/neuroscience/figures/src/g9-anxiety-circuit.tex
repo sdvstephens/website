@@ -1,0 +1,26 @@
+\begin{tikzpicture}[font=\small,
+  region/.style={draw, thick, rounded corners=4pt, align=center, inner sep=5pt, minimum width=2.6cm, minimum height=0.8cm},
+  inhib/.style={-{Bar[width=8pt]}, line width=1.6pt, blue},
+  weak/.style={-{Bar[width=8pt]}, thick, blue, dashed},
+  lab/.style={font=\footnotesize, align=center}]
+% ---------- typical ----------
+\begin{scope}
+\node[font=\bfseries] at (2.7,3.4) {Typical};
+\node[region] (pfc) at (0,2.4) {Prefrontal cortex};
+\node[region] (hip) at (0,0) {Hippocampus};
+\node[region, minimum height=1.2cm] (amy) at (5.2,1.2) {Amygdala};
+\draw[inhib] (pfc.east) -- node[lab, above, sloped, pos=0.45] {GABA} ([yshift=6pt]amy.west);
+\draw[inhib] (hip.east) -- node[lab, below, sloped, pos=0.45] {GABA} ([yshift=-6pt]amy.west);
+\node[lab, below=4pt] at (amy.south) {kept in check};
+\end{scope}
+% ---------- anxiety ----------
+\begin{scope}[xshift=8.4cm]
+\node[font=\bfseries] at (2.7,3.4) {Anxiety};
+\node[region] (pfc2) at (0,2.4) {Prefrontal cortex};
+\node[region] (hip2) at (0,0) {Hippocampus};
+\node[region, minimum height=1.2cm, draw=red, line width=1.4pt, fill=red, fill opacity=0.15, text opacity=1] (amy2) at (5.2,1.2) {Amygdala};
+\draw[weak] (pfc2.east) -- node[lab, above, sloped, pos=0.45] {impaired GABA} ([yshift=6pt]amy2.west);
+\draw[weak] (hip2.east) -- node[lab, below, sloped, pos=0.45] {impaired GABA} ([yshift=-6pt]amy2.west);
+\node[lab, below=4pt, text=red] at (amy2.south) {fires inappropriately:\\strong fear or\\anxiety response};
+\end{scope}
+\end{tikzpicture}

@@ -1,0 +1,58 @@
+\begin{tikzpicture}[font=\footnotesize]
+  \begin{scope}
+    \draw[-{Stealth[length=2.5mm]}, red, thick] (0,0) -- (5.2,0) node[below left, black, font=\small] at (3.6,-0.1) {weight value};
+    \draw[-{Stealth[length=2.5mm]}, red, thick] (0,0) -- (0,4.2);
+    \node[rotate=90, font=\small] at (-0.35,2.0) {loss function};
+    \draw[blue, thick] plot[domain=0.35:4.45, samples=60] (\x, {0.85*(\x-2.4)*(\x-2.4)});
+    \fill (2.4,0) circle (1.6pt);
+    \node[align=center, font=\small] (lab) at (1.7,2.3) {minimum loss \&\\good weight value};
+    \draw[-{Stealth[length=2.2mm]}, thick] (lab.south) to[out=-100, in=150] (2.33,0.08);
+  \end{scope}
+  \begin{scope}[xshift=9.2cm, yshift=0.3cm, x={(0.36cm,-0.16cm)}, y={(0.30cm,0.17cm)}, z={(0cm,0.068cm)}]
+    \node[font=\small] at (0,0,78) {error surface of a linear neuron with two input weights};
+    \draw[gray] (-5,-5,0) -- (5,-5,0) -- (5,5,0) -- (-5,5,0) -- cycle;
+    \draw[gray] plot[domain=0:360, samples=60, smooth] ({1*cos(\x)}, {1*sin(\x)}, 0);
+    \draw[gray] plot[domain=0:360, samples=60, smooth] ({2*cos(\x)}, {2*sin(\x)}, 0);
+    \draw[gray] plot[domain=0:360, samples=60, smooth] ({3*cos(\x)}, {3*sin(\x)}, 0);
+    \draw[gray] plot[domain=0:360, samples=60, smooth] ({4*cos(\x)}, {4*sin(\x)}, 0);
+    \draw[gray] (-5,-5,0) -- (-5,-5,50);
+    \draw[gray] (-5,-5,0) -- (-5.3,-5,0) node[left, black] {0};
+    \draw[gray] (-5,-5,10) -- (-5.3,-5,10) node[left, black] {10};
+    \draw[gray] (-5,-5,20) -- (-5.3,-5,20) node[left, black] {20};
+    \draw[gray] (-5,-5,30) -- (-5.3,-5,30) node[left, black] {30};
+    \draw[gray] (-5,-5,40) -- (-5.3,-5,40) node[left, black] {40};
+    \draw[gray] (-5,-5,50) -- (-5.3,-5,50) node[left, black] {50};
+    \node[left] at (-6.6,-5,28) {$E$};
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (-5, \x, {25+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, -5, {\x*\x+25});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (-4, \x, {16+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, -4, {\x*\x+16});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (-3, \x, {9+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, -3, {\x*\x+9});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (-2, \x, {4+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, -2, {\x*\x+4});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (-1, \x, {1+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, -1, {\x*\x+1});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (0, \x, {0+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, 0, {\x*\x+0});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (1, \x, {1+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, 1, {\x*\x+1});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (2, \x, {4+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, 2, {\x*\x+4});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (3, \x, {9+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, 3, {\x*\x+9});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (4, \x, {16+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, 4, {\x*\x+16});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (5, \x, {25+\x*\x});
+    \draw[blue, line width=0.4pt] plot[domain=-5:5, samples=21] (\x, 5, {\x*\x+25});
+    \fill[red] (0,0,0) circle (1.6pt);
+    \node[below] at (0,-5.9,0) {$w_1$};
+    \node[below] at (6.0,0,0) {$w_2$};
+    \node[font=\scriptsize] at (-5,-5.7,0) {-5};
+    \node[font=\scriptsize] at (5.7,-5,0) {-5};
+    \node[font=\scriptsize] at (0,-5.7,0) {0};
+    \node[font=\scriptsize] at (5.7,0,0) {0};
+    \node[font=\scriptsize] at (5,-5.7,0) {5};
+    \node[font=\scriptsize] at (5.7,5,0) {5};
+  \end{scope}
+\end{tikzpicture}

@@ -1,0 +1,29 @@
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\small}]
+  % receptive fields of four LGN cells, centres on a line at 45 degrees
+  \begin{scope}[rotate=45]
+    \foreach \t in {-0.975,-0.325,0.325,0.975} {
+      \draw[gray] (\t,0) circle (1.0);
+    }
+    \foreach \t in {-0.975,-0.325,0.325,0.975} {
+      \draw[fill=white] (\t,0) circle (0.24);
+      \node at (\t,0) {$+$};
+    }
+    \draw[thick] (-2.1,-1.15) rectangle (2.1,1.15);
+    \foreach \t in {-0.65,0.65} {
+      \node at (\t,0.72) {$-$};
+      \node at (\t,-0.72) {$-$};
+    }
+  \end{scope}
+  % LGN cells
+  \foreach \k/\X/\h/\t in {0/3.9/2.75/0.975, 1/4.6/3.0/0.325, 2/5.3/3.25/-0.325, 3/6.0/3.5/-0.975} {
+    \draw[purple, fill=purple!20] (\X,2.2) circle (0.22);
+    \draw[->] (\X,2.42) -- (\X,\h) -- ({\t/sqrt(2)},\h) -- ({\t/sqrt(2)},{\t/sqrt(2)+0.3});
+    \draw[purple, ->] (\X,1.98) -- (5.0,-0.9);
+  }
+  \node[right] at (6.25,2.2) {LGN cells};
+  % cortical simple cell
+  \draw[purple, fill=purple!20] (5.0,-1.3) circle (0.4);
+  \node[right] at (5.45,-1.3) {simple cell};
+  \draw[->, thick] (4.55,-1.3) -- (0.45,-1.3);
+  \node[below, align=center] at (2.6,-1.35) {its receptive field};
+\end{tikzpicture}

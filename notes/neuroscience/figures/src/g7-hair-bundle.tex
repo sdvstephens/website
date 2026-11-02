@@ -1,0 +1,42 @@
+\begin{tikzpicture}[>={Stealth[length=2mm]}, font=\small]
+  % one panel per tilt direction; \t is the tilt angle (negative = toward the tallest projection, on the right)
+  \foreach \px/\t/\open in {0/-14/1, 6/14/0} {
+    \begin{scope}[shift={(\px,0)}]
+      % top of the cell
+      \fill[orange!10] (-0.4,-0.6) rectangle (2.4,0);
+      \draw[thick] (-0.4,0) -- (2.4,0);
+      % four projections of increasing height, each tilted about its base
+      \foreach \i/\x/\h in {1/0/1.4, 2/0.6/1.9, 3/1.2/2.4, 4/1.8/2.9} {
+        \begin{scope}[rotate around={\t:(\x,0)}]
+          \draw[thick, fill=orange!20] (\x-0.13,0) rectangle (\x+0.13,\h);
+          \coordinate (top\i) at (\x,\h);
+          \coordinate (side\i) at (\x-0.13,\h-0.55);
+        \end{scope}
+      }
+      % tip links (springs drawn as lines) from each top to the next taller projection
+      \foreach \a/\b in {1/2, 2/3, 3/4} {
+        \ifnum\open=1
+          \draw[purple, thick] (top\a) -- (side\b);
+        \else
+          \draw[purple, thick] (top\a) .. controls +(0.3,0.3) and +(-0.2,0.25) .. (side\b);
+        \fi
+      }
+      % channels at the tips of the shorter projections
+      \foreach \a in {1,2,3} {
+        \ifnum\open=1
+          \draw[blue, very thick] ($(top\a)+(-0.12,0)$) -- ++(0.07,0) ($(top\a)+(0.05,0)$) -- ++(0.07,0);
+          \draw[->, red, thick] ($(top\a)+(0,0.45)$) -- ($(top\a)+(0,-0.2)$);
+          \node[red, font=\scriptsize] at ($(top\a)+(0,0.6)$) {$+$};
+        \else
+          \draw[blue, very thick] ($(top\a)+(-0.12,0)$) -- ($(top\a)+(0.12,0)$);
+        \fi
+      }
+    \end{scope}
+  }
+  % captions
+  \node[align=center] at (1.0,-1.3) {tilt toward the tallest projection:\\links pull the channels \textbf{open},\\positive ions flow in\\$\Rightarrow$ \textbf{depolarization}};
+  \node[align=center] at (7.0,-1.3) {tilt the other way:\\links go slack, channels \textbf{close}\\$\Rightarrow$ \textbf{hyperpolarization}};
+  % legend
+  \draw[purple, thick] (2.9,3.6) -- (3.4,3.6) node[right, black] {link to ion channel};
+  \draw[blue, very thick] (2.9,3.1) -- (3.4,3.1) node[right, black] {ion channel};
+\end{tikzpicture}

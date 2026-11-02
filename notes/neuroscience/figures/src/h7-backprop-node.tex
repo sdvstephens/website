@@ -1,0 +1,17 @@
+\begin{tikzpicture}[scale=1.0]
+  \draw[red] (0,0) circle (1.3);
+  \node[red] at (0.4,0) {\large $f$};
+  \node at (-0.5,0.6) {$\dfrac{\partial z}{\partial x}$};
+  \node at (-0.5,-0.6) {$\dfrac{\partial z}{\partial y}$};
+  % forward
+  \draw[-{Stealth}] (-4,2.0) node[above] {$x$} -- (-1.15,0.62);
+  \draw[-{Stealth}] (-4,-2.0) node[below] {$y$} -- (-1.15,-0.62);
+  \draw[-{Stealth}] (1.3,0) -- (3.4,0) node[above] {$z$};
+  % backward
+  \draw[red,dashed,-{Stealth}] (3.4,-0.25) -- (1.35,-0.25);
+  \node[red] at (2.5,-0.8) {$\dfrac{\partial L}{\partial z}$};
+  \draw[red,dashed,-{Stealth}] (-1.25,0.35) -- (-4.1,1.72);
+  \node[anchor=east] at (-4.2,1.45) {$\dfrac{\partial L}{\partial x}=\textcolor{red}{\dfrac{\partial L}{\partial z}}\cdot\dfrac{\partial z}{\partial x}$};
+  \draw[red,dashed,-{Stealth}] (-1.25,-0.35) -- (-4.1,-1.72);
+  \node[anchor=east] at (-4.2,-1.45) {$\dfrac{\partial L}{\partial y}=\textcolor{red}{\dfrac{\partial L}{\partial z}}\cdot\dfrac{\partial z}{\partial y}$};
+\end{tikzpicture}

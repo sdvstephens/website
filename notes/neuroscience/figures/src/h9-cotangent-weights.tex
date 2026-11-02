@@ -1,0 +1,20 @@
+\begin{tikzpicture}[scale=1.1]
+  \coordinate (s) at (0,0);
+  \coordinate (t) at (4,0);
+  \coordinate (va) at (1.5,2.3);
+  \coordinate (vb) at (2.6,-1.9);
+  \fill[blue, fill opacity=0.1] (s) -- (t) -- (va) -- cycle;
+  \fill[red, fill opacity=0.1] (s) -- (vb) -- (t) -- cycle;
+  \draw[thick] (s) -- (va) -- (t);
+  \draw[thick] (s) -- (vb) -- (t);
+  \draw[very thick, ->, >=Stealth] (s) -- (t);
+  \node[above, font=\small] at (2.9,0) {$e$};
+  \pic[draw, blue, angle radius=0.55cm, "$\theta_\alpha$", angle eccentricity=1.6] {angle = s--va--t};
+  \pic[draw, red, angle radius=0.55cm, "$\theta_\beta$", angle eccentricity=1.6] {angle = t--vb--s};
+  \fill (s) circle (1.5pt) node[left] {$s(e)$};
+  \fill (t) circle (1.5pt) node[right] {$t(e)$};
+  \fill (va) circle (1.5pt) node[above] {$v_\alpha$};
+  \fill (vb) circle (1.5pt) node[below] {$v_\beta$};
+  \node[blue] at (1.9,0.65) {$F_\alpha$};
+  \node[red] at (2.25,-0.6) {$F_\beta$};
+\end{tikzpicture}

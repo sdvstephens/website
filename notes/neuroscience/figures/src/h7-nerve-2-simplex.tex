@@ -1,0 +1,12 @@
+\begin{tikzpicture}[scale=1.3]
+  \coordinate (X) at (0,0);
+  \coordinate (Y) at (2,0);
+  \coordinate (Z) at (2,1.7);
+  \fill[blue!12] (X) -- (Y) -- (Z) -- cycle;
+  \node[below left] at (X) {$X$};
+  \node[below right] at (Y) {$Y$};
+  \node[above right] at (Z) {$Z$};
+  \draw[-{Stealth}] ($(X)+(0.08,0)$) -- node[below] {$f$} ($(Y)-(0.08,0)$);
+  \draw[-{Stealth}] ($(Y)+(0,0.08)$) -- node[right] {$g$} ($(Z)-(0,0.08)$);
+  \draw[-{Stealth}] ($(X)+(0.07,0.06)$) -- node[above left] {$g\circ f$} ($(Z)-(0.07,0.06)$);
+\end{tikzpicture}

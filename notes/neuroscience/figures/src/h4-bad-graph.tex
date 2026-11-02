@@ -1,0 +1,12 @@
+\begin{tikzpicture}[
+  dot/.style={circle, draw=purple, fill=red, minimum size=6pt, inner sep=0pt}]
+% a 6-cycle with three pendant (valence one) vertices attached
+\draw[purple, thick] (0,0) circle (1.2);
+\foreach \a in {90,150,30,210,270,330} \coordinate (c\a) at (\a:1.2);
+\coordinate (p150) at ($(c150)+(-0.65,1.3)$);
+\coordinate (p90) at ($(c90)+(0.25,1.3)$);
+\coordinate (p30) at ($(c30)+(1.1,0.75)$);
+\foreach \a in {150,90,30} \draw[purple, thick] (c\a) -- (p\a);
+\foreach \a in {90,150,30,210,270,330} \node[dot] at (c\a) {};
+\foreach \a in {150,90,30} \node[dot] at (p\a) {};
+\end{tikzpicture}

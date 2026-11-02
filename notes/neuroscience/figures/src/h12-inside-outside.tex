@@ -1,0 +1,13 @@
+\begin{tikzpicture}[thick]
+  \coordinate (top) at (3,4);
+  \coordinate (Nj) at (3,2.3);
+  \draw (top) -- (0,0) -- (6,0) -- cycle;
+  \draw (top) -- (Nj);
+  \draw (Nj) -- (1.6,0);
+  \draw (Nj) -- (4.4,0);
+  \node[above] at (top) {$N^1$};
+  \node[above left, inner sep=1pt] at (Nj) {$N^j$};
+  \node[below, font=\small] at (0.75,0) {$w_1 \cdots w_{k-1}$};
+  \node[below, font=\small] at (3,0) {$w_k \cdots w_\ell$};
+  \node[below, font=\small] at (5.25,0) {$w_{\ell+1} \cdots w_n$};
+\end{tikzpicture}

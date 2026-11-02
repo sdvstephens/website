@@ -1,0 +1,141 @@
+\begin{tikzpicture}[v/.style={circle,fill=red,inner sep=0pt,minimum size=4pt},
+  e/.style={gray,postaction={decorate},decoration={markings,mark=at position 0.56 with {\arrow{Stealth[length=1.7mm,width=1.3mm]}}}}]
+\begin{scope}[shift={(0.00,-0.00)}]
+\node at (0,1.9) {$D=0$};
+\node[v] (n0) at (90:1) {};
+\node[font=\footnotesize] at (90:1.32) {$0$};
+\node[v] (n1) at (18:1) {};
+\node[font=\footnotesize] at (18:1.32) {$0$};
+\node[v] (n2) at (-54:1) {};
+\node[font=\footnotesize] at (-54:1.32) {$0$};
+\node[v] (n3) at (-126:1) {};
+\node[font=\footnotesize] at (-126:1.32) {$0$};
+\node[v] (n4) at (-198:1) {};
+\node[font=\footnotesize] at (-198:1.32) {$0$};
+\draw[e] (n0) -- (n1);
+\draw[e] (n1) -- (n2);
+\draw[e] (n2) -- (n3);
+\draw[e] (n3) -- (n4);
+\draw[e] (n4) -- (n0);
+\draw[e] (n0) -- (n2);
+\draw[e] (n1) -- (n3);
+\draw[e] (n2) -- (n4);
+\draw[e] (n3) -- (n0);
+\draw[e] (n4) -- (n1);
+\end{scope}
+\begin{scope}[shift={(3.30,-0.00)}]
+\node at (0,1.9) {$D=8$};
+\node[v] (n0) at (90:1) {};
+\node[font=\footnotesize] at (90:1.32) {$4$};
+\node[v] (n1) at (18:1) {};
+\node[font=\footnotesize] at (18:1.32) {$4$};
+\node[v] (n2) at (-54:1) {};
+\node[font=\footnotesize] at (-54:1.32) {$0$};
+\node[v] (n3) at (-126:1) {};
+\node[font=\footnotesize] at (-126:1.32) {$0$};
+\node[v] (n4) at (-198:1) {};
+\node[font=\footnotesize] at (-198:1.32) {$0$};
+\draw[e] (n1) -- (n2);
+\draw[e] (n2) -- (n3);
+\draw[e] (n3) -- (n4);
+\draw[e] (n4) -- (n0);
+\draw[e] (n0) -- (n2);
+\draw[e] (n1) -- (n3);
+\draw[e] (n2) -- (n4);
+\draw[e] (n3) -- (n0);
+\draw[e] (n4) -- (n1);
+\draw[e] (n1) -- (n0);
+\end{scope}
+\begin{scope}[shift={(6.60,-0.00)}]
+\node at (0,1.9) {$D=16$};
+\node[v] (n0) at (90:1) {};
+\node[font=\footnotesize] at (90:1.32) {$4$};
+\node[v] (n1) at (18:1) {};
+\node[font=\footnotesize] at (18:1.32) {$4$};
+\node[v] (n2) at (-54:1) {};
+\node[font=\footnotesize] at (-54:1.32) {$0$};
+\node[v] (n3) at (-126:1) {};
+\node[font=\footnotesize] at (-126:1.32) {$4$};
+\node[v] (n4) at (-198:1) {};
+\node[font=\footnotesize] at (-198:1.32) {$4$};
+\draw[e] (n0) -- (n1);
+\draw[e] (n0) -- (n2);
+\draw[e] (n0) -- (n3);
+\draw[e] (n1) -- (n2);
+\draw[e] (n1) -- (n3);
+\draw[e] (n1) -- (n4);
+\draw[e] (n2) -- (n3);
+\draw[e] (n2) -- (n4);
+\draw[e] (n3) -- (n4);
+\draw[e] (n4) -- (n0);
+\end{scope}
+\begin{scope}[shift={(0.00,-3.80)}]
+\node at (0,1.9) {$D=24$};
+\node[v] (n0) at (90:1) {};
+\node[font=\footnotesize] at (90:1.32) {$16$};
+\node[v] (n1) at (18:1) {};
+\node[font=\footnotesize] at (18:1.32) {$0$};
+\node[v] (n2) at (-54:1) {};
+\node[font=\footnotesize] at (-54:1.32) {$0$};
+\node[v] (n3) at (-126:1) {};
+\node[font=\footnotesize] at (-126:1.32) {$4$};
+\node[v] (n4) at (-198:1) {};
+\node[font=\footnotesize] at (-198:1.32) {$4$};
+\draw[e] (n0) -- (n1);
+\draw[e] (n0) -- (n2);
+\draw[e] (n0) -- (n3);
+\draw[e] (n0) -- (n4);
+\draw[e] (n1) -- (n2);
+\draw[e] (n2) -- (n3);
+\draw[e] (n3) -- (n4);
+\draw[e] (n4) -- (n1);
+\draw[e] (n1) -- (n3);
+\draw[e] (n2) -- (n4);
+\end{scope}
+\begin{scope}[shift={(3.30,-3.80)}]
+\node at (0,1.9) {$D=32$};
+\node[v] (n0) at (90:1) {};
+\node[font=\footnotesize] at (90:1.32) {$16$};
+\node[v] (n1) at (18:1) {};
+\node[font=\footnotesize] at (18:1.32) {$0$};
+\node[v] (n2) at (-54:1) {};
+\node[font=\footnotesize] at (-54:1.32) {$0$};
+\node[v] (n3) at (-126:1) {};
+\node[font=\footnotesize] at (-126:1.32) {$0$};
+\node[v] (n4) at (-198:1) {};
+\node[font=\footnotesize] at (-198:1.32) {$16$};
+\draw[e] (n0) -- (n1);
+\draw[e] (n0) -- (n2);
+\draw[e] (n0) -- (n3);
+\draw[e] (n0) -- (n4);
+\draw[e] (n1) -- (n4);
+\draw[e] (n2) -- (n4);
+\draw[e] (n3) -- (n4);
+\draw[e] (n1) -- (n2);
+\draw[e] (n2) -- (n3);
+\draw[e] (n3) -- (n1);
+\end{scope}
+\begin{scope}[shift={(6.60,-3.80)}]
+\node at (0,1.9) {$D=40$};
+\node[v] (n0) at (90:1) {};
+\node[font=\footnotesize] at (90:1.32) {$16$};
+\node[v] (n1) at (18:1) {};
+\node[font=\footnotesize] at (18:1.32) {$4$};
+\node[v] (n2) at (-54:1) {};
+\node[font=\footnotesize] at (-54:1.32) {$0$};
+\node[v] (n3) at (-126:1) {};
+\node[font=\footnotesize] at (-126:1.32) {$4$};
+\node[v] (n4) at (-198:1) {};
+\node[font=\footnotesize] at (-198:1.32) {$16$};
+\draw[e] (n0) -- (n1);
+\draw[e] (n0) -- (n2);
+\draw[e] (n0) -- (n3);
+\draw[e] (n0) -- (n4);
+\draw[e] (n1) -- (n2);
+\draw[e] (n1) -- (n3);
+\draw[e] (n1) -- (n4);
+\draw[e] (n2) -- (n3);
+\draw[e] (n2) -- (n4);
+\draw[e] (n3) -- (n4);
+\end{scope}
+\end{tikzpicture}

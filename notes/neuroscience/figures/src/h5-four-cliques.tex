@@ -1,0 +1,29 @@
+\begin{tikzpicture}[v/.style={circle,fill=blue,inner sep=0pt,minimum size=5pt},
+  e/.style={postaction={decorate},decoration={markings,mark=at position 0.58 with {\arrow{Stealth[length=2mm,width=1.5mm]}}}},
+  ed/.style={postaction={decorate},decoration={markings,mark=at position 0.8 with {\arrow{Stealth[length=2mm,width=1.5mm]}}}}]
+% (a) undirected 4-clique
+\begin{scope}
+\node[v] (T) at (0,1) {}; \node[v] (L) at (-1,0) {};
+\node[v] (R) at (1,0) {}; \node[v] (B) at (0,-1) {};
+\foreach \s/\t in {T/L,T/R,T/B,L/R,L/B,R/B} \draw (\s) -- (\t);
+\node[align=center,font=\small] at (0,-1.75) {undirected clique};
+\end{scope}
+% (b) cyclical clique: contains the directed cycle L->T->R->B->L
+\begin{scope}[shift={(4.4,0)}]
+\node[v] (T) at (0,1) {}; \node[v] (L) at (-1,0) {};
+\node[v] (R) at (1,0) {}; \node[v] (B) at (0,-1) {};
+\foreach \s/\t in {L/T,T/R,R/B,B/L} \draw[e] (\s) -- (\t);
+\foreach \s/\t in {L/R,T/B} \draw[ed] (\s) -- (\t);
+\node[align=center,font=\small] at (0,-1.85) {cyclical clique\\(40 of the 64 orientations)};
+\end{scope}
+% (c) directed clique: source L, sink R
+\begin{scope}[shift={(9.2,0)}]
+\node[v] (T) at (0,1) {}; \node[v] (L) at (-1,0) {};
+\node[v] (R) at (1,0) {}; \node[v] (B) at (0,-1) {};
+\foreach \s/\t in {L/T,L/B,T/R,B/R} \draw[e] (\s) -- (\t);
+\foreach \s/\t in {L/R,T/B} \draw[ed] (\s) -- (\t);
+\node[left,font=\small] at (L.west) {source};
+\node[right,font=\small] at (R.east) {sink};
+\node[align=center,font=\small] at (0,-1.85) {directed clique\\(24 of the 64 orientations)};
+\end{scope}
+\end{tikzpicture}

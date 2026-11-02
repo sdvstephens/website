@@ -1,0 +1,16 @@
+\begin{tikzpicture}[gen/.style={circle, draw, minimum size=1.0cm, inner sep=0pt}]
+  \node[gen] (g1) at (0,0) {$g_1$};
+  \node[gen] (g2) at (2.85,0) {$g_2$};
+  \node[gen] (g3) at (5.45,0) {$g_3$};
+  \node[gen] (g4) at (0,-2.05) {$g_4$};
+  \node[gen] (g5) at (5.4,-2.45) {$g_5$};
+  \node[gen] (g6) at (0,-4.55) {$g_6$};
+  \node[gen] (g7) at (2.65,-4.55) {$g_7$};
+  \foreach \a/\b in {g1/g2, g2/g3, g1/g4, g1/g5, g2/g5, g3/g5, g4/g6, g6/g7} {
+    \draw (\a) -- (\b) coordinate[pos=0.5] (m);
+    \draw[fill=white] (m) circle (0.13);
+    \draw ($(m)!0.13cm!90:(\b)$) -- ($(m)!0.13cm!-90:(\b)$);
+  }
+  \path (g4) -- (g6) coordinate[pos=0.5] (bc);
+  \draw[<-, >=Stealth] ($(bc)+(0.25,0)$) -- ($(bc)+(1.6,0)$) node[right] {bond couple};
+\end{tikzpicture}

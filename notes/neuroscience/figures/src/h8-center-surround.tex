@@ -1,0 +1,13 @@
+\begin{tikzpicture}[every node/.style={font=\small}]
+  \fill[red!15] (0,0) circle (1.5);
+  \draw[thick] (0,0) circle (1.5);
+  \fill[green!25] (0,0) circle (0.55);
+  \draw[thick] (0,0) circle (0.55);
+  \node at (0,0) {\large $+$};
+  \node at (1.0,0.15) {\large $-$};
+  \node at (-1.0,0.15) {\large $-$};
+  \node at (0,1.0) {\large $-$};
+  \node at (0,-1.0) {\large $-$};
+  \draw[->,>=Stealth] (2.5,0.6) node[right] {ON centre} -- (0.45,0.25);
+  \draw[->,>=Stealth] (2.5,-0.9) node[right] {OFF surround} -- (1.2,-0.6);
+\end{tikzpicture}

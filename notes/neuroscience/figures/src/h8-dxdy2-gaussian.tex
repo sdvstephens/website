@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+  \begin{axis}[width=10cm, height=7.5cm, hide axis, view={30}{38},
+      colormap={plain}{color=(white) color=(white)}]
+    \addplot3[surf, shader=faceted, faceted color=blue, z buffer=sort,
+        domain=-7:7, y domain=-7:7, samples=29]
+      {(-x/4)*(y^2/16-1/4)*exp(-(x^2+y^2)/8)/(8*pi)};
+  \end{axis}
+\end{tikzpicture}

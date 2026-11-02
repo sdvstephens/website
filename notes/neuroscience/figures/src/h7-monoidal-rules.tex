@@ -1,0 +1,52 @@
+\begin{tikzpicture}[x=1cm,y=1cm, arr/.style={-{Stealth[length=2mm]}}]
+  % Row 1: tensor product of objects
+  \node[anchor=west] at (0,0) {Tensor product};
+  \node[anchor=west] at (2.9,0) {$S\otimes T$};
+  \begin{scope}[xshift=2.3cm]
+  \draw[arr] (8,0.3) -- (9,0.3); \draw (9,0.3) -- (10,0.3);
+  \node[above] at (9,0.3) {$T$};
+  \draw[arr] (8,-0.3) -- (9,-0.3); \draw (9,-0.3) -- (10,-0.3);
+  \node[above] at (9,-0.3) {$S$};
+  \end{scope}
+  % Row 2: unit object
+  \node[anchor=west] at (0,-1.5) {Unit object};
+  \node[anchor=west] at (2.9,-1.5) {$I$};
+  \node at (11.3,-1.5) {(empty)};
+  % Row 3: morphism
+  \node[anchor=west] at (0,-3) {Morphism};
+  \node[anchor=west] at (2.9,-3) {$f\colon A_1\otimes\cdots\otimes A_n\to B_1\otimes\cdots\otimes B_m$};
+  \begin{scope}[xshift=2.3cm]
+  \draw (8.6,-3.9) rectangle (9.4,-2.1);
+  \fill (8.6,-2.3) rectangle (8.8,-2.1);
+  \node at (9,-3) {$f$};
+  \draw[arr] (7.5,-2.4) -- (8.05,-2.4); \draw (8.05,-2.4) -- (8.6,-2.4);
+  \node[above] at (7.85,-2.4) {$A_n$};
+  \draw[arr] (7.5,-3.6) -- (8.05,-3.6); \draw (8.05,-3.6) -- (8.6,-3.6);
+  \node[above] at (7.85,-3.6) {$A_1$};
+  \node at (8.4,-3.0) {$\vdots$};
+  \draw[arr] (9.4,-2.4) -- (9.95,-2.4); \draw (9.95,-2.4) -- (10.5,-2.4);
+  \node[above] at (10.15,-2.4) {$B_m$};
+  \draw[arr] (9.4,-3.6) -- (9.95,-3.6); \draw (9.95,-3.6) -- (10.5,-3.6);
+  \node[above] at (10.15,-3.6) {$B_1$};
+  \node at (9.6,-3.0) {$\vdots$};
+  \end{scope}
+  % Row 4: tensor product of morphisms
+  \node[anchor=west] at (0,-5.3) {Tensor product};
+  \node[anchor=west] at (2.9,-5.3) {$s\otimes t$};
+  \begin{scope}[xshift=2.3cm]
+  \draw (8.7,-5.0) rectangle (9.3,-4.4);
+  \fill (8.7,-4.55) rectangle (8.85,-4.4);
+  \node at (9,-4.7) {$t$};
+  \draw[arr] (7.5,-4.7) -- (8.1,-4.7); \draw (8.1,-4.7) -- (8.7,-4.7);
+  \node[above] at (7.95,-4.7) {$C$};
+  \draw[arr] (9.3,-4.7) -- (9.9,-4.7); \draw (9.9,-4.7) -- (10.5,-4.7);
+  \node[above] at (10.05,-4.7) {$D$};
+  \draw (8.7,-6.2) rectangle (9.3,-5.6);
+  \fill (8.7,-5.75) rectangle (8.85,-5.6);
+  \node at (9,-5.9) {$s$};
+  \draw[arr] (7.5,-5.9) -- (8.1,-5.9); \draw (8.1,-5.9) -- (8.7,-5.9);
+  \node[above] at (7.95,-5.9) {$A$};
+  \draw[arr] (9.3,-5.9) -- (9.9,-5.9); \draw (9.9,-5.9) -- (10.5,-5.9);
+  \node[above] at (10.05,-5.9) {$B$};
+  \end{scope}
+\end{tikzpicture}

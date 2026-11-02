@@ -1,0 +1,33 @@
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners, thick, align=center, font=\small, minimum height=1cm, inner sep=4pt},
+  stp/.style={box, text width=3.6cm},
+  arr/.style={-{Stealth[length=2.5mm]}, thick},
+  hl/.style={font=\scriptsize, midway}
+]
+% ---- row 1: the HPA axis ----
+\node[box, draw=none, font=\small\bfseries] (stress) at (0,0) {Stress};
+\node[box] (hyp) at (2.6,0) {Hypothalamus};
+\node[box] (pit) at (5.6,0) {Pituitary\\gland};
+\node[box] (adr) at (8.4,0) {Adrenal\\gland};
+\node[box, draw=red] (cort) at (11.3,0) {Cortisol\\(stress hormones) $\uparrow$};
+\draw[arr] (stress) -- (hyp);
+\draw[arr] (hyp) -- node[hl, above] {CRH} (pit);
+\draw[arr] (pit) -- node[hl, above] {ACTH} (adr);
+\draw[arr] (adr) -- (cort);
+
+% negative feedback, blocked
+\draw[arr, dashed, gray] (cort.north) to[bend right=22]
+  node[pos=0.5, above=5pt, font=\scriptsize, text=black, align=center]
+  {negative feedback blocked:\\glucocorticoid receptors desensitized}
+  coordinate[pos=0.5] (fb) (hyp.north);
+\draw[red, very thick] ($(fb)+(-0.18,-0.18)$) -- ($(fb)+(0.18,0.18)$);
+\draw[red, very thick] ($(fb)+(-0.18,0.18)$) -- ($(fb)+(0.18,-0.18)$);
+
+% ---- row 2: what the stress hormones do in the brain ----
+\node[stp] (tox) at (11.3,-2.6) {Toxic to neurons;\\inhibits BDNF \& Reelin};
+\node[stp, text width=4.4cm] (brk) at (6.4,-2.6) {Breakdown of neurons \& synapses, especially GABA projections from PFC \& hippocampus to amygdala};
+\node[stp, text width=2.8cm] (dep) at (1.5,-2.6) {Depression symptoms caused \& perpetuated};
+\draw[arr] (cort) -- (tox);
+\draw[arr] (tox) -- (brk);
+\draw[arr] (brk) -- (dep);
+\end{tikzpicture}

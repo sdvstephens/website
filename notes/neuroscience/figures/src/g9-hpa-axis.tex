@@ -1,0 +1,25 @@
+\begin{tikzpicture}[font=\small,
+  organ/.style={draw, thick, rounded corners=4pt, fill=gray, fill opacity=0.12, text opacity=1, align=center, inner sep=5pt, minimum width=2.6cm},
+  horm/.style={draw, thick, rounded corners=7pt, inner sep=4pt, minimum width=1.3cm, minimum height=0.55cm},
+  main/.style={-{Latex[length=3mm]}, line width=1.6pt},
+  fb/.style={-{Latex[length=2.5mm]}, thick, red, dashed}]
+% main chain
+\node[organ] (hyp) at (0,6.2) {Hypothalamus};
+\node[horm] (crh) at (0,5.15) {CRH};
+\node[organ] (pit) at (0,4.1) {Pituitary gland};
+\node[horm] (acth) at (0,3.05) {ACTH};
+\node[organ] (adr) at (0,2.0) {Adrenal gland};
+\node[horm, fill=gray, fill opacity=0.25, text opacity=1] (cort) at (0,0.6) {Cortisol};
+\draw[main] (hyp) -- (crh);
+\draw[main] (crh) -- (pit);
+\draw[main] (pit) -- (acth);
+\draw[main] (acth) -- (adr);
+\draw[main] (adr) -- (cort);
+% cortisol acts on the body
+\draw[-{Latex[length=2.5mm]}, thick] (cort.east) -- ++(1.4,0) node[right, align=left] {to the body};
+\draw[-{Latex[length=2.5mm]}, thick] (cort.south east) -- ++(1.0,-0.6);
+\draw[-{Latex[length=2.5mm]}, thick] (cort.north east) -- ++(1.0,0.6);
+% negative feedback
+\draw[fb] (cort.west) to[out=170, in=190, looseness=1.25] node[pos=0.5, left, font=\footnotesize, align=right, text=red] {negative\\feedback} (hyp.west);
+\draw[fb] ([yshift=3pt]cort.west) to[out=150, in=200, looseness=1.1] (pit.west);
+\end{tikzpicture}

@@ -1,0 +1,36 @@
+\begin{tikzpicture}[font=\small,
+    gene/.style={draw, rounded corners=6pt, minimum height=0.8cm, inner sep=4pt, align=center},
+    lab/.style={font=\footnotesize, align=center},
+    arr/.style={-{Stealth[length=2.4mm]}, thick}]
+  % DNA construct: double strand with two gene segments
+  \foreach \a/\b in {0/0.75, 2.05/2.65, 4.45/5.0} {
+    \draw[blue, thick] plot[domain=\a:\b, samples=30] (\x, {0.12*sin(deg(5*\x))});
+    \draw[blue, thick] plot[domain=\a:\b, samples=30] (\x, {-0.12*sin(deg(5*\x))});
+  }
+  \node[lab] at (0.3,0.5) {DNA};
+  \node[gene, fill=green, fill opacity=0.2, text opacity=1, minimum width=1.3cm] (gfp) at (1.4,0) {GFP};
+  \node[gene, fill=red, fill opacity=0.2, text opacity=1, minimum width=1.8cm] (dre) at (3.55,0) {hM3/hM4};
+  \node[lab, below=0.2cm of gfp] {fluorescent tag};
+  \node[lab, below=0.2cm of dre] {DREADD};
+  % viral vector (hexagon drawn by hand)
+  \begin{scope}[shift={(7.0,0)}]
+    \draw[thick, orange, fill=orange, fill opacity=0.15]
+      (0:0.75) -- (60:0.75) -- (120:0.75) -- (180:0.75) -- (240:0.75) -- (300:0.75) -- cycle;
+    \foreach \a in {30,90,...,330} {
+      \draw[orange, thick] (\a:0.65) -- (\a:0.95);
+      \fill[orange] (\a:1.0) circle (0.06);
+    }
+    \draw[blue, thick] plot[domain=-0.35:0.35, samples=30] (\x, {0.1*sin(deg(14*\x))});
+    \node[lab] at (0,-1.5) {viral vector\\(a harmless virus\\carrying the gene)};
+  \end{scope}
+  \draw[arr] (5.2,0) -- (5.95,0);
+  % brain / target neurons
+  \node[gene, draw=purple, text width=3.4cm, minimum height=1.6cm] (brain) at (11.3,0)
+    {injected into the brain:\\target neurons make\\the receptor};
+  \draw[arr] (8.1,0) -- (brain.west);
+  % CNO
+  \node[gene, draw=gray, text width=3.4cm] (cno) at (11.3,2.3)
+    {CNO given orally\\or by injection};
+  \draw[arr] (cno) -- (brain);
+  \node[lab, text width=4cm, below=0.25cm of brain] {the drug acts on the receptor:\\neurons switched on (hM3)\\or off (hM4)};
+\end{tikzpicture}

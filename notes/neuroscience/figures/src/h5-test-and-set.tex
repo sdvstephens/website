@@ -1,0 +1,20 @@
+\begin{tikzpicture}[p/.style={draw,ellipse,inner sep=1.2pt,font=\small,fill=white}]
+\coordinate (P0) at (0,4);   \coordinate (R0) at (4,4);
+\coordinate (Q0) at (4,0);   \coordinate (S0) at (0,0);
+\coordinate (Q1) at (1.2,2.8); \coordinate (S1) at (2.8,2.8);
+\coordinate (P1) at (2.8,1.2); \coordinate (R1) at (1.2,1.2);
+% the four tetrahedra, seen from above: one trapezoid each
+\fill[gray,opacity=0.55] (P0) -- (R0) -- (S1) -- (Q1) -- cycle;
+\fill[gray,opacity=0.25] (R0) -- (Q0) -- (P1) -- (S1) -- cycle;
+\fill[gray,opacity=0.55] (Q0) -- (S0) -- (R1) -- (P1) -- cycle;
+\fill[gray,opacity=0.25] (S0) -- (P0) -- (Q1) -- (R1) -- cycle;
+% edges: outer and inner squares, corner edges, and the two diagonals of each trapezoid
+\draw (P0) -- (R0) -- (Q0) -- (S0) -- cycle;
+\draw (Q1) -- (S1) -- (P1) -- (R1) -- cycle;
+\draw (P0) -- (Q1) (R0) -- (S1) (Q0) -- (P1) (S0) -- (R1);
+\draw (P0) -- (S1) (R0) -- (Q1);
+\draw (R0) -- (P1) (Q0) -- (S1);
+\draw (Q0) -- (R1) (S0) -- (P1);
+\draw (S0) -- (Q1) (P0) -- (R1);
+\foreach \v in {P0,R0,Q0,S0,Q1,S1,P1,R1} \node[p] at (\v) {\v};
+\end{tikzpicture}

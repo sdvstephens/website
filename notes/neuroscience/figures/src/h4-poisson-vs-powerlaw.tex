@@ -1,0 +1,26 @@
+\begin{tikzpicture}[font=\small]
+% left panel: Poisson (bell-shaped)
+\begin{scope}
+  \draw[-{Stealth[length=2mm]}] (0,0) -- (5,0);
+  \draw[-{Stealth[length=2mm]}] (0,0) -- (0,3.4);
+  \draw[red, thick, domain=0.15:4.8, samples=80] plot (\x, {3*exp(-(\x-2.4)^2/0.9)});
+  \node[below] at (2.5,-0.05) {number of links $k$};
+  \node[rotate=90, above] at (-0.05,1.7) {nodes with $k$ links};
+  \node[align=left, anchor=west] (a) at (3.2,3.1) {most nodes have the\\ same number of links};
+  \draw[-{Stealth[length=1.5mm]}] (a.west) -- (2.75,2.7);
+  \node[draw, thick] at (2.5,-1.05) {Poisson distribution};
+\end{scope}
+% right panel: power law
+\begin{scope}[xshift=7.6cm]
+  \draw[-{Stealth[length=2mm]}] (0,0) -- (5,0);
+  \draw[-{Stealth[length=2mm]}] (0,0) -- (0,3.4);
+  \draw[red, thick, domain=0.12:4.8, samples=120] plot (\x, {0.36/\x + 0.03});
+  \node[below] at (2.5,-0.05) {number of links $k$};
+  \node[rotate=90, above] at (-0.05,1.7) {nodes with $k$ links};
+  \node[align=left, anchor=west] (b) at (0.6,2.7) {large number of nodes\\ have few links};
+  \draw[-{Stealth[length=1.5mm]}] (b.west) -- (0.2,2.2);
+  \node[align=left, anchor=west] (c) at (2.4,1.2) {small number of nodes\\ (hubs) have many links};
+  \draw[-{Stealth[length=1.5mm]}] (3.8,0.75) -- (3.8,0.18);
+  \node[draw, thick] at (2.5,-1.05) {power-law distribution};
+\end{scope}
+\end{tikzpicture}

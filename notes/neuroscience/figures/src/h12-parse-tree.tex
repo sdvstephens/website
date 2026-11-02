@@ -1,0 +1,12 @@
+\begin{tikzpicture}[e/.style={-{Stealth[length=2mm]}}, inner sep=2pt]
+  \node (A) at (3.6,0) {$A$};
+  \node (B) at (1.2,-1.1) {$B$};
+  \node (C) at (5.8,-1.1) {$C$};
+  \node (w1) at (0,-2.2) {$w_1$};
+  \node (w2) at (1.2,-2.2) {$w_2$};
+  \node (w3) at (2.4,-2.2) {$w_3$};
+  \node (w4) at (4.8,-2.2) {$w_4$};
+  \node (w5) at (6.8,-2.2) {$w_5$};
+  \foreach \p/\c in {A/B, A/C, B/w1, B/w2, B/w3, C/w4, C/w5}
+    \draw[e] (\p) -- (\c);
+\end{tikzpicture}

@@ -1,0 +1,35 @@
+\begin{tikzpicture}[font=\small,
+    area/.style={draw, thick, minimum width=1.0cm, minimum height=0.6cm, font=\small\bfseries},
+    pv/.style={gray, thick, -{Stealth[length=2mm]}},
+    mg/.style={thick, -{Stealth[length=2mm]}}]
+  \node[area] (ret) at (0,0) {Retina};
+  \node[area] (lgn) at (0,1.3) {LGN};
+  \node[area] (v1)  at (0,2.6) {V1};
+  \node[area] (v2)  at (0,3.9) {V2};
+  \node[area] (v3)  at (0,5.2) {V3};
+  \node[area] (v4)  at (-2.0,6.6) {V4};
+  \node[area] (mt)  at (2.0,6.6) {MT};
+  \node[area] (it)  at (-2.0,8.0) {IT};
+  \node[area] (mst) at (2.0,8.0) {MST};
+  \node[align=center] (ov) at (-2.0,9.3) {Other ventral areas\\[-1pt]{\footnotesize\itshape (pictured: a teapot)}};
+  \node[align=center] (od) at (2.0,9.3) {Other dorsal areas\\[-1pt]{\footnotesize\itshape (pictured: moving objects)}};
+  % paired parvo (gray) and magno (black) arrows up the trunk
+  \foreach \a/\b in {ret/lgn, lgn/v1, v1/v2, v2/v3} {
+    \draw[pv] ($(\a.north)+(-0.15,0)$) -- ($(\b.south)+(-0.15,0)$);
+    \draw[mg] ($(\a.north)+(0.15,0)$) -- ($(\b.south)+(0.15,0)$);
+  }
+  \node[gray, anchor=east] at (-0.25,0.65) {Parvo};
+  \node[anchor=west] at (0.25,0.65) {Magno};
+  % ventral (gray) branches
+  \draw[pv] ($(v2.north west)+(0.1,0)$) -- (v4.south);
+  \draw[gray, thick] (v3.north) -- (0,5.75);
+  \draw[pv] (0,5.75) -- (v4.south east);
+  \draw[pv] (0,5.75) -- (mt.south west);
+  \draw[gray, thick, {Stealth[length=2mm]}-{Stealth[length=2mm]}] (v4) -- (mt);
+  \draw[pv] (v4) -- (it);
+  \draw[pv] (it) -- (ov);
+  % dorsal (black) branch
+  \draw[mg] ($(v1.north east)+(-0.1,0)$) -- (mt.south);
+  \draw[mg] (mt) -- (mst);
+  \draw[mg] (mst) -- (od);
+\end{tikzpicture}

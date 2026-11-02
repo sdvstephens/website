@@ -1,0 +1,44 @@
+\begin{tikzpicture}[scale=0.9,
+  up/.style={postaction={decorate},decoration={markings,mark=at position 0.55 with {\arrow{Stealth[length=2mm,width=1.5mm]}}}},
+  dot/.style={circle,fill=black,inner sep=0pt,minimum size=3.5pt}]
+% panel 1: the square with an open square removed
+\begin{scope}
+\draw (0,0) rectangle (3,3);
+\draw (1,1) rectangle (2,2);
+\node at (1.5,1.5) {$\times$};
+\node[font=\small] at (1.5,-0.45) {$X$};
+\end{scope}
+% panel 2: two directed paths from x to x' around the hole
+\begin{scope}[shift={(4.5,0)}]
+\draw (0,0) rectangle (3,3);
+\draw (1,1) rectangle (2,2);
+\node at (1.5,1.5) {$\times$};
+\draw[dotted] (0,1) -- (1,1) -- (1,0);
+\draw[dotted] (2,3) -- (2,2) -- (3,2);
+\draw[dashed,thick,blue] (0.55,0.6) -- (0.55,2.5) -- (2.45,2.5);
+\draw[dashed,thick,red] (0.55,0.6) -- (2.45,0.6) -- (2.45,2.5);
+\draw[blue,-{Stealth[length=2mm,width=1.5mm]}] (0.55,1.45) -- (0.55,1.6);
+\draw[red,-{Stealth[length=2mm,width=1.5mm]}] (2.45,1.45) -- (2.45,1.6);
+\node[dot] at (0.55,0.6) {}; \node[below left] at (0.55,0.6) {$x$};
+\node[dot] at (2.45,2.5) {}; \node[right] at (2.45,2.5) {$x'$};
+\end{scope}
+% panel 3: the points 0, p, q, 1
+\begin{scope}[shift={(0,-4.3)}]
+\draw[dotted] (0,0) rectangle (3,3);
+\draw (1,1) rectangle (2,2);
+\node at (1.5,1.5) {$\times$};
+\draw[thick,up] (0,0) -- (1,1);
+\draw[thick,up] (2,2) -- (3,3);
+\draw[up] (1,1) -- (1,2);
+\draw[up] (2,1) -- (2,2);
+\node[dot] at (0,0) {}; \node[left] at (0,0) {$0$};
+\node[dot] at (1,1) {}; \node[below right] at (1,1) {$p$};
+\node[dot] at (2,2) {}; \node[above left] at (2,2) {$q$};
+\node[dot] at (3,3) {}; \node[right] at (3,3) {$1$};
+\end{scope}
+% panel 4: the category E
+\begin{scope}[shift={(4.5,-4.3)}]
+\node at (1.5,1.6) {$0 \longrightarrow p \rightrightarrows q \longrightarrow 1$};
+\node at (1.5,0.9) {$E$};
+\end{scope}
+\end{tikzpicture}

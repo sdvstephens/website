@@ -1,0 +1,13 @@
+\begin{tikzpicture}[x=5cm, y=5cm, font=\small]
+% possible pole locations of the Ihara zeta function of a (q+1)-regular graph (drawn with q = 4)
+\def\rq{0.5}  % 1/sqrt(q)
+\def\iq{0.25} % 1/q
+\draw[blue, thick] (-1,0) -- (1,0);
+\draw[blue, thick] (0,0) circle (\rq);
+\foreach \x in {-1,-\rq,-\iq,0,\iq,\rq,1}
+  \draw[red, very thick] (\x,-0.03) -- (\x,0.03);
+\foreach \x/\l in {-1/{-1}, -\iq/{-1/q}, 0/{0}, \iq/{1/q}, 1/{1}}
+  \node[below] at (\x,-0.035) {$\l$};
+\node[below left] at (-\rq,-0.02) {$-1/\sqrt{q}$};
+\node[below right] at (\rq,-0.02) {$1/\sqrt{q}$};
+\end{tikzpicture}

@@ -1,0 +1,45 @@
+\begin{tikzpicture}[font=\small, >=Stealth,
+  lab/.style={font=\small, align=center},
+  pointer/.style={-{Latex[length=2mm]}, thin, black}]
+% ---------- pre-synaptic terminal ----------
+\draw[orange, thick, fill=orange, fill opacity=0.10]
+  (-1.6,4.2) -- (-1.6,2.8) .. controls (-1.6,1.6) and (-2.4,1.0) .. (-2.0,0.75)
+  .. controls (-1.8,0.6) .. (-1.4,0.6) -- (1.4,0.6)
+  .. controls (1.8,0.6) .. (2.0,0.75) .. controls (2.4,1.0) and (1.6,1.6) .. (1.6,2.8) -- (1.6,4.2);
+\node[lab, anchor=south] at (0,4.25) {Pre-synaptic nerve ending};
+% vesicles full of serotonin
+\foreach \c in {(-0.8,3.0),(0.5,2.4),(-0.9,1.7)} {
+  \draw[orange, thick, fill=white] \c circle (0.32);
+  \fill[red] \c ++(-0.11,0.09) circle (1.5pt);
+  \fill[red] \c ++(0.12,0.07) circle (1.5pt);
+  \fill[red] \c ++(0.0,-0.12) circle (1.5pt);
+}
+% vesicle fusing with the membrane
+\draw[orange, thick, fill=white] (-0.5,0.95) circle (0.3);
+\fill[red] (-0.58,1.0) circle (1.5pt);
+\fill[red] (-0.4,0.9) circle (1.5pt);
+% ---------- reuptake transporter blocked by the drug ----------
+\fill[purple, fill opacity=0.7] (1.05,0.45) rectangle (1.45,0.85);
+\fill[blue] (1.25,0.33) circle (0.2);
+\node[lab, anchor=west] at (2.6,1.9) {Reuptake transporter\\blocked by the SSRI};
+\draw[pointer] (2.6,1.9) -- (1.45,0.5);
+% ---------- the synapse, full of serotonin (5-HT) ----------
+\pgfmathsetseed{7}
+\foreach \i in {1,...,55} {
+  \pgfmathsetmacro{\x}{-2.0+4.0*rnd}
+  \pgfmathsetmacro{\y}{-0.35+0.75*rnd}
+  \fill[red] (\x,\y) circle (1.5pt);
+}
+\node[lab, anchor=east] at (-2.6,0.2) {Serotonin (5-HT)\\is released};
+\draw[pointer] (-2.6,0.2) -- (-1.4,0.15);
+\node[lab, anchor=west] at (2.6,-0.05) {Synapse};
+\draw[pointer] (2.6,-0.05) -- (2.0,-0.05);
+% ---------- post-synaptic side ----------
+\draw[orange, thick, fill=orange, fill opacity=0.10]
+  (-3.0,-1.9) -- (-3.0,-0.55) .. controls (-1.5,-0.75) and (1.5,-0.75) .. (3.0,-0.55) -- (3.0,-1.9);
+\foreach \x in {-1.6,-0.8,0,0.8,1.6} {
+  \fill[green!60!black] (\x,-0.7) ++(-0.14,0) arc (180:0:0.14) -- cycle;
+}
+\node[lab] at (0,-1.35) {Receptor sites};
+\node[lab, anchor=north] at (0,-1.95) {Post-synaptic nerve ending};
+\end{tikzpicture}

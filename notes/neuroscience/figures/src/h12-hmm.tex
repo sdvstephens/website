@@ -1,0 +1,12 @@
+\begin{tikzpicture}[h/.style={circle, draw, minimum size=0.8cm, inner sep=0pt},
+  o/.style={circle, draw, fill=gray!30, minimum size=0.8cm, inner sep=0pt},
+  e/.style={-{Stealth[length=2.2mm]}}]
+  \foreach \i in {1,2,3} {
+    \node[h] (x\i) at ({2*(\i-1)},0) {$X_\i$};
+    \node[o] (y\i) at ({2*(\i-1)},-1.6) {$Y_\i$};
+    \draw[e] (x\i) -- (y\i);
+  }
+  \draw[e] (x1) -- (x2); \draw[e] (x2) -- (x3);
+  \node[anchor=west, font=\small] at (4.6,0) {hidden};
+  \node[anchor=west, font=\small] at (4.6,-1.6) {observed};
+\end{tikzpicture}

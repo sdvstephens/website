@@ -1,0 +1,22 @@
+\begin{tikzpicture}[>={Stealth[length=2.2mm]}, font=\small,
+    stage/.style={draw, rounded corners=2pt, align=center, inner sep=4pt, text width=3.1cm, minimum height=1.35cm, execute at begin node={\hyphenpenalty=10000 }}]
+  % from the tongue ...
+  \node[stage] (a) at (0,0) {camera on the forehead captures the image};
+  \node[stage] (b) at (4.0,0) {processor turns it into a pattern of electrical pulses};
+  \node[stage] (c) at (8.0,0) {electrode array on the tongue stimulates touch receptors};
+  % ... to the brain
+  \node[stage] (d) at (8.0,-2.3) {nerves to the brain carry impulses to the \textbf{somatosensory cortex}};
+  \node[stage] (e) at (4.0,-2.3) {relayed to areas that process images: \textbf{visual} and \textbf{visual association cortex}};
+  \node[stage] (f) at (0,-2.3) {\textbf{prefrontal cortex}: the object is recognized};
+  \draw[->, thick] (a) -- (b);
+  \draw[->, thick] (b) -- (c);
+  \draw[->, thick] (c) -- (d);
+  \draw[->, thick] (d) -- (e);
+  \draw[->, thick] (e) -- (f);
+  \node[font=\Large\bfseries] (x1) at (-2.6,0) {X};
+  \node[font=\scriptsize, below=0pt of x1] {test symbol};
+  \draw[->, thick] (x1) -- (a);
+  \node[font=\Large\bfseries, gray] (x2) at (-2.6,-2.3) {X};
+  \node[font=\scriptsize, below=0pt of x2, align=center] {perceived\\symbol};
+  \draw[->, thick] (f) -- (x2);
+\end{tikzpicture}

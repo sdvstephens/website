@@ -1,0 +1,16 @@
+\begin{tikzpicture}[font=\small, >=Stealth,
+  box/.style={draw, thick, rounded corners=4pt, align=center, inner sep=5pt, minimum height=1.4cm, text width=2.9cm},
+  flow/.style={-{Latex[length=2.5mm]}, line width=1.2pt},
+  lab/.style={font=\footnotesize, align=center}]
+\node[box, draw=blue] (nerves) at (0,0) {Residual nerves\\of the \mbox{amputated} arm\\[1pt]{\footnotesize (musculocutaneous, median, radial)}};
+\node[box, draw=red] (muscle) at (4.9,0) {Target muscle\\{\footnotesize (in the figure, in the chest)}};
+\node[box, draw=green!60!black] (emg) at (9.8,0) {EMG electrodes\\{\footnotesize record the muscle's electrical signals}};
+\node[box] (cpu) at (9.8,-2.8) {Microprocessor controller};
+\node[box, draw=orange] (arm) at (4.9,-2.8) {Motorized prosthetic arm};
+\node[box, draw=purple] (feel) at (0,-2.8) {Touch felt on the missing limb};
+\draw[flow, blue] (nerves) -- node[lab, above] {rerouted to} (muscle);
+\draw[flow] (muscle) -- node[lab, above] {signals} (emg);
+\draw[flow] (emg) -- (cpu);
+\draw[flow] (cpu) -- node[lab, above] {drives} (arm);
+\draw[flow, purple, dashed] (arm) -- node[lab, above] {prosthetic\\skin touched} (feel);
+\end{tikzpicture}

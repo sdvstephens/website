@@ -1,0 +1,31 @@
+\begin{tikzpicture}[scale=1.1, font=\small]
+  % p = 0.6, q = 0.4, side length 4
+  % columns: male gametes A (width 2.4), a (width 1.6)
+  % rows: female gametes A (height 2.4, bottom), a (height 1.6, top)
+  \fill[red, fill opacity=0.45] (0,2.4) rectangle (2.4,4);
+  \fill[red, fill opacity=0.45] (2.4,0) rectangle (4,2.4);
+  \draw[thick] (0,0) rectangle (4,4);
+  \draw[thick] (2.4,0) -- (2.4,4);
+  \draw[thick] (0,2.4) -- (4,2.4);
+  % cell contents
+  \node at (1.2,1.4) {$AA$};
+  \node at (1.2,0.9) {$p^2$};
+  \node at (3.2,1.4) {$Aa$};
+  \node at (3.2,0.9) {$pq$};
+  \node at (1.2,3.4) {$Aa$};
+  \node at (1.2,2.9) {$pq$};
+  \node at (3.2,3.4) {$aa$};
+  \node at (3.2,2.9) {$q^2$};
+  % bottom axis: male gametes
+  \draw[{Latex[length=1.6mm]}-{Latex[length=1.6mm]}] (0,-0.55) -- node[below] {$p$} (2.4,-0.55);
+  \draw[{Latex[length=1.6mm]}-{Latex[length=1.6mm]}] (2.4,-0.55) -- node[below] {$q$} (4,-0.55);
+  \node[draw, circle, inner sep=1pt] at (1.2,-0.2) {$A$};
+  \node[draw, circle, inner sep=1.5pt] at (3.2,-0.2) {$a$};
+  \node[below] at (2,-1.0) {male gametes};
+  % left axis: female gametes
+  \draw[{Latex[length=1.6mm]}-{Latex[length=1.6mm]}] (-0.65,0) -- node[left] {$p$} (-0.65,2.4);
+  \draw[{Latex[length=1.6mm]}-{Latex[length=1.6mm]}] (-0.65,2.4) -- node[left] {$q$} (-0.65,4);
+  \node[draw, circle, inner sep=1pt] at (-0.27,1.2) {$A$};
+  \node[draw, circle, inner sep=1.5pt] at (-0.27,3.2) {$a$};
+  \node[rotate=90, above] at (-1.1,2) {female gametes};
+\end{tikzpicture}

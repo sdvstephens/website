@@ -1,0 +1,16 @@
+\begin{tikzpicture}[scale=0.9]
+  % basin of attraction
+  \begin{scope}
+    \clip plot[smooth] coordinates {(0.4,3.4) (1.2,3.0) (2.0,1.9) (3.0,0.8) (4.0,1.6) (5.2,3.0) (6.2,2.4) (7.4,1.0) (8.1,1.0) (8.8,1.5)} -- (8.8,0) -- (0.4,0) -- cycle;
+    \fill[green!25] (1.0,0) rectangle (5.2,4);
+  \end{scope}
+  \draw[-{Stealth}] (0,0) -- (9.3,0) node[below left] {states};
+  \draw[-{Stealth}] (0,0) -- (0,3.9) node[above] {energy};
+  \draw[blue,thick] plot[smooth] coordinates {(0.4,3.4) (1.2,3.0) (2.0,1.9) (3.0,0.8) (4.0,1.6) (5.2,3.0) (6.2,2.4) (7.4,1.0) (8.1,1.0) (8.8,1.5)};
+  \draw[dashed] (6.9,0.86) -- (9.2,0.86) node[above left,font=\small] {minimum energy};
+  \fill[blue] (1.2,3.0) circle (0.12) node[above right,black,font=\small] {update};
+  \fill[blue] (3.0,0.8) circle (0.12) node[below right,black,font=\small] {attractor};
+  \draw[-{Stealth},gray] (1.45,2.75) to[bend left=10] (2.6,1.1);
+  \draw[decorate,decoration={brace,mirror,amplitude=5pt}] (1.0,-0.15) -- (5.2,-0.15)
+    node[midway,below=6pt,font=\small] {basin of attraction};
+\end{tikzpicture}

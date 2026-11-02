@@ -1,0 +1,21 @@
+\begin{tikzpicture}[v/.style={circle, draw, minimum size=0.65cm, inner sep=0pt},
+  e/.style={-{Stealth[length=2.2mm]}}]
+  \node[v] (r) at (3.2,0) {$x_1$};
+  \node[v] (a) at (1.2,-1.4) {$x_1$};
+  \node[v] (b) at (3.2,-1.4) {$x_1$};
+  \node[v] (c) at (4.2,-1.4) {$x_2$};
+  \node[v] (a1) at (0.2,-2.8) {$x_1$};
+  \node[v] (a2) at (1.2,-2.8) {$x_1$};
+  \node[v] (a3) at (2.2,-2.8) {$x_2$};
+  \node[v] (b1) at (3.2,-2.8) {$2$};
+  \node[v] (c1) at (4.2,-2.8) {$\star$};
+  \node[v] (a11) at (0.2,-4.2) {$3$};
+  \node[v] (a21) at (1.2,-4.2) {$4$};
+  \node[v] (a31) at (2.2,-4.2) {$+$};
+  \foreach \p/\c in {r/a, r/b, r/c, a/a1, a/a2, a/a3, b/b1, c/c1, a1/a11, a2/a21, a3/a31}
+    \draw[e] (\p) -- (\c);
+  \node[anchor=west] at (5.2,0) {$Z_0 = [1,0]$};
+  \node[anchor=west] at (5.2,-1.4) {$Z_1 = [2,1]$};
+  \node[anchor=west] at (5.2,-2.8) {$Z_2 = [2,1]$};
+  \node[anchor=west] at (5.2,-4.2) {$Z_3 = [0,0]$};
+\end{tikzpicture}
