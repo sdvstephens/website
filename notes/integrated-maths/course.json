@@ -9,76 +9,76 @@
       "part": "Basic Mathematics",
       "sections": [
         {
-          "number": "1.1",
           "slug": "basic-1-1-why-arithmetic-has-rules",
           "title": "Why Arithmetic Has Rules",
-          "planned": true
+          "planned": true,
+          "number": "1.1"
         },
         {
-          "number": "1.2",
           "slug": "basic-1-2-sets-the-language-of-structure",
           "title": "Sets: The Language of Structure",
-          "planned": true
+          "planned": true,
+          "number": "1.2"
         },
         {
-          "number": "1.3",
           "slug": "basic-1-3-properties-of-addition",
           "title": "Properties of Addition",
-          "planned": true
+          "planned": true,
+          "number": "1.3"
         },
         {
-          "number": "1.4",
           "slug": "basic-1-4-properties-of-multiplication",
           "title": "Properties of Multiplication",
-          "planned": true
+          "planned": true,
+          "number": "1.4"
         },
         {
-          "number": "1.5",
           "slug": "basic-1-5-negation-and-additive-inverses",
           "title": "Negation and Additive Inverses",
-          "planned": true
+          "planned": true,
+          "number": "1.5"
         },
         {
-          "number": "1.6",
           "slug": "basic-1-6-subtraction-and-integer-arithmetic",
           "title": "Subtraction and Integer Arithmetic",
-          "planned": true
+          "planned": true,
+          "number": "1.6"
         },
         {
-          "number": "1.7",
           "slug": "basic-1-7-reciprocals-and-multiplicative-inverses",
           "title": "Reciprocals and Multiplicative Inverses",
-          "planned": true
+          "planned": true,
+          "number": "1.7"
         },
         {
-          "number": "1.8",
           "slug": "basic-1-8-division-and-fractions",
           "title": "Division and Fractions",
-          "planned": true
+          "planned": true,
+          "number": "1.8"
         },
         {
-          "number": "1.9",
           "slug": "basic-1-9-exponents-repeated-multiplication",
           "title": "Exponents: Repeated Multiplication",
-          "planned": true
+          "planned": true,
+          "number": "1.9"
         },
         {
-          "number": "1.10",
           "slug": "basic-1-10-zero-and-negative-exponents",
           "title": "Zero and Negative Exponents",
-          "planned": true
+          "planned": true,
+          "number": "1.10"
         },
         {
-          "number": "1.11",
           "slug": "basic-1-11-exploring-structure-symmetry-clocks-and-composition",
           "title": "Exploring Structure: Symmetry, Clocks, and Composition",
-          "planned": true
+          "planned": true,
+          "number": "1.11"
         },
         {
-          "number": "1.12",
           "slug": "basic-1-12-order-of-operations-and-structure-summary",
           "title": "Order of Operations and Structure Summary",
-          "planned": true
+          "planned": true,
+          "number": "1.12"
         }
       ]
     },
@@ -88,76 +88,76 @@
       "part": "Basic Mathematics",
       "sections": [
         {
-          "number": "2.1",
           "slug": "basic-2-1-what-is-a-variable",
           "title": "What is a Variable?",
-          "planned": true
+          "planned": true,
+          "number": "2.1"
         },
         {
-          "number": "2.2",
           "slug": "basic-2-2-combining-like-terms",
           "title": "Combining Like Terms",
-          "planned": true
+          "planned": true,
+          "number": "2.2"
         },
         {
-          "number": "2.3",
           "slug": "basic-2-3-distribution-and-factoring",
           "title": "Distribution and Factoring",
-          "planned": true
+          "planned": true,
+          "number": "2.3"
         },
         {
-          "number": "2.4",
           "slug": "basic-2-4-what-is-an-equation",
           "title": "What is an Equation?",
-          "planned": true
+          "planned": true,
+          "number": "2.4"
         },
         {
-          "number": "2.5",
           "slug": "basic-2-5-solving-multi-step-linear-equations",
           "title": "Solving Multi-Step Linear Equations",
-          "planned": true
+          "planned": true,
+          "number": "2.5"
         },
         {
-          "number": "2.6",
           "slug": "basic-2-6-special-cases-no-solution-and-infinite-solutions",
           "title": "Special Cases: No Solution and Infinite Solutions",
-          "planned": true
+          "planned": true,
+          "number": "2.6"
         },
         {
-          "number": "2.7",
           "slug": "basic-2-7-word-problems-i-translating-to-equations",
           "title": "Word Problems I: Translating to Equations",
-          "planned": true
+          "planned": true,
+          "number": "2.7"
         },
         {
-          "number": "2.8",
           "slug": "basic-2-8-word-problems-ii-geometry-and-rate-problems",
           "title": "Word Problems II: Geometry and Rate Problems",
-          "planned": true
+          "planned": true,
+          "number": "2.8"
         },
         {
-          "number": "2.9",
           "slug": "basic-2-9-inequalities",
           "title": "Inequalities",
-          "planned": true
+          "planned": true,
+          "number": "2.9"
         },
         {
-          "number": "2.10",
           "slug": "basic-2-10-polynomials-and-like-terms",
           "title": "Polynomials and Like Terms",
-          "planned": true
+          "planned": true,
+          "number": "2.10"
         },
         {
-          "number": "2.11",
           "slug": "basic-2-11-polynomial-multiplication-and-factoring-i",
           "title": "Polynomial Multiplication and Factoring I",
-          "planned": true
+          "planned": true,
+          "number": "2.11"
         },
         {
-          "number": "2.12",
           "slug": "basic-2-12-factoring-ii-and-part-ii-summary",
           "title": "Factoring II and Part II Summary",
-          "planned": true
+          "planned": true,
+          "number": "2.12"
         }
       ]
     },
@@ -167,64 +167,64 @@
       "part": "Basic Mathematics",
       "sections": [
         {
-          "number": "3.1",
           "slug": "basic-3-1-divisibility-rules-and-tests",
           "title": "Divisibility Rules and Tests",
-          "planned": true
+          "planned": true,
+          "number": "3.1"
         },
         {
-          "number": "3.2",
           "slug": "basic-3-2-primes-and-composite-numbers",
           "title": "Primes and Composite Numbers",
-          "planned": true
+          "planned": true,
+          "number": "3.2"
         },
         {
-          "number": "3.3",
           "slug": "basic-3-3-prime-factorization-and-fundamental-theorem",
           "title": "Prime Factorization and Fundamental Theorem",
-          "planned": true
+          "planned": true,
+          "number": "3.3"
         },
         {
-          "number": "3.4",
           "slug": "basic-3-4-gcd-and-lcm",
           "title": "GCD and LCM",
-          "planned": true
+          "planned": true,
+          "number": "3.4"
         },
         {
-          "number": "3.5",
           "slug": "basic-3-5-the-euclidean-algorithm",
           "title": "The Euclidean Algorithm",
-          "planned": true
+          "planned": true,
+          "number": "3.5"
         },
         {
-          "number": "3.6",
           "slug": "basic-3-6-introduction-to-modular-arithmetic",
           "title": "Introduction to Modular Arithmetic",
-          "planned": true
+          "planned": true,
+          "number": "3.6"
         },
         {
-          "number": "3.7",
           "slug": "basic-3-7-computing-with-congruences",
           "title": "Computing with Congruences",
-          "planned": true
+          "planned": true,
+          "number": "3.7"
         },
         {
-          "number": "3.8",
           "slug": "basic-3-8-linear-congruences-and-diophantine-equations",
           "title": "Linear Congruences and Diophantine Equations",
-          "planned": true
+          "planned": true,
+          "number": "3.8"
         },
         {
-          "number": "3.9",
           "slug": "basic-3-9-patterns-in-number-theory",
           "title": "Patterns in Number Theory",
-          "planned": true
+          "planned": true,
+          "number": "3.9"
         },
         {
-          "number": "3.10",
           "slug": "basic-3-10-part-iii-summary-number-theory-as-structure",
           "title": "Part III Summary: Number Theory as Structure",
-          "planned": true
+          "planned": true,
+          "number": "3.10"
         }
       ]
     },
@@ -234,76 +234,76 @@
       "part": "Basic Mathematics",
       "sections": [
         {
-          "number": "4.1",
           "slug": "basic-4-1-points-lines-and-planes-the-undefined-terms",
           "title": "Points, Lines, and Planes: The Undefined Terms",
-          "planned": true
+          "planned": true,
+          "number": "4.1"
         },
         {
-          "number": "4.2",
           "slug": "basic-4-2-angles-measuring-and-classifying",
           "title": "Angles: Measuring and Classifying",
-          "planned": true
+          "planned": true,
+          "number": "4.2"
         },
         {
-          "number": "4.3",
           "slug": "basic-4-3-parallel-lines-and-transversals",
           "title": "Parallel Lines and Transversals",
-          "planned": true
+          "planned": true,
+          "number": "4.3"
         },
         {
-          "number": "4.4",
           "slug": "basic-4-4-triangles-classification-and-angle-sum",
           "title": "Triangles: Classification and Angle Sum",
-          "planned": true
+          "planned": true,
+          "number": "4.4"
         },
         {
-          "number": "4.5",
           "slug": "basic-4-5-congruent-triangles",
           "title": "Congruent Triangles",
-          "planned": true
+          "planned": true,
+          "number": "4.5"
         },
         {
-          "number": "4.6",
           "slug": "basic-4-6-proof-techniques-in-geometry",
           "title": "Proof Techniques in Geometry",
-          "planned": true
+          "planned": true,
+          "number": "4.6"
         },
         {
-          "number": "4.7",
           "slug": "basic-4-7-quadrilaterals-and-their-properties",
           "title": "Quadrilaterals and Their Properties",
-          "planned": true
+          "planned": true,
+          "number": "4.7"
         },
         {
-          "number": "4.8",
           "slug": "basic-4-8-perimeter-and-area-rectangles-triangles-parallelograms",
           "title": "Perimeter and Area: Rectangles, Triangles, Parallelograms",
-          "planned": true
+          "planned": true,
+          "number": "4.8"
         },
         {
-          "number": "4.9",
           "slug": "basic-4-9-the-pythagorean-theorem",
           "title": "The Pythagorean Theorem",
-          "planned": true
+          "planned": true,
+          "number": "4.9"
         },
         {
-          "number": "4.10",
           "slug": "basic-4-10-similar-triangles",
           "title": "Similar Triangles",
-          "planned": true
+          "planned": true,
+          "number": "4.10"
         },
         {
-          "number": "4.11",
           "slug": "basic-4-11-circles-definitions-and-basic-properties",
           "title": "Circles: Definitions and Basic Properties",
-          "planned": true
+          "planned": true,
+          "number": "4.11"
         },
         {
-          "number": "4.12",
           "slug": "basic-4-12-part-iv-summary-geometry-as-logical-structure",
           "title": "Part IV Summary: Geometry as Logical Structure",
-          "planned": true
+          "planned": true,
+          "number": "4.12"
         }
       ]
     },
@@ -313,64 +313,64 @@
       "part": "Basic Mathematics",
       "sections": [
         {
-          "number": "5.1",
           "slug": "basic-5-1-counting-principles-addition-and-multiplication",
           "title": "Counting Principles: Addition and Multiplication",
-          "planned": true
+          "planned": true,
+          "number": "5.1"
         },
         {
-          "number": "5.2",
           "slug": "basic-5-2-permutations",
           "title": "Permutations",
-          "planned": true
+          "planned": true,
+          "number": "5.2"
         },
         {
-          "number": "5.3",
           "slug": "basic-5-3-combinations",
           "title": "Combinations",
-          "planned": true
+          "planned": true,
+          "number": "5.3"
         },
         {
-          "number": "5.4",
           "slug": "basic-5-4-pascals-triangle-and-binomial-theorem",
           "title": "Pascal’s Triangle and Binomial Theorem",
-          "planned": true
+          "planned": true,
+          "number": "5.4"
         },
         {
-          "number": "5.5",
           "slug": "basic-5-5-counting-with-restrictions-and-casework",
           "title": "Counting with Restrictions and Casework",
-          "planned": true
+          "planned": true,
+          "number": "5.5"
         },
         {
-          "number": "5.6",
           "slug": "basic-5-6-introduction-to-probability",
           "title": "Introduction to Probability",
-          "planned": true
+          "planned": true,
+          "number": "5.6"
         },
         {
-          "number": "5.7",
           "slug": "basic-5-7-compound-events-and-or-conditional",
           "title": "Compound Events: AND, OR, Conditional",
-          "planned": true
+          "planned": true,
+          "number": "5.7"
         },
         {
-          "number": "5.8",
           "slug": "basic-5-8-expected-value",
           "title": "Expected Value",
-          "planned": true
+          "planned": true,
+          "number": "5.8"
         },
         {
-          "number": "5.9",
           "slug": "basic-5-9-geometric-probability-and-continuous-outcomes",
           "title": "Geometric Probability and Continuous Outcomes",
-          "planned": true
+          "planned": true,
+          "number": "5.9"
         },
         {
-          "number": "5.10",
           "slug": "basic-5-10-part-v-summary-counting-as-structure",
           "title": "Part V Summary: Counting as Structure",
-          "planned": true
+          "planned": true,
+          "number": "5.10"
         }
       ]
     },
@@ -380,652 +380,554 @@
       "part": "Basic Mathematics",
       "sections": [
         {
-          "number": "6.1",
           "slug": "basic-6-1-what-is-a-function",
           "title": "What is a Function?",
-          "planned": true
+          "planned": true,
+          "number": "6.1"
         },
         {
-          "number": "6.2",
           "slug": "basic-6-2-linear-functions-and-their-graphs",
           "title": "Linear Functions and Their Graphs",
-          "planned": true
+          "planned": true,
+          "number": "6.2"
         },
         {
-          "number": "6.3",
           "slug": "basic-6-3-systems-of-linear-equations",
           "title": "Systems of Linear Equations",
-          "planned": true
+          "planned": true,
+          "number": "6.3"
         },
         {
-          "number": "6.4",
           "slug": "basic-6-4-quadratic-functions-and-parabolas",
           "title": "Quadratic Functions and Parabolas",
-          "planned": true
+          "planned": true,
+          "number": "6.4"
         },
         {
-          "number": "6.5",
           "slug": "basic-6-5-introduction-to-coordinate-geometry",
           "title": "Introduction to Coordinate Geometry",
-          "planned": true
+          "planned": true,
+          "number": "6.5"
         },
         {
-          "number": "6.6",
           "slug": "basic-6-6-transformations-of-functions",
           "title": "Transformations of Functions",
-          "planned": true
+          "planned": true,
+          "number": "6.6"
         },
         {
-          "number": "6.7",
           "slug": "basic-6-7-function-composition-and-inverses",
           "title": "Function Composition and Inverses",
-          "planned": true
+          "planned": true,
+          "number": "6.7"
         },
         {
-          "number": "6.8",
           "slug": "basic-6-8-course-summary-mathematics-as-structure",
           "title": "Course Summary: Mathematics as Structure",
-          "planned": true
+          "planned": true,
+          "number": "6.8"
         }
       ]
     },
     {
       "number": 7,
-      "title": "Sets",
+      "title": "Sets and Proof",
       "part": "Integrated Maths I",
       "sections": [
         {
-          "number": "7.1",
-          "slug": "im1-sets",
-          "title": "Sets"
+          "slug": "sets-notation-subsets-and-operations",
+          "title": "Sets: Notation, Subsets and Operations",
+          "number": "7.1"
+        },
+        {
+          "slug": "intuitive-proofs-dominoes-on-a-chessboard",
+          "title": "Intuitive Proofs: Dominoes on a Chessboard",
+          "number": "7.2"
         }
       ]
     },
     {
       "number": 8,
-      "title": "College Algebra",
+      "title": "Equations, Functions and Graphs",
       "part": "Integrated Maths I",
       "sections": [
         {
-          "number": "2",
-          "slug": "college-algebra-02-introduction-to-functions",
-          "title": "Introduction to Functions"
+          "slug": "solving-equations-and-inequalities",
+          "title": "Solving Equations and Inequalities",
+          "number": "8.1"
         },
         {
-          "number": "3",
-          "slug": "college-algebra-03-evaluating-functions",
-          "title": "Evaluating Functions"
+          "slug": "functions-definition-notation-and-domain",
+          "title": "Functions: Definition, Notation and Domain",
+          "number": "8.2"
         },
         {
-          "number": "4",
-          "slug": "college-algebra-04-finding-domain",
-          "title": "Finding Domain"
+          "slug": "properties-of-functions-from-their-graphs",
+          "title": "Properties of Functions from Their Graphs",
+          "number": "8.3"
         },
         {
-          "number": "5",
-          "slug": "college-algebra-05-operations-of-functions",
-          "title": "Operations of Functions"
+          "slug": "piecewise-functions-basic-graphs-and-transformations",
+          "title": "Piecewise Functions, Basic Graphs and Transformations",
+          "number": "8.4"
         },
         {
-          "number": "6",
-          "slug": "college-algebra-06-the-vertical-line-test",
-          "title": "The Vertical Line Test"
+          "slug": "special-classes-of-functions",
+          "title": "Special Classes of Functions",
+          "planned": true,
+          "number": "8.5"
         },
         {
-          "number": "7",
-          "slug": "college-algebra-07-features-of-graphs-points-domain-range",
-          "title": "Features of Graphs: Points, Domain, Range"
+          "slug": "more-piecewise-defined-functions",
+          "title": "More Piecewise-Defined Functions",
+          "planned": true,
+          "number": "8.6"
         },
         {
-          "number": "8",
-          "slug": "college-algebra-08-properties-of-functions-even-odd",
-          "title": "Properties of Functions: Even/Odd"
-        },
-        {
-          "number": "9",
-          "slug": "college-algebra-09-properties-of-functions-increasing-and-decreasing",
-          "title": "Properties of Functions: Increasing and Decreasing"
-        },
-        {
-          "number": "10",
-          "slug": "college-algebra-10-properties-of-functions-extrema",
-          "title": "Properties of Functions: Extrema"
-        },
-        {
-          "number": "11",
-          "slug": "college-algebra-11-average-rate-of-change",
-          "title": "Average Rate of Change"
-        },
-        {
-          "number": "12",
-          "slug": "college-algebra-12-piecewise-functions",
-          "title": "Piecewise Functions"
-        },
-        {
-          "number": "13",
-          "slug": "college-algebra-13-functions-you-need-to-know",
-          "title": "Functions You Need to Know"
-        },
-        {
-          "number": "14",
-          "slug": "college-algebra-14-graphing-with-transformations",
-          "title": "Graphing with Transformations"
-        },
-        {
-          "number": "15",
-          "slug": "college-algebra-15-transformations-ii",
-          "title": "Transformations II"
-        },
-        {
-          "number": "16",
-          "slug": "college-algebra-16-intro-to-solving-quadratics",
-          "title": "Intro to Solving Quadratics"
-        },
-        {
-          "number": "17",
-          "slug": "college-algebra-17-quadratics-square-root-method",
-          "title": "Quadratics: Square Root Method"
-        },
-        {
-          "number": "18",
-          "slug": "college-algebra-18-quadratics-factoring",
-          "title": "Quadratics: Factoring"
-        },
-        {
-          "number": "19",
-          "slug": "college-algebra-19-completing-the-square",
-          "title": "Completing the Square"
-        },
-        {
-          "number": "20",
-          "slug": "college-algebra-20-proof-of-the-quadratic-formula",
-          "title": "Proof of the Quadratic Formula"
-        },
-        {
-          "number": "21",
-          "slug": "college-algebra-21-the-quadratic-formula",
-          "title": "The Quadratic Formula"
-        },
-        {
-          "number": "22",
-          "slug": "college-algebra-22-intersections-of-functions",
-          "title": "Intersections of Functions"
-        },
-        {
-          "number": "23",
-          "slug": "college-algebra-23-solving-with-substitutions",
-          "title": "Solving with Substitutions"
-        },
-        {
-          "number": "24",
-          "slug": "college-algebra-24-graphs-of-quadratics",
-          "title": "Graphs of Quadratics"
-        },
-        {
-          "number": "25",
-          "slug": "college-algebra-25-quadratic-inequalities",
-          "title": "Quadratic Inequalities"
-        },
-        {
-          "number": "26",
-          "slug": "college-algebra-26-quadratic-applications",
-          "title": "Quadratic Applications"
-        },
-        {
-          "number": "27",
-          "slug": "college-algebra-27-polynomial-functions",
-          "title": "Polynomial Functions"
-        },
-        {
-          "number": "28",
-          "slug": "college-algebra-28-power-functions",
-          "title": "Power Functions"
-        },
-        {
-          "number": "29",
-          "slug": "college-algebra-29-multiplicity-and-end-behavior",
-          "title": "Multiplicity and End Behavior"
-        },
-        {
-          "number": "30",
-          "slug": "college-algebra-30-functions-from-x-intercepts-and-graphs",
-          "title": "Functions from x-Intercepts and Graphs"
-        },
-        {
-          "number": "31",
-          "slug": "college-algebra-31-sketching-polynomials",
-          "title": "Sketching Polynomials"
-        },
-        {
-          "number": "32",
-          "slug": "college-algebra-32-synthetic-division-and-long-division-of-polynomials",
-          "title": "Synthetic Division and Long Division of Polynomials"
+          "slug": "functional-equations",
+          "title": "Functional Equations",
+          "planned": true,
+          "number": "8.7"
         }
       ]
     },
     {
       "number": 9,
-      "title": "Intermediate Algebra (Art of Problem Solving)",
+      "title": "Quadratics",
       "part": "Integrated Maths I",
       "sections": [
         {
-          "number": "1",
-          "slug": "aops-01-basic-techniques-for-solving-equations",
-          "title": "Basic Techniques for Solving Equations"
+          "slug": "solving-quadratics-by-square-roots-and-factoring",
+          "title": "Solving Quadratics by Square Roots and Factoring",
+          "number": "9.1"
         },
         {
-          "number": "2",
-          "slug": "aops-02-functions-review",
-          "title": "Functions Review",
-          "planned": true
+          "slug": "relating-roots-and-coefficients",
+          "title": "Relating Roots and Coefficients",
+          "number": "9.2"
         },
         {
-          "number": "3",
-          "slug": "aops-03-complex-numbers",
+          "slug": "completing-the-square",
+          "title": "Completing the Square",
+          "number": "9.3"
+        },
+        {
+          "slug": "the-quadratic-formula-and-the-discriminant",
+          "title": "The Quadratic Formula and the Discriminant",
+          "number": "9.4"
+        },
+        {
+          "slug": "intersections-and-equations-that-reduce-to-quadratics",
+          "title": "Intersections and Equations That Reduce to Quadratics",
+          "number": "9.5"
+        },
+        {
+          "slug": "graphs-of-quadratics",
+          "title": "Graphs of Quadratics",
+          "number": "9.6"
+        },
+        {
+          "slug": "quadratic-inequalities-and-applications",
+          "title": "Quadratic Inequalities and Applications",
+          "number": "9.7"
+        },
+        {
+          "slug": "complex-numbers",
           "title": "Complex Numbers",
-          "planned": true
+          "planned": true,
+          "number": "9.8"
         },
         {
-          "number": "4",
-          "slug": "aops-04-quadratics",
-          "title": "Quadratics"
-        },
-        {
-          "number": "5",
-          "slug": "aops-05-conics",
+          "slug": "conics",
           "title": "Conics",
-          "planned": true
-        },
-        {
-          "number": "6",
-          "slug": "aops-06-polynomial-division",
-          "title": "Polynomial Division"
-        },
-        {
-          "number": "7",
-          "slug": "aops-07-polynomial-roots-part-i",
-          "title": "Polynomial Roots Part I"
-        },
-        {
-          "number": "8",
-          "slug": "aops-08-polynomial-roots-part-ii",
-          "title": "Polynomial Roots Part II"
-        },
-        {
-          "number": "9",
-          "slug": "aops-09-factoring-multivariable-polynomials",
-          "title": "Factoring Multivariable Polynomials",
-          "planned": true
-        },
-        {
-          "number": "10",
-          "slug": "aops-10-sequences-and-series",
-          "title": "Sequences and Series"
-        },
-        {
-          "number": "11",
-          "slug": "aops-11-identities-manipulations-and-induction",
-          "title": "Identities, Manipulations, and Induction",
-          "planned": true
-        },
-        {
-          "number": "12",
-          "slug": "aops-12-inequalities",
-          "title": "Inequalities",
-          "planned": true
-        },
-        {
-          "number": "13",
-          "slug": "aops-13-exponents-and-logarithms",
-          "title": "Exponents and Logarithms",
-          "planned": true
-        },
-        {
-          "number": "14",
-          "slug": "aops-14-radicals",
-          "title": "Radicals",
-          "planned": true
-        },
-        {
-          "number": "15",
-          "slug": "aops-15-special-classes-of-functions",
-          "title": "Special Classes of Functions",
-          "planned": true
-        },
-        {
-          "number": "16",
-          "slug": "aops-16-piecewise-defined-functions",
-          "title": "Piecewise Defined Functions",
-          "planned": true
-        },
-        {
-          "number": "17",
-          "slug": "aops-17-more-sequences-and-series",
-          "title": "More Sequences and Series",
-          "planned": true
-        },
-        {
-          "number": "18",
-          "slug": "aops-18-more-inequalities",
-          "title": "More Inequalities",
-          "planned": true
-        },
-        {
-          "number": "19",
-          "slug": "aops-19-functional-equations",
-          "title": "Functional Equations",
-          "planned": true
-        },
-        {
-          "number": "20",
-          "slug": "aops-20-some-advanced-strategies",
-          "title": "Some Advanced Strategies",
-          "planned": true
-        },
-        {
-          "number": "·",
-          "slug": "aops-other-problems",
-          "title": "Other Problems"
+          "planned": true,
+          "number": "9.9"
         }
       ]
     },
     {
       "number": 10,
-      "title": "Proofs (Cummings)",
+      "title": "Polynomials",
       "part": "Integrated Maths I",
       "sections": [
         {
-          "number": "1",
-          "slug": "proofs-1-intuitive-proofs",
-          "title": "Intuitive Proofs"
+          "slug": "polynomials-and-polynomial-functions",
+          "title": "Polynomials and Polynomial Functions",
+          "number": "10.1"
+        },
+        {
+          "slug": "power-functions-end-behavior-and-multiplicity",
+          "title": "Power Functions, End Behavior and Multiplicity",
+          "number": "10.2"
+        },
+        {
+          "slug": "sketching-polynomials-and-finding-them-from-their-zeros",
+          "title": "Sketching Polynomials and Finding Them from Their Zeros",
+          "number": "10.3"
+        },
+        {
+          "slug": "polynomial-division-and-long-division",
+          "title": "Polynomial Division and Long Division",
+          "number": "10.4"
+        },
+        {
+          "slug": "synthetic-division",
+          "title": "Synthetic Division",
+          "number": "10.5"
+        },
+        {
+          "slug": "the-remainder-theorem",
+          "title": "The Remainder Theorem",
+          "number": "10.6"
+        },
+        {
+          "slug": "the-factor-theorem",
+          "title": "The Factor Theorem",
+          "number": "10.7"
+        },
+        {
+          "slug": "integer-roots",
+          "title": "Integer Roots",
+          "number": "10.8"
+        },
+        {
+          "slug": "the-rational-root-theorem",
+          "title": "The Rational Root Theorem",
+          "number": "10.9"
+        },
+        {
+          "slug": "bounds-on-roots",
+          "title": "Bounds on Roots",
+          "number": "10.10"
+        },
+        {
+          "slug": "polynomial-inequalities",
+          "title": "Polynomial Inequalities",
+          "number": "10.11"
+        },
+        {
+          "slug": "the-fundamental-theorem-of-algebra-and-the-identity-theorem",
+          "title": "The Fundamental Theorem of Algebra and the Identity Theorem",
+          "number": "10.12"
+        },
+        {
+          "slug": "irrational-roots",
+          "title": "Irrational Roots",
+          "number": "10.13"
+        },
+        {
+          "slug": "vietas-formulas",
+          "title": "Vieta’s Formulas",
+          "number": "10.14"
+        },
+        {
+          "slug": "vietas-formulas-with-nonreal-roots",
+          "title": "Vieta’s Formulas with Nonreal Roots",
+          "number": "10.15"
+        },
+        {
+          "slug": "using-roots-to-make-equations",
+          "title": "Using Roots to Make Equations",
+          "number": "10.16"
+        },
+        {
+          "slug": "factoring-multivariable-polynomials",
+          "title": "Factoring Multivariable Polynomials",
+          "planned": true,
+          "number": "10.17"
         }
       ]
     },
     {
       "number": 11,
-      "title": "Graph Theory, Combinatorics and Probability",
+      "title": "Sequences, Series and Induction",
       "part": "Integrated Maths I",
       "sections": [
         {
-          "number": "11.1",
-          "slug": "im1-graph-theory",
-          "title": "Graph Theory",
-          "planned": true
+          "slug": "arithmetic-sequences",
+          "title": "Arithmetic Sequences",
+          "number": "11.1"
         },
         {
-          "number": "11.2",
-          "slug": "im1-combinatorics",
-          "title": "Combinatorics",
-          "planned": true
+          "slug": "arithmetic-series",
+          "title": "Arithmetic Series",
+          "number": "11.2"
         },
         {
-          "number": "11.3",
-          "slug": "im1-probability-and-counting",
-          "title": "Probability and Counting",
-          "planned": true
+          "slug": "geometric-sequences",
+          "title": "Geometric Sequences",
+          "number": "11.3"
+        },
+        {
+          "slug": "mathematical-induction",
+          "title": "Mathematical Induction",
+          "number": "11.4"
+        },
+        {
+          "slug": "more-sequences-and-series",
+          "title": "More Sequences and Series",
+          "planned": true,
+          "number": "11.5"
         }
       ]
     },
     {
       "number": 12,
-      "title": "Precalculus (Art of Problem Solving)",
-      "part": "Integrated Maths II",
+      "title": "Exponents, Logarithms and Radicals",
+      "part": "Integrated Maths I",
       "sections": [
         {
-          "number": "2",
-          "slug": "precalc-2-introduction-to-trigonometric-functions",
-          "title": "Introduction to Trigonometric Functions"
+          "slug": "exponents-and-logarithms",
+          "title": "Exponents and Logarithms",
+          "planned": true,
+          "number": "12.1"
         },
         {
-          "number": "2a",
-          "slug": "precalc-2a-practice-trigonometric-equations-and-triangles",
-          "title": "Practice: Trigonometric Equations and Triangles"
-        },
-        {
-          "number": "3",
-          "slug": "precalc-3-trigonometric-identities",
-          "title": "Trigonometric Identities"
-        },
-        {
-          "number": "4",
-          "slug": "precalc-4-applications-to-geometry",
-          "title": "Applications to Geometry"
-        },
-        {
-          "number": "5",
-          "slug": "precalc-5-parameterization-and-trigonometric-coordinate-systems",
-          "title": "Parameterization and Trigonometric Coordinate Systems"
-        },
-        {
-          "number": "6",
-          "slug": "precalc-6-basics-of-complex-numbers",
-          "title": "Basics of Complex Numbers"
+          "slug": "radicals",
+          "title": "Radicals",
+          "planned": true,
+          "number": "12.2"
         }
       ]
     },
     {
       "number": 13,
-      "title": "Calculus (Apostol, Volume I)",
-      "part": "Integrated Maths II",
+      "title": "Identities and Inequalities",
+      "part": "Integrated Maths I",
       "sections": [
         {
-          "number": "I 1.4",
-          "slug": "apostol-i-1-4-exercises",
-          "title": "Exercises"
+          "slug": "identities-and-manipulations",
+          "title": "Identities and Manipulations",
+          "planned": true,
+          "number": "13.1"
         },
         {
-          "number": "I 1.5",
-          "slug": "apostol-i-1-5-a-critical-analysis-of-archimedes-method",
-          "title": "A Critical Analysis of Archimedes’ Method"
+          "slug": "inequalities",
+          "title": "Inequalities",
+          "planned": true,
+          "number": "13.2"
         },
         {
-          "number": "I 1.6",
-          "slug": "apostol-i-1-6-the-approach-to-calculus-to-be-used-in-this-book",
-          "title": "The Approach to Calculus to Be Used in This Book"
+          "slug": "more-inequalities",
+          "title": "More Inequalities",
+          "planned": true,
+          "number": "13.3"
         },
         {
-          "number": "I 2.1",
-          "slug": "apostol-i-2-1-introduction-to-set-theory",
-          "title": "Introduction to Set Theory"
-        },
-        {
-          "number": "I 2.2",
-          "slug": "apostol-i-2-2-notations-for-designating-sets",
-          "title": "Notations for Designating Sets"
-        },
-        {
-          "number": "I 2.3",
-          "slug": "apostol-i-2-3-subsets",
-          "title": "Subsets"
-        },
-        {
-          "number": "I 2.4",
-          "slug": "apostol-i-2-4-unions-intersections-complements",
-          "title": "Unions, Intersections, Complements"
-        },
-        {
-          "number": "I 2.5",
-          "slug": "apostol-i-2-5-exercises",
-          "title": "Exercises"
-        },
-        {
-          "number": "I 3.1",
-          "slug": "apostol-i-3-1-introduction",
-          "title": "Introduction"
-        },
-        {
-          "number": "I 3.2",
-          "slug": "apostol-i-3-2-the-field-axioms",
-          "title": "The Field Axioms"
-        },
-        {
-          "number": "I 3.3",
-          "slug": "apostol-i-3-3-exercises",
-          "title": "Exercises"
-        },
-        {
-          "number": "I 3.4",
-          "slug": "apostol-i-3-4-the-order-axioms",
-          "title": "The Order Axioms"
-        },
-        {
-          "number": "I 3.5",
-          "slug": "apostol-i-3-5-exercises",
-          "title": "Exercises"
-        },
-        {
-          "number": "I 3.6",
-          "slug": "apostol-i-3-6-integers-and-rational-numbers",
-          "title": "Integers and Rational Numbers"
-        },
-        {
-          "number": "I 3.7",
-          "slug": "apostol-i-3-7-geometric-interpretation-of-real-numbers-as-points-on-a-line",
-          "title": "Geometric Interpretation of Real Numbers as Points on a Line"
-        },
-        {
-          "number": "I 3.8",
-          "slug": "apostol-i-3-8-upper-bound-of-a-set-maximum-element-least-upper-bound-supremum",
-          "title": "Upper Bound of a Set, Maximum Element, Least Upper Bound (Supremum)"
-        },
-        {
-          "number": "I 3.9",
-          "slug": "apostol-i-3-9-the-least-upper-bound-axiom-completeness-axiom",
-          "title": "The Least-Upper-Bound Axiom (Completeness Axiom)"
-        },
-        {
-          "number": "I 3.10",
-          "slug": "apostol-i-3-10-the-archimedean-property-of-the-real-number-system",
-          "title": "The Archimedean Property of the Real-Number System"
-        },
-        {
-          "number": "I 3.11",
-          "slug": "apostol-i-3-11-fundamental-properties-of-the-supremum-and-infimum",
-          "title": "Fundamental Properties of the Supremum and Infimum"
-        },
-        {
-          "number": "I 3.12",
-          "slug": "apostol-i-3-12-exercises",
-          "title": "Exercises"
-        },
-        {
-          "number": "I 3.13",
-          "slug": "apostol-i-3-13-existence-of-square-roots-of-nonnegative-real-numbers",
-          "title": "Existence of Square Roots of Nonnegative Real Numbers"
-        },
-        {
-          "number": "I 4.1",
-          "slug": "apostol-i-4-1-an-example-of-a-proof-by-mathematical-induction",
-          "title": "An Example of a Proof by Mathematical Induction"
-        },
-        {
-          "number": "I 4.2",
-          "slug": "apostol-i-4-2-the-principle-of-mathematical-induction",
-          "title": "The Principle of Mathematical Induction"
+          "slug": "some-advanced-strategies",
+          "title": "Some Advanced Strategies",
+          "planned": true,
+          "number": "13.4"
         }
       ]
     },
     {
       "number": 14,
-      "title": "Groups, Rings and Fields (Birkhoff and Mac Lane)",
-      "part": "Integrated Maths II",
+      "title": "Graph Theory, Combinatorics and Probability",
+      "part": "Integrated Maths I",
       "sections": [
         {
-          "number": "1.1",
-          "slug": "modern-algebra-1-1-definition-of-an-integral-domain",
-          "title": "Definition of an Integral Domain"
+          "slug": "im1-graph-theory",
+          "title": "Graph Theory",
+          "planned": true,
+          "number": "14.1"
         },
         {
-          "number": "1.2",
-          "slug": "modern-algebra-1-2-elementary-properties-of-integral-domains",
-          "title": "Elementary Properties of Integral Domains"
+          "slug": "im1-combinatorics",
+          "title": "Combinatorics",
+          "planned": true,
+          "number": "14.2"
+        },
+        {
+          "slug": "im1-probability-and-counting",
+          "title": "Probability and Counting",
+          "planned": true,
+          "number": "14.3"
         }
       ]
     },
     {
       "number": 15,
-      "title": "Vector Spaces and Topology",
+      "title": "Trigonometry",
       "part": "Integrated Maths II",
       "sections": [
         {
-          "number": "15.1",
-          "slug": "im2-vector-spaces",
-          "title": "Vector Spaces",
-          "planned": true
+          "slug": "trigonometric-functions-the-unit-circle-and-radians",
+          "title": "Trigonometric Functions, the Unit Circle and Radians",
+          "number": "15.1"
         },
         {
-          "number": "15.2",
-          "slug": "im2-topology",
-          "title": "Topology",
-          "planned": true
+          "slug": "basic-trigonometric-identities",
+          "title": "Basic Trigonometric Identities",
+          "number": "15.2"
+        },
+        {
+          "slug": "angle-addition-identities",
+          "title": "Angle Addition Identities",
+          "number": "15.3"
+        },
+        {
+          "slug": "double-angle-and-half-angle-identities",
+          "title": "Double-Angle and Half-Angle Identities",
+          "number": "15.4"
+        },
+        {
+          "slug": "product-to-sum-sum-to-product-and-problem-solving",
+          "title": "Product-to-Sum, Sum-to-Product and Problem Solving",
+          "number": "15.5"
+        },
+        {
+          "slug": "solving-triangles-with-the-laws-of-sines-and-cosines",
+          "title": "Solving Triangles with the Laws of Sines and Cosines",
+          "number": "15.6"
         }
       ]
     },
     {
       "number": 16,
-      "title": "Integrated Maths III",
-      "part": "Integrated Maths III and IV",
+      "title": "Parametric Equations, Polar Coordinates and Complex Numbers",
+      "part": "Integrated Maths II",
       "sections": [
         {
-          "number": "16.1",
-          "slug": "im3-advanced-linear-algebra",
-          "title": "Advanced Linear Algebra",
-          "planned": true
+          "slug": "parametric-equations",
+          "title": "Parametric Equations",
+          "number": "16.1"
         },
         {
-          "number": "16.2",
-          "slug": "im3-advanced-group-theory",
-          "title": "Advanced Group Theory",
-          "planned": true
+          "slug": "polar-coordinates-rotations-and-ellipses",
+          "title": "Polar Coordinates, Rotations and Ellipses",
+          "number": "16.2"
         },
         {
-          "number": "16.3",
-          "slug": "im3-real-analysis",
-          "title": "Real Analysis",
-          "planned": true
-        },
-        {
-          "number": "16.4",
-          "slug": "im3-topology",
-          "title": "Topology",
-          "planned": true
+          "slug": "basics-of-complex-numbers",
+          "title": "Basics of Complex Numbers",
+          "number": "16.3"
         }
       ]
     },
     {
       "number": 17,
+      "title": "The Real Numbers",
+      "part": "Integrated Maths II",
+      "sections": [
+        {
+          "slug": "archimedes-method-and-the-axiomatic-approach",
+          "title": "Archimedes’ Method and the Axiomatic Approach",
+          "number": "17.1"
+        },
+        {
+          "slug": "the-field-axioms",
+          "title": "The Field Axioms",
+          "number": "17.2"
+        },
+        {
+          "slug": "the-order-axioms",
+          "title": "The Order Axioms",
+          "number": "17.3"
+        },
+        {
+          "slug": "suprema-completeness-and-the-archimedean-property",
+          "title": "Suprema, Completeness and the Archimedean Property",
+          "number": "17.4"
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Groups, Rings and Fields",
+      "part": "Integrated Maths II",
+      "sections": [
+        {
+          "slug": "integral-domains-definition-and-elementary-properties",
+          "title": "Integral Domains: Definition and Elementary Properties",
+          "number": "18.1"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Vector Spaces and Topology",
+      "part": "Integrated Maths II",
+      "sections": [
+        {
+          "slug": "im2-vector-spaces",
+          "title": "Vector Spaces",
+          "planned": true,
+          "number": "19.1"
+        },
+        {
+          "slug": "im2-topology",
+          "title": "Topology",
+          "planned": true,
+          "number": "19.2"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "title": "Integrated Maths III",
+      "part": "Integrated Maths III and IV",
+      "sections": [
+        {
+          "slug": "im3-advanced-linear-algebra",
+          "title": "Advanced Linear Algebra",
+          "planned": true,
+          "number": "20.1"
+        },
+        {
+          "slug": "im3-advanced-group-theory",
+          "title": "Advanced Group Theory",
+          "planned": true,
+          "number": "20.2"
+        },
+        {
+          "slug": "im3-real-analysis",
+          "title": "Real Analysis",
+          "planned": true,
+          "number": "20.3"
+        },
+        {
+          "slug": "im3-topology",
+          "title": "Topology",
+          "planned": true,
+          "number": "20.4"
+        }
+      ]
+    },
+    {
+      "number": 21,
       "title": "Integrated Maths IV",
       "part": "Integrated Maths III and IV",
       "sections": [
         {
-          "number": "17.1",
           "slug": "im4-complex-analysis",
           "title": "Complex Analysis",
-          "planned": true
+          "planned": true,
+          "number": "21.1"
         },
         {
-          "number": "17.2",
           "slug": "im4-differential-equations",
           "title": "Differential Equations",
-          "planned": true
+          "planned": true,
+          "number": "21.2"
         },
         {
-          "number": "17.3",
           "slug": "im4-lie-groups",
           "title": "Lie Groups",
-          "planned": true
+          "planned": true,
+          "number": "21.3"
         },
         {
-          "number": "17.4",
           "slug": "im4-geometry",
           "title": "Geometry",
-          "planned": true
+          "planned": true,
+          "number": "21.4"
         },
         {
-          "number": "17.5",
           "slug": "im4-differential-geometry",
           "title": "Differential Geometry",
-          "planned": true
+          "planned": true,
+          "number": "21.5"
         }
       ]
     }
