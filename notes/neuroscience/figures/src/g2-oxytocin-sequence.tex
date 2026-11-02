@@ -1,0 +1,17 @@
+\begin{tikzpicture}[
+  aa/.style={circle, draw=purple, thick, minimum size=27pt, inner sep=0pt, font=\footnotesize},
+  cys/.style={aa, draw=orange, fill=orange, fill opacity=0.15, text opacity=1}
+]
+\foreach \i/\n in {1/Cys,2/Tyr,3/Ile,4/Gln,5/Asn,6/Cys,7/Pro,8/Leu,9/Gly} {
+  \ifnum\i=1 \node[cys] (a\i) at (\i*1.05,0) {\n};
+  \else\ifnum\i=6 \node[cys] (a\i) at (\i*1.05,0) {\n};
+  \else \node[aa] (a\i) at (\i*1.05,0) {\n};
+  \fi\fi
+}
+\foreach \i [evaluate=\i as \j using int(\i+1)] in {1,...,8} { \draw[thick] (a\i) -- (a\j); }
+\node[font=\footnotesize, right=2pt of a9] (nh) {NH$_2$};
+\draw[thick] (a9) -- (nh);
+% disulfide bridge
+\draw[thick, orange] (a1.north) -- ++(0,0.45) -| (a6.north);
+\node[font=\small, above, text=orange] at ($(a1.north)!0.5!(a6.north)+(0,0.45)$) {S--S};
+\end{tikzpicture}

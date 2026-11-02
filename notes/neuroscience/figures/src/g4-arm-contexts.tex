@@ -1,0 +1,15 @@
+\begin{tikzpicture}[>=Stealth, font=\small,
+  ctx/.style={draw, rounded corners, align=left, text width=5.2cm, inner sep=4pt}]
+  \node[ctx] (c1) at (0,1.5)  {Show how many};
+  \node[ctx] (c2) at (0,0)    {Show you know the answer, or want to speak, in a large audience};
+  \node[ctx] (c3) at (0,-1.5) {Wave at someone};
+  \node[draw, thick, rounded corners, align=center, minimum height=1.2cm] (arm) at (6.2,0) {Raising your\\arm/hand};
+  \draw[->, thick] (c1.east) -- (arm.west);
+  \draw[->, thick] (c2.east) -- (arm.west);
+  \draw[->, thick] (c3.east) -- (arm.west);
+  % a lesion cuts one channel
+  \coordinate (cut) at ($(c1.east)!0.5!(arm.west)$);
+  \draw[red, line width=1.6pt] ($(cut)+(-0.22,-0.22)$) -- ($(cut)+(0.22,0.22)$);
+  \draw[red, line width=1.6pt] ($(cut)+(-0.22,0.22)$) -- ($(cut)+(0.22,-0.22)$);
+  \node[red, above left=4pt and 2pt, font=\footnotesize] at (cut) {lesion};
+\end{tikzpicture}

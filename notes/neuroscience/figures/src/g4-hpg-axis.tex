@@ -1,0 +1,23 @@
+\begin{tikzpicture}[>=Stealth, font=\small,
+  organ/.style={draw, rounded corners, minimum width=3.2cm, minimum height=0.75cm, align=center},
+  horm/.style={draw, rounded corners=6pt, inner sep=2.5pt, blue}]
+  \node[organ] (hyp) at (0,0) {Hypothalamus};
+  \node[organ] (pit) at (0,-2) {Pituitary};
+  \node[organ] (gon) at (0,-4) {Testis \quad\ Ovary};
+  \node[horm] (T) at (0,-5.9) {Testosterone};
+  \node[horm] (E) at (3.6,-5.9) {Estrogen};
+  % main cascade
+  \draw[->, line width=1.3pt] (hyp) -- (pit);
+  \node[horm, right=4pt] at (0,-1) {GnRH};
+  \draw[->, line width=1.3pt] (pit) -- (gon);
+  \node[horm, right=4pt] (lh) at (0,-3) {LH};
+  \node[horm, right=2pt of lh] {FSH};
+  \draw[->, line width=1.3pt] (gon) -- (T);
+  \draw[->, line width=1.3pt] (T) -- node[below=2pt, font=\footnotesize]{aromatase} (E);
+  % feedback from the sex steroids
+  \draw[->, gray, thick] (T.west) .. controls (-2.6,-5.9) and (-2.6,-2) .. (pit.west);
+  \draw[->, gray, thick] (T.west) .. controls (-4.0,-5.9) and (-4.0,0) .. (hyp.west)
+     node[pos=0.5, left=1pt, black, font=\footnotesize, align=center] {feedback};
+  \draw[->, gray, thick] (E.north) .. controls (3.6,-3.5) and (3.0,-2) .. (pit.east);
+  \draw[->, gray, thick] (E.north east) .. controls (4.8,-3.5) and (4.0,0) .. (hyp.east);
+\end{tikzpicture}

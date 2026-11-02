@@ -1,0 +1,43 @@
+\begin{tikzpicture}[font=\small]
+% ---------- before ----------
+\node at (0,2.55) {Before};
+\begin{scope}[shift={(0,1.0)}]
+  \fill[green, fill opacity=0.45] (0,0) circle (0.45);
+  \draw[green, thick] (0,0) circle (0.45);
+  \node {OT};
+  \draw[blue, line width=2.5pt] (-1.6,1.1) -- (-0.47,0.47);
+  \fill[blue] (-0.42,0.42) circle (0.14);
+  \node at (-0.45,1.15) {$+\,+\,+$};
+\end{scope}
+\begin{scope}[shift={(0,-1.4)}]
+  \fill[purple, fill opacity=0.45] (0,0) circle (0.45);
+  \draw[purple, thick] (0,0) circle (0.45);
+  \node {DA};
+  \draw[blue, line width=2.5pt] (-1.6,1.1) -- (-0.47,0.47);
+  \fill[blue] (-0.42,0.42) circle (0.14);
+  \node at (-0.45,1.15) {$+\,+\,+$};
+\end{scope}
+% ---------- cocaine ----------
+\draw[-{Latex[length=3mm]}, thick] (1.0,0) -- (3.0,0);
+\node[font=\bfseries] at (2.0,0.35) {Cocaine!};
+% ---------- after ----------
+\node at (5.0,2.55) {After};
+\begin{scope}[shift={(5.0,1.0)}]
+  \fill[green, fill opacity=0.45] (0,0) circle (0.45);
+  \draw[green, thick] (0,0) circle (0.45);
+  \node {OT};
+  \draw[blue, line width=2.5pt] (-1.6,1.1) -- (-0.47,0.47);
+  \fill[blue] (-0.42,0.42) circle (0.14);
+  \node at (-0.45,1.15) {$+\,+\,+$};
+  \node[right, font=\footnotesize] at (0.55,0) {unchanged};
+\end{scope}
+\begin{scope}[shift={(5.0,-1.4)}]
+  \fill[purple, fill opacity=0.45] (0,0) circle (0.45);
+  \draw[purple, thick] (0,0) circle (0.45);
+  \node {DA};
+  \draw[blue, line width=4pt] (-1.6,1.1) -- (-0.5,0.5);
+  \fill[blue] (-0.5,0.5) circle (0.27);
+  \node at (-0.35,1.25) {$+\,+\,+\,+\,+$};
+  \node[right, font=\footnotesize] at (0.55,0) {strengthened};
+\end{scope}
+\end{tikzpicture}

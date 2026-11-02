@@ -1,0 +1,48 @@
+\begin{tikzpicture}[>=Stealth, font=\footnotesize]
+  % ---- photoreceptors (R = rod, C = cone); outer segments at the top
+  \foreach \x/\t in {0/R,1/C,2/R,3/R,4/C,5/R,6/R,7/C} {
+    \draw[purple, thick] (\x,3.4) -- (\x,3.75);              % synaptic stalk
+    \draw[orange, fill=orange!25] (\x,3.95) circle (0.2);     % cell body
+    \draw[orange, fill=orange!25] (\x-0.12,4.15) rectangle (\x+0.12,4.75); % inner segment
+    \if\t R
+      \draw[purple, fill=purple!25] (\x-0.12,4.75) rectangle (\x+0.12,5.75); % rod outer segment
+    \else
+      \draw[purple, fill=purple!25] (\x-0.12,4.75) -- (\x,5.35) -- (\x+0.12,4.75) -- cycle; % cone outer segment
+    \fi
+  }
+  % ---- horizontal cells: lateral links among receptor terminals
+  \draw[blue, thick] (-0.2,3.35) -- (7.2,3.35);
+  \draw[blue, fill=blue!25] (2.5,3.35) ellipse (0.35 and 0.18);
+  \draw[blue, fill=blue!25] (5.5,3.35) ellipse (0.35 and 0.18);
+  % ---- bipolar cells: receptors -> ganglion cells
+  \foreach \x/\a/\b in {0.5/0/1, 2.5/2/3, 4.5/4/5, 6.5/6/7} {
+    \draw[green, thick] (\a,3.4) -- (\x,2.55);
+    \draw[green, thick] (\b,3.4) -- (\x,2.55);
+    \draw[green, fill=green!20] (\x,2.35) circle (0.22);
+    \draw[green, thick] (\x,2.13) -- (\x,1.35);
+  }
+  % ---- amacrine cells: lateral links among bipolar and ganglion cells
+  \draw[blue, thick] (-0.2,1.35) -- (7.2,1.35);
+  \draw[blue, fill=blue!25] (1.5,1.75) ellipse (0.3 and 0.22);
+  \draw[blue, fill=blue!25] (5.5,1.75) ellipse (0.3 and 0.22);
+  \draw[blue, thick] (1.5,1.53) -- (1.5,1.35);
+  \draw[blue, thick] (5.5,1.53) -- (5.5,1.35);
+  % ---- ganglion cells, whose axons form the optic nerve
+  \foreach \x in {0.5,2.5,4.5,6.5} {
+    \draw[red, thick] (\x,1.35) -- (\x,0.85);
+    \draw[red, fill=red!20] (\x,0.55) circle (0.3);
+    \draw[red, thick] (\x,0.25) -- (\x,{-0.05-0.06*\x}) -- (8.2,{-0.05-0.06*\x});
+  }
+  % ---- light enters from below
+  \foreach \x in {1.5,3,4.5,6} \draw[->, orange, line width=1.5pt] (\x,-1.6) -- (\x,-0.75);
+  % ---- labels
+  \node[anchor=east, align=right] at (-0.5,4.5) {Rod and cone\\receptors};
+  \node[anchor=east] at (-0.5,3.35) {Horizontal cells};
+  \node[anchor=east] at (-0.5,2.35) {Bipolar cells};
+  \node[anchor=east] at (-0.5,1.6) {Amacrine cells};
+  \node[anchor=east] at (-0.5,0.55) {Ganglion cells};
+  \node[anchor=east] at (-0.5,-1.2) {Light rays};
+  \node[anchor=west] at (7.4,5.25) {Outer segment};
+  \node[anchor=west] at (7.4,4.45) {Inner segment};
+  \node[anchor=west, align=left] at (8.3,-0.3) {Optic nerve\\fibers};
+\end{tikzpicture}

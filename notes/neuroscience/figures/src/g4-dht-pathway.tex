@@ -1,0 +1,26 @@
+\begin{tikzpicture}[>=Stealth, font=\small,
+  mol/.style={font=\small\bfseries},
+  enz/.style={font=\footnotesize\itshape}]
+  \node[mol] (allo) at (0,6.6) {3$\alpha$5$\alpha$-THP (allopregnanolone)};
+  \node[mol] (dhp)  at (0,5.0) {5$\alpha$-DHP};
+  \node[mol] (prog) at (0,3.4) {Progesterone};
+  \node[mol] (andr) at (0,1.8) {Androstenedione};
+  \node[mol] (tes)  at (0,0.2) {Testosterone};
+  \node[mol, draw=blue, thick, rounded corners=8pt, inner sep=4pt] (dht) at (0,-1.6) {5$\alpha$-DHT};
+  % allopregnanolone <-> 5a-DHP
+  \draw[->] ([xshift=-3pt]allo.south) -- ([xshift=-3pt]dhp.north) node[midway, left, enz] {HSD17B10};
+  \draw[->] ([xshift=3pt]dhp.north) -- ([xshift=3pt]allo.south) node[midway, right, enz] {AKR1C2/3};
+  % progesterone -> 5a-DHP
+  \draw[->] (prog) -- (dhp) node[midway, right, enz] {SRD5A1/2};
+  % progesterone -> androstenedione
+  \draw[->] (prog) -- (andr) node[midway, right, enz] {CYP17A1};
+  % androstenedione <-> testosterone
+  \draw[->] ([xshift=-3pt]andr.south) -- ([xshift=-3pt]tes.north) node[midway, left, enz] {HSD17B3/5};
+  \draw[->] ([xshift=3pt]tes.north) -- ([xshift=3pt]andr.south) node[midway, right, enz] {HSD17B2};
+  % testosterone -> DHT, blocked
+  \draw[->, thick] (tes) -- (dht) node[midway, right, enz] {SRD5A1/2 (5$\alpha$-reductase)};
+  \draw[red, line width=2pt] ($(dht.east)+(0.15,0.3)$) -- ++(0.6,-0.6);
+  \draw[red, line width=2pt] ($(dht.east)+(0.15,-0.3)$) -- ++(0.6,0.6);
+  \node[anchor=west, font=\footnotesize, align=left, red] at ($(dht.east)+(0.95,0)$)
+    {blocked in 5$\alpha$-reductase\\type 2 deficiency: little DHT};
+\end{tikzpicture}

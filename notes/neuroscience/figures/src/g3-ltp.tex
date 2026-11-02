@@ -1,0 +1,28 @@
+\begin{tikzpicture}[x=0.032cm,y=1.5cm,font=\small]
+\node[font=\bfseries] at (-20,2.75) {LTP};
+% stimulation bar and arrow
+\fill[gray, fill opacity=0.6] (-2,0) rectangle (3,2.2);
+\draw[-{Latex[length=2.5mm]}, line width=1.5pt] (0.5,2.65) -- (0.5,2.25);
+\node[right] at (15,2.45) {100 Hz, 1 s};
+% axes
+\draw[thick] (-45,0) -- (125,0);
+\draw[thick] (-45,0) -- (-45,2.3);
+\foreach \y in {0,1,2} {\draw[thick] (-45,\y) -- (-49,\y) node[left] {\y};}
+\foreach \x in {-30,0,30,60,90,120} {\draw[thick] (\x,0) -- (\x,-0.07) node[below] {\x};}
+\node at (40,-0.55) {Time (minutes)};
+\node[rotate=90] at (-75,1.1) {EPSP slope};
+% baseline reference
+\draw[densely dotted] (-45,1.0) -- (125,1.0);
+% baseline points
+\foreach \x/\y in {-40/1.00,-32/0.98,-24/0.96,-16/1.02,-8/1.00} {\fill[blue] (\x,\y) circle (1.6pt);}
+% after points
+\foreach \x/\y in {8/1.74,16/1.77,24/1.72,32/1.70,40/1.67,48/1.70,56/1.68,64/1.69,72/1.64,80/1.60,88/1.58,96/1.61,104/1.63,112/1.62} {\fill[red] (\x,\y) circle (1.6pt);}
+% EPSP sketches
+\begin{scope}[shift={(185,0.35)}, x=0.032cm, y=1.5cm]
+  \node[blue] at (25,1.85) {Before};
+  \node[red] at (95,1.85) {After};
+  \node[left] at (-5,0.4) {EPSPs};
+  \draw[blue, thick] (0,0) -- (12,0) plot[domain=0:38, samples=50] ({12+\x}, {0.85*(\x/6)*exp(1-\x/6)});
+  \draw[red, thick] (70,0) -- (82,0) plot[domain=0:38, samples=50] ({82+\x}, {1.6*(\x/6)*exp(1-\x/6)});
+\end{scope}
+\end{tikzpicture}

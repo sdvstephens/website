@@ -1,0 +1,70 @@
+\begin{tikzpicture}[
+  atom/.style={font=\small, inner sep=1.5pt},
+  bond/.style={thick},
+  mname/.style={font=\small\bfseries, align=center}
+]
+% ================= dopamine =================
+\begin{scope}[shift={(0,0)}]
+  \coordinate (c) at (0,0);
+  \foreach \i/\a in {1/30,2/90,3/150,4/210,5/270,6/330} { \coordinate (v\i) at (\a:0.7); }
+  \draw[bond] (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- (v6) -- cycle;
+  \draw[bond] ($(v1)!0.22!(c)$) -- ($(v2)!0.22!(c)$);
+  \draw[bond] ($(v3)!0.22!(c)$) -- ($(v4)!0.22!(c)$);
+  \draw[bond] ($(v5)!0.22!(c)$) -- ($(v6)!0.22!(c)$);
+  \node[atom] (oa) at (150:1.35) {HO};
+  \node[atom] (ob) at (210:1.35) {HO};
+  \draw[bond] (v3) -- (oa);
+  \draw[bond] (v4) -- (ob);
+  \coordinate (k1) at ($(v1)+(30:0.7)$);
+  \coordinate (k2) at ($(k1)+(-30:0.7)$);
+  \node[atom] (n) at ($(k2)+(30:0.75)$) {NH$_2$};
+  \draw[bond] (v1) -- (k1) -- (k2) -- (n);
+  \node[mname] at (0.6,-1.5) {Dopamine};
+\end{scope}
+% ================= norepinephrine =================
+\begin{scope}[shift={(4.9,0)}]
+  \coordinate (c) at (0,0);
+  \foreach \i/\a in {1/30,2/90,3/150,4/210,5/270,6/330} { \coordinate (v\i) at (\a:0.7); }
+  \draw[bond] (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- (v6) -- cycle;
+  \draw[bond] ($(v1)!0.22!(c)$) -- ($(v2)!0.22!(c)$);
+  \draw[bond] ($(v3)!0.22!(c)$) -- ($(v4)!0.22!(c)$);
+  \draw[bond] ($(v5)!0.22!(c)$) -- ($(v6)!0.22!(c)$);
+  \node[atom] (oa) at (150:1.35) {HO};
+  \node[atom] (ob) at (210:1.35) {HO};
+  \draw[bond] (v3) -- (oa);
+  \draw[bond] (v4) -- (ob);
+  \coordinate (k1) at ($(v1)+(30:0.7)$);
+  \coordinate (k2) at ($(k1)+(-30:0.7)$);
+  \node[atom] (n) at ($(k2)+(30:0.75)$) {NH$_2$};
+  \node[atom] (oh) at ($(k1)+(90:0.7)$) {OH};
+  \draw[bond] (v1) -- (k1) -- (k2) -- (n);
+  \draw[bond] (k1) -- (oh);
+  \node[mname] at (0.6,-1.5) {Norepinephrine};
+\end{scope}
+% ================= serotonin =================
+\begin{scope}[shift={(10.0,-0.1)}]
+  \coordinate (c) at (0,0);
+  \foreach \i/\a in {1/30,2/90,3/150,4/210,5/270,6/330} { \coordinate (v\i) at (\a:0.7); }
+  % five-membered ring sharing v1--v6
+  \coordinate (p) at (1.088,0);
+  \coordinate (r3) at ($(p)+(72:0.5954)$);
+  \coordinate (r2) at ($(p)+(0:0.5954)$);
+  \node[atom] (r1) at ($(p)+(-72:0.5954)$) {N};
+  \node[atom, below=-1pt of r1] {H};
+  \draw[bond] (v1) -- (v2) -- (v3) -- (v4) -- (v5) -- (v6) -- cycle;
+  \draw[bond] (v1) -- (r3) -- (r2) -- (r1) -- (v6);
+  % double bonds: C4=C5, C6=C7, C3a=C7a, C2=C3
+  \draw[bond] ($(v2)!0.22!(c)$) -- ($(v3)!0.22!(c)$);
+  \draw[bond] ($(v4)!0.22!(c)$) -- ($(v5)!0.22!(c)$);
+  \draw[bond] ($(v1)!0.22!(c)$) -- ($(v6)!0.22!(c)$);
+  \draw[bond] ($(r3)!0.25!(p)$) -- ($(r2)!0.25!(p)$);
+  % OH at C5, side chain at C3
+  \node[atom] (oa) at (150:1.35) {HO};
+  \draw[bond] (v3) -- (oa);
+  \coordinate (k1) at ($(r3)+(72:0.7)$);
+  \coordinate (k2) at ($(k1)+(12:0.7)$);
+  \node[atom] (n) at ($(k2)+(72:0.75)$) {NH$_2$};
+  \draw[bond] (r3) -- (k1) -- (k2) -- (n);
+  \node[mname] at (0.7,-1.4) {Serotonin\\[-1pt]{\normalfont\footnotesize (5-HT, 5-hydroxytryptamine)}};
+\end{scope}
+\end{tikzpicture}

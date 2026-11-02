@@ -1,0 +1,28 @@
+\begin{tikzpicture}[
+  >=Stealth,
+  lab/.style={font=\small, align=center},
+  pointer/.style={gray, thin}
+]
+% ---------- myelinated axon ----------
+\node[font=\small\bfseries, anchor=west] at (-0.2,3.05) {Myelinated axon};
+\draw[blue, line width=2pt] (0,1.2) -- (10,1.2);
+\foreach \x in {0.3,2.3,4.3,6.3,8.3} {
+  \draw[blue, fill=blue, fill opacity=0.15, rounded corners=4pt] (\x,0.9) rectangle ++(1.7,0.6);
+}
+% hops between nodes
+\foreach \x in {0.15,2.15,4.15,6.15} {
+  \draw[->, red, thick] (\x,1.6) .. controls (\x+0.6,2.4) and (\x+1.4,2.4) .. (\x+1.95,1.6);
+}
+\node[lab, text=red] at (4.1,2.6) {action potential jumps from node to node};
+\node[lab] (nr) at (3.15,0.15) {node of Ranvier};
+\draw[pointer] (nr.north) -- (2.15,1.05);
+\node[lab] (ms) at (6.2,0.15) {myelin sheath};
+\draw[pointer] (ms.north) -- (7.1,0.9);
+\node[lab, anchor=west] at (10.15,1.2) {fast\\[-2pt]($\sim$400 km/h)};
+% ---------- unmyelinated axon ----------
+\node[font=\small\bfseries, anchor=west] at (-0.2,-0.7) {Unmyelinated axon};
+\draw[blue, line width=2pt] (0,-1.5) -- (10,-1.5);
+\draw[->, red, thick] (0.2,-1.85) -- (9.8,-1.85);
+\node[lab, text=red] at (5,-2.2) {action potential spreads continuously along the axon};
+\node[lab, anchor=west] at (10.15,-1.5) {slower};
+\end{tikzpicture}

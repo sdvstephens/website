@@ -1,0 +1,25 @@
+\begin{tikzpicture}[>=Stealth, font=\small,
+  box/.style={draw, thick, rounded corners, align=left, text width=6.3cm, inner sep=5pt}]
+  \node[box, text width=7.4cm, align=center, draw=black, thin] (top) at (0,0)
+    {\textbf{6 weeks of gestation: undifferentiated fetus}\\[2pt]
+     gonad \;$\cdot$\; Wolffian duct \;$\cdot$\; M\"ullerian duct\\
+     urogenital sinus \;$\cdot$\; genital tubercle \;$\cdot$\; genital fold};
+  \node[box, draw=blue, anchor=north] (m) at (-3.55,-1.6)
+    {\textbf{SRY present}\\[2pt]
+     $\bullet$ gonad $\to$ \textbf{testes}\\
+     $\bullet$ testes release anti-M\"ullerian hormone\\
+     \hspace*{0.8em}$\to$ M\"ullerian duct regresses\\
+     $\bullet$ testosterone $\to$ Wolffian duct develops\\
+     \hspace*{0.8em}(vas deferens, epididymis, seminal vesicle)\\
+     $\bullet$ testosterone $\to$ \textbf{penis \& scrotum}};
+  \node[box, draw=red, anchor=north] (f) at (3.55,-1.6)
+    {\textbf{SRY absent}\\[2pt]
+     $\bullet$ gonad $\to$ \textbf{ovaries}\\
+     $\bullet$ no anti-M\"ullerian hormone\\
+     \hspace*{0.8em}$\to$ M\"ullerian duct develops\\
+     \hspace*{0.8em}(fallopian tubes, uterus, vagina)\\
+     $\bullet$ no testosterone $\to$ Wolffian duct regresses\\
+     $\bullet$ no testosterone $\to$ \textbf{clitoris \& labia}};
+  \draw[->, thick] (top.south) -- (m.north);
+  \draw[->, thick] (top.south) -- (f.north);
+\end{tikzpicture}

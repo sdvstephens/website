@@ -1,0 +1,23 @@
+\begin{tikzpicture}[x=0.11cm,y=1cm,font=\small]
+\node[font=\bfseries] at (30,0.75) {Normal mice};
+% axes
+\draw[thick] (0,-3.6) -- (62,-3.6);
+\draw[thick] (0,-3.6) -- (0,0.4);
+\foreach \x in {20,40} {\draw[thick] (\x,-3.6) -- (\x,-3.72) node[below] {\x};}
+\node at (31,-4.35) {msec};
+\node[rotate=90, align=center] at (-5,-1.6) {Current flow in\\postsynaptic cell};
+% baseline before stimulus
+\draw[thick] (0,0) -- (10,0);
+% response to first stimulus (small)
+\draw[thick] plot[domain=0:50, samples=120] ({10+\x}, {-0.6/0.553*(exp(-\x/8)-exp(-\x/1.5))});
+% response 1 hr later (large)
+\draw[thick] plot[domain=0:50, samples=120] ({10+\x}, {-3.1/0.683*(exp(-\x/14)-exp(-\x/1.5))});
+% stimulus arrow
+\draw[-{Latex[length=2.5mm]}, red, line width=1.2pt] (10,-3.45) -- (10,-2.6);
+\node[right] at (10.5,-3.25) {Stimulus};
+% labels
+\draw[red, thick] (14.5,-0.62) -- (19,0.15);
+\node[right] at (18.5,0.3) {Response to first stimulus};
+\draw[red, thick] (24,-1.75) -- (34,-1.75);
+\node[right, align=left] at (34,-1.75) {Response to same-size\\stimulus 1 hr later};
+\end{tikzpicture}

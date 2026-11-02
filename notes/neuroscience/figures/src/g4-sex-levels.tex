@@ -1,0 +1,24 @@
+\begin{tikzpicture}[>=Stealth, font=\small,
+  lvl/.style={font=\small\bfseries, anchor=west},
+  item/.style={draw, rounded corners, minimum width=3.4cm, minimum height=0.7cm, align=center}]
+  % row labels
+  \node[lvl] at (-6.2,0)    {Chromosomal sex};
+  \node[lvl] at (-6.2,-1.5) {Genetic sex};
+  \node[lvl] at (-6.2,-3)   {Gonadal sex};
+  \node[lvl] at (-6.2,-4.5) {External genitalia};
+  % typical XY column
+  \node[item] (a1) at (0,0)    {XY};
+  \node[item] (a2) at (0,-1.5) {SRY gene (on the Y)};
+  \node[item] (a3) at (0,-3)   {Testes};
+  \node[item] (a4) at (0,-4.5) {Penis, scrotum};
+  % typical XX column
+  \node[item] (b1) at (4.2,0)    {XX};
+  \node[item] (b2) at (4.2,-1.5) {No SRY gene};
+  \node[item] (b3) at (4.2,-3)   {Ovaries};
+  \node[item] (b4) at (4.2,-4.5) {Clitoris, labia};
+  \foreach \c in {a,b} {
+    \draw[->] (\c1) -- (\c2);
+    \draw[->] (\c2) -- (\c3);
+    \draw[->] (\c3) -- (\c4);
+  }
+\end{tikzpicture}

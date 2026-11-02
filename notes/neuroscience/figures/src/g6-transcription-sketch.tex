@@ -1,0 +1,22 @@
+\begin{tikzpicture}[line cap=round, line join=round, thick, font=\small]
+  % DNA strip
+  \draw (0,0) rectangle (6.4,0.6);
+  \node[above] at (1.2,0.65) {DNA};
+  % promoter (left) and terminator (right) blocks
+  \fill[black] (0.4,0) rectangle (0.8,0.6);
+  \fill[black] (5.0,0) rectangle (5.4,0.6);
+  \draw[thin, -{Stealth}] (0.6,0.75) .. controls (0.6,1.3) .. (1.9,1.4)
+    node[right] {promoter};
+  \draw[thin, -{Stealth}] (5.2,0.75) .. controls (5.2,1.3) .. (6.2,1.4)
+    node[right] {terminator};
+  % RNA and RNA polymerase
+  \draw[line width=1.6pt, gray] (0.6,-1.4) -- (3.6,-1.4);
+  \node[below] at (1.8,-1.5) {RNA};
+  \fill[black] (3.85,-1.4) circle (0.25);
+  \draw[thin, -{Stealth}] (5.2,-1.4) -- (4.2,-1.4);
+  \node[right] at (5.2,-1.4) {RNA polymerase};
+  % binding between promoter and polymerase
+  \draw[red, {Stealth}-{Stealth}] (0.6,-0.1) .. controls (0.9,-0.9) and (3.0,-0.8) .. (3.7,-1.15);
+  \node[red, align=left, anchor=north west] at (0,-2.2)
+    {promoter and polymerase bind to each other;\\the binding is regulated by transcription factors};
+\end{tikzpicture}

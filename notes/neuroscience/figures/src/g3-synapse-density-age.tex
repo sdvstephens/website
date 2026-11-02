@@ -1,0 +1,18 @@
+\begin{tikzpicture}[x=0.65cm,y=0.6cm,font=\small]
+\node[font=\small\bfseries] at (5,7.8) {Human visual cortex synapse density};
+% axes
+\draw[thick] (0,0) -- (10.3,0);
+\draw[thick] (0,0) -- (0,6.6);
+\node[rotate=90] at (-0.6,3.2) {Synapse density};
+% curve
+\draw[line width=2.5pt, gray] plot[smooth, tension=0.5] coordinates {(0,0.15) (1.75,0.45) (3.4,5.0) (4.05,5.7) (5.1,5.4) (5.5,4.95) (6.1,4.7) (6.8,4.05) (7.6,3.9) (10,3.15)};
+% stage labels
+\node[below, align=center] at (0.9,0) {prenatal\\period};
+\node[below] at (3.3,0) {infancy};
+\node[below] at (5.6,0) {childhood};
+\node[below] at (8.6,0) {10 years old};
+% annotations
+\node[align=center, font=\footnotesize] at (5.4,2.4) {peak at\\8 months\\after birth};
+\draw[-{Latex[length=2mm]}] (4.7,3.3) -- (4.1,5.4);
+\node[align=right, font=\footnotesize, left] at (10.2,6.2) {data from\\Huttenlocher, 1984};
+\end{tikzpicture}

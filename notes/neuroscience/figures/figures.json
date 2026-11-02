@@ -1,0 +1,143 @@
+{
+  "g1-neuron": {
+    "alt": "A neuron with its parts labeled: branching dendrites around the soma (cell body), which holds the nucleus; a long axon wrapped in a row of myelin sheaths; and branching axon terminals at the far end. An arrow above shows the message travelling from the dendrites toward the axon terminals."
+  },
+  "g1-neuron-types": {
+    "alt": "Four kinds of neurons side by side. Unipolar: one myelinated process leaving the cell body and branching at its end. Bipolar: dendrites at one end, the cell body in the middle of a myelinated process, and a sensory receptor at the other end. Pseudounipolar: the cell body off to the side on a short stalk joined to one long process whose lower end branches into sensory receptor endings. Multipolar: many dendrites around the cell body and a single myelinated axon."
+  },
+  "g1-nervous-system": {
+    "alt": "Tree diagram: the nervous system divides into the peripheral and the central nervous system (brain and spinal cord); the peripheral divides into the autonomic (controls self-regulated action of internal organs and glands) and the somatic (controls voluntary movements of skeletal muscles); the autonomic divides into the sympathetic (arousing) and the parasympathetic (calming)."
+  },
+  "g1-amygdala-circuit": {
+    "alt": "Inputs, nuclei and outputs of the amygdala. Inputs from the associative cortex, thalamus, hippocampus, prefrontal cortex and brainstem (glutamatergic) and from VTA, DRN, LC and BF (neuromodulatory) reach the lateral, basal, central and medial nuclei (LA, BA, CeA, MeA). BA sends glutamatergic outputs to EC, mPFC, hippocampus, NAc and BNST; CeA sends GABAergic outputs to SNL, LC, NTS, VTA, PAG, PBN, BF, hypothalamus and BNST; MeA sends GABAergic outputs to NAc, BNST, hypothalamus and BF. Each output is labeled with the behavior it serves, such as freezing, anxiety, reward, hormones or feeding."
+  },
+  "g1-neuron-quiz": {
+    "alt": "An unlabeled neuron with three red arrows: A points to the nucleus inside the cell body, B to the axon terminals at the far end of the axon, and C to the tip of a dendrite."
+  },
+  "g2-neuron-anatomy": {
+    "alt": "Diagram of a neuron with labeled dendrites, soma (cell body), nucleus, axon, myelin sheaths, nodes of Ranvier and axon terminals, with an arrow showing the message traveling from dendrites to axon terminals."
+  },
+  "g2-action-potential": {
+    "alt": "Graph of membrane voltage against time showing an action potential: resting state at -70 mV, a stimulus, failed initiations below the -55 mV threshold, depolarization as sodium ions enter up to +40 mV, repolarization as potassium ions leave, hyperpolarization below rest, and return to rest, with the five phases numbered."
+  },
+  "g2-firing-frequency": {
+    "alt": "Spike trains under a weak and a strong stimulus: the neuron fires a moderate number of action potentials during the weak stimulus and many more, closely spaced, during the strong stimulus."
+  },
+  "g2-myelin-conduction": {
+    "alt": "A myelinated axon on which the action potential jumps from node of Ranvier to node of Ranvier at about 400 km/h, compared with an unmyelinated axon on which it spreads continuously and more slowly."
+  },
+  "g2-synaptic-transmission": {
+    "alt": "Two neurons: an action potential travels along the pre-synaptic (sending) cell's axon to its axon terminals, which meet the dendrites of the post-synaptic (receiving) cell at the synapse."
+  },
+  "g2-synapse-steps": {
+    "alt": "Close-up of a synapse showing neurotransmitter made in the cell body, stored in vesicles in the axon terminal, released into the synapse, bound by receptors on the receiving neuron, and taken back into the sending neuron by a transporter, with metabolizing and degradation enzymes."
+  },
+  "g2-gaba-glutamate": {
+    "alt": "Spike trains comparing the inhibitory transmitter GABA, with few action potentials, and the excitatory transmitter glutamate, with many closely spaced action potentials."
+  },
+  "g2-monoamine-structures": {
+    "alt": "Skeletal chemical structures of dopamine, norepinephrine (dopamine with an extra OH group on its side chain) and serotonin (5-hydroxytryptamine)."
+  },
+  "g2-oxytocin-sequence": {
+    "alt": "Oxytocin as a chain of nine amino acids, Cys-Tyr-Ile-Gln-Asn-Cys-Pro-Leu-Gly-NH2, with a sulfur-sulfur bridge joining the two cysteines."
+  },
+  "g3-enrichment-brain-weight": {
+    "alt": "Bar chart of brain weight in isolated and enriched rats: the cortex is about 6% heavier in enriched rats, while the rest of the brain weighs about the same in both groups."
+  },
+  "g3-use-it-or-lose-it": {
+    "alt": "Three panels of a neuron with two input synapses: both inputs active, then the red input falls silent, then the unused red synapse withdraws while the active blue one stays."
+  },
+  "g3-ltd": {
+    "alt": "Graph of EPSP slope over time: steady near 1.4, then after 10 minutes of 1–10 Hz stimulation it drops to about 0.8 and stays low for two hours, with sample EPSPs smaller after than before."
+  },
+  "g3-use-it-to-improve-it": {
+    "alt": "An input synapse used normally beside the same synapse after repeated or strong stimulation, which ends in a larger, stronger terminal."
+  },
+  "g3-ltp-current": {
+    "alt": "Current in a postsynaptic cell of a normal mouse: a small downward response to the first stimulus and a response several times larger to a same-size stimulus one hour later."
+  },
+  "g3-ltp": {
+    "alt": "Graph of EPSP slope over time: steady near 1.0, then after 1 second of 100 Hz stimulation it jumps to about 1.75 and stays near 1.6 for two hours, with sample EPSPs larger after than before."
+  },
+  "g3-potentiated-synapse": {
+    "alt": "A normal synapse beside a potentiated one; the potentiated synapse releases more neurotransmitter, has more receptors on the dendritic spine, and has a larger spine with more sodium and calcium entry."
+  },
+  "g3-regional-specificity": {
+    "alt": "An oxytocin neuron and a dopamine neuron each receive an active input; after cocaine only the input to the dopamine neuron is strengthened."
+  },
+  "g3-neuron-number-age": {
+    "alt": "Line graph of neurons in visual cortex against age: about 9 million at birth, a peak of about 14.5 million at 2 weeks, then a decline to about 9 million at 11 years."
+  },
+  "g3-synapse-density-age": {
+    "alt": "Synapse density in human visual cortex: low before birth, a steep rise in infancy to a peak at 8 months after birth, then a decline through childhood to age 10."
+  },
+  "g3-synapse-elimination": {
+    "alt": "Three motor axons and three muscle fibres: at birth every axon branches onto every fibre, while in maturity each fibre is innervated by a single axon."
+  },
+  "g3-cocaine-spines": {
+    "alt": "Bar chart of dendritic spine density: about 7.8 spines per 10 micrometres in controls and about 8.3 after cocaine, a 6.4% increase."
+  },
+  "g3-reward-circuit": {
+    "alt": "Reward circuit diagram: dopamine from the ventral tegmental area to the nucleus accumbens, prefrontal cortex, amygdala and hippocampus; glutamate into the nucleus accumbens; GABA from the nucleus accumbens to the ventral pallidum and between the nucleus accumbens and the ventral tegmental area."
+  },
+  "g3-hpg-axis": {
+    "alt": "The hypothalamus–pituitary–gonadal axis: GnRH from the hypothalamus, LH and FSH from the pituitary, testosterone from the gonads, aromatase converting testosterone to estrogen, and negative feedback from both hormones to the pituitary and hypothalamus."
+  },
+  "g3-action-potential": {
+    "alt": "Action potential: from rest at −70 mV past threshold at −55 mV, depolarization as sodium flows in to a peak near +40 mV, repolarization as potassium flows out, hyperpolarization, and return to rest, with small failed initiations below threshold."
+  },
+  "g4-hpg-axis": {
+    "alt": "The HPG axis: the hypothalamus releases GnRH, which makes the pituitary release LH and FSH, which make the testis or ovary produce testosterone; aromatase converts testosterone to estrogen, and both hormones feed back on the pituitary and hypothalamus."
+  },
+  "g4-sex-levels": {
+    "alt": "Four levels of sex in the typical pathways: XY with the SRY gene leads to testes and a penis and scrotum, while XX with no SRY gene leads to ovaries and a clitoris and labia."
+  },
+  "g4-duct-differentiation": {
+    "alt": "From the undifferentiated 6-week fetus, SRY makes the gonads testes, the Müllerian duct regress and the Wolffian duct develop, with penis and scrotum; without SRY the gonads become ovaries, the Müllerian duct develops, the Wolffian duct regresses, and the clitoris and labia form."
+  },
+  "g4-dht-pathway": {
+    "alt": "Steroid pathway from progesterone through androstenedione to testosterone and then 5-alpha-DHT, with the testosterone-to-DHT step by 5-alpha-reductase crossed out as blocked in 5-alpha-reductase type 2 deficiency."
+  },
+  "g4-atrazine-amplexus": {
+    "alt": "Bar chart of successful amplexus in frogs: 11 for control males and 2 for atrazine-exposed males, marked as a significant difference."
+  },
+  "g4-em-spectrum": {
+    "alt": "The electromagnetic spectrum on a log wavelength scale from gamma rays to AC circuits, with the narrow visible band expanded from violet at 350 nm to red at 700 nm, and notes that insects and birds see ultraviolet and some snakes see infrared."
+  },
+  "g4-eye": {
+    "alt": "Cross-section of the eye showing light from an object passing through the cornea, pupil, iris and lens onto the retina, with the ciliary muscle, vitreous humor, fovea, macula, blind spot and optic nerve labelled."
+  },
+  "g4-retina-layers": {
+    "alt": "Layers of the retina: light enters from below through ganglion, amacrine, bipolar and horizontal cells to the rod and cone receptors at the top; ganglion-cell axons form the optic nerve fibres."
+  },
+  "g4-spectral-sensitivity": {
+    "alt": "Overlapping sensitivity curves for the four photoreceptors between 350 and 700 nm, peaking at 437 nm for blue cones, 498 nm for rods, 533 nm for green cones and 564 nm for red cones."
+  },
+  "g4-visual-pathway": {
+    "alt": "Top-down view of the visual pathway from the two retinas through the optic nerves and optic chiasm, where some fibres cross, to the lateral geniculate nuclei of the thalamus and the primary visual cortex at the back, with branches to the superior colliculi."
+  },
+  "g4-monkey-tasks": {
+    "alt": "The object discrimination task, where the reward stays under the same cone when a cylinder is added, and the landmark discrimination task, where the reward is under whichever of two cones is nearer a cylinder."
+  },
+  "g4-arm-contexts": {
+    "alt": "Three contexts (showing how many, wanting to speak in an audience, waving) all lead to raising the arm, with a lesion crossing out the channel from one context."
+  },
+  "g4-orientation-tasks": {
+    "alt": "The slot apparatus and four discs of response lines: in orientation matching D.F.'s lines point in all directions while a control's cluster near vertical; in posting, D.F.'s lines cluster near vertical like the control's."
+  },
+  "g4-two-streams": {
+    "alt": "Two side views of the brain: from the occipital lobe a ventral pathway runs to the temporal lobe ('what') and a dorsal pathway to the parietal lobe, labelled 'where' in the 1982 theory and 'how' in the current theory."
+  },
+  "g5-brain-lobes": {
+    "alt": "Side view of the left cerebral hemisphere, front to the left, showing the frontal, parietal, occipital and temporal lobes, the central sulcus between the frontal and parietal lobes, the Sylvian fissure above the temporal lobe, and the cerebellum and brain stem below."
+  },
+  "g5-senses-movement": {
+    "alt": "Hand and brain joined by a single nerve, with one arrow labeled senses running from hand to brain and another labeled movement running from brain to hand, posing the question of whether one nerve carries signals both ways."
+  },
+  "g6-neuron-sketch": {
+    "alt": "Sketch of a neuron: a round soma with a nucleus, branching dendrites above and around it, and a single axon running down whose side branches leave at roughly right angles, with a note that axon branches tend to favor right angles."
+  },
+  "g6-transcription-sketch": {
+    "alt": "Sketch of transcription: a strip of DNA with a promoter block near one end and a terminator block near the other, and below it an RNA polymerase with a strand of RNA trailing behind it; a red double arrow shows the promoter and polymerase binding, a binding regulated by transcription factors."
+  }
+}

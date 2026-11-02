@@ -45,6 +45,11 @@
     "description": "MIT 9.26: genome editing, CRISPR, protein language models, spatial omics and regeneration"
   },
   {
+    "slug": "neuroscience",
+    "title": "Basic Neuroscience and Geometry of Neuroscience",
+    "description": "Neurons, behavior, the senses and disorders; then geometric, topological and categorical models of the brain, vision and language"
+  },
+  {
     "slug": "critical-theory",
     "title": "Critical Theory",
     "description": "Frankfurt School critical theory: Lukács, Horkheimer, Adorno, Habermas, and beyond"

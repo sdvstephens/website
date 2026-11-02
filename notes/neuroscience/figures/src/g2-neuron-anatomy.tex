@@ -1,0 +1,57 @@
+\begin{tikzpicture}[
+  >=Stealth,
+  lab/.style={font=\small, align=center},
+  pointer/.style={gray, thin}
+]
+% direction of travel
+\draw[->, orange, line width=2.5pt] (-2.2,3.0) -- (10.0,3.0);
+\node[font=\small\bfseries, above] at (3.9,3.1) {Direction message travels};
+% dendrites
+\foreach \a in {95,135,175,215,255} {
+  \draw[blue, thick] (\a:0.85) -- (\a:1.9);
+  \draw[blue, thick] (\a:1.35) -- ++(\a+28:0.65);
+  \draw[blue, thick] (\a:1.9) -- ++(\a+22:0.45);
+  \draw[blue, thick] (\a:1.9) -- ++(\a-22:0.45);
+}
+\foreach \a in {60,290} {
+  \draw[blue, thick] (\a:0.85) -- (\a:1.6);
+  \draw[blue, thick] (\a:1.6) -- ++(\a+25:0.4);
+  \draw[blue, thick] (\a:1.6) -- ++(\a-25:0.4);
+}
+% soma and nucleus
+\draw[blue, thick, fill=blue, fill opacity=0.12] (0,0) circle (0.9);
+\fill[blue, fill opacity=0.7] (-0.15,0.05) ellipse (0.32 and 0.24);
+% axon
+\draw[blue, line width=2.2pt] (0.88,0) -- (8.2,0);
+% myelin sheaths
+\foreach \x in {1.5,2.8,4.1,5.4,6.7} {
+  \draw[blue, fill=blue, fill opacity=0.15, rounded corners=4pt] (\x,-0.25) rectangle ++(1.1,0.5);
+}
+% axon terminals
+\draw[blue, thick] (8.2,0) -- (8.8,0.55) -- (9.3,1.0);
+\draw[blue, thick] (8.8,0.55) -- (9.45,0.5);
+\draw[blue, thick] (8.2,0) -- (9.5,0.05);
+\draw[blue, thick] (8.2,0) -- (8.8,-0.55) -- (9.3,-1.0);
+\draw[blue, thick] (8.8,-0.55) -- (9.45,-0.45);
+\foreach \p in {(9.3,1.0),(9.45,0.5),(9.5,0.05),(9.3,-1.0),(9.45,-0.45)} {
+  \fill[blue] \p circle (2.2pt);
+}
+% labels
+\node[lab] (den) at (-2.6,1.7) {Dendrites};
+\draw[pointer] (den.south) -- (175:1.95);
+\node[lab] (nuc) at (-1.3,2.25) {Nucleus};
+\draw[pointer] (nuc.south) -- (-0.2,0.15);
+\node[lab] (som) at (1.5,2.1) {Soma\\(cell body)};
+\draw[pointer] (som.south) -- (0.45,0.35);
+\node[lab] (mye) at (4.65,1.35) {Myelin sheaths};
+\draw[pointer] (mye.south) -- (4.2,0.25);
+\draw[pointer] (mye.south) -- (5.9,0.25);
+\node[lab] (nod) at (5.3,-1.15) {Node of Ranvier\\(gap between sheaths)};
+\draw[pointer] (nod.north) -- (5.3,-0.05);
+\node[lab] (ter) at (9.2,1.9) {Axon terminals};
+\draw[pointer] (ter.south) -- (9.3,1.08);
+\draw[pointer] (ter.south) -- (9.5,0.58);
+% axon brace
+\draw[thick] (1.0,-1.75) -- (1.0,-2.0) -- (8.2,-2.0) -- (8.2,-1.75);
+\node[lab] at (4.6,-2.4) {Axon};
+\end{tikzpicture}

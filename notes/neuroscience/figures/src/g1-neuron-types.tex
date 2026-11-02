@@ -1,0 +1,72 @@
+\begin{tikzpicture}[line cap=round, line join=round, font=\small]
+  % ---------- Unipolar ----------
+  \node[font=\bfseries] at (0,7.3) {Unipolar};
+  \draw[blue, line width=1.2pt] (0,5.6) -- (0,0.9);
+  \foreach \y in {5.0,4.3,3.6,2.9,2.2,1.5}
+    \draw[red, fill=red, fill opacity=0.18, rounded corners=3pt] (-0.16,\y-0.28) rectangle (0.16,\y+0.28);
+  \draw[blue, line width=1pt, fill=blue, fill opacity=0.2] (0,6.15) circle (0.55);
+  \fill[blue] (0,6.15) circle (0.16);
+  \foreach \a in {-140,-110,-70,-40} {
+    \draw[blue] (0,0.9) -- ++(\a:0.55) coordinate (t);
+    \draw[blue] (t) -- ++(\a-20:0.3);
+    \draw[blue] (t) -- ++(\a+20:0.3);
+  }
+  \node[anchor=east] (cb) at (-0.9,6.6) {Cell body};
+  \draw[gray] (cb.east) -- (-0.45,6.35);
+  \node[anchor=east] (my) at (-0.6,3.6) {Myelin};
+  \draw[gray] (my.east) -- (-0.16,3.6);
+
+  % ---------- Bipolar ----------
+  \node[font=\bfseries] at (3,7.3) {Bipolar};
+  \foreach \a in {50,75,105,130} {
+    \draw[blue] (3,6.1) -- ++(\a:0.55) coordinate (t);
+    \draw[blue] (t) -- ++(\a-22:0.3);
+    \draw[blue] (t) -- ++(\a+22:0.3);
+  }
+  \draw[blue, line width=1.2pt] (3,6.1) -- (3,0.55);
+  \foreach \y in {5.55,4.9}
+    \draw[red, fill=red, fill opacity=0.18, rounded corners=3pt] (2.84,\y-0.27) rectangle (3.16,\y+0.27);
+  \foreach \y in {3.05,2.4,1.75,1.1}
+    \draw[red, fill=red, fill opacity=0.18, rounded corners=3pt] (2.84,\y-0.27) rectangle (3.16,\y+0.27);
+  \draw[blue, line width=1pt, fill=blue, fill opacity=0.2] (3,3.95) ellipse (0.45 and 0.55);
+  \fill[blue] (3,3.95) circle (0.15);
+  \draw[purple, fill=purple, fill opacity=0.25] (3,0.3) ellipse (0.13 and 0.28);
+  \node[anchor=west, align=left] (sr1) at (3.55,0.3) {Sensory\\receptor};
+  \draw[gray] (sr1.west) -- (3.13,0.3);
+
+  % ---------- Pseudounipolar ----------
+  \node[font=\bfseries] at (6.6,7.3) {Pseudounipolar};
+  \draw[blue, line width=1.2pt] (7,6.3) -- (7,0.9);
+  \foreach \a in {60,90,120} \draw[blue] (7,6.3) -- ++(\a:0.45);
+  \draw[blue, line width=1.2pt] (7,4.5) .. controls (6.7,4.6) and (6.4,4.8) .. (6.1,4.85);
+  \draw[blue, line width=1pt, fill=blue, fill opacity=0.2] (5.75,4.9) circle (0.48);
+  \fill[blue] (5.75,4.9) circle (0.15);
+  \foreach \a in {-135,-110,-80,-50} {
+    \draw[blue] (7,0.9) -- ++(\a:0.6) coordinate (t);
+    \fill[blue] (t) circle (0.06);
+  }
+  \node[anchor=east, align=right] (sr2) at (6.05,1.0) {Sensory\\receptor};
+  \draw[gray] (sr2.east) -- ($(7,0.9)+(-135:0.6)$);
+
+  % ---------- Multipolar ----------
+  \node[font=\bfseries] at (10.2,7.3) {Multipolar};
+  \foreach \a in {20,55,90,125,160,195,230,310,345} {
+    \draw[blue] (10.2,5.4) ++(\a:0.5) -- ++(\a:0.6) coordinate (t);
+    \draw[blue] (t) -- ++(\a-25:0.3);
+    \draw[blue] (t) -- ++(\a+25:0.3);
+  }
+  \draw[blue, line width=1.2pt] (10.2,4.9) -- (10.2,0.9);
+  \foreach \y in {4.4,3.75,3.1,2.45,1.8}
+    \draw[red, fill=red, fill opacity=0.18, rounded corners=3pt] (10.04,\y-0.27) rectangle (10.36,\y+0.27);
+  \draw[blue, line width=1pt, fill=blue, fill opacity=0.2] (10.2,5.4) circle (0.5);
+  \fill[blue] (10.2,5.4) circle (0.15);
+  \foreach \a in {-140,-110,-70,-40} {
+    \draw[blue] (10.2,0.9) -- ++(\a:0.55) coordinate (t);
+    \draw[blue] (t) -- ++(\a-20:0.3);
+    \draw[blue] (t) -- ++(\a+20:0.3);
+  }
+  \node[anchor=west] (de) at (11.1,6.7) {Dendrite};
+  \draw[gray] (de.west) -- ($(10.2,5.4)+(55:0.9)$);
+  \draw[gray] (9.75,4.85) -- (9.65,4.85) -- (9.65,1.0) -- (9.75,1.0);
+  \node[anchor=east] at (9.6,2.9) {Axon};
+\end{tikzpicture}

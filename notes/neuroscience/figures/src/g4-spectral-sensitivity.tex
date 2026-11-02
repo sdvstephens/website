@@ -1,0 +1,23 @@
+\begin{tikzpicture}[>=Stealth, font=\footnotesize, x=0.032cm, y=3.6cm]
+  % x coordinate = wavelength in nm minus 350
+  \draw (0,0) -- (350,0);
+  \draw (0,0) -- (0,1.12);
+  \foreach \w in {350,400,...,700} \draw ({\w-350},0) -- ({\w-350},-0.03) node[below] {\w};
+  \node at (175,-0.2) {Wavelength $\lambda$ (nm)};
+  \node[rotate=90] at (-25,0.55) {Relative sensitivity};
+  % sensitivity curves (peak wavelength, spread)
+  \draw[blue, thick, domain=0:350, samples=120]  plot (\x, {exp(-((\x+350-437)/32)^2/2)});
+  \draw[black, thick, domain=0:350, samples=120] plot (\x, {exp(-((\x+350-498)/44)^2/2)});
+  \draw[green, thick, domain=0:350, samples=120] plot (\x, {exp(-((\x+350-533)/43)^2/2)});
+  \draw[red, thick, domain=0:350, samples=120]   plot (\x, {exp(-((\x+350-564)/50)^2/2)});
+  % peak markers
+  \foreach \p in {437,498,533,564} \draw[->] ({\p-350},1.12) -- ({\p-350},1.02);
+  \node[above] at (87,1.1) {437 nm};
+  \node[above] at (140,1.1) {498};
+  \node[above] at (183,1.1) {533};
+  \node[above] at (220,1.1) {564};
+  % legend
+  \foreach \c/\n/\y in {blue/Blue cones/1.0, black/Rods/0.9, green/Green cones/0.8, red/Red cones/0.7} {
+    \draw[\c, thick] (282,\y) -- (302,\y) node[right, black] {\n};
+  }
+\end{tikzpicture}

@@ -1,0 +1,104 @@
+\begin{tikzpicture}[font=\footnotesize, line cap=round,
+    inp/.style={draw=blue, fill=blue, fill opacity=0.15, text opacity=1, rounded corners=7pt, align=center, inner sep=3pt, minimum height=0.7cm},
+    outp/.style={draw=orange, fill=orange, fill opacity=0.2, text opacity=1, rounded corners=7pt, align=center, inner sep=3pt, minimum height=0.6cm},
+    nuc/.style={draw, rounded corners=6pt, align=center, minimum width=1.0cm, minimum height=0.75cm, text opacity=1},
+    fn/.style={align=center, font=\scriptsize, text=gray!60!black},
+    glu/.style={blue, -{Stealth[length=2mm]}, line width=0.6pt},
+    gaba/.style={red, -{Stealth[length=2mm]}, line width=0.6pt},
+    mod/.style={green!60!black, -{Stealth[length=2mm]}, line width=0.6pt}]
+
+  % ---- amygdala region ----
+  \fill[red, opacity=0.1] (0.1,2.6) ellipse (2.7 and 1.95);
+  \node[red, font=\small] at (-7.9,4.7) {Amygdala};
+  \node[nuc, fill=blue, fill opacity=0.12] (LA) at (-1.0,3.6) {LA};
+  \node[nuc, fill=blue, fill opacity=0.25] (BA) at (-1.0,1.9) {BA};
+  \node[nuc, fill=green, fill opacity=0.2] (CeA) at (1.25,3.5) {CeA};
+  \node[nuc, fill=purple, fill opacity=0.2] (MeA) at (1.1,1.7) {MeA};
+
+  % ---- inputs ----
+  \node[blue, font=\small] at (-7.9,7.0) {Inputs};
+  \node[inp] (iNM) at (-5.9,6.6) {VTA, DRN,\\LC, BF};
+  \node[inp] (iAC) at (-3.6,7.1) {Associative\\cortex};
+  \node[inp] (iTh) at (-1.4,7.3) {Thalamus};
+  \node[inp] (iHp) at (0.8,7.3) {Hippocampus};
+  \node[inp] (iPF) at (3.1,7.1) {Prefrontal\\cortex};
+  \node[inp] (iBS) at (5.4,6.6) {Brainstem};
+
+  % ---- outputs ----
+  \node[orange, font=\small] at (-7.9,2.75) {Outputs};
+  \node[outp] (oEC) at (-6.0,3.6) {EC};
+  \node[fn, below=1pt of oEC] {Freezing};
+  \node[outp] (omPFC) at (-6.0,1.9) {mPFC};
+  \node[fn, below=1pt of omPFC] {Anxiety\\freezing};
+  \node[outp] (oHp) at (-5.0,0.0) {Hippocampus};
+  \node[fn, below=1pt of oHp] {Anxiety};
+  \node[outp] (oNAc) at (-3.3,-1.2) {NAc};
+  \node[fn, below=1pt of oNAc] {Anxiety\\reward};
+  \node[outp] (oBNST) at (-1.6,-1.8) {BNST};
+  \node[fn, below=1pt of oBNST] {Anxiety\\fear};
+  \node[outp] (oHy) at (0.4,-2.0) {Hypothalamus};
+  \node[fn, below=1pt of oHy] {Hormones};
+  \node[outp] (oBF) at (2.4,-1.8) {BF};
+  \node[fn, below=1pt of oBF] {Motor behavior};
+  \node[outp] (oPBN) at (4.0,-1.2) {PBN};
+  \node[fn, below=1pt of oPBN] {Feeding};
+  \node[outp] (oPAG) at (5.4,-0.2) {PAG};
+  \node[fn, below=1pt of oPAG] {Pain\\freezing};
+  \node[outp] (oVTA) at (6.0,1.2) {VTA};
+  \node[fn, anchor=west] at (oVTA.east) {Reward};
+  \node[outp] (oNTS) at (6.0,2.4) {NTS};
+  \node[fn, anchor=west] at (oNTS.east) {Autonomic\\regulation};
+  \node[outp] (oLC) at (6.0,3.6) {LC};
+  \node[fn, anchor=west] at (oLC.east) {Anxiety and\\aversive behavior};
+  \node[outp] (oSNL) at (6.0,4.8) {SNL};
+  \node[fn, anchor=west] at (oSNL.east) {Appetitive and\\aversive learning};
+
+  % ---- input projections ----
+  \draw[mod] (iNM.south) to[out=-70, in=165] (BA.west);
+  \draw[mod] (iNM.east) to[out=-5, in=150] (CeA.north west);
+  \draw[mod] (iNM.south west) to[out=-90, in=200] (MeA.south west);
+  \draw[glu] (iAC.south) to[out=-80, in=170] (LA.west);
+  \draw[glu] (iTh.south) -- (LA.north);
+  \draw[glu] (iHp.south) -- (LA.north east);
+  \draw[glu] (iHp.south) to[out=-108, in=75] ($(BA.north)+(0.22,0)$);
+  \draw[glu] (iHp.south) -- (CeA.north);
+  \draw[glu] (iPF.south) to[bend right=14] (BA.north east);
+  \draw[glu] (iPF.south) -- (CeA.north east);
+  \draw[glu] (iBS.south west) to[out=-160, in=15] (LA.east);
+  \draw[glu] (iBS.south) to[out=-110, in=0] (CeA.east);
+
+  % ---- connections inside the amygdala ----
+  \draw[glu] ($(LA.south)+(-0.2,0)$) -- ($(BA.north)+(-0.2,0)$);
+  \draw[glu] (LA.south east) -- (CeA.south west);
+  \draw[glu] (LA.south east) to[out=-40, in=120] (MeA.north west);
+  \draw[glu] (BA.north east) -- (CeA.west);
+  \draw[glu] (BA.east) -- (MeA.west);
+
+  % ---- output projections ----
+  % basal amygdala (glutamatergic)
+  \draw[glu] (BA.west) -- (oEC.east);
+  \draw[glu] (BA.west) -- (omPFC.east);
+  \draw[glu] (BA.south west) -- (oHp.north east);
+  \draw[glu] (BA.south west) -- (oNAc.north);
+  \draw[glu] (BA.south) -- (oBNST.north);
+  % central amygdala (GABAergic)
+  \draw[gaba] (CeA.east) -- (oSNL.west);
+  \draw[gaba] (CeA.east) -- (oLC.west);
+  \draw[gaba] (CeA.east) -- (oNTS.west);
+  \draw[gaba] (CeA.south east) -- (oVTA.west);
+  \draw[gaba] (CeA.south east) -- (oPAG.north west);
+  \draw[gaba] (CeA.south east) -- (oPBN.north);
+  \draw[gaba] (CeA.south) to[out=-70, in=80] (oBF.north east);
+  \draw[gaba] (CeA.south) to[out=-110, in=80] (oHy.north east);
+  \draw[gaba] (CeA.south west) to[out=-120, in=70] (oBNST.north east);
+  % medial amygdala (GABAergic)
+  \draw[gaba] (MeA.south west) to[out=-150, in=20] (oNAc.east);
+  \draw[gaba] (MeA.south west) -- (oBNST.east);
+  \draw[gaba] (MeA.south) -- (oHy.north);
+  \draw[gaba] (MeA.south east) -- (oBF.north);
+
+  % ---- legend ----
+  \draw[blue, line width=0.8pt] (-7.9,-2.3) -- (-7.3,-2.3) node[right, text=black] {Glutamatergic};
+  \draw[red, line width=0.8pt] (-7.9,-2.75) -- (-7.3,-2.75) node[right, text=black] {GABAergic};
+  \draw[green!60!black, line width=0.8pt] (-7.9,-3.2) -- (-7.3,-3.2) node[right, text=black] {Neuromodulatory};
+\end{tikzpicture}

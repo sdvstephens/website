@@ -1,0 +1,22 @@
+\begin{tikzpicture}[font=\small]
+% normal synapse
+\begin{scope}[shift={(0,0)}]
+  \fill[purple, fill opacity=0.45] (0,0) circle (0.45);
+  \draw[purple, thick] (0,0) circle (0.45);
+  \draw[blue, line width=2.5pt] (-1.6,1.3) -- (-0.47,0.47);
+  \fill[blue] (-0.42,0.42) circle (0.14);
+  \node at (-0.35,1.2) {$+\,+\,+$};
+  \node at (0,-1.0) {Ordinary use};
+\end{scope}
+\draw[-{Latex[length=3mm]}, thick] (1.0,0.3) -- (2.6,0.3);
+\node[align=center, font=\footnotesize] at (1.8,0.85) {repeated or\\strong stimulation};
+% strengthened synapse
+\begin{scope}[shift={(4.6,0)}]
+  \fill[purple, fill opacity=0.45] (0,0) circle (0.45);
+  \draw[purple, thick] (0,0) circle (0.45);
+  \draw[blue, line width=4pt] (-1.6,1.3) -- (-0.5,0.5);
+  \fill[blue] (-0.5,0.5) circle (0.27);
+  \node at (-0.4,1.35) {$+\,+\,+\,+\,+$};
+  \node at (0,-1.0) {Strengthened synapse};
+\end{scope}
+\end{tikzpicture}

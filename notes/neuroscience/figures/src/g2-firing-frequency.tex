@@ -1,0 +1,34 @@
+\begin{tikzpicture}[
+  >=Stealth,
+  rowlab/.style={font=\small, align=left, anchor=east},
+  spike/.style={blue, thick}
+]
+% ---------- weak stimulus ----------
+\node[font=\small\bfseries] at (4,4.6) {Weak stimulus};
+\node[rowlab] at (-0.2,3.9) {Action\\[-2pt]potentials};
+\draw[blue] (0,3.9) -- (8,3.9);
+\foreach \x in {0.3,1.85,2.2,2.5,2.95,3.25,3.55,4.05,4.35,4.65,5.3,7.4} {
+  \draw[spike] (\x,3.65) -- (\x,4.15);
+}
+\node[rowlab] at (-0.2,3.0) {Stimulus};
+\draw (0,2.85) -- (1.7,2.85) -- (1.7,3.25) -- (5.6,3.25) -- (5.6,2.85) -- (8,2.85);
+\node[font=\footnotesize, above left] at (1.7,3.2) {On};
+\node[font=\footnotesize, above right] at (5.6,3.2) {Off};
+% ---------- strong stimulus ----------
+\node[font=\small\bfseries] at (4,2.0) {Strong stimulus};
+\node[rowlab] at (-0.2,1.3) {Action\\[-2pt]potentials};
+\draw[blue] (0,1.3) -- (8,1.3);
+\draw[spike] (0.3,1.05) -- (0.3,1.55);
+\foreach \i in {0,...,19} {
+  \pgfmathsetmacro{\x}{1.8+0.19*\i}
+  \draw[spike] (\x,1.05) -- (\x,1.55);
+}
+\draw[spike] (7.4,1.05) -- (7.4,1.55);
+\node[rowlab] at (-0.2,0.4) {Stimulus};
+\draw (0,0.25) -- (1.7,0.25) -- (1.7,0.65) -- (5.6,0.65) -- (5.6,0.25) -- (8,0.25);
+\node[font=\footnotesize, above left] at (1.7,0.6) {On};
+\node[font=\footnotesize, above right] at (5.6,0.6) {Off};
+% time arrow
+\draw[->] (3.2,-0.35) -- (4.8,-0.35);
+\node[font=\small, left] at (3.2,-0.35) {Time};
+\end{tikzpicture}

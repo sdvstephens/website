@@ -1,0 +1,42 @@
+\begin{tikzpicture}[scale=1.05, font=\small, >=Stealth]
+  % cerebellum and brain stem, clipped so they tuck in under the cerebrum
+  \begin{scope}[even odd rule, overlay]
+    \clip (-2,-3) rectangle (10,5)
+      plot[smooth cycle, tension=0.65] coordinates {
+        (0.05,1.75) (0.55,2.75) (1.6,3.35) (3.0,3.55) (4.4,3.35) (5.5,2.85)
+        (6.3,1.95) (6.35,1.05) (5.7,0.45) (4.6,0.05) (3.4,-0.3) (2.2,-0.15)
+        (1.45,0.35) (1.3,0.85) (0.45,1.0)};
+    \draw[thick] (5.45,-0.05) ellipse [x radius=1.0, y radius=0.6];
+    \foreach \y in {-0.45,-0.25,-0.05,0.15} {
+      \draw[gray] (4.6,\y) .. controls (5.2,\y+0.08) and (5.8,\y+0.08) .. (6.3,\y);
+    }
+    \draw[thick] (3.85,0.2) .. controls (3.95,-0.6) and (4.0,-1.1) .. (4.05,-1.6);
+    \draw[thick] (4.4,0.3) .. controls (4.45,-0.5) and (4.5,-1.1) .. (4.5,-1.6);
+  \end{scope}
+  % cerebrum outline (lateral view of the left hemisphere, front to the left)
+  \draw[thick] plot[smooth cycle, tension=0.65] coordinates {
+    (0.05,1.75) (0.55,2.75) (1.6,3.35) (3.0,3.55) (4.4,3.35) (5.5,2.85)
+    (6.3,1.95) (6.35,1.05) (5.7,0.45) (4.6,0.05) (3.4,-0.3) (2.2,-0.15)
+    (1.45,0.35) (1.3,0.85) (0.45,1.0)};
+  % lobe boundaries without a major sulcus (dashed)
+  \draw[gray, dashed] (5.45,2.88) .. controls (5.15,2.1) and (5.3,1.1) .. (5.45,0.4);
+  \draw[gray, dashed] (4.3,1.6) -- (5.3,1.6);
+  % Sylvian (lateral) fissure and central sulcus
+  \draw[blue, very thick] (1.3,0.85) .. controls (2.3,1.0) and (3.4,1.3) .. (4.3,1.6);
+  \draw[blue, very thick] (3.1,3.55) .. controls (2.85,2.7) and (3.15,1.9) .. (2.85,1.17);
+  % lobe names
+  \node[align=center] at (1.45,2.15) {frontal\\lobe};
+  \node[align=center] at (4.25,2.45) {parietal\\lobe};
+  \node[align=center] at (3.15,0.5) {temporal lobe};
+  % callouts
+  \node[align=left, anchor=west] (occ) at (7.0,1.55) {occipital lobe};
+  \draw[->] (occ.west) -- (6.0,1.55);
+  \node[align=left, anchor=west] (cb) at (7.0,-0.3) {cerebellum};
+  \draw[->] (cb.west) -- (6.5,-0.3);
+  \node[align=left, anchor=west] (bs) at (4.9,-1.45) {brain stem};
+  \draw[->] (bs.west) -- (4.55,-1.3);
+  \node[blue, align=left, anchor=west] (cs) at (4.0,4.25) {central sulcus};
+  \draw[blue, ->] (cs.west) -- (3.08,3.45);
+  \node[blue, align=right, anchor=east] (sf) at (0.9,-0.45) {Sylvian\\fissure};
+  \draw[blue, ->] (sf.east) -- (1.95,0.95);
+\end{tikzpicture}

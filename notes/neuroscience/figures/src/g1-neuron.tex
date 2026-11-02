@@ -1,0 +1,43 @@
+\begin{tikzpicture}[line cap=round, line join=round, font=\small]
+  % dendrites: branching processes around the cell body
+  \foreach \a in {60,95,128,160,192,224,256,290} {
+    \draw[blue, line width=1.5pt] (\a:0.85) -- (\a:1.8);
+    \draw[blue, line width=1pt] (\a:1.3) -- ++(\a+38:0.55);
+    \draw[blue, line width=1pt] (\a:1.3) -- ++(\a-38:0.55);
+    \draw[blue, line width=0.8pt] (\a:1.8) -- ++(\a+22:0.42);
+    \draw[blue, line width=0.8pt] (\a:1.8) -- ++(\a-22:0.42);
+  }
+  % soma (cell body) and nucleus
+  \draw[blue, line width=1.2pt, fill=blue, fill opacity=0.2] (0,0) circle (0.9);
+  \fill[blue] (-0.15,0.05) ellipse (0.3 and 0.22);
+  % axon with myelin sheaths
+  \draw[blue, line width=1.5pt] (0.9,0) -- (6.9,0);
+  \foreach \x in {1.25,2.3,3.35,4.4,5.45}
+    \draw[blue, fill=blue, fill opacity=0.12, rounded corners=4pt] (\x,-0.24) rectangle ++(0.92,0.48);
+  % axon terminals
+  \foreach \a in {-56,-28,0,28,56} {
+    \draw[blue, line width=1.1pt] (6.9,0) -- ++(\a:0.9) coordinate (t);
+    \draw[blue, line width=0.9pt] (t) -- ++(\a+24:0.38) coordinate (u1);
+    \draw[blue, line width=0.9pt] (t) -- ++(\a-24:0.38) coordinate (u2);
+    \fill[blue] (u1) circle (0.08);
+    \fill[blue] (u2) circle (0.08);
+  }
+  % direction of the message
+  \draw[orange, line width=4pt, -{Triangle[length=5mm,width=9mm]}] (-2.6,3.25) -- (8.9,3.25);
+  \node[font=\small\bfseries] at (3.1,3.62) {Direction message travels};
+  % labels
+  \node[anchor=east] (den) at (-2.75,0.9) {Dendrites};
+  \draw[gray] (den.east) -- (160:1.75);
+  \node (nuc) at (-1.25,2.55) {Nucleus};
+  \draw[gray] (nuc.south) -- (-0.2,0.2);
+  \node[align=center] (som) at (1.75,2.4) {Soma\\(cell body)};
+  \draw[gray] (som.south) -- (0.45,0.4);
+  \node[align=center] (mye) at (4.3,1.35) {Myelin\\sheaths};
+  \draw[gray] (mye.south) -- (4.85,0.26);
+  \node (ter) at (7.6,2.45) {Axon terminals};
+  \draw[gray] (ter.south) -- ($(6.9,0)+(56:0.9)+(80:0.38)$);
+  \draw[gray] (ter.south) -- ($(6.9,0)+(28:0.9)+(52:0.38)$);
+  % axon bracket
+  \draw[gray, line width=0.8pt] (0.95,-1.7) -- (0.95,-1.95) -- (8.3,-1.95) -- (8.3,-1.7);
+  \node at (4.6,-2.25) {Axon};
+\end{tikzpicture}

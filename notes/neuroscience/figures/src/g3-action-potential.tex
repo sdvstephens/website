@@ -1,0 +1,39 @@
+\begin{tikzpicture}[x=1.3cm,y=0.042cm,font=\small,
+  num/.style={circle, draw=blue, fill=blue, fill opacity=0.2, text opacity=1, inner sep=1.2pt, font=\footnotesize}]
+% axes
+\draw[thick] (-0.6,-100) -- (5.6,-100);
+\draw[thick] (-0.6,-100) -- (-0.6,55);
+\foreach \x in {0,1,2,3,4,5} {\draw[thick] (\x,-100) -- (\x,-103) node[below] {\x};}
+\foreach \y/\l in {40/+40,0/0,-55/$-55$,-70/$-70$} {\draw[thick] (-0.6,\y) -- (-0.68,\y) node[left] {\l};}
+\node at (2.5,-118) {Time (ms)};
+\node[rotate=90] at (-1.25,-25) {Voltage (mV)};
+% threshold and rest
+\draw[gray, thick] (-0.6,-55) -- (1.15,-55);
+\node[above right, gray] at (-0.45,-55) {Threshold};
+\draw[densely dashed] (-0.6,-70) -- (5.6,-70);
+\node[above left] at (5.6,-70) {Resting state};
+% failed initiations
+\draw[orange, thick] plot[smooth] coordinates {(1.2,-70) (1.45,-63) (1.7,-67) (1.9,-70)};
+\draw[orange, thick] plot[smooth] coordinates {(1.2,-70) (1.5,-66) (1.75,-69) (1.95,-70)};
+\node[align=center, font=\footnotesize] at (1.8,-49) {Failed\\initiations};
+% action potential
+\draw[orange, line width=1.6pt] (-0.6,-70) -- (1.2,-70);
+\draw[orange, line width=1.6pt] plot[smooth, tension=0.55] coordinates {(1.2,-70) (1.5,-42) (1.8,-5) (2.08,30) (2.25,40) (2.42,30) (2.65,-5) (2.85,-45) (3.1,-78) (3.55,-90) (4.05,-85) (4.6,-75) (5.1,-71) (5.6,-70)};
+% stimulus
+\draw[-{Latex[length=2mm]}, thick] (1.2,-82) -- (1.2,-71);
+\node[left] at (1.15,-80) {Stimulus};
+% phase labels
+\node[rotate=72, font=\footnotesize] at (1.45,-5) {Depolarization};
+\node[rotate=-72, font=\footnotesize] at (2.95,-5) {Repolarization};
+\node[green, font=\footnotesize] at (1.1,30) {Na$^+$ ions in};
+\node[green, font=\footnotesize] at (3.6,10) {K$^+$ ions out};
+\node[font=\footnotesize] at (2.25,48) {Action potential};
+\node[font=\footnotesize] at (3.6,-97) {Hyperpolarization};
+% numbered phases
+\node[num] at (0.7,-88) {1};
+\node[num] at (1.35,15) {2};
+\node[num] at (3.0,30) {3};
+\node[num] at (4.45,-88) {4};
+\node[num] at (-0.3,-82) {5};
+\node[num] at (5.35,-50) {5};
+\end{tikzpicture}

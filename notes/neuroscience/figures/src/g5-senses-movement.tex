@@ -1,0 +1,7 @@
+\begin{tikzpicture}[font=\small, >=Stealth]
+  \node[draw, thick, rounded corners, minimum width=1.8cm, minimum height=1cm] (hand) at (0,0) {Hand};
+  \node[draw, thick, rounded corners, minimum width=1.8cm, minimum height=1cm] (brain) at (6,0) {Brain};
+  \draw[dashed, thick] (hand.east) -- node[below, gray] {nerve} (brain.west);
+  \draw[->, thick, orange] (hand.north) to[bend left=35] node[above] {senses} (brain.north);
+  \draw[->, thick, orange] (brain.south) to[bend left=35] node[below] {movement} (hand.south);
+\end{tikzpicture}

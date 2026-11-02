@@ -1,0 +1,18 @@
+\begin{tikzpicture}[x=1cm,y=4cm,font=\small]
+\node[font=\bfseries] at (1.1,1.13) {Total};
+% axes (y starts at 7.5)
+\draw[thick] (0,0) -- (2.2,0);
+\draw[thick] (0,0) -- (0,1.05);
+\foreach \v/\l in {0/7.5,0.5/8.0,1/8.5} {\draw[thick] (0,\v) -- (-0.1,\v) node[left] {\l};}
+\node[rotate=90] at (-1.0,0.5) {Spines / 10 $\mu$m};
+% bars (value - 7.5)
+\draw[thick] (0.3,0) rectangle (1.0,0.30);
+\draw[thick] (0.65,0.30) -- (0.65,0.40);
+\draw[thick] (0.5,0.40) -- (0.8,0.40);
+\fill[black] (1.1,0) rectangle (1.8,0.80);
+\draw[thick] (1.45,0.80) -- (1.45,0.86);
+\draw[thick] (1.3,0.86) -- (1.6,0.86);
+\node at (1.45,0.95) {$+6.4\%$};
+\node[below] at (0.65,0) {Ctl};
+\node[below] at (1.45,0) {Coc};
+\end{tikzpicture}

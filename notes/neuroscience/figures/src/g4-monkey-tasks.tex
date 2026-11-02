@@ -1,0 +1,30 @@
+\begin{tikzpicture}[>=Stealth, font=\footnotesize]
+  % platform: \platform{x}{y}
+  \def\platform#1#2{\draw[purple, fill=purple!35] (#1,#2) -- ++(4,0) -- ++(-0.8,1) -- ++(-2.4,0) -- cycle;}
+  % cone-shaped cover: \cover{x}{y} (x,y = middle of its base)
+  \def\cover#1#2{\draw[fill=red] (#1-0.25,#2) -- (#1+0.25,#2) -- (#1,#2+0.85) -- cycle;}
+  % cylinder: \cyl{x}{y}
+  \def\cyl#1#2{\draw[fill=blue!60] (#1-0.2,#2) -- (#1-0.2,#2+0.55) arc (180:0:0.2 and 0.08) -- (#1+0.2,#2) arc (0:-180:0.2 and 0.08) -- cycle;
+               \draw[fill=blue!35] (#1,#2+0.55) ellipse (0.2 and 0.08);}
+  \def\reward#1#2{\draw[->] (#1,#2-0.55) node[below] {hidden reward} -- (#1,#2-0.05);}
+  % ---------------- object discrimination
+  \node[font=\small\bfseries] at (2,3.4) {Object discrimination};
+  \node[anchor=east] at (-0.1,1.6) {Phase one};
+  \platform{0}{1.1}
+  \cover{2}{1.45}
+  \reward{2}{1.45}
+  \node[anchor=east] at (-0.1,-1.3) {Phase two};
+  \platform{0}{-1.8}
+  \cover{1.2}{-1.45}
+  \cyl{2.9}{-1.45}
+  \reward{1.2}{-1.45}
+  \node[align=center] at (2,-3.3) {Under \textbf{what} object\\is the reward hidden?};
+  % ---------------- landmark discrimination
+  \node[font=\small\bfseries] at (8,3.4) {Landmark discrimination};
+  \platform{6}{0.3}
+  \cover{7.0}{0.65}
+  \cover{9.0}{0.65}
+  \cyl{7.6}{0.95}
+  \reward{7.0}{0.65}
+  \node[align=center] at (8,-1.5) {\textbf{Where} is the reward hidden?\\(under the cover nearer\\the landmark)};
+\end{tikzpicture}

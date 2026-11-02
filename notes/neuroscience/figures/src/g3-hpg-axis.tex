@@ -1,0 +1,26 @@
+\begin{tikzpicture}[font=\small,
+  organ/.style={draw, thick, rounded corners=4pt, fill=gray, fill opacity=0.12, text opacity=1, align=center, inner sep=5pt, minimum width=2.4cm},
+  horm/.style={draw, thick, rounded corners=7pt, inner sep=4pt, minimum width=1.3cm, minimum height=0.55cm},
+  main/.style={-{Latex[length=3mm]}, line width=1.6pt},
+  fb/.style={-{Latex[length=2.5mm]}, thick}]
+% main chain
+\node[organ] (hyp) at (0,6.2) {Hypothalamus};
+\node[horm] (gnrh) at (1.2,5.15) {GnRH};
+\node[organ] (pit) at (0,4.1) {Pituitary};
+\node[horm] (lh) at (-0.75,2.85) {LH};
+\node[horm] (fsh) at (0.75,2.85) {FSH};
+\node[organ] (gon) at (0,1.65) {Testis \quad Ovary};
+\node[horm, minimum width=2.3cm] (t) at (0,0.2) {Testosterone};
+\node[horm, minimum width=2.1cm] (e) at (3.6,0.2) {Estrogen};
+\draw[main] (hyp) -- (pit);
+\draw[main] (pit) -- (0,3.25);
+\draw[main] (0,2.45) -- (gon);
+\draw[main] (gon) -- (t);
+\draw[main] (t) -- node[below=3pt, font=\small] {Aromatase} (e);
+% feedback to hypothalamus (outer)
+\draw[fb] (t.west) to[out=160, in=200, looseness=1.15] node[pos=0.5, left, font=\footnotesize, align=right] {negative\\feedback} (hyp.west);
+\draw[fb] (e.north) to[out=80, in=-20, looseness=0.9] node[pos=0.55, right, font=\footnotesize, align=left] {negative\\feedback} (hyp.east);
+% feedback to pituitary (inner)
+\draw[fb] ([xshift=-12pt]t.north) to[out=140, in=200, looseness=1.1] (pit.west);
+\draw[fb] ([xshift=-8pt]e.north) to[out=110, in=-10, looseness=1.0] (pit.east);
+\end{tikzpicture}

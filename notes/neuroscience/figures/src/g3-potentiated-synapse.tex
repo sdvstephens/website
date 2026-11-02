@@ -1,0 +1,69 @@
+\begin{tikzpicture}[font=\small]
+% ---------- header ----------
+\node[font=\large] at (0,5.0) {Normal};
+\node[font=\large] at (7.2,5.0) {Potentiated};
+\draw[-{Latex[length=3mm]}, line width=1.5pt] (1.4,5.0) -- (5.4,5.0);
+\draw[-{Latex[length=2mm]}, thick] (2.6,4.1) -- (2.6,4.7);
+\node[right, align=left] at (2.7,4.4) {synaptic\\strength};
+% ---------- NORMAL ----------
+\begin{scope}[shift={(0,0)}]
+  % presynaptic terminal
+  \draw[fill=blue, fill opacity=0.15] (-0.35,4.1) -- (-0.35,3.6) .. controls (-1.6,3.4) and (-1.7,1.5) .. (-0.6,1.4) -- (0.6,1.4) .. controls (1.7,1.5) and (1.6,3.4) .. (0.35,3.6) -- (0.35,4.1);
+  % vesicles with transmitter
+  \foreach \p in {(-0.7,2.6),(0.1,2.9),(0.75,2.2),(-0.3,1.95)} {
+    \draw[green, thick, fill=white] \p circle (0.22);
+  }
+  \foreach \p in {(-0.7,2.6),(0.1,2.9),(0.75,2.2),(-0.3,1.95)} {
+    \fill[red] \p circle (0.05);
+  }
+  % transmitter in cleft
+  \foreach \p in {(-0.5,1.25),(0.15,1.2),(0.45,1.28)} {\fill[red] \p circle (0.05);}
+  % spine and dendrite
+  \draw[fill=green, fill opacity=0.2] (-2.2,-2.6) -- (-2.2,-1.8) -- (-0.3,-1.8) -- (-0.3,-0.55) .. controls (-1.4,-0.45) and (-1.3,1.05) .. (0,1.05) .. controls (1.3,1.05) and (1.4,-0.45) .. (0.3,-0.55) -- (0.3,-1.8) -- (2.2,-1.8) -- (2.2,-2.6);
+  % receptors
+  \draw[purple, thick, fill=purple, fill opacity=0.4, rotate around={-25:(-0.8,0.85)}] (-0.8,0.85) ellipse (0.09 and 0.2);
+  \draw[purple, thick, fill=purple, fill opacity=0.4] (0.2,1.05) ellipse (0.09 and 0.2);
+  % ion entry
+  \draw[-{Latex[length=2mm]}, thick] (0.2,1.25) -- (0.2,0.25);
+  \node at (0.05,-0.05) {Na$^+$, Ca$^{2+}$};
+  % labels
+  \node[left] at (-1.5,3.3) {Neurotransmitter};
+  \draw (-1.5,3.3) .. controls (-1.1,2.4) .. (-0.6,1.35);
+  \node[right] at (1.4,2.9) {Presynaptic};
+  \node[right] at (1.4,2.55) {terminal};
+  \node[right, align=left] at (1.25,1.35) {synaptic cleft\\$\sim$20 nm};
+  \node[right] at (1.2,0.1) {spine};
+  \node at (-1.4,-1.45) {dendrite};
+\end{scope}
+% ---------- POTENTIATED ----------
+\begin{scope}[shift={(7.2,0)}]
+  % presynaptic terminal
+  \draw[fill=blue, fill opacity=0.15] (-0.35,4.1) -- (-0.35,3.6) .. controls (-1.6,3.4) and (-1.7,1.5) .. (-0.6,1.4) -- (0.6,1.4) .. controls (1.7,1.5) and (1.6,3.4) .. (0.35,3.6) -- (0.35,4.1);
+  \foreach \p in {(-0.7,2.6),(0.1,2.9),(0.75,2.2),(-0.3,1.95)} {
+    \draw[green, thick, fill=white] \p circle (0.22);
+  }
+  \foreach \x/\y in {-0.7/2.6,0.1/2.9,0.75/2.2,-0.3/1.95} {
+    \fill[red] (\x+0.07,\y+0.06) circle (0.05);
+    \fill[red] (\x-0.08,\y+0.02) circle (0.05);
+    \fill[red] (\x+0.02,\y-0.09) circle (0.05);
+  }
+  % more transmitter in cleft
+  \foreach \p in {(-0.9,1.3),(-0.6,1.22),(-0.3,1.3),(0.0,1.2),(0.3,1.28),(0.55,1.2),(0.85,1.3),(-0.45,1.38),(0.15,1.36)} {\fill[red] \p circle (0.05);}
+  % bigger spine, wider neck
+  \draw[fill=green, fill opacity=0.2] (-2.2,-2.6) -- (-2.2,-1.8) -- (-0.45,-1.8) -- (-0.45,-0.75) .. controls (-1.75,-0.65) and (-1.6,1.1) .. (0,1.1) .. controls (1.6,1.1) and (1.75,-0.65) .. (0.45,-0.75) -- (0.45,-1.8) -- (2.2,-1.8) -- (2.2,-2.6);
+  % more receptors
+  \draw[purple, thick, fill=purple, fill opacity=0.4, rotate around={-30:(-0.95,0.8)}] (-0.95,0.8) ellipse (0.09 and 0.2);
+  \draw[purple, thick, fill=purple, fill opacity=0.4] (-0.35,1.08) ellipse (0.09 and 0.2);
+  \draw[purple, thick, fill=purple, fill opacity=0.4] (0.25,1.1) ellipse (0.09 and 0.2);
+  \draw[purple, thick, fill=purple, fill opacity=0.4, rotate around={30:(0.95,0.8)}] (0.95,0.8) ellipse (0.09 and 0.2);
+  \draw[purple, thick, fill=purple, fill opacity=0.4, rotate around={70:(1.25,0.1)}] (1.25,0.1) ellipse (0.09 and 0.2);
+  % more ion entry
+  \draw[-{Latex[length=2.5mm]}, line width=1.2pt] (0.25,1.3) -- (0.25,0.2);
+  \draw[-{Latex[length=2.5mm]}, line width=1.2pt] (-1.5,1.3) -- (-0.75,0.45);
+  \node at (0,-0.15) {Na$^+$, Ca$^{2+}$};
+  % numbered changes
+  \node[circle, draw=red, fill=red, fill opacity=0.25, text opacity=1, inner sep=1.5pt] at (1.45,1.65) {1};
+  \node[circle, draw=purple, fill=purple, fill opacity=0.25, text opacity=1, inner sep=1.5pt] at (1.75,0.65) {2};
+  \node[circle, draw=black, fill=gray, fill opacity=0.25, text opacity=1, inner sep=1.5pt] at (0,-1.15) {3};
+\end{scope}
+\end{tikzpicture}

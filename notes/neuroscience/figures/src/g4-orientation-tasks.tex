@@ -1,0 +1,28 @@
+\begin{tikzpicture}[>=Stealth, font=\small]
+  % ---- the apparatus: a slot in a disc that can be rotated
+  \begin{scope}[shift={(-4.2,-1.6)}]
+    \draw[purple, fill=purple!45] (-1.1,-1.1) rectangle (1.1,1.1);
+    \draw[purple] (-1.1,1.1) -- (-0.5,1.5) -- (1.7,1.5) -- (1.1,1.1);
+    \draw[purple] (1.7,1.5) -- (1.7,-0.7) -- (1.1,-1.1);
+    \draw[fill=white] (0,0) circle (0.62);
+    \fill (-0.05,-0.5) rectangle (0.05,0.5);
+    \node[align=center, font=\footnotesize] at (0.3,-1.6) {the slot};
+  \end{scope}
+  % ---- results: each line is one attempt; the target orientation is vertical
+  \def\disc#1#2#3{%
+    \begin{scope}[shift={(#1,#2)}]
+      \draw[fill=orange!12] (0,0) circle (1);
+      \foreach \a in {#3} \draw (90+\a:1) -- (270+\a:1);
+      \fill (0,1.08) -- (-0.07,1.2) -- (0.07,1.2) -- cycle;
+    \end{scope}}
+  \disc{0}{0}{-85,-78,-70,-62,-55,-48,-40,-33,-27,-20,-15,-10,-6,-3,0,2,5,8,12,17,22,28,35,41,50,57,65,72,80,88}
+  \disc{2.8}{0}{-6,-4,-2,-1,0,1,3,5}
+  \disc{0}{-3.3}{-14,-10,-7,-5,-3,-1,0,2,4,6,9,13}
+  \disc{2.8}{-3.3}{-7,-5,-3,-2,0,1,2,4,6}
+  \node at (0,-1.3) {D.F.};
+  \node at (2.8,-1.3) {Control};
+  \node at (0,-4.6) {D.F.};
+  \node at (2.8,-4.6) {Control};
+  \node[anchor=west] at (4.1,0) {(a) Static orientation matching};
+  \node[anchor=west] at (4.1,-3.3) {(b) Active ``posting''};
+\end{tikzpicture}

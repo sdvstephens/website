@@ -1,0 +1,319 @@
+{
+  "slug": "neuroscience",
+  "title": "Basic Neuroscience and Geometry of Neuroscience",
+  "description": "Two parts. Basic Neuroscience: neurons and signalling, behavior, the senses, methods and disorders, from the PSY 212 lecture slides and my notebook. Geometry of Neuroscience: Matilde Marcolli’s Caltech course on dynamical, topological, geometric and categorical models of the brain, vision and language.",
+  "sectionLabel": "lectures and notes",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "Neurons and Signalling",
+      "part": "Basic Neuroscience",
+      "sections": [
+        {
+          "number": "1",
+          "slug": "01-meet-the-nervous-system",
+          "title": "Meet the Nervous System"
+        },
+        {
+          "number": "2",
+          "slug": "02-the-action-potential",
+          "title": "The Action Potential"
+        },
+        {
+          "number": "3",
+          "slug": "03-hormones-and-neurotransmitters",
+          "title": "Hormones and Neurotransmitters"
+        },
+        {
+          "number": "N1",
+          "slug": "notebook-history-of-neuroscience",
+          "title": "History of Neuroscience",
+          "part": "From my notebook"
+        },
+        {
+          "number": "N2",
+          "slug": "notebook-levels-of-analysis",
+          "title": "Levels of Analysis",
+          "part": "From my notebook"
+        },
+        {
+          "number": "N3",
+          "slug": "notebook-neuroscientists-and-research-practice",
+          "title": "Neuroscientists and Research Practice",
+          "part": "From my notebook"
+        },
+        {
+          "number": "N4",
+          "slug": "notebook-chapter-1-review-questions",
+          "title": "Chapter 1 Review Questions",
+          "part": "From my notebook"
+        },
+        {
+          "number": "N5",
+          "slug": "notebook-stains-microscopes-and-the-neuron-doctrine",
+          "title": "Stains, Microscopes, and the Neuron Doctrine",
+          "part": "From my notebook"
+        },
+        {
+          "number": "N6",
+          "slug": "notebook-the-soma-the-nucleus-and-gene-expression",
+          "title": "The Soma, the Nucleus, and Gene Expression",
+          "part": "From my notebook"
+        },
+        {
+          "number": "N7",
+          "slug": "notebook-organelles-of-the-soma",
+          "title": "Organelles of the Soma",
+          "part": "From my notebook"
+        },
+        {
+          "number": "N8",
+          "slug": "notebook-glia-astrocytes-microglia-and-oligodendrocytes",
+          "title": "Glia: Astrocytes, Microglia, and Oligodendrocytes",
+          "part": "From my notebook"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Brain and Behavior",
+      "part": "Basic Neuroscience",
+      "sections": [
+        {
+          "number": "4",
+          "slug": "04-learning-and-memory",
+          "title": "Learning and Memory"
+        },
+        {
+          "number": "5",
+          "slug": "05-social-and-reproductive-behavior",
+          "title": "Social and Reproductive Behavior"
+        },
+        {
+          "number": "6",
+          "slug": "06-sexual-development-and-puberty",
+          "title": "Sexual Development and Puberty"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "The Senses",
+      "part": "Basic Neuroscience",
+      "sections": [
+        {
+          "number": "7",
+          "slug": "07-vision",
+          "title": "Vision"
+        },
+        {
+          "number": "8",
+          "slug": "08-hearing-and-balance",
+          "title": "Hearing and Balance",
+          "planned": true
+        },
+        {
+          "number": "9",
+          "slug": "09-touch-taste-and-smell",
+          "title": "Touch, Taste and Smell",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Methods and Technology",
+      "part": "Basic Neuroscience",
+      "sections": [
+        {
+          "number": "10",
+          "slug": "10-research-methods",
+          "title": "Research Methods",
+          "planned": true
+        },
+        {
+          "number": "11",
+          "slug": "11-machine-learning",
+          "title": "Machine Learning",
+          "planned": true
+        },
+        {
+          "number": "12",
+          "slug": "12-therapies-and-prosthetics",
+          "title": "Therapies and Prosthetics",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Disorders",
+      "part": "Basic Neuroscience",
+      "sections": [
+        {
+          "number": "13",
+          "slug": "13-anxiety-disorders",
+          "title": "Anxiety Disorders",
+          "planned": true
+        },
+        {
+          "number": "14",
+          "slug": "14-depression",
+          "title": "Depression",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Introduction",
+      "part": "Geometry of Neuroscience",
+      "sections": [
+        {
+          "number": "G1",
+          "slug": "g01-a-mathematical-promenade-and-gromovs-ergobrain-program",
+          "title": "A Mathematical Promenade and Gromov’s Ergobrain Program",
+          "planned": true
+        },
+        {
+          "number": "G2",
+          "slug": "g02-geometry-of-neuroscience-the-2017-opening-lecture",
+          "title": "Geometry of Neuroscience: the 2017 Opening Lecture",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Neurons and Neural Codes",
+      "part": "Geometry of Neuroscience",
+      "sections": [
+        {
+          "number": "G3",
+          "slug": "g03-the-neuron-as-a-dynamical-system",
+          "title": "The Neuron as a Dynamical System",
+          "planned": true
+        },
+        {
+          "number": "G4",
+          "slug": "g04-neural-codes-and-neural-rings-topology-and-algebraic-geometry",
+          "title": "Neural Codes and Neural Rings: Topology and Algebraic Geometry",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Brain Networks",
+      "part": "Geometry of Neuroscience",
+      "sections": [
+        {
+          "number": "G5",
+          "slug": "g05-brain-networks-and-topology",
+          "title": "Brain Networks and Topology",
+          "planned": true
+        },
+        {
+          "number": "G6",
+          "slug": "g06-neocortical-microcircuitry-and-directed-algebraic-topology",
+          "title": "Neocortical Microcircuitry and Directed Algebraic Topology",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Learning and Categorical Models",
+      "part": "Geometry of Neuroscience",
+      "sections": [
+        {
+          "number": "G7",
+          "slug": "g07-coding-and-learning-in-networks",
+          "title": "Coding and Learning in Networks",
+          "planned": true
+        },
+        {
+          "number": "G8",
+          "slug": "g08-homotopy-theoretic-and-categorical-models-of-neural-information-networks",
+          "title": "Homotopy-Theoretic and Categorical Models of Neural Information Networks",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "The Geometry of Vision",
+      "part": "Geometry of Neuroscience",
+      "sections": [
+        {
+          "number": "G9",
+          "slug": "g09-the-visual-system-receptor-profiles-and-gabor-frames",
+          "title": "The Visual System: Receptor Profiles and Gabor Frames",
+          "planned": true
+        },
+        {
+          "number": "G10",
+          "slug": "g10-conformal-geometry-of-the-visual-cortex",
+          "title": "Conformal Geometry of the Visual Cortex",
+          "planned": true
+        },
+        {
+          "number": "G11",
+          "slug": "g11-contact-geometry-of-the-visual-cortex",
+          "title": "Contact Geometry of the Visual Cortex",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Image Segmentation",
+      "part": "Geometry of Neuroscience",
+      "sections": [
+        {
+          "number": "G12",
+          "slug": "g12-differential-topology-of-image-segmentation-and-invariance",
+          "title": "Differential Topology of Image Segmentation and Invariance",
+          "planned": true
+        },
+        {
+          "number": "G13",
+          "slug": "g13-image-segmentation-the-mumford-shah-functional",
+          "title": "Image Segmentation: the Mumford–Shah Functional",
+          "planned": true
+        },
+        {
+          "number": "G14",
+          "slug": "g14-algebraic-geometry-of-segmentation-and-tracking",
+          "title": "Algebraic Geometry of Segmentation and Tracking",
+          "planned": true
+        },
+        {
+          "number": "G15",
+          "slug": "g15-pattern-theory",
+          "title": "Pattern Theory",
+          "planned": true
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Language",
+      "part": "Geometry of Neuroscience",
+      "sections": [
+        {
+          "number": "G16",
+          "slug": "g16-language-and-the-brain",
+          "title": "Language and the Brain",
+          "planned": true
+        },
+        {
+          "number": "G17",
+          "slug": "g17-a-mathematical-model-of-language",
+          "title": "A Mathematical Model of Language",
+          "planned": true
+        }
+      ]
+    }
+  ]
+}
