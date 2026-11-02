@@ -815,12 +815,16 @@ const copyDir = (from, to) => {
   fs.cpSync(from, path.join(DIST, to), { recursive: true, filter: (s) => !s.endsWith('.DS_Store') });
 };
 
-const css = fs.readFileSync(path.join(ROOT, 'src', 'site.css'), 'utf8');
-const js = fs.readFileSync(path.join(ROOT, 'src', 'site.js'), 'utf8');
-const mathCss = mathStyleSheet() + '\n' + fs.readFileSync(path.join(ROOT, 'src', 'math.css'), 'utf8');
+// The CV's address carries a hash of the PDF (in page links and in the :cv
+// command), so a browser holding an old copy fetches the new one as soon as
+// the CV changes.
 const cvPdf = path.join(ROOT, 'static', 'sdvscv.pdf');
-const assets = { css: hash(css), js: hash(js), math: hash(mathCss),
-  cv: fs.existsSync(cvPdf) ? hash(fs.readFileSync(cvPdf)) : '' };
+const cvHash = fs.existsSync(cvPdf) ? hash(fs.readFileSync(cvPdf)) : '';
+const cvUrl = cvHash ? `/sdvscv.pdf?v=${cvHash}` : '/sdvscv.pdf';
+const css = fs.readFileSync(path.join(ROOT, 'src', 'site.css'), 'utf8');
+const js = fs.readFileSync(path.join(ROOT, 'src', 'site.js'), 'utf8').replaceAll("'/sdvscv.pdf'", `'${cvUrl}'`);
+const mathCss = mathStyleSheet() + '\n' + fs.readFileSync(path.join(ROOT, 'src', 'math.css'), 'utf8');
+const assets = { css: hash(css), js: hash(js), math: hash(mathCss), cv: cvHash };
 write('assets/site.css', css);
 write('assets/site.js', js);
 write('assets/math.css', mathCss);
@@ -896,9 +900,7 @@ for (const w of [480, 960, 1200]) {
 copyDir(imgCache, 'img');
 
 // =============================================================== pages
-// The CV link carries a hash of the PDF, so a browser holding an old copy
-// fetches the new one as soon as the CV changes.
-const versioned = (html) => assets.cv ? html.replaceAll('href="/sdvscv.pdf"', `href="/sdvscv.pdf?v=${assets.cv}"`) : html;
+const versioned = (html) => html.replaceAll('href="/sdvscv.pdf"', `href="${cvUrl}"`);
 for (const p of pages) write(p.out, versioned(layout(p, assets)));
 
 write('404.html', versioned(layout({
