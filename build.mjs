@@ -818,7 +818,9 @@ const copyDir = (from, to) => {
 const css = fs.readFileSync(path.join(ROOT, 'src', 'site.css'), 'utf8');
 const js = fs.readFileSync(path.join(ROOT, 'src', 'site.js'), 'utf8');
 const mathCss = mathStyleSheet() + '\n' + fs.readFileSync(path.join(ROOT, 'src', 'math.css'), 'utf8');
-const assets = { css: hash(css), js: hash(js), math: hash(mathCss) };
+const cvPdf = path.join(ROOT, 'static', 'sdvscv.pdf');
+const assets = { css: hash(css), js: hash(js), math: hash(mathCss),
+  cv: fs.existsSync(cvPdf) ? hash(fs.readFileSync(cvPdf)) : '' };
 write('assets/site.css', css);
 write('assets/site.js', js);
 write('assets/math.css', mathCss);
@@ -894,14 +896,17 @@ for (const w of [480, 960, 1200]) {
 copyDir(imgCache, 'img');
 
 // =============================================================== pages
-for (const p of pages) write(p.out, layout(p, assets));
+// The CV link carries a hash of the PDF, so a browser holding an old copy
+// fetches the new one as soon as the CV changes.
+const versioned = (html) => assets.cv ? html.replaceAll('href="/sdvscv.pdf"', `href="/sdvscv.pdf?v=${assets.cv}"`) : html;
+for (const p of pages) write(p.out, versioned(layout(p, assets)));
 
-write('404.html', layout({
+write('404.html', versioned(layout({
   path: '/404', file: '404', title: 'Not found', noindex: true, canonical: SITE.base + '/404',
   body: `<div class="prose"><h1 class="display">404</h1>
 <p>No file at <code class="missing-path">this address</code>.</p>
 <p><a href="/">Return home</a>, or press <kbd>/</kbd> to search.</p></div>`,
-}, assets));
+}, assets)));
 
 // =============================================================== indexes
 const sitemap = pages.filter((p) => p.inSitemap && !p.noindex);
