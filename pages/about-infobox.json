@@ -29,7 +29,7 @@
       "rows": [
         { "label": "GitHub", "value": "<a href=\"https://github.com/sdvstephens\">sdvstephens</a>" },
         { "label": "YouTube", "value": "<a href=\"https://youtube.com/@Vichaama\">@Vichaama</a>" },
-        { "label": "CV", "value": "<a href=\"/sdvscv.pdf\">PDF</a>" }
+        { "label": "CV", "value": "<a href=\"/sdvscv.pdf\">PDF</a> · <a href=\"/sdvsresume.pdf\">1-page résumé</a>" }
       ]
     }
   ]

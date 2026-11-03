@@ -223,7 +223,7 @@
     technical: [go('/educational'), 'educational'],
     ex: [() => toggleExplorer(), 'file explorer'], explore: [() => toggleExplorer(), 'file explorer'],
     help: [go('/help'), 'keybindings and commands'], '?': [go('/help'), 'keybindings and commands'],
-    cv: [open('/sdvscv.pdf'), 'CV (PDF)'], resume: [open('/sdvscv.pdf'), 'CV (PDF)'],
+    cv: [open('/sdvscv.pdf'), 'CV (PDF)'], resume: [open('/sdvsresume.pdf'), '1-page résumé (PDF)'],
     email: [() => copy(EMAIL, 'Email copied to clipboard'), 'copy email address'],
     mail: [go('mailto:' + EMAIL), 'open mail client'],
     gh: [open('https://github.com/sdvstephens'), 'GitHub'], github: [open('https://github.com/sdvstephens'), 'GitHub'],

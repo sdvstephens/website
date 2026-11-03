@@ -5,6 +5,8 @@ build-cv.py: build the CV from its LaTeX source, cv/cv.tex, into
   static/sdvscv.pdf        the PDF (xelatex, run twice)
   static/sdvscvhtml.html   the same CV as a gruvbox web page, served at /sdvscvhtml
 
+and the one-page résumé, cv/resume.tex, into static/sdvsresume.pdf.
+
 Edit cv/cv.tex only; both outputs are generated from it, so they always agree.
 
 Usage:
@@ -34,6 +36,8 @@ import tempfile
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "cv" / "cv.tex"
 PDF_OUT = ROOT / "static" / "sdvscv.pdf"
+RESUME_SRC = ROOT / "cv" / "resume.tex"
+RESUME_OUT = ROOT / "static" / "sdvsresume.pdf"
 HTML_OUT = ROOT / "static" / "sdvscvhtml.html"
 
 # Links shown in the web CV's header that the PDF leaves out.
@@ -326,27 +330,29 @@ def build_html(tex):
     print("wrote %s (%d bytes)" % (HTML_OUT.relative_to(ROOT), len(page.encode())))
 
 
-def build_pdf():
+def build_pdf(src, out):
     if not shutil.which("xelatex"):
         sys.exit("error: xelatex not found; install TeX Live, or run with --no-pdf")
     with tempfile.TemporaryDirectory() as tmp:
-        shutil.copy(SRC, pathlib.Path(tmp) / "cv.tex")
+        shutil.copy(src, pathlib.Path(tmp) / "doc.tex")
         for _ in range(2):
-            r = subprocess.run(["xelatex", "-interaction=nonstopmode", "-halt-on-error", "cv.tex"],
+            r = subprocess.run(["xelatex", "-interaction=nonstopmode", "-halt-on-error", "doc.tex"],
                                cwd=tmp, capture_output=True, text=True)
             if r.returncode != 0:
-                log = (pathlib.Path(tmp) / "cv.log").read_text(errors="replace")
+                log = (pathlib.Path(tmp) / "doc.log").read_text(errors="replace")
                 errs = [l for l in log.splitlines() if l.startswith("!")]
-                sys.exit("error: xelatex failed:\n  " + "\n  ".join(errs[:5] or log.splitlines()[-15:]))
-        shutil.copy(pathlib.Path(tmp) / "cv.pdf", PDF_OUT)
-    print("wrote %s (%d bytes)" % (PDF_OUT.relative_to(ROOT), PDF_OUT.stat().st_size))
+                sys.exit("error: xelatex failed on %s:\n  " % src.name + "\n  ".join(errs[:5] or log.splitlines()[-15:]))
+        shutil.copy(pathlib.Path(tmp) / "doc.pdf", out)
+    print("wrote %s (%d bytes)" % (out.relative_to(ROOT), out.stat().st_size))
 
 
 def main():
     tex = strip_comments(SRC.read_text(encoding="utf-8"))
     build_html(tex)
     if "--no-pdf" not in sys.argv[1:]:
-        build_pdf()
+        build_pdf(SRC, PDF_OUT)
+        if RESUME_SRC.exists():
+            build_pdf(RESUME_SRC, RESUME_OUT)
 
 
 if __name__ == "__main__":
