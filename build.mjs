@@ -532,7 +532,8 @@ page({
   path: '/educational', file: 'educational/', section: 'educational', layout: 'ledger', title: 'Educational',
   description: 'Mathematics lectures, notes, and problem sets.',
   body: `<h1 class="display">Educational Content</h1>
-<p class="standfirst">Mathematics lectures, notes, and problem sets. Course numbering inspired by MIT.</p>
+<p class="standfirst">Mathematics courses I am designing and teaching online: lectures, notes, and problem sets.</p>
+<p>The course numbers are inspired by MIT's numbering; these are my own courses, not MIT courses.</p>
 <p>Video content on <a href="${SITE.youtube}">YouTube (@Vichaama)</a>.</p>
 ${edu.departments.map((d) => `<h2 class="chapter"><span class="idx">${d.code}</span>${d.name}</h2>
 ${ledger(d.courses.map((c) => ({
@@ -717,11 +718,54 @@ const tidyLinks = (h) => h
     body: `<div class="prose">${addHeadingIds(about)}</div>`,
   });
 }
+// =============================================================== research
+// research/index.md opens the page; each research/<slug>.md is one project,
+// written like the notes (::: boxes, math) and listed by its `order:`. The
+// frontmatter's `citation`, `status` and `summary` make its entry on the index.
+const research = [];
+if (exists('research')) {
+  for (const f of fs.readdirSync(C('research')).filter((x) => x.endsWith('.md') && x !== 'index.md' && !x.startsWith('_'))) {
+    const slug = f.replace(/\.md$/, '');
+    const file = `research/${f}`;
+    setSource(file);
+    const src = read('research', f);
+    const fm = frontmatter(src).data;
+    const html = stripLeadingH1(renderNotes(src).html);
+    research.push({ slug, file, fm, html, href: `/research/${slug}`, order: Number(fm.order ?? 99) });
+  }
+  research.sort((a, b) => a.order - b.order);
+}
+setSource('research/index.md');
+const researchIntro = exists('research', 'index.md') ? stripLeadingH1(renderNotes(read('research', 'index.md')).html) : '';
 page({
-  path: '/research', file: 'research.tex', section: 'research', title: 'Research',
-  description: 'CICADAS framework for causal inference in critical care, polyadic algebraic structures, and more.',
-  body: `<div class="prose">${read('pages', 'research.html').replace(/^\s*<h1>/, '<h1 class="display">')}</div>`,
+  path: '/research', file: 'research/', section: 'research', title: 'Research',
+  description: 'Research explained for readers without a background in the field: causal inference for ICU seizure treatment (CICADAS-II), and monotone arithmetic progressions in permutations (Erdős Problems 195 and 196).',
+  body: `<h1 class="display">Research</h1>
+<div class="prose">${researchIntro}</div>
+${research.map((r) => `<section class="prose research-entry">
+<h2><a href="${r.href}">${renderTitle(r.fm.title)}</a></h2>
+${r.fm.citation ? `<p class="research-citation">${renderTitle(r.fm.citation)}</p>` : ''}
+${r.fm.status ? `<p class="research-status"><em>${renderTitle(r.fm.status)}</em></p>` : ''}
+${r.fm.summary ? `<p>${renderTitle(r.fm.summary)}</p>` : ''}
+<p><a href="${r.href}">Read the explanation</a></p>
+</section>`).join('\n')}`,
 });
+for (const r of research) {
+  const heads = headingsOf(r.html).filter((h) => h.level === 2);
+  page({
+    path: r.href, file: r.file, section: 'research', layout: 'notes',
+    title: `${plainTitle(r.fm.title)} — Research`, description: r.fm.summary ? plainTitle(r.fm.summary) : plainTitle(r.fm.title),
+    railLabel: 'On this page',
+    rail: `<div class="toc"><p class="rail-head"><a href="/research/">Research</a></p>
+<ol class="toc-list">${heads.map((h) => `<li><a href="#${h.id}" class="toc-link">${esc(h.text)}</a></li>`).join('')}</ol></div>`,
+    body: `<p class="crumbs"><a href="/research/">research</a> /</p>
+<article class="note">
+<h1 class="note-title">${renderTitle(r.fm.title)}</h1>
+<div class="prose">${r.html}</div>
+</article>`,
+    search: plainText(r.html), headings: headingsOf(r.html),
+  });
+}
 page({
   path: '/help', file: 'help.txt', title: 'Help', description: 'Keyboard commands for this site.', inSitemap: false,
   body: `<div class="prose help">${read('pages', 'help.html').replace(/^\s*<h1>/, '<h1 class="display">')}</div>`,
@@ -732,7 +776,7 @@ page({
   const homeHtml = read('pages', 'home.html').replace(/^\s*<h1>/, '<h1 class="display home-name">');
   const contents = [
     ['/about', 'About', 'about.md'],
-    ['/research', 'Research', 'research.tex'],
+    ['/research', 'Research', 'research/'],
     ['/blog/', 'Blog', 'blog/'],
     ...(poems.length ? [['/poems/', 'Poems', 'poems/']] : []),
     ['/notes/', 'Notes', 'notes/'],
@@ -954,7 +998,7 @@ write('search.json', JSON.stringify(pages
 const tree = [
   { n: 'home', u: '/' },
   { n: 'about.md', u: '/about' },
-  { n: 'research.tex', u: '/research' },
+  { n: 'research/', u: '/research/', c: research.map((r) => ({ n: `${r.slug}.md`, u: r.href })) },
   { n: 'blog/', u: '/blog/', c: posts.map((p) => ({ n: `${p.slug}.md`, u: p.href })) },
   ...(poems.length ? [{ n: 'poems/', u: '/poems/', c: poems.map((p) => ({ n: `${p.slug}.md`, u: p.href, m: p.sample ? 1 : undefined })) }] : []),
   { n: 'music.md', u: '/music' },
