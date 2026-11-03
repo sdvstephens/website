@@ -533,7 +533,7 @@ page({
   description: 'Mathematics lectures, notes, and problem sets.',
   body: `<h1 class="display">Educational Content</h1>
 <p class="standfirst">Mathematics courses I am designing and teaching online: lectures, notes, and problem sets.</p>
-<p>The course numbers are inspired by MIT's numbering; these are my own courses, not MIT courses.</p>
+<p>The course numbering is inspired by MIT's. These are not MIT courses.</p>
 <p>Video content on <a href="${SITE.youtube}">YouTube (@Vichaama)</a>.</p>
 ${edu.departments.map((d) => `<h2 class="chapter"><span class="idx">${d.code}</span>${d.name}</h2>
 ${ledger(d.courses.map((c) => ({
