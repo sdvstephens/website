@@ -1,0 +1,20 @@
+\begin{tikzpicture}[font=\small]
+% axes
+\draw[thick] (0,0) -- (7.4,0);
+\draw[thick] (0,0) -- (0,4.4);
+\node[rotate=90] at (-0.45,2.2) {Relative effect};
+\draw[-{Latex[length=2.5mm]}, thick] (2.6,-0.75) -- (4.6,-0.75);
+\node[left] at (2.55,-0.75) {Time};
+\node[below, align=center, font=\footnotesize] at (0.5,0) {initial\\use};
+\node[below, font=\footnotesize] at (6.6,0) {addiction};
+% level at first use
+\draw[gray, dashed] (0.4,1.2) -- (7.0,1.2);
+\node[gray, font=\scriptsize, anchor=south east] at (7.0,1.22) {level at first use};
+% "wanting" rises
+\draw[blue, line width=1.8pt] plot[domain=0.4:7.0, samples=80] (\x, {1.2 + 2.9*(1/(1+exp(-1.5*(\x-3.5))) - 0.0095)/0.982});
+% "liking" falls
+\draw[red, line width=1.8pt] plot[domain=0.4:7.0, samples=60] (\x, {0.55 + 0.65*exp(-(\x-0.4)/1.6)});
+% labels
+\node[anchor=west, align=left, text=blue] at (7.15,4.05) {``Wanting''\\(D1 receptors\\sensitized, $\uparrow$)};
+\node[anchor=west, align=left, text=red] at (7.15,0.55) {``Liking''\\(D2 receptors\\desensitized, $\downarrow$)};
+\end{tikzpicture}

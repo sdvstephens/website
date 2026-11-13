@@ -232,5 +232,20 @@
  "h6-mcculloch-pitts": "387b015e341539da0320da639865fc51b1b98490",
  "h6-rnn-unfold": "0cb61885f6fad7304d000e15863c55229cd8dcc3",
  "h6-universal-approx": "a67e46d4444cd4fcd9088ee9c9f0675341473190",
- "h6-xor": "e9a00b6c0df9aed4624e117b902cf360f578074f"
+ "h6-xor": "e9a00b6c0df9aed4624e117b902cf360f578074f",
+ "g11-comedown": "df66828db3a4a4c86303dc8dde0b4be6e895c374",
+ "g11-da-ne-balance": "5542cf2efb947af2c93cdacdfa18cb06b69bce3c",
+ "g11-pfc-volume": "207b49a6a67157c68eba5ec1ca023e9038434b37",
+ "g11-stimulant-synapse": "af8fae119b0c46c2f9f4763ee62a95b6295d5454",
+ "g12-bipolar-regions": "b368502b1bf563a8ea03f222888efd9a993254de",
+ "g12-dopamine-pendulum": "bd086c2792696a564d57ce627e1c1225fe8433db",
+ "g12-schizophrenia-model": "1846c53fdc9d7e40bda1521ed8126daa718e82d9",
+ "g13-agonist-antagonist": "663d49bf9f0821260ed771208c63e9c0d9714ee4",
+ "g13-amphetamine-er-visits": "b87cec60572f2d78a9d67f5a883fa61dc7ff9b0f",
+ "g13-opioid-deaths": "cd7f00324d085f21b05c773f6da2a09613ab5f97",
+ "g14-addiction-cycle": "e75df5730b9e545c76456cc74fe290b6733d30c8",
+ "g14-amphetamine-sensitization": "4d33ea76ef31e7667a1dc3e838d609dc02d2702d",
+ "g14-morphine-tolerance": "f5a9f3bf94f4ac2ec5c1a5db57f3537e0b540a7c",
+ "g14-opponent-process": "754728d71a6aaf83ce3a048d6dea6a825518b4a7",
+ "g14-wanting-liking": "cbc48b1c8fd3a915201636ca4b2bc70e292a5da6"
 }

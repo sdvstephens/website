@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners, thick, align=center, font=\small, minimum height=1.6cm, text width=2.9cm, inner sep=4pt},
+  arr/.style={-{Stealth[length=2.5mm]}, thick},
+  hl/.style={font=\scriptsize\bfseries, align=center}]
+% ---------- the chain ----------
+\node[box, draw=blue, fill=blue!8] (use) at (0,0) {Stimulant taken:\\more dopamine\\binding to receptors};
+\node[box] (comp) at (3.9,0) {Compensatory response blocks natural synthesis of dopamine};
+\node[box, draw=red, fill=red!8] (down) at (7.8,0) {Natural dopamine release decreased for \textbf{over a week}};
+\node[box] (loss) at (11.7,0) {Longer-term loss of motivation and attention};
+\draw[arr] (use) -- (comp);
+\draw[arr] (comp) -- (down);
+\draw[arr] (down) -- (loss);
+% phase labels
+\node[hl, anchor=south, text=blue] at (use.north) {the “high”};
+\node[hl, anchor=south, text=red] at (down.north) {coming down\\(withdrawal): the “low”};
+% ---------- repeated use ----------
+\draw[decorate, decoration={brace, mirror, amplitude=6pt}, thick, gray]
+  ([yshift=-4pt]use.south west) -- ([yshift=-4pt]loss.south east)
+  node[midway, below=9pt, font=\small, text=black] {With extended use, the “high” weakens but the “low” strengthens};
+\end{tikzpicture}

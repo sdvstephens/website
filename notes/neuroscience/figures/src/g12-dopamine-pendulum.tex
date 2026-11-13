@@ -1,0 +1,25 @@
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners, thick, align=center, font=\small, inner sep=6pt},
+  phase/.style={box, minimum width=3.6cm, minimum height=1.5cm, fill opacity=0.10, text opacity=1},
+  arr/.style={-{Stealth[length=2.8mm]}, line width=1.2pt},
+  lab/.style={font=\footnotesize, align=center}
+]
+% ---- trigger ----
+\node[box] (hpa) at (4.0,4.5) {Early life stress $\rightarrow$ HPA axis dysfunction};
+
+% ---- the dopamine cycle ----
+\draw[gray, dashed, rounded corners=8pt] (-2.3,-2.4) rectangle (10.3,3.2);
+\node[font=\footnotesize\itshape, text=gray, anchor=north west] at (-2.2,3.1) {dopamine circuits};
+\draw[arr] (hpa.south) -- node[lab, right] {triggers dysregulation} (4.0,3.2);
+
+\node[phase, draw=red, fill=red] (man) at (0,0) {{\bfseries Mania}\\too much dopamine\\(dopamine $\uparrow$)};
+\node[phase, draw=blue, fill=blue] (dep) at (8,0) {{\bfseries Depression-like}\\{\bfseries symptoms}\\too little dopamine};
+
+\draw[arr] (man.north) to[out=50, in=130]
+  node[lab, below=7pt] {compensatory response:\\dopamine receptor sensitivity $\downarrow$} (dep.north);
+\draw[arr] (dep.south) to[out=-130, in=-50]
+  node[lab, above=7pt] {compensatory response\\swings back the other way} (man.south);
+
+% ---- serotonin, in both phases ----
+\node[box, draw=gray, font=\small] at (4.0,-3.15) {Serotonin $\downarrow$ in both manic and depressive periods};
+\end{tikzpicture}

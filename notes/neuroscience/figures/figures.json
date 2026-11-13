@@ -700,5 +700,50 @@
   },
   "h13-cosine-probes": {
     "alt": "Cosine similarity of two vectors at angles near 0, 90 and 180 degrees: similar, orthogonal and opposite vectors."
+  },
+  "g11-da-ne-balance": {
+    "alt": "A balance scale with dopamine on the left pan and norepinephrine on the right pan, its beam level. Under dopamine: decreased in the ventral tegmental area (VTA) and the prefrontal cortex (PFC). Under norepinephrine: increased in the PFC."
+  },
+  "g11-pfc-volume": {
+    "alt": "Box plot of proportional gray matter volume (×10⁻³) in the left anterior prefrontal cortex for two groups of people with ADHD: with low emotion dysregulation (ED), median about 1.10, mean 1.115 and SD 0.097, with one outlier above and one below; with high ED, median about 1.03, mean 1.016 and SD 0.098, its box sitting lower."
+  },
+  "g11-stimulant-synapse": {
+    "alt": "A dopamine synapse: vesicles in the pre-synaptic dopamine neuron release dopamine into the synapse toward dopamine receptors on the post-synaptic neuron. Adderall, a dopamine release agonist, makes the neuron release more dopamine; Ritalin, a dopamine reuptake antagonist, blocks the reuptake transporter, so dopamine stays in the synapse."
+  },
+  "g11-comedown": {
+    "alt": "Flow chart of coming down from a stimulant: the stimulant increases dopamine binding to receptors (the “high”); a compensatory response blocks natural synthesis of dopamine; on coming down (withdrawal, the “low”), natural dopamine release is decreased for over a week; this gives a longer-term loss of motivation and attention. A brace under the chain notes that with extended use the “high” weakens but the “low” strengthens."
+  },
+  "g12-schizophrenia-model": {
+    "alt": "Flow chart of the lecture's account of schizophrenia: three groups of risk factors, genes (70–80% heritable, exact mechanisms not yet known), prenatal factors (prenatal and maternal stress, infection, malnutrition, birth in winter or spring; maternal stress leads to serotonin and dopamine dysregulation in offspring) and postnatal factors (childhood trauma, social isolation, discrimination), feed into a neurodevelopmental disorder of genes and environment together. This leads to misfiring dopamine neurons, whose overaction causes paranoia, delusions and hallucinations (psychosis), to overactive glutamate firing in the thalamus, and over time to a loss of cells and synapses."
+  },
+  "g12-bipolar-regions": {
+    "alt": "Two schematic side views of the brain with the front at the right. On the outer (lateral) surface, the dorsolateral prefrontal cortex (DLPFC) is marked high on the front of the brain and the ventrolateral prefrontal cortex (VLPFC) below it. On the inner (medial) surface, the dorsomedial prefrontal cortex (DMPFC) is marked at the top of the frontal lobe, the dorsal anterior cingulate cortex (ACC) as a band curving over the front of the corpus callosum, the ventral ACC below and in front of the corpus callosum's bend, and the amygdala deep in the temporal lobe."
+  },
+  "g12-dopamine-pendulum": {
+    "alt": "Cycle diagram of the lecture's account of bipolar disorder: early life stress causes HPA axis dysfunction, which triggers dysregulation of dopamine circuits. Mania (too much dopamine) leads, through a compensatory response that lowers dopamine receptor sensitivity, to depression-like symptoms (too little dopamine), and a compensatory response swings activity back the other way to mania. Below the cycle, serotonin is decreased in both manic and depressive periods."
+  },
+  "g13-agonist-antagonist": {
+    "alt": "Three panels, each showing a cell with a receptor on its surface. Agonist alone: an agonist binds the receptor and activates it, and the cell is fully activated. Agonist plus antagonist: an agonist and an antagonist compete for the receptor, and the cell is less activated. Antagonist alone: the antagonist occupies the receptor without activating it, and there is no activation."
+  },
+  "g13-amphetamine-er-visits": {
+    "alt": "Line chart of amphetamine-related emergency room visits in New Mexico per 100,000 people from 2010 to 2014: 19.6 in 2010, a dip to about 15 in 2011, then a steady rise to about 26 in 2012, about 36 in 2013 and 56.1 in 2014."
+  },
+  "g13-opioid-deaths": {
+    "alt": "Bar chart of U.S. drug overdose deaths involving any opioid from 1999 to 2017, rising every year from 8,048 in 1999 to 18,515 in 2007 and 47,600 in 2017, with the steepest rise after 2014; lines for men and women show men at two to three times the women's count in every year, reaching about 32,000 men and 15,000 women in 2017."
+  },
+  "g14-morphine-tolerance": {
+    "alt": "Line graph of tail-flick latency in seconds against days: two groups of rats treated with morphine take about 10 seconds to flick their tails away from a hot light on day 1, about 7 seconds on day 5 and only 3 to 4 seconds on day 9, approaching the roughly 2.3 seconds of rats given no morphine (dashed line); a longer latency means less pain felt."
+  },
+  "g14-amphetamine-sensitization": {
+    "alt": "Line graph of activity (crossovers) against time over 120 minutes: after saline is injected into the nucleus accumbens at the start, activity in both groups falls to near zero; after amphetamine is injected into the nucleus accumbens at 60 minutes, rats with prior exposure to amphetamine (black circles) peak at about 43 crossovers at 80 minutes, against about 31 for rats getting amphetamine for the first time (white circles), and stay more active to the end (F = 5.79, p < 0.02)."
+  },
+  "g14-wanting-liking": {
+    "alt": "Graph of relative effect against time, from initial use to addiction: “wanting” (D1 receptors sensitized) climbs steeply in an S-shaped curve from the level at first use, while “liking” (D2 receptors desensitized) drifts slightly below that level."
+  },
+  "g14-addiction-cycle": {
+    "alt": "The impulse disorder cycle as three stages joined by clockwise arrows: binge/intoxication (basal ganglia) leads to withdrawal/negative affect (extended amygdala), which leads to preoccupation/anticipation (prefrontal cortex), which leads back to binge/intoxication."
+  },
+  "g14-opponent-process": {
+    "alt": "Two graphs of mood. One use: mood rises above the baseline (a, the high) and then dips below it (b, the low). Repeated use: each high (a) is lower and each low (b) deeper, and between uses mood settles at allostatic points that fall further and further below the original homeostatic point; the widening shaded gap between the old baseline and the falling one is the allostatic state."
   }
 }

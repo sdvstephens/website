@@ -1,0 +1,19 @@
+\begin{tikzpicture}
+\begin{axis}[width=8.2cm, height=6cm, xmin=0, xmax=10, ymin=0, ymax=12,
+  xtick={0,2,4,6,8,10}, ytick={0,2,4,6,8,10,12},
+  axis lines=left, axis line style={thick}, tick style={black, thick},
+  tick label style={font=\small}, label style={font=\small},
+  xlabel={Days}, ylabel={Tail-flick latency (s)},
+  title={Morphine tolerance}, title style={font=\small\bfseries}, clip=false]
+% rats treated with morphine: two groups, plotted as on the slide
+\addplot[black, thick, mark=*, mark size=2.2pt, mark options={fill=black}]
+  coordinates {(1,10.0) (3,9.4) (5,7.2) (7,3.9) (9,3.1)};
+\addplot[black, thick, mark=square*, mark size=2.1pt, mark options={fill=black}]
+  coordinates {(1,10.0) (3,8.9) (5,6.7) (7,4.4) (9,3.8)};
+% rats given no morphine
+\addplot[gray, thick, dashed, domain=1:9] {2.3};
+\node[font=\footnotesize, anchor=west, align=left] at (axis cs:5.3,9.6) {rats treated\\with morphine};
+\node[font=\footnotesize, anchor=north] at (axis cs:5,2.0) {rats given no morphine};
+\draw[-{Latex[length=2mm]}, gray] (axis cs:10.4,7.5) -- node[right, font=\footnotesize, text=black, align=left] {longer\\= less\\pain felt} (axis cs:10.4,11);
+\end{axis}
+\end{tikzpicture}

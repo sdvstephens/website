@@ -1,0 +1,44 @@
+\begin{tikzpicture}[font=\small]
+% ---- top: a single use ----
+\node[font=\bfseries, anchor=west] at (-1.6,2.2) {One use};
+\node[draw, thick, inner sep=3pt] at (-0.9,0) {Mood};
+\draw[thick] (0,0) -- (4.6,0);
+\draw[line width=1.6pt] plot[smooth, tension=0.6] coordinates {(0.3,0.1) (1.0,1.2) (1.5,1.35) (2.1,0.4) (2.6,-0.8) (3.1,-1.05) (3.6,-0.6) (4.2,-0.15)};
+\node[above] at (1.35,1.4) {$a$ ($+$)};
+\node[below] at (3.1,-1.1) {$b$ ($-$)};
+
+% ---- bottom: repeated use ----
+\begin{scope}[yshift=-4.2cm]
+\node[font=\bfseries, anchor=west] at (-1.6,1.9) {Repeated use};
+\begin{scope}[yscale=0.55]
+\node[draw, thick, inner sep=3pt] at (-0.9,0) {Mood};
+% the allostatic state: the gap between the old baseline and the falling one
+\fill[gray, fill opacity=0.18] (3.1,0) -- (12.6,0) -- (12.6,-2.65) -- (3.1,0) -- cycle;
+\draw[thick] (0,0) -- (12.6,0);
+\draw[thick, dashed] (3.1,0) -- (12.6,-2.65);
+% mood over four uses
+\draw[line width=1.6pt] plot[smooth, tension=0.55] coordinates {
+  (0.2,0) (1.0,2.2) (1.6,1.2) (2.2,-2.0) (2.8,-0.6) (3.4,0)
+  (4.2,1.2) (4.8,0.2) (5.4,-3.0) (6.0,-1.5) (6.6,-0.9)
+  (7.4,0.2) (8.0,-0.8) (8.6,-3.9) (9.2,-2.4) (9.8,-1.8)
+  (10.6,-0.8) (11.2,-1.8) (11.8,-5.0) (12.4,-3.9)};
+% peaks and troughs
+\node[above] at (1.0,2.25) {$a$};
+\node[above] at (4.2,1.25) {$a$};
+\node[above] at (7.4,0.25) {$a$};
+\node[above] at (10.6,-0.75) {$a$};
+\node[below] at (2.2,-2.05) {$b$};
+\node[below] at (5.4,-3.05) {$b$};
+\node[below] at (8.6,-3.95) {$b$};
+\node[below] at (11.8,-5.05) {$b$};
+% labels
+\node[align=center, font=\footnotesize] (hp) at (-0.9,-2.6) {homeostatic\\point};
+\draw[-{Latex[length=2mm]}] (hp.north east) -- (0.15,-0.1);
+\node[align=center, font=\footnotesize] (ap) at (8.4,2.6) {allostatic points};
+\draw[-{Latex[length=2mm]}] (ap.south west) -- (6.65,-0.75);
+\draw[-{Latex[length=2mm]}] (ap.south east) -- (9.8,-1.65);
+\node[align=left, font=\footnotesize, anchor=west] (as) at (13.3,-1.0) {allostatic\\state};
+\draw[-{Latex[length=2mm]}] (as.west) -- (12.3,-1.0);
+\end{scope}
+\end{scope}
+\end{tikzpicture}

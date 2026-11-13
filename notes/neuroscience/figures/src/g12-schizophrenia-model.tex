@@ -1,0 +1,35 @@
+\begin{tikzpicture}[
+  box/.style={draw, rounded corners, thick, align=center, font=\small, inner sep=5pt, minimum height=1.2cm},
+  risk/.style={box, fill=gray, fill opacity=0.10, text opacity=1},
+  chem/.style={box, draw=red, fill=red, fill opacity=0.08, text opacity=1},
+  arr/.style={-{Stealth[length=2.5mm]}, thick}
+]
+% ---- row 1: risk factors ----
+\node[risk, anchor=north] (gen) at (0,0)
+  {{\bfseries Genes}\\70--80\% heritable;\\exact mechanisms\\not yet known};
+\node[risk, anchor=north] (pre) at (4.85,0)
+  {{\bfseries Prenatal}\\prenatal \& maternal stress,\\infection, malnutrition;\\born in winter or spring\\[3pt]
+   {\footnotesize maternal stress $\rightarrow$ serotonin \&}\\{\footnotesize dopamine dysregulation in offspring}};
+\node[risk, anchor=north] (post) at (9.7,0)
+  {{\bfseries Postnatal}\\childhood trauma,\\social isolation,\\discrimination};
+
+% ---- row 2: the disorder ----
+\node[box] (nd) at (4.85,-4.0)
+  {{\bfseries Neurodevelopmental disorder}\\genes $\times$ environment};
+\draw[arr] (gen.south) -- (nd.north west);
+\draw[arr] (pre.south) -- (nd.north);
+\draw[arr] (post.south) -- (nd.north east);
+
+% ---- row 3: neurochemistry ----
+\node[chem, anchor=north] (da) at (1.0,-5.6)
+  {{\bfseries Dopamine}\\misfiring dopamine neurons;\\overaction $\rightarrow$ paranoia,\\delusions, hallucinations\\(psychosis)};
+\node[chem, anchor=north] (glu) at (8.7,-5.6)
+  {{\bfseries Glutamate}\\overactive firing\\in the thalamus};
+\draw[arr] ([xshift=-1.2cm]nd.south) -- (da.north east);
+\draw[arr] ([xshift=1.2cm]nd.south) -- (glu.north west);
+
+% ---- row 4: structure over time ----
+\node[box, anchor=north] (loss) at (4.85,-8.3)
+  {{\bfseries Brain structure}\\loss of cells \& synapses};
+\draw[arr, dashed] (nd.south) -- node[right, font=\footnotesize] {over time} (loss.north);
+\end{tikzpicture}

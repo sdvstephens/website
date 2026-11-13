@@ -1,7 +1,7 @@
 {
   "slug": "neuroscience",
   "title": "Basic Neuroscience and Geometry of Neuroscience",
-  "description": "Basic Neuroscience comprises: the minimal knowledge needed to operate in the academic world and should be standard knowledge for those wishing to engage in anything orbital to neuroscience; neurons and signalling, behavior, the senses, methods and disorders, from the PSY 212 (SSU) lecture slides and my notebook. Geometry of Neuroscience is much more ambitious, though I keep them together here: Matilde Marcolli’s Caltech course on dynamical, topological, geometric and categorical models of the brain, vision and language.",
+  "description": "Basic Neuroscience comprises: the minimal knowledge needed to operate in the academic world and should be standard knowledge for those wishing to engage in anything orbital to neuroscience; neurons and signalling, behavior, the senses, methods, disorders and drugs, from the PSY 212 (SSU) lecture slides and my notebook. Geometry of Neuroscience is much more ambitious, though I keep them together here: Matilde Marcolli’s Caltech course on dynamical, topological, geometric and categorical models of the brain, vision and language.",
   "sectionLabel": "lectures and notes",
   "chapters": [
     {
@@ -142,7 +142,7 @@
     },
     {
       "number": 5,
-      "title": "Disorders",
+      "title": "Disorders and Drugs",
       "part": "Basic Neuroscience",
       "sections": [
         {
@@ -154,6 +154,26 @@
           "number": "14",
           "slug": "14-depression",
           "title": "Depression"
+        },
+        {
+          "number": "15",
+          "slug": "15-attentional-disorders",
+          "title": "Attentional Disorders"
+        },
+        {
+          "number": "16",
+          "slug": "16-schizophrenia-and-bipolar-disorder",
+          "title": "Schizophrenia and Bipolar Disorder"
+        },
+        {
+          "number": "17",
+          "slug": "17-pharmaceuticals",
+          "title": "Drugs: Pharmaceuticals"
+        },
+        {
+          "number": "18",
+          "slug": "18-substance-abuse-disorder",
+          "title": "Drugs: Substance Abuse Disorder"
         }
       ]
     },

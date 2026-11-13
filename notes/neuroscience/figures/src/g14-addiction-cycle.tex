@@ -1,0 +1,12 @@
+\begin{tikzpicture}[font=\small,
+  stage/.style={draw, thick, rounded corners=4pt, align=center, inner sep=5pt, text width=3.5cm},
+  cyc/.style={-{Latex[length=3mm]}, line width=1.4pt}]
+% the three stages
+\node[stage, draw=blue, fill=blue!15] (binge) at (90:3.1) {\textbf{Binge/intoxication}\\[2pt]basal ganglia};
+\node[stage, draw=red, fill=red!15] (with) at (-30:3.1) {\textbf{Withdrawal/\\negative affect}\\[2pt]extended amygdala};
+\node[stage, draw=green, fill=green!15] (pre) at (210:3.1) {\textbf{Preoccupation/\\anticipation}\\[2pt]prefrontal cortex};
+% clockwise arrows
+\draw[cyc] (44:3.1) arc[start angle=44, end angle=-13, radius=3.1];
+\draw[cyc] (-50:3.1) arc[start angle=-50, end angle=-130, radius=3.1];
+\draw[cyc] (193:3.1) arc[start angle=193, end angle=136, radius=3.1];
+\end{tikzpicture}
