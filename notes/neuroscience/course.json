@@ -12,17 +12,20 @@
         {
           "number": "1",
           "slug": "01-meet-the-nervous-system",
-          "title": "Meet the Nervous System"
+          "title": "Meet the Nervous System",
+          "private": true
         },
         {
           "number": "2",
           "slug": "02-the-action-potential",
-          "title": "The Action Potential"
+          "title": "The Action Potential",
+          "private": true
         },
         {
           "number": "3",
           "slug": "03-hormones-and-neurotransmitters",
-          "title": "Hormones and Neurotransmitters"
+          "title": "Hormones and Neurotransmitters",
+          "private": true
         },
         {
           "number": "N1",
@@ -82,17 +85,20 @@
         {
           "number": "4",
           "slug": "04-learning-and-memory",
-          "title": "Learning and Memory"
+          "title": "Learning and Memory",
+          "private": true
         },
         {
           "number": "5",
           "slug": "05-social-and-reproductive-behavior",
-          "title": "Social and Reproductive Behavior"
+          "title": "Social and Reproductive Behavior",
+          "private": true
         },
         {
           "number": "6",
           "slug": "06-sexual-development-and-puberty",
-          "title": "Sexual Development and Puberty"
+          "title": "Sexual Development and Puberty",
+          "private": true
         }
       ]
     },
@@ -104,17 +110,20 @@
         {
           "number": "7",
           "slug": "07-vision",
-          "title": "Vision"
+          "title": "Vision",
+          "private": true
         },
         {
           "number": "8",
           "slug": "08-hearing-and-balance",
-          "title": "Hearing and Balance"
+          "title": "Hearing and Balance",
+          "private": true
         },
         {
           "number": "9",
           "slug": "09-touch-taste-and-smell",
-          "title": "Touch, Taste, and Smell"
+          "title": "Touch, Taste, and Smell",
+          "private": true
         }
       ]
     },
@@ -126,17 +135,20 @@
         {
           "number": "10",
           "slug": "10-research-methods",
-          "title": "Research Methods"
+          "title": "Research Methods",
+          "private": true
         },
         {
           "number": "11",
           "slug": "11-machine-learning",
-          "title": "Machine Learning"
+          "title": "Machine Learning",
+          "private": true
         },
         {
           "number": "12",
           "slug": "12-therapies-and-prosthetics",
-          "title": "Therapies and Prosthetics"
+          "title": "Therapies and Prosthetics",
+          "private": true
         }
       ]
     },
@@ -148,32 +160,38 @@
         {
           "number": "13",
           "slug": "13-anxiety-disorders",
-          "title": "Anxiety Disorders"
+          "title": "Anxiety Disorders",
+          "private": true
         },
         {
           "number": "14",
           "slug": "14-depression",
-          "title": "Depression"
+          "title": "Depression",
+          "private": true
         },
         {
           "number": "15",
           "slug": "15-attentional-disorders",
-          "title": "Attentional Disorders"
+          "title": "Attentional Disorders",
+          "private": true
         },
         {
           "number": "16",
           "slug": "16-schizophrenia-and-bipolar-disorder",
-          "title": "Schizophrenia and Bipolar Disorder"
+          "title": "Schizophrenia and Bipolar Disorder",
+          "private": true
         },
         {
           "number": "17",
           "slug": "17-pharmaceuticals",
-          "title": "Drugs: Pharmaceuticals"
+          "title": "Drugs: Pharmaceuticals",
+          "private": true
         },
         {
           "number": "18",
           "slug": "18-substance-abuse-disorder",
-          "title": "Drugs: Substance Abuse Disorder"
+          "title": "Drugs: Substance Abuse Disorder",
+          "private": true
         }
       ]
     },

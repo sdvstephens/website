@@ -293,6 +293,8 @@ ${(anyHidden ? shown : []).map((n) => `
 }
 
 const accessByCourse = new Map();
+// Pages built and uploaded but not served to the public (course.json "private").
+const privatePaths = [];
 for (const c of noteCourses) {
   const course = exists('notes', c.slug, 'course.json') ? readJSON('notes', c.slug, 'course.json') : { chapters: [] };
   const sections = [];
@@ -323,13 +325,22 @@ for (const c of noteCourses) {
         // password screen in the browser (no server check), kept out of
         // search, the sitemap and search engines.
         locked: !!(s.locked && course.lock && course.lock.sha256),
+        // "private": true in course.json: the page is still built and uploaded,
+        // but the server answers 404 for it (see the .htaccess rules written
+        // below), and it is left out of every listing, search and the sitemap.
+        private: !!s.private,
       });
     }
   }
   // An optional notes/<course>/index.md introduces the course on its contents page.
   const intro = exists('notes', c.slug, 'index.md') ? renderMarkdown(read('notes', c.slug, 'index.md')) : '';
+  const visible = sections.filter((s) => !s.private);
+  // A chapter whose every section is private disappears from the contents.
+  const chapters = (course.chapters || []).filter((ch) => !sections.some((s) => s.chapter === ch && s.private)
+    || visible.some((s) => s.chapter === ch));
   notes.push({
-    ...c, title: course.title || c.title, book: course.book, chapters: course.chapters || [], sections, intro,
+    ...c, title: course.title || c.title, book: course.book, chapters, sections: visible, intro,
+    privateSections: sections.filter((s) => s.private),
     description: course.description || c.description, chapterLabel: course.chapterLabel || 'chapter',
     sectionLabel: course.sectionLabel || (course.chapterLabel === 'week' ? 'lectures' : 'sections'),
     lock: course.lock, originals: course.originals,
@@ -468,6 +479,21 @@ ${s.meta || s.original ? `<div class="note-meta">${s.meta}${s.original ? origina
 ${prevNext(before && { href: before.href, title: `${before.number} ${before.titleHtml}` }, after && { href: after.href, title: `${after.number} ${after.titleHtml}` })}`,
       search: s.stub || s.locked ? '' : plainText(s.html),
       headings: s.locked ? [] : headingsOf(s.html),
+    });
+  }
+  for (const s of n.privateSections) {
+    privatePaths.push(s.href);
+    page({
+      path: s.href, file: s.file, section: 'notes', layout: 'notes',
+      title: `${s.titleText} — ${n.title}`, description: `Section ${s.number}: ${s.titleText} from ${n.title}`,
+      noindex: true, inSitemap: false, railLabel: `${n.title} contents`,
+      rail: notesTree(n, s.slug),
+      body: `<p class="crumbs"><a href="/notes/">notes</a> / <a href="/notes/${n.slug}/">${n.title}</a> / ${n.chapterLabel} ${s.chapter.number}: ${s.chapter.titleHtml}</p>
+<article class="note">
+<h1 class="note-title"><span class="num">${s.number}</span> ${s.titleHtml}</h1>
+${s.meta ? `<div class="note-meta">${s.meta}</div>\n` : ''}<div class="prose">${s.html}</div>
+</article>`,
+      search: '', headings: [],
     });
   }
 }
@@ -882,6 +908,19 @@ for (const w of [400, 600]) {
   if (fs.existsSync(f)) fs.copyFileSync(f, path.join(DIST, 'assets', `jetbrains-mono-${w}.woff2`));
 }
 copyDir(path.join(ROOT, 'static'), '.');
+// Private pages: the files are uploaded with everything else, and the server
+// answers 404 for them (with or without .html), as if they did not exist.
+if (privatePaths.length) {
+  const hf = path.join(DIST, '.htaccess');
+  const rx = (s) => s.replace(/^\//, '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const rules = `# Private pages (course.json "private"): kept on the server, not served.
+RewriteRule ^(${privatePaths.map(rx).join('|')})(\\.html)?/?$ - [R=404,L]
+`;
+  const marker = 'RewriteRule ^analytics/owa-data/ - [F,L]\n';
+  const h = fs.readFileSync(hf, 'utf8');
+  if (!h.includes(marker)) warn('.htaccess: no place to put the private-page rules');
+  else fs.writeFileSync(hf, h.replace(marker, marker + '\n' + rules));
+}
 if (!fs.existsSync(path.join(DIST, 'assets', 'fonts', 'ACaslonPro-Regular.woff2'))) {
   warn('Adobe Caslon Pro woff2 files missing from static/assets/fonts (they are gitignored in the original); pages fall back to Iowan/Palatino/Georgia');
 }
