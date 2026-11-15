@@ -16,7 +16,7 @@ npm run build      # build dist/ for upload
 
 The preview also shows what the live site leaves out: draft posts (`draft: true`) and posts not yet in `posts.json`, marked as preview-only; `/_audit` and `/_suggestions` (if those files exist locally); and layout samples such as the sample poem. It keeps typeset formulas in a cache in the temp folder, so a rebuild takes about a second; the first one after a change to `src/markdown.mjs` takes as long as a full build.
 
-Editors: in VS Code, run the "Site: preview" task (or F5 with a "Site preview" launch configuration in `.vscode/`, which opens the page in the integrated browser). In Neovim, `:SiteDev` starts the preview in the background and opens the page for the current file; `:SiteDevStop` stops it and `:SiteDevLog` shows the build output. If both editors start one, the second waits and takes over when the first stops.
+Editors: in VS Code, run the "Site: preview" task (or F5 with a "Site preview" launch configuration in `.vscode/`, which opens the page in the integrated browser). In Neovim, `:SiteDev` starts the preview in the background and opens the page for the current file; from then on the preview follows your typing without writing the file (Neovim sends the unsaved text after a short pause, and saving replaces it). `:SiteDevLive` turns that on and off, `:SiteDevStop` stops the preview and `:SiteDevLog` shows the build output. If both editors start one, the second waits and takes over when the first stops.
 
 ## Layout
 

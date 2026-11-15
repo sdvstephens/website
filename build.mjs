@@ -44,7 +44,14 @@ const PREVIEW_DIR = path.join(os.tmpdir(), 'samuel-stephens.com-preview'); // se
 const FINAL = PREVIEW ? PREVIEW_DIR : path.join(ROOT, 'dist');
 const OUT_NAME = PREVIEW ? PREVIEW_DIR : 'dist/';
 const DIST = fs.mkdtempSync(path.join(os.tmpdir(), 'sss-build-'));
-const read = (...p) => fs.readFileSync(C(...p), 'utf8');
+// Preview only: text from unsaved editor buffers (Neovim's :SiteDev sends it as
+// you type). serve.mjs keeps it in this folder under the same relative paths,
+// and it stands in for the saved file. The deploy build never reads it.
+const UNSAVED = PREVIEW && process.env.SSS_PREVIEW_UNSAVED;
+const read = (...p) => {
+  if (UNSAVED && fs.existsSync(path.join(UNSAVED, ...p))) return fs.readFileSync(path.join(UNSAVED, ...p), 'utf8');
+  return fs.readFileSync(C(...p), 'utf8');
+};
 const readJSON = (...p) => JSON.parse(read(...p));
 const exists = (...p) => fs.existsSync(C(...p));
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -854,7 +861,7 @@ ${ledger(posts.slice(0, 5).map((p) => ({ idx: `<time datetime="${p.date}">${p.da
 for (const [file, route, title] of [['AUDIT.md', '/_audit', 'Site audit'], ['SUGGESTIONS.md', '/_suggestions', 'Suggestions']]) {
   if (!PREVIEW || !fs.existsSync(path.join(ROOT, file))) continue;
   setSource(file);
-  const html = renderMarkdown(fs.readFileSync(path.join(ROOT, file), 'utf8'));
+  const html = renderMarkdown(read(file));
   page({
     path: route, file, title, noindex: true, inSitemap: false, layout: 'audit',
     // Caslon, not Irvin: Irvin's hyphen is a swung dash, wrong in a domain name.
@@ -916,10 +923,10 @@ const pdfUrl = (name) => {
 };
 const cvUrl = pdfUrl('sdvscv.pdf');
 const resumeUrl = pdfUrl('sdvsresume.pdf');
-const css = fs.readFileSync(path.join(ROOT, 'src', 'site.css'), 'utf8');
-const js = fs.readFileSync(path.join(ROOT, 'src', 'site.js'), 'utf8')
+const css = read('src', 'site.css');
+const js = read('src', 'site.js')
   .replaceAll("'/sdvscv.pdf'", `'${cvUrl}'`).replaceAll("'/sdvsresume.pdf'", `'${resumeUrl}'`);
-const mathCss = mathStyleSheet() + '\n' + fs.readFileSync(path.join(ROOT, 'src', 'math.css'), 'utf8');
+const mathCss = mathStyleSheet() + '\n' + read('src', 'math.css');
 const assets = { css: hash(css), js: hash(js), math: hash(mathCss) };
 write('assets/site.css', css);
 write('assets/site.js', js);
