@@ -24,13 +24,15 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   renderMarkdown, renderNotes, renderVerse, frontmatter, plainText, escapeHtml as esc,
-  mathStyleSheet, mathWarnings, setSource, addHeadingIds, headingsOf, renderTitle, plainTitle,
+  mathStyleSheet, mathWarnings, saveMathCache, setSource, addHeadingIds, headingsOf, renderTitle, plainTitle,
 } from './src/markdown.mjs';
 import { layout, ledger, tagLinks, tagSlug, prevNext, SITE, NAV } from './src/templates.mjs';
 
-// `node build.mjs --preview` (what `npm run dev` runs) also builds the pages
-// meant only for you: /_audit, /_suggestions, and layout samples such as
-// poems/_sample-*.md. A plain `node build.mjs` is the site to deploy.
+// `node build.mjs --preview` (what `npm run dev` runs) builds the local preview:
+// it also makes the pages meant only for you (/_audit, /_suggestions, layout
+// samples such as poems/_sample-*.md) and shows draft and unlisted blog posts.
+// It writes to a folder outside the repo (PREVIEW_DIR), never to dist/, so the
+// next upload is unaffected. A plain `node build.mjs` is the site to deploy.
 const PREVIEW = process.argv.includes('--preview');
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
@@ -38,7 +40,9 @@ const C = (...p) => path.join(ROOT, ...p);
 // Build in the system temp folder, then copy changed files into dist/. Building
 // inside ~/Documents and renaming folders there makes iCloud Drive leave
 // "dist 2", "dist 3"… behind.
-const FINAL = path.join(ROOT, 'dist');
+const PREVIEW_DIR = path.join(os.tmpdir(), 'samuel-stephens.com-preview'); // serve.mjs serves the same folder
+const FINAL = PREVIEW ? PREVIEW_DIR : path.join(ROOT, 'dist');
+const OUT_NAME = PREVIEW ? PREVIEW_DIR : 'dist/';
 const DIST = fs.mkdtempSync(path.join(os.tmpdir(), 'sss-build-'));
 const read = (...p) => fs.readFileSync(C(...p), 'utf8');
 const readJSON = (...p) => JSON.parse(read(...p));
@@ -68,23 +72,41 @@ function longDate(d) {
 
 // =============================================================== blog
 const postIndex = exists('blog', 'posts.json') ? readJSON('blog', 'posts.json') : [];
+const isDraft = (fm) => /^(true|yes|1|on)$/i.test(fm.draft || '');
+// The preview also shows drafts and posts that posts.json doesn't list yet,
+// with their index details read from frontmatter as rebuild-posts.py would.
+const blogFiles = fs.readdirSync(C('blog')).filter((f) => f.endsWith('.md'));
+const unlisted = blogFiles.filter((f) => !postIndex.some((p) => `${p.slug}.md` === f));
+const previewOnly = new Set();
+if (PREVIEW) {
+  for (const f of unlisted) {
+    const slug = f.slice(0, -3);
+    const src = read('blog', f);
+    const { data: fm } = frontmatter(src);
+    if (!Object.keys(fm).length) continue;
+    postIndex.push({
+      slug, title: fm.title || (src.match(/^#\s+(.+)$/m) || [])[1] || slug,
+      date: fm.date || TODAY, excerpt: fm.excerpt || '',
+      tags: (fm.tags || '').split(',').map((t) => t.trim()).filter(Boolean),
+    });
+    previewOnly.add(slug);
+  }
+}
 const posts = [];
 for (const entry of postIndex) {
   if (!exists('blog', `${entry.slug}.md`)) { warn(`blog/${entry.slug}.md listed in posts.json but missing`); continue; }
   const src = read('blog', `${entry.slug}.md`);
   const fm = frontmatter(src).data;
-  if (/^(true|yes|1|on)$/i.test(fm.draft || '')) continue;
+  if (isDraft(fm)) { if (!PREVIEW) continue; previewOnly.add(entry.slug); }
   setSource(`blog/${entry.slug}.md`);
   const html = stripLeadingH1(renderMarkdown(src));
   if (!plainText(html)) warn(`blog/${entry.slug}.md has a title but no text (published empty)`);
-  posts.push({ ...entry, tags: entry.tags || [], html, href: `/blog/${entry.slug}` });
+  posts.push({ ...entry, tags: entry.tags || [], html, href: `/blog/${entry.slug}`, previewOnly: previewOnly.has(entry.slug) });
 }
 posts.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-// A .md file that posts.json doesn't list is never shown (the original's
-// "live but invisible" case). Say so; scripts/rebuild-posts.py fixes it.
-for (const f of fs.readdirSync(C('blog')).filter((f) => f.endsWith('.md'))) {
-  if (!postIndex.some((p) => `${p.slug}.md` === f)) warn(`blog/${f} is not in posts.json (run scripts/rebuild-posts.py)`);
-}
+// A .md file that posts.json doesn't list is never shown on the live site (the
+// original's "live but invisible" case). Say so; scripts/rebuild-posts.py fixes it.
+for (const f of unlisted) warn(`blog/${f} is not in posts.json (run scripts/rebuild-posts.py)${PREVIEW ? '; shown in the preview only' : ''}`);
 const allTags = [...new Set(posts.flatMap((p) => p.tags))].sort();
 
 function postRows(list) {
@@ -128,7 +150,7 @@ posts.forEach((p, i) => {
 <p class="meta tags">${tagLinks(p.tags)}</p>
 <p class="meta back"><a href="/blog/">all posts</a></p>`,
     body: `<article class="post">
-<h1 class="post-title">${p.title}</h1>
+${p.previewOnly ? '<p class="sample-note">Preview only: this post is a draft or is not in posts.json yet, so the live site does not show it.</p>\n' : ''}<h1 class="post-title">${p.title}</h1>
 <div class="prose">${p.html}</div>
 </article>
 ${prevNext(newer && { href: newer.href, title: newer.title }, older && { href: older.href, title: older.title }, { prevLabel: 'Newer', nextLabel: 'Older' })}
@@ -991,6 +1013,22 @@ const versioned = (html) => html.replaceAll('href="/sdvscv.pdf"', `href="${cvUrl
   .replaceAll('href="/sdvsresume.pdf"', `href="${resumeUrl}"`);
 for (const p of pages) write(p.out, versioned(layout(p, assets)));
 
+// Preview only: which page each source file makes, so serve.mjs can show the
+// page for the file you just saved.
+if (PREVIEW) {
+  const sources = {
+    'pages/home.html': '/', 'pages/about.html': '/about', 'pages/about-infobox.json': '/about',
+    'pages/help.html': '/help', 'music/music.json': '/music', 'courses/courses.json': '/educational',
+    'research/index.md': '/research', 'blog/posts.json': '/blog', 'AUDIT.md': '/_audit', 'SUGGESTIONS.md': '/_suggestions',
+  };
+  for (const p of pages) {
+    const f = p.file || '';
+    if (f.endsWith('/')) for (const idx of ['course.json', 'assignments.json', 'index.md']) sources[f + idx] ??= p.path;
+    else if (f && fs.existsSync(C(f))) sources[f] ??= p.path;
+  }
+  write('__sources.json', JSON.stringify(sources, null, 1));
+}
+
 write('404.html', versioned(layout({
   path: '/404', file: '404', title: 'Not found', noindex: true, canonical: SITE.base + '/404',
   body: `<div class="prose"><h1 class="display">404</h1>
@@ -1095,10 +1133,11 @@ const pruneEmpty = (dir) => {
 };
 if (fs.existsSync(FINAL)) pruneEmpty(FINAL);
 fs.rmSync(DIST, { recursive: true, force: true });
+saveMathCache();
 
 // =============================================================== report
 const unique = [...new Set([...warnings, ...mathWarnings])];
-console.log(`built ${pages.length + 1} pages into dist/ in ${Date.now() - t0} ms${PREVIEW ? ' (preview: includes /_audit, /_suggestions and samples)' : ''}; ${changed} files changed, ${removed} removed`);
+console.log(`built ${pages.length + 1} pages into ${OUT_NAME} in ${Date.now() - t0} ms${PREVIEW ? ' (preview: includes /_audit, /_suggestions and samples)' : ''}; ${changed} files changed, ${removed} removed`);
 console.log(`  ${posts.length} posts, ${published.length} poems, ${notes.reduce((a, n) => a + written(n), 0)} written note sections, ${pages.filter((p) => p.hasMath).length} pages with math`);
 if (unique.length) {
   console.log(`  ${unique.length} content warning${unique.length > 1 ? 's' : ''}:`);

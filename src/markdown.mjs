@@ -13,6 +13,12 @@ import { CHTML } from 'mathjax-full/js/output/chtml.js';
 import { liteAdaptor } from 'mathjax-full/js/adaptors/liteAdaptor.js';
 import { RegisterHTMLHandler } from 'mathjax-full/js/handlers/html.js';
 import { AllPackages } from 'mathjax-full/js/input/tex/AllPackages.js';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 
 marked.setOptions({ gfm: true, breaks: false });
 
@@ -75,25 +81,59 @@ const adaptor = liteAdaptor();
 RegisterHTMLHandler(adaptor);
 const packages = AllPackages.filter((p) => !['bussproofs', 'colorv2', 'autoload', 'require'].includes(p));
 const tex = new TeX({ packages, macros: MACROS, formatError: (jax, err) => jax.formatError(err) });
-const chtml = new CHTML({ fontURL: '/assets/mathjax/woff-v2', adaptiveCSS: true });
+// Typesetting is nearly all of the build's time. The preview (`--preview`, what
+// `npm run dev` runs) keeps every typeset formula in a cache file outside the
+// repo, so a rebuild after a save only typesets formulas that are new. A cached
+// formula never passes through MathJax, so MathJax can't collect the CSS for
+// its glyphs; the preview therefore ships the full math stylesheet
+// (adaptiveCSS off). The deploy build typesets everything, uncached, and ships
+// only the CSS it used.
+const PREVIEW = process.argv.includes('--preview');
+const chtml = new CHTML({ fontURL: '/assets/mathjax/woff-v2', adaptiveCSS: !PREVIEW });
 const mjdoc = mathjax.document('', { InputJax: tex, OutputJax: chtml });
+
+const CACHE_FILE = path.join(os.tmpdir(), 'samuel-stephens.com-math-cache.json');
+// A change to this file (macros, packages, sizes) or to MathJax starts a fresh cache.
+const CACHE_KEY = crypto.createHash('sha1')
+  .update(fs.readFileSync(fileURLToPath(import.meta.url)))
+  .update(createRequire(import.meta.url)('mathjax-full/package.json').version)
+  .digest('hex');
+let cache = null;
+let cacheDirty = false;
+if (PREVIEW) {
+  try {
+    const saved = JSON.parse(fs.readFileSync(CACHE_FILE, 'utf8'));
+    if (saved.key === CACHE_KEY) cache = new Map(Object.entries(saved.formulas));
+  } catch { /* no cache yet */ }
+  cache ??= new Map();
+}
+/** Write the formula cache if this build added to it. The build calls this at the end. */
+export function saveMathCache() {
+  if (!cache || !cacheDirty) return;
+  fs.writeFileSync(CACHE_FILE, JSON.stringify({ key: CACHE_KEY, formulas: Object.fromEntries(cache) }));
+}
 
 export const mathWarnings = [];
 let currentSource = '';
 export function setSource(name) { currentSource = name; }
 
 function renderTex(src, display) {
-  try {
-    const node = mjdoc.convert(src, { display, em: 20, ex: 8.3, containerWidth: 33 * 20 });
-    const html = adaptor.outerHTML(node);
-    if (html.includes('data-mjx-error') || html.includes('<mjx-merror')) {
-      mathWarnings.push(`${currentSource}: TeX error in ${display ? '$$' : '$'}${src.trim().slice(0, 60)}${display ? '$$' : '$'}`);
+  const key = (display ? 'D' : 'I') + src;
+  let html = cache?.get(key);
+  if (html === undefined) {
+    try {
+      const node = mjdoc.convert(src, { display, em: 20, ex: 8.3, containerWidth: 33 * 20 });
+      html = adaptor.outerHTML(node);
+    } catch (e) {
+      mathWarnings.push(`${currentSource}: ${e.message}`);
+      return `<code class="tex-error">${escapeHtml(src)}</code>`;
     }
-    return html;
-  } catch (e) {
-    mathWarnings.push(`${currentSource}: ${e.message}`);
-    return `<code class="tex-error">${escapeHtml(src)}</code>`;
+    if (cache) { cache.set(key, html); cacheDirty = true; }
   }
+  if (html.includes('data-mjx-error') || html.includes('<mjx-merror')) {
+    mathWarnings.push(`${currentSource}: TeX error in ${display ? '$$' : '$'}${src.trim().slice(0, 60)}${display ? '$$' : '$'}`);
+  }
+  return html;
 }
 
 /** CSS for every glyph used across the build. Call after all pages render. */

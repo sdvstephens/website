@@ -8,11 +8,15 @@ The single-page version this replaced is the commit tagged `spa-final`.
 
 ```sh
 npm install        # once
-npm run dev        # build, serve at http://localhost:4321, rebuild and reload on save
+npm run dev        # preview at http://localhost:4321, rebuilt on every save; uploads nothing
 npm run build      # build dist/ for upload
 ```
 
-`npm run dev` also builds pages meant only for you: `/_audit`, `/_suggestions` (if those files exist locally) and layout samples such as the sample poem. `npm run build` leaves them out.
+`npm run dev` builds a preview into a folder outside the repo (`samuel-stephens.com-preview` in the system temp folder) and never touches `dist/`, so what you try out there can't reach the server. On each save it rebuilds, and open pages either reload in place or move to the page of the file you saved (add `?stay` to the address to keep a tab where it is). `http://localhost:4321/__open?file=blog/some-post.md` opens the page a given file makes; the editor commands below use it.
+
+The preview also shows what the live site leaves out: draft posts (`draft: true`) and posts not yet in `posts.json`, marked as preview-only; `/_audit` and `/_suggestions` (if those files exist locally); and layout samples such as the sample poem. It keeps typeset formulas in a cache in the temp folder, so a rebuild takes about a second; the first one after a change to `src/markdown.mjs` takes as long as a full build.
+
+Editors: in VS Code, run the "Site: preview" task (or F5 with a "Site preview" launch configuration in `.vscode/`, which opens the page in the integrated browser). In Neovim, `:SiteDev` starts the preview in the background and opens the page for the current file; `:SiteDevStop` stops it and `:SiteDevLog` shows the build output. If both editors start one, the second waits and takes over when the first stops.
 
 ## Layout
 
@@ -29,7 +33,7 @@ cv/          cv.tex, the CV's LaTeX source (the PDF and web CV are built from it
 static/      copied into the site as-is: .htaccess, fonts, portrait, favicons, CV
 src/         markdown.mjs (Markdown and TeX), templates.mjs, site.css, site.js, math.css
 build.mjs    everything above → dist/
-serve.mjs    local server with the same URL rules as the live .htaccess
+serve.mjs    local server with the same URL rules as the live .htaccess; --watch is the preview
 scripts/     rebuild-posts.py (posts.json from frontmatter), generate_sitemap.py (runs the build),
              book-to-notes.py and book-figures.py (a LaTeX book → notes; see below),
              build-cv.py (cv/cv.tex → static/sdvscv.pdf and static/sdvscvhtml.html),

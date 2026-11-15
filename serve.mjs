@@ -1,26 +1,33 @@
 #!/usr/bin/env node
-// serve.mjs: local preview server for dist/. No dependencies.
+// serve.mjs: local server for the site. No dependencies. Nothing here uploads
+// anything; it only answers on this computer (127.0.0.1).
 //
 // Resolves URLs the way the Apache rules in deploy/htaccess.example do:
-//   /path/      → dist/path/index.html
-//   /path       → dist/path (a file), else dist/path.html, else 301 to /path/
-//   anything else → dist/404.html with status 404 (a real 404, not the home page)
+//   /path/      → path/index.html
+//   /path       → path (a file), else path.html, else 301 to /path/
+//   anything else → 404.html with status 404 (a real 404, not the home page)
 //
-//   node serve.mjs              serve on http://localhost:4321
-//   node serve.mjs --watch      also rebuild when the content folders, src/ or static/ change,
-//                               and reload open pages after each build
+//   node serve.mjs              serve dist/ (the build that gets uploaded) on http://localhost:4321
+//   node serve.mjs --watch      serve the preview build (build.mjs --preview), rebuild it when the
+//                               content folders, src/ or static/ change, and update open pages:
+//                               a page reloads in place, or moves to the page of the file you
+//                               saved (add ?stay to the address to keep a tab where it is)
+//   /__open?file=blog/x.md      redirect to the page that file makes (for editor commands)
 //   PORT=8080 node serve.mjs
 
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
+import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
-const DIST = path.join(ROOT, 'dist');
 const PORT = Number(process.env.PORT) || 4321;
 const WATCH = process.argv.includes('--watch');
+// The preview build goes to the same folder as in build.mjs (PREVIEW_DIR).
+const DIST = WATCH || process.argv.includes('--preview')
+  ? path.join(os.tmpdir(), 'samuel-stephens.com-preview') : path.join(ROOT, 'dist');
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
@@ -29,7 +36,20 @@ const TYPES = {
   '.woff2': 'font/woff2', '.woff': 'font/woff', '.pdf': 'application/pdf', '.mp3': 'audio/mpeg', '.md': 'text/markdown; charset=utf-8',
 };
 const clients = new Set();
-const RELOAD = '<script>new EventSource("/__reload").onmessage=()=>location.reload()</script>';
+// After each build the server sends the address of the page made by the file
+// that was saved ("reload" when there is none, "failed" when the build broke).
+const RELOAD = `<script>(()=>{
+if(/[?&]stay\\b/.test(location.search))sessionStorage.setItem('stay','1');
+const bar=(t)=>{let b=document.getElementById('__preview');if(!b){b=document.createElement('div');b.id='__preview';b.style.cssText='position:fixed;z-index:99999;left:0;right:0;bottom:0;padding:.4em .8em;font:13px/1.4 ui-monospace,monospace;background:#cc241d;color:#fbf1c7';document.body.append(b)}b.textContent=t};
+const es=new EventSource('/__reload');
+es.onmessage=(e)=>{const d=e.data;
+if(d==='failed')return bar('Preview build failed: see the terminal. The page shows the last good build.');
+const here=location.pathname.replace(/\\/$/,'')||'/';
+if(d!=='reload'&&d!==here&&!sessionStorage.getItem('stay'))location.href=d;
+else location.reload()};
+es.onerror=()=>bar('Preview server stopped. Start it again with npm run dev.');
+es.onopen=()=>{const b=document.getElementById('__preview');if(b)b.remove()};
+})()</script>`;
 
 function isFile(p) { try { return fs.statSync(p).isFile(); } catch { return false; } }
 
@@ -61,6 +81,10 @@ const server = http.createServer((req, res) => {
     req.on('close', () => clients.delete(res));
     return;
   }
+  if (url.pathname === '/__open') {
+    const to = pageFor(url.searchParams.get('file') || '') || '/';
+    res.writeHead(302, { Location: to }); res.end(); return;
+  }
   const r = resolve(url.pathname);
   if (r.redirect) { res.writeHead(301, { Location: r.redirect + url.search }); res.end(); log(req, 301); return; }
   if (r.file) { send(res, 200, r.file); log(req, 200); return; }
@@ -72,30 +96,74 @@ function log(req, status) {
   if (status !== 200) console.log(`${status} ${req.url}`);
 }
 
-server.listen(PORT, '127.0.0.1', () => {
-  console.log(`serving dist/ at http://localhost:${PORT}${WATCH ? '  (watching for changes)' : ''}`);
-});
+// The page a source file makes, from the map the preview build writes.
+function pageFor(file) {
+  try {
+    const map = JSON.parse(fs.readFileSync(path.join(DIST, '__sources.json'), 'utf8'));
+    const rel = path.normalize(file).replace(/^(\.\/)+/, '');
+    return map[rel] || map[path.relative(ROOT, path.resolve(ROOT, rel))] || null;
+  } catch { return null; }
+}
 
-if (WATCH) {
+// With --watch: build the preview, then rebuild it whenever a source file is saved.
+// Only one copy watches and serves; a second copy (say VS Code and Neovim both
+// started one) waits and takes over if the first one stops.
+function watch() {
   let timer = null;
   let building = false;
   let again = false;
-  const rebuild = () => {
-    if (building) { again = true; return; }
+  let saved = null; // the last source file saved
+  const build = (onDone) => {
     building = true;
+    const file = saved;
     const child = spawn(process.execPath, [path.join(ROOT, 'build.mjs'), '--preview'], { stdio: 'inherit' });
     child.on('exit', (code) => {
       building = false;
-      if (code === 0) for (const c of clients) c.write('data: reload\n\n');
+      if (onDone) onDone(code);
+      else {
+        const msg = code !== 0 ? 'failed' : (file && pageFor(file)) || 'reload';
+        for (const c of clients) c.write(`data: ${msg}\n\n`);
+      }
       if (again) { again = false; rebuild(); }
     });
   };
-  for (const dir of ['blog', 'notes', 'homework', 'courses', 'music', 'poems', 'pages', 'src', 'static']) {
-    const p = path.join(ROOT, dir);
-    if (fs.existsSync(p)) fs.watch(p, { recursive: true }, () => { clearTimeout(timer); timer = setTimeout(rebuild, 150); });
-  }
-  for (const f of ['build.mjs', 'AUDIT.md', 'SUGGESTIONS.md']) {
-    const p = path.join(ROOT, f);
-    if (fs.existsSync(p)) fs.watch(p, () => { clearTimeout(timer); timer = setTimeout(rebuild, 150); });
-  }
+  const rebuild = () => {
+    if (building) { again = true; return; }
+    console.log(`rebuilding: ${saved} changed`);
+    build();
+  };
+  // Editors save through temporary files (Neovim's 4913 and file~, swap files);
+  // those alone don't start a build.
+  const noise = (name) => /(^|\/)(4913|\.DS_Store|\.#.*|.*~|.*\.sw[a-p]|.*\.tmp)$/.test(name);
+  const changed = (rel) => {
+    if (!rel || noise(rel)) return;
+    saved = rel;
+    clearTimeout(timer); timer = setTimeout(rebuild, 150);
+  };
+  console.log('building the preview…');
+  build((code) => {
+    if (code !== 0) console.log('the preview build failed (see above); fix it and save to try again');
+    console.log(`serving the preview at http://localhost:${PORT}  (rebuilt when you save; nothing is uploaded)`);
+    for (const dir of ['blog', 'notes', 'homework', 'courses', 'music', 'poems', 'pages', 'research', 'src', 'static']) {
+      const p = path.join(ROOT, dir);
+      if (fs.existsSync(p)) fs.watch(p, { recursive: true }, (_, name) => changed(name && `${dir}/${String(name).replaceAll(path.sep, '/')}`));
+    }
+    for (const f of ['build.mjs', 'AUDIT.md', 'SUGGESTIONS.md']) {
+      const p = path.join(ROOT, f);
+      if (fs.existsSync(p)) fs.watch(p, () => changed(f));
+    }
+  });
 }
+
+let waiting = false;
+server.on('error', (e) => {
+  if (e.code !== 'EADDRINUSE') throw e;
+  if (!waiting) console.log(`already served at http://localhost:${PORT} by another window; this one takes over if that one stops`);
+  waiting = true;
+  setTimeout(() => server.listen(PORT, '127.0.0.1'), 2000);
+});
+server.on('listening', () => {
+  if (WATCH) watch();
+  else console.log(`serving dist/ at http://localhost:${PORT}`);
+});
+server.listen(PORT, '127.0.0.1');
